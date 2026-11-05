@@ -26,6 +26,7 @@ import {
 } from "@/lib/share";
 import { buildInstagramStoryPreviewBlob } from "@/lib/instagram-story-card";
 import { trackEvent } from "@/lib/analytics";
+import { recordVenueShare } from "@/lib/venue-engagement-client";
 
 interface ShareMenuProps {
   event: Event;
@@ -122,11 +123,13 @@ export function ShareMenu({
       content_type: "event",
       event_id: event.id,
     });
+    const creditShare = () => recordVenueShare(event.id);
     if (isExternalSharePlatform(platform)) {
       if (platform === "facebook") {
         const result = await shareToFacebook(event, locale);
         onClose();
         if (result === "copied") {
+          creditShare();
           const msg = dict.detail.facebookCopied;
           onFeedback(msg);
           window.alert(msg);
@@ -136,6 +139,8 @@ export function ShareMenu({
           onFeedback(msg);
           window.alert(msg);
           openFacebookApp();
+        } else {
+          creditShare();
         }
         return;
       }
@@ -149,8 +154,10 @@ export function ShareMenu({
           const result = await shareToInstagram(event, locale, preview);
           onClose();
           if (result === "shared") {
+            creditShare();
             onFeedback(dict.detail.instagramShared);
           } else if (result === "copied") {
+            creditShare();
             onFeedback(
               typeof window !== "undefined" && !window.isSecureContext
                 ? dict.detail.instagramCopiedInsecure
@@ -167,6 +174,7 @@ export function ShareMenu({
       }
       const href = getShareUrl(platform, event, locale);
       if (href) {
+        creditShare();
         openExternalShare(href);
         onClose();
       }
@@ -175,12 +183,15 @@ export function ShareMenu({
 
     const result = await shareViaPlatform(platform, event, locale);
     if (result === "shared") {
+      creditShare();
       onFeedback(dict.detail.shared);
       onClose();
     } else if (result === "copied") {
+      creditShare();
       onFeedback(dict.detail.linkCopied);
       onClose();
     } else if (result === "opened") {
+      creditShare();
       onClose();
     }
   }

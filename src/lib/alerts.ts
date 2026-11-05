@@ -322,6 +322,45 @@ export const EDITORIAL_ALERTS: readonly EditorialAlert[] = [
     },
   },
   {
+    id: "novus-flow-dance-noche-latina-cancelled-2026-11",
+    kind: "watch",
+    from: "2026-11-04",
+    until: "2026-12-31",
+    citySlugs: ["cabarete"],
+    href: { type: "event", id: "novus-flow-dance-noche-latina-weekly" },
+    title: {
+      en: "Novus Noche Latina by Flow Dance cancelled",
+      es: "Noche Latina de Flow Dance en Novus cancelada",
+      fr: "Noche Latina Flow Dance chez Novus annulée",
+    },
+    summary: {
+      en: "Wednesday 9 PM Latin nights at Novus are off until further notice.",
+      es: "Los miércoles 9 PM de latina en Novus están fuera hasta nuevo aviso.",
+      fr: "Les mercredis 21 h latin chez Novus sont annulés jusqu’à nouvel ordre.",
+    },
+  },
+  {
+    id: "end-blackouts-protest-cancelled-2026-11-05",
+    kind: "watch",
+    from: "2026-11-05",
+    until: "2026-11-06",
+    citySlugs: ["puerto-plata"],
+    href: {
+      type: "event",
+      id: "end-blackouts-protest-plaza-independencia-2026-11-05",
+    },
+    title: {
+      en: "End Blackouts protest cancelled",
+      es: "Protesta Fin a los apagones cancelada",
+      fr: "Manifestation Fin aux blackouts annulée",
+    },
+    summary: {
+      en: "Thu 5 Nov 5:30 PM at Parque Central is off — organizers stamped CANCELADO.",
+      es: "Jue 5 nov 5:30 PM en Parque Central está fuera — organizadores sellaron CANCELADO.",
+      fr: "Jeu. 5 nov. 17 h 30 au Parque Central est annulé — les organisateurs ont tamponné CANCELADO.",
+    },
+  },
+  {
     id: "ivan-garcia-teatro-mantenimiento-2026",
     kind: "closure",
     closureStatus: "repair",

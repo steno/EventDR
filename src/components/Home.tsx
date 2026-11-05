@@ -34,6 +34,7 @@ import {
 import { useSavedEvents } from "@/hooks/useSavedEvents";
 import {
   getHomeDiscoverLayout,
+  HOME_CHRISTMAS_LIMIT,
   HOME_HALLOWEEN_LIMIT,
   HOME_SEARCH_LIMIT,
   HOME_SPECIALS_LIMIT,
@@ -137,6 +138,8 @@ interface HomeProps {
   /** Shore-day mode from `/[locale]/cruise/[port]`. */
   initialCruisePort?: CruisePortSlug | null;
   initialAllAboardParam?: string | null;
+  /** Share/save scores for Local / Visitor favorite ranking. */
+  venueEngagementScores?: Record<string, number> | null;
 }
 
 /**
@@ -154,6 +157,7 @@ export function Home({
   initialCityParam = null,
   initialCruisePort = null,
   initialAllAboardParam = null,
+  venueEngagementScores = null,
 }: HomeProps) {
   return (
     <HomeApp
@@ -162,6 +166,7 @@ export function Home({
       initialVenues={initialVenues}
       initialEvents={initialEvents}
       hydrateFullCatalog={hydrateFullCatalog}
+      venueEngagementScores={venueEngagementScores}
       cityQuery={initialCityParam}
       initialCruisePort={initialCruisePort}
       initialAllAboardParam={initialAllAboardParam}
@@ -178,6 +183,7 @@ function HomeApp({
   cityQuery: cityQueryProp,
   initialCruisePort = null,
   initialAllAboardParam = null,
+  venueEngagementScores = null,
 }: HomeProps & { cityQuery: string | null }) {
   const router = useRouter();
   const [cityQuery, setCityQuery] = useState(cityQueryProp);
@@ -891,6 +897,30 @@ function HomeApp({
 
               {!isSearching && !cruisePort && (
                 <TodayHighlights
+                  events={discoverLayout.christmasEvents}
+                  locale={locale}
+                  dict={dict}
+                  prefiltered
+                  title={dict.events.christmas}
+                  limit={HOME_CHRISTMAS_LIMIT}
+                  seeAllHref={categoryPath(
+                    locale,
+                    "christmas",
+                    selectedCity,
+                  )}
+                  seeAllLabel={dict.events.seeAllChristmas}
+                  listTimeRange="all"
+                  showDate
+                  mobilePairSlides
+                  denseDesktop
+                  hangingChristmas
+                  onAddEvent={() => setSubmitOpen(true)}
+                  returnTo={homePath}
+                />
+              )}
+
+              {!isSearching && !cruisePort && (
+                <TodayHighlights
                   events={discoverLayout.weekendEvents}
                   locale={locale}
                   dict={dict}
@@ -958,6 +988,7 @@ function HomeApp({
                   dict={dict}
                   initialVenues={venues}
                   citySlug={selectedCity}
+                  engagementScores={venueEngagementScores}
                 />
               )}
 

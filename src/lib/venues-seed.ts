@@ -631,6 +631,32 @@ export const SEED_VENUES: Venue[] = [
     website: "https://www.google.com/maps/search/?api=1&query=19.798296,-70.688756",
   },
   {
+    slug: "el-rincon-del-cafe-sombrillas",
+    name: "El Rincón del Café — Umbrella Street",
+    city: "Puerto Plata",
+    description:
+      "Specialty Dominican coffee and artisanal chocolate shop on Calle de las Sombrillas (Calle San Felipe 26) — cappuccinos, cortados, drip, chocolate tastings, packaged beans, and gifts under the umbrellas. Open daily ~8:00 AM–6:00 PM. Also known as Rinkón Café / El Rincón del Café & Chocolate RD. Call +1 829-317-3768. Sister shop on Calle Separación (open daily ~8:00 AM–7:00 PM). Pin this café on San Felipe 26 under the umbrellas, not the Separación storefront and not Café Lángos on the Malecón.",
+    // Near Calle de las Sombrillas / Calle San Felipe (umbrella walk).
+    lat: 19.79852,
+    lng: -70.69425,
+    emoji: "☕",
+    phone: "+18293173768",
+    website: "https://www.google.com/maps/search/?api=1&query=19.79852,-70.69425",
+  },
+  {
+    slug: "el-rincon-del-cafe-separacion",
+    name: "El Rincón del Café — Separación",
+    city: "Puerto Plata",
+    description:
+      "Specialty Dominican coffee and artisanal chocolate shop on Calle Separación in the historic center — same brand as the Umbrella Street shop (Rinkón Café / El Rincón del Café & Chocolate RD): organic beans from Jarabacoa and Pedernales, hot chocolate, pastries, packaged coffee, and handmade gifts. Open daily ~8:00 AM–7:00 PM. Call +1 829-317-3768. Pin Separación downtown, not Calle San Felipe 26 under the umbrellas, and not Café Lángos on the Malecón.",
+    // Calle Separación mid-centro (historic core).
+    lat: 19.7975,
+    lng: -70.6934,
+    emoji: "☕",
+    phone: "+18293173768",
+    website: "https://www.google.com/maps/search/?api=1&query=19.7975,-70.6934",
+  },
+  {
     slug: "leos-banana-bar-sosua",
     name: "Leo's Banana Bar & Restaurant",
     city: "Sosúa",
@@ -2062,6 +2088,20 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18092617393",
   },
   {
+    slug: "casa-tuva-cabarete",
+    name: "Casa Tuvá Cabarete",
+    city: "Cabarete",
+    description:
+      "Italian-influenced beach restaurant on Calle Principal in Punta Goleta, Cabarete (also Restaurant Tuvá / Casa Tuva) — dinner, outdoor seating, and live-music nights facing the water. Reserve +1 849-925-8818 · Instagram @casatuvaplayadorada · tuvacabarete.com. Preparing a Playa Dorada opening — pin this Cabarete Calle Principal location for Cabarete bills, not Playa Dorada Mall or Aura Beach Club.",
+    // Places / OpenTable — Calle Principal, Punta Goleta.
+    lat: 19.759052,
+    lng: -70.418831,
+    emoji: "🍝",
+    phone: "+18499258818",
+    instagram: "casatuvaplayadorada",
+    website: "http://www.tuvacabarete.com/",
+  },
+  {
     slug: "cedaky-mall",
     name: "Cedāky Mall",
     city: "Puerto Plata",
@@ -2337,6 +2377,10 @@ export const SEED_VENUES: Venue[] = [
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
 const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
+  {
+    pattern: /casa\s*tuv[aá]|restaurant\s*tuv[aá]|tuv[aá]\s*cabarete|casatuvaplayadorada/i,
+    slug: "casa-tuva-cabarete",
+  },
   {
     pattern: /ced[aāă]ky\s*mall|cedakymall/i,
     slug: "cedaky-mall",
@@ -2797,6 +2841,22 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /caf[eé]\s*l[aá]ngos|langos(\s*(jazz|restaurant))?/i,
     slug: "cafe-langos-puerto-plata",
+  },
+  {
+    pattern:
+      /el\s*rinc[oó]n\s*del\s*caf[eé].*(sombrillas|san\s*felipe|umbrella)|rink[oó]n\s*caf[eé].*(sombrillas|umbrella)|rinc[oó]n\s*(del\s*)?caf[eé].*(sombrillas|umbrella)/i,
+    slug: "el-rincon-del-cafe-sombrillas",
+  },
+  {
+    pattern:
+      /el\s*rinc[oó]n\s*del\s*caf[eé].*separaci[oó]n|rink[oó]n\s*caf[eé].*separaci[oó]n|rinc[oó]n\s*(del\s*)?caf[eé].*separaci[oó]n/i,
+    slug: "el-rincon-del-cafe-separacion",
+  },
+  {
+    // Default brand match → Umbrella Street shop (primary tourist pin).
+    pattern:
+      /el\s*rinc[oó]n\s*del\s*caf[eé]|rink[oó]n\s*caf[eé]|rinc[oó]n\s*caf[eé]\s*(&|and)?\s*chocolate/i,
+    slug: "el-rincon-del-cafe-sombrillas",
   },
   {
     pattern: /leo'?s?\s*banana|leosbananabar/i,

@@ -192,8 +192,12 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "samuel-gonzalez-la-lola-2026-12-05.jpg",
   "twenty-disco-gran-noche-tipica-2026-11-08":
     "twenty-disco-gran-noche-tipica-2026-11-08.jpg",
+  "ambar-lounge-bandoleras-fridays-weekly":
+    "ambar-lounge-bandoleras-fridays-weekly.jpg",
+  "ambar-lounge-bandoleras-2026-11-06":
+    "ambar-lounge-bandoleras-2026-11-06.jpg",
   "end-blackouts-protest-plaza-independencia-2026-11-05":
-    "end-blackouts-protest-plaza-independencia-2026-11-05.jpg",
+    "end-blackouts-protest-plaza-independencia-2026-11-05-v2.jpg",
   "the-last-drink-white-party-2026-11-07":
     "the-last-drink-white-party-2026-11-07.jpg",
   "petit-francois-18-anos-2026-11-06":
@@ -652,6 +656,13 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "meclao-a-oscura-yona-ramz-2026-10-17.jpg",
   "cedaky-mall-fiesta-disfraces-2026-10-24":
     "cedaky-mall-fiesta-disfraces-2026-10-24.jpg",
+  "allison-sade-aura-2026-11-05": "allison-sade-aura-2026-11-05.jpg",
+  "casa-tuva-allison-sade-2026-11-08":
+    "casa-tuva-allison-sade-2026-11-08.jpg",
+  "cedaky-mall-abracadabra-2026-11-08":
+    "cedaky-mall-abracadabra-2026-11-08.jpg",
+  "hard-rock-pizza-planeta-2026-11-28":
+    "hard-rock-pizza-planeta-2026-11-28.jpg",
   "hard-rock-old-school-party-2026-11-07":
     "hard-rock-old-school-party-2026-11-07.jpg",
   "ocean-world-terrace-luces-navidenas-2026-11-01":
@@ -1122,6 +1133,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "disco-club-pijama-party-2026-11-13": "object-center",
   "samuel-gonzalez-la-lola-2026-12-05": "object-center",
   "twenty-disco-gran-noche-tipica-2026-11-08": "object-center",
+  "ambar-lounge-bandoleras-fridays-weekly": "object-center",
+  "ambar-lounge-bandoleras-2026-11-06": "object-center",
 };
 
 /**
@@ -1385,7 +1398,9 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "disco-club-pijama-party-2026-11-13.jpg",
   "samuel-gonzalez-la-lola-2026-12-05.jpg",
   "twenty-disco-gran-noche-tipica-2026-11-08.jpg",
-  "end-blackouts-protest-plaza-independencia-2026-11-05.jpg",
+  "ambar-lounge-bandoleras-fridays-weekly.jpg",
+  "ambar-lounge-bandoleras-2026-11-06.jpg",
+  "end-blackouts-protest-plaza-independencia-2026-11-05-v2.jpg",
   "the-last-drink-white-party-2026-11-07.jpg",
   "petit-francois-18-anos-2026-11-06.jpg",
   "mercadillo-fest-la-quinta-rosa-2026-12-19.jpg",
@@ -1656,6 +1671,10 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "meclao-old-school-tropical-dj-choco-2026-10-16.jpg",
   "meclao-a-oscura-yona-ramz-2026-10-17.jpg",
   "cedaky-mall-fiesta-disfraces-2026-10-24.jpg",
+  "allison-sade-aura-2026-11-05.jpg",
+  "casa-tuva-allison-sade-2026-11-08.jpg",
+  "cedaky-mall-abracadabra-2026-11-08.jpg",
+  "hard-rock-pizza-planeta-2026-11-28.jpg",
   "hard-rock-old-school-party-2026-11-07.jpg",
   "ocean-world-terrace-luces-navidenas-2026-11-01.jpg",
   "ojo-rojo-halloween-2026-10-31.jpg",

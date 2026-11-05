@@ -1435,3 +1435,359 @@ html.dark .pull-reload__spinner {
     transform: translate3d(0, 5.25rem, 0);
   }
 }
+
+/**
+ * Christmas decor — hanging Santas + soft falling snow.
+ * pointer-events none — never blocks taps.
+ */
+.christmas-decor {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  z-index: 30;
+  height: 9rem;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.christmas-decor--rail {
+  position: absolute;
+  height: 7.5rem;
+  z-index: 2;
+}
+
+.christmas-snow {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.christmas-snowflake {
+  position: absolute;
+  top: -0.5rem;
+  width: 0.28rem;
+  height: 0.28rem;
+  border-radius: 50%;
+  background: rgb(248 250 252 / 0.95);
+  box-shadow: 0 0 0.2rem rgb(255 255 255 / 0.55);
+  opacity: 0.75;
+  animation: christmas-snow-fall 9s linear infinite;
+}
+
+.dark .christmas-snowflake {
+  background: rgb(226 232 240 / 0.9);
+  box-shadow: 0 0 0.25rem rgb(255 255 255 / 0.35);
+}
+
+.christmas-snowflake--0 {
+  left: 6%;
+  animation-duration: 8.5s;
+  animation-delay: 0s;
+}
+.christmas-snowflake--1 {
+  left: 18%;
+  width: 0.2rem;
+  height: 0.2rem;
+  animation-duration: 10s;
+  animation-delay: 1.2s;
+}
+.christmas-snowflake--2 {
+  left: 32%;
+  animation-duration: 7.5s;
+  animation-delay: 0.4s;
+}
+.christmas-snowflake--3 {
+  left: 48%;
+  width: 0.34rem;
+  height: 0.34rem;
+  animation-duration: 11s;
+  animation-delay: 2.1s;
+}
+.christmas-snowflake--4 {
+  left: 64%;
+  animation-duration: 9s;
+  animation-delay: 0.8s;
+}
+.christmas-snowflake--5 {
+  left: 82%;
+  width: 0.22rem;
+  height: 0.22rem;
+  animation-duration: 8s;
+  animation-delay: 1.6s;
+}
+
+.christmas-snowflake:nth-child(7) {
+  left: 12%;
+  animation-delay: 3s;
+}
+.christmas-snowflake:nth-child(8) {
+  left: 28%;
+  animation-delay: 4.2s;
+}
+.christmas-snowflake:nth-child(9) {
+  left: 42%;
+  animation-delay: 2.5s;
+}
+.christmas-snowflake:nth-child(10) {
+  left: 55%;
+  animation-delay: 5s;
+}
+.christmas-snowflake:nth-child(11) {
+  left: 70%;
+  animation-delay: 3.4s;
+}
+.christmas-snowflake:nth-child(12) {
+  left: 88%;
+  animation-delay: 1s;
+}
+.christmas-snowflake:nth-child(13) {
+  left: 22%;
+  animation-delay: 6s;
+}
+.christmas-snowflake:nth-child(14) {
+  left: 38%;
+  animation-delay: 4.8s;
+}
+.christmas-snowflake:nth-child(15) {
+  left: 58%;
+  animation-delay: 2.8s;
+}
+.christmas-snowflake:nth-child(16) {
+  left: 74%;
+  animation-delay: 5.5s;
+}
+.christmas-snowflake:nth-child(17) {
+  left: 90%;
+  animation-delay: 3.8s;
+}
+.christmas-snowflake:nth-child(18) {
+  left: 8%;
+  animation-delay: 6.5s;
+}
+
+.christmas-santa {
+  --santa-suit: #c41e2a;
+  --santa-trim: #f8fafc;
+  --santa-skin: #f5d0b0;
+  --santa-thread: rgb(120 113 108 / 0.55);
+  position: absolute;
+  top: 0;
+  width: 1.55rem;
+  height: 2.1rem;
+  transform: translate3d(0, -0.2rem, 0);
+  will-change: transform;
+  opacity: 0.92;
+  filter: drop-shadow(0 0 0.25rem rgb(28 25 23 / 0.18));
+}
+
+.dark .christmas-santa {
+  --santa-thread: rgb(214 211 209 / 0.55);
+  filter: drop-shadow(0 0 0.3rem rgb(250 250 249 / 0.25));
+}
+
+.christmas-decor--rail .christmas-santa {
+  opacity: 0.95;
+}
+
+.christmas-santa::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  width: 1px;
+  height: 4.8rem;
+  margin-left: -0.5px;
+  background: var(--santa-thread);
+}
+
+.christmas-santa--0 {
+  left: 10%;
+  animation: christmas-santa-drop-0 7.5s ease-in-out infinite;
+}
+
+.christmas-santa--1 {
+  left: 46%;
+  animation: christmas-santa-drop-1 9s ease-in-out 0.7s infinite;
+}
+
+.christmas-santa--2 {
+  left: auto;
+  right: 12%;
+  animation: christmas-santa-drop-2 7s ease-in-out 1.2s infinite;
+}
+
+.christmas-santa__hat {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1.1rem;
+  height: 0.7rem;
+  margin-left: -0.55rem;
+  background: var(--santa-suit);
+  border-radius: 0.55rem 0.55rem 0.1rem 0.1rem;
+  clip-path: polygon(8% 100%, 50% 0, 92% 100%);
+}
+
+.christmas-santa__hat::after {
+  content: "";
+  position: absolute;
+  top: -0.12rem;
+  left: 50%;
+  width: 0.28rem;
+  height: 0.28rem;
+  margin-left: -0.14rem;
+  border-radius: 50%;
+  background: var(--santa-trim);
+}
+
+.christmas-santa__face {
+  position: absolute;
+  top: 0.55rem;
+  left: 50%;
+  width: 0.85rem;
+  height: 0.55rem;
+  margin-left: -0.425rem;
+  border-radius: 45%;
+  background: var(--santa-skin);
+}
+
+.christmas-santa__beard {
+  position: absolute;
+  top: 0.85rem;
+  left: 50%;
+  width: 0.95rem;
+  height: 0.55rem;
+  margin-left: -0.475rem;
+  border-radius: 0 0 50% 50%;
+  background: var(--santa-trim);
+}
+
+.christmas-santa__body {
+  position: absolute;
+  top: 1.25rem;
+  left: 50%;
+  width: 1.15rem;
+  height: 0.8rem;
+  margin-left: -0.575rem;
+  border-radius: 0.35rem 0.35rem 0.45rem 0.45rem;
+  background: var(--santa-suit);
+}
+
+.christmas-santa__body::before {
+  content: "";
+  position: absolute;
+  top: 0.12rem;
+  left: 50%;
+  width: 0.22rem;
+  height: 0.22rem;
+  margin-left: -0.11rem;
+  border-radius: 50%;
+  background: #f5d76e;
+  box-shadow: 0 0.22rem 0 0 var(--santa-trim);
+}
+
+@keyframes christmas-snow-fall {
+  0% {
+    transform: translate3d(0, -0.5rem, 0);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate3d(0.6rem, 9rem, 0);
+    opacity: 0.15;
+  }
+}
+
+@keyframes christmas-santa-drop-0 {
+  0%,
+  100% {
+    transform: translate3d(0, 0.35rem, 0);
+  }
+  45% {
+    transform: translate3d(0, 3.4rem, 0);
+  }
+  55% {
+    transform: translate3d(0, 3.15rem, 0);
+  }
+}
+
+@keyframes christmas-santa-drop-1 {
+  0%,
+  100% {
+    transform: translate3d(0, 0.2rem, 0);
+  }
+  40% {
+    transform: translate3d(0, 4.2rem, 0);
+  }
+  60% {
+    transform: translate3d(0, 3.9rem, 0);
+  }
+}
+
+@keyframes christmas-santa-drop-2 {
+  0%,
+  100% {
+    transform: translate3d(0, 0.5rem, 0);
+  }
+  50% {
+    transform: translate3d(0, 3.9rem, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .christmas-santa,
+  .christmas-snowflake {
+    animation: none;
+  }
+
+  .christmas-santa--0 {
+    transform: translate3d(0, 2rem, 0);
+  }
+
+  .christmas-santa--1 {
+    transform: translate3d(0, 2.6rem, 0);
+  }
+
+  .christmas-santa--2 {
+    transform: translate3d(0, 2.5rem, 0);
+  }
+
+  .christmas-snowflake {
+    opacity: 0.45;
+    transform: translate3d(0, 2.5rem, 0);
+  }
+}
+
+@media (min-width: 640px) {
+  .christmas-decor {
+    height: 12rem;
+  }
+
+  .christmas-santa {
+    width: 1.75rem;
+    height: 2.35rem;
+  }
+
+  .christmas-santa::before {
+    height: 6.5rem;
+  }
+
+  .christmas-santa--1 {
+    animation-name: christmas-santa-drop-1-lg;
+  }
+}
+
+@keyframes christmas-santa-drop-1-lg {
+  0%,
+  100% {
+    transform: translate3d(0, 0.25rem, 0);
+  }
+  40% {
+    transform: translate3d(0, 5.4rem, 0);
+  }
+  60% {
+    transform: translate3d(0, 5.05rem, 0);
+  }
+}

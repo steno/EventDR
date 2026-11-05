@@ -111,6 +111,10 @@ export type Dictionary = {
     halloween: string;
     /** Home Halloween see-all when more than the visible slides. */
     seeAllHalloween: string;
+    /** Home seasonal Christmas rail (under Happening today while live). */
+    christmas: string;
+    /** Home Christmas see-all when more than the visible slides. */
+    seeAllChristmas: string;
     /** Home section: Fri–Sun highlights after Happening today. */
     thisWeekend: string;
     /** Home “This weekend” see-all when more than the visible slides. */
@@ -750,6 +754,7 @@ export const en: Dictionary = {
     concert: "Concert",
     parties: "Parties",
     halloween: "Halloween",
+    christmas: "Christmas",
     "food-drinks": "Food & Drinks",
     festivals: "Festivals",
     dance: "Dance",
@@ -765,6 +770,7 @@ export const en: Dictionary = {
     concert: "Concert",
     parties: "Party",
     halloween: "Halloween",
+    christmas: "Christmas",
     "food-drinks": "Food & Drink",
     festivals: "Festival",
     dance: "Dance",
@@ -833,6 +839,8 @@ export const en: Dictionary = {
     scrollSpecialsNext: "Next specials",
     halloween: "Halloween",
     seeAllHalloween: "See all Halloween",
+    christmas: "Christmas",
+    seeAllChristmas: "See all Christmas",
     thisWeekend: "The weekend",
     seeAllWeekend: "See all weekend",
     recentlyAdded: "Trending",

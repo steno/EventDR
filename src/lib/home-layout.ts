@@ -53,6 +53,9 @@ export const HOME_WEEKEND_LIMIT = 6;
 /** Max cards in the home seasonal Halloween rail (weekend-dense cards). */
 export const HOME_HALLOWEEN_LIMIT = 6;
 
+/** Max cards in the home seasonal Christmas rail (weekend-dense cards). */
+export const HOME_CHRISTMAS_LIMIT = 6;
+
 /**
  * Local calendar window for the home Halloween rail (America/Santo_Domingo).
  * While live, matching listings leave the Weekend rail so they aren’t duplicated.
@@ -60,11 +63,24 @@ export const HOME_HALLOWEEN_LIMIT = 6;
 export const HALLOWEEN_RAIL_START_ISO = "2026-10-11";
 export const HALLOWEEN_RAIL_END_ISO = "2026-11-01";
 
+/**
+ * Christmas / Navidad / Reyes local calendar window (America/Santo_Domingo).
+ * Month–day range wraps the year: Nov 15–Dec 31 or Jan 1–Jan 6.
+ */
+export const CHRISTMAS_RAIL_START_MD = "11-15";
+export const CHRISTMAS_RAIL_END_MD = "01-06";
+
 /** Id / title markers for costume / haunted Halloween listings (not “Halloween weekend” boxing copy). */
 const HALLOWEEN_ID_RE =
   /halloween|catrina|paradise-in-hell|codigo-clown|noche-de-terror/i;
 const HALLOWEEN_TITLE_RE =
   /halloween|catrina|haunted|trick\s*or\s*treat|paradise in hell|c[oó]digo clown|noche de terror/i;
+
+/** Id / title markers for Christmas / Navidad / Reyes listings (not bare “holiday”). */
+const CHRISTMAS_ID_RE =
+  /christmas|navidad|navide[nñ]a|xmas|no[eë]l|reyes-magos|luces-navid|three-kings/i;
+const CHRISTMAS_TITLE_RE =
+  /christmas|navidad|navide[nñ]a|xmas|no[eë]l|reyes\s*magos|three\s*kings|luces\s*navide[nñ]as|arbre\s*de\s*no[eë]l/i;
 
 /** True for curated Halloween / Día de Muertos costume nights on the seasonal rail. */
 export function isHalloweenListing(event: Event): boolean {
@@ -74,10 +90,24 @@ export function isHalloweenListing(event: Event): boolean {
   return HALLOWEEN_TITLE_RE.test(event.title);
 }
 
+/** True for curated Christmas / Navidad / Reyes Magos listings on the seasonal rail. */
+export function isChristmasListing(event: Event): boolean {
+  if (event.category === "christmas") return true;
+  if (event.categories?.includes("christmas")) return true;
+  if (CHRISTMAS_ID_RE.test(event.id)) return true;
+  return CHRISTMAS_TITLE_RE.test(event.title);
+}
+
 /** Home Halloween section is visible inside the seasonal calendar window. */
 export function isHalloweenRailActive(now: Date = new Date()): boolean {
   const day = localDateISO(now);
   return day >= HALLOWEEN_RAIL_START_ISO && day <= HALLOWEEN_RAIL_END_ISO;
+}
+
+/** Home Christmas section is visible Nov 15–Jan 6 (wraps the year). */
+export function isChristmasRailActive(now: Date = new Date()): boolean {
+  const md = localDateISO(now).slice(5);
+  return md >= CHRISTMAS_RAIL_START_MD || md <= CHRISTMAS_RAIL_END_MD;
 }
 
 /** Max cards in the home "Recently added" section. */
@@ -498,24 +528,28 @@ export interface HalloweenHighlightOptions extends TodayHighlightOptions {
   limit?: number;
 }
 
-/**
- * Seasonal Halloween costume / haunted nights for the home rail. Empty when
- * the calendar window is off or no matching future listings remain.
- */
-export function getHalloweenHighlightEvents(
-  events: Event[],
-  options: HalloweenHighlightOptions = {},
-): Event[] {
-  const now = options.now ?? new Date();
-  if (!isHalloweenRailActive(now)) return [];
+export interface ChristmasHighlightOptions extends TodayHighlightOptions {
+  /** Skip events already featured in today’s carousels. */
+  excludeIds?: readonly string[];
+  /** Visible grid / slide cap (default {@link HOME_CHRISTMAS_LIMIT}). */
+  limit?: number;
+}
 
+function getSeasonalHighlightEvents(
+  events: Event[],
+  options: {
+    now: Date;
+    excludeIds?: readonly string[];
+    limit: number;
+    match: (event: Event) => boolean;
+  },
+): Event[] {
   const exclude = new Set(options.excludeIds ?? []);
-  const limit = options.limit ?? HOME_HALLOWEEN_LIMIT;
-  const today = localDateISO(now);
+  const today = localDateISO(options.now);
 
   const matched = events.filter((event) => {
     if (exclude.has(event.id) || event.temporarilyClosed) return false;
-    if (!isHalloweenListing(event)) return false;
+    if (!options.match(event)) return false;
     if (isRecurringEvent(event)) return false;
     const end = (event.endDate ?? event.date)?.trim();
     if (!end || end < today) return false;
@@ -529,10 +563,46 @@ export function getHalloweenHighlightEvents(
     return a.title.localeCompare(b.title);
   });
 
-  const carouselHead = pickDiverseCarouselHead(matched, limit);
+  const carouselHead = pickDiverseCarouselHead(matched, options.limit);
   const headIds = new Set(carouselHead.map((e) => e.id));
   const tail = matched.filter((e) => !headIds.has(e.id));
   return [...carouselHead, ...tail];
+}
+
+/**
+ * Seasonal Halloween costume / haunted nights for the home rail. Empty when
+ * the calendar window is off or no matching future listings remain.
+ */
+export function getHalloweenHighlightEvents(
+  events: Event[],
+  options: HalloweenHighlightOptions = {},
+): Event[] {
+  const now = options.now ?? new Date();
+  if (!isHalloweenRailActive(now)) return [];
+  return getSeasonalHighlightEvents(events, {
+    now,
+    excludeIds: options.excludeIds,
+    limit: options.limit ?? HOME_HALLOWEEN_LIMIT,
+    match: isHalloweenListing,
+  });
+}
+
+/**
+ * Seasonal Christmas / Navidad / Reyes nights for the home rail. Empty when
+ * the calendar window is off or no matching future listings remain.
+ */
+export function getChristmasHighlightEvents(
+  events: Event[],
+  options: ChristmasHighlightOptions = {},
+): Event[] {
+  const now = options.now ?? new Date();
+  if (!isChristmasRailActive(now)) return [];
+  return getSeasonalHighlightEvents(events, {
+    now,
+    excludeIds: options.excludeIds,
+    limit: options.limit ?? HOME_CHRISTMAS_LIMIT,
+    match: isChristmasListing,
+  });
 }
 
 /**
@@ -757,6 +827,11 @@ export interface HomeDiscoverLayout {
    * Happening today; those ids are stripped from Weekend while live.
    */
   halloweenEvents: Event[];
+  /**
+   * Seasonal Christmas rail (empty outside Nov 15–Jan 6). Same placement as
+   * Halloween; those ids are stripped from Weekend while live.
+   */
+  christmasEvents: Event[];
   /** Weekend highlights (Fri–Sun), excluding today’s visible carousels. */
   weekendEvents: Event[];
   /** Recently added highlights (by `createdAt`, newest first). */
@@ -771,7 +846,7 @@ export interface HomeDiscoverLayout {
 
 /**
  * One filter+sort pass for home hero, today’s specials, today, Halloween,
- * weekend, recently added, coming up, and picks.
+ * Christmas, weekend, recently added, coming up, and picks.
  */
 export function getHomeDiscoverLayout(
   events: Event[],
@@ -783,6 +858,7 @@ export function getHomeDiscoverLayout(
       specialEvents: [],
       todayEvents: [],
       halloweenEvents: [],
+      christmasEvents: [],
       weekendEvents: [],
       newEvents: [],
       comingUpEvents: [],
@@ -807,21 +883,30 @@ export function getHomeDiscoverLayout(
     ...options,
     excludeIds: todayVisibleIds,
   });
-  // While the seasonal rail is live, drop every Halloween listing from
-  // Weekend — not only the visible carousel head — so leftovers don’t reappear.
+  const christmasEvents = getChristmasHighlightEvents(events, {
+    ...options,
+    excludeIds: todayVisibleIds,
+  });
+  // While a seasonal rail is live, drop every matching listing from Weekend —
+  // not only the visible carousel head — so leftovers don’t reappear.
   const halloweenExcludeIds = isHalloweenRailActive(options.now)
     ? events.filter(isHalloweenListing).map((e) => e.id)
     : [];
+  const christmasExcludeIds = isChristmasRailActive(options.now)
+    ? events.filter(isChristmasListing).map((e) => e.id)
+    : [];
+  const seasonalExcludeIds = [...halloweenExcludeIds, ...christmasExcludeIds];
 
   const weekendEvents = getWeekendHighlightEvents(events, {
     ...options,
-    excludeIds: [...todayVisibleIds, ...halloweenExcludeIds],
+    excludeIds: [...todayVisibleIds, ...seasonalExcludeIds],
   });
 
   const picksExcludeIds = [
     ...specialEvents,
     ...todayEvents.slice(0, HOME_TODAY_LIMIT),
     ...halloweenEvents.slice(0, HOME_HALLOWEEN_LIMIT),
+    ...christmasEvents.slice(0, HOME_CHRISTMAS_LIMIT),
     ...weekendEvents.slice(0, HOME_WEEKEND_LIMIT),
   ]
     .filter((e) => {
@@ -830,11 +915,11 @@ export function getHomeDiscoverLayout(
     })
     .map((e) => e.id);
 
-  // Coming up owns future one-offs; skip today’s + Halloween + weekend heads.
+  // Coming up owns future one-offs; skip today’s + seasonal + weekend heads.
   // Atmospheric hero BG is day-random and must not hide that listing elsewhere.
   const comingUpExclude = new Set<string>([
     ...todayVisibleIds,
-    ...halloweenExcludeIds,
+    ...seasonalExcludeIds,
     ...weekendEvents.slice(0, HOME_WEEKEND_LIMIT).map((e) => e.id),
   ]);
 
@@ -860,6 +945,7 @@ export function getHomeDiscoverLayout(
     specialEvents,
     todayEvents,
     halloweenEvents,
+    christmasEvents,
     weekendEvents,
     newEvents,
     comingUpEvents,
@@ -878,11 +964,16 @@ export interface FeaturedVenuesOptions {
   seed?: string;
   /** When set, only include venues that match this home city. */
   citySlug?: CitySlug | null;
+  /**
+   * App share/save engagement scores by venue slug. When present, pool order
+   * is score-desc with the daily shuffle as tiebreak / cold-start.
+   */
+  engagementScores?: Record<string, number> | null;
 }
 
 /**
  * Resolve up to `limit` venues from the curated audience pool.
- * Order is a seeded shuffle of the pool (not fixed ranking).
+ * Ranked by engagement when scores exist; otherwise a seeded daily shuffle.
  */
 export function getFeaturedVenues(
   venues: Venue[],
@@ -901,10 +992,21 @@ export function getFeaturedVenues(
 
   const seedKey = options.seed ?? localDateISO();
   const areaKey = citySlug ?? "all";
-  return seededShuffle(
+  const shuffled = seededShuffle(
     resolved,
     hashSeed(`${audience}:${areaKey}:${seedKey}`),
-  ).slice(0, limit);
+  );
+
+  const scores = options.engagementScores;
+  if (!scores) return shuffled.slice(0, limit);
+
+  const shuffleIndex = new Map(shuffled.map((venue, index) => [venue.slug, index]));
+  const ranked = [...resolved].sort((a, b) => {
+    const scoreDiff = (scores[b.slug] ?? 0) - (scores[a.slug] ?? 0);
+    if (scoreDiff !== 0) return scoreDiff;
+    return (shuffleIndex.get(a.slug) ?? 0) - (shuffleIndex.get(b.slug) ?? 0);
+  });
+  return ranked.slice(0, limit);
 }
 
 /**
@@ -927,6 +1029,7 @@ export function collectHomeBootstrapEvents(
   add(layout.specialEvents);
   add(layout.todayEvents.slice(0, HOME_TODAY_LIMIT));
   add(layout.halloweenEvents.slice(0, HOME_HALLOWEEN_LIMIT));
+  add(layout.christmasEvents.slice(0, HOME_CHRISTMAS_LIMIT));
   add(layout.weekendEvents.slice(0, HOME_WEEKEND_LIMIT));
   add(layout.comingUpEvents.slice(0, HOME_COMING_UP_LIMIT));
   add(layout.newEvents.slice(0, HOME_NEW_LIMIT));
@@ -938,7 +1041,10 @@ export function collectHomeBootstrapEvents(
  * Venues needed for home first paint (audience sliders + closed featured).
  * Full directory arrives via `/api/venues` after hydrate.
  */
-export function collectHomeBootstrapVenues(venues: Venue[]): Venue[] {
+export function collectHomeBootstrapVenues(
+  venues: Venue[],
+  options: Pick<FeaturedVenuesOptions, "engagementScores"> = {},
+): Venue[] {
   if (venues.length === 0) return [];
 
   const poolSlugs = new Set<string>([
@@ -948,7 +1054,12 @@ export function collectHomeBootstrapVenues(venues: Venue[]): Venue[] {
   const bySlug = new Map<string, Venue>();
 
   for (const audience of VENUE_AUDIENCE_FILTERS) {
-    for (const venue of getFeaturedVenues(venues, audience, HOME_VENUE_LIMIT)) {
+    for (const venue of getFeaturedVenues(
+      venues,
+      audience,
+      HOME_VENUE_LIMIT,
+      options,
+    )) {
       bySlug.set(venue.slug, venue);
     }
   }
@@ -960,6 +1071,16 @@ export function collectHomeBootstrapVenues(venues: Venue[]): Venue[] {
   }
 
   return [...bySlug.values()];
+}
+
+/** All curated Local + Visitor pool slugs (for engagement score fetches). */
+export function getAudiencePoolSlugs(): string[] {
+  return [
+    ...new Set([
+      ...VENUE_AUDIENCE_POOLS.local,
+      ...VENUE_AUDIENCE_POOLS.visitor,
+    ]),
+  ];
 }
 
 /** Full listing page for the active home time filter (one-shot expand via ?all=1). */

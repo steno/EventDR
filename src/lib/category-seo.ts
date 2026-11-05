@@ -307,6 +307,29 @@ const CATEGORY_SEO: Record<EventCategory, Record<Locale, CategorySeoCopy>> = {
         "Concours de costumes, soirées club et Halloween en famille de Sosúa à Cabarete.",
     },
   },
+  christmas: {
+    en: {
+      title: "Christmas events near me in Puerto Plata | POP Events",
+      description:
+        "Christmas and Navidad on the North Coast — markets, lights, parties, and Reyes Magos across Puerto Plata, Sosúa, and Cabarete.",
+      intro:
+        "Holiday markets, tree lightings, and festive nights from Sosúa to Cabarete through Día de Reyes.",
+    },
+    es: {
+      title: "Eventos de Navidad cerca de Puerto Plata | POP Eventos",
+      description:
+        "Navidad en la Costa Norte — mercados, luces, fiestas y Reyes Magos en Puerto Plata, Sosúa y Cabarete.",
+      intro:
+        "Mercados navideños, encendido de luces y noches festivas de Sosúa a Cabarete hasta Reyes.",
+    },
+    fr: {
+      title: "Événements de Noël près de Puerto Plata | POP Events",
+      description:
+        "Noël et Navidad sur la Côte Nord — marchés, illuminations, fêtes et Rois mages à Puerto Plata, Sosúa et Cabarete.",
+      intro:
+        "Marchés de Noël, illuminations et soirées festives de Sosúa à Cabarete jusqu’aux Rois.",
+    },
+  },
 };
 
 export function getCategorySeo(

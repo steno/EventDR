@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { IntentLink } from "@/components/IntentLink";
 import { PillScrollRail } from "@/components/PillScrollRail";
 import { trackEvent } from "@/lib/analytics";
-import { getCategoryDefs } from "@/lib/categories";
+import { getNavCategoryDefs } from "@/lib/categories";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import type { CitySlug } from "@/lib/cities";
@@ -50,14 +50,14 @@ export function CategoryGrid({
   const router = useRouter();
   const scrollRef = useRef<HTMLDivElement>(null);
   const defsById = useMemo(
-    () => new Map(getCategoryDefs().map((def) => [def.id, def])),
+    () => new Map(getNavCategoryDefs().map((def) => [def.id, def])),
     [],
   );
   const orderedIds = useMemo(
     () =>
       events && events.length > 0
         ? sortCategoryIdsByEventCount(events)
-        : getCategoryDefs().map((def) => def.id),
+        : getNavCategoryDefs().map((def) => def.id),
     [events],
   );
   const categories = orderedIds.flatMap((id) => {

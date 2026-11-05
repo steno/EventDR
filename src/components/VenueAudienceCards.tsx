@@ -33,6 +33,11 @@ interface VenueAudienceCardsProps {
   audiences?: readonly VenueAudienceFilter[];
   /** When set, only these venue slugs appear (e.g. cruise-port allowlist). */
   allowedSlugs?: readonly string[];
+  /**
+   * Share/save engagement scores by venue slug — ranks curated Local /
+   * Visitor pools. Cold-start (empty) keeps the daily shuffle.
+   */
+  engagementScores?: Record<string, number> | null;
   /** Override the visitor-slider heading. */
   visitorTitle?: string;
   returnTo?: string;
@@ -301,6 +306,7 @@ export function VenueAudienceCards({
   citySlug = null,
   audiences = VENUE_AUDIENCE_FILTERS,
   allowedSlugs,
+  engagementScores = null,
   visitorTitle,
   returnTo,
   returnTitle,
@@ -370,11 +376,14 @@ export function VenueAudienceCards({
           }
           return {
             audience,
-            venues: getFeaturedVenues(venues, audience, limit, { citySlug }),
+            venues: getFeaturedVenues(venues, audience, limit, {
+              citySlug,
+              engagementScores,
+            }),
           };
         })
         .filter((section) => section.venues.length > 0),
-    [venues, limit, citySlug, audiences, allowedSlugs],
+    [venues, limit, citySlug, audiences, allowedSlugs, engagementScores],
   );
 
   if (sections.length === 0) return null;

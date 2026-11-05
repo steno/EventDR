@@ -342,6 +342,11 @@ const CATEGORY_TOPIC: Record<EventCategory, Record<Locale, string>> = {
     es: "fiestas de Halloween",
     fr: "fêtes d'Halloween",
   },
+  christmas: {
+    en: "Christmas events",
+    es: "eventos de Navidad",
+    fr: "événements de Noël",
+  },
   "food-drinks": {
     en: "food and drink events",
     es: "eventos de comida",

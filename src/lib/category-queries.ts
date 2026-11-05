@@ -299,6 +299,16 @@ export const CATEGORY_QUERIES: Record<EventCategory, CategoryQuerySet> = {
     ],
     directUrls: [ALLEVENTS_PP, NATURA_EVENTS],
   },
+  christmas: {
+    searches: [
+      `Christmas Navidad market lights party ${REGION} 2026`,
+      `Navidad Puerto Plata Sosúa Cabarete mercado OR luces OR fiesta 2026`,
+      `Noël OR "reyes magos" OR "christmas market" Cabarete OR Sosúa OR "Puerto Plata"`,
+      `site:facebook.com Navidad OR Christmas Puerto Plata OR Sosúa OR Cabarete`,
+      `"luces navideñas" OR "mercado navideño" OR "reyes magos" ${REGION}`,
+    ],
+    directUrls: [ALLEVENTS_PP, NATURA_EVENTS],
+  },
 };
 
 export const BROAD_QUERIES = [

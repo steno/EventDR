@@ -355,6 +355,26 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Restaurant hongrois et jazz bar sur Av. Gregorio Luperón près du Malecón — assiettes d’Europe centrale, lángos et soirées jazz live sous l’auvent bleu Restaurant / Jazz Bar avec le drapeau hongrois dehors. Épinglez Café Lángos sur Luperón près du front de mer, pas un café du centre sur Beller ou Separación.",
     },
   },
+  "el-rincon-del-cafe-sombrillas": {
+    name: {
+      es: "El Rincón del Café — Calle de las Sombrillas",
+      fr: "El Rincón del Café — Calle de las Sombrillas",
+    },
+    description: {
+      es: "Café de especialidad dominicano y chocolate artesanal en Calle de las Sombrillas (Calle San Felipe 26) — cappuccinos, cortados, drip, degustaciones de chocolate, granos empacados y regalos bajo las sombrillas. Abierto diario ~8:00 AM–6:00 PM. También Rinkón Café / El Rincón del Café & Chocolate RD. Llama +1 829-317-3768. Tienda hermana en Calle Separación (diario ~8:00 AM–7:00 PM). Clava este café en San Felipe 26 bajo las sombrillas, no el local de Separación ni Café Lángos en el Malecón.",
+      fr: "Café de spécialité dominicain et chocolat artisanal sur Calle de las Sombrillas (Calle San Felipe 26) — cappuccinos, cortados, drip, dégustations de chocolat, grains emballés et cadeaux sous les ombrelles. Ouvert tous les jours ~8 h–18 h. Aussi Rinkón Café / El Rincón del Café & Chocolate RD. Appelez +1 829-317-3768. Boutique sœur sur Calle Separación (tous les jours ~8 h–19 h). Épinglez ce café sur San Felipe 26 sous les ombrelles, pas le local Separación ni Café Lángos sur le Malecón.",
+    },
+  },
+  "el-rincon-del-cafe-separacion": {
+    name: {
+      es: "El Rincón del Café — Separación",
+      fr: "El Rincón del Café — Separación",
+    },
+    description: {
+      es: "Café de especialidad dominicano y chocolate artesanal en Calle Separación en el centro histórico — misma marca que la tienda de Calle de las Sombrillas (Rinkón Café / El Rincón del Café & Chocolate RD): granos orgánicos de Jarabacoa y Pedernales, chocolate caliente, pastelería, café empacado y regalos hechos a mano. Abierto diario ~8:00 AM–7:00 PM. Llama +1 829-317-3768. Clava Separación en el centro, no Calle San Felipe 26 bajo las sombrillas, ni Café Lángos en el Malecón.",
+      fr: "Café de spécialité dominicain et chocolat artisanal sur Calle Separación dans le centre historique — même marque que la boutique Calle de las Sombrillas (Rinkón Café / El Rincón del Café & Chocolate RD) : grains bio de Jarabacoa et Pedernales, chocolat chaud, pâtisseries, café emballé et cadeaux artisanaux. Ouvert tous les jours ~8 h–19 h. Appelez +1 829-317-3768. Épinglez Separación en centre-ville, pas Calle San Felipe 26 sous les ombrelles, ni Café Lángos sur le Malecón.",
+    },
+  },
   "leos-banana-bar-sosua": {
     description: {
       es: "Bar y restaurante frente al mar en Calle Coral en el antiguo Hotel Sosúa Bay (detrás del Casino Reef), El Batey — cócteles, cena y vistas a la Bahía de Sosúa. WhatsApp +1 829-993-4071 · Instagram @leosbananabarandrestaurant. Clava Leo's en Calle Coral / Bahía de Sosúa, no Hard Rock en Duarte ni el piso del Casino Reef.",
@@ -1049,6 +1069,16 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
     description: {
       es: "Teatro-escuela victoriano en Calle Profesor Juan Bosch #72 en el centro histórico — clases de actuación para niños y jóvenes, obras y programación cultural. Sede en Puerto Plata de FENATE 2026 (22 oct–1 nov). Noches con cartel: Tierra de Paso (15 oct), Eulogio Badia (24 oct, adultos) y Café Ópera Código Clown (31 oct, +16). Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
       fr: "Teatro-escuela victorien au 72 Calle Profesor Juan Bosch, centre historique — cours de théâtre pour enfants et jeunes, pièces et programmation culturelle. Salle hôte FENATE 2026 à Puerto Plata (22 oct–1 nov). Soirées à l’affiche : Tierra de Paso (15 oct), Eulogio Badia (24 oct, adultes) et Café Ópera Código Clown (31 oct, 16+). Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
+    },
+  },
+  "casa-tuva-cabarete": {
+    name: {
+      es: "Casa Tuvá Cabarete",
+      fr: "Casa Tuvá Cabarete",
+    },
+    description: {
+      es: "Restaurante de influencia italiana en Calle Principal, Punta Goleta, Cabarete (también Restaurant Tuvá / Casa Tuva) — cena, terraza y noches de música en vivo frente al agua. Reserva +1 849-925-8818 · Instagram @casatuvaplayadorada · tuvacabarete.com. Preparan apertura en Playa Dorada — clava esta ubicación de Calle Principal en Cabarete para carteles de Cabarete, no Playa Dorada Mall ni Aura Beach Club.",
+      fr: "Restaurant d’influence italienne sur Calle Principal, Punta Goleta, Cabarete (aussi Restaurant Tuvá / Casa Tuva) — dîner, terrasse et soirées live face à l’eau. Réservez +1 849-925-8818 · Instagram @casatuvaplayadorada · tuvacabarete.com. Ouverture Playa Dorada en préparation — épinglez cette adresse Calle Principal à Cabarete pour les bills Cabarete, pas Playa Dorada Mall ni Aura Beach Club.",
     },
   },
   "cedaky-mall": {

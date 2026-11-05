@@ -1,3 +1,7 @@
+import {
+  isChristmasRailActive,
+  isHalloweenRailActive,
+} from "./home-layout";
 import type { CategoryMeta, EventCategory } from "./types";
 
 const CATEGORY_DEFS: Omit<CategoryMeta, "label">[] = [
@@ -6,6 +10,12 @@ const CATEGORY_DEFS: Omit<CategoryMeta, "label">[] = [
     emoji: "🎃",
     gradient: "from-orange-500 via-amber-600 to-violet-800",
     chip: "bg-orange-50 text-orange-950 ring-orange-200/80 dark:bg-orange-950/40 dark:text-orange-100 dark:ring-orange-800/50",
+  },
+  {
+    id: "christmas",
+    emoji: "🎄",
+    gradient: "from-red-600 via-emerald-600 to-red-700",
+    chip: "bg-red-50 text-red-950 ring-red-200/80 dark:bg-red-950/40 dark:text-red-100 dark:ring-red-800/50",
   },
   {
     id: "music",
@@ -81,10 +91,36 @@ const CATEGORY_DEFS: Omit<CategoryMeta, "label">[] = [
   },
 ];
 
+/** Full taxonomy — routes, seeds, categorize, API. */
 export const CATEGORY_IDS = CATEGORY_DEFS.map((c) => c.id);
+
+/**
+ * True when a category should appear in browse pills, submit, and sitemap.
+ * Halloween / Christmas match their home seasonal rail windows.
+ */
+export function isCategoryVisibleInNav(
+  id: EventCategory | string,
+  now: Date = new Date(),
+): boolean {
+  if (id === "halloween") return isHalloweenRailActive(now);
+  if (id === "christmas") return isChristmasRailActive(now);
+  return (CATEGORY_IDS as string[]).includes(id);
+}
+
+/** Browse / submit / sitemap ids — omits off-season Halloween / Christmas. */
+export function getNavCategoryIds(now: Date = new Date()): EventCategory[] {
+  return CATEGORY_IDS.filter((id) => isCategoryVisibleInNav(id, now));
+}
 
 export function getCategoryDefs(): Omit<CategoryMeta, "label">[] {
   return CATEGORY_DEFS;
+}
+
+/** Category defs for home / scope browse rails. */
+export function getNavCategoryDefs(
+  now: Date = new Date(),
+): Omit<CategoryMeta, "label">[] {
+  return CATEGORY_DEFS.filter((def) => isCategoryVisibleInNav(def.id, now));
 }
 
 export function getCategoryMeta(

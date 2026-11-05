@@ -1,5 +1,5 @@
 import { locales } from "@/i18n/config";
-import { CATEGORY_IDS } from "@/lib/categories";
+import { getNavCategoryIds } from "@/lib/categories";
 import { CITY_SLUGS, eventMatchesCity } from "@/lib/cities";
 import { eventInCategory } from "@/lib/categorize";
 import { CRUISE_ITINERARIES } from "@/lib/cruise";
@@ -110,7 +110,9 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
     priority: 0.8,
   });
 
-  for (const categoryId of CATEGORY_IDS) {
+  const navCategoryIds = getNavCategoryIds();
+
+  for (const categoryId of navCategoryIds) {
     pushLocalized(entries, `/category/${categoryId}`, {
       lastModified: listingLastModified,
       changeFrequency: "daily",
@@ -129,7 +131,7 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
       priority: 0.85,
     });
 
-    for (const categoryId of CATEGORY_IDS) {
+    for (const categoryId of navCategoryIds) {
       const scopedCount = cityEvents.filter((event) =>
         eventInCategory(event, categoryId),
       ).length;

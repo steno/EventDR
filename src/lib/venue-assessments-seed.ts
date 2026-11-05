@@ -638,6 +638,28 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "el-rincon-del-cafe-sombrillas",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "family", "mixed"],
+    axes: { recommend: 4.3, atmosphere: 4.2, practical: 4.4 },
+    themes: [
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "easy_to_find", sentiment: "positive" },
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+    ],
+  }),
+  editorial({
+    venueSlug: "el-rincon-del-cafe-separacion",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "family", "mixed"],
+    axes: { recommend: 4.2, atmosphere: 4.1, practical: 4.3 },
+    themes: [
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "easy_to_find", sentiment: "positive" },
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+    ],
+  }),
+  editorial({
     venueSlug: "leos-banana-bar-sosua",
     verdictKey: "reliable_visitor_pick",
     crowdFit: ["visitor", "nightlife", "mixed"],
@@ -1795,6 +1817,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     axes: { recommend: 4.0, atmosphere: 3.6, value: 4.0, practical: 4.3 },
     themes: [
       { key: "workshop", sentiment: "positive" },
+      { key: "easy_to_find", sentiment: "positive" },
+    ],
+  }),
+  editorial({
+    venueSlug: "casa-tuva-cabarete",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "mixed"],
+    axes: { recommend: 4.3, atmosphere: 4.5, practical: 4.0 },
+    themes: [
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "live_music", sentiment: "positive" },
       { key: "easy_to_find", sentiment: "positive" },
     ],
   }),

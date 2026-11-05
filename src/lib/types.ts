@@ -4,6 +4,7 @@ export type EventCategory =
   | "concert"
   | "parties"
   | "halloween"
+  | "christmas"
   | "food-drinks"
   | "festivals"
   | "dance"

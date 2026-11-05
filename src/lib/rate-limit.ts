@@ -44,6 +44,11 @@ export const RATE_LIMITS = {
   partnerDigest: { key: "partner-digest", limit: 8, windowMs: 60 * 60 * 1000 },
   newsletter: { key: "newsletter", limit: 8, windowMs: 60 * 60 * 1000 },
   interest: { key: "interest", limit: 60, windowMs: 60 * 60 * 1000 },
+  venueEngagement: {
+    key: "venue-engagement",
+    limit: 60,
+    windowMs: 60 * 60 * 1000,
+  },
 } as const satisfies Record<string, RateLimitConfig>;
 
 export function clientIp(request: NextRequest): string {

@@ -6737,8 +6737,9 @@
     "address": "Calle Principal #3, Cofresí, Puerto Plata",
     "lat": 19.826313,
     "lng": -70.732062,
-    "category": "festivals",
+    "category": "christmas",
     "categories": [
+      "festivals",
       "food-drinks"
     ],
     "format": "physical",
@@ -9458,8 +9459,9 @@
     "address": "Calle Andrés Brugal #19, Ensanche Luperón, Puerto Plata",
     "lat": 19.7919604,
     "lng": -70.68009,
-    "category": "festivals",
+    "category": "christmas",
     "categories": [
+      "festivals",
       "culture",
       "performances"
     ],
@@ -9597,8 +9599,8 @@
   },
   {
     "id": "end-blackouts-protest-plaza-independencia-2026-11-05",
-    "title": "Fin aux blackouts — Manifestation pacifique",
-    "description": "Manifestation pacifique au Parque Independencia (Plaza Independencia / Parque Central), Puerto Plata — jeudi 5 novembre 2026 dès 17 h 30. Rassemblement communautaire pour un service électrique stable et de qualité à Puerto Plata. Assemblée publique gratuite au parc central du centre historique.",
+    "title": "Fin aux blackouts — Manifestation pacifique (Annulé)",
+    "description": "Manifestation pacifique au Parque Independencia (Plaza Independencia / Parque Central), Puerto Plata — jeudi 5 novembre 2026 dès 17 h 30 — ANNULÉE. N’allez pas au Parque Central pour cette assemblée ; les organisateurs ont tamponné l’affiche CANCELADO. Était prévue pour un service électrique stable et de qualité à Puerto Plata. Fiche gratuite conservée à titre d’avis seulement.",
     "date": "2026-11-05",
     "time": "17 h 30",
     "location": "Puerto Plata",
@@ -9609,10 +9611,14 @@
     "lng": -70.6932862,
     "category": "culture",
     "format": "physical",
-    "trending": true,
+    "trending": false,
     "isFree": true,
     "sourceType": "flyer",
-    "imageEmoji": "⚡"
+    "imageEmoji": "⚡",
+    "temporarilyClosed": true,
+    "lineup": [
+      "Annulé"
+    ]
   },
   {
     "id": "the-last-drink-white-party-2026-11-07",
@@ -9832,8 +9838,9 @@
     "address": "Calle San Felipe (Calle de las Sombrillas), Puerto Plata",
     "lat": 19.7985582,
     "lng": -70.6942833,
-    "category": "festivals",
+    "category": "christmas",
     "categories": [
+      "festivals",
       "culture",
       "food-drinks"
     ],
@@ -10142,5 +10149,121 @@
       "El Caballito Jr"
     ],
     "imageEmoji": "🪗"
+  },
+  {
+    "id": "casa-tuva-allison-sade-2026-11-08",
+    "title": "Casa Tuvá — Allison Sade en live · 8 nov.",
+    "description": "Allison Sade en live avec menu à la carte à Casa Tuvá (Restaurant Tuvá), Calle Principal, Punta Goleta, Cabarete — dimanche 8 novembre 2026 à 20 h. Dîner face à l’océan pendant que la marque prépare une ouverture à Playa Dorada. Réservez +1 849-925-8818 · Instagram @casatuvaplayadorada / @allisonsadeofficial. Live du dimanche à Cabarete — pas le bill du jeudi d’Allison Sade à Aura Beach Club.",
+    "date": "2026-11-08",
+    "time": "8:00 PM",
+    "location": "Cabarete",
+    "venue": "Casa Tuvá Cabarete",
+    "venueSlug": "casa-tuva-cabarete",
+    "address": "Calle Principal, Punta Goleta, Cabarete 57000",
+    "lat": 19.759052,
+    "lng": -70.418831,
+    "category": "concert",
+    "categories": [
+      "music",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18499258818",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/casatuvaplayadorada/",
+    "instagram": "casatuvaplayadorada",
+    "lineup": [
+      "Allison Sade"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "cedaky-mall-abracadabra-2026-11-08",
+    "title": "Cedāky Mall — ¡Abracadabra! 1er anniversaire",
+    "description": "¡Abracadabra! — El Puerto de la Magia fête sa première année au Cedāky Mall premier niveau, Av. Manolo Tavárez Justo, Puerto Plata — dimanche 8 novembre 2026 à 16 h. Magie, danse, personnages et show canin ; entrée gratuite. Confirmez via Instagram @cedakymall. Anniversaire de jour au mall — pas Cedāky’s Market du 15 nov.",
+    "date": "2026-11-08",
+    "time": "4:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Cedāky Mall",
+    "venueSlug": "cedaky-mall",
+    "address": "Av. Manolo Tavárez Justo, Barrio Las Yaguitas, Puerto Plata — primer nivel",
+    "lat": 19.782269,
+    "lng": -70.673706,
+    "category": "culture",
+    "categories": [
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "ageHint": "family",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/cedakymall/",
+    "instagram": "cedakymall",
+    "lineup": [
+      "El Puerto de la Magia",
+      "Show canino"
+    ],
+    "imageEmoji": "🪄"
+  },
+  {
+    "id": "hard-rock-pizza-planeta-2026-11-28",
+    "title": "Hard Rock — Pizza Planeta · 28 nov.",
+    "description": "Pizza Planeta — spectacle théâtral pour enfants de Teatrando Producciones au Hard Rock Cafe Puerto Plata, Calle Duarte 7 / Plaza Downtown, Sosúa — samedi 28 novembre 2026 à 15 h. Places limitées ; billets +1 849-505-7778 · Instagram @downtownsosua7 / @hardrockcafepuertoplata. Show familial de l’après-midi — pas la Old School Party nocturne du Hard Rock.",
+    "date": "2026-11-28",
+    "time": "3:00 PM",
+    "location": "Sosúa",
+    "venue": "Hard Rock Cafe Puerto Plata",
+    "venueSlug": "hard-rock-sosua",
+    "address": "Calle Duarte 7, Plaza Downtown, Sosúa",
+    "lat": 19.7634107,
+    "lng": -70.5162309,
+    "category": "performances",
+    "categories": [
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "ageHint": "family",
+    "phone": "+18495057778",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/downtownsosua7/",
+    "instagram": "hardrockcafepuertoplata",
+    "lineup": [
+      "Teatrando Producciones",
+      "Pizza Planeta"
+    ],
+    "imageEmoji": "🍕"
+  },
+  {
+    "id": "allison-sade-aura-2026-11-05",
+    "title": "Allison Sade live à Aura — jeu. 5 nov.",
+    "description": "Allison Sade en live à Aura Beach Club, Calle Principal, Cabarete — jeudi 5 novembre 2026 à 20 h. Set nommé du jeudi au beach club — pas son dîner live à Casa Tuvá le dimanche 8 nov., ni les jeudis Aura précédents avec Rebeca Duque. Confirmez cover et tables via Instagram @auracabarete ou WhatsApp +1 829-787-0140 · @allisonsadeofficial.",
+    "date": "2026-11-05",
+    "time": "8:00 PM",
+    "location": "Cabarete",
+    "venue": "Aura Beach Club Cabarete",
+    "venueSlug": "aura-beach-club-cabarete",
+    "address": "Calle Principal, Cabarete 57000",
+    "lat": 19.7500769,
+    "lng": -70.4070417,
+    "category": "concert",
+    "categories": [
+      "music",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18297870140",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/auracabarete/",
+    "lineup": [
+      "Allison Sade"
+    ],
+    "imageEmoji": "🎤"
   }
 ]

@@ -7,6 +7,7 @@ import { EventImage } from "@/components/EventImage";
 import { EventCardPlaceholder } from "@/components/EventCardPlaceholder";
 import { EventStatusBadge } from "@/components/EventStatusBadge";
 import { FeatureSpecialModal } from "@/components/FeatureSpecialModal";
+import { ChristmasDecor } from "@/components/ChristmasDecor";
 import { HalloweenSpiders } from "@/components/HalloweenSpiders";
 import { HomeAlerts } from "@/components/HomeAlerts";
 import { HorizontalScrollEdgeFades } from "@/components/HorizontalScrollEdgeFades";
@@ -126,6 +127,8 @@ interface TodayHighlightsProps {
   storyCards?: boolean;
   /** Hang decorative spiders into the card rail (Halloween home section). */
   hangingSpiders?: boolean;
+  /** Hang decorative Santas + snow into the card rail (Christmas home section). */
+  hangingChristmas?: boolean;
 }
 
 function TodayHighlightCard({
@@ -358,6 +361,7 @@ const TodayHighlightsComponent = ({
   denseDesktop = false,
   storyCards = false,
   hangingSpiders = false,
+  hangingChristmas = false,
   onAddEvent,
 }: TodayHighlightsProps) => {
   const router = useRouter();
@@ -559,6 +563,9 @@ const TodayHighlightsComponent = ({
         <div className="relative">
           {hangingSpiders ? (
             <HalloweenSpiders className="halloween-spiders--rail" />
+          ) : null}
+          {hangingChristmas ? (
+            <ChristmasDecor className="christmas-decor--rail" />
           ) : null}
           <div
             ref={railRef}

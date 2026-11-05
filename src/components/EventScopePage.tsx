@@ -21,6 +21,7 @@ import {
 } from "@/components/CityCategoryLinks";
 import { CityLocationPicker } from "@/components/CityLocationPicker";
 import { CityPhotoHero } from "@/components/CityPhotoHero";
+import { ChristmasDecor } from "@/components/ChristmasDecor";
 import { HalloweenSpiders } from "@/components/HalloweenSpiders";
 import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { StickyListHeader } from "@/components/StickyListHeader";
@@ -539,6 +540,7 @@ export function EventScopePage({
     <>
       <main className="relative bg-background dark:bg-transparent pb-6">
         {activeCategoryId === "halloween" ? <HalloweenSpiders /> : null}
+        {activeCategoryId === "christmas" ? <ChristmasDecor /> : null}
         <div className={PAGE_SHELL_CLASS}>
           <StickyListHeader
             locale={locale}

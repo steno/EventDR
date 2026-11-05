@@ -73,6 +73,8 @@ const FILE_TO_EVENT_ID = {
   "novus-beach-restaurant-cabarete.jpg": "novus-beach-restaurant-cabarete",
   "novus-beach-restaurant-cabarete-v2.jpg": "novus-beach-restaurant-cabarete",
   "cafe-langos-puerto-plata.jpg": "cafe-langos-puerto-plata",
+  "el-rincon-del-cafe-sombrillas-v3.jpg": "el-rincon-del-cafe-sombrillas",
+  "el-rincon-del-cafe-separacion-v2.jpg": "el-rincon-del-cafe-separacion",
   "leos-banana-bar-sosua.jpg": "leos-banana-bar-sosua",
   "disco-club-gogo-dancers-2026-10-22.jpg": "disco-club-gogo-dancers-2026-10-22",
   "natura-sunbar-sunset-sounds-em-zayd-2026-10-22.jpg":
@@ -377,6 +379,13 @@ const FILE_TO_EVENT_ID = {
     "meclao-a-oscura-yona-ramz-2026-10-17",
   "cedaky-mall-fiesta-disfraces-2026-10-24.jpg":
     "cedaky-mall-fiesta-disfraces-2026-10-24",
+  "allison-sade-aura-2026-11-05.jpg": "allison-sade-aura-2026-11-05",
+  "casa-tuva-allison-sade-2026-11-08.jpg":
+    "casa-tuva-allison-sade-2026-11-08",
+  "cedaky-mall-abracadabra-2026-11-08.jpg":
+    "cedaky-mall-abracadabra-2026-11-08",
+  "hard-rock-pizza-planeta-2026-11-28.jpg":
+    "hard-rock-pizza-planeta-2026-11-28",
   "hard-rock-old-school-party-2026-11-07.jpg":
     "hard-rock-old-school-party-2026-11-07",
   "ocean-world-terrace-luces-navidenas-2026-11-01.jpg":
@@ -411,7 +420,11 @@ const FILE_TO_EVENT_ID = {
     "samuel-gonzalez-la-lola-2026-12-05",
   "twenty-disco-gran-noche-tipica-2026-11-08.jpg":
     "twenty-disco-gran-noche-tipica-2026-11-08",
-  "end-blackouts-protest-plaza-independencia-2026-11-05.jpg":
+  "ambar-lounge-bandoleras-fridays-weekly.jpg":
+    "ambar-lounge-bandoleras-fridays-weekly",
+  "ambar-lounge-bandoleras-2026-11-06.jpg":
+    "ambar-lounge-bandoleras-2026-11-06",
+  "end-blackouts-protest-plaza-independencia-2026-11-05-v2.jpg":
     "end-blackouts-protest-plaza-independencia-2026-11-05",
   "the-last-drink-white-party-2026-11-07.jpg":
     "the-last-drink-white-party-2026-11-07",
@@ -872,6 +885,7 @@ const SAME_VENUE_COPIES = [
 /** popevent-images filename → venue slug (copied to public/venues/). */
 const FILE_TO_VENUE_SLUG = {
   "pregame-roof-puerto-plata.jpg": "pregame-roof-puerto-plata",
+  "casa-tuva-cabarete.jpg": "casa-tuva-cabarete",
   "cedaky-mall.jpg": "cedaky-mall",
   "baseballpark.png": "parque-jose-briceno",
   "asa-surviaval.jpeg": "club-deportivo-fantastico",

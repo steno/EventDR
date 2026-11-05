@@ -3,7 +3,7 @@
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import type { EventCategory, EventFormat, EventRecurrence } from "@/lib/types";
-import { CATEGORY_IDS } from "@/lib/categories";
+import { getNavCategoryIds } from "@/lib/categories";
 import type { SubmitAdmissionKind } from "@/lib/community-store";
 import { isAcceptedImageFile, parseImageDataUrl } from "@/lib/image-data-url";
 import type { getOnboardingCopy } from "@/lib/onboarding";
@@ -286,7 +286,7 @@ export function SubmitEventFormSteps({
               onChange={(e) => setCategory(e.target.value as EventCategory)}
               className={`${inputClass} mt-1.5`}
             >
-              {CATEGORY_IDS.map((id) => (
+              {getNavCategoryIds().map((id) => (
                 <option key={id} value={id}>
                   {dict.categories[id]}
                 </option>

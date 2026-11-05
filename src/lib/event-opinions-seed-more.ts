@@ -7843,21 +7843,21 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "end-blackouts-protest-plaza-independencia-2026-11-05",
-    body: "Peaceful 5:30 PM gathering at Independence Park on 5 Nov for stable power — civic plaza meetup, not a concert or ticketed show; pin Plaza Independencia / Parque Central downtown.",
+    body: "Cancelled — do not go to Parque Central at 5:30 PM on 5 Nov; organizers stamped CANCELADO on the End Blackouts flyer; listing stays up as notice only.",
     localized: {
-      es: "Encuentro pacífico a las 5:30 PM en el Parque Independencia el 5 nov por servicio eléctrico estable — cita cívica en la plaza, no un concierto ni show con boleto; clava Plaza Independencia / Parque Central.",
-      fr: "Rassemblement pacifique à 17 h 30 au Parque Independencia le 5 nov. pour un courant stable — rendez-vous civique sur la place, pas un concert ni un spectacle billet ; épinglez Plaza Independencia / Parque Central.",
+      es: "Cancelado — no vayas al Parque Central a las 5:30 PM el 5 nov; los organizadores sellaron CANCELADO en el flyer Fin a los apagones; el listado queda solo como aviso.",
+      fr: "Annulé — n’allez pas au Parque Central à 17 h 30 le 5 nov. ; les organisateurs ont tamponné CANCELADO sur l’affiche Fin aux blackouts ; la fiche reste à titre d’avis seulement.",
     },
     priceFeel: "free",
-    priceNote: "Free public assembly — Independence Park downtown",
+    priceNote: "Cancelled — listing kept for notice only",
     priceNoteLocalized: {
-      es: "Asamblea pública gratis — Parque Independencia centro",
-      fr: "Assemblée publique gratuite — Parque Independencia centre-ville",
+      es: "Cancelado — listado solo como aviso",
+      fr: "Annulé — fiche conservée à titre d’avis",
     },
-    attribution: "POP research · End Blackouts peaceful protest flyer",
+    attribution: "POP research · End Blackouts CANCELADO flyer",
     researchNotes:
-      "Editor flyer — END BLACKOUTS!; PEACEFUL PROTEST; Thursday November 5th 5:30 PM; Puerto Plata Central Park; user confirmed Independence Park (plaza-independencia).",
-    updatedAt: "2026-11-03T14:00:00.000Z",
+      "Editor cancel — flyer stamped CANCELADO; Thu 5 Nov 5:30 PM Parque Central / Plaza Independencia; listing kept with temporarilyClosed.",
+    updatedAt: "2026-11-05T18:26:00.000Z",
   },
   {
     eventId: "the-last-drink-white-party-2026-11-07",
@@ -7992,21 +7992,21 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   {
     eventId: "novus-flow-dance-noche-latina-weekly",
     seriesKey: "novus-beach-restaurant-cabarete:weekly:3",
-    body: "Wednesday 9 PM salsa/bachata/merengue with Flow Dance on the Novus sand terrace — beach restaurant that flips late, not VOYVOY’s Tuesday Dominican Night or Tiki Flowdance Fridays; call +1 809-571-0646 before you treat cover as free.",
+    body: "Cancelled — do not send guests for Wednesday Noche Latina at Novus until Flow Dance or the restaurant confirm a return; VOYVOY’s Tuesday Dominican Night and Tiki Flowdance Fridays are separate bills.",
     localized: {
-      es: "Miércoles 9 PM salsa/bachata/merengue con Flow Dance en la terraza de arena de Novus — restaurante de playa que se pone tarde, no Dominican Night de VOYVOY los martes ni Flowdance de Tiki los viernes; llama +1 809-571-0646 antes de tratar el cover como gratis.",
-      fr: "Mercredi 21 h salsa/bachata/merengue avec Flow Dance sur la terrasse sable de Novus — restaurant de plage qui bascule tard, pas Dominican Night du VOYVOY le mardi ni Flowdance du Tiki le vendredi ; appelez +1 809-571-0646 avant de traiter le cover comme gratuit.",
+      es: "Cancelado — no mandes gente a Noche Latina de miércoles en Novus hasta que Flow Dance o el restaurante confirmen el regreso; Dominican Night de VOYVOY los martes y Flowdance de Tiki los viernes son carteles aparte.",
+      fr: "Annulé — n’envoyez personne à Noche Latina du mercredi chez Novus tant que Flow Dance ou le restaurant ne confirment pas un retour ; Dominican Night du VOYVOY le mardi et Flowdance du Tiki le vendredi sont d’autres affiches.",
     },
     priceFeel: "varies",
-    priceNote: "Cover not on flyer — +1 809-571-0646 · novusbeachrestaurant.com",
+    priceNote: "Cancelled — confirm any return · +1 809-571-0646",
     priceNoteLocalized: {
-      es: "Cover no está en el flyer — +1 809-571-0646 · novusbeachrestaurant.com",
-      fr: "Cover absent de l’affiche — +1 809-571-0646 · novusbeachrestaurant.com",
+      es: "Cancelado — confirma cualquier regreso · +1 809-571-0646",
+      fr: "Annulé — confirmez tout retour · +1 809-571-0646",
     },
-    attribution: "POP research · Flow Dance Noche Latina / Novus Beach flyer",
+    attribution: "POP research · Flow Dance Noche Latina / Novus Beach flyer + cancel notice",
     researchNotes:
-      "Editor flyer — FLOW DANCE NOCHE LATINA; Todos los Miércoles 9 PM; Salsa Bachata Merengue; Novus Beach Restaurant; new venue seeded.",
-    updatedAt: "2026-11-03T20:00:00.000Z",
+      "Editor cancel — Noche Latina by Flow Dance Wednesdays at Novus cancelled; listing kept with temporarilyClosed until a return is confirmed.",
+    updatedAt: "2026-11-04T21:45:00.000Z",
   },
   {
     eventId: "van-avakian-drifter-2026-11-07",
@@ -8359,5 +8359,117 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer + IG caption — Domingo 8 Nov 8 PM; Gran Noche Típica; El Caballito de Mao y El Caballito Jr; Playa Dorada Mall; 849-507-7676; caption says todos los domingos son de típico (dated guest bill seeded).",
     updatedAt: "2026-11-04T20:55:00.000Z",
+  },
+  {
+    eventId: "ambar-lounge-bandoleras-fridays-weekly",
+    seriesKey: "ambar-lounge-pop:weekly:5",
+    body: "Friday Bandoleras residency on Luis Ginebra 45 — guest DJ changes weekly; ladies free drinks until 11 PM when printed; RSVP (809) 781-8677, and don’t pin Mecla'o at No. 49 by mistake.",
+    localized: {
+      es: "Residencia Bandoleras de viernes en Luis Ginebra 45 — el DJ invitado cambia cada semana; free drinks for ladies hasta las 11 PM cuando está impreso; RSVP (809) 781-8677, y no clavés Mecla'o en el n.º 49 por error.",
+      fr: "Résidence Bandoleras du vendredi sur Luis Ginebra 45 — le DJ invité change chaque semaine ; free drinks for ladies jusqu’à 23 h quand c’est imprimé ; RSVP (809) 781-8677, et n’épinglez pas Mecla'o au n° 49 par erreur.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Cover TBA — ladies free drinks to 11 PM when printed · (809) 781-8677",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — free drinks for ladies hasta las 11 PM cuando está impreso · (809) 781-8677",
+      fr: "Cover à confirmer — free drinks for ladies jusqu’à 23 h quand c’est imprimé · (809) 781-8677",
+    },
+    attribution: "POP research · @ambarloungepop Bandoleras Fridays series",
+    researchNotes:
+      "Editor: series was only dated one-offs before; weekly recurrenceDay 5 added Nov 2026 from Bandoleras Fridays branding + continuous Friday bills.",
+    updatedAt: "2026-11-04T21:50:00.000Z",
+  },
+  {
+    eventId: "ambar-lounge-bandoleras-2026-11-06",
+    body: "Friday 6 Nov Bandoleras with Jhon Parra — ladies free drinks until 11 PM; RSVP (809) 781-8677; same Luis Ginebra series as prior Bandoleras Fridays, not Mecla'o at No. 49.",
+    localized: {
+      es: "Viernes 6 nov Bandoleras con Jhon Parra — free drinks for ladies hasta las 11 PM; RSVP (809) 781-8677; misma serie en Luis Ginebra que Bandoleras Fridays anteriores, no Mecla'o en el n.º 49.",
+      fr: "Vendredi 6 nov. Bandoleras avec Jhon Parra — free drinks for ladies jusqu’à 23 h ; RSVP (809) 781-8677 ; même série Luis Ginebra que les Bandoleras Fridays précédents, pas Mecla'o au n° 49.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Cover TBA — ladies free drinks to 11 PM · (809) 781-8677 / @ambarloungepop",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — free drinks for ladies hasta las 11 PM · (809) 781-8677 / @ambarloungepop",
+      fr: "Cover à confirmer — free drinks for ladies jusqu’à 23 h · (809) 781-8677 / @ambarloungepop",
+    },
+    attribution: "POP research · @ambarloungepop Bandoleras Jhon Parra flyer",
+    researchNotes:
+      "Editor flyer — Bandoleras Fridays; JHON PARRA; VIERNES 6; FREE DRINKS FOR LADYS HASTA LAS 11:00 PM.",
+    updatedAt: "2026-11-04T21:50:00.000Z",
+  },
+  {
+    eventId: "allison-sade-aura-2026-11-05",
+    body: "Thursday 8 PM Allison Sade at Aura on Calle Principal — tables via +1 829-787-0140; tonight’s beach-club set, not her Casa Tuvá dinner live on Sunday 8 Nov.",
+    localized: {
+      es: "Jueves 8 PM Allison Sade en Aura en Calle Principal — mesas vía +1 829-787-0140; el set de beach club de esta noche, no su cena live en Casa Tuvá el domingo 8 nov.",
+      fr: "Jeudi 20 h Allison Sade à Aura sur Calle Principal — tables via +1 829-787-0140 ; le set beach club de ce soir, pas son dîner live à Casa Tuvá le dimanche 8 nov.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — +1 829-787-0140 / @auracabarete",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — +1 829-787-0140 / @auracabarete",
+      fr: "Cover à confirmer — +1 829-787-0140 / @auracabarete",
+    },
+    attribution: "POP research · @auracabarete Allison Sade LIVE MUSIC flyer",
+    researchNotes:
+      "Editor flyer — aura; Allison Sade LIVE MUSIC; Thursday 5 Nov 2026 (today); pattern matches prior Aura Thursday 8 PM live bills.",
+    updatedAt: "2026-11-05T18:20:00.000Z",
+  },
+  {
+    eventId: "casa-tuva-allison-sade-2026-11-08",
+    body: "Sunday 8 PM Allison Sade dinner set at Casa Tuvá on Calle Principal — reserve +1 849-925-8818; Cabarete beach Italian live, not her prior Aura Thursday bills.",
+    localized: {
+      es: "Domingo 8 PM set de cena con Allison Sade en Casa Tuvá en Calle Principal — reserva +1 849-925-8818; live italiano frente a la playa en Cabarete, no sus carteles de jueves en Aura.",
+      fr: "Dimanche 20 h set dîner Allison Sade à Casa Tuvá sur Calle Principal — réservez +1 849-925-8818 ; live italien face à la plage à Cabarete, pas ses bills du jeudi à Aura.",
+    },
+    priceFeel: "moderate",
+    priceNote: "À la carte + cover TBA — reserve +1 849-925-8818 / @casatuvaplayadorada",
+    priceNoteLocalized: {
+      es: "A la carta + cover por confirmar — reserva +1 849-925-8818 / @casatuvaplayadorada",
+      fr: "À la carte + cover à confirmer — réservez +1 849-925-8818 / @casatuvaplayadorada",
+    },
+    attribution: "POP research · @casatuvaplayadorada Allison Sade flyer",
+    researchNotes:
+      "Editor flyer + IG — Sunday 8 Nov 8 PM; Allison Sade; Casa Tuva Cabarete; MENU A LA CARTA / LIVE MUSIC; 849-925-8818; Playa Dorada opening mentioned in caption.",
+    updatedAt: "2026-11-05T18:00:00.000Z",
+  },
+  {
+    eventId: "cedaky-mall-abracadabra-2026-11-08",
+    body: "Free Sunday 4 PM Abracadabra anniversary at Cedāky first level — magic, dance, characters, dog show; walk-up mall family bill, not Cedāky’s Market on 15 Nov.",
+    localized: {
+      es: "Gratis domingo 4 PM Abracadabra de aniversario en Cedāky primer nivel — magia, baile, personajes, show canino; cartel familiar walk-up en el mall, no Cedāky’s Market del 15 nov.",
+      fr: "Gratuit dimanche 16 h Abracadabra anniversaire au Cedāky premier niveau — magie, danse, personnages, show canin ; bill famille walk-up au mall, pas Cedāky’s Market du 15 nov.",
+    },
+    priceFeel: "free",
+    priceNote: "Free entry — @cedakymall",
+    priceNoteLocalized: {
+      es: "Entrada gratuita — @cedakymall",
+      fr: "Entrée gratuite — @cedakymall",
+    },
+    attribution: "POP research · @cedakymall ¡Abracadabra! flyer",
+    researchNotes:
+      "Editor flyer + IG — Domingo 8 Nov 4 PM; 1er nivel Cedaky Mall; entrada gratuita; magia, baile, personajes, show canino; primer aniversario El Puerto de la Magia.",
+    updatedAt: "2026-11-05T18:00:00.000Z",
+  },
+  {
+    eventId: "hard-rock-pizza-planeta-2026-11-28",
+    body: "Saturday 3 PM Pizza Planeta kids theater at Hard Rock Plaza Downtown — limited spots via +1 849-505-7778; afternoon family show, not Hard Rock’s nightclub Old School bills.",
+    localized: {
+      es: "Sábado 3 PM teatro infantil Pizza Planeta en Hard Rock Plaza Downtown — cupos limitados vía +1 849-505-7778; show familiar de tarde, no las Old School nocturnas de Hard Rock.",
+      fr: "Samedi 15 h théâtre enfants Pizza Planeta au Hard Rock Plaza Downtown — places limitées via +1 849-505-7778 ; show famille de l’après-midi, pas les Old School nocturnes du Hard Rock.",
+    },
+    priceFeel: "varies",
+    priceNote: "Tickets TBA — +1 849-505-7778 / @downtownsosua7",
+    priceNoteLocalized: {
+      es: "Boletas por confirmar — +1 849-505-7778 / @downtownsosua7",
+      fr: "Billets à confirmer — +1 849-505-7778 / @downtownsosua7",
+    },
+    attribution:
+      "POP research · @downtownsosua7 Pizza Planeta flyer · Teatrando Producciones",
+    researchNotes:
+      "Editor flyer + IG downtownsosua7 — Sábado 28 Nov 3 PM; Hard Rock Cafe Sosúa Plaza Downtown; cupos limitados; 849-505-7778; Teatrando Producciones.",
+    updatedAt: "2026-11-05T18:00:00.000Z",
   },
 ];

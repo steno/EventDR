@@ -1318,11 +1318,29 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "twenty-disco-lounge",
     sourceUrl: "https://www.instagram.com/twenty_disco_lounge/",
   },
+  "ambar-lounge-bandoleras-fridays-weekly": {
+    callForPricing: true,
+    phone: "+18097818677",
+    venueSlug: "ambar-lounge-pop",
+    sourceUrl: "https://www.instagram.com/ambarloungepop/",
+  },
+  "ambar-lounge-bandoleras-2026-11-06": {
+    callForPricing: true,
+    phone: "+18097818677",
+    venueSlug: "ambar-lounge-pop",
+    sourceUrl: "https://www.instagram.com/ambarloungepop/",
+  },
   "novus-flow-dance-noche-latina-weekly": {
+    temporarilyClosed: true,
     callForPricing: true,
     phone: "+18095710646",
     venueSlug: "novus-beach-restaurant-cabarete",
     sourceUrl: "https://novusbeachrestaurant.com/",
+  },
+  "end-blackouts-protest-plaza-independencia-2026-11-05": {
+    temporarilyClosed: true,
+    isFree: true,
+    venueSlug: "plaza-independencia",
   },
   "van-avakian-drifter-2026-11-07": {
     callForPricing: true,
@@ -1408,6 +1426,25 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
   "cedaky-mall-fiesta-disfraces-2026-10-24": {
     isFree: true,
     venueSlug: "cedaky-mall",
+  },
+  "allison-sade-aura-2026-11-05": {
+    callForPricing: true,
+    phone: "+18297870140",
+    venueSlug: "aura-beach-club-cabarete",
+  },
+  "casa-tuva-allison-sade-2026-11-08": {
+    callForPricing: true,
+    phone: "+18499258818",
+    venueSlug: "casa-tuva-cabarete",
+  },
+  "cedaky-mall-abracadabra-2026-11-08": {
+    isFree: true,
+    venueSlug: "cedaky-mall",
+  },
+  "hard-rock-pizza-planeta-2026-11-28": {
+    callForPricing: true,
+    phone: "+18495057778",
+    venueSlug: "hard-rock-sosua",
   },
   "meclao-pre-reapertura-2026-10-29": {
     callForPricing: true,

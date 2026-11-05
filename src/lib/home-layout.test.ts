@@ -4,6 +4,7 @@ import {
   collectHomeBootstrapEvents,
   collectHomeBootstrapVenues,
   getComingUpHighlightEvents,
+  getChristmasHighlightEvents,
   getHalloweenHighlightEvents,
   getHomeDiscoverLayout,
   getNewHighlightEvents,
@@ -13,6 +14,8 @@ import {
   HOME_NEW_LIMIT,
   HOME_TODAY_LIMIT,
   HOME_WEEKEND_LIMIT,
+  isChristmasListing,
+  isChristmasRailActive,
   isHalloweenListing,
   isHalloweenRailActive,
   seededShuffle,
@@ -33,6 +36,15 @@ const HALLOWEEN_FRIDAY = new Date("2026-10-30T19:00:00.000Z");
 
 /** Wednesday Oct 28, 2026 15:00 AST — upcoming Fri 30 / Sat 31 weekend. */
 const HALLOWEEN_WEEK = new Date("2026-10-28T19:00:00.000Z");
+
+/** Tuesday Dec 8, 2026 15:00 AST — Christmas rail window (before Dec listings). */
+const CHRISTMAS_SEASON = new Date("2026-12-08T19:00:00.000Z");
+
+/** Wednesday Dec 16, 2026 15:00 AST — upcoming Fri 18 / Sat 19 weekend. */
+const CHRISTMAS_WEEK = new Date("2026-12-16T19:00:00.000Z");
+
+/** Monday Jan 5, 2027 15:00 AST — still inside Reyes window. */
+const REYES_SEASON = new Date("2027-01-05T19:00:00.000Z");
 
 function event(
   partial: Partial<Event> & Pick<Event, "id" | "title" | "date" | "time">,
@@ -694,6 +706,123 @@ describe("Halloween seasonal rail", () => {
     assert.ok(
       layout.weekendEvents.some((e) => e.id === otherSat.id),
       "non-Halloween weekend one-offs still fill This weekend",
+    );
+  });
+});
+
+describe("Christmas seasonal rail", () => {
+  it("matches Navidad / Christmas listings without bare holiday copy", () => {
+    assert.equal(
+      isChristmasListing(
+        event({
+          id: "christmas-popup-market-calle-sombrillas-2026-12-20",
+          title: "Christmas Pop-Up Market — Calle de las Sombrillas",
+          date: "2026-12-20",
+          time: "11:00 AM",
+        }),
+      ),
+      true,
+    );
+    assert.equal(
+      isChristmasListing(
+        event({
+          id: "geek-fest-pasarela-cosplay-navidad-2026-12-13",
+          title: "Geek Fest RD — Pasarela Cosplay Navideña",
+          date: "2026-12-13",
+          time: "7:00 PM",
+        }),
+      ),
+      true,
+    );
+    assert.equal(
+      isChristmasListing(
+        event({
+          id: "parada-el-choco-thanksgiving-2026-11-26",
+          title: "Thanksgiving Celebration — Parada El Choco",
+          date: "2026-11-26",
+          time: "6:30 PM",
+          description: "Holiday dinner night with live music.",
+        }),
+      ),
+      false,
+    );
+  });
+
+  it("is active Nov 15–Jan 6 including Reyes", () => {
+    assert.equal(isChristmasRailActive(CHRISTMAS_SEASON), true);
+    assert.equal(isChristmasRailActive(REYES_SEASON), true);
+    assert.equal(isChristmasRailActive(FRIDAY), false);
+    assert.equal(
+      isChristmasRailActive(new Date("2026-11-14T19:00:00.000Z")),
+      false,
+    );
+    assert.equal(
+      isChristmasRailActive(new Date("2027-01-07T19:00:00.000Z")),
+      false,
+    );
+  });
+
+  it("returns soonest Christmas listings while the rail is live", () => {
+    const geek = event({
+      id: "geek-fest-pasarela-cosplay-navidad-2026-12-13",
+      title: "Geek Fest RD — Pasarela Cosplay Navideña",
+      date: "2026-12-13",
+      time: "7:00 PM",
+      venueSlug: "ed-salon-de-eventos",
+    });
+    const market = event({
+      id: "christmas-popup-market-calle-sombrillas-2026-12-20",
+      title: "Christmas Pop-Up Market — Calle de las Sombrillas",
+      date: "2026-12-20",
+      time: "11:00 AM",
+      venueSlug: "calle-sombrillas",
+    });
+    const ids = getChristmasHighlightEvents([market, geek], {
+      now: CHRISTMAS_SEASON,
+    }).map((e) => e.id);
+    assert.deepEqual(ids, [
+      "geek-fest-pasarela-cosplay-navidad-2026-12-13",
+      "christmas-popup-market-calle-sombrillas-2026-12-20",
+    ]);
+    assert.deepEqual(
+      getChristmasHighlightEvents([market, geek], { now: FRIDAY }),
+      [],
+    );
+  });
+
+  it("keeps Christmas out of Weekend while the seasonal rail is live", () => {
+    const christmasFri = event({
+      id: "christmas-popup-market-calle-sombrillas-2026-12-18",
+      title: "Christmas Market Preview",
+      date: "2026-12-18",
+      time: "11:00 AM",
+      venueSlug: "calle-sombrillas",
+    });
+    const otherSat = event({
+      id: "saturday-concert",
+      title: "Saturday Concert",
+      date: "2026-12-19",
+      time: "8:00 PM",
+      category: "concert",
+      venueSlug: "anfiteatro-la-puntilla",
+    });
+
+    const layout = getHomeDiscoverLayout([christmasFri, otherSat], {
+      now: CHRISTMAS_WEEK,
+      shuffleSeed: "layout-christmas",
+    });
+
+    assert.ok(
+      layout.christmasEvents.some((e) => e.id === christmasFri.id),
+      "Christmas market should lead the seasonal rail",
+    );
+    assert.ok(
+      !layout.weekendEvents.some((e) => e.id === christmasFri.id),
+      "Christmas must not also sit in This weekend while the rail is live",
+    );
+    assert.ok(
+      layout.weekendEvents.some((e) => e.id === otherSat.id),
+      "non-Christmas weekend one-offs still fill This weekend",
     );
   });
 });

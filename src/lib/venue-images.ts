@@ -16,6 +16,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   // Filename bump — garden patio with NOMA'S sign (replaces entrance walk-by).
   "nonas-grill-kitchen": "nonas-grill-kitchen-garden.jpg",
   "hard-rock-sosua": "hard-rock-sosua.jpg",
+  "casa-tuva-cabarete": "casa-tuva-cabarete.jpg",
   "international-school-sosua": "international-school-sosua-entrance.jpg",
   // Filename bump after replacing shared concert stock — next/image rejects ?v= on local paths.
   "castaways-sosua": "castaways-sosua-dining.jpg",
@@ -43,6 +44,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "novus-beach-restaurant-cabarete":
     "novus-beach-restaurant-cabarete-v2.jpg",
   "cafe-langos-puerto-plata": "cafe-langos-puerto-plata.jpg",
+  "el-rincon-del-cafe-sombrillas": "el-rincon-del-cafe-sombrillas-v3.jpg",
+  "el-rincon-del-cafe-separacion": "el-rincon-del-cafe-separacion-v2.jpg",
   "leos-banana-bar-sosua": "leos-banana-bar-sosua.jpg",
   "aura-beach-club-cabarete": "aura-beach-club-cabarete-entrance.jpg",
   // Filename bump after replacing a generic Restaurant Guru table shot.
@@ -270,6 +273,8 @@ const VENUE_HERO_OBJECT_POSITION: Record<string, string> = {
   "nueve-puerto-plata": "object-top",
   // Portrait thatch bar — keep the neon parrot Cabarete Tiki Bar sign in wide crops.
   "tiki-bar-cabarete": "object-top",
+  // Portrait deck — keep patio tables + ocean edge in wide card crops.
+  "casa-tuva-cabarete": "object-top",
 };
 
 export function getVenueHeroObjectPosition(slug: string): string {

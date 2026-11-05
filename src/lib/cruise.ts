@@ -462,6 +462,7 @@ const SHIP_EXCURSION_SLUGS = new Set<string>([
 const NIGHT_CATEGORIES = new Set<EventCategory>([
   "parties",
   "halloween",
+  "christmas",
   "dance",
 ]);
 
@@ -529,6 +530,7 @@ const DEFAULT_VISIT_BY_CATEGORY: Record<EventCategory, number> = {
   business: 45,
   parties: 90,
   halloween: 90,
+  christmas: 90,
   dance: 90,
 };
 

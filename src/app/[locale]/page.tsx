@@ -17,6 +17,7 @@ import {
 } from "@/lib/home-layout";
 import { slimVenuesForList } from "@/lib/list-payload";
 import { getPublicEvents } from "@/lib/public-events";
+import { getHomeVenueEngagementScores } from "@/lib/venue-engagement-scores";
 import { getVenues } from "@/lib/venues";
 
 // ISR: regenerate home every 2 minutes instead of SSR every visit.
@@ -74,14 +75,17 @@ export default async function Page({
         : null;
 
   const dict = getDictionary(locale);
-  const [venues, catalogEvents] = await Promise.all([
+  const [venues, catalogEvents, venueEngagementScores] = await Promise.all([
     getVenues(locale),
     getPublicEvents({ locale }),
+    getHomeVenueEngagementScores(),
   ]);
   // First HTML only needs rail events + slider venues; client hydrates the rest.
   const listVenues = slimVenuesForList(venues);
   const initialEvents = collectHomeBootstrapEvents(catalogEvents);
-  const initialVenues = collectHomeBootstrapVenues(listVenues);
+  const initialVenues = collectHomeBootstrapVenues(listVenues, {
+    engagementScores: venueEngagementScores,
+  });
   return (
     <>
       <JsonLd data={buildBrandJsonLd(locale, dict)} />
@@ -94,6 +98,7 @@ export default async function Page({
         initialEvents={initialEvents}
         hydrateFullCatalog
         initialCityParam={initialCityParam}
+        venueEngagementScores={venueEngagementScores}
       />
     </>
   );

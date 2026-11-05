@@ -161,6 +161,27 @@ const KEYWORDS: KeywordMap = {
     "disfraz",
     "disfraces",
   ],
+  christmas: [
+    { term: "christmas", weight: 2 },
+    { term: "navidad", weight: 2 },
+    { term: "navideña", weight: 2 },
+    { term: "navideñas", weight: 2 },
+    { term: "navideño", weight: 2 },
+    { term: "noël", weight: 2 },
+    { term: "noel", weight: 2 },
+    { term: "xmas", weight: 2 },
+    { term: "reyes magos", weight: 2 },
+    { term: "three kings", weight: 2 },
+    { term: "luces navideñas", weight: 2 },
+    { term: "christmas market", weight: 2 },
+    { term: "mercado navideño", weight: 2 },
+    { term: "arbre de noël", weight: 2 },
+    // Avoid bare “santa” — matches Santa Fe / Santa Maria venue copy.
+    { term: "santa claus", weight: 2 },
+    { term: "papá noel", weight: 2 },
+    { term: "papa noel", weight: 2 },
+    { term: "père noël", weight: 2 },
+  ],
   "food-drinks": [
     { term: "cocktail", weight: 2 },
     { term: "cóctel", weight: 2 },
@@ -410,6 +431,7 @@ export const MAX_SECONDARY_CATEGORIES = 2;
 const NIGHTLIFE_PRIMARIES = new Set<EventCategory>([
   "parties",
   "halloween",
+  "christmas",
   "music",
   "concert",
   "dance",
@@ -443,6 +465,7 @@ const CATEGORY_INFERENCE_BLOCKS: Partial<
    */
   parties: ["sports", "adventure", "food-drinks"],
   halloween: ["sports", "adventure", "food-drinks"],
+  christmas: ["sports", "adventure"],
   /**
    * Live music / concerts that name a venue like Grand Prix Smart Shop must not
    * pick up Sports from motorsport-ish wording in the copy. Band-name

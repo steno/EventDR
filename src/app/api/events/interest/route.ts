@@ -4,6 +4,7 @@ import {
   applyEventInterest,
   getEventInterestCounts,
 } from "@/lib/firebase/event-interest";
+import { recordVenueSave } from "@/lib/firebase/venue-engagement";
 import {
   isInterestAction,
   isValidInterestDeviceId,
@@ -17,6 +18,8 @@ import {
   checkRateLimit,
   rateLimitResponse,
 } from "@/lib/rate-limit";
+import { isValidVenueEngagementSlug } from "@/lib/venue-engagement";
+import { matchVenueSlug } from "@/lib/venues-seed";
 
 export const dynamic = "force-dynamic";
 
@@ -81,9 +84,23 @@ export async function POST(request: NextRequest) {
   const counts: InterestCounts = {};
   try {
     for (const id of ids) {
+      const event = await getEventById(id, defaultLocale);
       // Unknown ids (typos, removed listings) never get a counter doc.
-      if (action === "add" && !(await getEventById(id, defaultLocale))) continue;
-      counts[id] = await applyEventInterest(db, id, deviceId, action);
+      if (action === "add" && !event) continue;
+      const result = await applyEventInterest(db, id, deviceId, action);
+      counts[id] = result.count;
+      if (!result.changed) continue;
+
+      const venueSlug =
+        event?.venueSlug?.trim() ||
+        matchVenueSlug(event?.venue ?? event?.location ?? "") ||
+        null;
+      if (!venueSlug || !isValidVenueEngagementSlug(venueSlug)) continue;
+      try {
+        await recordVenueSave(db, venueSlug, action === "add" ? 1 : -1);
+      } catch (error) {
+        console.error("interest: venue save attribution failed:", id, error);
+      }
     }
   } catch (error) {
     console.error("interest: update failed:", error);

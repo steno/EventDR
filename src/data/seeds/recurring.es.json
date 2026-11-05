@@ -3413,9 +3413,42 @@
     "imageEmoji": "🎤"
   },
   {
+    "id": "ambar-lounge-bandoleras-fridays-weekly",
+    "title": "Ambar Lounge — Bandoleras Fridays",
+    "description": "Todos los viernes — Bandoleras Fridays en Ambar Lounge POP, Av. Luis Ginebra n.º 45, segundo y tercer nivel, Puerto Plata. DJ invitado rota cada semana; free drinks for ladies hasta las 11:00 PM cuando está impreso. RSVP (809) 781-8677 · Instagram @ambarloungepop. Noche semanal en Luis Ginebra — no es Mecla'o Rooftop en el n.º 49, ni los carteles de sábado con fecha en Ambar.",
+    "date": "2026-01-01",
+    "time": "Desde la tarde-noche",
+    "location": "Puerto Plata",
+    "venue": "Ambar Lounge POP",
+    "venueSlug": "ambar-lounge-pop",
+    "address": "Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata 57000",
+    "lat": 19.7894021,
+    "lng": -70.678834,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 5,
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18097818677",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/ambarloungepop/",
+    "instagram": "ambarloungepop",
+    "lineup": [
+      "Bandoleras Fridays",
+      "DJ invitado rota",
+      "Free drinks for ladies hasta las 11 PM"
+    ],
+    "imageEmoji": "💃"
+  },
+  {
     "id": "novus-flow-dance-noche-latina-weekly",
-    "title": "Novus Beach — Noche Latina by Flow Dance (miércoles)",
-    "description": "Todos los miércoles desde las 9:00 PM — Noche Latina by Flow Dance en Novus Beach Restaurant, Cabarete Beach (Calle Principal). Salsa, bachata y merengue en la terraza frente a la arena; el servicio de restaurante de día pasa a energía de disco-bar tarde después de las 11 PM. Confirma cover al +1 809-571-0646 · novusbeachrestaurant.com. Social latina semanal en Novus — no es Dominican Night de Flow Dance en VOYVOY los martes, ni Flowdance de Tiki los viernes.",
+    "title": "Novus Beach — Noche Latina by Flow Dance (Cancelado)",
+    "description": "Noche Latina by Flow Dance en Novus Beach Restaurant está cancelada — no planees miércoles a las 9:00 PM de salsa/bachata/merengue en la terraza de Cabarete Beach hasta que Flow Dance o Novus confirmen el regreso. Era semanal los miércoles; no es Dominican Night de Flow Dance en VOYVOY los martes, ni Flowdance de Tiki los viernes. Confirma fechas futuras al +1 809-571-0646 · novusbeachrestaurant.com.",
     "date": "2026-01-01",
     "time": "9:00 PM",
     "location": "Cabarete",
@@ -3432,14 +3465,16 @@
     "format": "physical",
     "recurrence": "weekly",
     "recurrenceDay": 3,
-    "trending": true,
+    "trending": false,
+    "temporarilyClosed": true,
     "callForPricing": true,
     "phone": "+18095710646",
     "sourceType": "flyer",
     "sourceUrl": "https://novusbeachrestaurant.com/",
     "lineup": [
       "Flow Dance",
-      "Salsa · Bachata · Merengue"
+      "Salsa · Bachata · Merengue",
+      "Cancelado"
     ],
     "imageEmoji": "💃"
   }

@@ -1,10 +1,10 @@
+import { getDeviceId } from "@/lib/device-id";
 import {
   INTEREST_BATCH_MAX,
   type InterestAction,
   type InterestCounts,
 } from "@/lib/event-interest";
 
-const DEVICE_KEY = "eventdr-device-id";
 /** Event ids this device has already counted on the server. */
 const SYNCED_KEY = "eventdr-interest-synced";
 const BACKFILL_KEY = "eventdr-interest-backfilled";
@@ -23,19 +23,6 @@ function writeSynced(ids: Set<string>) {
     localStorage.setItem(SYNCED_KEY, JSON.stringify([...ids]));
   } catch {
     /* ignore */
-  }
-}
-
-function getDeviceId(): string | null {
-  try {
-    let id = localStorage.getItem(DEVICE_KEY);
-    if (!id) {
-      id = crypto.randomUUID();
-      localStorage.setItem(DEVICE_KEY, id);
-    }
-    return id;
-  } catch {
-    return null;
   }
 }
 

@@ -3,6 +3,8 @@
  * Keyed by event id (stable across en/es/fr), one tap per device.
  */
 
+import { isValidDeviceId } from "@/lib/device-id";
+
 export const EVENT_INTEREST_COLLECTION = "eventInterest";
 export const EVENT_INTEREST_DEVICES_SUBCOLLECTION = "devices";
 
@@ -17,14 +19,13 @@ export type InterestAction = "add" | "remove";
 export type InterestCounts = Record<string, number>;
 
 const EVENT_ID_PATTERN = /^[A-Za-z0-9_-]{1,160}$/;
-const DEVICE_ID_PATTERN = /^[A-Za-z0-9-]{16,64}$/;
 
 export function isValidInterestEventId(id: unknown): id is string {
   return typeof id === "string" && EVENT_ID_PATTERN.test(id);
 }
 
 export function isValidInterestDeviceId(id: unknown): id is string {
-  return typeof id === "string" && DEVICE_ID_PATTERN.test(id);
+  return isValidDeviceId(id);
 }
 
 export function isInterestAction(value: unknown): value is InterestAction {

@@ -7,13 +7,19 @@ import {
   type InterestCounts,
 } from "@/lib/event-interest";
 
+export type ApplyEventInterestResult = {
+  count: number;
+  /** True when this device actually added or removed interest. */
+  changed: boolean;
+};
+
 /** Add or remove one device's interest; returns the event's new count. */
 export async function applyEventInterest(
   db: Firestore,
   eventId: string,
   deviceId: string,
   action: InterestAction,
-): Promise<number> {
+): Promise<ApplyEventInterestResult> {
   const eventRef = db.collection(EVENT_INTEREST_COLLECTION).doc(eventId);
   const deviceRef = eventRef
     .collection(EVENT_INTEREST_DEVICES_SUBCOLLECTION)
@@ -33,7 +39,7 @@ export async function applyEventInterest(
         { count: current + 1, updatedAt: FieldValue.serverTimestamp() },
         { merge: true },
       );
-      return current + 1;
+      return { count: current + 1, changed: true };
     }
 
     if (action === "remove" && deviceSnap.exists) {
@@ -44,10 +50,10 @@ export async function applyEventInterest(
         { count: next, updatedAt: FieldValue.serverTimestamp() },
         { merge: true },
       );
-      return next;
+      return { count: next, changed: true };
     }
 
-    return current;
+    return { count: current, changed: false };
   });
 }
 

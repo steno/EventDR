@@ -441,6 +441,22 @@ export const VENUE_TIP_COPY: Record<
       fr: "Assiettes hongroises et jazz sur Av. Luperón près du Malecón — cherchez l’auvent bleu Restaurant / Jazz Bar et le drapeau hongrois ; ne prenez pas un Uber vers un café de Beller par erreur.",
     },
   },
+  "el-rincon-del-cafe-sombrillas": {
+    body: "Specialty Dominican coffee under the umbrellas at San Felipe 26 — daily ~8 AM–6 PM; call +1 829-317-3768, and don’t pin the Separación sister shop or Café Lángos on the Malecón by mistake.",
+    localized: {
+      en: "Specialty Dominican coffee under the umbrellas at San Felipe 26 — daily ~8 AM–6 PM; call +1 829-317-3768, and don’t pin the Separación sister shop or Café Lángos on the Malecón by mistake.",
+      es: "Café de especialidad dominicano bajo las sombrillas en San Felipe 26 — diario ~8 AM–6 PM; llama +1 829-317-3768, y no clavés la tienda hermana de Separación ni Café Lángos en el Malecón por error.",
+      fr: "Café de spécialité dominicain sous les ombrelles au San Felipe 26 — tous les jours ~8 h–18 h ; appelez +1 829-317-3768, et n’épinglez pas la boutique sœur Separación ni Café Lángos sur le Malecón par erreur.",
+    },
+  },
+  "el-rincon-del-cafe-separacion": {
+    body: "Same Rincón coffee brand on Calle Separación — daily ~8 AM–7 PM; call +1 829-317-3768, and don’t send guests to San Felipe 26 under the umbrellas if you meant this downtown pin.",
+    localized: {
+      en: "Same Rincón coffee brand on Calle Separación — daily ~8 AM–7 PM; call +1 829-317-3768, and don’t send guests to San Felipe 26 under the umbrellas if you meant this downtown pin.",
+      es: "La misma marca Rincón en Calle Separación — diario ~8 AM–7 PM; llama +1 829-317-3768, y no mandes gente a San Felipe 26 bajo las sombrillas si querías este pin del centro.",
+      fr: "La même marque Rincón sur Calle Separación — tous les jours ~8 h–19 h ; appelez +1 829-317-3768, et n’envoyez pas du monde à San Felipe 26 sous les ombrelles si vous visiez cette épingle du centre.",
+    },
+  },
   "leos-banana-bar-sosua": {
     body: "Oceanfront cocktails on Calle Coral behind Casino Reef (old Hotel Sosúa Bay) — WhatsApp +1 829-993-4071 for a bay table, and don’t pin Hard Rock on Duarte by mistake.",
     localized: {
@@ -1327,6 +1343,14 @@ export const VENUE_TIP_COPY: Record<
       en: "Puerto Plata FENATE 2026 host sala (22 Oct–1 Nov). Dated bills: Eulogio Badia Sat 24 Oct 7 PM (adults), Café Ópera Código Clown Sat 31 Oct 7 PM (16+), and Conciliar un Sueño de Libertad Sat 7 Nov 7:30 PM (RD$200, +12). Tierra de Paso was Thu 15 Oct — doors locked at 7:10 PM. RSVP 809-261-7393.",
       es: "Sede FENATE 2026 en Puerto Plata (22 oct–1 nov). Cartel fechado: Eulogio Badia sáb 24 oct 7 PM (adultos), Café Ópera Código Clown sáb 31 oct 7 PM (+16) y Conciliar un Sueño de Libertad sáb 7 nov 7:30 PM (RD$200, +12). Tierra de Paso fue jue 15 oct — puertas a las 7:10 PM. RSVP 809-261-7393.",
       fr: "Salle hôte FENATE 2026 à Puerto Plata (22 oct–1 nov). Bills datés : Eulogio Badia sam 24 oct 19 h (adultes), Café Ópera Código Clown sam 31 oct 19 h (16+) et Conciliar un Sueño de Libertad sam 7 nov 19 h 30 (RD$200, +12). Tierra de Paso était jeu 15 oct — portes à 19 h 10. RSVP 809-261-7393.",
+    },
+  },
+  "casa-tuva-cabarete": {
+    body: "Beach Italian on Calle Principal in Punta Goleta — reserve +1 849-925-8818 for dinner/live nights, and don’t send guests to the upcoming Playa Dorada site or Aura Beach Club by mistake.",
+    localized: {
+      en: "Beach Italian on Calle Principal in Punta Goleta — reserve +1 849-925-8818 for dinner/live nights, and don’t send guests to the upcoming Playa Dorada site or Aura Beach Club by mistake.",
+      es: "Italiano frente a la playa en Calle Principal, Punta Goleta — reserva +1 849-925-8818 para cena/live, y no mandes gente al local de Playa Dorada que viene ni a Aura Beach Club por error.",
+      fr: "Italien face à la plage sur Calle Principal, Punta Goleta — réservez +1 849-925-8818 pour dîner/live, et n’envoyez pas du monde vers le futur site Playa Dorada ni Aura Beach Club par erreur.",
     },
   },
   "cedaky-mall": {

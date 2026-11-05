@@ -1,6 +1,11 @@
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
-import { CATEGORY_IDS, getCategoryMeta } from "./categories";
+import {
+  CATEGORY_IDS,
+  getCategoryMeta,
+  getNavCategoryIds,
+  isCategoryVisibleInNav,
+} from "./categories";
 import {
   getCityMeta,
   getCityName,
@@ -21,26 +26,39 @@ type CategoryCountable = Pick<Event, "category" | "categories">;
 /** Categories with the most matching events first; ties keep catalog order. */
 export function sortCategoryIdsByEventCount(
   events: CategoryCountable[],
+  now: Date = new Date(),
 ): EventCategory[] {
+  const navIds = getNavCategoryIds(now);
   const counts = new Map<EventCategory, number>();
-  for (const id of CATEGORY_IDS) counts.set(id, 0);
+  for (const id of navIds) counts.set(id, 0);
   // Single pass — eventInCategory is O(categories); avoid O(events×12).
   for (const event of events) {
-    counts.set(event.category, (counts.get(event.category) ?? 0) + 1);
+    if (isCategoryVisibleInNav(event.category, now)) {
+      counts.set(event.category, (counts.get(event.category) ?? 0) + 1);
+    }
     if (event.categories) {
       for (const id of event.categories) {
         if (id === event.category) continue;
+        if (!isCategoryVisibleInNav(id, now)) continue;
         counts.set(id, (counts.get(id) ?? 0) + 1);
       }
     }
   }
-  return [...CATEGORY_IDS].sort((a, b) => {
-    // Seasonal pin — Halloween stays first in the home / scope category rail.
-    if (a === "halloween" && b !== "halloween") return -1;
-    if (b === "halloween" && a !== "halloween") return 1;
+  const pinHalloween = isCategoryVisibleInNav("halloween", now);
+  const pinChristmas = isCategoryVisibleInNav("christmas", now);
+  return [...navIds].sort((a, b) => {
+    // Seasonal pin — Halloween / Christmas stay first while their nav window is live.
+    if (pinHalloween) {
+      if (a === "halloween" && b !== "halloween") return -1;
+      if (b === "halloween" && a !== "halloween") return 1;
+    }
+    if (pinChristmas) {
+      if (a === "christmas" && b !== "christmas") return -1;
+      if (b === "christmas" && a !== "christmas") return 1;
+    }
     const diff = (counts.get(b) ?? 0) - (counts.get(a) ?? 0);
     if (diff !== 0) return diff;
-    return CATEGORY_IDS.indexOf(a) - CATEGORY_IDS.indexOf(b);
+    return navIds.indexOf(a) - navIds.indexOf(b);
   });
 }
 
@@ -94,11 +112,12 @@ export function categoryNavLinks(
   citySlug?: CitySlug | null,
   /** When set, pills are ordered by how many of these events match each category. */
   events?: CategoryCountable[],
+  now: Date = new Date(),
 ): { id: EventCategory; href: string; label: string; emoji: string }[] {
   const ids =
     events && events.length > 0
-      ? sortCategoryIdsByEventCount(events)
-      : CATEGORY_IDS;
+      ? sortCategoryIdsByEventCount(events, now)
+      : getNavCategoryIds(now);
   return ids.map((id) => {
     const meta = getCategoryMeta(id, labels);
     return {
