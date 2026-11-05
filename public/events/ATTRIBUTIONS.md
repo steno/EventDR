@@ -613,7 +613,9 @@ Curated images under `public/events/` and `public/venues/`.
 | `venues/puente-la-guinea-v2.jpg` | POP-supplied — Puente La Guinea daylight place shot (tree-framed modern angle) | Venue place shot; filename bump after swap fix (editor-provided; compressed) |
 | `puente-la-guinea-daily-v2.jpg` | POP-supplied — Puente La Guinea daylight place shot (stream approach) | Daily walk-in event card / gallery slide 1; filename bump (editor-provided; compressed) |
 | `puente-la-guinea-historic-v2.jpg` | POP-supplied — vintage sepia depiction of Puente La Guinea (children on the bank) | Daily walk-in gallery slide 2; filename bump (editor-provided; compressed) |
-| `cabarete-stand-up-vol-3-2026-11-21.jpg` | POP-supplied — Cabarete Stand Up Vol. 3 flyer ([@cabaretestandup](https://www.instagram.com/cabaretestandup/)) | Sat 21 Nov 2026 7 PM Hotel Villa Taina; RD$1,200 (editor-provided; typography-heavy) |
+| `cabarete-stand-up-vol-3-2026-11-21.jpg` | POP-supplied — Cabarete Stand Up Vol. 3 dual-portrait flyer ([@cabaretestandup](https://www.instagram.com/cabaretestandup/)) | Prior hero (editor-provided; superseded by `-v2`) |
+| `cabarete-stand-up-vol-3-2026-11-21-v2.jpg` | POP-supplied — Cabarete Stand Up Vol. 3 cream poster ([cabaretestandup.com](https://cabaretestandup.com/)) | Sat 21 Nov 2026 7 PM Hotel Villa Taina; RD$1,200 (editor-provided; typography-heavy) |
+| `cabarete-stand-up-vol-3-2026-11-21-blue.jpg` | POP-supplied — Cabarete Stand Up Vol. 3 blue poster ([cabaretestandup.com](https://cabaretestandup.com/)) | Gallery alt — same bill (editor-provided; typography-heavy) |
 | `la-lola-wicked-night-2026-10-31-v2.jpg` | POP-supplied — Wicked Night / DJ Tanque flyer ([@lalolabeachclub](https://www.instagram.com/lalolabeachclub/)) | Sat 31 Oct 2026; filename bump (editor-provided; typography-heavy) |
 | `alejandro-pena-rancho-catalina-2026-11-01.jpg` | POP-supplied — Alejandro Peña live music flyer ([@rancholacatalina](https://www.instagram.com/rancholacatalina/)) | Sun 1 Nov 2026 2:30 PM; no cover (editor-provided; typography-heavy) |
 | `venues/playa-riviera.jpg` | POP-supplied — Playa Riviera garden / path place shot | Venue place shot (editor-provided; compressed) |
@@ -713,7 +715,15 @@ Curated images under `public/events/` and `public/venues/`.
 | `anahid-van-natura-cabana-2026-11-14.jpg` | POP-supplied — Natura *Saturdays in November* Anahid & Van flyer | Sat 14 Nov 2026 7–9:30 PM (editor-provided; typography-heavy) |
 | `frusty-balusti-natura-cabana-2026-11-21.jpg` | POP-supplied — Natura *Saturdays in November* Frusty Balusti flyer | Sat 21 Nov 2026 7–9:30 PM (editor-provided; typography-heavy) |
 | `groundzero-viral-sosua-birthday-2026-12-01.jpg` | POP-supplied — Ground Zero / Viral Sosúa *Cumpleaños* flyer (striper + Old Parr) | Sun 1 Dec 2026 (editor-provided; typography-heavy; 18+) |
-| `venues/novus-beach-restaurant-cabarete.jpg` | POP-supplied — Novus Beach Restaurant terrace crop from *Noche Latina* flyer | Venue place shot (editor-provided; cropped from event flyer) |
+| `venues/novus-beach-restaurant-cabarete.jpg` | POP-supplied — Novus Beach Restaurant terrace crop from *Noche Latina* flyer | Prior venue place shot (editor-provided; superseded by `-v2`) |
+| `venues/novus-beach-restaurant-cabarete-v2.jpg` | POP-supplied — Novus Beach neon lounge (*Trust me, you can dance* / Tequila) | Venue place shot (editor-provided) |
+| `venues/cafe-langos-puerto-plata.jpg` | POP-supplied — Café Lángos exterior (Hungarian flag + Restaurant / Jazz Bar awning), Av. Luperón | Venue place shot (editor-provided; overlay cropped) |
+| `venues/leos-banana-bar-sosua.jpg` | POP-supplied — Leo's Banana Bar terrace view over Sosúa Bay | Venue place shot (editor-provided) |
+| `alex-rene-rancho-catalina-2026-11-08.jpg` | POP-supplied — Rancho La Catalina *Alex René* live flyer ([@rancholacatalina](https://www.instagram.com/rancholacatalina/)) | Sun 8 Nov 2026 2:30 PM no cover (editor-provided; typography-heavy) |
+| `leos-banana-fiesta-blanca-2026-11-27.jpg` | POP-supplied — Leo's Banana *Fiesta Blanca de San Andrés* flyer ([@leosbananabarandrestaurant](https://www.instagram.com/leosbananabarandrestaurant/)) | Fri 27 Nov 2026 from 7 PM; RD$500 incl. cocktail (editor-provided; typography-heavy) |
+| `disco-club-pijama-party-2026-11-13.jpg` | POP-supplied — Latin Disco Club *Pijama Party* flyer (BSM Entertainment) | Fri 13 Nov 2026; Camilo Taveras / Soky / Yosma (editor-provided; typography-heavy) |
+| `samuel-gonzalez-la-lola-2026-12-05.jpg` | POP-supplied — La Lola *Samuel González* live flyer ([@samuelgonzalezmusic](https://www.instagram.com/samuelgonzalezmusic/)) | Sat 5 Dec 2026 from 7:30 PM (editor-provided; typography-heavy) |
+| `twenty-disco-gran-noche-tipica-2026-11-08.jpg` | POP-supplied — Twenty Disco *Gran Noche Típica* Caballitos flyer ([@twenty_disco_lounge](https://www.instagram.com/twenty_disco_lounge/)) | Sun 8 Nov 2026 8 PM (editor-provided; typography-heavy) |
 | `novus-flow-dance-noche-latina-weekly.jpg` | POP-supplied — Flow Dance *Noche Latina* at Novus Beach flyer | Weekly Wed 9 PM (editor-provided; typography-heavy) |
 | `van-avakian-drifter-2026-11-07.jpg` | POP-supplied — Drifter *Van Avakian* live flyer ([@driftercabarete](https://www.instagram.com/driftercabarete/)) | Sat 7 Nov 2026 (editor-provided; typography-heavy) |
 | `natura-sunbar-sunset-sounds-ivan-ramirez-2026-11-05.jpg` | POP-supplied — SunBar *Sunset & Sounds* Iván Ramírez flyer | Thu 5 Nov 2026 6:30–9:30 PM (editor-provided; typography-heavy) |

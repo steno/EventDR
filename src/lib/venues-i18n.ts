@@ -349,6 +349,18 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Restaurant océanfront et disco-bar sur Cabarete Beach (Calle Principal) — assiettes caribéennes/internationales le jour, énergie bar après 23 h. Restaurant ~8 h–23 h ; disco bar ~23 h–3 h. Appelez +1 809-571-0646 · novusbeachrestaurant.com. Épinglez Novus sur la bande de sable, pas VOYVOY ni Drifter quelques portes plus loin sur la baie.",
     },
   },
+  "cafe-langos-puerto-plata": {
+    description: {
+      es: "Restaurante húngaro y jazz bar en Av. Gregorio Luperón cerca del Malecón — platos de Europa Central, lángos y noches de jazz en vivo bajo el toldo azul Restaurant / Jazz Bar con la bandera húngara afuera. Clava Café Lángos en Luperón junto al malecón, no un café del centro en Beller o Separación.",
+      fr: "Restaurant hongrois et jazz bar sur Av. Gregorio Luperón près du Malecón — assiettes d’Europe centrale, lángos et soirées jazz live sous l’auvent bleu Restaurant / Jazz Bar avec le drapeau hongrois dehors. Épinglez Café Lángos sur Luperón près du front de mer, pas un café du centre sur Beller ou Separación.",
+    },
+  },
+  "leos-banana-bar-sosua": {
+    description: {
+      es: "Bar y restaurante frente al mar en Calle Coral en el antiguo Hotel Sosúa Bay (detrás del Casino Reef), El Batey — cócteles, cena y vistas a la Bahía de Sosúa. WhatsApp +1 829-993-4071 · Instagram @leosbananabarandrestaurant. Clava Leo's en Calle Coral / Bahía de Sosúa, no Hard Rock en Duarte ni el piso del Casino Reef.",
+      fr: "Bar et restaurant océanfront sur Calle Coral à l’ancien Hôtel Sosúa Bay (derrière Casino Reef), El Batey — cocktails, dîner et vues sur la baie de Sosúa. WhatsApp +1 829-993-4071 · Instagram @leosbananabarandrestaurant. Épinglez Leo’s sur Calle Coral / baie de Sosúa, pas Hard Rock sur Duarte ni le casino Reef lui-même.",
+    },
+  },
   "ed-salon-de-eventos": {
     description: {
       es: "Salón de eventos y presentaciones en Calle Andrés Brugal #19, Ensanche Luperón — reservas privadas y noches con cartel (Geek Fest cosplay y similares). Llama +1 809-708-0960 · Instagram @edsalondeeventos. Salón techado en Ensanche Luperón — no es el complejo del Polideportivo / Estadio Leonel Plácido unas cuadras más allá.",

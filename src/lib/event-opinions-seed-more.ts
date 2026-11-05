@@ -7548,21 +7548,22 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "cabarete-stand-up-vol-3-2026-11-21",
-    body: "Paid Villa Taina comedy with Juan Carlos Pichardo headlining — RD$1,200 via cabaretestandup.com; Vol. 3 on 21 Nov, not the Oct Vol. 2 lineup or a free beach bar set.",
+    body: "Paid Villa Taina comedy with Juan Carlos Pichardo headlining — RD$1,200 via cabaretestandup.com includes a table seat (F&B extra); adult-oriented bill; Vol. 3 on 21 Nov, not the Oct Vol. 2 lineup.",
     localized: {
-      es: "Comedia de pago en Villa Taina con Juan Carlos Pichardo de headliner — RD$1,200 en cabaretestandup.com; Vol. 3 el 21 nov, no el lineup del Vol. 2 de oct ni un set gratis de bar de playa.",
-      fr: "Comédie payante à Villa Taina avec Juan Carlos Pichardo en headliner — RD$1,200 via cabaretestandup.com ; Vol. 3 le 21 nov., pas le lineup du Vol. 2 d’oct. ni un set gratuit de bar de plage.",
+      es: "Comedia de pago en Villa Taina con Juan Carlos Pichardo de headliner — RD$1,200 en cabaretestandup.com incluye asiento en mesa (comida/tragos aparte); cartel adulto; Vol. 3 el 21 nov, no el lineup del Vol. 2 de oct.",
+      fr: "Comédie payante à Villa Taina avec Juan Carlos Pichardo en headliner — RD$1,200 via cabaretestandup.com inclus siège à table (nourriture/boissons en extra) ; soirée adulte ; Vol. 3 le 21 nov., pas le lineup du Vol. 2 d’oct.",
     },
     priceFeel: "moderate",
-    priceNote: "RD$1,200 · cabaretestandup.com — @cabaretestandup",
+    priceNote:
+      "RD$1,200 table seat via cabaretestandup.com — F&B extra · not for kids",
     priceNoteLocalized: {
-      es: "RD$1,200 · cabaretestandup.com — @cabaretestandup",
-      fr: "RD$1,200 · cabaretestandup.com — @cabaretestandup",
+      es: "RD$1,200 asiento en mesa en cabaretestandup.com — comida/tragos aparte · no apto para niños",
+      fr: "RD$1,200 siège à table via cabaretestandup.com — nourriture/boissons en extra · pas pour enfants",
     },
-    attribution: "POP research · @cabaretestandup Vol. 3 flyer",
+    attribution: "POP research · cabaretestandup.com Vol. 3 posters",
     researchNotes:
-      "Editor flyer + IG — Sábado 21 Nov 7PM Hotel Villa Taina; Juan Carlos Pichardo; opener David Melaza; host Laura Nanita; RD$1,200; cabaretestandup.com.",
-    updatedAt: "2026-10-30T15:30:00.000Z",
+      "Official site + cream/blue posters — Sat 21 Nov 2026 7 PM Hotel Villa Taina; Juan Carlos Pichardo; opener David Melaza; host Laura Nanita; RD$1,200 table seat; F&B extra; adult-oriented FAQ; cabaretestandup.com.",
+    updatedAt: "2026-11-04T20:15:00.000Z",
   },
   {
     eventId: "alejandro-pena-rancho-catalina-2026-11-01",
@@ -8266,5 +8267,97 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer — MIÉRCOLES DE KARAOKE; A PARTIR DE LAS 6:00 PM; Premio Cena Gratis Hotel Marien Puerto Plata; Calle Luperon Costa Dorada; 849-451-1197; weekly Wednesday recurrenceDay 3.",
     updatedAt: "2026-10-28T18:00:00.000Z",
+  },
+  {
+    eventId: "alex-rene-rancho-catalina-2026-11-08",
+    body: "Sunday 2:30 PM ranch live with Alex René — same no-cover El Cupey lunch slot as the recent Catalina Sundays; book a table if you want the set with the meal, not standing room only.",
+    localized: {
+      es: "Domingo 2:30 PM de live en el rancho con Alex René — el mismo slot sin cover de almuerzo en El Cupey que los domingos recientes de Catalina; reserva mesa si quieres el set con la comida, no solo de pie.",
+      fr: "Dimanche 14 h 30 live au ranch avec Alex René — même créneau déjeuner sans cover à El Cupey que les dimanches Catalina récents ; réservez une table pour le set avec le repas, pas juste debout.",
+    },
+    priceFeel: "free",
+    priceNote: "No cover — pay for ranch dining; +1 809-781-3737 / @rancholacatalina",
+    priceNoteLocalized: {
+      es: "Sin cover — pagas la comida del rancho; +1 809-781-3737 / @rancholacatalina",
+      fr: "Pas de cover — vous payez le repas ranch ; +1 809-781-3737 / @rancholacatalina",
+    },
+    attribution: "POP research · @rancholacatalina · Alex René flyer",
+    researchNotes:
+      "Editor flyer — NOV. 08 Música en Vivo ALEX RENÉ 2:30PM | NO COVER; Rancho La Catalina Restaurant.",
+    updatedAt: "2026-11-04T16:00:00.000Z",
+  },
+  {
+    eventId: "leos-banana-fiesta-blanca-2026-11-27",
+    body: "Friday 7 PM White Party on Sosúa Bay with DJ Alfredo Elibo — RD$500 cover includes a cocktail, dress white, and pin Leo's on Calle Coral behind Casino Reef, not The Last Drink or Mecla'o White Parties.",
+    localized: {
+      es: "Viernes 7 PM Fiesta Blanca en Bahía de Sosúa con DJ Alfredo Elibo — cover RD$500 incluye un cóctel, vístete de blanco, y clava Leo's en Calle Coral detrás del Casino Reef, no las White Parties de The Last Drink ni Mecla'o.",
+      fr: "Vendredi 19 h White Party sur la baie de Sosúa avec DJ Alfredo Elibo — cover RD$500 inclus un cocktail, habillé de blanc, et épinglez Leo’s sur Calle Coral derrière Casino Reef, pas les White Parties de The Last Drink ni Mecla'o.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Cover RD$500 (1 cocktail) — WA +1 829-993-4071 / @leosbananabarandrestaurant",
+    priceNoteLocalized: {
+      es: "Cover RD$500 (1 cóctel) — WA +1 829-993-4071 / @leosbananabarandrestaurant",
+      fr: "Cover RD$500 (1 cocktail) — WA +1 829-993-4071 / @leosbananabarandrestaurant",
+    },
+    attribution:
+      "POP research · Leo's Banana Fiesta Blanca flyer · @leosbananabarandrestaurant",
+    researchNotes:
+      "Editor flyer + IG @leosbananabarandrestaurant — Vie 27 Nov desde 7 PM; DJ Alfredo Elibo; Cover $500 pesos incluye 1 cóctel; Vístete de Blanco; Calle Coral Antiguo Hotel Sosúa Bay detrás Casino Reef; WA 829-993-4071.",
+    updatedAt: "2026-11-04T17:00:00.000Z",
+  },
+  {
+    eventId: "disco-club-pijama-party-2026-11-13",
+    body: "Friday pajama theme at Latin Disco by the Brugal depots with Camilo Taveras, Soky, and Yosma — cover not on the flyer; reserve +1 849-316-4858, and don’t pin La Lola’s Malecón live nights by mistake.",
+    localized: {
+      es: "Viernes de pijama en Latin Disco junto a los depósitos de Brugal con Camilo Taveras, Soky y Yosma — cover no está en el flyer; reserva +1 849-316-4858, y no clavés los lives de La Lola en el Malecón por error.",
+      fr: "Vendredi pyjama au Latin Disco près des dépôts Brugal avec Camilo Taveras, Soky et Yosma — cover absent de l’affiche ; réservez +1 849-316-4858, et n’épinglez pas les lives de La Lola sur le Malecón par erreur.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — reserve +1 849-316-4858 / @latindiscoclubpp",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — reserva +1 849-316-4858 / @latindiscoclubpp",
+      fr: "Cover absent de l’affiche — réservez +1 849-316-4858 / @latindiscoclubpp",
+    },
+    attribution: "POP research · Latin Disco Club Pijama Party flyer · BSM Entertainment",
+    researchNotes:
+      "Editor flyer — Viernes 13 Noviembre; Pijama Party; Latin Disco Club; Av. Manolo Tavarez Justo frente depósitos Brugal; DJ Camilo Taveras / DJ Soky / DJ Yosma; Premios a la mejor pijama; 849-316-4858; BSM Entertainment; D Loren Carteras sponsor.",
+    updatedAt: "2026-11-04T20:20:00.000Z",
+  },
+  {
+    eventId: "samuel-gonzalez-la-lola-2026-12-05",
+    body: "Saturday 7:30 PM Malecón live with Samuel González at La Lola — RSVP +1 849-517-5705; seafront dinner set, not Rose Mateo’s Sunday afternoon bill or Aleva Color Vibe later in December.",
+    localized: {
+      es: "Sábado 7:30 PM de live en el Malecón con Samuel González en La Lola — RSVP +1 849-517-5705; set de cena frente al mar, no el cartel de tarde del domingo de Rose Mateo ni Aleva Color Vibe más tarde en diciembre.",
+      fr: "Samedi 19 h 30 live Malecón avec Samuel González à La Lola — RSVP +1 849-517-5705 ; set dîner face à la mer, pas le cartel d’après-midi du dimanche de Rose Mateo ni Aleva Color Vibe plus tard en décembre.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Cover not on flyer — RSVP +1 849-517-5705 / @lalolabeachclub",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — RSVP +1 849-517-5705 / @lalolabeachclub",
+      fr: "Cover absent de l’affiche — RSVP +1 849-517-5705 / @lalolabeachclub",
+    },
+    attribution:
+      "POP research · La Lola Samuel González flyer · @samuelgonzalezmusic",
+    researchNotes:
+      "Editor flyer + IG @samuelgonzalezmusic — Sábado 5 dic desde 7:30 PM; Samuel González; La Lola Beach; El Malecón Puerto Plata; RSVP 849-517-5705.",
+    updatedAt: "2026-11-04T20:30:00.000Z",
+  },
+  {
+    eventId: "twenty-disco-gran-noche-tipica-2026-11-08",
+    body: "Sunday 8 PM Gran Noche Típica at Twenty with El Caballito de Mao & Jr — mall accordion night; not the 1 Nov 9 PM Caballitos bill; reserve +1 849-507-7676 (Twenty also pitches Sundays as típico).",
+    localized: {
+      es: "Domingo 8 PM Gran Noche Típica en Twenty con El Caballito de Mao & Jr — noche de acordeón en el mall; no es el cartel Caballitos del 1 nov a las 9 PM; reserva +1 849-507-7676 (Twenty también vende los domingos como típico).",
+      fr: "Dimanche 20 h Gran Noche Típica au Twenty avec El Caballito de Mao & Jr — soirée accordéon au mall ; pas le bill Caballitos du 1er nov. à 21 h ; réservez +1 849-507-7676 (Twenty vend aussi les dimanches comme típico).",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — reserve +1 849-507-7676 / @twenty_disco_lounge",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — reserva +1 849-507-7676 / @twenty_disco_lounge",
+      fr: "Cover absent de l’affiche — réservez +1 849-507-7676 / @twenty_disco_lounge",
+    },
+    attribution: "POP research · @twenty_disco_lounge Gran Noche Típica flyer",
+    researchNotes:
+      "Editor flyer + IG caption — Domingo 8 Nov 8 PM; Gran Noche Típica; El Caballito de Mao y El Caballito Jr; Playa Dorada Mall; 849-507-7676; caption says todos los domingos son de típico (dated guest bill seeded).",
+    updatedAt: "2026-11-04T20:55:00.000Z",
   },
 ];

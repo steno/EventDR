@@ -71,6 +71,9 @@ const FILE_TO_EVENT_ID = {
   "vinoteca-banda-sin-limite-2026-11-14.jpg":
     "vinoteca-banda-sin-limite-2026-11-14",
   "novus-beach-restaurant-cabarete.jpg": "novus-beach-restaurant-cabarete",
+  "novus-beach-restaurant-cabarete-v2.jpg": "novus-beach-restaurant-cabarete",
+  "cafe-langos-puerto-plata.jpg": "cafe-langos-puerto-plata",
+  "leos-banana-bar-sosua.jpg": "leos-banana-bar-sosua",
   "disco-club-gogo-dancers-2026-10-22.jpg": "disco-club-gogo-dancers-2026-10-22",
   "natura-sunbar-sunset-sounds-em-zayd-2026-10-22.jpg":
     "natura-sunbar-sunset-sounds-em-zayd-2026-10-22",
@@ -85,6 +88,10 @@ const FILE_TO_EVENT_ID = {
   "puente-la-guinea-daily-v2.jpg": "puente-la-guinea-daily",
   "puente-la-guinea-historic-v2.jpg": "puente-la-guinea-historic",
   "cabarete-stand-up-vol-3-2026-11-21.jpg":
+    "cabarete-stand-up-vol-3-2026-11-21",
+  "cabarete-stand-up-vol-3-2026-11-21-v2.jpg":
+    "cabarete-stand-up-vol-3-2026-11-21",
+  "cabarete-stand-up-vol-3-2026-11-21-blue.jpg":
     "cabarete-stand-up-vol-3-2026-11-21",
   "la-lola-wicked-night-2026-10-31-v2.jpg":
     "la-lola-wicked-night-2026-10-31",
@@ -394,6 +401,16 @@ const FILE_TO_EVENT_ID = {
     "groundzero-viral-sosua-birthday-2026-11-01",
   "groundzero-viral-sosua-birthday-2026-12-01.jpg":
     "groundzero-viral-sosua-birthday-2026-12-01",
+  "alex-rene-rancho-catalina-2026-11-08.jpg":
+    "alex-rene-rancho-catalina-2026-11-08",
+  "leos-banana-fiesta-blanca-2026-11-27.jpg":
+    "leos-banana-fiesta-blanca-2026-11-27",
+  "disco-club-pijama-party-2026-11-13.jpg":
+    "disco-club-pijama-party-2026-11-13",
+  "samuel-gonzalez-la-lola-2026-12-05.jpg":
+    "samuel-gonzalez-la-lola-2026-12-05",
+  "twenty-disco-gran-noche-tipica-2026-11-08.jpg":
+    "twenty-disco-gran-noche-tipica-2026-11-08",
   "end-blackouts-protest-plaza-independencia-2026-11-05.jpg":
     "end-blackouts-protest-plaza-independencia-2026-11-05",
   "the-last-drink-white-party-2026-11-07.jpg":

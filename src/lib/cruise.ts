@@ -161,14 +161,15 @@ function datedCall(
 }
 
 /**
- * Official October 2026 Amber Cove (green) + Taino Bay (blue) arrivals from
- * the published Puerto Plata / Amber Cove + Taino Bay calendar (38 ships:
- * 18 Amber / 20 Taino). Oct 8 is Caribbean Princess at Amber Cove only —
- * no Disney Dream that day; next Disney call is Destiny at Taino Bay on
- * 22 Oct. Subject to change — when a later month calendar ships, add
- * another dated block and extend {@link DATED_CRUISE_MONTHS}.
+ * Official MITUR Puerto Plata calendars — Amber Cove (green) + Taino Bay (blue).
+ * Oct 2026: 38 ships (18 Amber / 20 Taino). Oct 8 is Caribbean Princess at
+ * Amber Cove only — no Disney Dream that day; next Disney call is Destiny at
+ * Taino Bay on 22 Oct. Nov 2026: 60 ships (26 Amber / 34 Taino). Subject to
+ * change — when a later month calendar ships, add another dated block and
+ * extend {@link DATED_CRUISE_MONTHS}.
  */
 export const DATED_CRUISE_CALLS: readonly DatedCruiseCall[] = [
+  // —— October 2026 ——
   // Week of Oct 1
   datedCall("2026-10-01", "amber-cove", "Caribbean Princess", 8, 0, 17),
   datedCall("2026-10-01", "taino-bay", "Norwegian Luna", 10, 0, 18),
@@ -212,10 +213,77 @@ export const DATED_CRUISE_CALLS: readonly DatedCruiseCall[] = [
   datedCall("2026-10-30", "taino-bay", "Allure of the Seas", 9, 30, 17),
   datedCall("2026-10-30", "taino-bay", "Norwegian Getaway", 10, 30, 19),
   datedCall("2026-10-31", "taino-bay", "Oasis of the Seas", 9, 0, 15),
+
+  // —— November 2026 (MITUR — 60 ships: 26 Amber / 34 Taino) ——
+  // Week of Nov 1
+  datedCall("2026-11-01", "amber-cove", "Coral Princess", 7, 0, 16),
+  datedCall("2026-11-02", "taino-bay", "Norwegian Luna", 7, 0, 16),
+  datedCall("2026-11-02", "taino-bay", "MSC World America", 9, 0, 17),
+  datedCall("2026-11-03", "amber-cove", "Carnival Mardi Gras", 8, 0, 17),
+  datedCall("2026-11-03", "amber-cove", "Star Princess", 9, 0, 18),
+  datedCall("2026-11-03", "taino-bay", "Norwegian Prima", 9, 0, 16),
+  datedCall("2026-11-05", "amber-cove", "Carnival Sunshine", 7, 0, 16),
+  datedCall("2026-11-05", "amber-cove", "Regal Princess", 9, 30, 18),
+  datedCall("2026-11-06", "taino-bay", "Independence of the Seas", 7, 0, 16),
+  // Week of Nov 8
+  datedCall("2026-11-08", "taino-bay", "Norwegian Getaway", 10, 30, 19),
+  datedCall("2026-11-09", "taino-bay", "Celebrity Apex", 9, 30, 16),
+  datedCall("2026-11-10", "amber-cove", "Carnival Conquest", 9, 0, 18),
+  datedCall("2026-11-10", "amber-cove", "Carnival Vista", 9, 30, 18, 30),
+  datedCall("2026-11-10", "taino-bay", "Norwegian Aqua", 7, 0, 15),
+  datedCall("2026-11-10", "taino-bay", "Resilient Lady", 10, 0, 19),
+  datedCall("2026-11-11", "amber-cove", "Carnival Magic", 8, 0, 17),
+  datedCall("2026-11-11", "amber-cove", "Carnival Mardi Gras", 8, 0, 17),
+  datedCall("2026-11-11", "taino-bay", "MSC Explora III", 9, 0, 16),
+  datedCall("2026-11-12", "amber-cove", "Eurodam", 8, 0, 17),
+  datedCall("2026-11-12", "amber-cove", "Carnival Pride", 8, 0, 16),
+  datedCall("2026-11-12", "taino-bay", "Norwegian Bliss", 11, 0, 19),
+  datedCall("2026-11-13", "taino-bay", "Norwegian Getaway", 10, 30, 19),
+  datedCall("2026-11-13", "taino-bay", "Celebrity Xcel", 11, 30, 18),
+  datedCall("2026-11-14", "taino-bay", "Norwegian Prima", 9, 0, 16),
+  // Week of Nov 15
+  datedCall("2026-11-15", "amber-cove", "Carnival Miracle", 8, 0, 16),
+  datedCall("2026-11-15", "taino-bay", "Norwegian Escape", 9, 0, 16),
+  datedCall("2026-11-16", "amber-cove", "Seabourn Ovation", 8, 0, 17),
+  datedCall("2026-11-16", "taino-bay", "MSC World America", 9, 0, 17),
+  datedCall("2026-11-17", "amber-cove", "Star Princess", 9, 0, 18),
+  datedCall("2026-11-17", "taino-bay", "Norwegian Aqua", 7, 0, 15),
+  datedCall("2026-11-17", "taino-bay", "Disney Dream", 7, 45, 17, 15),
+  datedCall("2026-11-18", "amber-cove", "Carnival Celebration", 8, 0, 17),
+  datedCall("2026-11-19", "amber-cove", "Carnival Sunshine", 7, 0, 16),
+  datedCall("2026-11-19", "amber-cove", "Carnival Vista", 9, 0, 18),
+  datedCall("2026-11-20", "taino-bay", "MSC Explora", 9, 0, 17),
+  datedCall("2026-11-20", "taino-bay", "MSC Poesia", 9, 0, 18),
+  datedCall("2026-11-21", "taino-bay", "Norwegian Getaway", 7, 0, 14, 30),
+  // Week of Nov 22
+  datedCall("2026-11-22", "taino-bay", "Norwegian Escape", 9, 0, 16),
+  datedCall("2026-11-22", "taino-bay", "Norwegian Insignia", 7, 0, 15),
+  datedCall("2026-11-23", "amber-cove", "Sky Princess", 7, 0, 15),
+  datedCall("2026-11-23", "taino-bay", "Celebrity Apex", 9, 30, 16),
+  datedCall("2026-11-24", "amber-cove", "Eurodam", 8, 0, 17),
+  datedCall("2026-11-24", "amber-cove", "Carnival Vista", 10, 30, 18, 30),
+  datedCall("2026-11-24", "taino-bay", "Norwegian Aqua", 7, 0, 15),
+  datedCall("2026-11-24", "taino-bay", "Celebrity Beyond", 9, 0, 19),
+  datedCall("2026-11-24", "taino-bay", "Resilient Lady", 9, 0, 19),
+  datedCall("2026-11-25", "amber-cove", "Carnival Magic", 8, 0, 17),
+  datedCall("2026-11-25", "amber-cove", "Carnival Mardi Gras", 8, 0, 17),
+  datedCall("2026-11-25", "taino-bay", "MSC Grandiosa", 8, 0, 17),
+  datedCall("2026-11-25", "amber-cove", "Ritz Ilma", 8, 0, 18),
+  datedCall("2026-11-26", "amber-cove", "Carnival Celebration", 10, 0, 18),
+  datedCall("2026-11-26", "taino-bay", "Harmony of the Seas", 8, 30, 15),
+  datedCall("2026-11-26", "taino-bay", "Norwegian Jewel", 7, 0, 16),
+  datedCall("2026-11-27", "taino-bay", "MSC Meraviglia", 8, 0, 18),
+  datedCall("2026-11-27", "amber-cove", "Sun Princess", 8, 0, 16),
+  datedCall("2026-11-27", "taino-bay", "Allure of the Seas", 11, 30, 18),
+  datedCall("2026-11-28", "amber-cove", "Island Princess", 7, 0, 14),
+  // Week of Nov 29
+  datedCall("2026-11-29", "taino-bay", "Norwegian Escape", 9, 0, 16),
+  datedCall("2026-11-30", "taino-bay", "Explorer of the Seas", 7, 0, 16),
+  datedCall("2026-11-30", "taino-bay", "MSC World America", 9, 0, 17),
 ];
 
 /** YYYY-MM prefixes with an official dated calendar loaded above. */
-const DATED_CRUISE_MONTHS = new Set(["2026-10"]);
+const DATED_CRUISE_MONTHS = new Set(["2026-10", "2026-11"]);
 
 export function hasDatedCruiseSchedule(dateISO: string): boolean {
   return DATED_CRUISE_MONTHS.has(dateISO.slice(0, 7));

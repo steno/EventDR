@@ -156,7 +156,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "dj-monarka-halloween-noche-striper-2026-10-31.jpg",
   "puente-la-guinea-daily": "puente-la-guinea-daily-v2.jpg",
   "cabarete-stand-up-vol-3-2026-11-21":
-    "cabarete-stand-up-vol-3-2026-11-21.jpg",
+    "cabarete-stand-up-vol-3-2026-11-21-v2.jpg",
   "alejandro-pena-rancho-catalina-2026-11-01":
     "alejandro-pena-rancho-catalina-2026-11-01.jpg",
   "playa-riviera-halloween-show-2026-10-31":
@@ -182,6 +182,16 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "groundzero-viral-sosua-birthday-2026-11-01.jpg",
   "groundzero-viral-sosua-birthday-2026-12-01":
     "groundzero-viral-sosua-birthday-2026-12-01.jpg",
+  "alex-rene-rancho-catalina-2026-11-08":
+    "alex-rene-rancho-catalina-2026-11-08.jpg",
+  "leos-banana-fiesta-blanca-2026-11-27":
+    "leos-banana-fiesta-blanca-2026-11-27.jpg",
+  "disco-club-pijama-party-2026-11-13":
+    "disco-club-pijama-party-2026-11-13.jpg",
+  "samuel-gonzalez-la-lola-2026-12-05":
+    "samuel-gonzalez-la-lola-2026-12-05.jpg",
+  "twenty-disco-gran-noche-tipica-2026-11-08":
+    "twenty-disco-gran-noche-tipica-2026-11-08.jpg",
   "end-blackouts-protest-plaza-independencia-2026-11-05":
     "end-blackouts-protest-plaza-independencia-2026-11-05.jpg",
   "the-last-drink-white-party-2026-11-07":
@@ -888,7 +898,13 @@ const EVENT_IMAGE_PREFIXES: { prefix: string; file: string }[] = [
   { prefix: "el-carey-wc2026-", file: "el-carey-wc2026.jpg" },
 ];
 
-/** Tailwind object-position for detail heroes / cards when the focal point isn't center. */
+/**
+ * Tailwind object-position for detail heroes / cards when the focal point isn't center.
+ *
+ * Card rule: faces and people win over logos, titles, and scenery. When a face
+ * sits mid/low on a portrait flyer, use a % position (not `object-center`) —
+ * cards remap bare `object-center` → `object-top` via getEventCardObjectPosition.
+ */
 const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   // Flyer faces / name tags sit high — keep top of art in the short detail hero.
   "festival-presidente-2026-10-03": "object-top",
@@ -900,6 +916,12 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "voyvoy-dominican-night-flow-dance-weekly": "object-center",
   "parada-el-choco-big-d-aperitivo-2026-10-27": "object-center",
   "hard-rock-deeway-live-mix-2026-10-23": "object-top",
+  // Hard Rock Kaovanny — face fills lower half; object-top cards only show logos + scalp.
+  "kaovanny-hard-rock-2026-11-20": "object-[52%_68%]",
+  // Natura Agua Tour — circular face mid-flyer; keep her over patio margins.
+  "kaovanny-agua-natura-cabana-2026-11-28": "object-[48%_45%]",
+  // Drifter Van Avakian — face under logos; object-top cards only show kite + LIVE badge + scalp.
+  "van-avakian-drifter-2026-11-07": "object-[46%_38%]",
   "tiki-bar-henry-jimenez-2026-10-23": "object-center",
   "francesca-tiki-bar-cabarete-2026-11-06": "object-center",
   "premios-ola-dorada-2026-12-05": "object-center",
@@ -932,7 +954,10 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   // Portrait entrance — keep the walkers in a wide crop.
   "nonas-grill-kitchen-daily": "object-[70%_80%]",
   "chill-and-grill-sunday-bingo": "object-top",
-  "chill-and-grill-saturday-karaoke": "object-top",
+  // Karaoke singers sit mid-flyer; object-top cards only show KARAOKE type + scalp tips.
+  "chill-and-grill-saturday-karaoke": "object-[50%_52%]",
+  // Mirando Pa' Otro Lao 8 — Camilo face mid-frame; object-top cards only show hair + pink type.
+  "mirando-pa-otro-lao-8-puerto-plata-2026-11-17": "object-[50%_55%]",
   "flip-flop-monday-happy-hour": "object-bottom",
   "flip-flop-nfl-thursday": "object-center",
   "flip-flop-wing-wednesday": "object-center",
@@ -1091,6 +1116,12 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "aura-cinema-nadie-duerme-bosque-2026-10-13": "object-center",
   // Tall MKNI flyer — keep Costa Norte / DJ SET BY / face in card crops.
   "mkni-after-party-villa-taina-2026-10-24": "object-top",
+  "alex-rene-rancho-catalina-2026-11-08": "object-center",
+  "leos-banana-fiesta-blanca-2026-11-27": "object-center",
+  "cabarete-stand-up-vol-3-2026-11-21": "object-center",
+  "disco-club-pijama-party-2026-11-13": "object-center",
+  "samuel-gonzalez-la-lola-2026-12-05": "object-center",
+  "twenty-disco-gran-noche-tipica-2026-11-08": "object-center",
 };
 
 /**
@@ -1219,6 +1250,18 @@ const EVENT_GALLERY_SLIDES: Record<
       label: "80s–90s Por Siempre flyer",
     },
   ],
+  "cabarete-stand-up-vol-3-2026-11-21": [
+    {
+      file: "cabarete-stand-up-vol-3-2026-11-21-v2.jpg",
+      venueSlug: "hotel-villa-taina",
+      label: "Cream poster — Juan Carlos Pichardo",
+    },
+    {
+      file: "cabarete-stand-up-vol-3-2026-11-21-blue.jpg",
+      venueSlug: "hotel-villa-taina",
+      label: "Blue poster — Juan Carlos Pichardo",
+    },
+  ],
   "voyvoy-social-heartz-2026-11-07": [
     {
       file: "voyvoy-social-heartz-2026-11-07.jpg",
@@ -1321,7 +1364,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "twenty-disco-friday-dj-soky-2026-10-23.jpg",
   "justin-santos-rancho-catalina-2026-10-25.jpg",
   "alejandro-pena-rancho-catalina-2026-11-01.jpg",
-  "cabarete-stand-up-vol-3-2026-11-21.jpg",
+  "cabarete-stand-up-vol-3-2026-11-21-v2.jpg",
+  "cabarete-stand-up-vol-3-2026-11-21-blue.jpg",
   "la-lola-wicked-night-2026-10-31-v2.jpg",
   "playa-riviera-halloween-show-2026-10-31.jpg",
   "el-colibri-halloween-masquerade-2026-10-31.jpg",
@@ -1336,6 +1380,11 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "aleva-color-vibe-la-lola-2026-12-20.jpg",
   "groundzero-viral-sosua-birthday-2026-11-01.jpg",
   "groundzero-viral-sosua-birthday-2026-12-01.jpg",
+  "alex-rene-rancho-catalina-2026-11-08.jpg",
+  "leos-banana-fiesta-blanca-2026-11-27.jpg",
+  "disco-club-pijama-party-2026-11-13.jpg",
+  "samuel-gonzalez-la-lola-2026-12-05.jpg",
+  "twenty-disco-gran-noche-tipica-2026-11-08.jpg",
   "end-blackouts-protest-plaza-independencia-2026-11-05.jpg",
   "the-last-drink-white-party-2026-11-07.jpg",
   "petit-francois-18-anos-2026-11-06.jpg",
@@ -1402,7 +1451,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "cedaky-halloween-party-2026-10-31-v2.jpg",
   "the-last-drink-halloween-private-party-2026-10-31.jpg",
   "dj-monarka-halloween-noche-striper-2026-10-31.jpg",
-  "cabarete-stand-up-vol-3-2026-11-21.jpg",
+  "cabarete-stand-up-vol-3-2026-11-21-v2.jpg",
+  "cabarete-stand-up-vol-3-2026-11-21-blue.jpg",
   "alejandro-pena-rancho-catalina-2026-11-01.jpg",
   "twenty-disco-noche-de-brujas-2026-10-29.jpg",
   "chameleon-el-purgatorio-2026-10-31.jpg",
@@ -1712,7 +1762,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "ambar-lounge-emil-roman-2026-09-26.jpg",
   "finely-mirador-inauguracion-2026-09-25.jpg",
   "cabarete-stand-up-vol-2-2026-10-24.jpg",
-  "cabarete-stand-up-vol-3-2026-11-21.jpg",
+  "cabarete-stand-up-vol-3-2026-11-21-v2.jpg",
+  "cabarete-stand-up-vol-3-2026-11-21-blue.jpg",
   "alejandro-pena-rancho-catalina-2026-11-01.jpg",
   "hard-rock-the-king-mj-2026-09-19.jpg",
   "geek-fest-rd-2026-09-20.jpg",
@@ -1947,12 +1998,16 @@ export function isHomeHeroBackgroundSuitable(
   return HOME_HERO_SCENE_FILES.has(file);
 }
 
-/** Home/list cards default to top crop; curated events reuse hero focal points. */
+/**
+ * List/home card crop. Prefer faces/people over logos and title bands.
+ * Default `object-top` keeps upper-third faces; when the person sits mid/low,
+ * set a % in EVENT_HERO_OBJECT_POSITION (cards treat bare `object-center` as top).
+ */
 export function getEventCardObjectPosition(eventId: string): string {
   const resolvedId = EVENT_IMAGE_ALIASES[eventId] ?? eventId;
   const curated = EVENT_HERO_OBJECT_POSITION[resolvedId];
   // Curated `object-center` is for detail heroes; wide cards still top-bias so
-  // portrait faces are not chopped. Other curated positions (object-top, %) apply.
+  // upper-third portrait faces are not chopped. % / object-top / object-left apply.
   if (!curated || curated === "object-center") {
     return "object-top";
   }

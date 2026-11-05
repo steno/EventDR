@@ -627,6 +627,28 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "cafe-langos-puerto-plata",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "mixed"],
+    axes: { recommend: 4.2, atmosphere: 4.4, practical: 4.0 },
+    themes: [
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "live_music", sentiment: "positive" },
+      { key: "easy_to_find", sentiment: "positive" },
+    ],
+  }),
+  editorial({
+    venueSlug: "leos-banana-bar-sosua",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "nightlife", "mixed"],
+    axes: { recommend: 4.2, atmosphere: 4.5, practical: 4.0 },
+    themes: [
+      { key: "beachfront", sentiment: "positive", audience: "visitor" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "cocktails", sentiment: "positive" },
+    ],
+  }),
+  editorial({
     venueSlug: "ed-salon-de-eventos",
     verdictKey: "reliable_visitor_pick",
     crowdFit: ["visitor", "family", "mixed"],

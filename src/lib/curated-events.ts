@@ -232,9 +232,9 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
   "cabarete-stand-up-vol-3-2026-11-21": {
     isFree: false,
     admissionPrice: "RD$1,200",
-    ticketUrl: "https://www.cabaretestandup.com/",
+    ticketUrl: "https://cabaretestandup.com/",
     venueSlug: "hotel-villa-taina",
-    sourceUrl: "https://www.instagram.com/cabaretestandup/",
+    sourceUrl: "https://cabaretestandup.com/",
   },
   "alejandro-pena-rancho-catalina-2026-11-01": {
     isFree: true,
@@ -1286,6 +1286,37 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
   "frusty-balusti-natura-cabana-2026-11-21": {
     phone: "+18492147010",
     venueSlug: "natura-cabana",
+  },
+  "alex-rene-rancho-catalina-2026-11-08": {
+    isFree: true,
+    phone: "+18097813737",
+    venueSlug: "rancho-catalina-puerto-plata",
+    sourceUrl: "https://www.instagram.com/rancholacatalina/",
+  },
+  "leos-banana-fiesta-blanca-2026-11-27": {
+    isFree: false,
+    admissionPrice: "RD$500",
+    phone: "+18299934071",
+    venueSlug: "leos-banana-bar-sosua",
+    sourceUrl: "https://www.instagram.com/leosbananabarandrestaurant/",
+  },
+  "disco-club-pijama-party-2026-11-13": {
+    callForPricing: true,
+    phone: "+18493164858",
+    venueSlug: "disco-club-brugal",
+    sourceUrl: "https://www.instagram.com/latindiscoclubpp/",
+  },
+  "samuel-gonzalez-la-lola-2026-12-05": {
+    callForPricing: true,
+    phone: "+18495175705",
+    venueSlug: "la-lola-malecon",
+    sourceUrl: "https://www.instagram.com/lalolabeachclub/",
+  },
+  "twenty-disco-gran-noche-tipica-2026-11-08": {
+    callForPricing: true,
+    phone: "+18495077676",
+    venueSlug: "twenty-disco-lounge",
+    sourceUrl: "https://www.instagram.com/twenty_disco_lounge/",
   },
   "novus-flow-dance-noche-latina-weekly": {
     callForPricing: true,

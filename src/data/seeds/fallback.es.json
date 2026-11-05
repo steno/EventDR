@@ -9188,7 +9188,7 @@
   {
     "id": "cabarete-stand-up-vol-3-2026-11-21",
     "title": "Cabarete Stand Up Vol. 3 — Juan Carlos Pichardo",
-    "description": "Cabarete Stand Up Vol. 3 en Hotel Villa Taina, Calle Principal, Cabarete — sábado 21 de noviembre 2026 a las 7:00 PM. Headliner Juan Carlos Pichardo con opener David Melaza y host Laura Nanita. Cover RD$1,200; reserva en cabaretestandup.com. Siguiente noche de comedia en Cabarete después del Vol. 2 — no es una noche Serenade buffet de Villa Taina.",
+    "description": "Cabarete Stand Up Vol. 3 en Hotel Villa Taina, Calle Principal, Cabarete — sábado 21 de noviembre 2026 a las 7:00 PM. Headliner Juan Carlos Pichardo con opener David Melaza y host Laura Nanita. Cover RD$1,200 incluye el show y asiento en mesa (comida y tragos aparte); reserva en cabaretestandup.com. Cartel para público adulto (lenguaje/temas no aptos para niños). Siguiente noche de comedia en Cabarete después del Vol. 2 — no es una noche Serenade buffet de Villa Taina.",
     "date": "2026-11-21",
     "time": "7:00 PM",
     "location": "Cabarete",
@@ -9205,9 +9205,10 @@
     "trending": true,
     "isFree": false,
     "admissionPrice": "RD$1,200",
-    "ticketUrl": "https://www.cabaretestandup.com/",
+    "ticketUrl": "https://cabaretestandup.com/",
     "sourceType": "flyer",
-    "sourceUrl": "https://www.instagram.com/cabaretestandup/",
+    "sourceUrl": "https://cabaretestandup.com/",
+    "ageHint": "18-plus",
     "lineup": [
       "Juan Carlos Pichardo",
       "Opener: David Melaza",
@@ -9996,5 +9997,152 @@
       "Especial Old Parr",
       "Primera hookah gratis"
     ]
+  },
+  {
+    "id": "alex-rene-rancho-catalina-2026-11-08",
+    "title": "Alex René en vivo en Rancho La Catalina",
+    "description": "Música en vivo con Alex René en Rancho La Catalina Restaurant, El Cupey, Puerto Plata — domingo 8 de noviembre 2026 a las 2:30 PM. Sin cover. Cena de rancho con set de tarde — el mismo slot domingo 2:30 de los carteles recientes de Catalina. Reservas +1 809-781-3737 · Instagram @rancholacatalina. No es una noche de club en el centro.",
+    "date": "2026-11-08",
+    "time": "2:30 PM",
+    "location": "Puerto Plata",
+    "venue": "Rancho La Catalina",
+    "venueSlug": "rancho-catalina-puerto-plata",
+    "address": "El Cupey, Puerto Plata",
+    "lat": 19.7371866,
+    "lng": -70.7253286,
+    "category": "music",
+    "categories": [
+      "food-drinks",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18097813737",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/rancholacatalina/",
+    "lineup": [
+      "Alex René"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "leos-banana-fiesta-blanca-2026-11-27",
+    "title": "Leo's Banana — Fiesta Blanca de San Andrés",
+    "description": "Fiesta Blanca de San Andrés en Leo's Banana Bar & Restaurant, Calle Coral, Antiguo Hotel Sosúa Bay (detrás del Casino Reef), El Batey, Sosúa — viernes 27 de noviembre 2026 desde las 7:00 PM con DJ Alfredo Elibo. Cover RD$500 incluye un cóctel del menú; vístete de blanco. Cócteles frente al mar y ambiente de bahía. WhatsApp +1 829-993-4071 · Instagram @leosbananabarandrestaurant. White Party en Bahía de Sosúa — no es la White Party de calle de The Last Drink, ni la White Party rooftop de Mecla'o.",
+    "date": "2026-11-27",
+    "time": "7:00 PM",
+    "location": "Sosúa",
+    "venue": "Leo's Banana Bar & Restaurant",
+    "venueSlug": "leos-banana-bar-sosua",
+    "address": "Calle Coral, Antiguo Hotel Sosúa Bay (detrás del Casino Reef), El Batey, Sosúa",
+    "lat": 19.762218,
+    "lng": -70.517299,
+    "category": "parties",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$500",
+    "phone": "+18299934071",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/leosbananabarandrestaurant/",
+    "lineup": [
+      "DJ Alfredo Elibo",
+      "Vístete de blanco",
+      "Cover incluye 1 cóctel"
+    ],
+    "imageEmoji": "🤍"
+  },
+  {
+    "id": "disco-club-pijama-party-2026-11-13",
+    "title": "Latin Disco Club — Pijama Party",
+    "description": "Pijama Party en Latin Disco Club, Av. Manolo Tavarez Justo frente a los depósitos de Brugal, Puerto Plata — viernes 13 de noviembre 2026 presentado por BSM Entertainment. Mixes de DJ Camilo Taveras, DJ Soky y DJ Yosma; premios a la mejor pijama. Cover no está en el flyer. Reservas +1 849-316-4858 · Instagram @latindiscoclubpp. Noche de club junto a Brugal — no es La Lola en el Malecón, ni Twenty Disco en Playa Dorada Mall.",
+    "date": "2026-11-13",
+    "location": "Puerto Plata",
+    "venue": "Latin Disco Club",
+    "venueSlug": "disco-club-brugal",
+    "address": "Av. Manolo Tavarez Justo, frente a los depósitos de Brugal, Puerto Plata",
+    "lat": 19.7792778,
+    "lng": -70.6690061,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18493164858",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/latindiscoclubpp/",
+    "lineup": [
+      "DJ Camilo Taveras",
+      "DJ Soky",
+      "DJ Yosma",
+      "Premios a la mejor pijama"
+    ],
+    "imageEmoji": "🛏️"
+  },
+  {
+    "id": "samuel-gonzalez-la-lola-2026-12-05",
+    "title": "La Lola — Samuel González en vivo",
+    "description": "Música en vivo con Samuel González en La Lola Beach Club, Avenida Gregorio Luperón (Malecón), Puerto Plata — sábado 5 de diciembre 2026 desde las 7:30 PM. Set en el Malecón frente al mar; RSVP +1 849-517-5705 · Instagram @lalolabeachclub / @samuelgonzalezmusic. Live del sábado por la noche — no es el cartel de tarde del domingo de Rose Mateo, ni Aleva Color Vibe el 20 dic.",
+    "date": "2026-12-05",
+    "time": "7:30 PM",
+    "location": "Puerto Plata",
+    "venue": "La Lola Beach Club",
+    "venueSlug": "la-lola-malecon",
+    "address": "Avenida Gregorio Luperón (Malecón), Puerto Plata",
+    "lat": 19.789103,
+    "lng": -70.669808,
+    "category": "music",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18495175705",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/lalolabeachclub/",
+    "lineup": [
+      "Samuel González",
+      "Música en vivo desde las 7:30 PM"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "twenty-disco-gran-noche-tipica-2026-11-08",
+    "title": "Twenty Disco — Gran Noche Típica · Caballitos",
+    "description": "Gran Noche Típica con El Caballito de Mao y El Caballito Jr en Twenty Disco & Lounge, Playa Dorada Mall, Puerto Plata — domingo 8 de noviembre 2026 a las 8:00 PM. Noche de merengue típico / acordeón en el mall; Twenty también anuncia los domingos como noches de típico. Cover no está en el flyer. Reservas +1 849-507-7676 · Instagram @twenty_disco_lounge. No es el cartel Caballitos del 1 nov (9 PM), ni Caballitos en Vinoteca o Grand Prix.",
+    "date": "2026-11-08",
+    "time": "8:00 PM",
+    "location": "Playa Dorada",
+    "venue": "Twenty Disco Lounge",
+    "venueSlug": "twenty-disco-lounge",
+    "address": "Playa Dorada Mall, Puerto Plata",
+    "lat": 19.769476,
+    "lng": -70.643033,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18495077676",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/twenty_disco_lounge/",
+    "instagram": "twenty_disco_lounge",
+    "lineup": [
+      "El Caballito de Mao",
+      "El Caballito Jr"
+    ],
+    "imageEmoji": "🪗"
   }
 ]

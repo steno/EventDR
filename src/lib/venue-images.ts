@@ -40,7 +40,10 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "voyvoy-cabarete": "voyvoy-cabarete-bar.jpg",
   "gypsy-bowls-cabarete": "gypsy-bowls-cabarete-exterior.jpg",
   "drifter-cabarete": "drifter-cabarete-sunset.jpg",
-  "novus-beach-restaurant-cabarete": "novus-beach-restaurant-cabarete.jpg",
+  "novus-beach-restaurant-cabarete":
+    "novus-beach-restaurant-cabarete-v2.jpg",
+  "cafe-langos-puerto-plata": "cafe-langos-puerto-plata.jpg",
+  "leos-banana-bar-sosua": "leos-banana-bar-sosua.jpg",
   "aura-beach-club-cabarete": "aura-beach-club-cabarete-entrance.jpg",
   // Filename bump after replacing a generic Restaurant Guru table shot.
   "la-casita-de-papi": "la-casita-de-papi-awning.jpg",

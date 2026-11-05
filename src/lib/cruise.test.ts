@@ -116,16 +116,18 @@ describe("typicalCruiseCallsForWeekday", () => {
 });
 
 describe("dated October 2026 MITUR schedule", () => {
-  it("loads 39 official calls (18 Amber / 21 Taino)", () => {
-    assert.equal(DATED_CRUISE_CALLS.length, 38);
-    assert.equal(
-      DATED_CRUISE_CALLS.filter((c) => c.port === "amber-cove").length,
-      18,
-    );
-    assert.equal(
-      DATED_CRUISE_CALLS.filter((c) => c.port === "taino-bay").length,
-      20,
-    );
+  it("loads 38 official Oct calls (18 Amber / 20 Taino)", () => {
+    const oct = DATED_CRUISE_CALLS.filter((c) => c.date.startsWith("2026-10"));
+    assert.equal(oct.length, 38);
+    assert.equal(oct.filter((c) => c.port === "amber-cove").length, 18);
+    assert.equal(oct.filter((c) => c.port === "taino-bay").length, 20);
+  });
+
+  it("loads 60 official Nov calls (26 Amber / 34 Taino)", () => {
+    const nov = DATED_CRUISE_CALLS.filter((c) => c.date.startsWith("2026-11"));
+    assert.equal(nov.length, 60);
+    assert.equal(nov.filter((c) => c.port === "amber-cove").length, 26);
+    assert.equal(nov.filter((c) => c.port === "taino-bay").length, 34);
   });
 
   it("uses MITUR ships for today instead of weekday guesses", () => {

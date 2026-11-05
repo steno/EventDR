@@ -619,6 +619,32 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18095710646",
   },
   {
+    slug: "cafe-langos-puerto-plata",
+    name: "Café Lángos",
+    city: "Puerto Plata",
+    description:
+      "Hungarian restaurant and jazz bar on Av. Gregorio Luperón near the Malecón — Central European plates, lángos, and live jazz nights under the blue Restaurant / Jazz Bar awning with the Hungarian flag out front. Pin Café Lángos on Luperón by the waterfront strip, not a downtown café on Beller or Separación.",
+    // Maps / place pin — Av. Luperón near Malecón.
+    lat: 19.798296,
+    lng: -70.688756,
+    emoji: "🇭🇺",
+    website: "https://www.google.com/maps/search/?api=1&query=19.798296,-70.688756",
+  },
+  {
+    slug: "leos-banana-bar-sosua",
+    name: "Leo's Banana Bar & Restaurant",
+    city: "Sosúa",
+    description:
+      "Oceanfront bar and restaurant on Calle Coral at the former Hotel Sosúa Bay (behind Casino Reef), El Batey — cocktails, dining, and bay views over Sosúa Beach. WhatsApp +1 829-993-4071 · Instagram @leosbananabarandrestaurant. Pin Leo's on Calle Coral / Sosúa Bay, not Hard Rock on Duarte or the Casino Reef floor itself.",
+    // Maps / place pin — Calle Coral / Sosúa Bay (Antiguo Hotel Sosúa Bay).
+    lat: 19.762218,
+    lng: -70.517299,
+    emoji: "🍌",
+    instagram: "leosbananabarandrestaurant",
+    website: "https://www.instagram.com/leosbananabarandrestaurant/",
+    phone: "+18299934071",
+  },
+  {
     slug: "ed-salon-de-eventos",
     name: "ED Salón de Eventos",
     city: "Puerto Plata",
@@ -2767,6 +2793,14 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /novus(\s*beach)?(\s*restaurant)?/i,
     slug: "novus-beach-restaurant-cabarete",
+  },
+  {
+    pattern: /caf[eé]\s*l[aá]ngos|langos(\s*(jazz|restaurant))?/i,
+    slug: "cafe-langos-puerto-plata",
+  },
+  {
+    pattern: /leo'?s?\s*banana|leosbananabar/i,
+    slug: "leos-banana-bar-sosua",
   },
   {
     pattern:

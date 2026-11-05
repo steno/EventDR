@@ -433,6 +433,22 @@ export const VENUE_TIP_COPY: Record<
       fr: "Restaurant sur Cabarete Beach qui bascule en disco-bar tardif après 23 h — appelez +1 809-571-0646 pour une table côté sable, et n’épinglez pas VOYVOY ni Drifter quelques portes plus loin sur la baie par erreur.",
     },
   },
+  "cafe-langos-puerto-plata": {
+    body: "Hungarian plates and jazz on Av. Luperón by the Malecón — look for the blue Restaurant / Jazz Bar awning and the Hungarian flag; don’t Uber to a Beller café by mistake.",
+    localized: {
+      en: "Hungarian plates and jazz on Av. Luperón by the Malecón — look for the blue Restaurant / Jazz Bar awning and the Hungarian flag; don’t Uber to a Beller café by mistake.",
+      es: "Platos húngaros y jazz en Av. Luperón junto al Malecón — busca el toldo azul Restaurant / Jazz Bar y la bandera húngara; no pidas Uber a un café de Beller por error.",
+      fr: "Assiettes hongroises et jazz sur Av. Luperón près du Malecón — cherchez l’auvent bleu Restaurant / Jazz Bar et le drapeau hongrois ; ne prenez pas un Uber vers un café de Beller par erreur.",
+    },
+  },
+  "leos-banana-bar-sosua": {
+    body: "Oceanfront cocktails on Calle Coral behind Casino Reef (old Hotel Sosúa Bay) — WhatsApp +1 829-993-4071 for a bay table, and don’t pin Hard Rock on Duarte by mistake.",
+    localized: {
+      en: "Oceanfront cocktails on Calle Coral behind Casino Reef (old Hotel Sosúa Bay) — WhatsApp +1 829-993-4071 for a bay table, and don’t pin Hard Rock on Duarte by mistake.",
+      es: "Cócteles frente al mar en Calle Coral detrás del Casino Reef (antiguo Hotel Sosúa Bay) — WhatsApp +1 829-993-4071 para mesa con vista a la bahía, y no clavés Hard Rock en Duarte por error.",
+      fr: "Cocktails océanfront sur Calle Coral derrière Casino Reef (ancien Hôtel Sosúa Bay) — WhatsApp +1 829-993-4071 pour une table vue baie, et n’épinglez pas Hard Rock sur Duarte par erreur.",
+    },
+  },
   "ed-salon-de-eventos": {
     body: "Indoor event hall on Andrés Brugal in Ensanche Luperón — call +1 809-708-0960 to book or confirm a billed night; don’t Uber to the Polideportivo by mistake.",
     localized: {
