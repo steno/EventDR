@@ -97,6 +97,8 @@ export type Dictionary = {
     nearMe: string;
     nearMeOn: string;
     sortedUpcoming: string;
+    /** All-tab section after dated nights — weekly / daily series. */
+    weeklyAndDaily: string;
     ourPicks: string;
     happeningToday: string;
     seeAllToday: string;
@@ -830,6 +832,7 @@ export const en: Dictionary = {
     nearMe: "Near me",
     nearMeOn: "Sorted by distance",
     sortedUpcoming: "Live & soonest first",
+    weeklyAndDaily: "Weekly & daily",
     ourPicks: "Our picks",
     happeningToday: "Happening today",
     seeAllToday: "See all today",

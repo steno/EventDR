@@ -30,7 +30,11 @@ import {
   scrollCategoryNavIntoView,
 } from "@/lib/list-scroll";
 import { clusterRecurringVenueEvents } from "@/lib/venue-recurring-siblings";
-import { eventsInWeekendOrder, weekendHeadingDate } from "@/lib/list-day-groups";
+import {
+  eventsInAllBrowseOrder,
+  eventsInWeekendOrder,
+  weekendHeadingDate,
+} from "@/lib/list-day-groups";
 import { formatEventDate } from "@/lib/format-date";
 import { useCardGridColumns } from "@/hooks/useCardGridColumns";
 import { StickyListFilters, ListScrollAnchor } from "@/components/StickyListFilters";
@@ -375,9 +379,9 @@ export function FilteredEventList({
     const clustered = clusterVenueRecurring
       ? clusterRecurringVenueEvents(filtered, locale, dict)
       : filtered;
-    return activeRange === "weekend"
-      ? eventsInWeekendOrder(clustered)
-      : clustered;
+    if (activeRange === "weekend") return eventsInWeekendOrder(clustered);
+    if (activeRange === "all") return eventsInAllBrowseOrder(clustered);
+    return clustered;
   }, [filtered, clusterVenueRecurring, locale, dict, activeRange]);
 
   const showPadCta = addEventCta === "pad";
@@ -397,17 +401,34 @@ export function FilteredEventList({
    * can sit on a complete row. The add-event teaser only appears once the
    * full list is already on screen.
    */
-  const weekendCardSpans = useMemo(() => {
-    if (activeRange !== "weekend" || view !== "cards") return null;
+  const dayGroupCardSpans = useMemo(() => {
+    if (view !== "cards") return null;
+    if (activeRange !== "weekend" && activeRange !== "all") return null;
     const listed = Number.isFinite(eventCap)
       ? displayEvents.slice(0, eventCap)
       : displayEvents;
     const dayLengths: number[] = [];
     let i = 0;
     while (i < listed.length) {
-      const day = weekendHeadingDate(listed[i]);
+      const event = listed[i];
+      // All-tab recurring block is one undated section — don't day-split it.
+      if (activeRange === "all" && event.recurrence) {
+        dayLengths.push(listed.length - i);
+        break;
+      }
+      const day =
+        activeRange === "weekend"
+          ? weekendHeadingDate(event)
+          : event.date;
       let j = i + 1;
-      while (j < listed.length && weekendHeadingDate(listed[j]) === day) {
+      while (j < listed.length) {
+        const next = listed[j];
+        if (activeRange === "all" && next.recurrence) break;
+        const nextDay =
+          activeRange === "weekend"
+            ? weekendHeadingDate(next)
+            : next.date;
+        if (nextDay !== day) break;
         j++;
       }
       dayLengths.push(j - i);
@@ -415,16 +436,21 @@ export function FilteredEventList({
     }
     return {
       spans: cardGridDayGroupSpans(dayLengths, columns),
-      pads: cardGridDayGroupPadSpans(dayLengths, columns),
+      // Weekend only: desktop day holes get “Your event here” pads. All has
+      // many days — pads every night would spam the CTA.
+      pads:
+        activeRange === "weekend"
+          ? cardGridDayGroupPadSpans(dayLengths, columns)
+          : new Map<number, number>(),
     };
   }, [activeRange, view, displayEvents, eventCap, columns]);
 
   const lastVisibleHadWeekendPad =
     Boolean(onAddEvent) &&
     addEventCta === "pad" &&
-    weekendCardSpans != null &&
+    dayGroupCardSpans != null &&
     visibleEvents.length > 0 &&
-    weekendCardSpans.pads.has(visibleEvents.length - 1);
+    dayGroupCardSpans.pads.has(visibleEvents.length - 1);
 
   const showEndTeaser =
     Boolean(onAddEvent) &&
@@ -436,12 +462,12 @@ export function FilteredEventList({
     showEndTeaser ? visibleEvents.length : displayEvents.length,
     columns,
   );
-  // Weekend day headers restart each row. Mobile stretches last-of-day event
-  // cards; desktop fills empties with “Your event here” pads. End teaser
-  // (when the last day is already full) starts a fresh row.
+  // Day headers (Weekend / All) restart each row. Mobile stretches last-of-day
+  // event cards; Weekend desktop fills empties with “Your event here” pads.
+  // End teaser (when the last day is already full) starts a fresh row.
   const fillSpan =
     view === "cards"
-      ? activeRange === "weekend"
+      ? activeRange === "weekend" || activeRange === "all"
         ? "full"
         : leftover || "full"
       : undefined;
@@ -645,22 +671,41 @@ export function FilteredEventList({
               className={view === "cards" ? CARD_GRID_CLASS : "space-y-2.5"}
             >
               {visibleEvents.map((event, index) => {
-                const headingDate =
-                  activeRange === "weekend" ? weekendHeadingDate(event) : event.date;
                 const previous = visibleEvents[index - 1];
-                const previousHeading =
-                  previous && activeRange === "weekend"
-                    ? weekendHeadingDate(previous)
-                    : previous?.date;
-                const showDay =
-                  activeRange === "weekend" && headingDate !== previousHeading;
-                const weekendPadSpan = weekendCardSpans?.pads.get(index);
+                const showWeekendDay =
+                  activeRange === "weekend" &&
+                  weekendHeadingDate(event) !==
+                    (previous ? weekendHeadingDate(previous) : undefined);
+                const showAllDay =
+                  activeRange === "all" &&
+                  !event.recurrence &&
+                  event.date !==
+                    (previous && !previous.recurrence
+                      ? previous.date
+                      : undefined);
+                const showWeeklyDaily =
+                  activeRange === "all" &&
+                  Boolean(event.recurrence) &&
+                  !previous?.recurrence;
+                const showDay = showWeekendDay || showAllDay;
+                const dayHeadingDate =
+                  activeRange === "weekend"
+                    ? weekendHeadingDate(event)
+                    : event.date;
+                const weekendPadSpan = dayGroupCardSpans?.pads.get(index);
                 return (
                   <Fragment key={event.id}>
                     {showDay ? (
                       <h2 className="col-span-full pt-2">
                         <span className={`inline-block font-sans ${DAY_GROUP_TITLE_CLASS}`}>
-                          {formatEventDate(headingDate, locale)}
+                          {formatEventDate(dayHeadingDate, locale)}
+                        </span>
+                      </h2>
+                    ) : null}
+                    {showWeeklyDaily ? (
+                      <h2 className="col-span-full pt-2">
+                        <span className={`inline-block font-sans ${DAY_GROUP_TITLE_CLASS}`}>
+                          {dict.events.weeklyAndDaily}
                         </span>
                       </h2>
                     ) : null}
@@ -677,8 +722,8 @@ export function FilteredEventList({
                       onNavigate={() => setPendingId(event.id)}
                       showEnlarge={!categoryId}
                       fillSpan={
-                        weekendCardSpans && weekendCardSpans.spans[index] > 1
-                          ? weekendCardSpans.spans[index]
+                        dayGroupCardSpans && dayGroupCardSpans.spans[index] > 1
+                          ? dayGroupCardSpans.spans[index]
                           : undefined
                       }
                     />

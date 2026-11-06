@@ -15,6 +15,23 @@ export function eventsInCalendarOrder<T extends { date: string }>(
     .flatMap((date) => buckets.get(date) ?? []);
 }
 
+/**
+ * All-tab browse: dated one-offs in calendar day order, then weekly/daily
+ * series. Preserves relative order within each day and within the recurring
+ * block so status sort (live → soon → later) still applies inside a day.
+ */
+export function eventsInAllBrowseOrder<
+  T extends { date: string; recurrence?: string },
+>(events: T[]): T[] {
+  const dated: T[] = [];
+  const recurring: T[] = [];
+  for (const event of events) {
+    if (event.recurrence) recurring.push(event);
+    else dated.push(event);
+  }
+  return [...eventsInCalendarOrder(dated), ...recurring];
+}
+
 /** Day heading for a weekend row. Long-running events use Friday, not their start date. */
 export function weekendHeadingDate(
   event: { date: string },

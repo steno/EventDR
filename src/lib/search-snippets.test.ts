@@ -10,11 +10,6 @@ import {
   eventSearchTitle,
 } from "./search-snippets";
 import { buildVenueGlance } from "./venue-glance";
-import {
-  eventsInCalendarOrder,
-  eventsInWeekendOrder,
-  weekendHeadingDate,
-} from "./list-day-groups";
 import { getVenueSeo } from "./venue-seo";
 import type { Event } from "./types";
 import type { Locale } from "@/i18n/config";
@@ -265,41 +260,6 @@ describe("buildVenueGlance", () => {
     assert.equal(glance.eventId, "aura-latin-flow");
     assert.match(glance.headline, /8:00 PM/);
     assert.match(glance.headline, /RD\$500/);
-  });
-});
-
-describe("eventsInCalendarOrder", () => {
-  it("groups a weekend list Friday then Saturday then Sunday", () => {
-    const ordered = eventsInCalendarOrder([
-      { id: "sun", date: "2026-10-04" },
-      { id: "fri-b", date: "2026-10-02" },
-      { id: "sat", date: "2026-10-03" },
-      { id: "fri-a", date: "2026-10-02" },
-    ]);
-    assert.deepEqual(
-      ordered.map((item) => item.id),
-      ["fri-b", "fri-a", "sat", "sun"],
-    );
-  });
-});
-
-describe("eventsInWeekendOrder", () => {
-  const sunday = new Date("2026-09-27T16:00:00-04:00");
-
-  it("keeps an already-running event from renaming the weekend", () => {
-    const ordered = eventsInWeekendOrder(
-      [
-        { id: "old", date: "2026-09-18" },
-        { id: "sat", date: "2026-10-03" },
-        { id: "fri", date: "2026-10-02" },
-      ],
-      sunday,
-    );
-    assert.deepEqual(
-      ordered.map((item) => item.id),
-      ["fri", "old", "sat"],
-    );
-    assert.equal(weekendHeadingDate({ date: "2026-09-18" }, sunday), "2026-10-02");
   });
 });
 

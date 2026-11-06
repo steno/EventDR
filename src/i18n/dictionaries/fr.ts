@@ -115,6 +115,7 @@ export const fr: Dictionary = {
     nearMe: "Près de moi",
     nearMeOn: "Trié par distance",
     sortedUpcoming: "En direct et bientôt d'abord",
+    weeklyAndDaily: "Hebdo et quotidien",
     ourPicks: "Nos sélections",
     happeningToday: "Aujourd'hui",
     seeAllToday: "Tout voir aujourd'hui",
