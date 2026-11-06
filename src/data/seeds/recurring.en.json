@@ -2487,6 +2487,36 @@
     "imageEmoji": "💃"
   },
   {
+    "id": "el-colibri-fiesta-latina-fridays",
+    "title": "Fiesta Latina Fridays — El Colibri",
+    "description": "Every Friday starting 6 November 2026 — Fiesta Latina at El Colibri Hotel, Sosúa with DJ Blue. Latin dance classes for beginners, 2-for-1 drinks 9:00 PM–12:00 AM, and 50% off Margherita and one-topping pizzas. RSVP WhatsApp +1 917-523-7259. Friday Latin night — not Atrévete Saturdays Ladies Night the next evening at the same hotel.",
+    "date": "2026-11-06",
+    "time": "9:00 PM – 12:00 AM",
+    "location": "Sosúa",
+    "venue": "El Colibri Hotel",
+    "venueSlug": "el-colibri-hotel",
+    "address": "141 Pedro Clisante, Sosúa 57600",
+    "lat": 19.7709496,
+    "lng": -70.5081792,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 5,
+    "trending": true,
+    "isFree": true,
+    "phone": "+18099709433",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.elcolibriresort.com/",
+    "lineup": [
+      "DJ Blue"
+    ],
+    "imageEmoji": "💃"
+  },
+  {
     "id": "serenade-dominican-night-villa-taina-weekly",
     "title": "Serenade Dominican Night at Villa Taina",
     "description": "Every Monday 7:00–9:30 PM at Serenade on the sand, Hotel Villa Taina, Calle Principal 1, Cabarete — all-you-can-eat Dominican buffet with live Latin music. Adults RD$952; kids under 12 half price; taxes and service not included. À la carte menu available if you skip the buffet. Reserve +1 809-571-0722 · @hotelvillataina.",
@@ -3378,6 +3408,36 @@
       "Flow Dance"
     ],
     "imageEmoji": "🇩🇴"
+  },
+  {
+    "id": "voyvoy-social-friday-flow-dance-weekly",
+    "title": "VOYVOY — Social Friday by Flow Dance",
+    "description": "Every Friday from 9:00 PM at VOYVOY Cabarete — Social Friday hosted by Flow Dance on Cabarete Beach. Social dance energy on the bay; confirm cover via Instagram @voyvoybar or +1 809-571-0805. Weekly Friday bay social — not Flow Dance Dominican Night on Tuesdays at the same bar, not Tiki Bar Flowdance Fridays up the strip, and not El Colibri Fiesta Latina in Sosúa.",
+    "date": "2026-11-06",
+    "time": "9:00 PM",
+    "location": "Cabarete",
+    "venue": "VOYVOY Cabarete",
+    "venueSlug": "voyvoy-cabarete",
+    "lat": 19.7502161,
+    "lng": -70.4066784,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 5,
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18095710805",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/voyvoybar/",
+    "instagram": "voyvoybar",
+    "lineup": [
+      "Flow Dance"
+    ],
+    "imageEmoji": "💃"
   },
   {
     "id": "aruma-jueves-karaoke",

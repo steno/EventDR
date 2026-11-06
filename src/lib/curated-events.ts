@@ -1115,6 +1115,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "voyvoy-cabarete",
     sourceUrl: "https://www.instagram.com/voyvoybar/",
   },
+  "voyvoy-social-friday-flow-dance-weekly": {
+    callForPricing: true,
+    phone: "+18095710805",
+    venueSlug: "voyvoy-cabarete",
+    sourceUrl: "https://www.instagram.com/voyvoybar/",
+  },
   "camara-taller-educacion-financiera-2026-10-27": {
     callForPricing: true,
     phone: "+18095862390",
@@ -1506,6 +1512,41 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     isFree: true,
     phone: "+18098042510",
     venueSlug: "parada-tipica-el-choco",
+  },
+  "parada-choco-banditalia-2026-11-10": {
+    isFree: true,
+    phone: "+18098042510",
+    venueSlug: "parada-tipica-el-choco",
+  },
+  "chiche-almonte-grand-prix-2026-11-06": {
+    callForPricing: true,
+    venueSlug: "grand-prix-puerto-plata",
+  },
+  "meclao-tinder-party-2026-11-07": {
+    callForPricing: true,
+    phone: "+18293747028",
+    venueSlug: "meclao-rooftop",
+  },
+  "pregame-roof-rooftop-pong-2026-11-08": {
+    callForPricing: true,
+    phone: "+18097818677",
+    venueSlug: "pregame-roof-puerto-plata",
+  },
+  "art-of-scent-petit-francois-2026-11-22": {
+    isFree: false,
+    admissionPrice: "US$50",
+    phone: "+18294922910",
+    venueSlug: "le-petit-francois",
+  },
+  "rumble-in-paradise-14-2027-02-12": {
+    callForPricing: true,
+    phone: "+18298172884",
+    venueSlug: "bar-39-sosua",
+  },
+  "el-colibri-fiesta-latina-fridays": {
+    isFree: true,
+    phone: "+18099709433",
+    venueSlug: "el-colibri-hotel",
   },
   "ivan-garcia-cafe-opera-codigo-clown-2026-10-31": {
     callForPricing: true,

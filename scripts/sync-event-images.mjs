@@ -438,6 +438,20 @@ const FILE_TO_EVENT_ID = {
     "twenty-disco-sabado-pa-tarima-2026-11-07",
   "sea-horse-holiday-night-market-2026-12-12.jpg":
     "sea-horse-holiday-night-market-2026-12-12",
+  "voyvoy-social-friday-flow-dance-weekly.jpg":
+    "voyvoy-social-friday-flow-dance-weekly",
+  "chiche-almonte-grand-prix-2026-11-06.jpg":
+    "chiche-almonte-grand-prix-2026-11-06",
+  "meclao-tinder-party-2026-11-07.jpg": "meclao-tinder-party-2026-11-07",
+  "pregame-roof-rooftop-pong-2026-11-08.jpg":
+    "pregame-roof-rooftop-pong-2026-11-08",
+  "parada-choco-banditalia-2026-11-10.jpg":
+    "parada-choco-banditalia-2026-11-10",
+  "art-of-scent-petit-francois-2026-11-22.jpg":
+    "art-of-scent-petit-francois-2026-11-22",
+  "rumble-in-paradise-14-2027-02-12.jpg":
+    "rumble-in-paradise-14-2027-02-12",
+  "el-colibri-fiesta-latina-fridays.jpg": "el-colibri-fiesta-latina-fridays",
   "end-blackouts-protest-plaza-independencia-2026-11-05-v2.jpg":
     "end-blackouts-protest-plaza-independencia-2026-11-05",
   "the-last-drink-white-party-2026-11-07.jpg":

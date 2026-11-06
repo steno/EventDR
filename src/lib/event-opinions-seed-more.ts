@@ -8570,4 +8570,152 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer — Sat 12 Dec 2026 6–9 PM; Sea Horse Ranch Rt 5 Km 2.5; gifts food live music; Tel 809-571-3880.",
     updatedAt: "2026-11-06T03:00:00.000Z",
   },
+  {
+    eventId: "voyvoy-social-friday-flow-dance-weekly",
+    seriesKey: "voyvoy-cabarete:weekly:5",
+    body: "Friday 9 PM Flow Dance social on VOYVOY’s bay — confirm cover on @voyvoybar; not Tuesday Dominican Night at the same bar, and not Tiki Flowdance or El Colibri Fiesta Latina the same night.",
+    localized: {
+      es: "Viernes 9 PM social de Flow Dance en la bahía de VOYVOY — confirma cover en @voyvoybar; no es Dominican Night de martes en el mismo bar, ni Flowdance de Tiki ni Fiesta Latina de El Colibri la misma noche.",
+      fr: "Vendredi 21 h social Flow Dance sur la baie du VOYVOY — confirmez le cover sur @voyvoybar ; pas Dominican Night du mardi au même bar, ni Flowdance du Tiki ni Fiesta Latina d’El Colibri le même soir.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — @voyvoybar / +1 809-571-0805",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — @voyvoybar / +1 809-571-0805",
+      fr: "Cover à confirmer — @voyvoybar / +1 809-571-0805",
+    },
+    attribution: "POP research · @voyvoybar Social Friday Flow Dance flyer",
+    researchNotes:
+      "Editor flyer — Social Friday @ VoyVoy; Hosted by Flow Dance; Hoy toca BAILAR; Special Edition Nov 06th Long Weekend; Friday 9:00 PM; user confirmed recurring weekly Fridays.",
+    updatedAt: "2026-11-06T19:45:00.000Z",
+  },
+  {
+    eventId: "chiche-almonte-grand-prix-2026-11-06",
+    body: "Friday accordion with Chiche Almonte at Grand Prix in La Javilla — same Manolo Tavarez / Bomba pin as Lizandro and Goldito nights; cover isn’t on the flyer, so check @grandprixrd before you roll up, and don’t confuse it with El Colibri’s new Fiesta Latina in Sosúa the same night.",
+    localized: {
+      es: "Viernes de acordeón con Chiche Almonte en Grand Prix en La Javilla — el mismo pin Manolo Tavarez / Bomba que Lizandro y Goldito; el cover no viene en el flyer, chequea @grandprixrd antes de llegar, y no lo mezcles con la nueva Fiesta Latina de El Colibri en Sosúa la misma noche.",
+      fr: "Vendredi accordéon avec Chiche Almonte au Grand Prix à La Javilla — même pin Manolo Tavarez / Bomba que Lizandro et Goldito ; le cover n’est pas sur l’affiche, vérifiez @grandprixrd avant d’y aller, et ne confondez pas avec la nouvelle Fiesta Latina d’El Colibri à Sosúa le même soir.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — @grandprixrd",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — @grandprixrd",
+      fr: "Cover à confirmer — @grandprixrd",
+    },
+    attribution: "POP research · @grandprixrd Chiche Almonte flyer",
+    researchNotes:
+      "Editor flyer — VIERNES 06 NOV; CHICHE ALMONTE; Grand Prix Smart Shop; LA JAVILLA. No start time or cover on art.",
+    updatedAt: "2026-11-06T19:00:00.000Z",
+  },
+  {
+    eventId: "meclao-tinder-party-2026-11-07",
+    body: "Saturday status-color dress code on Luis Ginebra with Sebastian Crozz — red/yellow/blue hearts are the hook; reserve 829-374-7028, and don’t mix it with Pregame Roof pong Sunday or Twenty’s mall stage the same night.",
+    localized: {
+      es: "Sábado con dress code de status en Luis Ginebra con Sebastian Crozz — corazones rojo/amarillo/azul son el gancho; reserva 829-374-7028, y no lo mezcles con el pong de Pregame Roof el domingo ni la tarima de Twenty en el mall la misma noche.",
+      fr: "Samedi dress code statut sur Luis Ginebra avec Sebastian Crozz — cœurs rouge/jaune/bleu sont l’accroche ; réservez 829-374-7028, et ne confondez pas avec le pong Pregame Roof dimanche ni la scène mall de Twenty le même soir.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — reserve 829-374-7028 / @meclaorooftop",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — reserva 829-374-7028 / @meclaorooftop",
+      fr: "Cover à confirmer — réservez 829-374-7028 / @meclaorooftop",
+    },
+    attribution: "POP research · @meclaorooftop Tinder Party flyer",
+    researchNotes:
+      "Editor flyer + IG caption — 07 NOV SAB; TINDER PARTY; SEBASTIAN CROZZ; Meclao Rooftop; Luis Ginebra No. 49; 829-374-7028; Brugal; Soltero/Complicado/Vine a gozar colors.",
+    updatedAt: "2026-11-06T18:30:00.000Z",
+  },
+  {
+    eventId: "pregame-roof-rooftop-pong-2026-11-08",
+    body: "Sunday beer-pong on the third-level deck above Ámbar with Rafa Hernandez — RSVP (809) 781-8677; not Bandoleras downstairs and not Mecla’o’s Tinder Party the night before at No. 49.",
+    localized: {
+      es: "Beer pong del domingo en la terraza del tercer nivel sobre Ámbar con Rafa Hernandez — RSVP (809) 781-8677; no es Bandoleras abajo ni el Tinder Party de Mecla’o la noche anterior en el No. 49.",
+      fr: "Beer pong du dimanche sur la terrasse 3e niveau au-dessus d’Ámbar avec Rafa Hernandez — RSVP (809) 781-8677 ; pas Bandoleras en bas ni le Tinder Party Mecla’o la veille au n° 49.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — RSVP (809) 781-8677 / @pregameroof",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — RSVP (809) 781-8677 / @pregameroof",
+      fr: "Cover à confirmer — RSVP (809) 781-8677 / @pregameroof",
+    },
+    attribution: "POP research · @pregameroof Rooftop Pong flyer",
+    researchNotes:
+      "Editor flyer + IG — DOMINGO 08 NOV; ROOFTOP PONG; RAFA HERNANDEZ; Av Luis Ginebra 45 2do/3er nivel; (809) 781-8677; Ambar + Pregame Roof logos.",
+    updatedAt: "2026-11-06T18:30:00.000Z",
+  },
+  {
+    eventId: "parada-choco-banditalia-2026-11-10",
+    body: "Tuesday 5–7 PM BandItalia aperitivo with free finger food at Parada El Choco on the Sosúa–Cabarete corridor — RSVP +1 809-804-2510; not Los Frescos on 3 Nov or the Thanksgiving dinner on 26 Nov.",
+    localized: {
+      es: "Aperitivo martes 5–7 PM con BandItalia y finger food gratis en Parada El Choco en el corredor Sosúa–Cabarete — RSVP +1 809-804-2510; no es Los Frescos del 3 nov ni la cena de Thanksgiving del 26 nov.",
+      fr: "Apéritivo mardi 17 h–19 h avec BandItalia et finger food offert à Parada El Choco sur le corridor Sosúa–Cabarete — RSVP +1 809-804-2510 ; pas Los Frescos du 3 nov. ni le dîner Thanksgiving du 26 nov.",
+    },
+    priceFeel: "free",
+    priceNote:
+      "Free finger food — RSVP +1 809-804-2510 · @paradaelchoco",
+    priceNoteLocalized: {
+      es: "Finger food gratis — RSVP +1 809-804-2510 · @paradaelchoco",
+      fr: "Finger food offert — RSVP +1 809-804-2510 · @paradaelchoco",
+    },
+    attribution: "POP research · @paradaelchoco BandItalia aperitivo flyer",
+    researchNotes:
+      "Editor flyer refresh — BandItalia INTERNATIONAL APERITIVO; Tuesday November 10; 5-7 PM; free finger food; Plaza Buen Gusto; +1 809 804 2510; cleaner brand art supplied.",
+    updatedAt: "2026-11-06T18:30:00.000Z",
+  },
+  {
+    eventId: "art-of-scent-petit-francois-2026-11-22",
+    body: "Sunday candle workshop + brunch + live sax at Le Petit François with Sapphire Events / Viva Botanicals — US$50 p/p via flyer QR; beach-bar daytime craft, not Friday karaoke at the same spot.",
+    localized: {
+      es: "Taller de velas + brunch + sax en vivo el domingo en Le Petit François con Sapphire Events / Viva Botanicals — US$50 p/p por QR del flyer; craft diurno en beach bar, no el karaoke de viernes en el mismo local.",
+      fr: "Atelier bougies + brunch + saxo live le dimanche au Le Petit François avec Sapphire Events / Viva Botanicals — US$50 p/p via QR du flyer ; craft de jour beach bar, pas le karaoke du vendredi au même endroit.",
+    },
+    priceFeel: "moderate",
+    priceNote: "US$50 p/p — flyer QR / @lepetitfrancois.rd · +1 829-492-2910",
+    priceNoteLocalized: {
+      es: "US$50 p/p — QR del flyer / @lepetitfrancois.rd · +1 829-492-2910",
+      fr: "US$50 p/p — QR du flyer / @lepetitfrancois.rd · +1 829-492-2910",
+    },
+    attribution:
+      "POP research · Sapphire Events The Art of Scent flyer @ Le Petit François",
+    researchNotes:
+      "Editor flyer — THE ART OF SCENT; Sun Nov 22 from 11 AM; Le Petit Francois El Pueblito Playa Dorada; USD 50; Sapphire Events + Viva Botanicals; candle + brunch + saxophone.",
+    updatedAt: "2026-11-06T18:30:00.000Z",
+  },
+  {
+    eventId: "rumble-in-paradise-14-2027-02-12",
+    body: "Beach boxing edition 14 on Sosúa sand for Super Bowl weekend (Fri 12 Feb 2027) with Chiro Boxing, Bar 39, and Tiki Wiki — confirm card and VIP on WhatsApp +1 829-817-2884; not Rumble 13 from Halloween weekend.",
+    localized: {
+      es: "Boxeo en la playa edición 14 en arena de Sosúa el fin de semana del Super Bowl (vie 12 feb 2027) con Chiro Boxing, Bar 39 y Tiki Wiki — confirma cartel y VIP por WhatsApp +1 829-817-2884; no es Rumble 13 del Halloween.",
+      fr: "Boxe plage édition 14 sur le sable de Sosúa le week-end du Super Bowl (ven. 12 fév. 2027) avec Chiro Boxing, Bar 39 et Tiki Wiki — confirmez carte et VIP WhatsApp +1 829-817-2884 ; pas Rumble 13 du week-end Halloween.",
+    },
+    priceFeel: "varies",
+    priceNote: "VIP/packages TBA — WA +1 829-817-2884 / +1 829-586-3118",
+    priceNoteLocalized: {
+      es: "VIP/paquetes por confirmar — WA +1 829-817-2884 / +1 829-586-3118",
+      fr: "VIP/forfaits à confirmer — WA +1 829-817-2884 / +1 829-586-3118",
+    },
+    attribution: "POP research · Rumble in Paradise 14 flyer",
+    researchNotes:
+      "Editor flyer — RUMBLE IN PARADISE 14; SOSUA BEACH; FRIDAY 12 SUPER BOWL WEEKEND; Chiro Boxing + Bar 39 + Tiki Wiki; Super Bowl LXI is Sun 14 Feb 2027 → Friday 12 Feb 2027.",
+    updatedAt: "2026-11-06T18:30:00.000Z",
+  },
+  {
+    eventId: "el-colibri-fiesta-latina-fridays",
+    seriesKey: "el-colibri-hotel:weekly:5",
+    body: "New Friday Latin night at El Colibri with DJ Blue — dance classes, 2-for-1 until midnight, pizza half-off; WhatsApp +1 917-523-7259; not Atrévete Saturdays Ladies Night the next evening.",
+    localized: {
+      es: "Nueva noche latina de viernes en El Colibri con DJ Blue — clases de baile, 2x1 hasta medianoche, pizza a mitad; WhatsApp +1 917-523-7259; no es Atrévete Saturdays Ladies Night la noche siguiente.",
+      fr: "Nouvelle soirée latine du vendredi à El Colibri avec DJ Blue — cours de danse, 2 pour 1 jusqu’à minuit, pizza à moitié ; WhatsApp +1 917-523-7259 ; pas Atrévete Saturdays Ladies Night le lendemain.",
+    },
+    priceFeel: "budget",
+    priceNote: "No cover on flyer — WA +1 917-523-7259 · 2-for-1 / pizza specials",
+    priceNoteLocalized: {
+      es: "Sin cover en el flyer — WA +1 917-523-7259 · 2x1 / specials de pizza",
+      fr: "Pas de cover sur le flyer — WA +1 917-523-7259 · 2 pour 1 / specials pizza",
+    },
+    attribution: "POP research · El Colibri Fiesta Latina flyer",
+    researchNotes:
+      "Editor flyer — Every Friday Starting November 6th; Fiesta Latina; DJ BLUE; 2-FOR-1 9PM-12AM; 50% OFF pizzas; WA 917-523-7259; El Colibri Hotel Sosúa.",
+    updatedAt: "2026-11-06T18:30:00.000Z",
+  },
 ];

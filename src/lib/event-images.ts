@@ -5,6 +5,20 @@ import { isOptimizableImageSrc } from "./optimizable-image";
 import { getVenueImageUrl } from "./venue-images";
 
 const EVENT_IMAGE_FILES: Record<string, string> = {
+  "voyvoy-social-friday-flow-dance-weekly":
+    "voyvoy-social-friday-flow-dance-weekly.jpg",
+  "chiche-almonte-grand-prix-2026-11-06":
+    "chiche-almonte-grand-prix-2026-11-06.jpg",
+  "meclao-tinder-party-2026-11-07": "meclao-tinder-party-2026-11-07.jpg",
+  "pregame-roof-rooftop-pong-2026-11-08":
+    "pregame-roof-rooftop-pong-2026-11-08.jpg",
+  "parada-choco-banditalia-2026-11-10":
+    "parada-choco-banditalia-2026-11-10.jpg",
+  "art-of-scent-petit-francois-2026-11-22":
+    "art-of-scent-petit-francois-2026-11-22.jpg",
+  "rumble-in-paradise-14-2027-02-12":
+    "rumble-in-paradise-14-2027-02-12.jpg",
+  "el-colibri-fiesta-latina-fridays": "el-colibri-fiesta-latina-fridays.jpg",
   "rumble-in-paradise-12": "rumble-in-paradise-12.jpg",
   "rumble-in-paradise-13": "rumble-in-paradise-13.png",
   "cabarete-boxing-club-kids-class": "cabarete-boxing-club-kids-class.jpg",
@@ -1370,6 +1384,14 @@ export function getEventHeroObjectPosition(eventId: string): string {
  * New flyer art must land here (or stay off {@link HOME_HERO_SCENE_FILES}).
  */
 const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
+  "voyvoy-social-friday-flow-dance-weekly.jpg",
+  "chiche-almonte-grand-prix-2026-11-06.jpg",
+  "meclao-tinder-party-2026-11-07.jpg",
+  "pregame-roof-rooftop-pong-2026-11-08.jpg",
+  "parada-choco-banditalia-2026-11-10.jpg",
+  "art-of-scent-petit-francois-2026-11-22.jpg",
+  "rumble-in-paradise-14-2027-02-12.jpg",
+  "el-colibri-fiesta-latina-fridays.jpg",
   "cabarete-boxing-club-movie-night-2026-10-22.jpg",
   "cabarete-boxing-club-movie-night-2026-10-29.jpg",
   "cabarete-boxing-club-movie-night-2026-11-05.jpg",

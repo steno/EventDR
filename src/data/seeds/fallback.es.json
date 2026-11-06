@@ -10411,5 +10411,167 @@
       "Regalos · comida · música en vivo"
     ],
     "imageEmoji": "🎄"
+  },
+  {
+    "id": "meclao-tinder-party-2026-11-07",
+    "title": "Mecla'o Tinder Party — Sebastian Crozz",
+    "description": "Tinder Party en Mecla'o Rooftop Lounge, Av. Luis Ginebra No. 49, Puerto Plata — sábado 7 de noviembre 2026 con Sebastian Crozz (@sebastiancrozz). Viste según tu status: rojo = Soltero, amarillo = Complicado, azul = Vine a gozar. Artículos promocionales Brugal con compra de producto. Reservas 829-374-7028 · Instagram @meclaorooftop. Noche temática de sábado en el rooftop — no es Rooftop Pong de Pregame Roof el domingo 8 nov a una cuadra, ni Sábado Pa’ Tarima de Twenty Disco la misma noche en Playa Dorada Mall.",
+    "date": "2026-11-07",
+    "location": "Puerto Plata",
+    "venue": "Mecla'o Rooftop Lounge",
+    "venueSlug": "meclao-rooftop",
+    "address": "Av. Luis Ginebra No. 49, Puerto Plata",
+    "lat": 19.788312,
+    "lng": -70.677453,
+    "category": "parties",
+    "categories": [
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18293747028",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/meclaorooftop/",
+    "instagram": "meclaorooftop",
+    "lineup": [
+      "Sebastian Crozz"
+    ],
+    "imageEmoji": "❤️"
+  },
+  {
+    "id": "pregame-roof-rooftop-pong-2026-11-08",
+    "title": "Pregame Roof Rooftop Pong — 8 nov",
+    "description": "Rooftop Pong en Pregame Roof (Ámbar Lounge / Pregame Roof), Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata — domingo 8 de noviembre 2026. Beats by Rafa Hernandez (@rafaelhc24). RSVP (809) 781-8677 · Instagram @pregameroof. Pong del domingo en el tercer nivel — no es Bandoleras de Ámbar abajo, ni el Tinder Party de Mecla'o la noche anterior en el No. 49.",
+    "date": "2026-11-08",
+    "location": "Puerto Plata",
+    "venue": "Pregame Roof",
+    "venueSlug": "pregame-roof-puerto-plata",
+    "address": "Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata",
+    "lat": 19.7894021,
+    "lng": -70.678834,
+    "category": "parties",
+    "categories": [
+      "sports",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18097818677",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/pregameroof/",
+    "instagram": "pregameroof",
+    "lineup": [
+      "Rafa Hernandez"
+    ],
+    "imageEmoji": "🏓"
+  },
+  {
+    "id": "parada-choco-banditalia-2026-11-10",
+    "title": "Parada Choco BandItalia Aperitivo — 10 nov",
+    "description": "Aperitivo con BandItalia International en Parada Típica El Choco (restaurante suizo-italiano / House of Music), Plaza Buen Gusto en la carretera Sosúa–Cabarete frente a Ocean Village — martes 10 de noviembre 2026, 5:00–7:00 PM. Finger food gratis en la mesa. RSVP +1 809-804-2510 · Instagram @paradaelchoco. Aperitivo guest del martes — no es la noche de Los Frescos del 3 nov, ni la cena de Thanksgiving con boleto del 26 de noviembre.",
+    "date": "2026-11-10",
+    "time": "5:00 PM – 7:00 PM",
+    "location": "Sosúa",
+    "venue": "Parada Típica El Choco",
+    "venueSlug": "parada-tipica-el-choco",
+    "address": "Carretera principal Sosúa–Cabarete (vis-à-vis Ocean Village / Plaza Buen Gusto)",
+    "lat": 19.77269,
+    "lng": -70.4967789,
+    "category": "music",
+    "categories": [
+      "food-drinks",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18098042510",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/paradaelchoco/",
+    "instagram": "paradaelchoco",
+    "lineup": [
+      "BandItalia International"
+    ],
+    "imageEmoji": "🎵"
+  },
+  {
+    "id": "art-of-scent-petit-francois-2026-11-22",
+    "title": "The Art of Scent — Le Petit François",
+    "description": "The Art of Scent — taller de velas y brunch de Sapphire Events Pop-Up con Viva Botanicals en Le Petit François, El Pueblito / Playa Dorada — domingo 22 de noviembre 2026 desde las 11:00 AM. Crea tu vela, brunch y saxofón en vivo. US$50 por persona — reserva por el QR del flyer o Instagram @lepetitfrancois.rd · local +1 829-492-2910. Tarde de taller y brunch — no es el karaoke de viernes en el mismo beach bar.",
+    "date": "2026-11-22",
+    "time": "11:00 AM",
+    "location": "Playa Dorada",
+    "venue": "Le Petit François",
+    "venueSlug": "le-petit-francois",
+    "address": "El Pueblito, Playa Dorada, Puerto Plata",
+    "lat": 19.7734212,
+    "lng": -70.6517978,
+    "category": "food-drinks",
+    "categories": [
+      "culture",
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "US$50",
+    "phone": "+18294922910",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/lepetitfrancois.rd/",
+    "instagram": "lepetitfrancois.rd",
+    "lineup": [
+      "Sapphire Events",
+      "Viva Botanicals",
+      "Saxofón en vivo"
+    ],
+    "imageEmoji": "🕯️"
+  },
+  {
+    "id": "rumble-in-paradise-14-2027-02-12",
+    "title": "Rumble in Paradise 14 — Boxeo",
+    "description": "Rumble in Paradise 14 — boxeo profesional en Playa Sosúa con Chiro Boxing Promotion, Bar 39 Sosúa Beach y Tiki Wiki Corner Sosúa — viernes 12 de febrero 2027 (fin de semana del Super Bowl). Boxeo, deportes, comida y tragos en la arena. Confirma cartel, puertas y paquetes VIP por WhatsApp de Chiro Boxing / Bar 39 +1 829-817-2884 o +1 829-586-3118. Edición 14 de boxeo en la playa — no es Rumble 13 (30 oct 2026).",
+    "date": "2027-02-12",
+    "location": "Sosúa",
+    "venue": "Bar 39, Sosúa Beach",
+    "venueSlug": "bar-39-sosua",
+    "address": "Playa Sosúa, Sosúa",
+    "lat": 19.75942,
+    "lng": -70.51672,
+    "category": "sports",
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18298172884",
+    "sourceType": "flyer",
+    "imageEmoji": "🥊"
+  },
+  {
+    "id": "chiche-almonte-grand-prix-2026-11-06",
+    "title": "Chiche Almonte en Grand Prix — 6 nov",
+    "description": "Acordeón en vivo con Chiche Almonte en Grand Prix Smart Shop en La Javilla, Puerto Plata — viernes 6 de noviembre 2026. Av. Manolo Tavarez Justo esq. Presidente Caamaño #1 (Edificio Grand Prix, junto a Bomba Next). Cover no viene en el flyer — confirma puertas por Instagram @grandprixrd. Noche típica de viernes en La Javilla — no es Fiesta Latina de El Colibri la misma noche en Sosúa, ni el boleto de Chiche en Vinoteca Wine House del 17 oct.",
+    "date": "2026-11-06",
+    "location": "Puerto Plata",
+    "venue": "Grand Prix Smart Shop",
+    "venueSlug": "grand-prix-puerto-plata",
+    "address": "Av. Manolo Tavarez Justo esq. Presidente Caamaño #1, Edificio Grand Prix (Bomba Next), La Javilla, Puerto Plata",
+    "lat": 19.79096,
+    "lng": -70.70149,
+    "category": "music",
+    "categories": [
+      "parties",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/grandprixrd/",
+    "instagram": "grandprixrd",
+    "lineup": [
+      "Chiche Almonte"
+    ],
+    "imageEmoji": "🪗"
   }
 ]
