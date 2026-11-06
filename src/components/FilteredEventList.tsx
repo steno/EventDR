@@ -1,6 +1,14 @@
 "use client";
 
-import { Fragment, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import {
+  Fragment,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from "react";
 import type { ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import type { Event } from "@/lib/types";
@@ -36,6 +44,7 @@ import {
   weekendHeadingDate,
 } from "@/lib/list-day-groups";
 import { formatEventDate } from "@/lib/format-date";
+import { matchesLgMedia, subscribeLgMedia } from "@/lib/breakpoints";
 import { useCardGridColumns } from "@/hooks/useCardGridColumns";
 import { StickyListFilters, ListScrollAnchor } from "@/components/StickyListFilters";
 import { TimeFilter } from "@/components/TimeFilter";
@@ -210,6 +219,14 @@ export function FilteredEventList({
   const skipScrollForUrlWhen = useRef(false);
   const scrollAnchorRef = useRef<HTMLDivElement>(null);
   const [gridRef, columns] = useCardGridColumns(view === "cards");
+  // All day headings are a phone scan aid; desktop keeps one continuous list.
+  // SSR assumes mobile so hydration matches the phone-first layout.
+  const isDesktopShell = useSyncExternalStore(
+    subscribeLgMedia,
+    matchesLgMedia,
+    () => false,
+  );
+  const splitAllByDay = !isDesktopShell;
   const [pendingId, setPendingId] = useState<string | null>(null);
   const stickyCategoryLabel = categoryId ? dict.categories[categoryId] : null;
   // ← back cue only when category pills are NOT in the sticky bar (they scroll
@@ -403,7 +420,8 @@ export function FilteredEventList({
    */
   const dayGroupCardSpans = useMemo(() => {
     if (view !== "cards") return null;
-    if (activeRange !== "weekend" && activeRange !== "all") return null;
+    const groupAllDays = activeRange === "all" && splitAllByDay;
+    if (activeRange !== "weekend" && !groupAllDays) return null;
     const listed = Number.isFinite(eventCap)
       ? displayEvents.slice(0, eventCap)
       : displayEvents;
@@ -443,7 +461,7 @@ export function FilteredEventList({
           ? cardGridDayGroupPadSpans(dayLengths, columns)
           : new Map<number, number>(),
     };
-  }, [activeRange, view, displayEvents, eventCap, columns]);
+  }, [activeRange, splitAllByDay, view, displayEvents, eventCap, columns]);
 
   const lastVisibleHadWeekendPad =
     Boolean(onAddEvent) &&
@@ -462,12 +480,13 @@ export function FilteredEventList({
     showEndTeaser ? visibleEvents.length : displayEvents.length,
     columns,
   );
-  // Day headers (Weekend / All) restart each row. Mobile stretches last-of-day
-  // event cards; Weekend desktop fills empties with “Your event here” pads.
-  // End teaser (when the last day is already full) starts a fresh row.
+  // Day headers (Weekend / mobile All) restart each row. Mobile stretches
+  // last-of-day event cards; Weekend desktop fills empties with “Your event
+  // here” pads. End teaser (when the last day is already full) starts a fresh
+  // row. Desktop All stays a continuous grid — no day-group row restarts.
   const fillSpan =
     view === "cards"
-      ? activeRange === "weekend" || activeRange === "all"
+      ? activeRange === "weekend" || (activeRange === "all" && splitAllByDay)
         ? "full"
         : leftover || "full"
       : undefined;
@@ -677,6 +696,7 @@ export function FilteredEventList({
                   weekendHeadingDate(event) !==
                     (previous ? weekendHeadingDate(previous) : undefined);
                 const showAllDay =
+                  splitAllByDay &&
                   activeRange === "all" &&
                   !event.recurrence &&
                   event.date !==
@@ -684,6 +704,7 @@ export function FilteredEventList({
                       ? previous.date
                       : undefined);
                 const showWeeklyDaily =
+                  splitAllByDay &&
                   activeRange === "all" &&
                   Boolean(event.recurrence) &&
                   !previous?.recurrence;
