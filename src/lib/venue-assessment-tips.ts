@@ -1450,11 +1450,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "la-quinta-rosa": {
-    body: "Pink 1912 colonial on Calle 12 de Julio #88 — ticketed workshops and styled brunches by reservation, not a walk-up Malecón café; DM @laquintarosapop (or the flyer phone) before you assume open doors.",
+    body: "Pink 1912 colonial on Calle 12 de Julio #88 — primarily a ticketed event host (talks, workshops, gatherings) by reservation, not a walk-up café; DM @laquintarosapop (or the flyer phone) before you assume open doors.",
     localized: {
-      en: "Pink 1912 colonial on Calle 12 de Julio #88 — ticketed workshops and styled brunches by reservation, not a walk-up Malecón café; DM @laquintarosapop (or the flyer phone) before you assume open doors.",
-      es: "Colonial rosa de 1912 en Calle 12 de Julio #88 — talleres y brunches con estilo con reserva, no es un café walk-up del Malecón; DM @laquintarosapop (o el teléfono del flyer) antes de asumir puertas abiertas.",
-      fr: "Maison coloniale rose de 1912 au Calle 12 de Julio #88 — ateliers et brunchs stylés sur réservation, pas un café walk-up du Malecón ; DM @laquintarosapop (ou le téléphone de l’affiche) avant de croire les portes ouvertes.",
+      en: "Pink 1912 colonial on Calle 12 de Julio #88 — primarily a ticketed event host (talks, workshops, gatherings) by reservation, not a walk-up café; DM @laquintarosapop (or the flyer phone) before you assume open doors.",
+      es: "Colonial rosa de 1912 en Calle 12 de Julio #88 — sobre todo anfitrión de eventos con entrada (charlas, talleres, encuentros) con reserva, no un café walk-up; DM @laquintarosapop (o el teléfono del flyer) antes de asumir puertas abiertas.",
+      fr: "Maison coloniale rose de 1912 au Calle 12 de Julio #88 — surtout un lieu d’événements sur billet (talks, ateliers, rencontres) sur réservation, pas un café walk-up ; DM @laquintarosapop (ou le téléphone de l’affiche) avant de croire les portes ouvertes.",
     },
   },
 };

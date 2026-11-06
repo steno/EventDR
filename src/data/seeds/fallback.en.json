@@ -6535,10 +6535,10 @@
     "address": "Calle 12 de Julio #88, Puerto Plata",
     "lat": 19.7948,
     "lng": -70.6849,
-    "category": "health-wellness",
+    "category": "performances",
     "categories": [
-      "culture",
-      "food-drinks"
+      "health-wellness",
+      "culture"
     ],
     "format": "physical",
     "trending": true,
@@ -6551,7 +6551,7 @@
       "Rosemilia García — clinical psychologist / Gestalt",
       "Zaliris Made — menstrual therapist, Wise Roots Living",
       "Dhara Hernández — host (@dha.hersan)",
-      "Live podcast · brunch · conversation"
+      "Live podcast · conversation · writing"
     ],
     "imageEmoji": "🎙️"
   },

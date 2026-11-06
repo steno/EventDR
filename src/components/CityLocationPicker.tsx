@@ -163,10 +163,17 @@ export function CityLocationPicker({
     const gutter = 16;
     function place() {
       const btn = trigger.getBoundingClientRect();
-      const menuWidth = Math.max(menu.offsetWidth, heroOnPhoto ? 256 : 224);
-      const maxLeft = window.innerWidth - gutter - menuWidth;
+      const viewW = window.innerWidth;
+      const mobile = viewW < 640;
+      // Fixed portal + w-full rows otherwise expand to the viewport before
+      // width is set — pin a real width first (full trigger on phones,
+      // compact under the label on desktop).
+      const width = mobile
+        ? Math.min(viewW - gutter * 2, Math.max(btn.width, 224))
+        : Math.min(Math.max(btn.width, heroOnPhoto ? 256 : 280), 22 * 16);
+      const maxLeft = viewW - gutter - width;
       // Hero photo: right-align to the trigger. Chip / mobile: left-align.
-      const preferredLeft = heroOnPhoto ? btn.right - menuWidth : btn.left;
+      const preferredLeft = heroOnPhoto ? btn.right - width : btn.left;
       const left = Math.min(
         Math.max(preferredLeft, gutter),
         Math.max(gutter, maxLeft),
@@ -175,9 +182,7 @@ export function CityLocationPicker({
       menu.style.left = `${left}px`;
       menu.style.right = "auto";
       menu.style.top = `${btn.bottom + 8}px`;
-      menu.style.width = heroOnPhoto
-        ? `${Math.min(menuWidth, window.innerWidth - gutter * 2)}px`
-        : `${Math.max(menuWidth, btn.width)}px`;
+      menu.style.width = `${width}px`;
       menu.style.zIndex = "200";
     }
 
@@ -243,9 +248,10 @@ export function CityLocationPicker({
               active:scale-[0.98] hover:brightness-110
               focus-visible:outline focus-visible:outline-2
               focus-visible:outline-offset-2 focus-visible:outline-orange-400
+              sm:w-auto sm:min-w-0 sm:justify-start
               ${
                 heroOnPhoto
-                  ? "sm:w-auto sm:min-w-0 sm:justify-start sm:px-2 sm:py-0.5 sm:ring-0"
+                  ? "sm:px-2 sm:py-0.5 sm:ring-0"
                   : ""
               }
             `

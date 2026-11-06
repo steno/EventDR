@@ -2240,7 +2240,7 @@ export const SEED_VENUES: Venue[] = [
     name: "La Quinta Rosa",
     city: "Puerto Plata",
     description:
-      "Historic pink colonial house (est. 1912) on Calle 12 de Julio #88 in downtown Puerto Plata — workshops, brunches, and styled gatherings in the Victorian-era rooms and porch. Instagram @laquintarosapop.",
+      "Historic pink colonial house (est. 1912) on Calle 12 de Julio #88 in downtown Puerto Plata — ticketed event space for live talks, workshops, and styled gatherings in the Victorian-era rooms and porch (food sometimes on the bill). Instagram @laquintarosapop.",
     // Calle 12 de Julio #88 pin (same street as Casa Museo Luperón / La Confluencia; east of #54).
     lat: 19.7948,
     lng: -70.6849,

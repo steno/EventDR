@@ -74,15 +74,20 @@ export const DETAIL_HERO_PHOTO_HEIGHT_CLASS =
 export const VENUE_PLACE_CARD_HEIGHT_MOBILE_CLASS = "h-[min(68svh,36rem)]";
 
 /**
- * Card discovery grids — elastic columns: 2 on phones / mid-width, then as
- * many ~220px tiles as fit from `xl` (1280px). Underscore in `1fr` keeps the
+ * Event discovery grids — Dexter-dense poster tiles: 3 cols on phones, then
+ * as many ~148px tracks as fit from `xl`. Underscore in `1fr` keeps the
  * arbitrary value valid in Tailwind; `auto-fill` keeps empty tracks so sparse
- * lists (e.g. one saved event) stay tile-sized instead of stretching
- * billboard-wide.
+ * lists stay tile-sized instead of stretching billboard-wide.
  * Truncated lists fill leftover cells with extra events (`fillCardGridPage`);
  * “More events” is a full-width bar on the next row (`col-span-full`).
  */
 export const CARD_GRID_CLASS =
+  "grid grid-cols-3 items-stretch gap-2.5 xl:grid-cols-[repeat(auto-fill,minmax(148px,_1fr))] xl:gap-2.5";
+
+/**
+ * Venue directory — wider landscape tiles + room for title/copy under the photo.
+ */
+export const VENUE_CARD_GRID_CLASS =
   "grid grid-cols-2 items-stretch gap-[26px] xl:grid-cols-[repeat(auto-fill,minmax(220px,_1fr))] xl:gap-[26px]";
 
 /**

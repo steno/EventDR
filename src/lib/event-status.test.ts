@@ -210,6 +210,21 @@ describe("sports viewing vs Today’s specials", () => {
     );
   });
 
+  it("keeps cancelled one-offs off Today’s specials", () => {
+    assert.equal(
+      isListedTodaySpecial(
+        {
+          date: "2026-10-23",
+          time: "5:30 PM",
+          category: "culture",
+          temporarilyClosed: true,
+        },
+        fridayAfternoon,
+      ),
+      false,
+    );
+  });
+
   it("still allows participatory sports one-offs on Today’s specials", () => {
     assert.equal(
       isListedTodaySpecial(

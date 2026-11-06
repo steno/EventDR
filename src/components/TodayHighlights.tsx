@@ -1,6 +1,13 @@
 "use client";
 
-import { memo, useEffect, useMemo, useRef, useState } from "react";
+import {
+  memo,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
 import { useRouter } from "next/navigation";
 import { ChevronLeft, ChevronRight, CircleAlert, Calendar, Clock } from "lucide-react";
 import { EventImage } from "@/components/EventImage";
@@ -129,6 +136,10 @@ interface TodayHighlightsProps {
   hangingSpiders?: boolean;
   /** Hang decorative Santas + snow into the card rail (Christmas home section). */
   hangingChristmas?: boolean;
+  /** Control left of the section title (e.g. home area picker). */
+  headerStart?: ReactNode;
+  /** Control on the right of the title row (e.g. cruise ship pill). */
+  headerAction?: ReactNode;
 }
 
 function TodayHighlightCard({
@@ -218,12 +229,12 @@ function TodayHighlightCard({
 
   return (
     <article
-      className={`group relative min-w-0 overflow-hidden rounded-2xl bg-neutral-100 shadow-[0_8px_24px_-14px_rgba(0,0,0,0.18)] ring-1 transition-[box-shadow,transform,opacity,ring-color] duration-300 ease-out cursor-pointer dark:bg-neutral-950 dark:shadow-[0_8px_24px_-14px_rgba(0,0,0,0.45)] ${
+      className={`group relative min-w-0 overflow-hidden rounded-xl bg-neutral-100 ring-1 transition-[box-shadow,transform,opacity,ring-color] duration-300 ease-out cursor-pointer dark:bg-neutral-950 ${
         pending
           ? "scale-[0.985] ring-2 ring-orange-500/80 shadow-[0_12px_32px_-16px_rgba(251,146,60,0.45)] dark:ring-orange-400/70"
           : dimmed
             ? "opacity-45 ring-black/5 dark:ring-white/10"
-            : "ring-black/5 hover:ring-orange-400/50 hover:shadow-[0_12px_32px_-16px_rgba(251,146,60,0.35)] active:scale-[0.99] dark:ring-white/10 dark:hover:ring-orange-600/50"
+            : "ring-black/5 hover:ring-orange-400/50 active:scale-[0.99] dark:ring-white/10 dark:hover:ring-orange-600/50"
       }`}
       aria-busy={pending || undefined}
     >
@@ -233,8 +244,7 @@ function TodayHighlightCard({
           onNavigate();
           rememberReturnPath(returnTo ?? `/${locale}`, returnTitle);
         }}
-        className={`relative block w-full overflow-hidden touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 rounded-2xl ${mediaAspectClass}`}
-        aria-label={event.title}
+        className={`relative block w-full overflow-hidden touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 rounded-xl ${mediaAspectClass}`}
       >
         {event.imageUrl ? (
           <div className="absolute inset-0">
@@ -253,24 +263,6 @@ function TodayHighlightCard({
           />
         )}
 
-        <div
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-[58%] bg-gradient-to-t from-neutral-950/75 via-neutral-950/35 to-transparent dark:hidden"
-          aria-hidden
-        />
-        <div
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-[32%] bg-gradient-to-t from-rose-700/25 to-transparent transition-opacity duration-300 group-hover:opacity-50 dark:hidden"
-          aria-hidden
-        />
-
-        <div
-          className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-[75%] bg-gradient-to-t from-black/80 via-black/45 to-transparent dark:block"
-          aria-hidden
-        />
-        <div
-          className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-[70%] bg-gradient-to-t from-orange-600/50 via-rose-500/30 to-transparent transition-opacity duration-300 group-hover:opacity-40 dark:block"
-          aria-hidden
-        />
-
         {pending ? (
           <div
             className="pointer-events-none absolute inset-0 bg-orange-500/10"
@@ -278,55 +270,76 @@ function TodayHighlightCard({
           />
         ) : null}
 
-        <div className={`absolute inset-x-0 bottom-0 flex flex-col ${overlayPad}`}>
-          <h3 className={titleClass}>
-            {event.title}
-          </h3>
-          {(dateLabel || timeLabel.display || (liveStatusLabel && liveStatus)) && (
-            <div className="flex w-full min-w-0 items-center justify-between gap-2">
-              {(dateLabel || timeLabel.display) ? (
-                <p
-                  className={`${metaClass} min-w-0 flex-1`}
-                  title={metaTitle}
-                >
-                  {dateLabel ? (
-                    <span className="inline-flex min-w-0 items-center gap-1.5">
-                      <Calendar
-                        className={
-                          layout === "pair"
-                            ? "h-3.5 w-3.5 shrink-0"
-                            : "h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4"
-                        }
-                        aria-hidden
-                      />
-                      <span className="truncate">{dateLabel}</span>
-                    </span>
-                  ) : null}
-                  {timeLabel.display ? (
-                    <span className="inline-flex min-w-0 items-center gap-1.5">
-                      <Clock
-                        className={
-                          layout === "pair"
-                            ? "h-3.5 w-3.5 shrink-0"
-                            : "h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4"
-                        }
-                        aria-hidden
-                      />
-                      <span className="truncate">{timeLabel.display}</span>
-                    </span>
-                  ) : null}
-                </p>
-              ) : (
-                <span className="min-w-0" />
-              )}
-              {liveStatusLabel && liveStatus ? (
-                <EventStatusBadge
-                  label={liveStatusLabel}
-                  status={liveStatus}
-                  surface="onMedia"
-                />
+        {liveStatusLabel && liveStatus ? (
+          <div className="pointer-events-none absolute bottom-2 left-2 z-[3]">
+            <EventStatusBadge
+              label={liveStatusLabel}
+              status={liveStatus}
+              surface="onMedia"
+            />
+          </div>
+        ) : null}
+
+        {/*
+          Dexter peek: hover meta on fine pointers; image-only on touch.
+          Title stays in the document (sr-only) for SEO — not aria-hidden.
+        */}
+        <div
+          className={`
+            [@media(hover:none)]:sr-only
+            [@media(hover:hover)_and_(pointer:fine)]:pointer-events-none
+            [@media(hover:hover)_and_(pointer:fine)]:absolute
+            [@media(hover:hover)_and_(pointer:fine)]:inset-x-0
+            [@media(hover:hover)_and_(pointer:fine)]:bottom-0
+            [@media(hover:hover)_and_(pointer:fine)]:z-[4]
+            [@media(hover:hover)_and_(pointer:fine)]:flex
+            [@media(hover:hover)_and_(pointer:fine)]:flex-col
+            [@media(hover:hover)_and_(pointer:fine)]:bg-gradient-to-t
+            [@media(hover:hover)_and_(pointer:fine)]:from-black/95
+            [@media(hover:hover)_and_(pointer:fine)]:via-black/70
+            [@media(hover:hover)_and_(pointer:fine)]:to-transparent
+            [@media(hover:hover)_and_(pointer:fine)]:opacity-0
+            [@media(hover:hover)_and_(pointer:fine)]:translate-y-1.5
+            [@media(hover:hover)_and_(pointer:fine)]:transition-[opacity,translate]
+            [@media(hover:hover)_and_(pointer:fine)]:duration-300
+            [@media(hover:hover)_and_(pointer:fine)]:ease-out
+            [@media(hover:hover)_and_(pointer:fine)]:group-hover:opacity-100
+            [@media(hover:hover)_and_(pointer:fine)]:group-hover:translate-y-0
+            [@media(hover:hover)_and_(pointer:fine)]:group-focus-within:opacity-100
+            [@media(hover:hover)_and_(pointer:fine)]:group-focus-within:translate-y-0
+            ${overlayPad}
+          `}
+        >
+          <h3 className={titleClass}>{event.title}</h3>
+          {(dateLabel || timeLabel.display) && (
+            <p className={metaClass} title={metaTitle}>
+              {dateLabel ? (
+                <span className="inline-flex min-w-0 items-center gap-1.5">
+                  <Calendar
+                    className={
+                      layout === "pair"
+                        ? "h-3.5 w-3.5 shrink-0"
+                        : "h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4"
+                    }
+                    aria-hidden
+                  />
+                  <span className="truncate">{dateLabel}</span>
+                </span>
               ) : null}
-            </div>
+              {timeLabel.display ? (
+                <span className="inline-flex min-w-0 items-center gap-1.5">
+                  <Clock
+                    className={
+                      layout === "pair"
+                        ? "h-3.5 w-3.5 shrink-0"
+                        : "h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4"
+                    }
+                    aria-hidden
+                  />
+                  <span className="truncate">{timeLabel.display}</span>
+                </span>
+              ) : null}
+            </p>
           )}
           {note ? (
             <p className="text-xs font-semibold text-orange-200 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)] sm:text-sm">
@@ -363,6 +376,8 @@ const TodayHighlightsComponent = ({
   hangingSpiders = false,
   hangingChristmas = false,
   onAddEvent,
+  headerStart,
+  headerAction,
 }: TodayHighlightsProps) => {
   const router = useRouter();
   const railRef = useRef<HTMLDivElement>(null);
@@ -493,18 +508,41 @@ const TodayHighlightsComponent = ({
     );
   }, [highlightHrefs, limit, router]);
 
-  if (count === 0 && alerts.length === 0) return null;
+  // Keep a chrome-only section when home passes area/ship controls with no cards.
+  if (
+    count === 0 &&
+    alerts.length === 0 &&
+    !headerStart &&
+    !headerAction
+  ) {
+    return null;
+  }
 
   const showScrollArrows =
     desktopScrollRail && (canScrollLeft || canScrollRight);
+  const showSectionTitle = count > 0;
+  const chromeOnly = count === 0;
 
   return (
-    <section className="mb-6">
-      <div className="mb-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 px-1">
-        <div className="flex min-w-0 flex-wrap items-center gap-2">
-          <h2 className={SECTION_TITLE_CLASS}>
-            {sectionLabel}
-          </h2>
+    <section className={chromeOnly ? "mb-4" : "mb-6"}>
+      {/* Mobile: full-width area picker on its own row above the title line. */}
+      {headerStart ? (
+        <div className="mb-2 w-full px-1 sm:hidden">{headerStart}</div>
+      ) : null}
+      <div
+        className={`flex items-center justify-between gap-x-3 gap-y-2 px-1 ${
+          chromeOnly ? "mb-0" : "mb-3"
+        }`}
+      >
+        <div className="flex min-w-0 items-center gap-x-3 gap-y-2">
+          {headerStart ? (
+            <div className="hidden shrink-0 sm:block">{headerStart}</div>
+          ) : null}
+          {showSectionTitle ? (
+            <h2 className={`${SECTION_TITLE_CLASS} min-w-0 truncate`}>
+              {sectionLabel}
+            </h2>
+          ) : null}
           {alerts.length > 0 && (
             <button
               type="button"
@@ -522,7 +560,8 @@ const TodayHighlightsComponent = ({
             </button>
           )}
         </div>
-        <div className="flex shrink-0 items-center gap-2">
+        <div className="flex shrink-0 items-center justify-end gap-2">
+          {headerAction ? <div className="contents">{headerAction}</div> : null}
           {showScrollArrows ? (
             <div className="hidden items-center gap-1 sm:flex">
               <button

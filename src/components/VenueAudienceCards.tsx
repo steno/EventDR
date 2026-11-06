@@ -5,7 +5,10 @@ import { ChevronRight } from "lucide-react";
 import { EventImage } from "@/components/EventImage";
 import { HorizontalScrollEdgeFades } from "@/components/HorizontalScrollEdgeFades";
 import { IntentLink } from "@/components/IntentLink";
-import { useHorizontalScrollHints } from "@/hooks/useHorizontalScrollHints";
+import {
+  SNAP_RAIL_PEEK_CLASS,
+  useHorizontalScrollHints,
+} from "@/hooks/useHorizontalScrollHints";
 import type { Venue } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
@@ -64,92 +67,103 @@ function VenueSlideCard({
   dimmed?: boolean;
   onNavigate?: () => void;
 }) {
-  // Match Today's specials story peek on phones (72vw), then 2-up / 4-up.
+  const titleId = `venue-card-title-${venue.slug}`;
+  // Match On the horizon / Coming up landscape tiles.
   const sizes =
-    "(max-width: 640px) 72vw, (max-width: 1280px) 50vw, 25vw";
+    "(max-width: 640px) 88vw, (max-width: 1024px) 50vw, 25vw";
 
   return (
-    <IntentLink
-      href={`/${locale}/venue/${venue.slug}`}
-      returnTo={returnTo}
-      returnTitle={returnTitle}
-      onClick={() => onNavigate?.()}
+    <article
+      className={`group relative min-w-0 overflow-hidden rounded-xl bg-neutral-100 ring-1 transition-[box-shadow,transform,opacity,ring-color] duration-300 ease-out cursor-pointer dark:bg-neutral-950 ${
+        pending
+          ? "scale-[0.985] ring-2 ring-orange-500/80 shadow-[0_12px_32px_-16px_rgba(251,146,60,0.45)] dark:ring-orange-400/70"
+          : dimmed
+            ? "opacity-45 ring-black/5 dark:ring-white/10"
+            : "ring-black/5 hover:ring-orange-400/50 active:scale-[0.99] dark:ring-white/10 dark:hover:ring-orange-600/50"
+      }`}
       aria-busy={pending || undefined}
-      aria-label={venue.name}
-      className={`
-        group relative block w-full overflow-hidden rounded-2xl
-        aspect-[36/49] bg-neutral-100
-        shadow-[0_8px_24px_-14px_rgba(0,0,0,0.18)] ring-1
-        touch-manipulation
-        transition-[box-shadow,transform,opacity,ring-color] duration-300 ease-out
-        focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500
-        dark:bg-neutral-950 dark:shadow-[0_8px_24px_-14px_rgba(0,0,0,0.45)]
-        ${
-          pending
-            ? "scale-[0.985] ring-2 ring-orange-500/80 shadow-[0_12px_32px_-16px_rgba(251,146,60,0.45)] dark:ring-orange-400/70"
-            : dimmed
-              ? "opacity-45 ring-black/5 dark:ring-white/10"
-              : "ring-black/5 hover:ring-orange-400/50 hover:shadow-[0_12px_32px_-16px_rgba(251,146,60,0.35)] active:scale-[0.99] dark:ring-white/10 dark:hover:ring-orange-600/50"
-        }
-      `}
     >
-      {venue.imageUrl && loadImage ? (
-        <div className="absolute inset-0">
-          <EventImage
-            src={venue.imageUrl}
-            alt=""
-            sizes={sizes}
-            priority={false}
-            className={`object-cover ${getVenueCardObjectPosition(venue.slug)} card-media-zoom`}
+      <IntentLink
+        href={`/${locale}/venue/${venue.slug}`}
+        returnTo={returnTo}
+        returnTitle={returnTitle}
+        onClick={() => onNavigate?.()}
+        aria-labelledby={titleId}
+        className="relative block aspect-[16/10] w-full overflow-hidden rounded-xl touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 sm:aspect-[3/2]"
+      >
+        {venue.imageUrl && loadImage ? (
+          <div className="absolute inset-0">
+            <EventImage
+              src={venue.imageUrl}
+              alt=""
+              sizes={sizes}
+              priority={false}
+              className={`object-cover ${getVenueCardObjectPosition(venue.slug)} card-media-zoom`}
+            />
+          </div>
+        ) : venue.imageUrl ? (
+          <span
+            className="absolute inset-0 bg-neutral-200 dark:bg-neutral-800"
+            aria-hidden
           />
-        </div>
-      ) : venue.imageUrl ? (
-        <span
-          className="absolute inset-0 bg-neutral-200 dark:bg-neutral-800"
-          aria-hidden
-        />
-      ) : (
-        <span
-          className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-orange-500 via-rose-500 to-fuchsia-600 text-3xl"
-          aria-hidden
-        >
-          {venue.emoji ?? "📍"}
-        </span>
-      )}
+        ) : (
+          <span
+            className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-orange-500 via-rose-500 to-fuchsia-600 text-3xl"
+            aria-hidden
+          >
+            {venue.emoji ?? "📍"}
+          </span>
+        )}
 
-      <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-[58%] bg-gradient-to-t from-neutral-950/75 via-neutral-950/35 to-transparent dark:hidden"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-[32%] bg-gradient-to-t from-rose-700/25 to-transparent transition-opacity duration-300 group-hover:opacity-50 dark:hidden"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-[75%] bg-gradient-to-t from-black/80 via-black/45 to-transparent dark:block"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-[70%] bg-gradient-to-t from-orange-600/50 via-rose-500/30 to-transparent transition-opacity duration-300 group-hover:opacity-40 dark:block"
-        aria-hidden
-      />
+        {pending ? (
+          <div
+            className="pointer-events-none absolute inset-0 bg-orange-500/10"
+            aria-hidden
+          />
+        ) : null}
 
-      {pending ? (
+        {/*
+          Same Dexter peek as On the horizon: hover meta on fine pointers;
+          image-only on touch. Name stays in the document for SEO.
+        */}
         <div
-          className="pointer-events-none absolute inset-0 bg-orange-500/10"
-          aria-hidden
-        />
-      ) : null}
-
-      <div className="absolute inset-x-0 bottom-0 flex flex-col gap-1.5 p-3.5 sm:p-4">
-        <h3 className="line-clamp-2 font-sans text-xl font-extrabold leading-snug tracking-[0.01em] text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.55)]">
-          {venue.name}
-        </h3>
-        <p className="truncate text-sm font-medium text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]">
-          {venue.city}
-        </p>
-      </div>
-    </IntentLink>
+          className="
+            gap-1.5 p-4 sm:p-3.5 xl:p-4
+            [@media(hover:none)]:sr-only
+            [@media(hover:hover)_and_(pointer:fine)]:pointer-events-none
+            [@media(hover:hover)_and_(pointer:fine)]:absolute
+            [@media(hover:hover)_and_(pointer:fine)]:inset-x-0
+            [@media(hover:hover)_and_(pointer:fine)]:bottom-0
+            [@media(hover:hover)_and_(pointer:fine)]:z-[4]
+            [@media(hover:hover)_and_(pointer:fine)]:flex
+            [@media(hover:hover)_and_(pointer:fine)]:flex-col
+            [@media(hover:hover)_and_(pointer:fine)]:bg-gradient-to-t
+            [@media(hover:hover)_and_(pointer:fine)]:from-black/95
+            [@media(hover:hover)_and_(pointer:fine)]:via-black/70
+            [@media(hover:hover)_and_(pointer:fine)]:to-transparent
+            [@media(hover:hover)_and_(pointer:fine)]:opacity-0
+            [@media(hover:hover)_and_(pointer:fine)]:translate-y-1.5
+            [@media(hover:hover)_and_(pointer:fine)]:transition-[opacity,translate]
+            [@media(hover:hover)_and_(pointer:fine)]:duration-300
+            [@media(hover:hover)_and_(pointer:fine)]:ease-out
+            [@media(hover:hover)_and_(pointer:fine)]:group-hover:opacity-100
+            [@media(hover:hover)_and_(pointer:fine)]:group-hover:translate-y-0
+            [@media(hover:hover)_and_(pointer:fine)]:group-focus-within:opacity-100
+            [@media(hover:hover)_and_(pointer:fine)]:group-focus-within:translate-y-0
+          "
+        >
+          <h3
+            id={titleId}
+            className="line-clamp-2 font-sans text-xl font-extrabold leading-snug tracking-[0.01em] text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.55)] sm:text-xl xl:text-lg"
+          >
+            {venue.name}
+          </h3>
+          <p className="truncate text-sm font-medium text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]">
+            {venue.city}
+          </p>
+        </div>
+      </IntentLink>
+    </article>
   );
 }
 
@@ -241,8 +255,8 @@ function AudienceSlider({
             <div
               key={venue.slug}
               data-snap-slide
-              // Mobile peek matches Today's specials (72%); sm+ stays 2-up → 4-up.
-              className="w-[72%] shrink-0 snap-start sm:w-[calc((100%-26px)/2)] xl:w-[calc((100%-78px)/4)]"
+              // Match On the horizon peek (88%) → 2-up → 4-up.
+              className={`${SNAP_RAIL_PEEK_CLASS} shrink-0 snap-start sm:w-[calc((100%-26px)/2)] xl:w-[calc((100%-78px)/4)]`}
             >
               <VenueSlideCard
                 venue={venue}
@@ -262,7 +276,7 @@ function AudienceSlider({
           */}
           {venues.length > 1 ? (
             <div
-              className="w-[28%] shrink-0 sm:w-[calc((100%+26px)/2)] xl:w-[calc((300%+78px)/4)]"
+              className="w-[12%] shrink-0 sm:w-[calc((100%+26px)/2)] xl:w-[calc((300%+78px)/4)]"
               aria-hidden
             />
           ) : null}

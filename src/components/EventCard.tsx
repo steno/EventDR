@@ -19,6 +19,10 @@ import type { TimeRange } from "@/lib/filters";
 import type { EventListView } from "@/lib/event-list-view";
 import type { EventWithVenueSiblings } from "@/lib/venue-recurring-siblings";
 import { getEventCardObjectPosition } from "@/lib/event-images";
+import { formatEventDateRange } from "@/lib/format-date";
+import { formatEventPlace } from "@/lib/event-location";
+import { formatEventTimeForList } from "@/lib/event-time-display";
+import { formatRecurrenceLabel } from "@/lib/recurrence-label";
 import { CARD_GRID_FULL_ROW_CLASS } from "@/lib/page-shell";
 import type { GridFillSpan } from "@/lib/card-grid";
 
@@ -217,23 +221,48 @@ const EventCardComponent = ({
   const dimmedChrome = "opacity-45";
 
   if (isCards) {
+    const titleId = `event-card-title-${event.id}`;
+    const peekStatus: EventLiveStatus | null = event.temporarilyClosed
+      ? "temporarilyClosed"
+      : event.soldOut
+        ? "soldOut"
+        : liveStatus;
+    const peekStatusLabel = event.temporarilyClosed
+      ? dict.events.temporarilyClosed
+      : event.soldOut
+        ? dict.events.soldOut
+        : liveStatusLabel;
+    const dateLabel = formatEventDateRange(event.date, locale, {
+      endDate: event.endDate,
+      short: true,
+    });
+    const timeLabel = formatEventTimeForList(event.time, {
+      recurrence: event.recurrence,
+      allDayLabel: dict.events.allDay,
+    });
+    const recurrenceLabel = formatRecurrenceLabel(event, locale, dict);
+    const placeLabel = formatEventPlace(event);
+    const categoryLabel = category?.label ?? dict.categories[event.category];
+
     return (
       <article
         className={`
-          group relative flex h-full min-w-0 flex-col overflow-hidden rounded-2xl
-          bg-white dark:bg-neutral-900
+          group relative flex h-full min-w-0 flex-col overflow-hidden rounded-xl
+          bg-neutral-100 dark:bg-neutral-900
           ${
             mediaOnly
               ? "border-0 shadow-none"
-              : "border border-neutral-200 dark:border-neutral-800 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.08)] dark:shadow-[0_2px_12px_-4px_rgba(0,0,0,0.3)]"
+              : "ring-1 ring-black/5 dark:ring-white/10"
           }
-          transition-[border-color,box-shadow,opacity,transform] duration-300 ease-out cursor-pointer
+          transition-[box-shadow,opacity,transform,ring-color] duration-300 ease-out cursor-pointer
           ${
             pending
               ? pendingChrome
               : dimmed
                 ? dimmedChrome
-                : idleChrome
+                : mediaOnly
+                  ? idleChrome
+                  : "hover:ring-orange-400/50 dark:hover:ring-orange-500/40"
           }
           ${isEndedToday && !pending ? "opacity-60" : ""}
           ${fillSpan === "full" ? CARD_GRID_FULL_ROW_CLASS : ""}
@@ -245,16 +274,18 @@ const EventCardComponent = ({
           <button
             type="button"
             onClick={onMediaActivate}
-            className="absolute inset-0 z-0 rounded-2xl touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
-            aria-label={event.title}
+            className="absolute inset-0 z-0 rounded-xl touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
+            aria-labelledby={mediaOnly ? undefined : titleId}
+            aria-label={mediaOnly ? event.title : undefined}
             aria-expanded={mediaExpanded}
           />
         ) : (
           <IntentLink
             href={href}
             onClick={handleNavigate}
-            className="absolute inset-0 z-0 rounded-2xl touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
-            aria-label={event.title}
+            className="absolute inset-0 z-0 rounded-xl touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
+            aria-labelledby={mediaOnly ? undefined : titleId}
+            aria-label={mediaOnly ? event.title : undefined}
           />
         )}
         <div className="relative z-[1] pointer-events-none">
@@ -276,15 +307,16 @@ const EventCardComponent = ({
                   mediaExpanded
                     ? "aspect-[2/1] w-full sm:aspect-[4/3]"
                     : "aspect-[16/10] w-full sm:aspect-[4/3]"
-                : "aspect-[4/3] w-full"
+                : // Dexter-style poster tile — full flyer, denser grid.
+                  "aspect-[2/3] w-full"
             }
             enlargeLabel={dict.detail.enlargeImage}
             closeLabel={dict.detail.close}
             showEnlarge={showEnlarge}
             enlargeHitArea={mediaOnly ? "media" : "control"}
             statusBadge={
-              mediaOnly && liveStatusLabel && liveStatus
-                ? { label: liveStatusLabel, status: liveStatus }
+              peekStatusLabel && peekStatus
+                ? { label: peekStatusLabel, status: peekStatus }
                 : null
             }
             mediaAction={
@@ -302,33 +334,91 @@ const EventCardComponent = ({
               aria-hidden
             />
           ) : null}
-          {event.trending && !liveStatusLabel && liveStatus !== "ended" && (
+          {event.trending && !peekStatusLabel && liveStatus !== "ended" && (
             <span className="pointer-events-none absolute right-2 top-2 z-[3] inline-flex items-center gap-0.5 rounded-full bg-black/55 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-orange-300 backdrop-blur-sm">
               <Flame className="h-3 w-3" aria-hidden />
               {dict.events.hot}
             </span>
           )}
+          {/*
+            Full-bleed flyer + Dexter-style peek: hover/focus meta on fine
+            pointers; image-only on touch. Title stays in the document via
+            sr-only (same pattern as city heroes) — never aria-hidden.
+          */}
+          {mediaOnly ? null : (
+            <div
+              className="
+                [@media(hover:none)]:sr-only
+                [@media(hover:hover)_and_(pointer:fine)]:pointer-events-none
+                [@media(hover:hover)_and_(pointer:fine)]:absolute
+                [@media(hover:hover)_and_(pointer:fine)]:inset-x-0
+                [@media(hover:hover)_and_(pointer:fine)]:bottom-0
+                [@media(hover:hover)_and_(pointer:fine)]:z-[4]
+                [@media(hover:hover)_and_(pointer:fine)]:flex
+                [@media(hover:hover)_and_(pointer:fine)]:flex-col
+                [@media(hover:hover)_and_(pointer:fine)]:gap-1.5
+                [@media(hover:hover)_and_(pointer:fine)]:bg-gradient-to-t
+                [@media(hover:hover)_and_(pointer:fine)]:from-black/95
+                [@media(hover:hover)_and_(pointer:fine)]:via-black/70
+                [@media(hover:hover)_and_(pointer:fine)]:to-transparent
+                [@media(hover:hover)_and_(pointer:fine)]:px-2.5
+                [@media(hover:hover)_and_(pointer:fine)]:pb-2.5
+                [@media(hover:hover)_and_(pointer:fine)]:pt-12
+                [@media(hover:hover)_and_(pointer:fine)]:opacity-0
+                [@media(hover:hover)_and_(pointer:fine)]:translate-y-1.5
+                [@media(hover:hover)_and_(pointer:fine)]:transition-[opacity,translate]
+                [@media(hover:hover)_and_(pointer:fine)]:duration-300
+                [@media(hover:hover)_and_(pointer:fine)]:ease-out
+                [@media(hover:hover)_and_(pointer:fine)]:group-hover:opacity-100
+                [@media(hover:hover)_and_(pointer:fine)]:group-hover:translate-y-0
+                [@media(hover:hover)_and_(pointer:fine)]:group-focus-within:opacity-100
+                [@media(hover:hover)_and_(pointer:fine)]:group-focus-within:translate-y-0
+              "
+            >
+              <h3
+                id={titleId}
+                className="line-clamp-2 font-sans text-sm font-bold leading-snug text-white sm:text-base"
+              >
+                {event.title}
+              </h3>
+              <div className="flex flex-wrap items-center gap-1.5 text-[11px] font-semibold leading-snug text-white/90 sm:text-xs">
+                {categoryLabel ? (
+                  <span className="max-w-full truncate rounded-full bg-white/15 px-2 py-0.5 font-bold text-white ring-1 ring-white/20">
+                    {categoryLabel}
+                  </span>
+                ) : null}
+                <span className="tabular-nums">{dateLabel}</span>
+                {timeLabel.display ? (
+                  <span
+                    className="tabular-nums text-white/80"
+                    title={
+                      timeLabel.full !== timeLabel.display
+                        ? timeLabel.full
+                        : undefined
+                    }
+                  >
+                    {timeLabel.display}
+                  </span>
+                ) : null}
+                {recurrenceLabel ? (
+                  <span className="rounded-full bg-white/12 px-2 py-0.5 text-white/90 ring-1 ring-white/15">
+                    {recurrenceLabel}
+                  </span>
+                ) : null}
+              </div>
+              {placeLabel ? (
+                <p className="line-clamp-1 text-[11px] font-medium text-white/75 sm:text-xs">
+                  {placeLabel}
+                </p>
+              ) : null}
+              {note ? (
+                <p className="text-[11px] font-semibold text-orange-200 sm:text-xs">
+                  {note}
+                </p>
+              ) : null}
+            </div>
+          )}
         </div>
-        {mediaOnly ? null : (
-          <div className="relative z-[1] flex flex-1 flex-col gap-2 p-2.5 pointer-events-none sm:p-3">
-            <h3 className="line-clamp-2 font-sans text-base font-bold leading-snug text-neutral-950 dark:text-white sm:text-lg">
-              {event.title}
-            </h3>
-            <EventCardMeta
-              event={event}
-              locale={locale}
-              dict={dict}
-              compact
-              liveStatus={liveStatus}
-              liveStatusLabel={liveStatusLabel}
-            />
-            {note ? (
-              <p className="text-xs font-semibold text-orange-700 dark:text-orange-300">
-                {note}
-              </p>
-            ) : null}
-          </div>
-        )}
       </article>
     );
   }

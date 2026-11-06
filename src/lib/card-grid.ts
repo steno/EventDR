@@ -1,14 +1,14 @@
 /**
- * Column math for CARD_GRID_CLASS (2 cols below xl, auto-fill minmax(220px)
+ * Column math for CARD_GRID_CLASS (3 cols below xl, auto-fill minmax(148px)
  * from the `xl` breakpoint). Keep gaps in sync with page-shell.
  */
 
-export const CARD_GRID_MIN_TRACK_PX = 220;
-export const CARD_GRID_MOBILE_COLUMNS = 2;
+export const CARD_GRID_MIN_TRACK_PX = 148;
+export const CARD_GRID_MOBILE_COLUMNS = 3;
 /** Matches Tailwind `xl` (80rem at a 16px root) — same as home highlight rails. */
 export const CARD_GRID_SM_BREAKPOINT_PX = 1280;
-/** Matches home rail / card-grid `gap-[26px]`. */
-export const CARD_GRID_GAP_PX = 26;
+/** Matches event card-grid `gap-2.5` (10px). */
+export const CARD_GRID_GAP_PX = 10;
 
 /** Span leftover last-row columns, or the full next row. */
 export type GridFillSpan = number | "full";
@@ -52,11 +52,11 @@ export function cardGridLastItemSpan(
  * Per-item column spans for day-grouped card grids (Weekend tab). Day
  * headers are `col-span-full`, so each day restarts the row.
  *
- * Fill leftover cells only on the fixed 2-col (mobile / mid-width) grid —
- * a 1- or 3-card day otherwise leaves an awkward half-empty row. From `xl`
- * the shell uses `auto-fill` minmax tracks; stretching the last card there
- * turns a lone Sunday into a billboard. Leave desktop tiles at span 1 and
- * fill holes with “Your event here” pads instead (`cardGridDayGroupPadSpans`).
+ * Fill leftover cells only on the fixed 3-col (mobile / mid-width) grid —
+ * a short day otherwise leaves awkward empty cells. From `xl` the shell uses
+ * `auto-fill` minmax tracks; stretching the last card there turns a lone
+ * Sunday into a billboard. Leave desktop tiles at span 1 and fill holes with
+ * “Your event here” pads instead (`cardGridDayGroupPadSpans`).
  */
 export function cardGridDayGroupSpans(
   dayLengths: number[],
@@ -75,7 +75,7 @@ export function cardGridDayGroupSpans(
 
 /**
  * Desktop weekend day empties → pad column spans keyed by the last event
- * index of that day. Empty on the 2-col grid (events stretch instead).
+ * index of that day. Empty on the fixed mobile grid (events stretch instead).
  */
 export function cardGridDayGroupPadSpans(
   dayLengths: number[],

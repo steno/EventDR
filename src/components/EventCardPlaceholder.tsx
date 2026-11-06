@@ -27,7 +27,7 @@ interface EventCardPlaceholderProps {
   href?: string;
   view?: EventListView;
   fillSpan?: GridFillSpan;
-  /** Default list cards use 4/3; home highlight rails use 16/10 → 3/2. */
+  /** Default event cards use 2/3 posters; home highlight rails may override. */
   mediaAspectClass?: string;
   /**
    * Fill the grid cell height (match a neighbor highlight card) instead of a
@@ -37,7 +37,7 @@ interface EventCardPlaceholderProps {
 }
 
 const PLACEHOLDER_TILE_CLASS = `
-  group relative flex h-full min-w-0 flex-col overflow-hidden rounded-2xl
+  group relative flex h-full min-w-0 flex-col overflow-hidden rounded-xl
   border border-dashed border-neutral-300 bg-neutral-50
   transition-colors touch-manipulation
   hover:border-orange-400 hover:bg-orange-50/70
@@ -136,7 +136,7 @@ export function EventCardPlaceholder({
   href,
   view = "cards",
   fillSpan,
-  mediaAspectClass = "aspect-[4/3]",
+  mediaAspectClass = "aspect-[2/3]",
   stretch = false,
 }: EventCardPlaceholderProps) {
   if (view === "cards") {

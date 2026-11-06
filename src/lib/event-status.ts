@@ -599,6 +599,8 @@ export function isListedTodaySpecial(
   // `string | EventRecurrence` (ingest/filters), which is not assignable to
   // Pick<Event, "recurrence"> without a cast.
   if (event.recurrence) return false;
+  // Cancelled / closed one-offs stay off the rail (alert + detail still OK).
+  if (event.temporarilyClosed) return false;
   // Sports viewing / multi-night screen blocks stay off Today’s specials
   // (Flip Flop / Victrola / Hard Rock watch nights → Happening today).
   if (isSportsViewingEvent(event)) return false;

@@ -16,7 +16,6 @@ import { ArrowLeft } from "lucide-react";
 import { AppHeader } from "@/components/AppHeader";
 import { PhotoHero } from "@/components/PhotoHero";
 import { CruiseShipEntry } from "@/components/CruiseShipEntry";
-import { CategoryGrid } from "@/components/CategoryGrid";
 import { CityLocationPicker } from "@/components/CityLocationPicker";
 import { CityPrimingSheet } from "@/components/CityPrimingSheet";
 import { EventList } from "@/components/EventList";
@@ -803,44 +802,6 @@ function HomeApp({
                 />
               ) : null}
               {!isSearching && !cruisePort && (
-                <StickyListFilters className="mb-6 md:mb-8">
-                  {/* Mobile area select — desktop select sits left of the category title. */}
-                  <div className="mb-3 w-full text-[1.5rem] font-extrabold leading-none sm:hidden">
-                    <CityLocationPicker
-                      variant="hero"
-                      photoOverlay={false}
-                      {...areaPickerProps}
-                    />
-                  </div>
-                  <CategoryGrid
-                    locale={locale}
-                    dict={dict}
-                    citySlug={selectedCity}
-                    events={scopedEvents}
-                    headerStart={
-                      <div className="hidden w-[min(100%,16rem)] text-[1.5rem] font-extrabold leading-none sm:block">
-                        <CityLocationPicker
-                          variant="hero"
-                          photoOverlay={false}
-                          {...areaPickerProps}
-                        />
-                      </div>
-                    }
-                    headerAction={
-                      <CruiseShipEntry
-                        variant="inline"
-                        dict={dict}
-                        locale={locale}
-                        open={cruiseEntryOpen}
-                        onOpenChange={setCruiseEntryOpen}
-                        onSelectPort={enterCruise}
-                      />
-                    }
-                  />
-                </StickyListFilters>
-              )}
-
-              {!isSearching && !cruisePort && (
                 <TodayHighlights
                   events={discoverLayout.specialEvents}
                   locale={locale}
@@ -855,6 +816,25 @@ function HomeApp({
                   featurePromo
                   storyCards
                   onAddEvent={() => setSubmitOpen(true)}
+                  headerStart={
+                    <div className="w-full text-[1.5rem] font-extrabold leading-none sm:w-auto">
+                      <CityLocationPicker
+                        variant="hero"
+                        photoOverlay={false}
+                        {...areaPickerProps}
+                      />
+                    </div>
+                  }
+                  headerAction={
+                    <CruiseShipEntry
+                      variant="inline"
+                      dict={dict}
+                      locale={locale}
+                      open={cruiseEntryOpen}
+                      onOpenChange={setCruiseEntryOpen}
+                      onSelectPort={enterCruise}
+                    />
+                  }
                 />
               )}
 

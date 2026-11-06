@@ -158,15 +158,17 @@ img.no-photo-filter {
   }
 }
 
-/* Soft Ken Burns on card photos — unlayered so it always beats the base theme rule */
+/* Soft Ken Burns on card photos — fine-pointer hover only (Dexter-style). */
 @media (prefers-reduced-motion: no-preference) {
   .card-media-zoom {
     transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform;
   }
 
-  .group:hover .card-media-zoom {
-    transform: scale(1.05);
+  @media (hover: hover) and (pointer: fine) {
+    .group:hover .card-media-zoom {
+      transform: scale(1.05);
+    }
   }
 
   .rw-logo-zoom {

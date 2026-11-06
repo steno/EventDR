@@ -9,18 +9,13 @@ export function EventCardSkeleton({
     return (
       <div
         className="
-          overflow-hidden rounded-2xl bg-white dark:bg-neutral-900
-          border border-neutral-200 dark:border-neutral-800
-          shadow-[0_2px_12px_-4px_rgba(0,0,0,0.08)] dark:shadow-[0_2px_12px_-4px_rgba(0,0,0,0.3)]
+          overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-900
+          ring-1 ring-black/5 dark:ring-white/10
           animate-pulse
         "
         aria-hidden="true"
       >
-        <div className="aspect-[4/3] w-full bg-neutral-200 dark:bg-neutral-800" />
-        <div className="space-y-2 p-3">
-          <div className="h-5 w-3/4 rounded bg-neutral-200 dark:bg-neutral-800" />
-          <div className="h-4 w-1/2 rounded bg-neutral-200 dark:bg-neutral-800" />
-        </div>
+        <div className="aspect-[2/3] w-full bg-neutral-200 dark:bg-neutral-800" />
       </div>
     );
   }

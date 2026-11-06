@@ -13,7 +13,7 @@ import {
 } from "@/lib/card-grid";
 
 /**
- * Live column count for CARD_GRID_CLASS. Defaults to the mobile 2-col grid
+ * Live column count for CARD_GRID_CLASS. Defaults to the mobile 3-col grid
  * until the element is measured (SSR + first layout).
  */
 export function useCardGridColumns(

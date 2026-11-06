@@ -1167,8 +1167,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "La Quinta Rosa",
     },
     description: {
-      es: "Casa colonial rosa histórica (est. 1912) en Calle 12 de Julio #88, centro de Puerto Plata — talleres, brunches y encuentros con estilo en las salas y el porche de época victoriana. Instagram @laquintarosapop.",
-      fr: "Maison coloniale rose historique (est. 1912) au Calle 12 de Julio #88, centre de Puerto Plata — ateliers, brunchs et rencontres stylées dans les salons et le porche d’époque victorienne. Instagram @laquintarosapop.",
+      es: "Casa colonial rosa histórica (est. 1912) en Calle 12 de Julio #88, centro de Puerto Plata — espacio de eventos con entradas para charlas en vivo, talleres y encuentros con estilo en las salas y el porche victorianos (a veces hay comida en el programa). Instagram @laquintarosapop.",
+      fr: "Maison coloniale rose historique (est. 1912) au Calle 12 de Julio #88, centre de Puerto Plata — lieu d’événements sur billet pour talks live, ateliers et rencontres stylées dans les salons et le porche victorien (la nourriture peut figurer au programme). Instagram @laquintarosapop.",
     },
   },
   "luxury-club-puerto-plata": {

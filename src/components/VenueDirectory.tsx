@@ -20,7 +20,7 @@ import {
   type VenueDirectoryGroup,
 } from "@/lib/venues-directory";
 import { fillTemplate } from "@/lib/seo";
-import { CARD_GRID_CLASS, SECTION_TITLE_CLASS } from "@/lib/page-shell";
+import { SECTION_TITLE_CLASS, VENUE_CARD_GRID_CLASS } from "@/lib/page-shell";
 import {
   getVenueCardObjectPosition,
   getVenueHeroObjectPosition,
@@ -242,7 +242,7 @@ function VenueGroupList({
 }) {
   if (view === "cards") {
     return (
-      <ul className={`mt-3 ${CARD_GRID_CLASS}`}>
+      <ul className={`mt-3 ${VENUE_CARD_GRID_CLASS}`}>
         {entries.map((entry) => (
           <li key={entry.venue.slug} className="min-w-0">
             <VenueCard
