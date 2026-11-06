@@ -12,6 +12,34 @@ function firebaseDownloadUrl(bucket: string, fileName: string, token: string): s
   return `https://firebasestorage.googleapis.com/v0/b/${bucket}/o/${encodeURIComponent(fileName)}?alt=media&token=${token}`;
 }
 
+function gcsPublicUrl(bucket: string, fileName: string): string {
+  return `https://storage.googleapis.com/${bucket}/${fileName}`;
+}
+
+function isNativeFirebaseBucket(bucket: string): boolean {
+  return (
+    bucket.endsWith(".appspot.com") || bucket.endsWith(".firebasestorage.app")
+  );
+}
+
+/** Public URL for a saved object — Firebase token URL or GCS + makePublic. */
+async function publicUrlForUploadedFile(
+  bucket: Bucket,
+  fileName: string,
+  token: string,
+): Promise<string> {
+  if (isNativeFirebaseBucket(bucket.name)) {
+    return firebaseDownloadUrl(bucket.name, fileName, token);
+  }
+  const file = bucket.file(fileName);
+  try {
+    await file.makePublic();
+  } catch (error) {
+    console.error("uploadEventImage: makePublic failed:", error);
+  }
+  return gcsPublicUrl(bucket.name, fileName);
+}
+
 async function resolveBucket(): Promise<Bucket | null> {
   const storage = getFirebaseStorage();
   if (!storage) return null;
@@ -55,6 +83,7 @@ export async function uploadEventImageBytes(
   try {
     await file.save(bytes, {
       contentType,
+      predefinedAcl: isNativeFirebaseBucket(bucket.name) ? undefined : "publicRead",
       metadata: {
         cacheControl: "public, max-age=31536000",
         metadata: {
@@ -65,7 +94,7 @@ export async function uploadEventImageBytes(
 
     return {
       ok: true,
-      url: firebaseDownloadUrl(bucket.name, fileName, token),
+      url: await publicUrlForUploadedFile(bucket, fileName, token),
     };
   } catch (error) {
     console.error("Failed to upload event image:", error);
@@ -146,6 +175,7 @@ async function uploadSpotlightAssetBytes(
   try {
     await file.save(bytes, {
       contentType,
+      predefinedAcl: isNativeFirebaseBucket(bucket.name) ? undefined : "publicRead",
       metadata: {
         cacheControl: "public, max-age=86400",
         metadata: {
@@ -156,7 +186,7 @@ async function uploadSpotlightAssetBytes(
 
     return {
       ok: true,
-      url: firebaseDownloadUrl(bucket.name, fileName, token),
+      url: await publicUrlForUploadedFile(bucket, fileName, token),
     };
   } catch (error) {
     console.error("Failed to upload spotlight asset:", error);

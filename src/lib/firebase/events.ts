@@ -452,6 +452,23 @@ export async function fetchPendingEvents(): Promise<Event[]> {
     .sort((a, b) => b.id.localeCompare(a.id));
 }
 
+/** Recent rejected events for the moderate inbox (restore / delete forever). */
+export async function fetchRejectedEvents(limit = 40): Promise<Event[]> {
+  const db = getFirestoreDb();
+  if (!db) return [];
+
+  try {
+    const snap = await db.collection("events").where("status", "==", "rejected").get();
+    return snap.docs
+      .map((doc) => docToEvent(doc.id, doc.data()))
+      .sort((a, b) => b.id.localeCompare(a.id))
+      .slice(0, Math.max(1, limit));
+  } catch (error) {
+    console.error("fetchRejectedEvents failed:", error);
+    return [];
+  }
+}
+
 export async function insertPendingEvent(
   event: Event,
   sourceType: string = "community",

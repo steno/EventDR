@@ -49,14 +49,18 @@ Spanish: `/es/moderate?key=YOUR_SECRET`
 
 ```
 User taps "Add event" → POST /api/submit → Firestore status: pending
-You open moderate URL → Approve or Reject
-Approved → appears in /api/events for everyone
+  (+ Resend email to MODERATOR_NOTIFY_EMAIL when configured)
+You open https://pop-event.com/en/moderate → Unlock once with MODERATOR_SECRET
+  (httpOnly cookie, 90 days) → Pending / Live / Unpublished tabs
+Approve → live; Reject/Unpublish → rejected (recoverable); Delete forever → hard delete
 ```
 
-Test the queue depth (with your secret):
+Bookmark `/en/moderate` after the first unlock — no `?key=` needed.
+
+Test the queue depth (Bearer header; query `?secret=` is rejected):
 
 ```bash
-curl "https://popevent.netlify.app/api/status?secret=YOUR_SECRET"
+curl -H "Authorization: Bearer YOUR_SECRET" "https://pop-event.com/api/status"
 # → pendingCount, pendingIds
 ```
 
@@ -79,7 +83,7 @@ If the events API errors, Firebase console will show a link to create:
 | Symptom | Fix |
 |---------|-----|
 | Submit says "Published" instantly | Firebase env missing — submissions stay in-memory only |
-| Submit fails with image error / photo missing | Enable **Firebase Storage** in console (Storage → Get started). Optional env: `FIREBASE_STORAGE_BUCKET` if not `{project-id}.firebasestorage.app` |
+| Submit fails with image error / photo missing | Create a GCS bucket in the Firebase project (or Firebase Console → Storage → Get started). Set `FIREBASE_STORAGE_BUCKET` (e.g. `popevents-3264b-media`) in `.env.local` + Netlify, then restart/redeploy. |
 | Moderate page: "Invalid moderator key" | Wrong `?key=` or `MODERATOR_SECRET` not set / redeploy |
 | Moderate page: "Firebase not connected" | `FIREBASE_SERVICE_ACCOUNT_JSON` missing or invalid JSON |
 | Approved event not visible | Hard refresh discover; check Firestore `events` doc has `status: approved` |

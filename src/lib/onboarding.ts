@@ -161,7 +161,8 @@ const COPY: Record<Locale, OnboardingCopy> = {
       back: "Back",
       next: "Continue",
       statusTitle: "Your event is submitted",
-      pendingBody: "It is waiting for a quick review before going live.",
+      pendingBody:
+        "Not live yet — it is waiting for a quick review before publishing.",
       liveBody: "It is live now and ready to share.",
       shareListing: "Share listing",
       copyLink: "Copy link",
@@ -208,7 +209,8 @@ const COPY: Record<Locale, OnboardingCopy> = {
       back: "Atrás",
       next: "Continuar",
       statusTitle: "Tu evento fue enviado",
-      pendingBody: "Está esperando una revisión rápida antes de publicarse.",
+      pendingBody:
+        "Aún no está publicado — espera una revisión rápida antes de salir en vivo.",
       liveBody: "Ya está publicado y listo para compartir.",
       shareListing: "Compartir evento",
       copyLink: "Copiar enlace",
@@ -255,7 +257,8 @@ const COPY: Record<Locale, OnboardingCopy> = {
       back: "Retour",
       next: "Continuer",
       statusTitle: "Votre événement est envoyé",
-      pendingBody: "Il attend une vérification rapide avant sa publication.",
+      pendingBody:
+        "Pas encore en ligne — une vérification rapide avant publication.",
       liveBody: "Il est en ligne et prêt à être partagé.",
       shareListing: "Partager l’événement",
       copyLink: "Copier le lien",

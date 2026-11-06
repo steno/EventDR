@@ -353,7 +353,8 @@ export const fr: Dictionary = {
     button: "Publier l'événement",
     createEvent: "Créer un événement",
     success: "Publié ! C'est en ligne pour tout le monde.",
-    pendingSuccess: "Soumis pour validation — publication après approbation.",
+    pendingSuccess:
+      "Soumis pour validation — pas encore en ligne. Publication après approbation.",
     imageUploadSkipped:
       "Soumis pour validation sans la photo — l'hébergement d'images n'est pas encore configuré. Nous examinerons quand même votre événement.",
     error: "Une erreur s'est produite. Réessayez.",
@@ -756,20 +757,48 @@ export const fr: Dictionary = {
   moderate: {
     title: "File de modération",
     empty: "Aucun événement en attente.",
+    emptyPendingHint:
+      "Rien en attente — voyez En ligne pour les soumissions communautaires.",
+    emptyLive: "Aucune fiche communautaire récente en ligne.",
+    emptyRejected: "Aucune fiche communautaire dépubliée.",
+    tabPending: "En attente",
+    tabLive: "En ligne",
+    tabRejected: "Dépubliés",
     approve: "Approuver",
     reject: "Rejeter",
+    rejectConfirm:
+      "Rejeter cette soumission ? Elle quitte le site public et pourra être restaurée.",
     approved: "Approuvé — en ligne sur POP Events",
-    rejected: "Rejeté",
+    rejected: "Rejeté — masqué du site",
+    restored: "Restauré — de nouveau en ligne sur POP Events",
+    unpublish: "Dépublier",
+    unpublishConfirm:
+      "Dépublier cette fiche ? Elle quitte le site public et pourra être restaurée.",
+    unpublished: "Dépublié — masqué du site",
+    deleteForever: "Supprimer définitivement",
+    deleteForeverConfirm:
+      "Supprimer définitivement cet événement ? Irréversible.",
+    deletedForever: "Supprimé définitivement",
+    rejectAllPending: "Tout rejeter",
+    rejectAllConfirm:
+      "Rejeter tous les éléments en attente ? Ils restent récupérables sous Dépubliés — pas supprimés.",
+    rejectAllDone: "{count} éléments rejetés",
+    restore: "Restaurer",
+    preview: "Aperçu",
+    previewBanner: "Aperçu modérateur — pas encore publié",
+    approvedOpen: "Ouvrir la fiche en ligne",
+    viewListing: "Voir la fiche",
     source: "Source",
     unauthorized: "Clé modérateur invalide.",
     unauthorizedHint:
       "Cette clé ne correspond pas. Révélez MODERATOR_SECRET dans Netlify → Site configuration → Environment variables, collez-la ci-dessous, puis déverrouillez.",
     keyRequired: "Déverrouiller la file de modération",
     keyRequiredHint:
-      "Collez MODERATOR_SECRET depuis Netlify (Site configuration → Environment variables). Après connexion, elle reste uniquement dans cet onglet.",
+      "Collez MODERATOR_SECRET depuis Netlify une fois. Ce navigateur reste déverrouillé 90 jours — puis mettez /fr/moderate en favori.",
     keyLabel: "Clé modérateur",
     keyPlaceholder: "MODERATOR_SECRET",
     keySubmit: "Déverrouiller la file",
+    signOut: "Se déconnecter",
     notConfigured: "Le secret modérateur n’est pas défini sur le serveur.",
     notConfiguredHint:
       "Ajoutez MODERATOR_SECRET dans Netlify → Environment variables, puis redéployez.",

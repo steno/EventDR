@@ -1,7 +1,15 @@
 import assert from "node:assert/strict";
 import { describe, it, beforeEach, afterEach } from "node:test";
 import { NextRequest } from "next/server";
-import { checkCronSecret, checkModeratorSecret, checkModeratorAuth } from "./ops-auth";
+import {
+  checkCronSecret,
+  checkModeratorSecret,
+  checkModeratorAuth,
+  createModeratorSessionToken,
+  verifyModeratorSessionToken,
+  matchesModeratorSecret,
+  MODERATOR_SESSION_COOKIE,
+} from "./ops-auth";
 
 const PREV_CRON = process.env.CRON_SECRET;
 const PREV_MOD = process.env.MODERATOR_SECRET;
@@ -107,5 +115,26 @@ describe("ops-auth", () => {
       checkModeratorAuth(req({ Authorization: "Bearer wrong" })),
       { ok: false, reason: "unauthorized" },
     );
+  });
+
+  it("matchesModeratorSecret compares against env", () => {
+    assert.equal(matchesModeratorSecret("mod-test-secret-value"), true);
+    assert.equal(matchesModeratorSecret("wrong"), false);
+    assert.equal(matchesModeratorSecret(""), false);
+  });
+
+  it("accepts signed moderator session cookie", () => {
+    const token = createModeratorSessionToken();
+    assert.ok(token);
+    assert.equal(verifyModeratorSessionToken(token), true);
+    const cookieReq = new NextRequest("https://pop-event.com/api/moderate", {
+      headers: { cookie: `${MODERATOR_SESSION_COOKIE}=${token}` },
+    });
+    assert.deepEqual(checkModeratorAuth(cookieReq), { ok: true });
+  });
+
+  it("rejects forged or expired session tokens", () => {
+    assert.equal(verifyModeratorSessionToken("v1.9999999999999.forged"), false);
+    assert.equal(verifyModeratorSessionToken("v1.1.deadbeef"), false);
   });
 });

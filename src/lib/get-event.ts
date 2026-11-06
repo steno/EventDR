@@ -3,7 +3,7 @@ import type { Locale } from "@/i18n/config";
 import type { Event } from "./types";
 import { getFallbackEventById } from "./fallback-events";
 import { getCommunityEvents } from "./community-store";
-import { fetchEventById } from "./firebase/events";
+import { fetchEventById, fetchEventsByIds } from "./firebase/events";
 import { attachVenueSlugs, normalizeEventCoords } from "./geo";
 import { applyCuratedEventPatches } from "./curated-events";
 import { attachEventImages } from "./event-images";
@@ -89,4 +89,19 @@ export async function getEventById(
   // Refresh occurrence date outside the data cache (same day-boundary issue as lists).
   const [materialized] = materializeEventDates([withImage]);
   return materialized ?? null;
+}
+
+/**
+ * Moderator preview — loads pending/rejected/approved by id (uncached).
+ * Public getEventById still hides non-approved Firebase rows.
+ */
+export async function getModeratorEventById(
+  id: string,
+  locale: Locale,
+): Promise<Event | null> {
+  const trimmed = id.trim();
+  if (!trimmed) return null;
+  const rows = await fetchEventsByIds([trimmed]);
+  if (rows.length === 0) return null;
+  return finalizeEvent(rows[0], locale);
 }

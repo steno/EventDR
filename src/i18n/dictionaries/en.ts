@@ -687,10 +687,32 @@ export type Dictionary = {
   moderate: {
     title: string;
     empty: string;
+    emptyPendingHint: string;
+    emptyLive: string;
+    emptyRejected: string;
+    tabPending: string;
+    tabLive: string;
+    tabRejected: string;
     approve: string;
     reject: string;
+    rejectConfirm: string;
     approved: string;
     rejected: string;
+    restored: string;
+    unpublish: string;
+    unpublishConfirm: string;
+    unpublished: string;
+    deleteForever: string;
+    deleteForeverConfirm: string;
+    deletedForever: string;
+    rejectAllPending: string;
+    rejectAllConfirm: string;
+    rejectAllDone: string;
+    restore: string;
+    preview: string;
+    previewBanner: string;
+    approvedOpen: string;
+    viewListing: string;
     source: string;
     unauthorized: string;
     unauthorizedHint: string;
@@ -699,6 +721,7 @@ export type Dictionary = {
     keyLabel: string;
     keyPlaceholder: string;
     keySubmit: string;
+    signOut: string;
     notConfigured: string;
     notConfiguredHint: string;
     firebaseRequired: string;
@@ -1070,7 +1093,8 @@ export const en: Dictionary = {
     button: "Publish event",
     createEvent: "Create an event",
     success: "Published! It's live for everyone.",
-    pendingSuccess: "Submitted for review — we'll publish it once approved.",
+    pendingSuccess:
+      "Submitted for review — not live yet. We'll publish it once approved.",
     imageUploadSkipped:
       "Submitted for review without the photo — image hosting isn't set up yet. We'll still review your event.",
     error: "Something went wrong. Try again.",
@@ -1473,20 +1497,46 @@ export const en: Dictionary = {
   moderate: {
     title: "Moderation queue",
     empty: "No pending events.",
+    emptyPendingHint: "Nothing waiting — check Live for published community posts.",
+    emptyLive: "No recent live community listings.",
+    emptyRejected: "No unpublished community listings.",
+    tabPending: "Pending",
+    tabLive: "Live",
+    tabRejected: "Unpublished",
     approve: "Approve",
     reject: "Reject",
+    rejectConfirm: "Reject this submission? It leaves the public site and can be restored later.",
     approved: "Approved — now live on POP Events",
-    rejected: "Rejected",
+    rejected: "Rejected — hidden from the site",
+    restored: "Restored — live again on POP Events",
+    unpublish: "Unpublish",
+    unpublishConfirm:
+      "Unpublish this listing? It leaves the public site and can be restored later.",
+    unpublished: "Unpublished — hidden from the site",
+    deleteForever: "Delete forever",
+    deleteForeverConfirm:
+      "Permanently delete this event? This cannot be undone.",
+    deletedForever: "Deleted permanently",
+    rejectAllPending: "Reject all pending",
+    rejectAllConfirm:
+      "Reject every pending item? They stay recoverable under Unpublished — not deleted.",
+    rejectAllDone: "Rejected {count} pending items",
+    restore: "Restore",
+    preview: "Preview",
+    previewBanner: "Moderator preview — not published yet",
+    approvedOpen: "Open live listing",
+    viewListing: "View listing",
     source: "Source",
     unauthorized: "Invalid moderator key.",
     unauthorizedHint:
       "That key didn’t match. Reveal MODERATOR_SECRET in Netlify → Site configuration → Environment variables, paste it below, then Unlock.",
     keyRequired: "Unlock the moderation queue",
     keyRequiredHint:
-      "Paste MODERATOR_SECRET from Netlify (Site configuration → Environment variables). After a successful login it stays in this tab only.",
+      "Paste MODERATOR_SECRET from Netlify once. This browser stays unlocked for 90 days — bookmark /en/moderate after that.",
     keyLabel: "Moderator key",
     keyPlaceholder: "MODERATOR_SECRET",
     keySubmit: "Unlock queue",
+    signOut: "Sign out",
     notConfigured: "Moderator secret is not set on the server.",
     notConfiguredHint:
       "Add MODERATOR_SECRET in Netlify → Environment variables, then redeploy.",

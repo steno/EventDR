@@ -353,7 +353,8 @@ export const es: Dictionary = {
     button: "Publicar evento",
     createEvent: "Crear un evento",
     success: "¡Publicado! Ya está visible para todos.",
-    pendingSuccess: "Enviado para revisión — lo publicaremos cuando sea aprobado.",
+    pendingSuccess:
+      "Enviado para revisión — aún no está publicado. Lo publicaremos cuando sea aprobado.",
     imageUploadSkipped:
       "Enviado para revisión sin la foto — el alojamiento de imágenes aún no está configurado. Revisaremos tu evento igualmente.",
     error: "Algo salió mal. Intenta de nuevo.",
@@ -756,20 +757,48 @@ export const es: Dictionary = {
   moderate: {
     title: "Cola de moderación",
     empty: "No hay eventos pendientes.",
+    emptyPendingHint:
+      "Nada en espera — mira En vivo para publicaciones comunitarias.",
+    emptyLive: "No hay listados comunitarios recientes en vivo.",
+    emptyRejected: "No hay listados comunitarios despublicados.",
+    tabPending: "Pendientes",
+    tabLive: "En vivo",
+    tabRejected: "Despublicados",
     approve: "Aprobar",
     reject: "Rechazar",
+    rejectConfirm:
+      "¿Rechazar este envío? Sale del sitio público y se puede restaurar después.",
     approved: "Aprobado — ya está en POP Eventos",
-    rejected: "Rechazado",
+    rejected: "Rechazado — oculto del sitio",
+    restored: "Restaurado — otra vez en POP Eventos",
+    unpublish: "Despublicar",
+    unpublishConfirm:
+      "¿Despublicar este anuncio? Sale del sitio público y se puede restaurar después.",
+    unpublished: "Despublicado — oculto del sitio",
+    deleteForever: "Borrar para siempre",
+    deleteForeverConfirm:
+      "¿Borrar este evento permanentemente? No se puede deshacer.",
+    deletedForever: "Borrado permanentemente",
+    rejectAllPending: "Rechazar todos los pendientes",
+    rejectAllConfirm:
+      "¿Rechazar todos los pendientes? Quedan recuperables en Despublicados — no se borran.",
+    rejectAllDone: "Se rechazaron {count} pendientes",
+    restore: "Restaurar",
+    preview: "Vista previa",
+    previewBanner: "Vista previa de moderador — aún no publicado",
+    approvedOpen: "Abrir anuncio en vivo",
+    viewListing: "Ver anuncio",
     source: "Fuente",
     unauthorized: "Clave de moderador inválida.",
     unauthorizedHint:
       "Esa clave no coincide. Revela MODERATOR_SECRET en Netlify → Site configuration → Environment variables, pégala abajo y desbloquea.",
     keyRequired: "Desbloquea la cola de moderación",
     keyRequiredHint:
-      "Pega MODERATOR_SECRET desde Netlify (Site configuration → Environment variables). Tras iniciar sesión solo queda en esta pestaña.",
+      "Pega MODERATOR_SECRET desde Netlify una vez. Este navegador queda desbloqueado 90 días — luego marca /es/moderate.",
     keyLabel: "Clave de moderador",
     keyPlaceholder: "MODERATOR_SECRET",
     keySubmit: "Desbloquear cola",
+    signOut: "Cerrar sesión",
     notConfigured: "El secreto de moderador no está configurado en el servidor.",
     notConfiguredHint:
       "Añade MODERATOR_SECRET en Netlify → Environment variables y vuelve a desplegar.",

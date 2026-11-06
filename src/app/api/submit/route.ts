@@ -17,6 +17,7 @@ import {
   checkRateLimit,
   rateLimitResponse,
 } from "@/lib/rate-limit";
+import { sendModeratorSubmissionEmail } from "@/lib/moderator-notify";
 
 export const dynamic = "force-dynamic";
 
@@ -117,6 +118,10 @@ export async function POST(request: NextRequest) {
       if (!saved) {
         return NextResponse.json({ error: dict.submit.error }, { status: 500 });
       }
+      // Fire-and-forget — submission succeeds even if Resend is down.
+      void sendModeratorSubmissionEmail(saved).catch((err) => {
+        console.error("submit: moderator notify failed:", err);
+      });
       const imageSkipped = Boolean(body.imageDataUrl && !event.imageUrl);
       return NextResponse.json({
         success: true,
