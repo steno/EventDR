@@ -6909,10 +6909,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "isabela-food-fest-2026-12-18",
-    body: "Three-day pueblo fest at Parque Municipal Villa Isabela (18–20 Dec) — food, DJs, and live acts on the glorieta plaza; Los Simpáticos Típicos (and DJ Flacome) Saturday, DJ Melcocha plus Bulin 47 gran cierre Sunday (own listings) — buy tickets on todotickets.do / Plaza Lama, and don’t confuse it with D'Ocean’s Oct 31 Halloween night in the same town.",
+    body: "Three-day pueblo fest at Parque Municipal Villa Isabela (18–20 Dec) — food, DJs, and live acts on the glorieta plaza; Los Simpáticos Típicos (and DJ Flacome) Saturday, Ronny Manuel plus DJ Melcocha and Bulin 47 gran cierre Sunday (own listings) — buy tickets on todotickets.do / Plaza Lama, and don’t confuse it with D'Ocean’s Oct 31 Halloween night in the same town.",
     localized: {
-      es: "Fest del pueblo de tres días en el Parque Municipal Villa Isabela (18–20 dic) — comida, DJs y actos en vivo en la plaza de la glorieta; Los Simpáticos Típicos (y DJ Flacome) el sábado, DJ Melcocha más Bulin 47 gran cierre el domingo (fichas aparte) — compra boletas en todotickets.do / Plaza Lama, y no lo confundas con el Halloween del 31 oct en D'Ocean en el mismo pueblo.",
-      fr: "Fest du pueblo de trois jours au Parque Municipal Villa Isabela (18–20 déc.) — food, DJs et acts live sur la place de la gloriette ; Los Simpáticos Típicos (et DJ Flacome) le samedi, DJ Melcocha plus Bulin 47 gran cierre le dimanche (fiches séparées) — achetez les billets sur todotickets.do / Plaza Lama, et ne confondez pas avec l’Halloween du 31 oct. au D'Ocean dans la même ville.",
+      es: "Fest del pueblo de tres días en el Parque Municipal Villa Isabela (18–20 dic) — comida, DJs y actos en vivo en la plaza de la glorieta; Los Simpáticos Típicos (y DJ Flacome) el sábado, Ronny Manuel más DJ Melcocha y Bulin 47 gran cierre el domingo (fichas aparte) — compra boletas en todotickets.do / Plaza Lama, y no lo confundas con el Halloween del 31 oct en D'Ocean en el mismo pueblo.",
+      fr: "Fest du pueblo de trois jours au Parque Municipal Villa Isabela (18–20 déc.) — food, DJs et acts live sur la place de la gloriette ; Los Simpáticos Típicos (et DJ Flacome) le samedi, Ronny Manuel plus DJ Melcocha et Bulin 47 gran cierre le dimanche (fiches séparées) — achetez les billets sur todotickets.do / Plaza Lama, et ne confondez pas avec l’Halloween du 31 oct. au D'Ocean dans la même ville.",
     },
     priceFeel: "varies",
     priceNote: "Tickets todotickets.do / Plaza Lama · info +1 829-336-6802",
@@ -6921,10 +6921,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       fr: "Billets todotickets.do / Plaza Lama · infos +1 829-336-6802",
     },
     attribution:
-      "POP research · @isabelafoodfest official poster + Simpáticos Típicos + DJ Flacome + DJ Melcocha + Bulin 47 gran cierre",
+      "POP research · @isabelafoodfest official poster + Simpáticos Típicos + DJ Flacome + Ronny Manuel + DJ Melcocha + Bulin 47 gran cierre",
     researchNotes:
-      "Editor assets — El Festival del Pueblo official poster; Los Simpáticos Típicos Sat 19 flyer (separate seed); DJ Flacome Sat 19; DJ Melcocha Dom 20 (separate seed); Bulin 47 Dom 20 gran cierre (separate seed); more artists TBA; IG caption Dec 18–20; park place shot for venue; phone 829-336-6802.",
-    updatedAt: "2026-10-29T14:00:00.000Z",
+      "Editor assets — El Festival del Pueblo official poster; Los Simpáticos Típicos Sat 19 flyer (separate seed); DJ Flacome Sat 19; Ronny Manuel Dom 20 (separate seed); DJ Melcocha Dom 20 (separate seed); Bulin 47 Dom 20 gran cierre (separate seed); more artists TBA; IG caption Dec 18–20; park place shot for venue; phone 829-336-6802.",
+    updatedAt: "2026-11-06T03:30:00.000Z",
   },
   {
     eventId: "isabela-food-fest-simpaticos-tipicos-2026-12-19",
@@ -6946,10 +6946,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "isabela-food-fest-bulin-47-2026-12-20",
-    body: "Sunday gran cierre of Isabela Food Fest with Bulin 47 on the Parque Municipal stage — festival weekend ticket, not Ground Zero’s Nov 6 disco bill; DJ Melcocha is confirmed the same Sunday (own listing).",
+    body: "Sunday gran cierre of Isabela Food Fest with Bulin 47 on the Parque Municipal stage — festival weekend ticket, not Ground Zero’s Nov 6 disco bill; Ronny Manuel and DJ Melcocha are confirmed the same Sunday (own listings).",
     localized: {
-      es: "Gran cierre del domingo de Isabela Food Fest con Bulin 47 en el escenario del Parque Municipal — boleta del fin de semana del festival, no el cartel disco del 6 nov en Ground Zero; DJ Melcocha está confirmado el mismo domingo (ficha aparte).",
-      fr: "Gran cierre du dimanche d’Isabela Food Fest avec Bulin 47 sur la scène du Parque Municipal — billet week-end festival, pas l’affiche disco du 6 nov au Ground Zero ; DJ Melcocha est confirmé le même dimanche (fiche séparée).",
+      es: "Gran cierre del domingo de Isabela Food Fest con Bulin 47 en el escenario del Parque Municipal — boleta del fin de semana del festival, no el cartel disco del 6 nov en Ground Zero; Ronny Manuel y DJ Melcocha están confirmados el mismo domingo (fichas aparte).",
+      fr: "Gran cierre du dimanche d’Isabela Food Fest avec Bulin 47 sur la scène du Parque Municipal — billet week-end festival, pas l’affiche disco du 6 nov au Ground Zero ; Ronny Manuel et DJ Melcocha sont confirmés le même dimanche (fiches séparées).",
     },
     priceFeel: "varies",
     priceNote: "Tickets todotickets.do / Plaza Lama / C28 · info +1 829-336-6802",
@@ -6959,15 +6959,15 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · @isabelafoodfest Bulin 47 gran cierre flyer",
     researchNotes:
-      "Editor flyer — ARTISTA CONFIRMADO GRAN CIERRE BULIN 47, Dom 20 Dic, Parque Villa Isabela; related to isabela-food-fest-2026-12-18; not groundzero-bulin47-2026-11-06; DJ Melcocha also Dom 20 (separate seed); phone 829-336-6802; todotickets.do / Plaza Lama / C28.",
-    updatedAt: "2026-10-29T14:00:00.000Z",
+      "Editor flyer — ARTISTA CONFIRMADO GRAN CIERRE BULIN 47, Dom 20 Dic, Parque Villa Isabela; related to isabela-food-fest-2026-12-18; not groundzero-bulin47-2026-11-06; Ronny Manuel + DJ Melcocha also Dom 20 (separate seeds); phone 829-336-6802; todotickets.do / Plaza Lama / C28.",
+    updatedAt: "2026-11-06T03:30:00.000Z",
   },
   {
     eventId: "isabela-food-fest-dj-melcocha-2026-12-20",
-    body: "Sunday DJ Melcocha at Isabela Food Fest on the Parque Municipal stage — same Dec 20 park night as Bulin 47’s gran cierre, festival weekend ticket via todotickets.do / Plaza Lama; pin Villa Isabela, not a Cabarete club set.",
+    body: "Sunday DJ Melcocha at Isabela Food Fest on the Parque Municipal stage — same Dec 20 park night as Ronny Manuel and Bulin 47’s gran cierre, festival weekend ticket via todotickets.do / Plaza Lama; pin Villa Isabela, not a Cabarete club set.",
     localized: {
-      es: "DJ Melcocha del domingo en Isabela Food Fest en el escenario del Parque Municipal — la misma noche del 20 dic en el parque que el gran cierre de Bulin 47, boleta del fin de semana vía todotickets.do / Plaza Lama; clava Villa Isabela, no un set de club en Cabarete.",
-      fr: "DJ Melcocha du dimanche à Isabela Food Fest sur la scène du Parque Municipal — même soirée du 20 déc. au parc que le gran cierre Bulin 47, billet week-end via todotickets.do / Plaza Lama ; épinglez Villa Isabela, pas un set club à Cabarete.",
+      es: "DJ Melcocha del domingo en Isabela Food Fest en el escenario del Parque Municipal — la misma noche del 20 dic en el parque que Ronny Manuel y el gran cierre de Bulin 47, boleta del fin de semana vía todotickets.do / Plaza Lama; clava Villa Isabela, no un set de club en Cabarete.",
+      fr: "DJ Melcocha du dimanche à Isabela Food Fest sur la scène du Parque Municipal — même soirée du 20 déc. au parc que Ronny Manuel et le gran cierre Bulin 47, billet week-end via todotickets.do / Plaza Lama ; épinglez Villa Isabela, pas un set club à Cabarete.",
     },
     priceFeel: "varies",
     priceNote: "Tickets todotickets.do / Plaza Lama · info +1 829-336-6802",
@@ -6977,8 +6977,27 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · @isabelafoodfest DJ Melcocha flyer",
     researchNotes:
-      "Editor flyer — DJ'S CONFIRMADOS DJ MELCOCHA, Dom 20 Dic, Parque Villa Isabela; related to isabela-food-fest-2026-12-18; same Sunday as bulin-47 gran cierre; phone 829-336-6802; todotickets.do / Plaza Lama.",
-    updatedAt: "2026-10-29T14:00:00.000Z",
+      "Editor flyer — DJ'S CONFIRMADOS DJ MELCOCHA, Dom 20 Dic, Parque Villa Isabela; related to isabela-food-fest-2026-12-18; same Sunday as Ronny Manuel + bulin-47 gran cierre; phone 829-336-6802; todotickets.do / Plaza Lama.",
+    updatedAt: "2026-11-06T03:30:00.000Z",
+  },
+  {
+    eventId: "isabela-food-fest-ronny-manuel-2026-12-20",
+    body: "Sunday Ronny Manuel (El Chamaquito del Sonido) at Isabela Food Fest on the Parque Municipal stage — same Dec 20 park night as DJ Melcocha and Bulin 47’s gran cierre; festival weekend ticket via todotickets.do / Plaza Lama, not his September Hacienda Doña Mariana opener.",
+    localized: {
+      en: "Sunday Ronny Manuel (El Chamaquito del Sonido) at Isabela Food Fest on the Parque Municipal stage — same Dec 20 park night as DJ Melcocha and Bulin 47’s gran cierre; festival weekend ticket via todotickets.do / Plaza Lama, not his September Hacienda Doña Mariana opener.",
+      es: "Ronny Manuel (El Chamaquito del Sonido) el domingo en Isabela Food Fest en el escenario del Parque Municipal — la misma noche del 20 dic que DJ Melcocha y el gran cierre de Bulin 47; boleta del fin de semana vía todotickets.do / Plaza Lama, no su apertura de septiembre en Hacienda Doña Mariana.",
+      fr: "Ronny Manuel (El Chamaquito del Sonido) le dimanche à Isabela Food Fest sur la scène du Parque Municipal — même soirée du 20 déc. que DJ Melcocha et le gran cierre Bulin 47 ; billet week-end via todotickets.do / Plaza Lama, pas son ouverture de septembre à Hacienda Doña Mariana.",
+    },
+    priceFeel: "varies",
+    priceNote: "Tickets todotickets.do / Plaza Lama · info +1 829-336-6802",
+    priceNoteLocalized: {
+      es: "Boletas todotickets.do / Plaza Lama · info +1 829-336-6802",
+      fr: "Billets todotickets.do / Plaza Lama · infos +1 829-336-6802",
+    },
+    attribution: "POP research · @isabelafoodfest Ronny Manuel flyer",
+    researchNotes:
+      "Editor flyer — ARTISTA CONFIRMADO Ronny Manuel El Chamaquito del Sonido, Dom 20 Dic, Parque Villa Isabela; related to isabela-food-fest-2026-12-18; same Sunday as Melcocha + bulin-47; phone 829-336-6802; todotickets.do / Plaza Lama.",
+    updatedAt: "2026-11-06T03:30:00.000Z",
   },
   {
     eventId: "la-chabola-friday-karaoke",
@@ -8471,5 +8490,84 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer + IG downtownsosua7 — Sábado 28 Nov 3 PM; Hard Rock Cafe Sosúa Plaza Downtown; cupos limitados; 849-505-7778; Teatrando Producciones.",
     updatedAt: "2026-11-05T18:00:00.000Z",
+  },
+  {
+    eventId: "ambar-lounge-pau-morales-2026-11-07",
+    body: "Saturday Pau Morales on Luis Ginebra #45 — RSVP (809) 781-8677 before you assume walk-up; not Bandoleras Friday next door on the calendar, and not Twenty’s mall stage the same night.",
+    localized: {
+      en: "Saturday Pau Morales on Luis Ginebra #45 — RSVP (809) 781-8677 before you assume walk-up; not Bandoleras Friday next door on the calendar, and not Twenty’s mall stage the same night.",
+      es: "Sábado Pau Morales en Luis Ginebra #45 — RSVP (809) 781-8677 antes de asumir walk-up; no es Bandoleras Friday en el calendario, ni la tarima de Twenty en el mall la misma noche.",
+      fr: "Samedi Pau Morales sur Luis Ginebra #45 — RSVP (809) 781-8677 avant de croire au walk-up ; pas Bandoleras Friday au calendrier, ni la scène Twenty au mall le même soir.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — RSVP (809) 781-8677 / @ambarloungepop",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — RSVP (809) 781-8677 / @ambarloungepop",
+      fr: "Cover à confirmer — RSVP (809) 781-8677 / @ambarloungepop",
+    },
+    attribution: "POP research · @ambarloungepop Pau Morales flyer + caption",
+    researchNotes:
+      "Editor flyer + IG @ambarloungepop / @paumoralesdj — Sáb 7 Nov 2026; Ambar Lounge Av Luis Ginebra 45; RSVP 809-781-8677.",
+    updatedAt: "2026-11-06T03:00:00.000Z",
+  },
+  {
+    eventId: "sea-horse-saturday-market-coconuts-2026-11-07",
+    body: "This weekend only — same Sea Horse Saturday Market stalls at Coconuts / Playa Encuentro for Masters Surf Reunion 10 (7–9 Nov); do not drive to the ranch lawn Saturday.",
+    localized: {
+      en: "This weekend only — same Sea Horse Saturday Market stalls at Coconuts / Playa Encuentro for Masters Surf Reunion 10 (7–9 Nov); do not drive to the ranch lawn Saturday.",
+      es: "Solo este fin de semana — el mismo Saturday Market de Sea Horse en Coconuts / Playa Encuentro por Masters Surf Reunion 10 (7–9 nov); no vayas al césped del ranch el sábado.",
+      fr: "Ce week-end seulement — le même Saturday Market Sea Horse chez Coconuts / Playa Encuentro pour Masters Surf Reunion 10 (7–9 nov) ; n’allez pas à la pelouse du ranch samedi.",
+    },
+    priceFeel: "budget",
+    priceNote:
+      "Free to stroll — pay stall-by-stall; confirm Sun–Mon hours on site",
+    priceNoteLocalized: {
+      es: "Pasear gratis — pagas puesto por puesto; confirma horario dom–lun en el sitio",
+      fr: "Se promener gratuit — payez stand par stand ; confirmez horaires dim–lun sur place",
+    },
+    attribution:
+      "POP research · Sea Horse / @mastersurfreunionRD venue-change flyer",
+    researchNotes:
+      "Editor flyer — Saturday Market moving to Coconuts Hideaway Beach Playa Encuentro 7–9 Nov 2026 for Master Surf Reunion 10; NOT at Sea Horse Ranch.",
+    updatedAt: "2026-11-06T03:00:00.000Z",
+  },
+  {
+    eventId: "twenty-disco-sabado-pa-tarima-2026-11-07",
+    body: "Mall stage Saturday with DJ Soky × Chris Placencia at Playa Dorada Mall — cover not printed; confirm doors on @twenty_disco_lounge, and don’t mix it with Ambar’s Pau Morales downtown the same night.",
+    localized: {
+      en: "Mall stage Saturday with DJ Soky × Chris Placencia at Playa Dorada Mall — cover not printed; confirm doors on @twenty_disco_lounge, and don’t mix it with Ambar’s Pau Morales downtown the same night.",
+      es: "Sábado de tarima con DJ Soky × Chris Placencia en Playa Dorada Mall — cover no impreso; confirma puertas en @twenty_disco_lounge, y no lo mezcles con Pau Morales en Ambar el mismo noche.",
+      fr: "Samedi scène avec DJ Soky × Chris Placencia au Playa Dorada Mall — cover non imprimé ; confirmez les portes sur @twenty_disco_lounge, et ne confondez pas avec Pau Morales chez Ambar le même soir.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — @twenty_disco_lounge / +1 849-507-7676",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — @twenty_disco_lounge / +1 849-507-7676",
+      fr: "Cover à confirmer — @twenty_disco_lounge / +1 849-507-7676",
+    },
+    attribution:
+      "POP research · @twenty_disco_lounge / @ruddydelossantos_ Sábado Pa’ Tarima flyer",
+    researchNotes:
+      "Editor flyer — SAB 07 NOV; Sábado Pa Tarima; DJ Soky // Chris Placencia; Twenty Disco & Lounge Playa Dorada Mall.",
+    updatedAt: "2026-11-06T03:00:00.000Z",
+  },
+  {
+    eventId: "sea-horse-holiday-night-market-2026-12-12",
+    body: "Evening holiday market on the ranch (6–9 PM) — gifts, food, live music; not the Saturday morning 10 AM–1 PM lawn market, and not the Nov Coconuts Masters Surf weekend move.",
+    localized: {
+      en: "Evening holiday market on the ranch (6–9 PM) — gifts, food, live music; not the Saturday morning 10 AM–1 PM lawn market, and not the Nov Coconuts Masters Surf weekend move.",
+      es: "Mercado nocturno navideño en el ranch (6–9 PM) — regalos, comida, música en vivo; no es el Saturday Market matutino 10 a. m.–1 p. m., ni el traslado a Coconuts de Masters Surf en nov.",
+      fr: "Marché de nuit des fêtes au ranch (18 h–21 h) — cadeaux, food, musique live ; pas le Saturday Market du matin 10 h–13 h, ni le week-end Coconuts Masters Surf de nov.",
+    },
+    priceFeel: "budget",
+    priceNote: "Free entry — stall purchases; Tel. (809) 571-3880",
+    priceNoteLocalized: {
+      es: "Entrada gratis — compras en puestos; Tel. (809) 571-3880",
+      fr: "Entrée libre — achats aux stands ; Tél. (809) 571-3880",
+    },
+    attribution: "POP research · Sea Horse Ranch Holiday Night Market flyer",
+    researchNotes:
+      "Editor flyer — Sat 12 Dec 2026 6–9 PM; Sea Horse Ranch Rt 5 Km 2.5; gifts food live music; Tel 809-571-3880.",
+    updatedAt: "2026-11-06T03:00:00.000Z",
   },
 ];

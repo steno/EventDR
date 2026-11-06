@@ -79,7 +79,7 @@ import { buildListingSearchCopy } from "@/lib/search-snippets";
 import { filterCatalogForScope } from "@/lib/scope-listing";
 import { signalNavDone } from "@/lib/nav-feedback";
 import { NETWORK_ONLY_FETCH } from "@/lib/pwa-refresh";
-import { categoryPath } from "@/lib/event-navigation";
+import { allEventsPath, categoryPath } from "@/lib/event-navigation";
 import { scrollBehaviorPreference } from "@/lib/list-scroll";
 
 const SubmitEventSheet = dynamic(
@@ -523,8 +523,10 @@ function HomeApp({
   const savedExample =
     discoverLayout.heroEvent ?? discoverLayout.todayEvents[0] ?? scopedEvents[0];
 
-  // Indexable today/weekend hubs (regional or city×when) — fixed range, no chips.
-  const seeAllTodayHref = selectedCity
+  // Happening today → full list on the All chip (day-grouped browse).
+  // Specials still use the today hub; weekend see-all stays on the weekend hub.
+  const seeAllTodayHref = allEventsPath(locale, selectedCity);
+  const seeAllSpecialsHref = selectedCity
     ? `/${locale}/city/${selectedCity}/when/today`
     : `/${locale}/when/today`;
   const seeAllWeekendHref = selectedCity
@@ -809,7 +811,7 @@ function HomeApp({
                   prefiltered
                   title={dict.events.todaysSpecials}
                   limit={HOME_SPECIALS_LIMIT}
-                  seeAllHref={seeAllTodayHref}
+                  seeAllHref={seeAllSpecialsHref}
                   seeAllLabel={dict.events.seeAllSpecials}
                   listTimeRange="today"
                   returnTo={homePath}

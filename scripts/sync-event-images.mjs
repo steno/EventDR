@@ -422,8 +422,22 @@ const FILE_TO_EVENT_ID = {
     "twenty-disco-gran-noche-tipica-2026-11-08",
   "ambar-lounge-bandoleras-fridays-weekly.jpg":
     "ambar-lounge-bandoleras-fridays-weekly",
+  "ambar-lounge-bandoleras-fridays-weekly-v2.jpg":
+    "ambar-lounge-bandoleras-fridays-weekly",
   "ambar-lounge-bandoleras-2026-11-06.jpg":
     "ambar-lounge-bandoleras-2026-11-06",
+  "ambar-lounge-bandoleras-2026-11-06-v2.jpg":
+    "ambar-lounge-bandoleras-2026-11-06",
+  "isabela-food-fest-ronny-manuel-2026-12-20.jpg":
+    "isabela-food-fest-ronny-manuel-2026-12-20",
+  "ambar-lounge-pau-morales-2026-11-07.jpg":
+    "ambar-lounge-pau-morales-2026-11-07",
+  "sea-horse-saturday-market-coconuts-2026-11-07.jpg":
+    "sea-horse-saturday-market-coconuts-2026-11-07",
+  "twenty-disco-sabado-pa-tarima-2026-11-07.jpg":
+    "twenty-disco-sabado-pa-tarima-2026-11-07",
+  "sea-horse-holiday-night-market-2026-12-12.jpg":
+    "sea-horse-holiday-night-market-2026-12-12",
   "end-blackouts-protest-plaza-independencia-2026-11-05-v2.jpg":
     "end-blackouts-protest-plaza-independencia-2026-11-05",
   "the-last-drink-white-party-2026-11-07.jpg":

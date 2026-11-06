@@ -8130,7 +8130,7 @@
   {
     "id": "isabela-food-fest-2026-12-18",
     "title": "Villa Isabela — Isabela Food Fest",
-    "description": "Isabela Food Fest (El Festival del Pueblo) en el Parque Municipal Villa Isabela — viernes 18 al domingo 20 de diciembre 2026. Artistas en vivo, DJs y gastronomía en la plaza municipal. Confirmados hasta ahora: Los Simpáticos Típicos y DJ Flacome el sábado 19 de diciembre; DJ Melcocha y Bulin 47 gran cierre el domingo 20 de diciembre (fichas aparte). Más artistas según se confirmen. Boletas en todotickets.do y Plaza Lama; info y reservaciones +1 829-336-6802 · Instagram @isabelafoodfest. Al oeste de Puerto Plata ciudad — no es el Halloween de D'Ocean Bar del 31 oct.",
+    "description": "Isabela Food Fest (El Festival del Pueblo) en el Parque Municipal Villa Isabela — viernes 18 al domingo 20 de diciembre 2026. Artistas en vivo, DJs y gastronomía en la plaza municipal. Confirmados hasta ahora: Los Simpáticos Típicos y DJ Flacome el sábado 19 de diciembre; Ronny Manuel (El Chamaquito del Sonido), DJ Melcocha y Bulin 47 gran cierre el domingo 20 de diciembre (fichas aparte). Más artistas según se confirmen. Boletas en todotickets.do y Plaza Lama; info y reservaciones +1 829-336-6802 · Instagram @isabelafoodfest. Al oeste de Puerto Plata ciudad — no es el Halloween de D'Ocean Bar del 31 oct.",
     "date": "2026-12-18",
     "endDate": "2026-12-20",
     "location": "Villa Isabela",
@@ -8155,6 +8155,7 @@
     "lineup": [
       "Los Simpáticos Típicos — sábado 19 de diciembre",
       "DJ Flacome — sábado 19 de diciembre",
+      "Ronny Manuel — domingo 20 de diciembre",
       "DJ Melcocha — domingo 20 de diciembre",
       "Bulin 47 — domingo 20 de diciembre gran cierre",
       "Más artistas TBA · DJs · gastronomía"
@@ -8193,7 +8194,7 @@
   {
     "id": "isabela-food-fest-bulin-47-2026-12-20",
     "title": "Isabela Food Fest — Bulin 47 Gran Cierre",
-    "description": "Gran cierre con Bulin 47 (El más pegado) en Isabela Food Fest, Parque Municipal Villa Isabela — domingo 20 de diciembre 2026. Noche de cierre del festival de tres días (18–20 dic); mira la ficha principal de Isabela Food Fest para todo el fin de semana. Boletas en todotickets.do, Plaza Lama y C28; info y reservaciones +1 829-336-6802 · Instagram @isabelafoodfest. Concierto de cierre en Villa Isabela — no es el show de Bulin 47 en Ground Zero el 6 de noviembre.",
+    "description": "Gran cierre con Bulin 47 (El más pegado) en Isabela Food Fest, Parque Municipal Villa Isabela — domingo 20 de diciembre 2026. Noche de cierre del festival de tres días (18–20 dic); misma noche en el parque que Ronny Manuel y DJ Melcocha — mira la ficha principal de Isabela Food Fest para todo el fin de semana. Boletas en todotickets.do, Plaza Lama y C28; info y reservaciones +1 829-336-6802 · Instagram @isabelafoodfest. Concierto de cierre en Villa Isabela — no es el show de Bulin 47 en Ground Zero el 6 de noviembre.",
     "date": "2026-12-20",
     "location": "Villa Isabela",
     "venue": "Parque Municipal Villa Isabela",
@@ -9046,7 +9047,7 @@
   {
     "id": "isabela-food-fest-dj-melcocha-2026-12-20",
     "title": "Isabela Food Fest — DJ Melcocha",
-    "description": "DJ Melcocha (DJ confirmado) en Isabela Food Fest, Parque Municipal Villa Isabela — domingo 20 de diciembre 2026. Domingo del festival de tres días (18–20 dic); misma noche en el parque que el gran cierre de Bulin 47 — mira la ficha principal de Isabela Food Fest para todo el fin de semana. Boletas en todotickets.do y Plaza Lama; info y reservaciones +1 829-336-6802 · Instagram @isabelafoodfest. Cartel DJ del festival en Villa Isabela — no es la noche de Simpáticos Típicos del sábado.",
+    "description": "DJ Melcocha (DJ confirmado) en Isabela Food Fest, Parque Municipal Villa Isabela — domingo 20 de diciembre 2026. Domingo del festival de tres días (18–20 dic); misma noche en el parque que Ronny Manuel y el gran cierre de Bulin 47 — mira la ficha principal de Isabela Food Fest para todo el fin de semana. Boletas en todotickets.do y Plaza Lama; info y reservaciones +1 829-336-6802 · Instagram @isabelafoodfest. Cartel DJ del festival en Villa Isabela — no es la noche de Simpáticos Típicos del sábado.",
     "date": "2026-12-20",
     "location": "Villa Isabela",
     "venue": "Parque Municipal Villa Isabela",
@@ -9071,6 +9072,35 @@
       "DJ Melcocha"
     ],
     "imageEmoji": "🎧"
+  },
+  {
+    "id": "isabela-food-fest-ronny-manuel-2026-12-20",
+    "title": "Isabela Food Fest — Ronny Manuel",
+    "description": "Ronny Manuel (El Chamaquito del Sonido — artista confirmado) en Isabela Food Fest, Parque Municipal Villa Isabela — domingo 20 de diciembre 2026. Domingo del festival de tres días (18–20 dic); misma noche en el parque que DJ Melcocha y el gran cierre de Bulin 47 — mira la ficha principal de Isabela Food Fest para todo el fin de semana. Boletas en todotickets.do y Plaza Lama; info y reservaciones +1 829-336-6802 · Instagram @isabelafoodfest. Cartel del festival en Villa Isabela — no es la apertura de Cierre del Verano en Hacienda Doña Mariana de septiembre.",
+    "date": "2026-12-20",
+    "location": "Villa Isabela",
+    "venue": "Parque Municipal Villa Isabela",
+    "venueSlug": "parque-municipal-villa-isabela",
+    "address": "Parque Municipal, Villa Isabela, Puerto Plata",
+    "lat": 19.813027,
+    "lng": -71.055725,
+    "category": "concert",
+    "categories": [
+      "festivals",
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18293366802",
+    "ticketUrl": "https://todotickets.do",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/isabelafoodfest/",
+    "instagram": "isabelafoodfest",
+    "lineup": [
+      "Ronny Manuel — El Chamaquito del Sonido"
+    ],
+    "imageEmoji": "🎤"
   },
   {
     "id": "meclao-pre-reapertura-2026-10-29",
@@ -10267,5 +10297,119 @@
       "Allison Sade"
     ],
     "imageEmoji": "🎤"
+  },
+  {
+    "id": "ambar-lounge-pau-morales-2026-11-07",
+    "title": "Ambar Lounge Pau Morales — 7 nov",
+    "description": "Pau Morales en Ambar Lounge POP, Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata — sábado 7 de noviembre 2026. Beats by @paumoralesdj. RSVP (809) 781-8677 · Instagram @ambarloungepop. Cartel de sábado en el lounge del centro — no es Bandoleras Friday con Jhon Parra la noche anterior, ni Twenty Disco Sábado Pa’ Tarima ni The Last Drink White Party el mismo sábado.",
+    "date": "2026-11-07",
+    "location": "Puerto Plata",
+    "venue": "Ambar Lounge POP",
+    "venueSlug": "ambar-lounge-pop",
+    "address": "Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata 57000",
+    "lat": 19.7894021,
+    "lng": -70.678834,
+    "category": "parties",
+    "categories": [
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18097818677",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/ambarloungepop/",
+    "instagram": "ambarloungepop",
+    "lineup": [
+      "Pau Morales"
+    ],
+    "imageEmoji": "🎧"
+  },
+  {
+    "id": "sea-horse-saturday-market-coconuts-2026-11-07",
+    "title": "Sea Horse Saturday Market — Coconuts · Masters Surf",
+    "description": "Sea Horse Ranch Saturday Market solo este fin de semana en Coconuts Hideaway Beach, Playa Encuentro — sábado–lunes 7–9 de noviembre 2026 (horario habitual del sábado 10:00 a. m.–1:00 p. m.; confirma domingo–lunes en el sitio). El mismo mercado con Master Surf Reunion 10 en la arena — Y NO en Sea Horse Ranch este fin de semana. Únete vía @mastersurfreunionRD · sea-horse-ranch.com. Fin de semana de mercado Masters Surf — no es el Saturday Market semanal en el césped de Sea Horse Ranch, ni el Holiday Night Market del 12 dic de vuelta en el ranch.",
+    "date": "2026-11-07",
+    "endDate": "2026-11-09",
+    "time": "10:00 a. m. – 1:00 p. m.",
+    "location": "Cabarete",
+    "venue": "Coconuts",
+    "venueSlug": "coconuts-playa-encuentro",
+    "address": "Hideaway Beach, Playa Encuentro, Cabarete",
+    "lat": 19.7825094,
+    "lng": -70.4512699,
+    "category": "food-drinks",
+    "categories": [
+      "festivals",
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/mastersurfreunionrd/",
+    "instagram": "mastersurfreunionrd",
+    "lineup": [
+      "Sea Horse Ranch Saturday Market",
+      "Master Surf Reunion 10",
+      "Coconuts / Playa Encuentro"
+    ],
+    "imageEmoji": "🧺"
+  },
+  {
+    "id": "twenty-disco-sabado-pa-tarima-2026-11-07",
+    "title": "Twenty Disco — Sábado Pa’ Tarima · 7 nov",
+    "description": "Sábado Pa’ Tarima en Twenty Disco & Lounge, Playa Dorada Mall, Puerto Plata — sábado 7 de noviembre 2026. Beats by DJ Soky y Chris Placencia. Cover no figura en el flyer. Confirma puertas vía Instagram @twenty_disco_lounge · @ruddydelossantos_. Sábado de tarima en el mall — no es Ambar Lounge Pau Morales en el centro la misma noche, ni la Gran Noche Típica de Twenty con Caballitos el domingo 8 nov.",
+    "date": "2026-11-07",
+    "location": "Playa Dorada",
+    "venue": "Twenty Disco Lounge",
+    "venueSlug": "twenty-disco-lounge",
+    "address": "Playa Dorada Mall, Puerto Plata",
+    "lat": 19.769476,
+    "lng": -70.643033,
+    "category": "parties",
+    "categories": [
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18495077676",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/twenty_disco_lounge/",
+    "instagram": "twenty_disco_lounge",
+    "lineup": [
+      "DJ Soky",
+      "Chris Placencia"
+    ],
+    "imageEmoji": "🪩"
+  },
+  {
+    "id": "sea-horse-holiday-night-market-2026-12-12",
+    "title": "Sea Horse Ranch Holiday Night Market — 12 dic",
+    "description": "Holiday Night Market en Sea Horse Ranch, Rt. 5 Km 2.5 Carretera Principal, Cabarete–Sosúa — sábado 12 de diciembre 2026, 6:00–9:00 p. m. Regalos, comida y música en vivo en el ranch. Tel. (809) 571-3880 · sea-horse-ranch.com. Mercado nocturno navideño en el ranch — no es el Saturday Market matutino semanal (10 a. m.–1 p. m.), ni el traslado Masters Surf a Coconuts (7–9 nov), ni el Christmas Pop-Up Market en Calle de las Sombrillas (20 dic).",
+    "date": "2026-12-12",
+    "time": "6:00 p. m. – 9:00 p. m.",
+    "location": "Cabarete-Sosúa",
+    "venue": "Sea Horse Ranch",
+    "venueSlug": "sea-horse-ranch",
+    "address": "Rt. 5, Km 2.5 Carretera Principal, Cabarete–Sosúa",
+    "lat": 19.7799532,
+    "lng": -70.4893065,
+    "category": "christmas",
+    "categories": [
+      "food-drinks",
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18095713880",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.sea-horse-ranch.com/",
+    "lineup": [
+      "Regalos · comida · música en vivo"
+    ],
+    "imageEmoji": "🎄"
   }
 ]

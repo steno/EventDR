@@ -58,6 +58,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "tiki-bar-catamaran-party-2026-12-05.jpg",
   "isabela-food-fest-dj-melcocha-2026-12-20":
     "isabela-food-fest-dj-melcocha-2026-12-20.jpg",
+  "isabela-food-fest-ronny-manuel-2026-12-20":
+    "isabela-food-fest-ronny-manuel-2026-12-20.jpg",
   "voyvoy-dominican-night-flow-dance-weekly":
     "voyvoy-dominican-night-flow-dance-weekly.jpg",
   "parada-el-choco-big-d-aperitivo-2026-10-27":
@@ -193,9 +195,17 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "twenty-disco-gran-noche-tipica-2026-11-08":
     "twenty-disco-gran-noche-tipica-2026-11-08.jpg",
   "ambar-lounge-bandoleras-fridays-weekly":
-    "ambar-lounge-bandoleras-fridays-weekly.jpg",
+    "ambar-lounge-bandoleras-fridays-weekly-v2.jpg",
   "ambar-lounge-bandoleras-2026-11-06":
-    "ambar-lounge-bandoleras-2026-11-06.jpg",
+    "ambar-lounge-bandoleras-2026-11-06-v2.jpg",
+  "ambar-lounge-pau-morales-2026-11-07":
+    "ambar-lounge-pau-morales-2026-11-07.jpg",
+  "sea-horse-saturday-market-coconuts-2026-11-07":
+    "sea-horse-saturday-market-coconuts-2026-11-07.jpg",
+  "twenty-disco-sabado-pa-tarima-2026-11-07":
+    "twenty-disco-sabado-pa-tarima-2026-11-07.jpg",
+  "sea-horse-holiday-night-market-2026-12-12":
+    "sea-horse-holiday-night-market-2026-12-12.jpg",
   "end-blackouts-protest-plaza-independencia-2026-11-05":
     "end-blackouts-protest-plaza-independencia-2026-11-05-v2.jpg",
   "the-last-drink-white-party-2026-11-07":
@@ -1133,8 +1143,9 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "disco-club-pijama-party-2026-11-13": "object-center",
   "samuel-gonzalez-la-lola-2026-12-05": "object-center",
   "twenty-disco-gran-noche-tipica-2026-11-08": "object-center",
-  "ambar-lounge-bandoleras-fridays-weekly": "object-center",
-  "ambar-lounge-bandoleras-2026-11-06": "object-center",
+  "ambar-lounge-bandoleras-fridays-weekly": "object-top",
+  "ambar-lounge-bandoleras-2026-11-06": "object-top",
+  "isabela-food-fest-ronny-manuel-2026-12-20": "object-top",
 };
 
 /**
@@ -1399,7 +1410,14 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "samuel-gonzalez-la-lola-2026-12-05.jpg",
   "twenty-disco-gran-noche-tipica-2026-11-08.jpg",
   "ambar-lounge-bandoleras-fridays-weekly.jpg",
+  "ambar-lounge-bandoleras-fridays-weekly-v2.jpg",
   "ambar-lounge-bandoleras-2026-11-06.jpg",
+  "ambar-lounge-bandoleras-2026-11-06-v2.jpg",
+  "ambar-lounge-pau-morales-2026-11-07.jpg",
+  "isabela-food-fest-ronny-manuel-2026-12-20.jpg",
+  "sea-horse-saturday-market-coconuts-2026-11-07.jpg",
+  "twenty-disco-sabado-pa-tarima-2026-11-07.jpg",
+  "sea-horse-holiday-night-market-2026-12-12.jpg",
   "end-blackouts-protest-plaza-independencia-2026-11-05-v2.jpg",
   "the-last-drink-white-party-2026-11-07.jpg",
   "petit-francois-18-anos-2026-11-06.jpg",

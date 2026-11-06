@@ -361,6 +361,48 @@ export const EDITORIAL_ALERTS: readonly EditorialAlert[] = [
     },
   },
   {
+    id: "sea-horse-saturday-market-coconuts-masters-surf-2026-11",
+    kind: "watch",
+    from: "2026-11-05",
+    until: "2026-11-09",
+    citySlugs: ["cabarete", "sosua"],
+    href: {
+      type: "event",
+      id: "sea-horse-saturday-market-coconuts-2026-11-07",
+    },
+    title: {
+      en: "Saturday Market at Coconuts this weekend",
+      es: "Saturday Market en Coconuts este fin de semana",
+      fr: "Saturday Market chez Coconuts ce week-end",
+    },
+    summary: {
+      en: "7–9 Nov for Masters Surf Reunion 10 — not at Sea Horse Ranch.",
+      es: "7–9 nov por Masters Surf Reunion 10 — no en Sea Horse Ranch.",
+      fr: "7–9 nov pour Masters Surf Reunion 10 — pas à Sea Horse Ranch.",
+    },
+  },
+  {
+    id: "sea-horse-saturday-market-ranch-skip-2026-11-07",
+    kind: "closure",
+    closureStatus: "temporary",
+    from: "2026-11-07",
+    until: "2026-11-07",
+    reopensOn: "2026-11-14",
+    citySlugs: ["cabarete", "sosua"],
+    href: { type: "event", id: "sea-horse-saturday-market" },
+    exceptEventIds: ["sea-horse-saturday-market-coconuts-2026-11-07"],
+    title: {
+      en: "Sea Horse Saturday Market — not at the ranch Sat 7 Nov",
+      es: "Sea Horse Saturday Market — no en el ranch sáb 7 nov",
+      fr: "Sea Horse Saturday Market — pas au ranch sam. 7 nov",
+    },
+    summary: {
+      en: "This Saturday only — market is at Coconuts / Playa Encuentro for Masters Surf.",
+      es: "Solo este sábado — el mercado está en Coconuts / Playa Encuentro por Masters Surf.",
+      fr: "Ce samedi seulement — le marché est chez Coconuts / Playa Encuentro pour Masters Surf.",
+    },
+  },
+  {
     id: "ivan-garcia-teatro-mantenimiento-2026",
     kind: "closure",
     closureStatus: "repair",

@@ -1103,6 +1103,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     ticketUrl: "https://todotickets.do",
     venueSlug: "parque-municipal-villa-isabela",
   },
+  "isabela-food-fest-ronny-manuel-2026-12-20": {
+    callForPricing: true,
+    phone: "+18293366802",
+    ticketUrl: "https://todotickets.do",
+    venueSlug: "parque-municipal-villa-isabela",
+  },
   "voyvoy-dominican-night-flow-dance-weekly": {
     callForPricing: true,
     phone: "+18095710805",
@@ -1329,6 +1335,29 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18097818677",
     venueSlug: "ambar-lounge-pop",
     sourceUrl: "https://www.instagram.com/ambarloungepop/",
+  },
+  "ambar-lounge-pau-morales-2026-11-07": {
+    callForPricing: true,
+    phone: "+18097818677",
+    venueSlug: "ambar-lounge-pop",
+    sourceUrl: "https://www.instagram.com/ambarloungepop/",
+  },
+  "sea-horse-saturday-market-coconuts-2026-11-07": {
+    isFree: true,
+    venueSlug: "coconuts-playa-encuentro",
+    sourceUrl: "https://www.instagram.com/mastersurfreunionrd/",
+  },
+  "twenty-disco-sabado-pa-tarima-2026-11-07": {
+    callForPricing: true,
+    phone: "+18495077676",
+    venueSlug: "twenty-disco-lounge",
+    sourceUrl: "https://www.instagram.com/twenty_disco_lounge/",
+  },
+  "sea-horse-holiday-night-market-2026-12-12": {
+    isFree: true,
+    phone: "+18095713880",
+    venueSlug: "sea-horse-ranch",
+    sourceUrl: "https://www.sea-horse-ranch.com/",
   },
   "novus-flow-dance-noche-latina-weekly": {
     temporarilyClosed: true,
