@@ -17,14 +17,3 @@ export const LG_MEDIA_QUERY = `(min-width: ${LG_MIN_WIDTH_PX}px)`;
 
 /** Tailwind default `xl` — home rails go from 2-col to 3-col here. */
 export const XL_MIN_WIDTH_PX = 1280;
-
-/** Live `lg` match for client components (use with `useSyncExternalStore`). */
-export function matchesLgMedia(): boolean {
-  return window.matchMedia(LG_MEDIA_QUERY).matches;
-}
-
-export function subscribeLgMedia(onStoreChange: () => void): () => void {
-  const media = window.matchMedia(LG_MEDIA_QUERY);
-  media.addEventListener("change", onStoreChange);
-  return () => media.removeEventListener("change", onStoreChange);
-}
