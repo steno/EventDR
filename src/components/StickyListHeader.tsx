@@ -106,7 +106,10 @@ type StickyListHeaderProps = {
   locale: Locale;
   dict: Dictionary;
   backLabel: string;
-  /** Drop bottom margin when the next block should sit flush (e.g. city photo hero). */
+  /**
+   * No bottom margin. Sticky margin stays as an empty band once the list
+   * is scrolled (category pills, city hero). Spacing belongs on the next block.
+   */
   flushBottom?: boolean;
   /**
    * - default: list pages — home + slim back + theme/lang on mobile; logo/weather on `lg+`
@@ -366,9 +369,9 @@ export function StickyListHeader({
         isDetail
           ? "py-2 mb-2"
           : hideBrand
-            ? `pt-2 pb-2 md:py-1.5 ${flushBottom ? "mb-6 sm:mb-0" : "mb-6 md:mb-4"}`
+            ? `pt-2 ${flushBottom ? "pb-1.5 mb-0" : "pb-2 mb-6 md:mb-4"} md:py-1.5`
             : // Mobile list chrome is compact (no logo); keep a little top pad.
-              `pt-2 pb-2 lg:pt-0 ${flushBottom ? "mb-6 sm:mb-0" : "mb-6 md:mb-4"}`
+              `pt-2 lg:pt-0 ${flushBottom ? "pb-1.5 mb-0" : "pb-2 mb-6 md:mb-4"}`
       }`}
       aria-hidden={chromeVisible ? undefined : true}
     >

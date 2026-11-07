@@ -8,6 +8,7 @@ import {
   cruiseDayPhase,
   cruiseLoopPath,
   cruisePath,
+  cruisePortsWithShipsToday,
   cruiseTravelFromPort,
   cruiseVenueAllowlist,
   defaultAllAboardForPort,
@@ -15,6 +16,8 @@ import {
   formatClockMinutes,
   formatRemainingDuration,
   getCruiseVisitMinutes,
+  hasCruiseShipsToday,
+  isCruiseHomeShipPillHours,
   itinerariesForPort,
   itineraryById,
   itineraryTimeFit,
@@ -22,6 +25,7 @@ import {
   loopTravelProfile,
   loopWaypoints,
   parseAllAboardMinutes,
+  portHasCruiseShipsToday,
   rankCruiseEvents,
   typicalCruiseCallsForWeekday,
   typicalCruiseCallsForPort,
@@ -156,6 +160,18 @@ describe("dated October 2026 MITUR schedule", () => {
       defaultAllAboardForPort("taino-bay", oct2),
       CRUISE_PORTS["taino-bay"].defaultAllAboardMinutes,
     );
+    assert.equal(hasCruiseShipsToday(oct2), false);
+    assert.deepEqual(cruisePortsWithShipsToday(oct2), []);
+    assert.equal(isCruiseHomeShipPillHours(oct2), false);
+  });
+
+  it("blocks cruise mode on Nov 7 2026 (MITUR gap day)", () => {
+    // Sat 7 Nov — between Independence (6th) and Getaway (8th)
+    const nov7 = new Date("2026-11-07T16:00:00.000Z");
+    assert.equal(hasCruiseShipsToday(nov7), false);
+    assert.equal(portHasCruiseShipsToday("amber-cove", nov7), false);
+    assert.equal(portHasCruiseShipsToday("taino-bay", nov7), false);
+    assert.equal(isCruiseHomeShipPillHours(nov7), false);
   });
 
   it("matches Disney Dream’s :15 sail all-aboard on Oct 6", () => {

@@ -51,7 +51,12 @@ function mapAreaFromHomeStorage(): MapAreaId | null {
   if (!areaChosen) return null;
   return city ?? "north-coast";
 }
-import { CRUISE_PORTS, cruisePath, type CruisePortSlug } from "@/lib/cruise";
+import {
+  CRUISE_PORTS,
+  cruisePath,
+  hasCruiseShipsToday,
+  type CruisePortSlug,
+} from "@/lib/cruise";
 import {
   eventDetailPath,
   rememberReturnPath,
@@ -469,14 +474,16 @@ export function EventsMapPage({
             />
           </div>
 
-          <CruiseShipEntry
-            variant="icon"
-            dict={dict}
-            locale={locale}
-            open={cruiseEntryOpen}
-            onOpenChange={setCruiseEntryOpen}
-            onSelectPort={selectPort}
-          />
+          {hasCruiseShipsToday() ? (
+            <CruiseShipEntry
+              variant="icon"
+              dict={dict}
+              locale={locale}
+              open={cruiseEntryOpen}
+              onOpenChange={setCruiseEntryOpen}
+              onSelectPort={selectPort}
+            />
+          ) : null}
         </div>
       </header>
 

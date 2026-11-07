@@ -570,9 +570,10 @@ button, a {
 }
 
 [data-sticky-list-filters][data-chrome-hidden] {
+  /* Keep in sync with StickyListFilters `top` underlap (−4px). */
   transform: translate3d(
     0,
-    calc(1px - var(--sticky-list-header-height, 0px)),
+    calc(4px - var(--sticky-list-header-height, 0px)),
     0
   );
 }

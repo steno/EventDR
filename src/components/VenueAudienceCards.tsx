@@ -235,7 +235,7 @@ function AudienceSlider({
             <IntentLink
               href={seeAllHref}
               pendingFeedback
-              className="inline-flex items-center gap-0.5 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-sm font-bold text-orange-600 hover:bg-orange-100 dark:hover:bg-orange-950/70 transition-[color,background-color,transform,box-shadow] touch-manipulation"
+              className="inline-flex items-center gap-0.5 rounded-full bg-orange-50 px-2.5 py-1 text-sm font-bold text-orange-600 transition-[transform,box-shadow,background-color] duration-300 ease-out touch-manipulation [-webkit-tap-highlight-color:transparent] hover:bg-orange-100 dark:bg-orange-950/50 dark:hover:bg-orange-950/70"
             >
               {seeAllLabel ?? dict.venues.directory.seeAll}
               <ChevronRight className="h-3.5 w-3.5" aria-hidden />

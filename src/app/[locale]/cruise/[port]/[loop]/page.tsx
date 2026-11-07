@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
 import { CruiseLoopView } from "@/components/CruiseLoopView";
 import { JsonLd } from "@/components/JsonLd";
@@ -14,6 +14,7 @@ import {
   loopTravelProfile,
   loopWaypoints,
   parseAllAboardMinutes,
+  portHasCruiseShipsToday,
   resolveItineraryStops,
   type CruisePortSlug,
 } from "@/lib/cruise";
@@ -110,6 +111,9 @@ export default async function Page({
     notFound();
   }
   const port = portParam as CruisePortSlug;
+  if (!portHasCruiseShipsToday(port)) {
+    redirect(`/${locale}`);
+  }
   const itinerary = itineraryById(loopParam);
   if (!itinerary || itinerary.port !== port) notFound();
 

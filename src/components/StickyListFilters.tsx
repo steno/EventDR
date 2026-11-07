@@ -39,12 +39,12 @@ export function StickyListFilters({
         sticky z-10 mb-4 md:mb-3
         ${
           belowListHeader
-            ? "top-[calc(var(--sticky-list-header-height,3.5rem)-1px)]"
+            ? "top-[calc(var(--sticky-list-header-height,3.5rem)-4px)]"
             : "top-0"
         }
         ${PAGE_GUTTER_BLEED_CLASS}
         ${STICKY_CHROME_SURFACE_CLASS}
-        pb-2 pt-3
+        pb-2 pt-1.5
         md:pb-1.5 md:pt-1.5
         ${SCROLL_CHROME_TRANSITION_CLASS}
         ${className}

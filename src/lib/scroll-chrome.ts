@@ -1,6 +1,8 @@
 /**
  * Facebook-style chrome: hide on scroll down, show on scroll up,
- * always show near the top or bottom. Desktop / reduced-motion: always on.
+ * always show near the top; near the bottom, wait a short dwell so a
+ * fling into the footer doesn’t yank the header mid-scroll.
+ * Desktop / reduced-motion: always on.
  *
  * Slide motion is CSS `transform` via `data-chrome-hidden` (globals.css).
  * This module owns those attributes on the DOM so reveal can force a reflow and
@@ -25,7 +27,13 @@ export const STICKY_FILTER_WIDTH_COLLAPSE_CLASS =
   "overflow-hidden transition-[max-width,opacity] duration-[320ms] ease-[cubic-bezier(0.32,0.72,0,1)] motion-reduce:transition-none";
 
 const TOP_SHOW_PX = 48;
-const BOTTOM_SHOW_PX = 120;
+/** Only treat as “at the end” once you’re essentially stuck at max scroll. */
+const BOTTOM_SHOW_PX = 16;
+/**
+ * Hold near the bottom before sliding chrome back — crossing the end while
+ * still flinging used to pop the header mid-scroll (jumpy).
+ */
+const BOTTOM_REVEAL_DELAY_MS = 720;
 const DIR_DELTA_PX = 8;
 const REDUCE_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
 
@@ -35,7 +43,28 @@ let ticking = false;
 let listenerCount = 0;
 /** Ignore hide-on-scroll while list park / category land scrolls run. */
 let programmaticDepth = 0;
+let bottomRevealTimer: number | null = null;
 const listeners = new Set<() => void>();
+
+function clearBottomRevealTimer(): void {
+  if (bottomRevealTimer == null) return;
+  window.clearTimeout(bottomRevealTimer);
+  bottomRevealTimer = null;
+}
+
+function scheduleBottomReveal(): void {
+  if (visible || bottomRevealTimer != null) return;
+  bottomRevealTimer = window.setTimeout(() => {
+    bottomRevealTimer = null;
+    const maxY = Math.max(
+      0,
+      document.documentElement.scrollHeight - window.innerHeight,
+    );
+    if (maxY - window.scrollY <= BOTTOM_SHOW_PX) {
+      setVisible(true);
+    }
+  }, BOTTOM_REVEAL_DELAY_MS);
+}
 
 function isDesktop(): boolean {
   return window.matchMedia(LG_MEDIA_QUERY).matches;
@@ -73,6 +102,7 @@ function applyChromeDom(nextVisible: boolean): void {
 
 function setVisible(next: boolean) {
   if (visible === next) return;
+  if (next) clearBottomRevealTimer();
   visible = next;
   applyChromeDom(next);
   emit();
@@ -99,10 +129,25 @@ function updateFromScroll() {
   const delta = y - lastScrollY;
   lastScrollY = y;
 
-  if (y <= TOP_SHOW_PX || maxY - y <= BOTTOM_SHOW_PX) {
+  if (y <= TOP_SHOW_PX) {
+    clearBottomRevealTimer();
     setVisible(true);
     return;
   }
+
+  if (maxY - y <= BOTTOM_SHOW_PX) {
+    // Near the end: delay the show so a fling into the footer doesn’t yank
+    // the header back mid-scroll. Scroll-up still reveals immediately below.
+    if (delta < -DIR_DELTA_PX) {
+      clearBottomRevealTimer();
+      setVisible(true);
+      return;
+    }
+    scheduleBottomReveal();
+    return;
+  }
+
+  clearBottomRevealTimer();
 
   if (delta > DIR_DELTA_PX) setVisible(false);
   else if (delta < -DIR_DELTA_PX) setVisible(true);
@@ -140,6 +185,7 @@ export function subscribeScrollChrome(onStoreChange: () => void): () => void {
     listeners.delete(onStoreChange);
     listenerCount -= 1;
     if (listenerCount === 0) {
+      clearBottomRevealTimer();
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onMediaChange);
       window

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
+import { CalendarDays } from "lucide-react";
 import {
   FILTER_TIME_RANGES,
   type FilterTimeRange,
@@ -63,7 +64,7 @@ export function TimeFilter({
       className={`
         ${
           sticky
-            ? `sticky top-[calc(var(--sticky-list-header-height,3.5rem)-1px)] z-10 mb-4 md:mb-3 ${PAGE_GUTTER_BLEED_CLASS} ${STICKY_CHROME_SURFACE_CLASS} pb-2 pt-px md:pb-1.5 ${SCROLL_CHROME_TRANSITION_CLASS}`
+            ? `sticky top-[calc(var(--sticky-list-header-height,3.5rem)-4px)] z-10 mb-4 md:mb-3 ${PAGE_GUTTER_BLEED_CLASS} ${STICKY_CHROME_SURFACE_CLASS} pb-2 pt-px md:pb-1.5 ${SCROLL_CHROME_TRANSITION_CLASS}`
             : ""
         }
         ${className}
@@ -75,8 +76,10 @@ export function TimeFilter({
         ) : null}
         {/*
           Compact cluster: larger type + fixed gaps (not full-width stretch).
-          pl matches category pill text (rail px-0.5 + pill px-4) so “All”
-          lines up with “All Events” above; filter toggle keeps right room.
+          pl matches category pill text (rail px-0.5 + pill px-4) so the
+          calendar mark lines up with “All Events” above; filter toggle
+          keeps right room. On small screens “All” is a calendar icon —
+          that tab stacks cards by day.
         */}
         <div
           className="flex min-w-0 flex-1 items-center gap-5 overflow-x-auto pl-[1.125rem] scrollbar-hide sm:gap-2 sm:pl-0"
@@ -107,7 +110,18 @@ export function TimeFilter({
                   }
                 `}
               >
-                {dict.time[range]}
+                {range === "all" ? (
+                  <>
+                    <CalendarDays
+                      className="h-5 w-5 sm:hidden"
+                      aria-hidden
+                    />
+                    <span className="sr-only sm:hidden">{dict.time.all}</span>
+                    <span className="hidden sm:inline">{dict.time.all}</span>
+                  </>
+                ) : (
+                  dict.time[range]
+                )}
                 <span
                   aria-hidden
                   className={`

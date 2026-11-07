@@ -547,7 +547,7 @@ export function EventScopePage({
             dict={dict}
             backHref={backHref}
             backLabel={backLabel}
-            flushBottom={Boolean(scopeHeroImage)}
+            flushBottom
             variant="compact"
           />
 

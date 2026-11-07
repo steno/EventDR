@@ -13,8 +13,8 @@ import {
   type CitySlug,
 } from "@/lib/cities";
 import {
-  CRUISE_PORT_SLUGS,
   cruisePath,
+  cruisePortsWithShipsToday,
   type CruisePortSlug,
 } from "@/lib/cruise";
 import { categoryPath } from "@/lib/event-navigation";
@@ -366,7 +366,7 @@ export function CityLocationPicker({
                   );
                 })}
                 {onSelectCruise && showCruisePorts
-                  ? CRUISE_PORT_SLUGS.map((slug, index) => {
+                  ? cruisePortsWithShipsToday().map((slug, index) => {
                       const selected = cruisePort === slug;
                       const label =
                         slug === "taino-bay"

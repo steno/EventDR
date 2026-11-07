@@ -432,6 +432,26 @@ export function defaultAllAboardForPort(
   ).allAboardMinutes;
 }
 
+/** True when the MITUR/dated (or weekday fallback) slate lists a call today. */
+export function portHasCruiseShipsToday(
+  port: CruisePortSlug,
+  now: Date = new Date(),
+): boolean {
+  return typicalCruiseCallsForPort(port, now).length > 0;
+}
+
+/** Ports with at least one ship call on the local calendar day. */
+export function cruisePortsWithShipsToday(
+  now: Date = new Date(),
+): CruisePortSlug[] {
+  return CRUISE_PORT_SLUGS.filter((port) => portHasCruiseShipsToday(port, now));
+}
+
+/** True when either Puerto Plata cruise pier has a ship today. */
+export function hasCruiseShipsToday(now: Date = new Date()): boolean {
+  return cruisePortsWithShipsToday(now).length > 0;
+}
+
 const ROAD_FACTOR = 1.35;
 const WALK_MAX_MINUTES = 18;
 const TAXI_PAD_LONG_MINUTES = 8;
@@ -825,11 +845,12 @@ function formatRemainingDurationFallback(
 }
 
 /**
- * Home “I’m on a ship today” pill — only while passengers are typically ashore
- * (after morning dock, before late all-aboard). Hides overnight / early morning
- * so the Today’s specials title isn’t crushed on small screens.
+ * Home “I’m on a ship today” control — only while passengers are typically
+ * ashore (after morning dock, before late all-aboard) **and** the calendar
+ * lists a ship today. Empty MITUR days and overnight stay in normal home.
  */
 export function isCruiseHomeShipPillHours(now: Date = new Date()): boolean {
+  if (!hasCruiseShipsToday(now)) return false;
   const minutes = localMinutesOfDay(now);
   return minutes >= 7 * 60 && minutes < 18 * 60 + 30;
 }

@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
 import { Home } from "@/components/Home";
 import { HomeBootExpect } from "@/components/HomeBootExpect";
@@ -7,6 +7,7 @@ import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import {
   isCruisePortSlug,
+  portHasCruiseShipsToday,
   type CruisePortSlug,
 } from "@/lib/cruise";
 import { slimVenuesForList } from "@/lib/list-payload";
@@ -41,6 +42,10 @@ export default async function Page({
   const { locale, port: portParam } = await params;
   if (!isValidLocale(locale) || !isCruisePortSlug(portParam)) notFound();
   const port = portParam as CruisePortSlug;
+  // No MITUR call today — keep guests on normal home (no fake countdown).
+  if (!portHasCruiseShipsToday(port)) {
+    redirect(`/${locale}`);
+  }
 
   const sp = await searchParams;
   const aboardRaw = sp.allAboard;

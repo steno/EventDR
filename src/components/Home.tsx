@@ -59,9 +59,11 @@ import {
   cruisePath,
   CRUISE_PORTS,
   defaultAllAboardForPort,
+  hasCruiseShipsToday,
   isCruiseHomeShipPillHours,
   isCruisePortSlug,
   parseAllAboardMinutes,
+  portHasCruiseShipsToday,
   type CruisePortSlug,
 } from "@/lib/cruise";
 import { useLiveClockNow } from "@/hooks/useLiveClock";
@@ -208,8 +210,10 @@ function HomeApp({
   useEffect(() => {
     if (!showCruiseShipPill && cruiseEntryOpen) setCruiseEntryOpen(false);
   }, [showCruiseShipPill, cruiseEntryOpen]);
-  const [cruisePort, setCruisePort] = useState<CruisePortSlug | null>(
-    initialCruisePort,
+  const [cruisePort, setCruisePort] = useState<CruisePortSlug | null>(() =>
+    initialCruisePort && portHasCruiseShipsToday(initialCruisePort)
+      ? initialCruisePort
+      : null,
   );
   const [allAboardMinutes, setAllAboardMinutes] = useState(() =>
     parseAllAboardMinutes(
@@ -386,6 +390,13 @@ function HomeApp({
     [locale],
   );
 
+  // Empty MITUR day (or midnight rollover): leave fake shore day / deep links.
+  useEffect(() => {
+    if (!cruisePort) return;
+    if (portHasCruiseShipsToday(cruisePort, now)) return;
+    leaveCruise("puerto-plata", true);
+  }, [cruisePort, leaveCruise, now]);
+
   // Persist area: explicit ?city=, or bare home as North Coast default.
   useEffect(() => {
     if (areaChosen) {
@@ -466,6 +477,8 @@ function HomeApp({
 
   const enterCruise = useCallback(
     (port: CruisePortSlug) => {
+      // Empty MITUR day — do not open a fake shore day / countdown.
+      if (!portHasCruiseShipsToday(port)) return;
       markOnboardingSeen("city-primed");
       clearCityPrimingHold();
       setCityPrimingOpen(false);
@@ -582,6 +595,7 @@ function HomeApp({
     return `${prefix} ${heroPlaceName}`.replace(/\s+/g, " ").trim();
   })();
 
+  const shipsToday = hasCruiseShipsToday(now);
   const areaPickerProps = {
     locale,
     dict,
@@ -589,8 +603,10 @@ function HomeApp({
     cruisePort,
     onSelect: setArea,
     onSelectCruise: enterCruise,
+    showCruisePorts: shipsToday,
     counts: cityCounts,
-    onCruiseIntent: () => setCruiseEntryOpen(true),
+    // Prefer the dedicated ship control; menu row is a fallback when the pill is hidden.
+    onCruiseIntent: shipsToday ? () => setCruiseEntryOpen(true) : undefined,
   } as const;
 
   // Both ports are Puerto Plata, so back out to that area instead of bare home

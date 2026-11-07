@@ -4,7 +4,11 @@ import { useId } from "react";
 import { Anchor } from "lucide-react";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
-import { cruisePath, type CruisePortSlug } from "@/lib/cruise";
+import {
+  cruisePath,
+  cruisePortsWithShipsToday,
+  type CruisePortSlug,
+} from "@/lib/cruise";
 import { signalNavPending } from "@/lib/nav-feedback";
 
 interface CruiseShipEntryProps {
@@ -21,8 +25,6 @@ interface CruiseShipEntryProps {
   variant?: "inline" | "sheet" | "hero" | "icon";
 }
 
-const PORTS: CruisePortSlug[] = ["taino-bay", "amber-cove"];
-
 export function CruiseShipEntry({
   dict,
   locale,
@@ -36,6 +38,10 @@ export function CruiseShipEntry({
   const isInline = variant === "inline" || variant === "hero";
   const isIcon = variant === "icon";
   const panelId = useId();
+  const ports = cruisePortsWithShipsToday();
+
+  // No MITUR/dated calls today — cruise mode is closed.
+  if (ports.length === 0) return null;
 
   return (
     <div className={isInline ? "contents" : isIcon ? "relative shrink-0" : undefined}>
@@ -54,17 +60,28 @@ export function CruiseShipEntry({
                   : "bg-sky-50 text-sky-900 ring-1 ring-sky-200 hover:bg-sky-100 dark:bg-sky-950/50 dark:text-sky-100 dark:ring-sky-800"
               }`
             : isInline
-              ? "inline-flex shrink-0 items-center gap-1.5 rounded-full border border-sky-200 bg-sky-50 px-2.5 py-1.5 text-xs font-bold text-sky-900 transition-[transform,background-color,border-color] touch-manipulation hover:border-sky-300 hover:bg-sky-100/80 active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400 dark:border-sky-800 dark:bg-sky-950/50 dark:text-sky-100 dark:hover:bg-sky-950/80 sm:gap-2 sm:px-3.5 sm:text-sm"
+              ? // Mobile: anchor-only (saves title-row space). sm+: label pill.
+                `inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-sky-200 bg-sky-50 text-sky-900 transition-[transform,background-color,border-color,width,padding] touch-manipulation hover:border-sky-300 hover:bg-sky-100/80 active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400 dark:border-sky-800 dark:bg-sky-950/50 dark:text-sky-100 dark:hover:bg-sky-950/80 sm:h-auto sm:w-auto sm:gap-2 sm:px-3.5 sm:py-1.5 sm:text-sm sm:font-bold ${
+                  open ? "border-sky-400 bg-sky-100 dark:border-sky-500 dark:bg-sky-950/80" : ""
+                }`
               : "flex min-h-14 w-full items-center gap-3 rounded-2xl border border-sky-200 bg-sky-50 px-4 text-left font-bold text-sky-900 transition-transform active:scale-[0.98] dark:border-sky-900/70 dark:bg-sky-950/40 dark:text-sky-100"
         }
       >
         <Anchor
           className={
-            isIcon ? "h-4 w-4 shrink-0" : isInline ? "h-3.5 w-3.5 shrink-0" : "h-5 w-5 shrink-0"
+            isIcon
+              ? "h-4 w-4 shrink-0"
+              : isInline
+                ? "h-4 w-4 shrink-0 sm:h-3.5 sm:w-3.5"
+                : "h-5 w-5 shrink-0"
           }
           aria-hidden
         />
-        {isIcon ? null : copy.shipPill}
+        {isIcon ? null : isInline ? (
+          <span className="hidden sm:inline">{copy.shipPill}</span>
+        ) : (
+          copy.shipPill
+        )}
       </button>
       {open ? (
         <div
@@ -87,7 +104,7 @@ export function CruiseShipEntry({
             {copy.choosePort}
           </p>
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-            {PORTS.map((slug) => (
+            {ports.map((slug) => (
               <a
                 key={slug}
                 href={cruisePath(locale, slug)}

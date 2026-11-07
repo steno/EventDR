@@ -18,14 +18,17 @@ import { rememberReturnPath } from "@/lib/event-navigation";
 const warmed = new Set<string>();
 const WARMED_CAP = 80;
 
-/** Default busy chrome for pill / CTA exits (See all, more, chips). */
-export const INTENT_LINK_PENDING_CLASS = `
-  scale-[0.98] ring-2 ring-orange-500/80
-  shadow-[0_8px_18px_-10px_rgba(251,146,60,0.45)]
-  dark:ring-orange-400/70
-`;
+/**
+ * Same push as home rail cards: scale + orange ring on the way down,
+ * then hold that chrome until navigation finishes.
+ * `scale-[0.985]` matches the card pending class so the utility is shared.
+ */
+export const INTENT_LINK_PENDING_CLASS =
+  "scale-[0.985] ring-2 ring-orange-500/80 shadow-[0_12px_32px_-16px_rgba(251,146,60,0.45)] dark:ring-orange-400/70";
 
-const INTENT_LINK_PRESS_CLASS = "active:scale-[0.98]";
+/** Finger-down frame, before React paints the held state. */
+const INTENT_LINK_PRESS_CLASS =
+  "active:scale-[0.985] active:ring-2 active:ring-orange-500/80 active:shadow-[0_12px_32px_-16px_rgba(251,146,60,0.45)] dark:active:ring-orange-400/70";
 
 type RouterPrefetch = { prefetch: (href: string) => void };
 
@@ -131,6 +134,8 @@ export const IntentLink = forwardRef<HTMLAnchorElement, IntentLinkProps>(
       className,
       onPointerEnter,
       onPointerDown,
+      onPointerUp,
+      onPointerCancel,
       onClick,
       onFocus,
       eagerWarm = false,
@@ -146,6 +151,8 @@ export const IntentLink = forwardRef<HTMLAnchorElement, IntentLinkProps>(
     const router = useRouter();
     const hrefStr = hrefToString(href);
     const [pending, setPending] = useState(false);
+    /** True from pointer-down until click commits or the gesture is cancelled. */
+    const [pressed, setPressed] = useState(false);
 
     const warm = useCallback(() => {
       warmRoute(router, hrefStr);
@@ -160,13 +167,12 @@ export const IntentLink = forwardRef<HTMLAnchorElement, IntentLinkProps>(
       return warmRoutesIdle(router, [hrefStr], 1);
     }, [eagerWarm, hrefStr, router]);
 
-    const busy = pending || Boolean(ariaBusy);
+    const busy = pending || pressed || Boolean(ariaBusy);
+    const showPress = pendingFeedback && (pressed || pending);
     const mergedClassName = [
       className,
-      pendingFeedback && !pending ? INTENT_LINK_PRESS_CLASS : "",
-      pending
-        ? (pendingClassName ?? INTENT_LINK_PENDING_CLASS).trim()
-        : "",
+      pendingFeedback ? INTENT_LINK_PRESS_CLASS : "",
+      showPress ? (pendingClassName ?? INTENT_LINK_PENDING_CLASS).trim() : "",
     ]
       .filter(Boolean)
       .join(" ");
@@ -186,7 +192,27 @@ export const IntentLink = forwardRef<HTMLAnchorElement, IntentLinkProps>(
           // Touch has no hover — start warm on press so navigation overlaps fetch.
           remember();
           warm();
+          if (
+            pendingFeedback &&
+            event.button === 0 &&
+            !event.metaKey &&
+            !event.ctrlKey &&
+            !event.shiftKey &&
+            !event.altKey
+          ) {
+            setPressed(true);
+          }
           onPointerDown?.(event);
+        }}
+        onPointerCancel={(event: PointerEvent<HTMLAnchorElement>) => {
+          setPressed(false);
+          onPointerCancel?.(event);
+        }}
+        onPointerUp={(event: PointerEvent<HTMLAnchorElement>) => {
+          // Click follows pointerup. If it never comes (scroll, cancelled tap),
+          // drop the press on the next frame. A real click sets pending first.
+          requestAnimationFrame(() => setPressed(false));
+          onPointerUp?.(event);
         }}
         onClick={(event: MouseEvent<HTMLAnchorElement>) => {
           remember();
@@ -198,6 +224,8 @@ export const IntentLink = forwardRef<HTMLAnchorElement, IntentLinkProps>(
             !isModifiedClick(event)
           ) {
             setPending(true);
+          } else {
+            setPressed(false);
           }
         }}
         onFocus={(event: FocusEvent<HTMLAnchorElement>) => {
