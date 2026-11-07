@@ -83,7 +83,7 @@ If the events API errors, Firebase console will show a link to create:
 | Symptom | Fix |
 |---------|-----|
 | Submit says "Published" instantly | Firebase env missing — submissions stay in-memory only |
-| Submit fails with image error / photo missing | Create a GCS bucket in the Firebase project (or Firebase Console → Storage → Get started). Set `FIREBASE_STORAGE_BUCKET` (e.g. `popevents-3264b-media`) in `.env.local` + Netlify, then restart/redeploy. |
+| Submit fails with image error / photo missing | Create a GCS bucket in the Firebase project (or Firebase Console → Storage → Get started). Set `FIREBASE_STORAGE_BUCKET` (e.g. `your-project-id-media`) in `.env.local` + Netlify, then restart/redeploy. |
 | Moderate page: "Invalid moderator key" | Wrong `?key=` or `MODERATOR_SECRET` not set / redeploy |
 | Moderate page: "Firebase not connected" | `FIREBASE_SERVICE_ACCOUNT_JSON` missing or invalid JSON |
 | Approved event not visible | Hard refresh discover; check Firestore `events` doc has `status: approved` |
