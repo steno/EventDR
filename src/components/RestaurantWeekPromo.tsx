@@ -55,6 +55,8 @@ export function RestaurantWeekPromo({
         href={eventHref}
         returnTo={returnTo}
         returnTitle={returnTitle}
+        pendingFeedback
+        pendingClassName="scale-[0.99] border-orange-400 ring-2 ring-orange-500/80 shadow-[0_12px_32px_-16px_rgba(251,146,60,0.45)] dark:border-orange-500 dark:ring-orange-400/70"
         className={`${CARD_CHROME} flex w-full items-stretch gap-3 p-2.5 sm:gap-3.5 sm:p-3`}
       >
         <div className="relative h-[4.75rem] w-[4.75rem] shrink-0 overflow-hidden rounded-xl bg-[#f7f4ec] sm:h-[5.25rem] sm:w-[5.25rem]">

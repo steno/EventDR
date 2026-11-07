@@ -824,6 +824,16 @@ function formatRemainingDurationFallback(
   );
 }
 
+/**
+ * Home “I’m on a ship today” pill — only while passengers are typically ashore
+ * (after morning dock, before late all-aboard). Hides overnight / early morning
+ * so the Today’s specials title isn’t crushed on small screens.
+ */
+export function isCruiseHomeShipPillHours(now: Date = new Date()): boolean {
+  const minutes = localMinutesOfDay(now);
+  return minutes >= 7 * 60 && minutes < 18 * 60 + 30;
+}
+
 export function localMinutesOfDay(now: Date = new Date()): number {
   const formatted = new Intl.DateTimeFormat("en-GB", {
     timeZone: APP_TIMEZONE,

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState, type ReactNode } from "react";
 import { ChevronRight, Plus } from "lucide-react";
 import { IntentLink } from "@/components/IntentLink";
 import { CARD_GRID_FULL_ROW_CLASS } from "@/lib/page-shell";
@@ -51,7 +52,7 @@ const MORE_BAR_CLASS = `
   flex min-h-14 items-center justify-center gap-1.5 rounded-2xl
   border border-neutral-200 bg-white px-5 text-center
   text-sm font-bold text-neutral-800
-  transition-colors touch-manipulation
+  transition-[color,background-color,transform,box-shadow,border-color] touch-manipulation
   hover:border-orange-300 hover:bg-orange-50/70 hover:text-orange-600
   focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500
   dark:border-neutral-700 dark:bg-neutral-900
@@ -65,8 +66,15 @@ const MORE_PILL_CLASS = `
   text-sm font-bold text-neutral-800 dark:text-neutral-200
   hover:border-orange-300 dark:hover:border-orange-800
   hover:text-orange-600 dark:hover:text-orange-400
-  transition-colors touch-manipulation
+  transition-[color,background-color,transform,box-shadow,border-color] touch-manipulation
   focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500
+`;
+
+const MORE_PENDING_CLASS = `
+  scale-[0.98] border-orange-400 ring-2 ring-orange-500/80
+  shadow-[0_8px_18px_-10px_rgba(251,146,60,0.45)]
+  text-orange-700
+  dark:border-orange-500 dark:ring-orange-400/70 dark:text-orange-300
 `;
 
 interface EventListMoreTileProps {
@@ -86,6 +94,39 @@ function fillSpanStyle(
   return undefined;
 }
 
+function MoreLoadButton({
+  className,
+  onClick,
+  children,
+}: {
+  className: string;
+  onClick?: () => void;
+  children: ReactNode;
+}) {
+  const [pending, setPending] = useState(false);
+
+  // In-place expand is instant — keep busy chrome for a beat so the tap registers.
+  useEffect(() => {
+    if (!pending) return;
+    const id = window.setTimeout(() => setPending(false), 320);
+    return () => window.clearTimeout(id);
+  }, [pending]);
+
+  return (
+    <button
+      type="button"
+      aria-busy={pending || undefined}
+      onClick={() => {
+        setPending(true);
+        onClick?.();
+      }}
+      className={`${className}${pending ? ` ${MORE_PENDING_CLASS}` : " active:scale-[0.98]"}`}
+    >
+      {children}
+    </button>
+  );
+}
+
 /** Load-more control: full-width bar in card grids, compact pill in list view. */
 export function EventListMoreTile({
   label,
@@ -103,26 +144,36 @@ export function EventListMoreTile({
   if (view === "cards") {
     if (href) {
       return (
-        <IntentLink href={href} className={MORE_BAR_CLASS}>
+        <IntentLink
+          href={href}
+          pendingFeedback
+          pendingClassName={MORE_PENDING_CLASS}
+          className={MORE_BAR_CLASS}
+        >
           {content}
         </IntentLink>
       );
     }
     return (
-      <button type="button" onClick={onClick} className={MORE_BAR_CLASS}>
+      <MoreLoadButton className={MORE_BAR_CLASS} onClick={onClick}>
         {content}
-      </button>
+      </MoreLoadButton>
     );
   }
 
   const pill = href ? (
-    <IntentLink href={href} className={MORE_PILL_CLASS}>
+    <IntentLink
+      href={href}
+      pendingFeedback
+      pendingClassName={MORE_PENDING_CLASS}
+      className={MORE_PILL_CLASS}
+    >
       {content}
     </IntentLink>
   ) : (
-    <button type="button" onClick={onClick} className={MORE_PILL_CLASS}>
+    <MoreLoadButton className={MORE_PILL_CLASS} onClick={onClick}>
       {content}
-    </button>
+    </MoreLoadButton>
   );
 
   return <div className="pt-1 text-center">{pill}</div>;

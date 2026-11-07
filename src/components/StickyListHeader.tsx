@@ -2,10 +2,12 @@
 
 import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ArrowLeft, House } from "lucide-react";
 import { AppHeader } from "@/components/AppHeader";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { warmRoute, warmRoutesIdle } from "@/components/IntentLink";
 import { useScrollChromeVisible } from "@/hooks/useScrollChrome";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -82,17 +84,21 @@ export function StickyPageChrome({
   );
 }
 
+/** Shared press wash — matches pending orange so hold → navigate feels continuous. */
+const backPressClassName =
+  "active:scale-[0.98] active:text-orange-700 active:bg-orange-500/12 dark:active:text-orange-300 dark:active:bg-orange-400/15";
+
 const listBackControlClassName =
-  "inline-flex max-w-full min-h-11 min-w-0 items-center gap-2 rounded-xl px-2 py-2.5 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 active:bg-neutral-200/60 dark:active:bg-neutral-800/60 touch-manipulation";
+  `inline-flex max-w-full min-h-11 min-w-0 items-center gap-2 rounded-xl px-2 py-2.5 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 ${backPressClassName} touch-manipulation transition-[transform,color,background-color]`;
 
 /** Edge-aligned back (home saved tab, desktop list under the logo). */
 export const stickyBackControlClassName = `${listBackControlClassName} -ml-2`;
 
 const detailBackControlClassName =
-  "inline-flex max-w-full min-h-9 min-w-0 items-center gap-1.5 rounded-lg px-1.5 py-1.5 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 active:bg-neutral-200/60 dark:active:bg-neutral-800/60 touch-manipulation";
+  `inline-flex max-w-full min-h-9 min-w-0 items-center gap-1.5 rounded-lg px-1.5 py-1.5 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 ${backPressClassName} touch-manipulation transition-[transform,color,background-color]`;
 
 const backPendingClassName =
-  "text-orange-700 dark:text-orange-300 bg-orange-500/12 dark:bg-orange-400/15";
+  "scale-[0.98] text-orange-700 dark:text-orange-300 bg-orange-500/12 dark:bg-orange-400/15";
 
 const backLabelClassName = "min-w-0 truncate";
 
@@ -124,7 +130,7 @@ type StickyListHeaderProps = {
 );
 
 const homeControlClassName =
-  "inline-flex shrink-0 items-center justify-center rounded-xl text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 active:bg-neutral-200/60 dark:active:bg-neutral-800/60 touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500";
+  `inline-flex shrink-0 items-center justify-center rounded-xl text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 ${backPressClassName} touch-manipulation transition-[transform,color,background-color] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500`;
 
 function CompactChromeRow({
   homeControl,
@@ -167,6 +173,7 @@ export function StickyListHeader({
   flushBottom = false,
   variant = "default",
 }: StickyListHeaderProps) {
+  const router = useRouter();
   const rootRef = useRef<HTMLDivElement>(null);
   const chromeVisible = useScrollChromeVisible();
   const isDetail = variant === "detail";
@@ -189,6 +196,16 @@ export function StickyListHeader({
     window.addEventListener(NAV_DONE_EVENT, onDone);
     return () => window.removeEventListener(NAV_DONE_EVENT, onDone);
   }, []);
+
+  // Detail chrome: idle-warm home + back so house/back are not cold RSC hits.
+  useEffect(() => {
+    if (!isDetail) return;
+    return warmRoutesIdle(
+      router,
+      [homeHref, typeof backHref === "string" ? backHref : ""],
+      2,
+    );
+  }, [backHref, homeHref, isDetail, router]);
 
   useLayoutEffect(() => {
     const el = rootRef.current;
@@ -277,14 +294,19 @@ export function StickyListHeader({
     return (
       <Link
         href={homeHref}
+        prefetch={false}
         aria-label={dict.nav.home}
         title={dict.nav.home}
         aria-busy={homePending || undefined}
+        onPointerEnter={() => warmRoute(router, homeHref)}
+        onPointerDown={() => warmRoute(router, homeHref)}
+        onFocus={() => warmRoute(router, homeHref)}
         onClick={() => {
           // Same as the logo: a true home, not the last remembered city.
           clearHomeArea();
           setHomePending(true);
           signalNavPending("soft");
+          warmRoute(router, homeHref);
         }}
         className={className}
       >
@@ -301,6 +323,12 @@ export function StickyListHeader({
           type="button"
           aria-label={backAriaLabel}
           aria-busy={pending || undefined}
+          onPointerEnter={() => {
+            if (typeof backHref === "string") warmRoute(router, backHref);
+          }}
+          onPointerDown={() => {
+            if (typeof backHref === "string") warmRoute(router, backHref);
+          }}
           onClick={() => {
             beginBack();
             onBack();
@@ -315,8 +343,12 @@ export function StickyListHeader({
     return (
       <Link
         href={backHref}
+        prefetch={false}
         aria-label={backAriaLabel}
         aria-busy={pending || undefined}
+        onPointerEnter={() => warmRoute(router, backHref)}
+        onPointerDown={() => warmRoute(router, backHref)}
+        onFocus={() => warmRoute(router, backHref)}
         onClick={beginBack}
         className={className}
       >

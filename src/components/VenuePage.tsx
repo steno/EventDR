@@ -23,7 +23,7 @@ import {
 import { VenueAssessmentBlock } from "@/components/VenueAssessmentBlock";
 import { EventImage } from "@/components/EventImage";
 import { ImageStoryEnlarge } from "@/components/ImageStoryEnlarge";
-import { IntentLink } from "@/components/IntentLink";
+import { IntentLink, warmRoutesIdle } from "@/components/IntentLink";
 import { useStreetViewAvailable } from "@/hooks/useStreetViewAvailable";
 import { lastHomePath } from "@/lib/cities";
 import { hasMapCoords } from "@/lib/event-coords";
@@ -202,6 +202,17 @@ export function VenuePage({
 
   const backHref = returnTo ?? fallbackHref;
   const backLabel = resolveBackLabel(locale, backHref, dict, returnTitle);
+
+  // Warm back + home while the venue page is open — house/back exits remount lists.
+  useEffect(() => {
+    const home = `/${locale}`;
+    const rememberedHome = lastHomePath(locale);
+    return warmRoutesIdle(
+      router,
+      [backHref, home, rememberedHome === home ? "" : rememberedHome],
+      3,
+    );
+  }, [backHref, locale, router]);
 
   function handleBack() {
     // Detail→detail (e.g. event → venue) and cruise shore-day: push to the

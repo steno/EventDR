@@ -6,8 +6,10 @@ import {
   forwardRef,
   useCallback,
   useEffect,
+  useState,
   type ComponentProps,
   type FocusEvent,
+  type MouseEvent,
   type PointerEvent,
 } from "react";
 import { rememberReturnPath } from "@/lib/event-navigation";
@@ -15,6 +17,15 @@ import { rememberReturnPath } from "@/lib/event-navigation";
 /** Session-scoped; avoids repeat prefetch work for the same href. */
 const warmed = new Set<string>();
 const WARMED_CAP = 80;
+
+/** Default busy chrome for pill / CTA exits (See all, more, chips). */
+export const INTENT_LINK_PENDING_CLASS = `
+  scale-[0.98] ring-2 ring-orange-500/80
+  shadow-[0_8px_18px_-10px_rgba(251,146,60,0.45)]
+  dark:ring-orange-400/70
+`;
+
+const INTENT_LINK_PRESS_CLASS = "active:scale-[0.98]";
 
 type RouterPrefetch = { prefetch: (href: string) => void };
 
@@ -80,6 +91,16 @@ export function warmRoutesIdle(
   return () => window.clearTimeout(id);
 }
 
+function isModifiedClick(event: MouseEvent<HTMLAnchorElement>): boolean {
+  return (
+    event.metaKey ||
+    event.ctrlKey ||
+    event.shiftKey ||
+    event.altKey ||
+    event.button !== 0
+  );
+}
+
 type IntentLinkProps = Omit<ComponentProps<typeof Link>, "prefetch"> & {
   /**
    * Warm this href after first paint (for above-the-fold cards like
@@ -89,6 +110,13 @@ type IntentLinkProps = Omit<ComponentProps<typeof Link>, "prefetch"> & {
   /** Store back-nav context before following this link (cruise → event, etc.). */
   returnTo?: string | null;
   returnTitle?: string | null;
+  /**
+   * Show press + busy chrome on this anchor while RSC navigation settles.
+   * Opt-in — overlay card links keep parent-owned pending on the article.
+   */
+  pendingFeedback?: boolean;
+  /** Override the default orange ring/scale busy classes. */
+  pendingClassName?: string;
 };
 
 /**
@@ -100,6 +128,7 @@ export const IntentLink = forwardRef<HTMLAnchorElement, IntentLinkProps>(
   function IntentLink(
     {
       href,
+      className,
       onPointerEnter,
       onPointerDown,
       onClick,
@@ -107,12 +136,16 @@ export const IntentLink = forwardRef<HTMLAnchorElement, IntentLinkProps>(
       eagerWarm = false,
       returnTo,
       returnTitle,
+      pendingFeedback = false,
+      pendingClassName,
+      "aria-busy": ariaBusy,
       ...rest
     },
     ref,
   ) {
     const router = useRouter();
     const hrefStr = hrefToString(href);
+    const [pending, setPending] = useState(false);
 
     const warm = useCallback(() => {
       warmRoute(router, hrefStr);
@@ -127,11 +160,24 @@ export const IntentLink = forwardRef<HTMLAnchorElement, IntentLinkProps>(
       return warmRoutesIdle(router, [hrefStr], 1);
     }, [eagerWarm, hrefStr, router]);
 
+    const busy = pending || Boolean(ariaBusy);
+    const mergedClassName = [
+      className,
+      pendingFeedback && !pending ? INTENT_LINK_PRESS_CLASS : "",
+      pending
+        ? (pendingClassName ?? INTENT_LINK_PENDING_CLASS).trim()
+        : "",
+    ]
+      .filter(Boolean)
+      .join(" ");
+
     return (
       <Link
         ref={ref}
         href={href}
         prefetch={false}
+        className={mergedClassName || undefined}
+        aria-busy={busy || undefined}
         onPointerEnter={(event: PointerEvent<HTMLAnchorElement>) => {
           warm();
           onPointerEnter?.(event);
@@ -142,9 +188,17 @@ export const IntentLink = forwardRef<HTMLAnchorElement, IntentLinkProps>(
           warm();
           onPointerDown?.(event);
         }}
-        onClick={(event) => {
+        onClick={(event: MouseEvent<HTMLAnchorElement>) => {
           remember();
           onClick?.(event);
+          if (
+            pendingFeedback &&
+            !pending &&
+            !event.defaultPrevented &&
+            !isModifiedClick(event)
+          ) {
+            setPending(true);
+          }
         }}
         onFocus={(event: FocusEvent<HTMLAnchorElement>) => {
           warm();

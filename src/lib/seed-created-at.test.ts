@@ -15,24 +15,30 @@ describe("seed createdAt for home New", () => {
 
   it("surfaces recent seeds in getHomeDiscoverLayout.newEvents", () => {
     const events = getFallbackEvents("en");
-    const layout = getHomeDiscoverLayout(events, {
-      now: new Date("2026-09-09T18:00:00.000Z"),
-    });
+    // Saturday afternoon AST — after Friday Social Friday has left Trending.
+    const now = new Date("2026-11-07T18:00:00.000Z");
+    const layout = getHomeDiscoverLayout(events, { now });
     assert.ok(layout.newEvents.length > 0, "expected Recently added highlights");
     assert.ok(
       layout.newEvents.every((e) => e.createdAt),
       "every Recently added card should have createdAt",
     );
     assert.ok(
-      layout.newEvents.some((e) => e.id === "cuartel-bomberos-puerto-plata-daily"),
-      "expected Cuartel Bomberos daily in Recently added when SEED_CREATED_AT is set",
+      layout.newEvents.some((e) => e.id === "meclao-tinder-party-2026-11-07"),
+      "expected a freshly seeded Saturday bill in Recently added",
+    );
+    assert.ok(
+      !layout.newEvents.some(
+        (e) => e.id === "voyvoy-social-friday-flow-dance-weekly",
+      ),
+      "VOYVOY Social Friday should leave Trending after Friday night",
     );
   });
 
   it("fills Coming up with future one-offs", () => {
     const events = getFallbackEvents("en");
     const layout = getHomeDiscoverLayout(events, {
-      now: new Date("2026-09-08T03:30:00.000Z"),
+      now: new Date("2026-11-07T18:00:00.000Z"),
     });
     assert.ok(
       layout.comingUpEvents.length >= 6,
@@ -44,7 +50,7 @@ describe("seed createdAt for home New", () => {
       ),
       "Super Mega Urban Fest should stay off Coming up after removal",
     );
-    // Visible Coming up head is chronological; near-term dates lead, so a Nov
+    // Visible Coming up head is chronological; near-term dates lead, so a far
     // fest may sit past HOME_COMING_UP_LIMIT and still appear in Recently added.
     const comingUpHead = new Set(
       layout.comingUpEvents.slice(0, 6).map((e) => e.id),
@@ -66,12 +72,12 @@ describe("seed createdAt for home New", () => {
   it("getNewHighlightEvents respects maxAgeDays", () => {
     const events = getFallbackEvents("en");
     const fresh = getNewHighlightEvents(events, {
-      now: new Date("2026-09-08T03:30:00.000Z"),
+      now: new Date("2026-11-07T18:00:00.000Z"),
       maxAgeDays: 3,
     });
     assert.ok(fresh.every((e) => {
       const ms = Date.parse(e.createdAt!);
-      return ms >= Date.parse("2026-09-05T03:30:00.000Z");
+      return ms >= Date.parse("2026-11-04T18:00:00.000Z");
     }));
   });
 });

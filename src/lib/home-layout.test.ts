@@ -81,10 +81,11 @@ describe("getComingUpHighlightEvents", () => {
       time: "6:00 PM",
       recurrence: "daily",
     });
+    // Thursday — before Fri–Sun weekend window (Tue now → weekend Aug 28–30).
     const soon = event({
       id: "soon-concert",
       title: "Soon Concert",
-      date: "2026-08-28",
+      date: "2026-08-27",
       time: "8:00 PM",
       category: "concert",
       trending: true,
@@ -112,6 +113,39 @@ describe("getComingUpHighlightEvents", () => {
     ).map((e) => e.id);
 
     assert.deepEqual(ids, ["soon-concert", "later-fest"]);
+  });
+
+  it("skips the Fri–Sun weekend window so The weekend owns those nights", () => {
+    // Saturday Nov 7 — weekend listing Fri 6–Sun 8; Coming up should start Mon 9+.
+    const satNow = new Date("2026-11-07T18:00:00.000Z");
+    const sundayShow = event({
+      id: "sunday-show",
+      title: "Sunday Show",
+      date: "2026-11-08",
+      time: "2:30 PM",
+      venueSlug: "venue-a",
+    });
+    const mondayShow = event({
+      id: "monday-show",
+      title: "Monday Show",
+      date: "2026-11-09",
+      time: "8:00 PM",
+      venueSlug: "venue-b",
+    });
+    const nextWeek = event({
+      id: "next-week",
+      title: "Next Week",
+      date: "2026-11-14",
+      time: "7:00 PM",
+      venueSlug: "venue-c",
+    });
+
+    const ids = getComingUpHighlightEvents(
+      [sundayShow, mondayShow, nextWeek],
+      { now: satNow },
+    ).map((e) => e.id);
+
+    assert.deepEqual(ids, ["monday-show", "next-week"]);
   });
 
   it("orders soonest first regardless of spotlight signals", () => {
@@ -145,13 +179,13 @@ describe("getComingUpHighlightEvents", () => {
     const a = event({
       id: "a",
       title: "A",
-      date: "2026-08-28",
+      date: "2026-08-27",
       time: "8:00 PM",
     });
     const b = event({
       id: "b",
       title: "B",
-      date: "2026-08-29",
+      date: "2026-09-01",
       time: "9:00 PM",
     });
 
@@ -283,6 +317,99 @@ describe("getNewHighlightEvents", () => {
 
     assert.deepEqual(enIds, ["hard-rock-descubre", "trolley-descubre"]);
     assert.deepEqual(esIds, enIds);
+  });
+
+  it("drops a weekly after its night ends and the date rolls forward", () => {
+    // VOYVOY Social Friday — listed Fri Nov 6, rolled to Fri Nov 13 by Sat morning.
+    const voyvoy = event({
+      id: "voyvoy-social-friday-flow-dance-weekly",
+      title: "VOYVOY — Social Friday by Flow Dance",
+      date: "2026-11-13",
+      time: "9:00 PM",
+      recurrence: "weekly",
+      recurrenceDay: 5,
+      createdAt: "2026-11-06T19:30:00.000Z",
+      venueSlug: "voyvoy-cabarete",
+    });
+
+    const satMorning = new Date("2026-11-07T05:10:00.000Z"); // Sat 1:10 AM AST
+    assert.deepEqual(
+      getNewHighlightEvents([voyvoy], { now: satMorning }).map((e) => e.id),
+      [],
+    );
+  });
+
+  it("keeps a weekly debut until its first night, then drops after", () => {
+    const weekly = event({
+      id: "debut-friday",
+      title: "Debut Friday",
+      date: "2026-11-13",
+      time: "9:00 PM",
+      recurrence: "weekly",
+      recurrenceDay: 5,
+      createdAt: "2026-11-10T16:00:00.000Z", // Mon after prior Fri Nov 6
+      venueSlug: "venue-a",
+    });
+
+    const wedBefore = new Date("2026-11-11T18:00:00.000Z"); // Wed afternoon AST
+    assert.deepEqual(
+      getNewHighlightEvents([weekly], { now: wedBefore }).map((e) => e.id),
+      ["debut-friday"],
+    );
+
+    const afterFirstNight = new Date("2026-11-14T05:00:00.000Z"); // Sat 1 AM AST
+    const rolled = {
+      ...weekly,
+      date: "2026-11-20",
+    };
+    assert.deepEqual(
+      getNewHighlightEvents([rolled], { now: afterFirstNight }).map((e) => e.id),
+      [],
+    );
+  });
+
+  it("keeps a weekly on its night before start, drops after the window ends", () => {
+    const friday = event({
+      id: "friday-night",
+      title: "Friday Night",
+      date: "2026-11-06",
+      time: "9:00 PM",
+      recurrence: "weekly",
+      recurrenceDay: 5,
+      createdAt: "2026-11-06T12:00:00.000Z",
+      venueSlug: "venue-a",
+    });
+
+    const beforeDoors = new Date("2026-11-07T00:00:00.000Z"); // Fri 8 PM AST
+    assert.deepEqual(
+      getNewHighlightEvents([friday], { now: beforeDoors }).map((e) => e.id),
+      ["friday-night"],
+    );
+
+    const afterDefaultWindow = new Date("2026-11-07T03:30:00.000Z"); // Fri 11:30 PM AST
+    assert.deepEqual(
+      getNewHighlightEvents([friday], {
+        now: afterDefaultWindow,
+      }).map((e) => e.id),
+      [],
+    );
+  });
+
+  it("drops a past one-off from Recently added", () => {
+    const past = event({
+      id: "past-show",
+      title: "Past Show",
+      date: "2026-11-05",
+      time: "8:00 PM – 11:00 PM",
+      createdAt: "2026-11-04T12:00:00.000Z",
+      venueSlug: "venue-a",
+    });
+
+    const sat = new Date("2026-11-07T18:00:00.000Z");
+    assert.deepEqual(
+      getNewHighlightEvents([past], { now: sat }).map((e) => e.id),
+      [],
+    );
   });
 });
 

@@ -39,6 +39,8 @@ const EventImageComponent = ({
             : `h-full w-full ${className}`
         }
         loading={priority ? "eager" : "lazy"}
+        decoding={priority ? "sync" : "async"}
+        fetchPriority={priority ? "high" : "low"}
       />
     );
   }
@@ -54,6 +56,8 @@ const EventImageComponent = ({
         quality={75}
         priority={priority}
         loading={priority ? "eager" : "lazy"}
+        decoding={priority ? "sync" : "async"}
+        fetchPriority={priority ? "high" : "low"}
         className={`block w-full h-auto ${className}`}
       />
     );
@@ -68,6 +72,8 @@ const EventImageComponent = ({
       quality={65}
       priority={priority}
       loading={priority ? "eager" : "lazy"}
+      decoding={priority ? "sync" : "async"}
+      fetchPriority={priority ? "high" : "low"}
       className={className}
     />
   );

@@ -59,7 +59,9 @@ export function PhotoHero({
               key={imageUrl}
               src={imageUrl}
               alt=""
-              priority
+              // Hidden on mobile (display:none) but still in the DOM — do not
+              // compete with first paint / logo LCP. Desktop fills in after text.
+              priority={false}
               sizes="100vw"
               className={
                 imageSrc

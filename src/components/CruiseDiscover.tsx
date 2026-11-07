@@ -569,7 +569,8 @@ function ItineraryCard({
       </ol>
       <IntentLink
         href={loopHref}
-        className="relative mt-3 flex min-h-11 items-center justify-center gap-1 rounded-2xl bg-gradient-to-r from-orange-50 via-rose-50 to-orange-50 px-3 text-sm font-bold text-orange-800 ring-1 ring-orange-200/60 touch-manipulation transition-[filter,transform] active:scale-[0.98] active:bg-orange-100 dark:from-orange-500/22 dark:via-rose-500/16 dark:to-fuchsia-500/12 dark:text-orange-50 dark:ring-orange-300/25 dark:active:brightness-110"
+        pendingFeedback
+        className="relative mt-3 flex min-h-11 items-center justify-center gap-1 rounded-2xl bg-gradient-to-r from-orange-50 via-rose-50 to-orange-50 px-3 text-sm font-bold text-orange-800 ring-1 ring-orange-200/60 touch-manipulation transition-[filter,transform,box-shadow] active:bg-orange-100 dark:from-orange-500/22 dark:via-rose-500/16 dark:to-fuchsia-500/12 dark:text-orange-50 dark:ring-orange-300/25 dark:active:brightness-110"
       >
         {dict.cruise.viewRoute}
         <ChevronRight className="h-4 w-4" aria-hidden />

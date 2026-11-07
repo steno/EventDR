@@ -79,7 +79,7 @@ function VenueSlideCard({
           ? "scale-[0.985] ring-2 ring-orange-500/80 shadow-[0_12px_32px_-16px_rgba(251,146,60,0.45)] dark:ring-orange-400/70"
           : dimmed
             ? "opacity-45 ring-black/5 dark:ring-white/10"
-            : "ring-black/5 hover:ring-orange-400/50 active:scale-[0.99] dark:ring-white/10 dark:hover:ring-orange-600/50"
+            : "ring-black/5 hover:ring-orange-400/50 active:scale-[0.99] active:ring-2 active:ring-orange-500/80 dark:ring-white/10 dark:hover:ring-orange-600/50 dark:active:ring-orange-400/70"
       }`}
       aria-busy={pending || undefined}
     >
@@ -234,7 +234,8 @@ function AudienceSlider({
           {seeAllHref ? (
             <IntentLink
               href={seeAllHref}
-              className="inline-flex items-center gap-0.5 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-sm font-bold text-orange-600 hover:bg-orange-100 dark:hover:bg-orange-950/70 transition-colors touch-manipulation"
+              pendingFeedback
+              className="inline-flex items-center gap-0.5 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-sm font-bold text-orange-600 hover:bg-orange-100 dark:hover:bg-orange-950/70 transition-[color,background-color,transform,box-shadow] touch-manipulation"
             >
               {seeAllLabel ?? dict.venues.directory.seeAll}
               <ChevronRight className="h-3.5 w-3.5" aria-hidden />

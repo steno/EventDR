@@ -118,7 +118,7 @@ export function HomeAlerts({
             const Icon = alertIcon(alert);
             const kindLabel = alertBadgeLabel(alert, dict);
             const className =
-              "flex items-start gap-3 px-3.5 py-4 touch-manipulation transition-colors hover:bg-background/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 dark:hover:bg-neutral-800/80";
+              "flex items-start gap-3 px-3.5 py-4 touch-manipulation transition-[color,background-color,transform,box-shadow] hover:bg-background/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 dark:hover:bg-neutral-800/80";
             const body = (
               <>
                 <span className="min-w-0 flex-1">
@@ -168,6 +168,7 @@ export function HomeAlerts({
                 ) : (
                   <IntentLink
                     href={alert.href}
+                    pendingFeedback
                     className={className}
                     onClick={() => rememberReturnPath(returnTo ?? `/${locale}`)}
                   >

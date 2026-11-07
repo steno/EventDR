@@ -121,7 +121,7 @@ export const es: Dictionary = {
     happeningToday: "Hoy",
     seeAllToday: "Ver todo hoy",
     seeAllSpecials: "Ver todos los especiales",
-    todaysSpecials: "Especiales de hoy",
+    todaysSpecials: "Especiales",
     scrollSpecialsPrev: "Especiales anteriores",
     scrollSpecialsNext: "Más especiales",
     halloween: "Halloween",
@@ -130,7 +130,7 @@ export const es: Dictionary = {
     seeAllChristmas: "Ver toda Navidad",
     thisWeekend: "El fin de semana",
     seeAllWeekend: "Ver todo el finde",
-    recentlyAdded: "Tendencias",
+    recentlyAdded: "Recién agregados",
     comingUp: "En el horizonte",
     restaurantWeek: {
       eyebrow: "Gastronomía esta semana",

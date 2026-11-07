@@ -234,7 +234,7 @@ function TodayHighlightCard({
           ? "scale-[0.985] ring-2 ring-orange-500/80 shadow-[0_12px_32px_-16px_rgba(251,146,60,0.45)] dark:ring-orange-400/70"
           : dimmed
             ? "opacity-45 ring-black/5 dark:ring-white/10"
-            : "ring-black/5 hover:ring-orange-400/50 active:scale-[0.99] dark:ring-white/10 dark:hover:ring-orange-600/50"
+            : "ring-black/5 hover:ring-orange-400/50 active:scale-[0.99] active:ring-2 active:ring-orange-500/80 dark:ring-white/10 dark:hover:ring-orange-600/50 dark:active:ring-orange-400/70"
       }`}
       aria-busy={pending || undefined}
     >
@@ -498,15 +498,19 @@ const TodayHighlightsComponent = ({
     [visibleEvents, locale],
   );
 
-  // Prebuild detail RSC payloads while the user is still on home — mobile has
-  // no hover, so intent-only prefetch is too late for the first tap.
+  // Prebuild See-all + detail RSC payloads while the user is still on home —
+  // mobile has no hover, so intent-only prefetch is too late for the first tap.
   useEffect(() => {
+    const detailLimit =
+      limit == null
+        ? highlightHrefs.length
+        : Math.min(limit, highlightHrefs.length);
     return warmRoutesIdle(
       router,
-      highlightHrefs,
-      limit == null ? highlightHrefs.length : Math.min(limit, highlightHrefs.length),
+      [allTodayHref, ...highlightHrefs.slice(0, detailLimit)],
+      detailLimit + 1,
     );
-  }, [highlightHrefs, limit, router]);
+  }, [allTodayHref, highlightHrefs, limit, router]);
 
   // Keep a chrome-only section when home passes area/ship controls with no cards.
   if (
@@ -530,16 +534,18 @@ const TodayHighlightsComponent = ({
         <div className="mb-2 w-full px-1 sm:hidden">{headerStart}</div>
       ) : null}
       <div
-        className={`flex items-center justify-between gap-x-3 gap-y-2 px-1 ${
+        className={`flex flex-wrap items-center justify-between gap-x-3 gap-y-2 px-1 ${
           chromeOnly ? "mb-0" : "mb-3"
         }`}
       >
-        <div className="flex min-w-0 items-center gap-x-3 gap-y-2">
+        <div className="flex min-w-0 flex-1 flex-wrap items-center gap-x-3 gap-y-2">
           {headerStart ? (
             <div className="hidden shrink-0 sm:block">{headerStart}</div>
           ) : null}
           {showSectionTitle ? (
-            <h2 className={`${SECTION_TITLE_CLASS} min-w-0 truncate`}>
+            // Never truncate gradient titles — `truncate` + bg-clip-text can
+            // blank the label entirely (ES/FR longer strings especially).
+            <h2 className={`${SECTION_TITLE_CLASS} max-w-full shrink-0`}>
               {sectionLabel}
             </h2>
           ) : null}
@@ -589,7 +595,9 @@ const TodayHighlightsComponent = ({
           {showMoreLink ? (
             <IntentLink
               href={allTodayHref}
-              className="inline-flex items-center gap-0.5 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-sm font-bold text-orange-600 hover:bg-orange-100 dark:hover:bg-orange-950/70 transition-colors touch-manipulation"
+              eagerWarm
+              pendingFeedback
+              className="inline-flex items-center gap-0.5 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-sm font-bold text-orange-600 hover:bg-orange-100 dark:hover:bg-orange-950/70 transition-[color,background-color,transform,box-shadow] touch-manipulation"
             >
               {seeAllLabel ?? dict.events.seeAllToday}
               <ChevronRight className="h-3.5 w-3.5" aria-hidden />

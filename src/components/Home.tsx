@@ -59,10 +59,12 @@ import {
   cruisePath,
   CRUISE_PORTS,
   defaultAllAboardForPort,
+  isCruiseHomeShipPillHours,
   isCruisePortSlug,
   parseAllAboardMinutes,
   type CruisePortSlug,
 } from "@/lib/cruise";
+import { useLiveClockNow } from "@/hooks/useLiveClock";
 import type { Event, Venue } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { AppTab, Dictionary } from "@/i18n/dictionaries";
@@ -81,6 +83,7 @@ import { signalNavDone } from "@/lib/nav-feedback";
 import { NETWORK_ONLY_FETCH } from "@/lib/pwa-refresh";
 import { allEventsPath, categoryPath } from "@/lib/event-navigation";
 import { scrollBehaviorPreference } from "@/lib/list-scroll";
+import { warmRoutesIdle } from "@/components/IntentLink";
 
 const SubmitEventSheet = dynamic(
   () =>
@@ -185,6 +188,8 @@ function HomeApp({
   venueEngagementScores = null,
 }: HomeProps & { cityQuery: string | null }) {
   const router = useRouter();
+  const now = useLiveClockNow();
+  const showCruiseShipPill = isCruiseHomeShipPillHours(now);
   const [cityQuery, setCityQuery] = useState(cityQueryProp);
   const [tab, setTab] = useState<AppTab>("discover");
   const [searchQuery, setSearchQuery] = useState("");
@@ -199,6 +204,10 @@ function HomeApp({
   const [refreshKey, setRefreshKey] = useState(0);
   const [cityPrimingOpen, setCityPrimingOpen] = useState(false);
   const [cruiseEntryOpen, setCruiseEntryOpen] = useState(false);
+
+  useEffect(() => {
+    if (!showCruiseShipPill && cruiseEntryOpen) setCruiseEntryOpen(false);
+  }, [showCruiseShipPill, cruiseEntryOpen]);
   const [cruisePort, setCruisePort] = useState<CruisePortSlug | null>(
     initialCruisePort,
   );
@@ -533,6 +542,16 @@ function HomeApp({
     ? `/${locale}/city/${selectedCity}/when/weekend`
     : `/${locale}/when/weekend`;
 
+  // Warm All-today / specials / weekend hubs after first paint so the next
+  // "See all" tap does not wait on a cold RSC payload (mobile has no hover).
+  useEffect(() => {
+    return warmRoutesIdle(
+      router,
+      [seeAllTodayHref, seeAllSpecialsHref, seeAllWeekendHref],
+      3,
+    );
+  }, [router, seeAllTodayHref, seeAllSpecialsHref, seeAllWeekendHref]);
+
   const heroPlaceName = (() => {
     if (cruisePort) {
       return cruisePort === "taino-bay"
@@ -828,14 +847,16 @@ function HomeApp({
                     </div>
                   }
                   headerAction={
-                    <CruiseShipEntry
-                      variant="inline"
-                      dict={dict}
-                      locale={locale}
-                      open={cruiseEntryOpen}
-                      onOpenChange={setCruiseEntryOpen}
-                      onSelectPort={enterCruise}
-                    />
+                    showCruiseShipPill ? (
+                      <CruiseShipEntry
+                        variant="inline"
+                        dict={dict}
+                        locale={locale}
+                        open={cruiseEntryOpen}
+                        onOpenChange={setCruiseEntryOpen}
+                        onSelectPort={enterCruise}
+                      />
+                    ) : null
                   }
                 />
               )}

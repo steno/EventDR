@@ -31,6 +31,7 @@ import {
 } from "@/lib/list-scroll";
 import { clusterRecurringVenueEvents } from "@/lib/venue-recurring-siblings";
 import {
+  browseDayHeadingDate,
   eventsInAllBrowseOrder,
   eventsInWeekendOrder,
   weekendHeadingDate,
@@ -419,7 +420,7 @@ export function FilteredEventList({
       const day =
         activeRange === "weekend"
           ? weekendHeadingDate(event)
-          : event.date;
+          : browseDayHeadingDate(event);
       let j = i + 1;
       while (j < listed.length) {
         const next = listed[j];
@@ -427,7 +428,7 @@ export function FilteredEventList({
         const nextDay =
           activeRange === "weekend"
             ? weekendHeadingDate(next)
-            : next.date;
+            : browseDayHeadingDate(next);
         if (nextDay !== day) break;
         j++;
       }
@@ -679,9 +680,9 @@ export function FilteredEventList({
                 const showAllDay =
                   activeRange === "all" &&
                   !event.recurrence &&
-                  event.date !==
+                  browseDayHeadingDate(event) !==
                     (previous && !previous.recurrence
-                      ? previous.date
+                      ? browseDayHeadingDate(previous)
                       : undefined);
                 const showWeeklyDaily =
                   activeRange === "all" &&
@@ -691,7 +692,7 @@ export function FilteredEventList({
                 const dayHeadingDate =
                   activeRange === "weekend"
                     ? weekendHeadingDate(event)
-                    : event.date;
+                    : browseDayHeadingDate(event);
                 const weekendPadSpan = dayGroupCardSpans?.pads.get(index);
                 return (
                   <Fragment key={event.id}>

@@ -619,7 +619,8 @@ export function EventDetailSheet({
             src={event.imageUrl}
             alt=""
             sizes="100vw"
-            priority
+            // Decorative backdrop — never steal bandwidth from the real hero + copy.
+            priority={false}
             className="object-cover object-center scale-110 blur-xl opacity-70"
           />
         </div>

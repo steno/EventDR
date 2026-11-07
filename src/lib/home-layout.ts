@@ -1,5 +1,10 @@
 import { venueMatchesCity, type CitySlug } from "@/lib/cities";
-import { addDaysISO, APP_TIMEZONE, localDateISO } from "@/lib/event-dates";
+import {
+  addDaysISO,
+  APP_TIMEZONE,
+  localDateISO,
+  weekdayFromISO,
+} from "@/lib/event-dates";
 import { pinTodayOneOffs, sortEventsForDisplay } from "@/lib/event-sort";
 import type { Event, Venue } from "@/lib/types";
 import {
@@ -10,7 +15,11 @@ import {
   isListedTodaySpecial,
   isRecurringEvent,
 } from "@/lib/event-status";
-import { filterByTimeRange, type TimeRange } from "@/lib/filters";
+import {
+  filterByTimeRange,
+  getWeekendListingBounds,
+  type TimeRange,
+} from "@/lib/filters";
 import { isHomeHeroBackgroundSuitable } from "@/lib/event-images";
 import { findActiveSpecialEvent } from "@/lib/special-events";
 
@@ -18,8 +27,8 @@ import { findActiveSpecialEvent } from "@/lib/special-events";
 export { prioritizeOneTimeEvents } from "@/lib/event-sort";
 export { isTodayOnlySpecial } from "@/lib/event-status";
 
-/** Max cards in the home "Happening today" section (desktop one row of 4). */
-export const HOME_TODAY_LIMIT = 4;
+/** Max cards in the home "Today" section (pairs with Just added / weekend at 6). */
+export const HOME_TODAY_LIMIT = 6;
 
 /**
  * Recurring Flip Flop amenity nights (wings / NFL TV / happy hour) — still on
@@ -455,15 +464,114 @@ function createdAtMs(event: Event): number {
   return Date.parse(event.createdAt);
 }
 
-/** Still worth showing on New — not a finished past one-off. */
+/** Weekdays that a weekly recurrence fires on (Sunday=0 … Saturday=6). */
+function weeklyRecurrenceDays(
+  event: Pick<Event, "recurrenceDay" | "recurrenceDays">,
+): number[] {
+  const days = event.recurrenceDays?.length
+    ? event.recurrenceDays
+    : event.recurrenceDay != null
+      ? [event.recurrenceDay]
+      : [];
+  return [...new Set(days)].filter((day) => day >= 0 && day <= 6);
+}
+
+/**
+ * Prior occurrence before a materialized `next` date (for debut-window checks).
+ * Weekly walks back to the previous matching weekday; daily → −1;
+ * weekdays/weekends walk back to the prior match.
+ */
+function previousRecurringOccurrenceDay(
+  event: Pick<Event, "recurrence" | "recurrenceDay" | "recurrenceDays">,
+  nextISO: string,
+): string {
+  if (event.recurrence === "daily") return addDaysISO(nextISO, -1);
+  if (event.recurrence === "weekly") {
+    const days = weeklyRecurrenceDays(event);
+    if (days.length === 0) return addDaysISO(nextISO, -7);
+    let cursor = addDaysISO(nextISO, -1);
+    for (let i = 0; i < 14; i += 1) {
+      if (days.includes(weekdayFromISO(cursor))) return cursor;
+      cursor = addDaysISO(cursor, -1);
+    }
+    return addDaysISO(nextISO, -7);
+  }
+  if (event.recurrence === "weekdays") {
+    let cursor = addDaysISO(nextISO, -1);
+    for (let i = 0; i < 7; i += 1) {
+      const day = weekdayFromISO(cursor);
+      if (day >= 1 && day <= 5) return cursor;
+      cursor = addDaysISO(cursor, -1);
+    }
+    return addDaysISO(nextISO, -1);
+  }
+  if (event.recurrence === "weekends") {
+    let cursor = addDaysISO(nextISO, -1);
+    for (let i = 0; i < 7; i += 1) {
+      const day = weekdayFromISO(cursor);
+      if (day === 0 || day === 6) return cursor;
+      cursor = addDaysISO(cursor, -1);
+    }
+    return addDaysISO(nextISO, -1);
+  }
+  return addDaysISO(nextISO, -7);
+}
+
+/**
+ * Recurring listing whose next night is still the first after it was added
+ * (so a Monday add for Friday can sit on Trending until that Friday plays).
+ */
+function isRecurringDebutOccurrence(event: Event, now: Date): boolean {
+  const next = event.date?.trim();
+  if (!next || !event.recurrence) return false;
+  const created = createdAtMs(event);
+  if (!Number.isFinite(created)) return false;
+  const createdDay = localDateISO(new Date(created));
+  const prev = previousRecurringOccurrenceDay(event, next);
+  return createdDay > prev;
+}
+
+/**
+ * After materialize rolls a weekly to next week, an overnight session from the
+ * prior night may still be live (e.g. Sat 1 AM of a Fri 9 PM–3 AM bill).
+ */
+function isOvernightSpillFromPriorOccurrence(event: Event, now: Date): boolean {
+  const next = event.date?.trim();
+  if (!next || !event.recurrence) return false;
+  const today = localDateISO(now);
+  const prev = previousRecurringOccurrenceDay(event, next);
+  if (prev !== addDaysISO(today, -1)) return false;
+  const status = getEventLiveStatus({ ...event, date: prev }, now);
+  return status === "live" || status === "ending";
+}
+
+/**
+ * Still worth showing on New / Trending — not a finished past one-off, and not
+ * a weekly that already played and rolled forward to next week.
+ */
 function isStillRelevantForNew(event: Event, now: Date): boolean {
   if (event.temporarilyClosed) return false;
   const status = getEventLiveStatus(event, now);
-  if (status === "live" || status === "ending" || status === "upcoming") {
+  if (status === "live" || status === "ending") return true;
+
+  const today = localDateISO(now);
+
+  if (event.recurrence && isOvernightSpillFromPriorOccurrence(event, now)) {
     return true;
   }
-  if (event.recurrence) return status !== "ended";
-  const today = localDateISO(now);
+
+  if (status === "upcoming") {
+    if (!event.recurrence) return true;
+    // Tonight (or later today) still ahead — keep.
+    if (happensOnLocalDate(event, today)) return true;
+    // Next week’s roll-forward: only keep through the debut night after listing.
+    return isRecurringDebutOccurrence(event, now);
+  }
+
+  // closedToday / ended / unknown after hours — weeklies leave Trending.
+  if (event.recurrence) return false;
+
+  if (status === "ended") return false;
   const end = (event.endDate ?? event.date)?.trim();
   return Boolean(end && end >= today);
 }
@@ -512,6 +620,11 @@ export interface ComingUpHighlightOptions extends TodayHighlightOptions {
   excludeIds?: readonly string[];
   /** Max days ahead the event may start (default {@link HOME_COMING_UP_HORIZON_DAYS}). */
   horizonDays?: number;
+  /**
+   * Skip Fri–Sun of the home weekend window so “On the horizon” doesn’t
+   * repeat The weekend. Default true.
+   */
+  skipWeekendWindow?: boolean;
 }
 
 export interface WeekendHighlightOptions extends TodayHighlightOptions {
@@ -646,8 +759,9 @@ export function getWeekendHighlightEvents(
 }
 
 /**
- * Future one-offs / multi-day fixtures for home “Coming up” — no recurring
- * evergreens. Soonest start date first (then title).
+ * Future one-offs / multi-day fixtures for home “Coming up” / On the horizon —
+ * no recurring evergreens. Soonest start first (then title). By default skips
+ * the Fri–Sun weekend listing window so those nights stay on The weekend.
  */
 export function getComingUpHighlightEvents(
   events: Event[],
@@ -656,14 +770,17 @@ export function getComingUpHighlightEvents(
   const now = options.now ?? new Date();
   const exclude = new Set(options.excludeIds ?? []);
   const horizonDays = options.horizonDays ?? HOME_COMING_UP_HORIZON_DAYS;
+  const skipWeekend = options.skipWeekendWindow !== false;
   const today = localDateISO(now);
   const horizonEnd = addDaysISO(today, horizonDays);
+  const weekend = skipWeekend ? getWeekendListingBounds(now) : null;
 
   const pool = events.filter((event) => {
     if (exclude.has(event.id) || event.temporarilyClosed) return false;
     if (isRecurringEvent(event)) return false;
     const start = event.date?.trim();
     if (!start || start <= today || start > horizonEnd) return false;
+    if (weekend && start >= weekend.start && start <= weekend.end) return false;
     return true;
   });
 
@@ -915,12 +1032,13 @@ export function getHomeDiscoverLayout(
     })
     .map((e) => e.id);
 
-  // Coming up owns future one-offs; skip today’s + seasonal + weekend heads.
+  // Coming up owns post-weekend one-offs; skip today’s + seasonal + every
+  // weekend-rail id (date window is also skipped inside the helper).
   // Atmospheric hero BG is day-random and must not hide that listing elsewhere.
   const comingUpExclude = new Set<string>([
     ...todayVisibleIds,
     ...seasonalExcludeIds,
-    ...weekendEvents.slice(0, HOME_WEEKEND_LIMIT).map((e) => e.id),
+    ...weekendEvents.map((e) => e.id),
   ]);
 
   const comingUpEvents = getComingUpHighlightEvents(events, {

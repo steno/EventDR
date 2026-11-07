@@ -1,11 +1,66 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import {
+  browseDayHeadingDate,
   eventsInAllBrowseOrder,
   eventsInCalendarOrder,
   eventsInWeekendOrder,
   weekendHeadingDate,
 } from "./list-day-groups";
+
+describe("browseDayHeadingDate", () => {
+  // Saturday 7 Nov 2026 morning AST
+  const saturday = new Date("2026-11-07T10:00:00-04:00");
+
+  it("moves an ongoing multi-day festival onto today", () => {
+    assert.equal(
+      browseDayHeadingDate(
+        {
+          date: "2026-11-06",
+          endDate: "2026-11-09",
+          time: "See event schedule",
+        },
+        saturday,
+      ),
+      "2026-11-07",
+    );
+  });
+
+  it("keeps a same-day night on its start date", () => {
+    assert.equal(
+      browseDayHeadingDate({ date: "2026-11-07", time: "10:00 PM" }, saturday),
+      "2026-11-07",
+    );
+  });
+
+  it("keeps overnight spillover on the session start day", () => {
+    assert.equal(
+      browseDayHeadingDate(
+        {
+          date: "2026-11-06",
+          endDate: "2026-11-07",
+          time: "10:00 PM - 4:00 AM",
+        },
+        saturday,
+      ),
+      "2026-11-06",
+    );
+  });
+
+  it("keeps a finished multi-day under its start date", () => {
+    assert.equal(
+      browseDayHeadingDate(
+        {
+          date: "2026-11-01",
+          endDate: "2026-11-03",
+          time: "See event schedule",
+        },
+        saturday,
+      ),
+      "2026-11-01",
+    );
+  });
+});
 
 describe("eventsInCalendarOrder", () => {
   it("groups a weekend list Friday then Saturday then Sunday", () => {
@@ -18,6 +73,27 @@ describe("eventsInCalendarOrder", () => {
     assert.deepEqual(
       ordered.map((item) => item.id),
       ["fri-b", "fri-a", "sat", "sun"],
+    );
+  });
+
+  it("buckets an ongoing multi-day under today with that day's one-offs", () => {
+    const saturday = new Date("2026-11-07T10:00:00-04:00");
+    const ordered = eventsInCalendarOrder(
+      [
+        {
+          id: "masters",
+          date: "2026-11-06",
+          endDate: "2026-11-09",
+          time: "See event schedule",
+        },
+        { id: "sat-a", date: "2026-11-07" },
+        { id: "fri-only", date: "2026-11-06" },
+      ],
+      saturday,
+    );
+    assert.deepEqual(
+      ordered.map((item) => item.id),
+      ["fri-only", "masters", "sat-a"],
     );
   });
 });
@@ -42,6 +118,38 @@ describe("eventsInWeekendOrder", () => {
     assert.equal(
       weekendHeadingDate({ date: "2026-09-18" }, wednesday),
       "2026-10-02",
+    );
+  });
+
+  it("moves a Fri–Mon festival onto Saturday once Saturday arrives", () => {
+    const saturday = new Date("2026-11-07T10:00:00-04:00");
+    const ordered = eventsInWeekendOrder(
+      [
+        {
+          id: "masters",
+          date: "2026-11-06",
+          endDate: "2026-11-09",
+          time: "See event schedule",
+        },
+        { id: "sat", date: "2026-11-07" },
+        { id: "fri-party", date: "2026-11-06" },
+      ],
+      saturday,
+    );
+    assert.deepEqual(
+      ordered.map((item) => item.id),
+      ["fri-party", "masters", "sat"],
+    );
+    assert.equal(
+      weekendHeadingDate(
+        {
+          date: "2026-11-06",
+          endDate: "2026-11-09",
+          time: "See event schedule",
+        },
+        saturday,
+      ),
+      "2026-11-07",
     );
   });
 });

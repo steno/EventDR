@@ -7,7 +7,9 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { EventDetailSheet } from "@/components/EventDetailSheet";
 import { StickyListHeader } from "@/components/StickyListHeader";
+import { warmRoutesIdle } from "@/components/IntentLink";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
+import { lastHomePath } from "@/lib/cities";
 import {
   resolveBackLabel,
   resolveEventReturnPath,
@@ -68,6 +70,17 @@ export function EventPage({
     dict,
     returnTitle,
   );
+
+  // Warm likely exits (back + home) so leaving detail is not a cold remount.
+  useEffect(() => {
+    const home = `/${locale}`;
+    const rememberedHome = lastHomePath(locale);
+    return warmRoutesIdle(
+      router,
+      [backHref, home, rememberedHome === home ? "" : rememberedHome],
+      3,
+    );
+  }, [backHref, locale, router]);
 
   function handleClose() {
     // Nearby / venue hops and cruise shore-day store a returnTo — push so
