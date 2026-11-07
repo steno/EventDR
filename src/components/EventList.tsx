@@ -507,7 +507,15 @@ export function EventList({
             />
             {hasMore ? (
               <EventListMoreTile
-                label={viewAllHref ? dict.events.viewAllEvents : dict.events.moreEvents}
+                label={
+                  viewAllHref
+                    ? dict.events.viewAllEvents
+                    : category
+                      ? fillTemplate(dict.events.moreCategory, {
+                          category: dict.categories[category],
+                        })
+                      : dict.events.moreEvents
+                }
                 view={listView}
                 href={viewAllHref}
                 onClick={

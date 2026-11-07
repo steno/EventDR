@@ -761,7 +761,13 @@ export function FilteredEventList({
               ) : null}
               {hasMore ? (
                 <EventListMoreTile
-                  label={dict.events.moreEvents}
+                  label={
+                    categoryId
+                      ? fillTemplate(dict.events.moreCategory, {
+                          category: dict.categories[categoryId],
+                        })
+                      : dict.events.moreEvents
+                  }
                   view={view}
                   onClick={() =>
                     setVisibleCount((count) => {

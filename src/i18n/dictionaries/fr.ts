@@ -98,6 +98,7 @@ export const fr: Dictionary = {
     hiddenGems: "Pépites locales — des événements introuvables sur les grandes billetteries",
     mostPopular: "Les plus populaires",
     moreEvents: "Plus d'événements",
+    moreCategory: "Plus de {category}",
     yourEventHereTitle: "Votre événement ici ?",
     yourEventHere: "Ajoutez votre événement {category}",
     yourEventHereGeneric: "Ajoutez votre événement",

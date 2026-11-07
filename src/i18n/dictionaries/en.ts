@@ -74,6 +74,8 @@ export type Dictionary = {
     hiddenGems: string;
     mostPopular: string;
     moreEvents: string;
+    /** Load-more on a category list. Use `{category}`. */
+    moreCategory: string;
     /** Short-list CTA headline inviting submissions. */
     yourEventHereTitle: string;
     /** Short-list CTA subline. Use `{category}` when scoped. */
@@ -838,6 +840,7 @@ export const en: Dictionary = {
     hiddenGems: "Local picks — the events you won't find on big ticket sites",
     mostPopular: "Most popular",
     moreEvents: "More events",
+    moreCategory: "More {category}",
     yourEventHereTitle: "Your event here?",
     yourEventHere: "Add your {category} event",
     yourEventHereGeneric: "Add your event",
