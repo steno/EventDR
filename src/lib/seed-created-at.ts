@@ -394,7 +394,6 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "cabarete-boxing-club-movie-night-2026-11-05": "2026-11-03T18:00:00.000Z",
   "natura-cabana-jazz-ensemble-2026-11-07": "2026-11-03T19:00:00.000Z",
   "novus-flow-dance-noche-latina-weekly": "2026-11-03T20:00:00.000Z",
-  "van-avakian-drifter-2026-11-07": "2026-11-03T21:00:00.000Z",
   "natura-sunbar-sunset-sounds-ivan-ramirez-2026-11-05":
     "2026-11-03T22:00:00.000Z",
   "christmas-popup-market-calle-sombrillas-2026-12-20":
@@ -429,6 +428,7 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "el-colibri-fiesta-latina-fridays": "2026-11-06T15:00:00.000Z",
   "art-of-scent-petit-francois-2026-11-22": "2026-11-06T14:00:00.000Z",
   "rumble-in-paradise-14-2027-02-12": "2026-11-06T13:00:00.000Z",
+  "la-lola-weekend-vibes-2026-11-06": "2026-11-07T14:00:00.000Z",
   "cabarete-boxing-club-movie-night-2026-10-29": "2026-10-29T17:30:00.000Z",
   "meclao-pre-reapertura-2026-10-29": "2026-10-29T17:00:00.000Z",
   "rebeca-duque-aura-2026-10-29": "2026-10-29T16:00:00.000Z",

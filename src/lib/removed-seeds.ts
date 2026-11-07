@@ -108,6 +108,8 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "sosua-coastal-pickleball-open-2026-10-24",
   // Editor removed — Super Mega Urban Fest (Anfiteatro La Puntilla).
   "super-mega-urban-fest-2026-11-04",
+  // Cancelled — Van Avakian live at Drifter, Sat 7 Nov 2026.
+  "van-avakian-drifter-2026-11-07",
 ]);
 
 /**
@@ -150,6 +152,7 @@ export const EVENT_PATH_REDIRECTS: Record<string, string> = {
   "zen-fitness-weightloss-camp": "/venue/zen-fitness-cabarete",
   "sosua-coastal-pickleball-open-2026-10-24": "/city/sosua",
   "super-mega-urban-fest-2026-11-04": "/venue/anfiteatro-la-puntilla",
+  "van-avakian-drifter-2026-11-07": "/venue/drifter-cabarete",
 };
 
 export function resolveEventPathRedirect(

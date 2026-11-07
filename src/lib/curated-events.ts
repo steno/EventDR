@@ -267,6 +267,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "la-lola-malecon",
     sourceUrl: "https://www.instagram.com/lalolabeachclub/",
   },
+  "la-lola-weekend-vibes-2026-11-06": {
+    callForPricing: true,
+    phone: "+18495175705",
+    venueSlug: "la-lola-malecon",
+    sourceUrl: "https://www.instagram.com/lalolabeachclub/",
+  },
   "luxury-club-halloween-night-2026-10-31": {
     callForPricing: true,
     phone: "+18498857986",
@@ -1376,12 +1382,6 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     temporarilyClosed: true,
     isFree: true,
     venueSlug: "plaza-independencia",
-  },
-  "van-avakian-drifter-2026-11-07": {
-    callForPricing: true,
-    phone: "+18297022312",
-    venueSlug: "drifter-cabarete",
-    sourceUrl: "https://www.instagram.com/driftercabarete/",
   },
   "natura-sunbar-sunset-sounds-ivan-ramirez-2026-11-05": {
     callForPricing: true,

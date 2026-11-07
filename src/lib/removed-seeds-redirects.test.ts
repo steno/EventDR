@@ -31,6 +31,13 @@ describe("EVENT_PATH_REDIRECTS (GSC soft 404s)", () => {
     );
   });
 
+  it("sends cancelled Van Avakian at Drifter to the venue", () => {
+    assert.equal(
+      resolveEventPathRedirect("van-avakian-drifter-2026-11-07"),
+      "/venue/drifter-cabarete",
+    );
+  });
+
   it("keeps every redirect path locale-free and absolute within the app", () => {
     for (const [id, path] of Object.entries(EVENT_PATH_REDIRECTS)) {
       assert.ok(path.startsWith("/"), `${id} → ${path}`);

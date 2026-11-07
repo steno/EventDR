@@ -8028,24 +8028,6 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-11-04T21:45:00.000Z",
   },
   {
-    eventId: "van-avakian-drifter-2026-11-07",
-    body: "Saturday dinner-into-night live with Van Avakian on Cabarete Bay — reserve +1 829-702-2312; beachfront Drifter set, not Natura’s first-Saturday jazz or the Halloween Last Sunset bill.",
-    localized: {
-      es: "Sábado de cena hasta la noche con Van Avakian en la bahía de Cabarete — reserva +1 829-702-2312; set frente al mar en Drifter, no el jazz del primer sábado de Natura ni el Halloween Last Sunset.",
-      fr: "Samedi dîner jusqu’au bout de la nuit avec Van Avakian sur la baie de Cabarete — réservez +1 829-702-2312 ; set océanfront au Drifter, pas le jazz du premier samedi de Natura ni le Halloween Last Sunset.",
-    },
-    priceFeel: "moderate",
-    priceNote: "Reserve table +1 829-702-2312 — dinner into the night · @driftercabarete",
-    priceNoteLocalized: {
-      es: "Reserva mesa +1 829-702-2312 — cena hasta la noche · @driftercabarete",
-      fr: "Réservez table +1 829-702-2312 — dîner jusqu’au bout de la nuit · @driftercabarete",
-    },
-    attribution: "POP research · @driftercabarete Van Avakian flyer",
-    researchNotes:
-      "Editor flyer — LIVE AT DRIFTER; VAN AVAKIAN; SAT NOV 7; Cabarete Beachfront; +1 829 702 2312; Dinner into the night.",
-    updatedAt: "2026-11-03T21:00:00.000Z",
-  },
-  {
     eventId: "natura-sunbar-sunset-sounds-ivan-ramirez-2026-11-05",
     body: "Thursday 6:30–9:30 PM Sunset & Sounds with Iván Ramírez at Natura SunBar — extended happy hour cocktails on the Perla Marina rail, not the Halloween Taïf night and not Saturday jazz two days later.",
     localized: {
@@ -8717,5 +8699,23 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer — Every Friday Starting November 6th; Fiesta Latina; DJ BLUE; 2-FOR-1 9PM-12AM; 50% OFF pizzas; WA 917-523-7259; El Colibri Hotel Sosúa.",
     updatedAt: "2026-11-06T18:30:00.000Z",
+  },
+  {
+    eventId: "la-lola-weekend-vibes-2026-11-06",
+    body: "Four Malecón patio nights at La Lola — Zelman Fri, Tanque Sat, live + DJ One Sun, DJ One Mon; RSVP +1 849-517-5705. Keep Rose Mateo’s named Sunday 3:30 PM live set separate if you want that afternoon bill.",
+    localized: {
+      es: "Cuatro noches de patio en La Lola en el Malecón — Zelman vie, Tanque sáb, live + DJ One dom, DJ One lun; RSVP +1 849-517-5705. Deja aparte el live nombrado de Rose Mateo el domingo a las 3:30 PM si quieres ese cartel de tarde.",
+      fr: "Quatre soirées patio à La Lola sur le Malecón — Zelman ven., Tanque sam., live + DJ One dim., DJ One lun. ; RSVP +1 849-517-5705. Gardez à part le live nommé de Rose Mateo dimanche à 15 h 30 si vous voulez ce cartel d’après-midi.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Cover not on flyer — RSVP +1 849-517-5705 · @lalolabeachclub",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — RSVP +1 849-517-5705 · @lalolabeachclub",
+      fr: "Cover absent de l’affiche — RSVP +1 849-517-5705 · @lalolabeachclub",
+    },
+    attribution: "POP research · @lalolabeachclub Weekend Vibes flyer",
+    researchNotes:
+      "Editor flyer — WEEKEND Vibes; VIE 06 DJ ZELMAN; SAB 07 DJ TANQUE; DOM 08 MÚSICA EN VIVO & DJ ONE; LUN 09 DJ ONE; RSVP 849-517-5705; keep la-lola-rose-mateo-2026-11-08 as named Sunday afternoon live.",
+    updatedAt: "2026-11-07T14:00:00.000Z",
   },
 ];

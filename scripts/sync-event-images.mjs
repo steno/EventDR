@@ -59,7 +59,6 @@ const FILE_TO_EVENT_ID = {
     "frusty-balusti-natura-cabana-2026-11-21",
   "novus-flow-dance-noche-latina-weekly.jpg":
     "novus-flow-dance-noche-latina-weekly",
-  "van-avakian-drifter-2026-11-07.jpg": "van-avakian-drifter-2026-11-07",
   "natura-sunbar-sunset-sounds-ivan-ramirez-2026-11-05.jpg":
     "natura-sunbar-sunset-sounds-ivan-ramirez-2026-11-05",
   "christmas-popup-market-calle-sombrillas-2026-12-20.jpg":
@@ -106,6 +105,7 @@ const FILE_TO_EVENT_ID = {
   "bollywood-bliss-junta-neveritas-halloween-2026-10-31.jpg":
     "bollywood-bliss-junta-neveritas-halloween-2026-10-31",
   "la-lola-rose-mateo-2026-11-08.jpg": "la-lola-rose-mateo-2026-11-08",
+  "la-lola-weekend-vibes-2026-11-06.jpg": "la-lola-weekend-vibes-2026-11-06",
   "luxury-club-halloween-night-2026-10-31.jpg":
     "luxury-club-halloween-night-2026-10-31",
   "twenty-disco-angel-demons-2026-10-24.jpg":

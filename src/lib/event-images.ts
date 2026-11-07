@@ -40,7 +40,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "frusty-balusti-natura-cabana-2026-11-21.jpg",
   "novus-flow-dance-noche-latina-weekly":
     "novus-flow-dance-noche-latina-weekly.jpg",
-  "van-avakian-drifter-2026-11-07": "van-avakian-drifter-2026-11-07.jpg",
   "natura-sunbar-sunset-sounds-ivan-ramirez-2026-11-05":
     "natura-sunbar-sunset-sounds-ivan-ramirez-2026-11-05.jpg",
   "christmas-popup-market-calle-sombrillas-2026-12-20":
@@ -182,6 +181,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "bollywood-bliss-junta-neveritas-halloween-2026-10-31":
     "bollywood-bliss-junta-neveritas-halloween-2026-10-31.jpg",
   "la-lola-rose-mateo-2026-11-08": "la-lola-rose-mateo-2026-11-08.jpg",
+  "la-lola-weekend-vibes-2026-11-06":
+    "la-lola-weekend-vibes-2026-11-06.jpg",
   "luxury-club-halloween-night-2026-10-31":
     "luxury-club-halloween-night-2026-10-31.jpg",
   "disco-club-halloween-weekend-2026-10-31":
@@ -955,8 +956,6 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "kaovanny-hard-rock-2026-11-20": "object-[52%_68%]",
   // Natura Agua Tour — circular face mid-flyer; keep her over patio margins.
   "kaovanny-agua-natura-cabana-2026-11-28": "object-[48%_45%]",
-  // Drifter Van Avakian — face under logos; object-top cards only show kite + LIVE badge + scalp.
-  "van-avakian-drifter-2026-11-07": "object-[46%_38%]",
   "tiki-bar-henry-jimenez-2026-10-23": "object-center",
   "francesca-tiki-bar-cabarete-2026-11-06": "object-center",
   "premios-ola-dorada-2026-12-05": "object-center",
@@ -1399,7 +1398,6 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "anahid-van-natura-cabana-2026-11-14.jpg",
   "frusty-balusti-natura-cabana-2026-11-21.jpg",
   "novus-flow-dance-noche-latina-weekly.jpg",
-  "van-avakian-drifter-2026-11-07.jpg",
   "natura-sunbar-sunset-sounds-ivan-ramirez-2026-11-05.jpg",
   "christmas-popup-market-calle-sombrillas-2026-12-20.jpg",
   "parada-el-choco-los-frescos-aperitivo-2026-11-03.jpg",
@@ -1417,6 +1415,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "el-colibri-halloween-masquerade-2026-10-31.jpg",
   "bollywood-bliss-junta-neveritas-halloween-2026-10-31.jpg",
   "la-lola-rose-mateo-2026-11-08.jpg",
+  "la-lola-weekend-vibes-2026-11-06.jpg",
   "luxury-club-halloween-night-2026-10-31.jpg",
   "disco-club-halloween-weekend-2026-10-31.jpg",
   "aruma-flotando-party-2026-11-08.jpg",
