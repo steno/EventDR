@@ -10610,5 +10610,39 @@
       "AMAREA"
     ],
     "imageEmoji": "🌊"
+  },
+  {
+    "id": "amarea-rooftop-closing-aura-2026-11-08",
+    "title": "Rooftop AMAREA en Aura Beach Club — cierre domingo",
+    "description": "AMAREA · One Last Escape — Sunday rooftop closing party en Aura Beach Club, Calle Principal, Cabarete — domingo 8 de noviembre 2026 desde las 9:00 PM. Cartel: Matoz · Jordy Estrella · Too Noise. Tickets en Boletu · reservas de mesa 809-980-3789 · Instagram @kenleyevents / @auracabarete. El lunes es feriado — última noche de rooftop del fin de semana, no el beach brunch del mediodía con Eduardo & Ale Álvarez.",
+    "date": "2026-11-08",
+    "time": "9:00 PM",
+    "location": "Cabarete",
+    "venue": "Aura Beach Club Cabarete",
+    "venueSlug": "aura-beach-club-cabarete",
+    "address": "Calle Principal, Cabarete 57000",
+    "lat": 19.7500769,
+    "lng": -70.4070417,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "from RD$1,000",
+    "phone": "+18099803789",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/kenleyevents/",
+    "instagram": "kenleyevents",
+    "lineup": [
+      "Matoz",
+      "Jordy Estrella",
+      "Too Noise",
+      "Kenley Events",
+      "AMAREA"
+    ],
+    "imageEmoji": "🎧"
   }
 ]

@@ -701,6 +701,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "amarea-one-last-escape-2026-11-07.jpg",
   "amarea-beach-brunch-aura-2026-11-08":
     "amarea-beach-brunch-aura-2026-11-08.jpg",
+  "amarea-rooftop-closing-aura-2026-11-08":
+    "amarea-rooftop-closing-aura-matoz-2026-11-08.jpg",
   "emileni-francisco-rancho-catalina-2026-10-11":
     "emileni-francisco-rancho-catalina-2026-10-11.jpg",
   "lizandro-diaz-luna-lounge-2026-10-11":
@@ -1094,6 +1096,7 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "blue-ice-halloween-chimbala-2026-10-31": "object-center",
   "amarea-one-last-escape-2026-11-07": "object-center",
   "amarea-beach-brunch-aura-2026-11-08": "object-center",
+  "amarea-rooftop-closing-aura-2026-11-08": "object-center",
   "emileni-francisco-rancho-catalina-2026-10-11": "object-center",
   "lizandro-diaz-luna-lounge-2026-10-11": "object-center",
   "feel-the-boom-marianna-kite-street-2026-10-16": "object-top",
@@ -1300,6 +1303,23 @@ const EVENT_GALLERY_SLIDES: Record<
       file: "cabarete-stand-up-vol-3-2026-11-21-blue.jpg",
       venueSlug: "hotel-villa-taina",
       label: "Blue poster — Juan Carlos Pichardo",
+    },
+  ],
+  "amarea-rooftop-closing-aura-2026-11-08": [
+    {
+      file: "amarea-rooftop-closing-aura-matoz-2026-11-08.jpg",
+      venueSlug: "aura-beach-club-cabarete",
+      label: "Matoz",
+    },
+    {
+      file: "amarea-rooftop-closing-aura-jordy-estrella-2026-11-08.jpg",
+      venueSlug: "aura-beach-club-cabarete",
+      label: "Jordy Estrella",
+    },
+    {
+      file: "amarea-rooftop-closing-aura-too-noise-2026-11-08.jpg",
+      venueSlug: "aura-beach-club-cabarete",
+      label: "Too Noise",
     },
   ],
   "voyvoy-social-heartz-2026-11-07": [
@@ -1724,6 +1744,9 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "disco-club-halloween-2026-10-30.jpg",
   "amarea-one-last-escape-2026-11-07.jpg",
   "amarea-beach-brunch-aura-2026-11-08.jpg",
+  "amarea-rooftop-closing-aura-matoz-2026-11-08.jpg",
+  "amarea-rooftop-closing-aura-jordy-estrella-2026-11-08.jpg",
+  "amarea-rooftop-closing-aura-too-noise-2026-11-08.jpg",
   "emileni-francisco-rancho-catalina-2026-10-11.jpg",
   "lizandro-diaz-luna-lounge-2026-10-11.jpg",
   "feel-the-boom-marianna-kite-street-2026-10-16.jpg",

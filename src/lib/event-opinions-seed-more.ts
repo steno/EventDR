@@ -4959,6 +4959,25 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-11-08T16:00:00.000Z",
   },
   {
+    eventId: "amarea-rooftop-closing-aura-2026-11-08",
+    body: "Sunday 9 PM rooftop closer under AMAREA — Matoz, Jordy Estrella, and Too Noise on three flyer slides; Boletu for entry and 809-980-3789 for tables, not the noon sand brunch.",
+    localized: {
+      es: "Cierre de rooftop domingo 9 PM bajo AMAREA — Matoz, Jordy Estrella y Too Noise en tres slides del flyer; Boletu para entrada y 809-980-3789 para mesas, no el brunch de arena del mediodía.",
+      fr: "Clôture rooftop dimanche 21 h sous AMAREA — Matoz, Jordy Estrella et Too Noise sur trois slides ; Boletu pour l’entrée et 809-980-3789 pour les tables, pas le brunch sable de midi.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Tickets on Boletu (from ~RD$1,000 one night) · tables 809-980-3789",
+    priceNoteLocalized: {
+      es: "Tickets en Boletu (desde ~RD$1,000 una noche) · mesas 809-980-3789",
+      fr: "Billets sur Boletu (dès ~RD$1,000 une nuit) · tables 809-980-3789",
+    },
+    attribution: "POP research · @kenleyevents AMAREA Sunday rooftop closing",
+    researchNotes:
+      "Editor flyers + IG @kenleyevents — AMAREA Sunday Rooftop Closing Party Nov 8 2026 9 PM Aura Beach Club; Matoz · Jordy Estrella · Too Noise; Boletu; tables 809-980-3789; Monday holiday note; gallery three DJ flyers.",
+    updatedAt: "2026-11-08T17:00:00.000Z",
+  },
+  {
     eventId: "el-goldito-de-oro-grand-prix-2026-10-09",
     body: "Friday accordion night with El Goldito de Oro at Grand Prix in La Javilla — same Manolo Tavarez / Bomba pin as Lizandro last week, not a Playa Dorada mall set; cover not on the flyer so confirm @grandprixrd before you go.",
     localized: {

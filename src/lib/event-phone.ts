@@ -130,6 +130,8 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "meclao-old-school-tropical-dj-choco-2026-10-16": "+18293747028",
   "ambar-lounge-perreo-negro-2026-10-10": "+18097818677",
   "amarea-one-last-escape-2026-11-07": "+18099803789",
+  "amarea-beach-brunch-aura-2026-11-08": "+18099803789",
+  "amarea-rooftop-closing-aura-2026-11-08": "+18099803789",
   "sarah-graciano-rancho-catalina-2026-10-04": "+18097813737",
   "rancho-catalina-halloween-trick-or-treat-2026-10-23": "+18097813737",
   "parada-choco-banditalia-2026-10-06": "+18098042510",

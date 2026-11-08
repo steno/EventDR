@@ -122,6 +122,7 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
   "proyecto-x-el-calabozo-2026-10-31": "RD$1,500",
   "groundzero-viral-sosua-birthday-2026-11-01": "RD$200",
   "amarea-one-last-escape-2026-11-07": "from RD$1,000",
+  "amarea-rooftop-closing-aura-2026-11-08": "from RD$1,000",
 
   // Museums & historic sites (door price)
   "museo-ambar-weekdays": "RD$250",

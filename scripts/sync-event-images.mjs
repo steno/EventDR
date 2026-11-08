@@ -464,6 +464,12 @@ const FILE_TO_EVENT_ID = {
     "amarea-one-last-escape-2026-11-07",
   "amarea-beach-brunch-aura-2026-11-08.jpg":
     "amarea-beach-brunch-aura-2026-11-08",
+  "amarea-rooftop-closing-aura-matoz-2026-11-08.jpg":
+    "amarea-rooftop-closing-aura-2026-11-08",
+  "amarea-rooftop-closing-aura-jordy-estrella-2026-11-08.jpg":
+    "amarea-rooftop-closing-aura-jordy-estrella-2026-11-08",
+  "amarea-rooftop-closing-aura-too-noise-2026-11-08.jpg":
+    "amarea-rooftop-closing-aura-too-noise-2026-11-08",
   "emileni-francisco-rancho-catalina-2026-10-11.jpg":
     "emileni-francisco-rancho-catalina-2026-10-11",
   "lizandro-diaz-luna-lounge-2026-10-11.jpg":
