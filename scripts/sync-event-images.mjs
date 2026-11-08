@@ -462,6 +462,8 @@ const FILE_TO_EVENT_ID = {
     "mercadillo-fest-la-quinta-rosa-2026-12-19",
   "amarea-one-last-escape-2026-11-07.jpg":
     "amarea-one-last-escape-2026-11-07",
+  "amarea-beach-brunch-aura-2026-11-08.jpg":
+    "amarea-beach-brunch-aura-2026-11-08",
   "emileni-francisco-rancho-catalina-2026-10-11.jpg":
     "emileni-francisco-rancho-catalina-2026-10-11",
   "lizandro-diaz-luna-lounge-2026-10-11.jpg":

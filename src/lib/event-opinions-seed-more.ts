@@ -4941,6 +4941,24 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-10-08T17:00:00.000Z",
   },
   {
+    eventId: "amarea-beach-brunch-aura-2026-11-08",
+    body: "Sunday sand brunch under the AMAREA banner — Eduardo & Ale Álvarez from noon, reservations-only tables, not the Boletu rooftop night tickets from the Sat–Sun weekend pass.",
+    localized: {
+      es: "Brunch en la arena del domingo bajo AMAREA — Eduardo & Ale Álvarez desde mediodía, mesas solo con reserva, no los tickets de rooftop de Boletu del fin de semana sáb–dom.",
+      fr: "Brunch sur le sable du dimanche sous la bannière AMAREA — Eduardo & Ale Álvarez dès midi, tables sur réservation uniquement, pas les billets rooftop Boletu du week-end sam.–dim.",
+    },
+    priceFeel: "varies",
+    priceNote: "Reservations only — 809-980-3789; brunch/cocktails billed separately from rooftop tickets",
+    priceNoteLocalized: {
+      es: "Solo reservas — 809-980-3789; brunch/cocktails aparte de los tickets de rooftop",
+      fr: "Réservation uniquement — 809-980-3789 ; brunch/cocktails hors billets rooftop",
+    },
+    attribution: "POP research · @kenleyevents AMAREA beach brunch flyer",
+    researchNotes:
+      "Editor flyer + IG caption — AMAREA ONE LAST ESCAPE beach brunch Sun 8 Nov 2026 from 12 PM Aura Beach Club Cabarete; Eduardo | Ale Álvarez; beach attire; reservations 809-980-3789; Patrón / Red Bull / Bombay; distinct from weekend rooftop Boletu tickets.",
+    updatedAt: "2026-11-08T16:00:00.000Z",
+  },
+  {
     eventId: "el-goldito-de-oro-grand-prix-2026-10-09",
     body: "Friday accordion night with El Goldito de Oro at Grand Prix in La Javilla — same Manolo Tavarez / Bomba pin as Lizandro last week, not a Playa Dorada mall set; cover not on the flyer so confirm @grandprixrd before you go.",
     localized: {

@@ -10577,5 +10577,38 @@
       "Mon 9 — DJ One"
     ],
     "imageEmoji": "🎧"
+  },
+  {
+    "id": "amarea-beach-brunch-aura-2026-11-08",
+    "title": "Aura Beach Club AMAREA brunch — Eduardo & Ale Álvarez",
+    "description": "AMAREA · One Last Escape beach brunch at Aura Beach Club, Calle Principal, Cabarete — Sunday 8 November 2026 from 12:00 PM. Brunch, cocktails, and music from Eduardo & Ale Álvarez with feet in the sand; beach attire. Reservations only — 809-980-3789 · Instagram @kenleyevents / @auracabarete. Day-by-the-sea brunch pass — not the Sat–Sun rooftop party tickets on Boletu (those are separate).",
+    "date": "2026-11-08",
+    "time": "12:00 PM",
+    "location": "Cabarete",
+    "venue": "Aura Beach Club Cabarete",
+    "venueSlug": "aura-beach-club-cabarete",
+    "address": "Calle Principal, Cabarete 57000",
+    "lat": 19.7500769,
+    "lng": -70.4070417,
+    "category": "parties",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "callForPricing": true,
+    "phone": "+18099803789",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/kenleyevents/",
+    "instagram": "kenleyevents",
+    "lineup": [
+      "Eduardo",
+      "Ale Álvarez",
+      "Kenley Events",
+      "AMAREA"
+    ],
+    "imageEmoji": "🌊"
   }
 ]

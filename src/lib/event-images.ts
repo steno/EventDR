@@ -699,6 +699,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "disco-club-halloween-2026-10-30.jpg",
   "amarea-one-last-escape-2026-11-07":
     "amarea-one-last-escape-2026-11-07.jpg",
+  "amarea-beach-brunch-aura-2026-11-08":
+    "amarea-beach-brunch-aura-2026-11-08.jpg",
   "emileni-francisco-rancho-catalina-2026-10-11":
     "emileni-francisco-rancho-catalina-2026-10-11.jpg",
   "lizandro-diaz-luna-lounge-2026-10-11":
@@ -1091,6 +1093,7 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "natura-cabana-halloween-2026-10-31": "object-center",
   "blue-ice-halloween-chimbala-2026-10-31": "object-center",
   "amarea-one-last-escape-2026-11-07": "object-center",
+  "amarea-beach-brunch-aura-2026-11-08": "object-center",
   "emileni-francisco-rancho-catalina-2026-10-11": "object-center",
   "lizandro-diaz-luna-lounge-2026-10-11": "object-center",
   "feel-the-boom-marianna-kite-street-2026-10-16": "object-top",
@@ -1720,6 +1723,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "ambar-lounge-perreo-negro-2026-10-10.jpg",
   "disco-club-halloween-2026-10-30.jpg",
   "amarea-one-last-escape-2026-11-07.jpg",
+  "amarea-beach-brunch-aura-2026-11-08.jpg",
   "emileni-francisco-rancho-catalina-2026-10-11.jpg",
   "lizandro-diaz-luna-lounge-2026-10-11.jpg",
   "feel-the-boom-marianna-kite-street-2026-10-16.jpg",
