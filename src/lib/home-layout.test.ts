@@ -368,7 +368,7 @@ describe("getNewHighlightEvents", () => {
     );
   });
 
-  it("keeps a weekly on its night before start, drops after the window ends", () => {
+  it("drops a weekly once it expires within 24 hours (including night-of)", () => {
     const friday = event({
       id: "friday-night",
       title: "Friday Night",
@@ -380,10 +380,11 @@ describe("getNewHighlightEvents", () => {
       venueSlug: "venue-a",
     });
 
-    const beforeDoors = new Date("2026-11-07T00:00:00.000Z"); // Fri 8 PM AST
+    // Fri 8 PM AST — default 2h window ends 11 PM (< 24h remaining).
+    const beforeDoors = new Date("2026-11-07T00:00:00.000Z");
     assert.deepEqual(
       getNewHighlightEvents([friday], { now: beforeDoors }).map((e) => e.id),
-      ["friday-night"],
+      [],
     );
 
     const afterDefaultWindow = new Date("2026-11-07T03:30:00.000Z"); // Fri 11:30 PM AST
@@ -392,6 +393,34 @@ describe("getNewHighlightEvents", () => {
         now: afterDefaultWindow,
       }).map((e) => e.id),
       [],
+    );
+  });
+
+  it("drops a one-off that expires within 24 hours from Recently added", () => {
+    const tonight = event({
+      id: "tonight-show",
+      title: "Tonight Show",
+      date: "2026-11-07",
+      time: "8:00 PM – 11:00 PM",
+      createdAt: "2026-11-06T12:00:00.000Z",
+      venueSlug: "venue-a",
+    });
+    const later = event({
+      id: "next-week-show",
+      title: "Next Week Show",
+      date: "2026-11-14",
+      time: "8:00 PM – 11:00 PM",
+      createdAt: "2026-11-06T11:00:00.000Z",
+      venueSlug: "venue-b",
+    });
+
+    // Sat 2 PM AST — tonight ends in 9h; next week still has runway.
+    const satAfternoon = new Date("2026-11-07T18:00:00.000Z");
+    assert.deepEqual(
+      getNewHighlightEvents([tonight, later], { now: satAfternoon }).map(
+        (e) => e.id,
+      ),
+      ["next-week-show"],
     );
   });
 
@@ -1015,7 +1044,7 @@ describe("getHomeDiscoverLayout weekend rail", () => {
 });
 
 describe("getHomeDiscoverLayout same-day seed", () => {
-  it("puts tonight’s new one-off on Today’s specials and Recently added", () => {
+  it("puts tonight’s new one-off on Today’s specials, not Just added (<24h left)", () => {
     const tonight = event({
       id: "todos-somos-luperon-2026-09-08",
       title: "Todos Somos Luperón",
@@ -1062,9 +1091,13 @@ describe("getHomeDiscoverLayout same-day seed", () => {
     );
     assert.equal(layout.todayEvents[0]?.id, "museum-daily");
     assert.equal(layout.heroExcludeIds.length, 0);
+    assert.ok(
+      !layout.newEvents.some((e) => e.id === "todos-somos-luperon-2026-09-08"),
+      "tonight’s bill expires within 24h — leave Just added",
+    );
     assert.equal(
       layout.newEvents.slice(0, HOME_NEW_LIMIT)[0]?.id,
-      "todos-somos-luperon-2026-09-08",
+      "older-new",
     );
   });
 

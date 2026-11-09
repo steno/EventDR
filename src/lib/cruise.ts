@@ -18,6 +18,8 @@ import {
   parseEventTimeWindow,
 } from "@/lib/event-status";
 import type { Event, EventCategory, Venue } from "@/lib/types";
+import { getVenueImageUrl } from "@/lib/venue-images";
+import { getVenueStreetAddress } from "@/lib/venue-street-address";
 import { getPocketForEvent, type WalkablePocketSlug } from "@/lib/walkable-pockets";
 
 export type CruisePortSlug = "taino-bay" | "amber-cove";
@@ -452,6 +454,27 @@ export function hasCruiseShipsToday(now: Date = new Date()): boolean {
   return cruisePortsWithShipsToday(now).length > 0;
 }
 
+/**
+ * Ports offered on the cruise page tabs.
+ * When either pier has a call, both stay choosable — guests switch piers even
+ * if MITUR lists ships at only one. Empty calendar days return [].
+ */
+export function cruisePortsSelectableToday(
+  now: Date = new Date(),
+): CruisePortSlug[] {
+  return hasCruiseShipsToday(now) ? [...CRUISE_PORT_SLUGS] : [];
+}
+
+/**
+ * Landing pier for “I'm on a ship” links: prefer a pier with a call today,
+ * else the first selectable slug. Null when cruise mode is closed.
+ */
+export function defaultCruisePortToday(
+  now: Date = new Date(),
+): CruisePortSlug | null {
+  return cruisePortsWithShipsToday(now)[0] ?? null;
+}
+
 const ROAD_FACTOR = 1.35;
 const WALK_MAX_MINUTES = 18;
 const TAXI_PAD_LONG_MINUTES = 8;
@@ -693,6 +716,12 @@ export type LoopMapStop = {
   label?: string;
   number?: number;
   href?: string;
+  /** Venue / event hero for the pin sheet card. */
+  imageUrl?: string;
+  /** Street + city line under the title. */
+  placeLine?: string;
+  /** CTA on the pin sheet (`View venue` / `View event`). */
+  ctaLabel?: string;
 };
 
 /** Closed circuit: port → stops → port. Null if no stop has coordinates. */
@@ -1210,6 +1239,10 @@ export type CruiseStopLink = {
   slug: string;
   name: string;
   href: string;
+  imageUrl?: string;
+  placeLine?: string;
+  /** True when href points at a live event rather than the venue page. */
+  isEvent?: boolean;
 };
 
 export function resolveItineraryStops(
@@ -1226,7 +1259,27 @@ export function resolveItineraryStops(
     const href = live
       ? `/${locale}/event/${live.id}`
       : venueDetailPath(locale, slug);
-    return [{ slug, name, href }];
+    const imageUrl =
+      live?.imageUrl?.trim() ||
+      venue?.imageUrl?.trim() ||
+      getVenueImageUrl(slug) ||
+      undefined;
+    const placeLine = [
+      getVenueStreetAddress(slug) || live?.address?.trim(),
+      venue?.city,
+    ]
+      .filter(Boolean)
+      .join(", ");
+    return [
+      {
+        slug,
+        name,
+        href,
+        ...(imageUrl ? { imageUrl } : {}),
+        ...(placeLine ? { placeLine } : {}),
+        ...(live ? { isEvent: true } : {}),
+      },
+    ];
   });
 }
 

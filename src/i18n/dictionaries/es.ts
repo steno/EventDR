@@ -434,6 +434,9 @@ export const es: Dictionary = {
     venuePinSheetLabel: "Este lugar",
     venueNoEvents: "No hay eventos próximos con pin aquí ahora.",
     openVenue: "Ver lugar",
+    loopPinSheetLabel: "Ruta de crucero",
+    loopHere: "Ruta de crucero · {count} paradas",
+    openLoop: "Ver ruta",
     readMore: "Leer más",
     whenFilter: "Cuándo",
     when: {
@@ -504,6 +507,7 @@ export const es: Dictionary = {
     copyLink: "Copiar enlace",
     linkCopied: "Enlace copiado",
     fromTheShip: "Desde el barco",
+    stopHere: "Parada {n}",
     backToTheShip: "De vuelta al barco",
     walkToStop: "{minutes} min a pie hasta {stop}",
     taxiToStop: "{minutes} min en taxi hasta {stop}",

@@ -72,6 +72,34 @@ export function eventsInAllBrowseOrder<T extends DatedEvent>(
   return [...eventsInCalendarOrder(dated, now), ...recurring];
 }
 
+export type AllBrowseDayGroup<T extends DatedEvent> = {
+  date: string;
+  events: T[];
+};
+
+/**
+ * Split an All-browse-ordered list into dated day columns + the weekly/daily
+ * tail. Expects {@link eventsInAllBrowseOrder} (dated first, then recurring).
+ */
+export function splitAllBrowseSections<T extends DatedEvent>(
+  events: T[],
+  now: Date = new Date(),
+): { days: AllBrowseDayGroup<T>[]; recurring: T[] } {
+  const days: AllBrowseDayGroup<T>[] = [];
+  const recurring: T[] = [];
+  for (const event of events) {
+    if (event.recurrence) {
+      recurring.push(event);
+      continue;
+    }
+    const date = browseDayHeadingDate(event, now);
+    const last = days[days.length - 1];
+    if (last && last.date === date) last.events.push(event);
+    else days.push({ date, events: [event] });
+  }
+  return { days, recurring };
+}
+
 /** Day heading for a weekend row. Long-running events use today within the weekend. */
 export function weekendHeadingDate(
   event: Pick<DatedEvent, "date" | "endDate" | "time">,

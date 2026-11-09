@@ -5,6 +5,17 @@ import { getEventLiveStatus } from "@/lib/event-status";
 import { filterByTimeRange, type TimeRange } from "@/lib/filters";
 import type { Event, EventCategory, Venue } from "@/lib/types";
 import { pinColorForCategory } from "@/lib/map-style";
+import type { Locale } from "@/i18n/config";
+import {
+  CRUISE_PORTS,
+  cruiseLoopPath,
+  cruisePortsWithShipsToday,
+  itinerariesForPort,
+  type CruiseItineraryId,
+  type CruisePortSlug,
+} from "@/lib/cruise";
+import { getSeedVenue } from "@/lib/venues-seed";
+import { getVenueImageUrl } from "@/lib/venue-images";
 
 export type MapTimeFilter = Extract<TimeRange, "all" | "today" | "weekend">;
 
@@ -13,6 +24,19 @@ export const MAP_TIME_FILTERS: MapTimeFilter[] = ["today", "weekend", "all"];
 
 /** Venue deep-link pin when the place has no upcoming event pins. */
 export const VENUE_ONLY_PIN_COLOR = "#ea580c";
+
+/** Ready-made cruise loop pins on the North Coast map (sky, not event orange). */
+export const LOOP_PIN_COLOR = "#0284c7";
+
+export type MapLoopPinInfo = {
+  id: CruiseItineraryId;
+  port: CruisePortSlug;
+  title: string;
+  body: string;
+  minutes: number;
+  stopCount: number;
+  href: string;
+};
 
 export type MapPin = {
   id: string;
@@ -25,6 +49,8 @@ export type MapPin = {
   thumbUrl?: string;
   /** Set when `?venue=` opens a place with no upcoming listings. */
   venueOnly?: { slug: string; name: string; city?: string };
+  /** Ready-made cruise loop — sheet opens the loop overview, not an event. */
+  loop?: MapLoopPinInfo;
   /**
    * Screen-space Marker offset `[x, y]` (px; negative = left / up) when several
    * venue pins share the same rounded GPS — keeps separate tips readable.
@@ -33,6 +59,11 @@ export type MapPin = {
   /** 0 = back of the visual stack; higher draws on top. */
   stackIndex?: number;
 };
+
+/** Stable id for a cruise loop pin on `/map`. */
+export function loopPinId(id: CruiseItineraryId): string {
+  return `loop:${id}`;
+}
 
 /** ~1.1 m at equator — used to detect shared GPS for visual fanning. */
 function pinKey(lat: number, lng: number): string {
@@ -206,6 +237,70 @@ export function buildVenueOnlyMapPin(
     ...(thumbUrl ? { thumbUrl } : {}),
     venueOnly: { slug: venue.slug, name: venue.name, city: venue.city },
   };
+}
+
+export type CruiseLoopPinCopy = Record<
+  CruiseItineraryId,
+  { title: string; body: string }
+>;
+
+/**
+ * One pin per ready-made shore loop while ships are in — dropped on the first
+ * stop with coordinates (port fallback). Empty when no MITUR call today.
+ */
+export function buildCruiseLoopMapPins(
+  locale: Locale,
+  loopCopy: CruiseLoopPinCopy,
+  now: Date = new Date(),
+): MapPin[] {
+  const ports = cruisePortsWithShipsToday(now);
+  if (ports.length === 0) return [];
+
+  const pins: MapPin[] = [];
+  for (const port of ports) {
+    const portMeta = CRUISE_PORTS[port];
+    for (const loop of itinerariesForPort(port)) {
+      const copy = loopCopy[loop.id];
+      if (!copy) continue;
+
+      let lat = portMeta.lat;
+      let lng = portMeta.lng;
+      let thumbUrl: string | undefined;
+      for (const slug of loop.stopSlugs) {
+        const venue = getSeedVenue(slug);
+        if (
+          venue &&
+          Number.isFinite(venue.lat) &&
+          Number.isFinite(venue.lng)
+        ) {
+          lat = venue.lat;
+          lng = venue.lng;
+          thumbUrl = getVenueImageUrl(slug);
+          break;
+        }
+      }
+
+      pins.push({
+        id: loopPinId(loop.id),
+        lat,
+        lng,
+        color: LOOP_PIN_COLOR,
+        category: "adventure",
+        events: [],
+        ...(thumbUrl ? { thumbUrl } : {}),
+        loop: {
+          id: loop.id,
+          port,
+          title: copy.title,
+          body: copy.body,
+          minutes: loop.typicalMinutes + loop.taxiMinutes,
+          stopCount: loop.stopSlugs.length,
+          href: cruiseLoopPath(locale, port, loop.id),
+        },
+      });
+    }
+  }
+  return pins;
 }
 
 /**

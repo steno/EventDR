@@ -5,6 +5,7 @@ import {
   eventsInAllBrowseOrder,
   eventsInCalendarOrder,
   eventsInWeekendOrder,
+  splitAllBrowseSections,
   weekendHeadingDate,
 } from "./list-day-groups";
 
@@ -179,6 +180,33 @@ describe("eventsInAllBrowseOrder", () => {
     assert.deepEqual(
       ordered.map((item) => item.id),
       ["today-b", "today-a", "week-live", "week-later"],
+    );
+  });
+});
+
+describe("splitAllBrowseSections", () => {
+  it("buckets dated nights by browse day and keeps the recurring tail", () => {
+    const ordered = eventsInAllBrowseOrder([
+      { id: "daily", date: "2026-11-05", recurrence: "daily" },
+      { id: "sat", date: "2026-11-07" },
+      { id: "weekly", date: "2026-11-06", recurrence: "weekly" },
+      { id: "fri-b", date: "2026-11-06" },
+      { id: "fri-a", date: "2026-11-06" },
+    ]);
+    const { days, recurring } = splitAllBrowseSections(ordered);
+    assert.deepEqual(
+      days.map((day) => ({
+        date: day.date,
+        ids: day.events.map((event) => event.id),
+      })),
+      [
+        { date: "2026-11-06", ids: ["fri-b", "fri-a"] },
+        { date: "2026-11-07", ids: ["sat"] },
+      ],
+    );
+    assert.deepEqual(
+      recurring.map((event) => event.id),
+      ["daily", "weekly"],
     );
   });
 });

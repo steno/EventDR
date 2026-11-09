@@ -1,11 +1,20 @@
 "use client";
 
-import { Fragment, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import {
+  Fragment,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from "react";
 import type { ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import type { Event } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
+import { matchesXlMedia, subscribeXlMedia } from "@/lib/breakpoints";
 import {
   DEFAULT_PRICE_FILTER,
   filterByTimeAndPrice,
@@ -34,6 +43,7 @@ import {
   browseDayHeadingDate,
   eventsInAllBrowseOrder,
   eventsInWeekendOrder,
+  splitAllBrowseSections,
   weekendHeadingDate,
 } from "@/lib/list-day-groups";
 import { formatEventDate } from "@/lib/format-date";
@@ -41,6 +51,7 @@ import { useCardGridColumns } from "@/hooks/useCardGridColumns";
 import { StickyListFilters, ListScrollAnchor } from "@/components/StickyListFilters";
 import { TimeFilter } from "@/components/TimeFilter";
 import { EventCard } from "@/components/EventCard";
+import { AllBrowseCalendar } from "@/components/AllBrowseCalendar";
 import {
   EventListScrollPads,
   EventCardPlaceholder,
@@ -211,6 +222,12 @@ export function FilteredEventList({
   const skipScrollForUrlWhen = useRef(false);
   const scrollAnchorRef = useRef<HTMLDivElement>(null);
   const [gridRef, columns] = useCardGridColumns(view === "cards");
+  // All desktop calendar — SSR/phone assume stacked; xl mounts the day strip only.
+  const isXlShell = useSyncExternalStore(
+    subscribeXlMedia,
+    matchesXlMedia,
+    () => false,
+  );
   const [pendingId, setPendingId] = useState<string | null>(null);
   const stickyCategoryLabel = categoryId ? dict.categories[categoryId] : null;
   // ← back cue only when category pills are NOT in the sticky bar (they scroll
@@ -385,6 +402,15 @@ export function FilteredEventList({
     return clustered;
   }, [filtered, clusterVenueRecurring, locale, dict, activeRange]);
 
+  /** All + cards: dated day columns (desktop) + weekly/daily tail. */
+  const allBrowseSections = useMemo(
+    () =>
+      activeRange === "all" && view === "cards"
+        ? splitAllBrowseSections(displayEvents)
+        : null,
+    [activeRange, view, displayEvents],
+  );
+
   const showPadCta = addEventCta === "pad";
   const showInlineAddCta = addEventCta === "inline" && Boolean(onAddEvent);
   const padDeficit = Math.max(0, LIST_SCROLL_PAD_TARGET - displayEvents.length);
@@ -397,6 +423,20 @@ export function FilteredEventList({
     : displayEvents;
   const hasMore =
     Number.isFinite(eventCap) && displayEvents.length > visibleEvents.length;
+
+  // Desktop All calendar: dated columns stay complete; More pages weekly only.
+  const calendarRecurringCap = Number.isFinite(visibleCount)
+    ? visibleCount
+    : UNBOUNDED;
+  const calendarRecurring = allBrowseSections
+    ? Number.isFinite(calendarRecurringCap)
+      ? allBrowseSections.recurring.slice(0, calendarRecurringCap)
+      : allBrowseSections.recurring
+    : [];
+  const calendarHasMore =
+    Boolean(allBrowseSections) &&
+    Number.isFinite(calendarRecurringCap) &&
+    allBrowseSections!.recurring.length > calendarRecurring.length;
   /**
    * Truncated grids fill leftover columns with extra events so More events
    * can sit on a complete row. The add-event teaser only appears once the
@@ -664,6 +704,73 @@ export function FilteredEventList({
                 />
               </div>
             ) : null}
+          </>
+        ) : allBrowseSections && isXlShell ? (
+          <>
+            <AllBrowseCalendar
+              days={allBrowseSections.days}
+              recurring={calendarRecurring}
+              dict={dict}
+              locale={locale}
+              returnTo={returnTo}
+              returnTitle={returnTitle}
+              listTimeRange={fixedTimeRange ?? timeRange}
+              pendingId={pendingId}
+              onNavigate={setPendingId}
+              showEnlarge={!categoryId}
+              weeklyHeading={dict.events.weeklyAndDaily}
+              weeklyTrailing={
+                calendarHasMore ||
+                (showEndTeaser && !calendarHasMore) ||
+                (showPadCta && !calendarHasMore) ? (
+                  <>
+                    {showEndTeaser && !calendarHasMore ? (
+                      <EventCardPlaceholder
+                        title={dict.events.yourEventHereTitle}
+                        label={addEventLabelResolved}
+                        onClick={onAddEvent!}
+                        view="cards"
+                        fillSpan={fillSpan}
+                      />
+                    ) : null}
+                    {showPadCta && !calendarHasMore ? (
+                      <EventListScrollPads
+                        count={
+                          allBrowseSections.days.reduce(
+                            (n, day) => n + day.events.length,
+                            0,
+                          ) + calendarRecurring.length
+                        }
+                        title={dict.events.yourEventHereTitle}
+                        label={addEventLabelResolved}
+                        onAddEvent={onAddEvent}
+                        view="cards"
+                        fillSpan={fillSpan}
+                      />
+                    ) : null}
+                    {calendarHasMore ? (
+                      <EventListMoreTile
+                        label={
+                          categoryId
+                            ? fillTemplate(dict.events.moreCategory, {
+                                category: dict.categories[categoryId],
+                              })
+                            : dict.events.moreEvents
+                        }
+                        view="cards"
+                        onClick={() =>
+                          setVisibleCount((count) => {
+                            if (!Number.isFinite(count)) return count;
+                            return count + pageSize;
+                          })
+                        }
+                      />
+                    ) : null}
+                  </>
+                ) : undefined
+              }
+            />
+            {addEventInlineCard}
           </>
         ) : (
           <>

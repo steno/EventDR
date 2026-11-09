@@ -92,6 +92,7 @@ export function CruiseLoopView({
                       viewVenue: dict.detail.viewVenue,
                       viewEvent: dict.detail.viewEvent,
                       close: dict.detail.close,
+                      stopHere: copy.stopHere,
                     }}
                     returnTo={returnTo}
                     returnTitle={title}

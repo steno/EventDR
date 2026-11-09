@@ -6,8 +6,8 @@ import { JsonLd } from "@/components/JsonLd";
 import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import {
+  hasCruiseShipsToday,
   isCruisePortSlug,
-  portHasCruiseShipsToday,
   type CruisePortSlug,
 } from "@/lib/cruise";
 import { slimVenuesForList } from "@/lib/list-payload";
@@ -42,8 +42,9 @@ export default async function Page({
   const { locale, port: portParam } = await params;
   if (!isValidLocale(locale) || !isCruisePortSlug(portParam)) notFound();
   const port = portParam as CruisePortSlug;
-  // No MITUR call today — keep guests on normal home (no fake countdown).
-  if (!portHasCruiseShipsToday(port)) {
+  // No MITUR calls at either pier — keep guests on normal home.
+  // A quiet pier still opens when the other port has ships today.
+  if (!hasCruiseShipsToday()) {
     redirect(`/${locale}`);
   }
 

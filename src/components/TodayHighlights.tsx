@@ -529,9 +529,11 @@ const TodayHighlightsComponent = ({
 
   return (
     <section className={chromeOnly ? "mb-4" : "mb-6"}>
-      {/* Mobile: full-width area picker on its own row above the title line. */}
+      {/* Mobile: area picker (+ ship) on its own row above the title line. */}
       {headerStart ? (
-        <div className="mb-2 w-full px-1 sm:hidden">{headerStart}</div>
+        <div className="mb-2 flex w-full items-center px-1 sm:hidden">
+          {headerStart}
+        </div>
       ) : null}
       <div
         className={`flex flex-wrap items-center justify-between gap-x-3 gap-y-2 px-1 ${
@@ -540,7 +542,7 @@ const TodayHighlightsComponent = ({
       >
         <div className="flex min-w-0 flex-1 flex-wrap items-center gap-x-3 gap-y-2">
           {headerStart ? (
-            <div className="hidden shrink-0 sm:block">{headerStart}</div>
+            <div className="hidden min-w-0 sm:block">{headerStart}</div>
           ) : null}
           {showSectionTitle ? (
             // Never truncate gradient titles — `truncate` + bg-clip-text can

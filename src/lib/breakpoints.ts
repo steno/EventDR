@@ -17,3 +17,25 @@ export const LG_MEDIA_QUERY = `(min-width: ${LG_MIN_WIDTH_PX}px)`;
 
 /** Tailwind default `xl` — home rails go from 2-col to 3-col here. */
 export const XL_MIN_WIDTH_PX = 1280;
+
+export const XL_MEDIA_QUERY = `(min-width: ${XL_MIN_WIDTH_PX}px)`;
+
+let xlMql: MediaQueryList | null = null;
+
+function getXlMedia(): MediaQueryList | null {
+  if (typeof window === "undefined") return null;
+  if (!xlMql) xlMql = window.matchMedia(XL_MEDIA_QUERY);
+  return xlMql;
+}
+
+/** Live `xl` match for client components (All calendar strip, etc.). */
+export function matchesXlMedia(): boolean {
+  return getXlMedia()?.matches ?? false;
+}
+
+export function subscribeXlMedia(onStoreChange: () => void): () => void {
+  const mql = getXlMedia();
+  if (!mql) return () => {};
+  mql.addEventListener("change", onStoreChange);
+  return () => mql.removeEventListener("change", onStoreChange);
+}

@@ -14,6 +14,7 @@ import {
   isEventActiveToday,
   isListedTodaySpecial,
   isRecurringEvent,
+  parseEventTimeWindow,
 } from "@/lib/event-status";
 import {
   filterByTimeRange,
@@ -124,6 +125,15 @@ export const HOME_NEW_LIMIT = 6;
 
 /** Only surface listings added within this many days on home Recently added. */
 export const HOME_NEW_MAX_AGE_DAYS = 14;
+
+/**
+ * Skip Just added when the listing ends within this window — Today’s specials
+ * / happening rails cover near-expiry nights.
+ */
+export const HOME_NEW_MIN_REMAINING_MS = 24 * 60 * 60 * 1000;
+
+/** North Coast wall clock (AST, no DST) for absolute end instants. */
+const AST_OFFSET = "-04:00";
 
 /** Max cards in the home "Coming up" section. */
 export const HOME_COMING_UP_LIMIT = 6;
@@ -457,11 +467,60 @@ export interface NewHighlightOptions extends TodayHighlightOptions {
   limit?: number;
   /** Max age in days for “recently added” (default {@link HOME_NEW_MAX_AGE_DAYS}). */
   maxAgeDays?: number;
+  /**
+   * Hide listings that end within this many ms (default
+   * {@link HOME_NEW_MIN_REMAINING_MS}).
+   */
+  minRemainingMs?: number;
 }
 
 function createdAtMs(event: Event): number {
   if (!event.createdAt) return Number.NaN;
   return Date.parse(event.createdAt);
+}
+
+function pad2(value: number): string {
+  return value < 10 ? `0${value}` : String(value);
+}
+
+function minutesToClock(minutes: number): string {
+  const wrapped = ((minutes % 1440) + 1440) % 1440;
+  return `${pad2(Math.floor(wrapped / 60))}:${pad2(wrapped % 60)}:00`;
+}
+
+/**
+ * Absolute end instant in AST. Untimed listings expire at local midnight after
+ * the end calendar day. Null when undated.
+ */
+function eventAbsoluteEndMs(event: Event, now: Date): number | null {
+  const startDay = event.date?.trim();
+  if (!startDay) return null;
+  const endDayRaw = (event.endDate ?? event.date)?.trim() || startDay;
+  const window = parseEventTimeWindow(event.time, now);
+  if (window) {
+    let day = endDayRaw;
+    // Overnight: end clock is the morning after the session start day unless
+    // endDate already names that morning.
+    if (
+      window.end < window.start &&
+      (!event.endDate || event.endDate === event.date)
+    ) {
+      day = addDaysISO(startDay, 1);
+    }
+    return Date.parse(`${day}T${minutesToClock(window.end)}${AST_OFFSET}`);
+  }
+  return Date.parse(`${addDaysISO(endDayRaw, 1)}T00:00:00${AST_OFFSET}`);
+}
+
+/** True when the listing ends at or before now + windowMs. */
+function expiresWithinMs(
+  event: Event,
+  now: Date,
+  windowMs: number,
+): boolean {
+  const end = eventAbsoluteEndMs(event, now);
+  if (end == null || !Number.isFinite(end)) return false;
+  return end - now.getTime() <= windowMs;
 }
 
 /** Weekdays that a weekly recurrence fires on (Sunday=0 … Saturday=6). */
@@ -578,7 +637,8 @@ function isStillRelevantForNew(event: Event, now: Date): boolean {
 
 /**
  * Recently added listings for home: require `createdAt`, newest first,
- * within {@link HOME_NEW_MAX_AGE_DAYS}, with venue diversity in the visible head.
+ * within {@link HOME_NEW_MAX_AGE_DAYS}, not ending within
+ * {@link HOME_NEW_MIN_REMAINING_MS}, with venue diversity in the visible head.
  */
 export function getNewHighlightEvents(
   events: Event[],
@@ -588,11 +648,14 @@ export function getNewHighlightEvents(
   const exclude = new Set(options.excludeIds ?? []);
   const limit = options.limit ?? HOME_NEW_LIMIT;
   const maxAgeDays = options.maxAgeDays ?? HOME_NEW_MAX_AGE_DAYS;
+  const minRemainingMs =
+    options.minRemainingMs ?? HOME_NEW_MIN_REMAINING_MS;
   const cutoff = now.getTime() - maxAgeDays * 24 * 60 * 60 * 1000;
 
   const fresh = events.filter((event) => {
     if (exclude.has(event.id)) return false;
     if (!isStillRelevantForNew(event, now)) return false;
+    if (expiresWithinMs(event, now, minRemainingMs)) return false;
     const ms = createdAtMs(event);
     return Number.isFinite(ms) && ms >= cutoff;
   });

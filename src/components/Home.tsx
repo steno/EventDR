@@ -59,11 +59,11 @@ import {
   cruisePath,
   CRUISE_PORTS,
   defaultAllAboardForPort,
+  defaultCruisePortToday,
   hasCruiseShipsToday,
   isCruiseHomeShipPillHours,
   isCruisePortSlug,
   parseAllAboardMinutes,
-  portHasCruiseShipsToday,
   type CruisePortSlug,
 } from "@/lib/cruise";
 import { useLiveClockNow } from "@/hooks/useLiveClock";
@@ -205,15 +205,8 @@ function HomeApp({
   const [venues, setVenues] = useState<Venue[]>(() => initialVenues ?? []);
   const [refreshKey, setRefreshKey] = useState(0);
   const [cityPrimingOpen, setCityPrimingOpen] = useState(false);
-  const [cruiseEntryOpen, setCruiseEntryOpen] = useState(false);
-
-  useEffect(() => {
-    if (!showCruiseShipPill && cruiseEntryOpen) setCruiseEntryOpen(false);
-  }, [showCruiseShipPill, cruiseEntryOpen]);
   const [cruisePort, setCruisePort] = useState<CruisePortSlug | null>(() =>
-    initialCruisePort && portHasCruiseShipsToday(initialCruisePort)
-      ? initialCruisePort
-      : null,
+    initialCruisePort && hasCruiseShipsToday() ? initialCruisePort : null,
   );
   const [allAboardMinutes, setAllAboardMinutes] = useState(() =>
     parseAllAboardMinutes(
@@ -390,10 +383,10 @@ function HomeApp({
     [locale],
   );
 
-  // Empty MITUR day (or midnight rollover): leave fake shore day / deep links.
+  // Empty MITUR day at both piers (or midnight rollover): leave shore day.
   useEffect(() => {
     if (!cruisePort) return;
-    if (portHasCruiseShipsToday(cruisePort, now)) return;
+    if (hasCruiseShipsToday(now)) return;
     leaveCruise("puerto-plata", true);
   }, [cruisePort, leaveCruise, now]);
 
@@ -477,12 +470,11 @@ function HomeApp({
 
   const enterCruise = useCallback(
     (port: CruisePortSlug) => {
-      // Empty MITUR day — do not open a fake shore day / countdown.
-      if (!portHasCruiseShipsToday(port)) return;
+      // No ships at either pier — do not open a fake shore day / countdown.
+      if (!hasCruiseShipsToday()) return;
       markOnboardingSeen("city-primed");
       clearCityPrimingHold();
       setCityPrimingOpen(false);
-      setCruiseEntryOpen(false);
       // Shore day has no search field, so a query typed on home must not survive.
       setSearchQuery("");
       if (cruisePort) {
@@ -602,11 +594,15 @@ function HomeApp({
     currentSlug: cruisePort ? null : selectedCity,
     cruisePort,
     onSelect: setArea,
-    onSelectCruise: enterCruise,
-    showCruisePorts: shipsToday,
     counts: cityCounts,
-    // Prefer the dedicated ship control; menu row is a fallback when the pill is hidden.
-    onCruiseIntent: shipsToday ? () => setCruiseEntryOpen(true) : undefined,
+    // Dedicated ship control is preferred; menu row only when the pill is hidden.
+    onCruiseIntent:
+      shipsToday && !showCruiseShipPill
+        ? () => {
+            const port = defaultCruisePortToday(now);
+            if (port) enterCruise(port);
+          }
+        : undefined,
   } as const;
 
   // Both ports are Puerto Plata, so back out to that area instead of bare home
@@ -854,25 +850,23 @@ function HomeApp({
                   storyCards
                   onAddEvent={() => setSubmitOpen(true)}
                   headerStart={
-                    <div className="w-full text-[1.5rem] font-extrabold leading-none sm:w-auto">
-                      <CityLocationPicker
-                        variant="hero"
-                        photoOverlay={false}
-                        {...areaPickerProps}
-                      />
+                    <div className="flex w-full items-center gap-2 text-[1.5rem] font-extrabold leading-none sm:w-auto">
+                      <div className="min-w-0 flex-1 sm:flex-initial">
+                        <CityLocationPicker
+                          variant="hero"
+                          photoOverlay={false}
+                          {...areaPickerProps}
+                        />
+                      </div>
+                      {showCruiseShipPill ? (
+                        <CruiseShipEntry
+                          variant="inline"
+                          dict={dict}
+                          locale={locale}
+                          onSelectPort={enterCruise}
+                        />
+                      ) : null}
                     </div>
-                  }
-                  headerAction={
-                    showCruiseShipPill ? (
-                      <CruiseShipEntry
-                        variant="inline"
-                        dict={dict}
-                        locale={locale}
-                        open={cruiseEntryOpen}
-                        onOpenChange={setCruiseEntryOpen}
-                        onSelectPort={enterCruise}
-                      />
-                    ) : null
                   }
                 />
               )}

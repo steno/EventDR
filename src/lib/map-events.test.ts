@@ -1,9 +1,11 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import {
+  buildCruiseLoopMapPins,
   buildMapPins,
   eventsWithMapPins,
   filterMapEvents,
+  loopPinId,
   mapWhenForVenueDeepLink,
   nearestMapPin,
   slimEventsForMap,
@@ -425,5 +427,23 @@ describe("map-events", () => {
     });
     assert.equal(withVenue.length, 1);
     assert.equal(withVenue[0]?.venueOnly, undefined);
+  });
+
+  it("builds cruise loop pins on a MITUR ship day and none on a gap day", () => {
+    const copy = {
+      "taino-walk": { title: "Centro walk", body: "Walk downtown." },
+      "taino-culture": { title: "Culture loop", body: "Museums." },
+      "amber-local": { title: "Cofresí loop", body: "Beach strip." },
+      "amber-centro": { title: "Centro taxi", body: "Taxi into town." },
+    };
+    const oct1 = new Date("2026-10-01T16:00:00.000Z");
+    const pins = buildCruiseLoopMapPins("en", copy, oct1);
+    assert.equal(pins.length, 4);
+    assert.ok(pins.every((pin) => pin.loop));
+    assert.ok(pins.some((pin) => pin.id === loopPinId("taino-walk")));
+    assert.ok(pins.some((pin) => pin.loop?.href.includes("/cruise/taino-bay/")));
+
+    const nov7 = new Date("2026-11-07T16:00:00.000Z");
+    assert.deepEqual(buildCruiseLoopMapPins("en", copy, nov7), []);
   });
 });

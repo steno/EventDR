@@ -8,10 +8,12 @@ import {
   cruiseDayPhase,
   cruiseLoopPath,
   cruisePath,
+  cruisePortsSelectableToday,
   cruisePortsWithShipsToday,
   cruiseTravelFromPort,
   cruiseVenueAllowlist,
   defaultAllAboardForPort,
+  defaultCruisePortToday,
   formatAllAboardParam,
   formatClockMinutes,
   formatRemainingDuration,
@@ -171,7 +173,31 @@ describe("dated October 2026 MITUR schedule", () => {
     assert.equal(hasCruiseShipsToday(nov7), false);
     assert.equal(portHasCruiseShipsToday("amber-cove", nov7), false);
     assert.equal(portHasCruiseShipsToday("taino-bay", nov7), false);
+    assert.deepEqual(cruisePortsSelectableToday(nov7), []);
     assert.equal(isCruiseHomeShipPillHours(nov7), false);
+  });
+
+  it("keeps both ports selectable when only one pier has ships", () => {
+    // Mon 9 Nov 2026 — Celebrity Apex at Taino Bay only
+    const nov9 = new Date("2026-11-09T16:00:00.000Z");
+    assert.equal(portHasCruiseShipsToday("taino-bay", nov9), true);
+    assert.equal(portHasCruiseShipsToday("amber-cove", nov9), false);
+    assert.deepEqual(cruisePortsWithShipsToday(nov9), ["taino-bay"]);
+    assert.equal(defaultCruisePortToday(nov9), "taino-bay");
+    assert.deepEqual(cruisePortsSelectableToday(nov9), [
+      "taino-bay",
+      "amber-cove",
+    ]);
+
+    // Wed 8 Oct 2026 — Caribbean Princess at Amber Cove only
+    const oct8 = new Date("2026-10-08T16:00:00.000Z");
+    assert.equal(portHasCruiseShipsToday("amber-cove", oct8), true);
+    assert.equal(portHasCruiseShipsToday("taino-bay", oct8), false);
+    assert.equal(defaultCruisePortToday(oct8), "amber-cove");
+    assert.deepEqual(cruisePortsSelectableToday(oct8), [
+      "taino-bay",
+      "amber-cove",
+    ]);
   });
 
   it("matches Disney Dream’s :15 sail all-aboard on Oct 6", () => {

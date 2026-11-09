@@ -131,6 +131,7 @@ function applyThumbFace(face: HTMLElement, pin: MapPin): boolean {
 /** Overview / first paint — color dots only (no hero image requests). */
 /** Short venue/city label for pin hover + a11y (not the event title). */
 function pinPlaceLabel(pin: MapPin): string {
+  if (pin.loop?.title?.trim()) return pin.loop.title.trim();
   if (pin.venueOnly?.name?.trim()) return pin.venueOnly.name.trim();
   const event = pin.events[0];
   if (!event) return "Event";

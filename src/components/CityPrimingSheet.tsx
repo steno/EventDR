@@ -33,7 +33,6 @@ export function CityPrimingSheet({
   onDismiss,
   counts = null,
 }: CityPrimingSheetProps) {
-  const [cruiseOpen, setCruiseOpen] = useState(false);
   // Optimistic locale so copy flips instantly; home remount catches up under the hold overlay.
   const [sheetLocale, setSheetLocale] = useState(locale);
   const sheetDict = sheetLocale === locale ? dict : getDictionary(sheetLocale);
@@ -108,44 +107,38 @@ export function CityPrimingSheet({
         </div>
 
         <div className="mt-4 space-y-2.5">
-          {!cruiseOpen ? (
-            <>
-              <button
-                type="button"
-                onClick={() => onChoose(null)}
-                className="flex min-h-14 w-full items-center gap-3 rounded-2xl border border-orange-200 bg-orange-50 px-4 text-left font-bold text-orange-800 transition-transform active:scale-[0.98] dark:border-orange-900/70 dark:bg-orange-950/40 dark:text-orange-200"
-              >
-                <MapPin className="h-5 w-5 shrink-0" aria-hidden />
-                {copy.all}
-              </button>
-              <div className="grid grid-cols-3 gap-2">
-                {CITIES.map((city) => {
-                  const count = counts?.[city.slug];
-                  return (
-                    <button
-                      key={city.slug}
-                      type="button"
-                      onClick={() => onChoose(city.slug)}
-                      className="min-h-14 rounded-2xl border border-neutral-200 bg-white px-1.5 text-center text-sm font-bold text-neutral-800 transition-[border-color,transform] hover:border-orange-300 active:scale-[0.98] dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
-                    >
-                      <span className="block">{getCityName(city, sheetLocale)}</span>
-                      {count != null ? (
-                        <span className="mt-0.5 block text-xs font-semibold tabular-nums text-neutral-400 dark:text-neutral-500">
-                          {count}
-                        </span>
-                      ) : null}
-                    </button>
-                  );
-                })}
-              </div>
-            </>
-          ) : null}
+          <button
+            type="button"
+            onClick={() => onChoose(null)}
+            className="flex min-h-14 w-full items-center gap-3 rounded-2xl border border-orange-200 bg-orange-50 px-4 text-left font-bold text-orange-800 transition-transform active:scale-[0.98] dark:border-orange-900/70 dark:bg-orange-950/40 dark:text-orange-200"
+          >
+            <MapPin className="h-5 w-5 shrink-0" aria-hidden />
+            {copy.all}
+          </button>
+          <div className="grid grid-cols-3 gap-2">
+            {CITIES.map((city) => {
+              const count = counts?.[city.slug];
+              return (
+                <button
+                  key={city.slug}
+                  type="button"
+                  onClick={() => onChoose(city.slug)}
+                  className="min-h-14 rounded-2xl border border-neutral-200 bg-white px-1.5 text-center text-sm font-bold text-neutral-800 transition-[border-color,transform] hover:border-orange-300 active:scale-[0.98] dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
+                >
+                  <span className="block">{getCityName(city, sheetLocale)}</span>
+                  {count != null ? (
+                    <span className="mt-0.5 block text-xs font-semibold tabular-nums text-neutral-400 dark:text-neutral-500">
+                      {count}
+                    </span>
+                  ) : null}
+                </button>
+              );
+            })}
+          </div>
           <CruiseShipEntry
             dict={sheetDict}
             locale={sheetLocale}
             variant="sheet"
-            open={cruiseOpen}
-            onOpenChange={setCruiseOpen}
             onSelectPort={onChooseCruise}
           />
         </div>

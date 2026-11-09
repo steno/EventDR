@@ -24,8 +24,14 @@ describe("seed createdAt for home New", () => {
       "every Recently added card should have createdAt",
     );
     assert.ok(
-      layout.newEvents.some((e) => e.id === "meclao-tinder-party-2026-11-07"),
-      "expected a freshly seeded Saturday bill in Recently added",
+      layout.newEvents.some(
+        (e) => e.id === "art-of-scent-petit-francois-2026-11-22",
+      ),
+      "expected a freshly seeded future bill in Recently added",
+    );
+    assert.ok(
+      !layout.newEvents.some((e) => e.id === "meclao-tinder-party-2026-11-07"),
+      "Saturday-night bill should leave Just added once it expires within 24h",
     );
     assert.ok(
       !layout.newEvents.some(

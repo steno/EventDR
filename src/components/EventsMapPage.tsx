@@ -20,10 +20,12 @@ import { MapWhenFilter } from "@/components/MapWhenFilter";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import {
+  buildCruiseLoopMapPins,
   buildMapPins,
   filterMapEvents,
   mapWhenForVenueDeepLink,
   withVenueDeepLinkPin,
+  withVisualPinStacks,
   type MapTimeFilter,
 } from "@/lib/map-events";
 import { getVenueStreetAddress } from "@/lib/venue-street-address";
@@ -51,12 +53,7 @@ function mapAreaFromHomeStorage(): MapAreaId | null {
   if (!areaChosen) return null;
   return city ?? "north-coast";
 }
-import {
-  CRUISE_PORTS,
-  cruisePath,
-  hasCruiseShipsToday,
-  type CruisePortSlug,
-} from "@/lib/cruise";
+import { hasCruiseShipsToday } from "@/lib/cruise";
 import {
   eventDetailPath,
   rememberReturnPath,
@@ -65,8 +62,10 @@ import {
 import { getSeedVenue } from "@/lib/venues-seed";
 import { getVenueImageUrl } from "@/lib/venue-images";
 import { localizeVenue } from "@/lib/venues-i18n";
+import { fillTemplate } from "@/lib/seo";
 import type { Event } from "@/lib/types";
 import { PAGE_GUTTER_CLASS, PAGE_WIDTH_CLASS } from "@/lib/page-shell";
+import { EventImage } from "@/components/EventImage";
 
 function MapPinSheetDetails({
   event,
@@ -149,8 +148,6 @@ export function EventsMapPage({
   );
   const [focusedPinId, setFocusedPinId] = useState<string | null>(null);
   const [openPinId, setOpenPinId] = useState<string | null>(null);
-  const [cruiseEntryOpen, setCruiseEntryOpen] = useState(false);
-  const [shipPort, setShipPort] = useState<CruisePortSlug | null>(null);
   const [cameraFocus, setCameraFocus] = useState<CameraFocus | null>(null);
   const homeAreaAppliedRef = useRef(false);
   const [sheetInsetPx, setSheetInsetPx] = useState(0);
@@ -182,15 +179,17 @@ export function EventsMapPage({
     const seed = getSeedVenue(slug);
     return seed ? localizeVenue(seed, locale) : null;
   }, [initialVenueSlug, locale]);
-  const pins = useMemo(
-    () =>
-      withVenueDeepLinkPin(
-        buildMapPins(filtered),
-        deepLinkVenue,
-        deepLinkVenue ? getVenueImageUrl(deepLinkVenue.slug) : undefined,
-      ),
-    [filtered, deepLinkVenue],
-  );
+  const pins = useMemo(() => {
+    const eventPins = withVenueDeepLinkPin(
+      buildMapPins(filtered),
+      deepLinkVenue,
+      deepLinkVenue ? getVenueImageUrl(deepLinkVenue.slug) : undefined,
+    );
+    if (!hasCruiseShipsToday()) return eventPins;
+    const loopPins = buildCruiseLoopMapPins(locale, dict.cruise.loops);
+    if (loopPins.length === 0) return eventPins;
+    return withVisualPinStacks([...eventPins, ...loopPins]);
+  }, [filtered, deepLinkVenue, locale, dict.cruise.loops]);
   const openPin = pins.find((p) => p.id === openPinId) ?? null;
   const citySlug: CitySlug | null =
     area === "north-coast" ? null : area;
@@ -200,7 +199,10 @@ export function EventsMapPage({
     openPin?.events[
       Math.min(sheetEventIndex, Math.max(0, sheetEventCount - 1))
     ] ?? null;
-  const venueOnlyOpen = Boolean(openPin?.venueOnly && sheetEventCount === 0);
+  const loopOpen = Boolean(openPin?.loop && sheetEventCount === 0);
+  const venueOnlyOpen = Boolean(
+    openPin?.venueOnly && sheetEventCount === 0 && !loopOpen,
+  );
   const venueOnlyPlace = openPin?.venueOnly
     ? [
         getVenueStreetAddress(openPin.venueOnly.slug),
@@ -402,8 +404,6 @@ export function EventsMapPage({
     setArea(next);
     // Keep home ↔ map area in sync for the tab session.
     writeHomeArea(next === "north-coast" ? null : next);
-    setShipPort(null);
-    setCruiseEntryOpen(false);
     clearPinSelection();
     const target = MAP_AREAS[next];
     flyTo(
@@ -431,14 +431,6 @@ export function EventsMapPage({
     if (showPinsCoach) dismissPinsCoach();
     setFocusedPinId(pinId);
     setOpenPinId(pinId);
-  }
-
-  function selectPort(port: CruisePortSlug) {
-    clearPinSelection();
-    setShipPort(port);
-    setCruiseEntryOpen(false);
-    const coords = CRUISE_PORTS[port];
-    flyTo({ lat: coords.lat, lng: coords.lng, zoom: 13.2 });
   }
 
   function areaLabel(id: MapAreaId): string {
@@ -475,14 +467,7 @@ export function EventsMapPage({
           </div>
 
           {hasCruiseShipsToday() ? (
-            <CruiseShipEntry
-              variant="icon"
-              dict={dict}
-              locale={locale}
-              open={cruiseEntryOpen}
-              onOpenChange={setCruiseEntryOpen}
-              onSelectPort={selectPort}
-            />
+            <CruiseShipEntry variant="icon" dict={dict} locale={locale} />
           ) : null}
         </div>
       </header>
@@ -529,17 +514,57 @@ export function EventsMapPage({
           ) : null}
         </div>
 
-        {shipPort && !openPin ? (
-          <div className="absolute bottom-[max(1rem,env(safe-area-inset-bottom))] left-3 right-3 z-10 sm:left-auto sm:right-4 sm:w-80">
-            <Link
-              href={cruisePath(locale, shipPort)}
-              prefetch={false}
-              className="flex items-center justify-between gap-3 rounded-2xl bg-sky-50 px-4 py-3 text-sm font-bold text-sky-900 shadow-lg ring-1 ring-sky-200 dark:bg-sky-950/90 dark:text-sky-100 dark:ring-sky-800"
-            >
-              <span>{dict.cruise.shipPill}</span>
-              <span className="text-xs font-semibold opacity-80">
-                {dict.map.openCruise} →
+        {loopOpen && openPin?.loop ? (
+          <div
+            ref={sheetRef}
+            data-map-pin-sheet
+            data-pull-reload="ignore"
+            className="animate-slide-up absolute inset-x-8 bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-20 max-h-[min(85dvh,40rem)] overflow-y-auto overflow-x-hidden rounded-3xl border border-neutral-200 bg-white/98 p-2.5 shadow-[0_-12px_40px_-12px_rgba(0,0,0,0.35)] backdrop-blur-xl dark:border-neutral-800 dark:bg-neutral-950/98 sm:inset-x-auto sm:bottom-4 sm:right-4 sm:w-[22rem] sm:p-3"
+            role="dialog"
+            aria-label={dict.map.loopPinSheetLabel}
+          >
+            <div className="mb-1 flex items-center gap-2 sm:mb-1.5">
+              <h2 className="min-w-0 flex-1 text-base font-extrabold leading-tight text-neutral-900 dark:text-neutral-50 sm:text-lg sm:leading-snug">
+                {openPin.loop.title}
+              </h2>
+              <button
+                type="button"
+                onClick={closePinSheet}
+                aria-label={dict.detail.close}
+                className="flex h-8 w-8 shrink-0 items-center justify-center self-center rounded-full bg-neutral-100 text-neutral-800 ring-1 ring-neutral-300 transition-colors hover:bg-white hover:ring-orange-400 hover:text-orange-600 active:scale-95 dark:bg-neutral-800 dark:text-neutral-100 dark:ring-white/20 dark:hover:bg-neutral-700 dark:hover:ring-orange-400/70 dark:hover:text-orange-300 sm:h-9 sm:w-9"
+              >
+                <X className="h-4 w-4" strokeWidth={2.5} aria-hidden />
+              </button>
+            </div>
+            <p className="mb-1.5 text-[10px] font-bold uppercase leading-none tracking-wide text-sky-600 sm:mb-2 sm:text-[11px] dark:text-sky-300">
+              {fillTemplate(dict.map.loopHere, {
+                count: String(openPin.loop.stopCount),
+              })}
+              <span className="ml-1.5 tabular-nums text-sky-500/80 dark:text-sky-400/80">
+                {fillTemplate(dict.cruise.itineraryMinutes, {
+                  minutes: String(openPin.loop.minutes),
+                })}
               </span>
+            </p>
+            {openPin.thumbUrl ? (
+              <div className="relative mb-2 overflow-hidden rounded-2xl bg-neutral-100 dark:bg-neutral-800">
+                <EventImage
+                  src={openPin.thumbUrl}
+                  alt=""
+                  sizes="(max-width: 640px) 85vw, 360px"
+                  className="aspect-[16/10] w-full object-cover"
+                />
+              </div>
+            ) : null}
+            <p className="mb-2 text-sm leading-snug text-neutral-600 dark:text-neutral-300 sm:mb-3">
+              {openPin.loop.body}
+            </p>
+            <Link
+              href={openPin.loop.href}
+              prefetch={false}
+              className="flex min-h-10 w-full items-center justify-center rounded-2xl bg-orange-500 px-4 text-sm font-bold leading-none text-white transition-colors hover:bg-orange-600 sm:min-h-11"
+            >
+              {dict.map.openLoop}
             </Link>
           </div>
         ) : null}

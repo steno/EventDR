@@ -434,6 +434,9 @@ export const fr: Dictionary = {
     venuePinSheetLabel: "Ce lieu",
     venueNoEvents: "Aucun événement à venir épinglé ici pour le moment.",
     openVenue: "Voir le lieu",
+    loopPinSheetLabel: "Boucle croisière",
+    loopHere: "Boucle croisière · {count} arrêts",
+    openLoop: "Voir la boucle",
     readMore: "Lire la suite",
     whenFilter: "Quand",
     when: {
@@ -504,6 +507,7 @@ export const fr: Dictionary = {
     copyLink: "Copier le lien",
     linkCopied: "Lien copié",
     fromTheShip: "Depuis le navire",
+    stopHere: "Arrêt {n}",
     backToTheShip: "Retour au navire",
     walkToStop: "{minutes} min à pied vers {stop}",
     taxiToStop: "{minutes} min en taxi vers {stop}",

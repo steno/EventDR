@@ -10,7 +10,8 @@ import {
   useMapEvents,
 } from "react-leaflet";
 import L from "leaflet";
-import { ChevronRight, X } from "lucide-react";
+import { MapPin, X } from "lucide-react";
+import { EventImage } from "@/components/EventImage";
 import { IntentLink } from "@/components/IntentLink";
 import type { LatLngTuple } from "@/lib/routing";
 import type { LoopMapStop } from "@/lib/cruise";
@@ -26,6 +27,8 @@ export type CruisePinCopy = {
   viewVenue: string;
   viewEvent: string;
   close: string;
+  /** Eyebrow for numbered stops — “Stop {n}”. */
+  stopHere?: string;
 };
 
 const PIN_RING =
@@ -274,47 +277,57 @@ export function CruiseLoopMap({
 
       {selected ? (
         <aside
-          className="cruise-loop-pin-card absolute inset-x-3 bottom-3 z-[1000] max-w-md"
+          className="cruise-loop-pin-card absolute inset-x-3 bottom-3 z-[1000] max-h-[min(70%,28rem)] w-[min(100%,22rem)] overflow-y-auto overflow-x-hidden rounded-3xl border border-neutral-200 bg-white/98 p-2.5 shadow-[0_-12px_40px_-12px_rgba(0,0,0,0.35)] backdrop-blur-xl dark:border-neutral-800 dark:bg-neutral-950/98 sm:p-3"
           aria-live="polite"
+          role="dialog"
         >
-          <div className="flex items-center gap-0.5 rounded-2xl border border-neutral-200 bg-white p-1 pr-1.5 shadow-lg dark:border-neutral-800 dark:bg-neutral-950">
-            {selected.href ? (
-              <IntentLink
-                href={selected.href}
-                returnTo={returnTo}
-                returnTitle={returnTitle}
-                className="flex min-h-11 min-w-0 flex-1 items-center gap-2 rounded-lg px-1 py-1.5 text-sm font-semibold text-orange-700 touch-manipulation active:bg-orange-50 dark:text-orange-300 dark:active:bg-orange-950/40"
-              >
-                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-orange-50 text-[11px] font-bold text-orange-700 dark:bg-orange-950/50 dark:text-orange-300">
-                  {selected.number ?? ""}
-                </span>
-                <span className="min-w-0 flex-1 truncate underline decoration-orange-300 underline-offset-[3px] dark:decoration-orange-700">
-                  {selected.label}
-                </span>
-                <ChevronRight
-                  className="h-4 w-4 shrink-0 text-orange-500 dark:text-orange-400"
-                  aria-hidden
-                />
-              </IntentLink>
-            ) : (
-              <div className="flex min-h-11 min-w-0 flex-1 items-center gap-2 rounded-lg px-1 py-1.5 text-sm font-semibold text-neutral-600 dark:text-neutral-300">
-                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-50 text-[11px] font-bold text-blue-700 dark:bg-blue-950/50 dark:text-blue-300">
-                  S
-                </span>
-                <span className="min-w-0 flex-1 truncate">
-                  {selected.label ?? pinCopy.fromShip}
-                </span>
-              </div>
-            )}
+          <div className="mb-1 flex items-center gap-2 sm:mb-1.5">
+            <h2 className="min-w-0 flex-1 text-base font-extrabold leading-tight text-neutral-900 dark:text-neutral-50 sm:text-lg sm:leading-snug">
+              {selected.label ?? pinCopy.fromShip}
+            </h2>
             <button
               type="button"
               onClick={() => setSelected(null)}
-              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-neutral-500 touch-manipulation hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-800"
+              className="flex h-8 w-8 shrink-0 items-center justify-center self-center rounded-full bg-neutral-100 text-neutral-800 ring-1 ring-neutral-300 transition-colors hover:bg-white hover:ring-orange-400 hover:text-orange-600 active:scale-95 dark:bg-neutral-800 dark:text-neutral-100 dark:ring-white/20 dark:hover:bg-neutral-700 dark:hover:ring-orange-400/70 dark:hover:text-orange-300 sm:h-9 sm:w-9"
               aria-label={pinCopy.close}
             >
-              <X className="h-4 w-4" aria-hidden />
+              <X className="h-4 w-4" strokeWidth={2.5} aria-hidden />
             </button>
           </div>
+          <p className="mb-1.5 text-[10px] font-bold uppercase leading-none tracking-wide text-orange-500 sm:mb-2 sm:text-[11px]">
+            {selected.kind === "port"
+              ? pinCopy.fromShip
+              : (pinCopy.stopHere ?? "Stop {n}").replace(
+                  "{n}",
+                  String(selected.number ?? ""),
+                )}
+          </p>
+          {selected.imageUrl ? (
+            <div className="relative mb-2 overflow-hidden rounded-2xl bg-neutral-100 dark:bg-neutral-800">
+              <EventImage
+                src={selected.imageUrl}
+                alt=""
+                sizes="(max-width: 640px) 85vw, 360px"
+                className="aspect-[16/10] w-full object-cover"
+              />
+            </div>
+          ) : null}
+          {selected.placeLine ? (
+            <p className="mb-2 flex items-start gap-1.5 text-sm leading-snug text-neutral-600 dark:text-neutral-300">
+              <MapPin className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
+              <span>{selected.placeLine}</span>
+            </p>
+          ) : null}
+          {selected.href ? (
+            <IntentLink
+              href={selected.href}
+              returnTo={returnTo}
+              returnTitle={returnTitle}
+              className="flex min-h-10 w-full items-center justify-center rounded-2xl bg-orange-500 px-4 text-sm font-bold leading-none text-white transition-colors hover:bg-orange-600 active:scale-[0.99] touch-manipulation sm:min-h-11"
+            >
+              {selected.ctaLabel ?? pinCopy.viewVenue}
+            </IntentLink>
+          ) : null}
         </aside>
       ) : null}
     </div>

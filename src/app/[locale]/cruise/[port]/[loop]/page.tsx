@@ -14,7 +14,7 @@ import {
   loopTravelProfile,
   loopWaypoints,
   parseAllAboardMinutes,
-  portHasCruiseShipsToday,
+  hasCruiseShipsToday,
   resolveItineraryStops,
   type CruisePortSlug,
 } from "@/lib/cruise";
@@ -111,7 +111,7 @@ export default async function Page({
     notFound();
   }
   const port = portParam as CruisePortSlug;
-  if (!portHasCruiseShipsToday(port)) {
+  if (!hasCruiseShipsToday()) {
     redirect(`/${locale}`);
   }
   const itinerary = itineraryById(loopParam);
@@ -148,15 +148,25 @@ export default async function Page({
       : null;
   const embedUrl = waypoints ? osmEmbedUrl(waypoints) : "";
 
-  const stopHrefBySlug = new Map(stops.map((stop) => [stop.slug, stop.href]));
-  const mapStops = (waypoints ?? []).map((point) => ({
-    lat: point.lat,
-    lng: point.lng,
-    kind: point.kind,
-    label: point.name,
-    href: point.kind === "stop" ? stopHrefBySlug.get(point.slug) : undefined,
-    number: undefined as number | undefined,
-  }));
+  const stopBySlug = new Map(stops.map((stop) => [stop.slug, stop]));
+  const mapStops = (waypoints ?? []).map((point) => {
+    const stop = point.kind === "stop" ? stopBySlug.get(point.slug) : undefined;
+    return {
+      lat: point.lat,
+      lng: point.lng,
+      kind: point.kind,
+      label: point.name,
+      href: stop?.href,
+      imageUrl: stop?.imageUrl,
+      placeLine: stop?.placeLine,
+      ctaLabel: stop
+        ? stop.isEvent
+          ? dict.detail.viewEvent
+          : dict.detail.viewVenue
+        : undefined,
+      number: undefined as number | undefined,
+    };
+  });
 
   let stopNumber = 0;
   for (const stop of mapStops) {

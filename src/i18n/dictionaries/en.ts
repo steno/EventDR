@@ -434,6 +434,11 @@ export type Dictionary = {
     venuePinSheetLabel: string;
     venueNoEvents: string;
     openVenue: string;
+    /** Sheet when a ready-made cruise loop pin is open. */
+    loopPinSheetLabel: string;
+    /** Eyebrow under the loop title — “Cruise loop · N stops”. */
+    loopHere: string;
+    openLoop: string;
     /** Media-card CTA on the pin sheet (expands / continues from the photo). */
     readMore: string;
     /** Aria label for the map Today / Weekend / All control. */
@@ -504,6 +509,8 @@ export type Dictionary = {
     copyLink: string;
     linkCopied: string;
     fromTheShip: string;
+    /** Loop map pin eyebrow — “Stop {n}”. */
+    stopHere: string;
     backToTheShip: string;
     walkToStop: string;
     taxiToStop: string;
@@ -1176,6 +1183,9 @@ export const en: Dictionary = {
     venuePinSheetLabel: "This place",
     venueNoEvents: "No upcoming events pinned here right now.",
     openVenue: "Open venue",
+    loopPinSheetLabel: "Cruise loop",
+    loopHere: "Cruise loop · {count} stops",
+    openLoop: "View loop",
     readMore: "Read more",
     whenFilter: "When",
     when: {
@@ -1246,6 +1256,7 @@ export const en: Dictionary = {
     copyLink: "Copy link",
     linkCopied: "Link copied",
     fromTheShip: "From the ship",
+    stopHere: "Stop {n}",
     backToTheShip: "Back to the ship",
     walkToStop: "{minutes} min walk to {stop}",
     taxiToStop: "{minutes} min taxi to {stop}",
