@@ -654,11 +654,11 @@ export function FilteredEventList({
       )}
 
       <div
-        className={
+        className={`min-w-0 max-w-full${
           scrollOnFilterChange && showStickyFilters
-            ? LIST_PARK_FILL_CLASS
-            : undefined
-        }
+            ? ` ${LIST_PARK_FILL_CLASS}`
+            : ""
+        }`}
       >
         {loading ? (
           <p className="text-copy text-neutral-500 dark:text-neutral-400">
@@ -708,6 +708,7 @@ export function FilteredEventList({
         ) : allBrowseSections && isXlShell ? (
           <>
             <AllBrowseCalendar
+              key={categoryId ?? "all"}
               days={allBrowseSections.days}
               recurring={calendarRecurring}
               dict={dict}

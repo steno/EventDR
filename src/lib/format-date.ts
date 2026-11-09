@@ -78,3 +78,30 @@ export function formatEventDate(dateStr: string, locale: Locale): string {
 export function formatEventDateShort(dateStr: string, locale: Locale): string {
   return formatCalendarDate(dateStr, locale, true);
 }
+
+/**
+ * Desktop All calendar column header — full weekday caps, e.g. `FRIDAY - NOV. 28`.
+ * Locale-aware long weekday + short month, then uppercased for the strip.
+ */
+export function formatBrowseDayHeader(dateStr: string, locale: Locale): string {
+  const utc = calendarDateFromISO(dateStr);
+  if (!utc) return dateStr;
+
+  const weekday = utc
+    .toLocaleDateString(DATE_LOCALES[locale], {
+      weekday: "long",
+      timeZone: "UTC",
+    })
+    .replace(/\.$/, "")
+    .trim()
+    .toUpperCase();
+  const month = utc
+    .toLocaleDateString(DATE_LOCALES[locale], {
+      month: "short",
+      timeZone: "UTC",
+    })
+    .replace(/\.$/, "")
+    .trim()
+    .toUpperCase();
+  return `${weekday} - ${month}. ${utc.getUTCDate()}`;
+}

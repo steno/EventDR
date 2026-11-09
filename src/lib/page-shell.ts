@@ -28,7 +28,7 @@ export const STICKY_CHROME_SURFACE_CLASS =
   "border-b border-neutral-200/90 bg-background/95 shadow-[0_1px_0_rgba(15,23,42,0.04),0_1px_3px_rgba(15,23,42,0.06)] backdrop-blur-sm dark:border-neutral-800 dark:bg-neutral-950/95 dark:shadow-[0_1px_0_rgba(255,255,255,0.06),0_1px_3px_rgba(0,0,0,0.35)]";
 
 /** Listing / discovery — fluid inside the soft ceiling. */
-export const PAGE_SHELL_CLASS = `relative mx-auto w-full ${PAGE_MAX_WIDTH_CLASS} ${PAGE_GUTTER_CLASS}`;
+export const PAGE_SHELL_CLASS = `relative mx-auto w-full min-w-0 ${PAGE_MAX_WIDTH_CLASS} ${PAGE_GUTTER_CLASS}`;
 
 /** Footer / bottom-nav width (callers add gutters). */
 export const PAGE_WIDTH_CLASS = `mx-auto w-full ${PAGE_MAX_WIDTH_CLASS}`;

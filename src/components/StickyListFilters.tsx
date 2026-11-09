@@ -1,11 +1,13 @@
 "use client";
 
-import { useLayoutEffect, type ReactNode } from "react";
+import { useLayoutEffect, useRef, type ReactNode } from "react";
 import { PAGE_GUTTER_BLEED_CLASS, STICKY_CHROME_SURFACE_CLASS } from "@/lib/page-shell";
 import {
   SCROLL_CHROME_TRANSITION_CLASS,
   syncScrollChromeDom,
 } from "@/lib/scroll-chrome";
+
+const STICKY_FILTERS_HEIGHT_VAR = "--sticky-list-filters-height";
 
 type StickyListFiltersProps = {
   children: ReactNode;
@@ -22,18 +24,52 @@ type StickyListFiltersProps = {
  * When hide-on-scroll tucks the header away, this bar eases up by the same
  * distance so event cards cannot show through the empty band at the top.
  * Hide/show transform is owned by `scroll-chrome` (`data-chrome-hidden`).
+ * Publishes `--sticky-list-filters-height` so All calendar day labels can park
+ * fully underneath (not clipped by the time tabs).
  */
 export function StickyListFilters({
   children,
   className = "",
   belowListHeader = true,
 }: StickyListFiltersProps) {
+  const rootRef = useRef<HTMLDivElement>(null);
+
   useLayoutEffect(() => {
     syncScrollChromeDom();
   }, []);
 
+  useLayoutEffect(() => {
+    const el = rootRef.current;
+    if (!el) return;
+
+    const publishHeight = () => {
+      document.documentElement.style.setProperty(
+        STICKY_FILTERS_HEIGHT_VAR,
+        `${el.offsetHeight}px`,
+      );
+    };
+
+    publishHeight();
+    const observer = new ResizeObserver(publishHeight);
+    observer.observe(el);
+    const rafId = requestAnimationFrame(publishHeight);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      observer.disconnect();
+      requestAnimationFrame(() => {
+        if (!document.querySelector("[data-sticky-list-filters]")) {
+          document.documentElement.style.removeProperty(
+            STICKY_FILTERS_HEIGHT_VAR,
+          );
+        }
+      });
+    };
+  }, []);
+
   return (
     <div
+      ref={rootRef}
       data-sticky-list-filters
       className={`
         sticky z-10 mb-4 md:mb-3
