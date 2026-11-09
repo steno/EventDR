@@ -1,7 +1,6 @@
 "use client";
 
-import { useRef, useState, type ReactNode } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import type { FilterTimeRange } from "@/lib/filters";
@@ -35,9 +34,8 @@ const DAY_COL_STYLE = {
   maxWidth: BROWSE_DAY_COL_MAX_PX,
 } as const;
 
-/** z-index stays inside the card’s `isolate` context — never above sticky chrome. */
-const DAY_SLIDE_BTN_CLASS =
-  "absolute top-1/2 z-[1] flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-neutral-800 shadow-md ring-1 ring-neutral-200/90 transition-colors hover:bg-white disabled:pointer-events-none disabled:opacity-0 dark:bg-neutral-900/95 dark:text-neutral-100 dark:ring-white/12 dark:hover:bg-neutral-900";
+/** Multi-event day autoplay — common carousel cadence. */
+const BROWSE_DAY_ROTATE_MS = 4000;
 
 type BrowseEvent = EventWithVenueSiblings;
 
@@ -70,8 +68,8 @@ interface BrowseDayColumnProps {
 }
 
 /**
- * One fixed-height date cell — single poster. Extra events that day slide
- * via chevrons instead of stacking the column taller.
+ * One fixed-height date cell — single poster. Extra events that day rotate
+ * on a timer instead of stacking or chevron slides.
  */
 function BrowseDayColumn({
   day,
@@ -85,12 +83,23 @@ function BrowseDayColumn({
   showEnlarge,
 }: BrowseDayColumnProps) {
   const count = day.events.length;
+  const multi = count > 1;
   const [index, setIndex] = useState(() =>
-    count > 1 ? Math.floor(Math.random() * count) : 0,
+    multi ? Math.floor(Math.random() * count) : 0,
   );
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (!multi || paused) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const id = window.setInterval(() => {
+      setIndex((current) => (current + 1) % count);
+    }, BROWSE_DAY_ROTATE_MS);
+    return () => window.clearInterval(id);
+  }, [multi, paused, count]);
+
   const activeIndex = Math.min(index, Math.max(0, count - 1));
   const event = day.events[activeIndex];
-  const multi = count > 1;
 
   if (!event) return null;
 
@@ -99,46 +108,51 @@ function BrowseDayColumn({
       role="listitem"
       className="flex min-w-0 shrink-0 flex-col"
       style={DAY_COL_STYLE}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocusCapture={() => setPaused(true)}
+      onBlurCapture={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
+          setPaused(false);
+        }
+      }}
     >
       <h2 className="sr-only">{formatBrowseDayHeader(day.date, locale)}</h2>
       <div className="relative isolate">
-        <EventCard
-          event={event}
-          dict={dict}
-          locale={locale}
-          returnTo={returnTo}
-          returnTitle={returnTitle}
-          listTimeRange={listTimeRange}
-          view="cards"
-          pending={pendingId === event.id}
-          dimmed={pendingId != null && pendingId !== event.id}
-          onNavigate={() => onNavigate(event.id)}
-          showEnlarge={showEnlarge}
-        />
+        <div
+          key={event.id}
+          className="motion-safe:animate-[browse-day-fade_500ms_ease-out]"
+        >
+          <EventCard
+            event={event}
+            dict={dict}
+            locale={locale}
+            returnTo={returnTo}
+            returnTitle={returnTitle}
+            listTimeRange={listTimeRange}
+            view="cards"
+            pending={pendingId === event.id}
+            dimmed={pendingId != null && pendingId !== event.id}
+            onNavigate={() => onNavigate(event.id)}
+            showEnlarge={showEnlarge}
+          />
+        </div>
         {multi ? (
-          <>
-            <button
-              type="button"
-              aria-label={dict.events.browseDayPrev}
-              disabled={activeIndex <= 0}
-              onClick={() => setIndex((i) => Math.max(0, i - 1))}
-              className={`${DAY_SLIDE_BTN_CLASS} left-1`}
-            >
-              <ChevronLeft className="h-4 w-4" aria-hidden />
-            </button>
-            <button
-              type="button"
-              aria-label={dict.events.browseDayNext}
-              disabled={activeIndex >= count - 1}
-              onClick={() => setIndex((i) => Math.min(count - 1, i + 1))}
-              className={`${DAY_SLIDE_BTN_CLASS} right-1`}
-            >
-              <ChevronRight className="h-4 w-4" aria-hidden />
-            </button>
-            <p className="pointer-events-none absolute bottom-2 left-1/2 z-[1] -translate-x-1/2 rounded-full bg-black/55 px-2 py-0.5 text-[10px] font-bold tabular-nums tracking-wide text-white backdrop-blur-sm">
-              {activeIndex + 1}/{count}
-            </p>
-          </>
+          <div
+            aria-hidden
+            className="pointer-events-none absolute bottom-2 left-1/2 z-[1] flex -translate-x-1/2 items-center gap-1 rounded-full bg-black/55 px-2 py-1 backdrop-blur-sm"
+          >
+            {day.events.map((slot, i) => (
+              <span
+                key={slot.id}
+                className={`h-1.5 rounded-full transition-[width,background-color] duration-300 ${
+                  i === activeIndex
+                    ? "w-3.5 bg-white"
+                    : "w-1.5 bg-white/45"
+                }`}
+              />
+            ))}
+          </div>
         ) : null}
       </div>
     </section>
@@ -149,7 +163,7 @@ function BrowseDayColumn({
  * Desktop All-tab calendar strip: one column per dated day, then Weekly & daily.
  * Parent mounts this only at `xl+` — mobile keeps stacked day headings.
  * Day labels stick under list chrome; header + body rails share horizontal scroll.
- * Each day is a single-card row; multi-event days use chevron slides.
+ * Each day is a single-card row; multi-event days auto-rotate.
  */
 export function AllBrowseCalendar({
   days,
