@@ -437,6 +437,22 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "voyvoy-dominican-night-flow-dance-weekly": "2026-10-29T13:00:00.000Z",
   "amarea-beach-brunch-aura-2026-11-08": "2026-11-08T16:00:00.000Z",
   "amarea-rooftop-closing-aura-2026-11-08": "2026-11-08T17:00:00.000Z",
+  "ambar-lounge-bandoleras-2026-11-13": "2026-11-11T16:00:00.000Z",
+  "ambar-lounge-carlos-rivera-2026-11-14": "2026-11-11T15:45:00.000Z",
+  "twenty-disco-adrian-tineo-darwin-estrella-2026-11-14":
+    "2026-11-11T15:30:00.000Z",
+  "aura-alice-wonderland-2026-11-14": "2026-11-11T15:15:00.000Z",
+  "casa-arte-sosua-morphy-legado-2026-11-14": "2026-11-11T15:00:00.000Z",
+  "hard-rock-anne-live-2026-11-14": "2026-11-11T14:45:00.000Z",
+  "aura-galactic-nights-christoo-2026-11-28": "2026-11-11T14:30:00.000Z",
+  "hard-rock-allison-sade-2026-11-27": "2026-11-11T14:15:00.000Z",
+  "ocean-world-terrace-rubio-manon-2026-12-04": "2026-11-11T14:00:00.000Z",
+  "toscana-nightclub-gran-apertura-2026-12-04": "2026-11-11T13:45:00.000Z",
+  "chameleon-mananitas-kreizy-k-2026-12-05": "2026-11-11T13:30:00.000Z",
+  "isabela-food-fest-la-perversa-2026-12-18": "2026-11-11T13:15:00.000Z",
+  "groundzero-omega-2026-12-18": "2026-11-11T13:00:00.000Z",
+  "voyvoy-sunday-open-mic": "2026-11-11T12:45:00.000Z",
+  "pedro-santana-sus-dias-contados-2026-11-24": "2026-11-11T16:30:00.000Z",
 };
 
 /** Fill missing `createdAt` from {@link SEED_CREATED_AT} (does not overwrite). */

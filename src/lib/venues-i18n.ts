@@ -1161,6 +1161,36 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Sport bar et nightlife tardif au Sosúa Bay Center (Calle Dr. Alejo Martínez n° 1, El Batey, près du Coral Reef Casino) — soirées à thème, DJs invités, karaoké et musique haute énergie jusqu’au lever du soleil. Ouvert tous les jours 19 h–5 h. Table/VIP via DM Instagram @chameleonsportbar ou +1 849-657-1500 / +1 829-994-2304.",
     },
   },
+  "sociedad-cultural-renovacion": {
+    name: {
+      es: "Sociedad Cultural Renovación",
+      fr: "Sociedad Cultural Renovación",
+    },
+    description: {
+      es: "Sociedad cultural e histórica y biblioteca pública (est. 1928) en Calle Duarte No. 41, esquina Imbert — Biblioteca Renovación, Salón Dr. Osvaldo Brugal para puestas en circulación y charlas, y programas de arte para la ciudad. Info +1 809-586-6240 · screnovacion.org · Instagram @screnovacion.",
+      fr: "Société culturelle historique et bibliothèque publique (est. 1928) au Calle Duarte n° 41, coin Imbert — Biblioteca Renovación, Salón Dr. Osvaldo Brugal pour lancements de livres et talks, et programmes artistiques pour la ville. Info +1 809-586-6240 · screnovacion.org · Instagram @screnovacion.",
+    },
+  },
+  "toscana-nightclub": {
+    name: {
+      es: "Toscana Nightclub",
+      fr: "Toscana Nightclub",
+    },
+    description: {
+      es: "Nuevo nightclub de mixología en el segundo nivel de Plaza Siblings Food Park, Av. Luis Ginebra, Puerto Plata (al lado del Palacio de Justicia) — cócteles, energía de lounge y noches de apertura. Soft launch / gran apertura viernes 4 de diciembre 2026 desde las 6:00 PM. Instagram @toscana_nightclub.",
+      fr: "Nouveau nightclub mixologie au 2e niveau de Plaza Siblings Food Park, Av. Luis Ginebra, Puerto Plata (à côté du Palacio de Justicia) — cocktails, énergie lounge et soirées d’ouverture. Soft launch / gran apertura vendredi 4 décembre 2026 dès 18 h. Instagram @toscana_nightclub.",
+    },
+  },
+  "casa-de-arte-sosua": {
+    name: {
+      es: "Casa de Arte de Sosúa",
+      fr: "Casa de Arte de Sosúa",
+    },
+    description: {
+      es: "Galería comunitaria y centro cultural en Calle Pedro Clisante #1 a la entrada de El Batey / Bahía de Sosúa — exposiciones rotativas, charlas y educación artística. Horario típico lun–vie mañanas y tardes, sábados por la mañana (domingo cerrado); confirma vía Instagram @casadeartedesosua o +1 809-571-2442.",
+      fr: "Galerie communautaire et centre culturel au Calle Pedro Clisante n° 1 à l’entrée d’El Batey / baie de Sosúa — expositions tournantes, talks et éducation artistique. Horaires typiques lun–ven matin et après-midi, samedis matin (fermé dimanche) ; confirmez via Instagram @casadeartedesosua ou +1 809-571-2442.",
+    },
+  },
   "la-quinta-rosa": {
     name: {
       es: "La Quinta Rosa",

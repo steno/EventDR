@@ -758,7 +758,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "sosua-diving-adventures-daily": "sosua-diving-adventures-daily.jpg",
   // Filename bump — packed night bar (not the daytime Club 59 facade).
   "d-classico-merengue-nights": "d-classico-merengue-bar.jpg",
-  "natura-cabana-yoga-daily": "natura-cabana-yoga-daily.jpg",
+  // Filename bump — POP-supplied yoga-temple class photo (prior still stays as file).
+  "natura-cabana-yoga-daily": "natura-cabana-yoga-daily-v2.jpg",
   // Filename bump — Ninafrika Latin Thursdays flyer (was the Ojo booth photo).
   "ojo-latin-night-thursday": "ojo-latin-thursdays-ninafrika.jpg",
   "ojo-pal-mambo-tuesday": "ojo-pal-mambo-tuesday.jpg",
@@ -777,7 +778,33 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
 
   // Filename bump — Karaoke Monday flyer (was terrace place shot for live jam).
   "voyvoy-monday-live-music": "voyvoy-karaoke-monday.jpg",
-  "voyvoy-sunday-open-mic": "voyvoy-sunday-open-mic.jpg",
+  // Filename bump — Lester Grant Open Mic sunset silhouette flyer.
+  "voyvoy-sunday-open-mic": "voyvoy-sunday-open-mic-v3.jpg",
+  "ambar-lounge-bandoleras-2026-11-13":
+    "ambar-lounge-bandoleras-2026-11-13.jpg",
+  "ambar-lounge-carlos-rivera-2026-11-14":
+    "ambar-lounge-carlos-rivera-2026-11-14.jpg",
+  "twenty-disco-adrian-tineo-darwin-estrella-2026-11-14":
+    "twenty-disco-adrian-tineo-darwin-estrella-2026-11-14.jpg",
+  "aura-alice-wonderland-2026-11-14": "aura-alice-wonderland-2026-11-14.jpg",
+  "casa-arte-sosua-morphy-legado-2026-11-14":
+    "casa-arte-sosua-morphy-legado-2026-11-14.jpg",
+  "hard-rock-anne-live-2026-11-14": "hard-rock-anne-live-2026-11-14.jpg",
+  "aura-galactic-nights-christoo-2026-11-28":
+    "aura-galactic-nights-christoo-2026-11-28.jpg",
+  "hard-rock-allison-sade-2026-11-27": "hard-rock-allison-sade-2026-11-27.jpg",
+  "ocean-world-terrace-rubio-manon-2026-12-04":
+    "ocean-world-terrace-rubio-manon-2026-12-04.jpg",
+  // Filename bump — Deury Luciano × DJ Choco gran apertura flyer.
+  "toscana-nightclub-gran-apertura-2026-12-04":
+    "toscana-nightclub-gran-apertura-2026-12-04-v2.jpg",
+  "chameleon-mananitas-kreizy-k-2026-12-05":
+    "chameleon-mananitas-kreizy-k-2026-12-05.jpg",
+  "isabela-food-fest-la-perversa-2026-12-18":
+    "isabela-food-fest-la-perversa-2026-12-18.jpg",
+  "groundzero-omega-2026-12-18": "groundzero-omega-2026-12-18.jpg",
+  "pedro-santana-sus-dias-contados-2026-11-24":
+    "pedro-santana-sus-dias-contados-2026-11-24.jpg",
   "voyvoy-soft-reopening-sunset-2026-10-09":
     "voyvoy-soft-reopening-sunset-2026-10-09.jpg",
   "voyvoy-soft-reopening-saturday-2026-10-10":
@@ -1407,6 +1434,22 @@ export function getEventHeroObjectPosition(eventId: string): string {
  */
 const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "voyvoy-social-friday-flow-dance-weekly.jpg",
+  "voyvoy-sunday-open-mic-v3.jpg",
+  "ambar-lounge-bandoleras-2026-11-13.jpg",
+  "ambar-lounge-carlos-rivera-2026-11-14.jpg",
+  "twenty-disco-adrian-tineo-darwin-estrella-2026-11-14.jpg",
+  "aura-alice-wonderland-2026-11-14.jpg",
+  "casa-arte-sosua-morphy-legado-2026-11-14.jpg",
+  "hard-rock-anne-live-2026-11-14.jpg",
+  "aura-galactic-nights-christoo-2026-11-28.jpg",
+  "hard-rock-allison-sade-2026-11-27.jpg",
+  "ocean-world-terrace-rubio-manon-2026-12-04.jpg",
+  "toscana-nightclub-gran-apertura-2026-12-04-v2.jpg",
+  "chameleon-mananitas-kreizy-k-2026-12-05.jpg",
+  "isabela-food-fest-la-perversa-2026-12-18.jpg",
+  "groundzero-omega-2026-12-18.jpg",
+  "pedro-santana-sus-dias-contados-2026-11-24.jpg",
+  "geek-fest-kpop-random-dance-ref-2026-12-13.jpg",
   "chiche-almonte-grand-prix-2026-11-06.jpg",
   "meclao-tinder-party-2026-11-07.jpg",
   "pregame-roof-rooftop-pong-2026-11-08.jpg",
@@ -1929,7 +1972,6 @@ const HOME_HERO_SCENE_FILES = new Set([
   "anfiteatro-la-puntilla-mitur-concert.jpg",
   "anfiteatro-la-puntilla-weekday-bowl.jpg",
   "batey-open-mic-stage.jpg",
-  "voyvoy-sunday-open-mic.jpg",
   "batey-salsa-social-dance.jpg",
   "big-lees-weekend-music.jpg",
   "brugal-corporate-tours.jpg",
@@ -2002,8 +2044,9 @@ const HOME_HERO_SCENE_FILES = new Set([
   "meclao-rooftop-live-nights-lounge.jpg",
   "monkeyland-puerto-plata-daily.jpeg",
   "museo-ambar-weekdays.jpeg",
+  "natura-cabana-pool-v2.jpg",
   "natura-cabana-saturday-dining.jpg",
-  "natura-cabana-yoga-daily.jpg",
+  "natura-cabana-yoga-daily-v2.jpg",
   "nonas-grill-kitchen-entrance.jpg",
   "ocean-world-daily.jpg",
   "terraza-ocean-world-evenings.jpg",

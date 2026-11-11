@@ -3537,5 +3537,31 @@
       "Cancelled"
     ],
     "imageEmoji": "💃"
+  },
+  {
+    "id": "voyvoy-sunday-open-mic",
+    "title": "VOYVOY Sunday Open Mic — Lester Grant",
+    "description": "Every Sunday — Open Mic at VOYVOY on Cabarete Beach with host Lester Grant, 5:00 PM–8:00 PM. All musicians welcome. Dinner and drinks as usual; Instagram @voyvoybar · +1 809-571-0805. Sunday beach open mic — not Karaoke Monday at the same venue.",
+    "date": "2026-01-01",
+    "time": "5:00 PM – 8:00 PM",
+    "location": "Cabarete",
+    "venue": "VOYVOY Cabarete",
+    "venueSlug": "voyvoy-cabarete",
+    "category": "music",
+    "categories": [
+      "performances"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 0,
+    "isFree": true,
+    "phone": "+18095710805",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/voyvoybar/",
+    "lineup": [
+      "Lester Grant",
+      "Open Mic"
+    ],
+    "imageEmoji": "🎤"
   }
 ]

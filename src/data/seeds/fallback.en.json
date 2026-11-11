@@ -4955,10 +4955,10 @@
   },
   {
     "id": "kaovanny-hard-rock-2026-11-20",
-    "title": "Hard Rock Puerto Plata — Kaovanny Live",
-    "description": "Kaovanny live in concert at Hard Rock Cafe Puerto Plata, Calle Duarte 7, El Batey Sosúa — Friday 20 November 2026 at 8:30 PM. Live music on the downtown Hard Rock stage — not Natura Cabana’s Agua Tour night on 28 November. Confirm cover and tables via Instagram @hardrockcafepuertoplata · WhatsApp +1 849-505-7778.",
+    "title": "Hard Rock Puerto Plata — Kaovanny AGUA · 20 Nov",
+    "description": "Kaovanny album release — AGUA live at Hard Rock Cafe Puerto Plata, Calle Duarte 7, El Batey Sosúa — Friday 20 November 2026 at 8:00 PM. Cover RD$500. Confirm tables via Instagram @hardrockcafepuertoplata · WhatsApp +1 849-505-7778. Live music on the downtown Hard Rock stage — not Natura Cabana’s Agua Tour night on 28 November.",
     "date": "2026-11-20",
-    "time": "8:30 PM",
+    "time": "8:00 PM",
     "location": "Sosúa",
     "venue": "Hard Rock Cafe Puerto Plata",
     "venueSlug": "hard-rock-sosua",
@@ -4972,14 +4972,15 @@
     ],
     "format": "physical",
     "trending": true,
-    "callForPricing": true,
     "phone": "+18495057778",
     "sourceType": "flyer",
     "sourceUrl": "https://www.instagram.com/hardrockcafepuertoplata/",
     "lineup": [
-      "Kaovanny"
+      "Kaovanny",
+      "AGUA album release"
     ],
-    "imageEmoji": "🎤"
+    "imageEmoji": "🎤",
+    "admissionPrice": "RD$500"
   },
   {
     "id": "kaovanny-agua-natura-cabana-2026-11-28",
@@ -8130,7 +8131,7 @@
   {
     "id": "isabela-food-fest-2026-12-18",
     "title": "Villa Isabela — Isabela Food Fest",
-    "description": "Isabela Food Fest (El Festival del Pueblo) at Parque Municipal Villa Isabela — Friday 18 through Sunday 20 December 2026. Live artists, DJs, and gastronomy in the municipal plaza. Confirmed so far: Los Simpáticos Típicos and DJ Flacome Saturday 19 December; Ronny Manuel (El Chamaquito del Sonido), DJ Melcocha, and Bulin 47 gran cierre Sunday 20 December (separate listings). More artists as confirmed. Tickets at todotickets.do and Plaza Lama; info & reservations +1 829-336-6802 · Instagram @isabelafoodfest. West of Puerto Plata city — not D'Ocean Bar Halloween on 31 Oct.",
+    "description": "Isabela Food Fest (El Festival del Pueblo) at Parque Municipal Villa Isabela — Friday 18 through Sunday 20 December 2026. Live artists, DJs, and gastronomy in the municipal plaza. Confirmed so far: La Perversa opens Friday 18 December; Los Simpáticos Típicos and DJ Flacome Saturday 19 December; Ronny Manuel (El Chamaquito del Sonido), DJ Melcocha, and Bulin 47 gran cierre Sunday 20 December (separate listings). More artists as confirmed. Tickets at todotickets.do and Plaza Lama; info & reservations +1 829-336-6802 · Instagram @isabelafoodfest. West of Puerto Plata city — not D'Ocean Bar Halloween on 31 Oct.",
     "date": "2026-12-18",
     "endDate": "2026-12-20",
     "location": "Villa Isabela",
@@ -8153,6 +8154,7 @@
     "sourceUrl": "https://www.instagram.com/isabelafoodfest/",
     "instagram": "isabelafoodfest",
     "lineup": [
+      "La Perversa — Friday 18 December opener",
       "Los Simpáticos Típicos — Saturday 19 December",
       "DJ Flacome — Saturday 19 December",
       "Ronny Manuel — Sunday 20 December",
@@ -9482,8 +9484,8 @@
   },
   {
     "id": "geek-fest-pasarela-cosplay-navidad-2026-12-13",
-    "title": "Geek Fest RD — Pasarela Cosplay Navideña",
-    "description": "Geek Fest RD Pasarela Cosplay Navideña at ED Salón de Eventos, Calle Andrés Brugal #19, Ensanche Luperón, Puerto Plata — Sunday 13 December 2026. Bring Christmas-touch cosplay for the festive runway; partners on the flyer include Impresos Polanco, Pixeles 4D, Roblu Atelier, and Eternal Moon Store RD. Confirm doors and any fee via Instagram @geek_fest_rd · venue @edsalondeeventos / +1 809-708-0960. Indoor Ensanche Luperón salon — not the September Geek Fest at the Polideportivo.",
+    "title": "Geek Fest RD — Pasarela Cosplay + K-pop · 13 Dec",
+    "description": "Geek Fest RD Pasarela Cosplay Navideña plus K-pop Random Dance at ED Salón de Eventos, Calle Andrés Brugal #19, Ensanche Luperón, Puerto Plata — Sunday 13 December 2026. Bring Christmas-touch cosplay for the festive runway; also a random-play K-pop dance challenge (run to the floor when you know the choreography). Partners on the flyers include Impresos Polanco, Pixeles 4D / Pixeles RD, Roblu Atelier, and Eternal Moon Store RD. Confirm doors and any fee via Instagram @geek_fest_rd · venue @edsalondeeventos / +1 809-708-0960. Indoor Ensanche Luperón salon — not the September Geek Fest at the Polideportivo.",
     "date": "2026-12-13",
     "location": "Puerto Plata",
     "venue": "ED Salón de Eventos",
@@ -9506,6 +9508,7 @@
     "instagram": "geek_fest_rd",
     "lineup": [
       "Pasarela Cosplay Navideña",
+      "K-pop Random Dance",
       "Geek Fest RD"
     ],
     "imageEmoji": "🎄"
@@ -10644,5 +10647,410 @@
       "AMAREA"
     ],
     "imageEmoji": "🎧"
+  },
+  {
+    "id": "ambar-lounge-bandoleras-2026-11-13",
+    "title": "Ambar Lounge Bandoleras — Jhon Parra · 13 Nov",
+    "description": "Bandoleras Friday with Jhon Parra (@djhxnparra) at Ambar Lounge POP, Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata — Friday 13 November 2026. Free drinks for ladies until 11:00 PM. RSVP (809) 781-8677 · Instagram @ambarloungepop. Same Friday Bandoleras series — not Ambar’s Carlos Rivera Saturday the next night, and not Twenty Disco’s Adrian Tineo × Darwin Estrella mall bill on Saturday.",
+    "date": "2026-11-13",
+    "venue": "Ambar Lounge POP",
+    "venueSlug": "ambar-lounge-pop",
+    "address": "Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata 57000",
+    "lat": 19.7894021,
+    "lng": -70.678834,
+    "phone": "+18097818677",
+    "location": "Puerto Plata",
+    "category": "parties",
+    "categories": [
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/ambarloungepop/",
+    "instagram": "ambarloungepop",
+    "lineup": [
+      "Jhon Parra",
+      "Bandoleras Fridays",
+      "Free drinks for ladies until 11:00 PM"
+    ],
+    "imageEmoji": "🎧"
+  },
+  {
+    "id": "ambar-lounge-carlos-rivera-2026-11-14",
+    "title": "Ambar Lounge — Carlos Rivera · 14 Nov",
+    "description": "Saturday night with Carlos Rivera (@djcarlosrivera_) at Ambar Lounge POP, Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata — Saturday 14 November 2026 (“reunión en la casita de todos”). RSVP (809) 781-8677 · Instagram @ambarloungepop. Downtown Luis Ginebra Saturday — not Bandoleras Friday with Jhon Parra the night before, and not Twenty Disco’s Adrian Tineo × Darwin Estrella the same Saturday at Playa Dorada Mall.",
+    "date": "2026-11-14",
+    "venue": "Ambar Lounge POP",
+    "venueSlug": "ambar-lounge-pop",
+    "address": "Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata 57000",
+    "lat": 19.7894021,
+    "lng": -70.678834,
+    "phone": "+18097818677",
+    "location": "Puerto Plata",
+    "category": "parties",
+    "categories": [
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/ambarloungepop/",
+    "instagram": "ambarloungepop",
+    "lineup": [
+      "Carlos Rivera"
+    ],
+    "imageEmoji": "🎧"
+  },
+  {
+    "id": "twenty-disco-adrian-tineo-darwin-estrella-2026-11-14",
+    "title": "Twenty Disco — Adrian Tineo × Darwin Estrella · 14 Nov",
+    "description": "Live performance with Adrian Tineo × Darwin Estrella at Twenty Disco & Lounge, Playa Dorada Mall, Puerto Plata — Saturday 14 November 2026. Presented with Brugal. Reservations +1 849-507-7676 · Instagram @twenty_disco_lounge. Mall stage Saturday — not Ambar Lounge’s Carlos Rivera downtown the same night, and not Aura’s Alice in Wonderland Cabarete show.",
+    "date": "2026-11-14",
+    "venue": "Twenty Disco & Lounge",
+    "venueSlug": "twenty-disco-lounge",
+    "address": "Playa Dorada Mall, Puerto Plata",
+    "lat": 19.769476,
+    "lng": -70.643033,
+    "phone": "+18495077676",
+    "location": "Puerto Plata",
+    "category": "concert",
+    "categories": [
+      "music",
+      "parties"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/twenty_disco_lounge/",
+    "instagram": "twenty_disco_lounge",
+    "lineup": [
+      "Adrian Tineo",
+      "Darwin Estrella"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "aura-alice-wonderland-2026-11-14",
+    "title": "Aura — Alice in Wonderland Show · 14 Nov",
+    "description": "Alice in Wonderland themed show at Aura Beach Club, Calle Principal, Cabarete — Saturday 14 November 2026 at 10:30 PM. Confirm cover and tables via Instagram @auracabarete or WhatsApp +1 829-787-0140. Late Cabarete beach-club show — not Twenty’s Adrian Tineo × Darwin Estrella mall bill the same Saturday, and not Aura’s Galactic Nights with DJ Christoo on 28 November.",
+    "date": "2026-11-14",
+    "time": "10:30 PM",
+    "venue": "Aura Beach Club Cabarete",
+    "venueSlug": "aura-beach-club-cabarete",
+    "address": "Calle Principal, Cabarete 57000",
+    "lat": 19.7500769,
+    "lng": -70.4070417,
+    "phone": "+18297870140",
+    "location": "Cabarete",
+    "category": "performances",
+    "categories": [
+      "parties",
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/auracabarete/",
+    "instagram": "auracabarete",
+    "lineup": [
+      "Alice in Wonderland Show"
+    ],
+    "imageEmoji": "🎭"
+  },
+  {
+    "id": "casa-arte-sosua-morphy-legado-2026-11-14",
+    "title": "Casa de Arte Sosúa — Morphy, miradas a un legado",
+    "description": "“Morphy, miradas a un legado” at Casa de Arte de Sosúa, Calle Pedro Clisante #1, El Batey, Sosúa — Saturday 14 November 2026 at 6:00 PM. Cultural gallery evening; confirm doors via Instagram @casadeartedesosua or +1 809-571-2442. Free entry is typical for Casa de Arte exhibitions — confirm on the night. El Batey arts center — not Hard Rock’s Anne live the same evening a few blocks away.",
+    "date": "2026-11-14",
+    "time": "6:00 PM",
+    "venue": "Casa de Arte de Sosúa",
+    "venueSlug": "casa-de-arte-sosua",
+    "address": "Calle Pedro Clisante #1, El Batey, Sosúa",
+    "lat": 19.762481,
+    "lng": -70.516697,
+    "phone": "+18095712442",
+    "location": "Sosúa",
+    "category": "culture",
+    "categories": [
+      "art",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/casadeartedesosua/",
+    "instagram": "casadeartedesosua",
+    "lineup": [
+      "Morphy, miradas a un legado"
+    ],
+    "imageEmoji": "🎨"
+  },
+  {
+    "id": "hard-rock-anne-live-2026-11-14",
+    "title": "Hard Rock Puerto Plata — Live Music by Anne · 14 Nov",
+    "description": "Live music by Anne at Hard Rock Cafe Puerto Plata, Calle Duarte 7, El Batey Sosúa — Saturday 14 November 2026 at 8:00 PM. No cover. Confirm tables via Instagram @hardrockcafepuertoplata · WhatsApp +1 849-505-7778. Downtown Hard Rock Saturday set — not Casa de Arte’s Morphy gallery evening at 6 PM the same day, and not Kaovanny’s album-release night on 20 November.",
+    "date": "2026-11-14",
+    "time": "8:00 PM",
+    "venue": "Hard Rock Cafe Puerto Plata",
+    "venueSlug": "hard-rock-sosua",
+    "address": "Calle Duarte 7, Sosúa",
+    "lat": 19.7634107,
+    "lng": -70.5162309,
+    "phone": "+18495057778",
+    "location": "Sosúa",
+    "category": "concert",
+    "categories": [
+      "music",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/hardrockcafepuertoplata/",
+    "lineup": [
+      "Anne"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "aura-galactic-nights-christoo-2026-11-28",
+    "title": "Aura Galactic Nights — DJ Christoo · 28 Nov",
+    "description": "Galactic Nights / Galactic Party with DJ Christoo live at Aura Beach Club, Calle Principal, Cabarete — Saturday 28 November 2026 from 8:00 PM. Galactic outfit encouraged. Confirm cover and tables via Instagram @auracabarete or WhatsApp +1 829-787-0140. Cabarete beach-club Saturday — not Natura Cabana’s Kaovanny Agua Tour the same evening, and not Aura’s Alice in Wonderland show on 14 November.",
+    "date": "2026-11-28",
+    "time": "8:00 PM",
+    "venue": "Aura Beach Club Cabarete",
+    "venueSlug": "aura-beach-club-cabarete",
+    "address": "Calle Principal, Cabarete 57000",
+    "lat": 19.7500769,
+    "lng": -70.4070417,
+    "phone": "+18297870140",
+    "location": "Cabarete",
+    "category": "parties",
+    "categories": [
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/auracabarete/",
+    "instagram": "auracabarete",
+    "lineup": [
+      "DJ Christoo",
+      "Galactic Nights"
+    ],
+    "imageEmoji": "🎧"
+  },
+  {
+    "id": "hard-rock-allison-sade-2026-11-27",
+    "title": "Hard Rock Puerto Plata — Allison Sade · 27 Nov",
+    "description": "Allison Sade live at Hard Rock Cafe Puerto Plata, Calle Duarte 7, El Batey Sosúa — Friday 27 November 2026 at 8:00 PM. No cover. Confirm tables via Instagram @hardrockcafepuertoplata · WhatsApp +1 849-505-7778 · @allisonsadeofficial. Hard Rock Friday live — not her prior Aura Beach Club Thursday bills, and not Anne’s Saturday 14 November Hard Rock set.",
+    "date": "2026-11-27",
+    "time": "8:00 PM",
+    "venue": "Hard Rock Cafe Puerto Plata",
+    "venueSlug": "hard-rock-sosua",
+    "address": "Calle Duarte 7, Sosúa",
+    "lat": 19.7634107,
+    "lng": -70.5162309,
+    "phone": "+18495057778",
+    "location": "Sosúa",
+    "category": "concert",
+    "categories": [
+      "music",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/hardrockcafepuertoplata/",
+    "lineup": [
+      "Allison Sade"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "ocean-world-terrace-rubio-manon-2026-12-04",
+    "title": "Ocean World Terrace — Rubio Acordeón + Manon · 4 Dec",
+    "description": "Rubio Acordeón + Manon Tambora at Terraza Ocean World & Casino, Calle Principal #3, Cofresí — Friday 4 December 2026 from 8:00 PM. Entry RD$1,000 per person; premium tables near the stage by WhatsApp +1 829-521-9736 (tables only — door tickets day-of). Instagram @oceanworldterrace. Terrace típico night — not the dolphin-park ticket line, and not Toscana Nightclub’s grand opening the same Friday downtown.",
+    "date": "2026-12-04",
+    "time": "8:00 PM",
+    "venue": "Terraza Ocean World",
+    "venueSlug": "ocean-world",
+    "address": "Calle Principal #3, Cofresí, Puerto Plata",
+    "lat": 19.826313,
+    "lng": -70.732062,
+    "phone": "+18295219736",
+    "location": "Puerto Plata",
+    "category": "music",
+    "categories": [
+      "performances",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "admissionPrice": "RD$1,000",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/oceanworldterrace/",
+    "instagram": "oceanworldterrace",
+    "lineup": [
+      "Rubio Acordeón",
+      "Manon Tambora"
+    ],
+    "imageEmoji": "🪗"
+  },
+  {
+    "id": "toscana-nightclub-gran-apertura-2026-12-04",
+    "title": "Toscana Nightclub — Gran Apertura · Deury Luciano × DJ Choco",
+    "description": "Grand opening of Toscana Nightclub (Mixology Experience) at Plaza Siblings Food Park, segundo nivel, Av. Luis Ginebra, Puerto Plata (next to Palacio de Justicia) — Friday 4 December 2026. Live típico with Deury Luciano, DJ night with DJ Choco, and a champagne toast. Confirm doors via Instagram @toscana_nightclub. Brand-new Luis Ginebra nightclub — not Ocean World Terrace’s Rubio Acordeón bill the same Friday in Cofresí, and not Ambar Lounge at No. 45.",
+    "date": "2026-12-04",
+    "time": "6:00 PM",
+    "venue": "Toscana Nightclub",
+    "venueSlug": "toscana-nightclub",
+    "address": "Plaza Siblings Food Park, segundo nivel, Av. Luis Ginebra, Puerto Plata (al lado del Palacio de Justicia)",
+    "lat": 19.784313,
+    "lng": -70.673503,
+    "location": "Puerto Plata",
+    "category": "parties",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/toscana_nightclub/",
+    "instagram": "toscana_nightclub",
+    "lineup": [
+      "Deury Luciano",
+      "DJ Choco",
+      "Gran Apertura",
+      "Champagne toast"
+    ],
+    "imageEmoji": "🥂"
+  },
+  {
+    "id": "chameleon-mananitas-kreizy-k-2026-12-05",
+    "title": "Chameleon Mañanitas — Kreizy K · 5 Dec",
+    "description": "Mañanitas Chameleon with Kreizy K live at Chameleon Sport Bar, Sosúa Bay Center, Calle Alejo Martínez #1, El Batey, Sosúa — Saturday 5 December 2026. Late/after-hours energy into the morning. Info/RSVP (829) 994-2304 · Instagram @chameleonsportbar. Sosúa Bay Center late night — not a Pedro Clisante beach-bar crawl.",
+    "date": "2026-12-05",
+    "venue": "Chameleon Sport Bar",
+    "venueSlug": "chameleon-sport-bar",
+    "address": "Sosúa Bay Center, Calle Alejo Martínez #1, El Batey, Sosúa",
+    "lat": 19.762438,
+    "lng": -70.516813,
+    "phone": "+18299942304",
+    "location": "Sosúa",
+    "category": "concert",
+    "categories": [
+      "parties",
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/chameleonsportbar/",
+    "instagram": "chameleonsportbar",
+    "lineup": [
+      "Kreizy K",
+      "Mañanitas Chameleon"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "isabela-food-fest-la-perversa-2026-12-18",
+    "title": "Isabela Food Fest — La Perversa · 18 Dec",
+    "description": "La Perversa (artista confirmado) opens Isabela Food Fest with urban flavor at Parque Municipal Villa Isabela — Friday 18 December 2026. Totally free entry thanks to Ministerio de Turismo / RD Lo Tiene Todo. Info & reservations +1 829-336-6802 · Instagram @isabelafoodfest. Friday opener of the three-day festival (18–20 Dec) — see the main Isabela Food Fest listing for the full weekend; not Bulin 47’s Sunday gran cierre.",
+    "date": "2026-12-18",
+    "venue": "Parque Municipal Villa Isabela",
+    "venueSlug": "parque-municipal-villa-isabela",
+    "address": "Parque Municipal, Villa Isabela, Puerto Plata",
+    "lat": 19.813027,
+    "lng": -71.055725,
+    "phone": "+18293366802",
+    "location": "Villa Isabela",
+    "category": "festivals",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/isabelafoodfest/",
+    "instagram": "isabelafoodfest",
+    "lineup": [
+      "La Perversa"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "groundzero-omega-2026-12-18",
+    "title": "Ground Zero — Omega El Fuerte · 18 Dec",
+    "description": "Omega El Fuerte (Mambo Violento) at Ground Zero, Km 18 Carretera Puerto Plata–Sosúa opposite Gregorio Luperón Airport — Friday 18 December 2026. Christmas-kickoff club night. Reservations +1 849-465-1313 · Instagram @groundzero_disco. Airport-road disco — not Isabela Food Fest’s La Perversa free plaza opener the same Friday in Villa Isabela.",
+    "date": "2026-12-18",
+    "venue": "Ground Zero",
+    "venueSlug": "ground-zero-disco",
+    "address": "Km 18, Carretera Puerto Plata–Sosúa, frente al Aeropuerto Gregorio Luperón",
+    "lat": 19.76,
+    "lng": -70.565,
+    "phone": "+18494651313",
+    "location": "Puerto Plata",
+    "category": "concert",
+    "categories": [
+      "parties",
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/groundzero_disco/",
+    "instagram": "groundzero_disco",
+    "lineup": [
+      "Omega El Fuerte"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "pedro-santana-sus-dias-contados-2026-11-24",
+    "date": "2026-11-24",
+    "time": "6:30 PM",
+    "location": "Puerto Plata",
+    "venue": "Sociedad Cultural Renovación",
+    "venueSlug": "sociedad-cultural-renovacion",
+    "address": "Salón Dr. Osvaldo Brugal, Calle Duarte No. 41, esq. Imbert, Puerto Plata",
+    "lat": 19.797739,
+    "lng": -70.694253,
+    "category": "culture",
+    "categories": [
+      "art",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18095866240",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/screnovacion/",
+    "instagram": "screnovacion",
+    "imageEmoji": "📖",
+    "title": "Renovación — Sus días contados (Pedro Santana)",
+    "description": "Book launch (puesta en circulación) of the historical novel Sus días contados by Pedro Santana, presented by writer Omar Messón, at Salón Dr. Osvaldo Brugal, Sociedad Cultural Renovación, Calle Duarte No. 41, Puerto Plata — Tuesday 24 November 2026 at 6:30 PM. Free entry typical for Renovación launches; confirm via Instagram @screnovacion or +1 809-586-6240 · screnovacion.org. Downtown literary salon — not a Malecón nightlife stop.",
+    "lineup": [
+      "Pedro Santana",
+      "Omar Messón",
+      "Sus días contados"
+    ]
   }
 ]

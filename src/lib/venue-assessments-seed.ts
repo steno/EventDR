@@ -2064,6 +2064,39 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "sociedad-cultural-renovacion",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "mixed", "local", "family"],
+    axes: { recommend: 4.4, atmosphere: 4.2, practical: 4.1, value: 4.5 },
+    themes: [
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "easy_to_find", sentiment: "positive" },
+      { key: "photo_spot", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
+    venueSlug: "toscana-nightclub",
+    verdictKey: "strong_local_nightlife",
+    crowdFit: ["local", "nightlife", "mixed"],
+    axes: { recommend: 3.9, atmosphere: 4.2, value: 3.6, practical: 3.7 },
+    themes: [
+      { key: "dance_floor", sentiment: "positive", audience: "nightlife" },
+      { key: "easy_to_find", sentiment: "positive" },
+      { key: "busy_weekends", sentiment: "mixed", audience: "nightlife" },
+    ],
+  }),
+  editorial({
+    venueSlug: "casa-de-arte-sosua",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "mixed", "local"],
+    axes: { recommend: 4.3, atmosphere: 4.4, practical: 4.0, value: 4.2 },
+    themes: [
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "photo_spot", sentiment: "positive", audience: "visitor" },
+      { key: "easy_to_find", sentiment: "positive" },
+    ],
+  }),
+  editorial({
     venueSlug: "la-quinta-rosa",
     verdictKey: "reliable_visitor_pick",
     crowdFit: ["visitor", "mixed", "local"],

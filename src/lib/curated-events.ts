@@ -994,9 +994,83 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "natura-cabana",
   },
   "kaovanny-hard-rock-2026-11-20": {
-    callForPricing: true,
+    admissionPrice: "RD$500",
     phone: "+18495057778",
     venueSlug: "hard-rock-sosua",
+  },
+  "ambar-lounge-bandoleras-2026-11-13": {
+    callForPricing: true,
+    phone: "+18097818677",
+    venueSlug: "ambar-lounge-pop",
+  },
+  "ambar-lounge-carlos-rivera-2026-11-14": {
+    callForPricing: true,
+    phone: "+18097818677",
+    venueSlug: "ambar-lounge-pop",
+  },
+  "twenty-disco-adrian-tineo-darwin-estrella-2026-11-14": {
+    callForPricing: true,
+    phone: "+18495077676",
+    venueSlug: "twenty-disco-lounge",
+  },
+  "aura-alice-wonderland-2026-11-14": {
+    callForPricing: true,
+    phone: "+18297870140",
+    venueSlug: "aura-beach-club-cabarete",
+  },
+  "casa-arte-sosua-morphy-legado-2026-11-14": {
+    isFree: true,
+    phone: "+18095712442",
+    venueSlug: "casa-de-arte-sosua",
+  },
+  "hard-rock-anne-live-2026-11-14": {
+    isFree: true,
+    phone: "+18495057778",
+    venueSlug: "hard-rock-sosua",
+  },
+  "aura-galactic-nights-christoo-2026-11-28": {
+    callForPricing: true,
+    phone: "+18297870140",
+    venueSlug: "aura-beach-club-cabarete",
+  },
+  "hard-rock-allison-sade-2026-11-27": {
+    isFree: true,
+    phone: "+18495057778",
+    venueSlug: "hard-rock-sosua",
+  },
+  "ocean-world-terrace-rubio-manon-2026-12-04": {
+    admissionPrice: "RD$1,000",
+    phone: "+18295219736",
+    venueSlug: "ocean-world",
+  },
+  "toscana-nightclub-gran-apertura-2026-12-04": {
+    callForPricing: true,
+    venueSlug: "toscana-nightclub",
+  },
+  "chameleon-mananitas-kreizy-k-2026-12-05": {
+    callForPricing: true,
+    phone: "+18299942304",
+    venueSlug: "chameleon-sport-bar",
+  },
+  "isabela-food-fest-la-perversa-2026-12-18": {
+    isFree: true,
+    phone: "+18293366802",
+    venueSlug: "parque-municipal-villa-isabela",
+  },
+  "groundzero-omega-2026-12-18": {
+    callForPricing: true,
+    phone: "+18494651313",
+    venueSlug: "ground-zero-disco",
+  },
+  "voyvoy-sunday-open-mic": {
+    isFree: true,
+    phone: "+18095710805",
+    venueSlug: "voyvoy-cabarete",
+  },
+  "pedro-santana-sus-dias-contados-2026-11-24": {
+    isFree: true,
+    phone: "+18095866240",
+    venueSlug: "sociedad-cultural-renovacion",
   },
   "elias-serulle-villa-taina-2026-10-24": {
     callForPricing: true,

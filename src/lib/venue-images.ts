@@ -34,7 +34,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "templo-de-las-americas": "templo-de-las-americas.jpg",
   "sosua-diving-center": "sosua-diving-center.jpg",
   // Filename bump — Maps reception palapa (not the Saturday dining cocktail).
-  "natura-cabana": "natura-cabana-recepcion.jpg",
+  // Filename bump — POP-supplied pool / thatched pavilion scene (recepcion palapa stays as prior file).
+  "natura-cabana": "natura-cabana-pool-v2.jpg",
   // Filename bump — daytime Clasico Club 59 facade (not the night bar).
   "d-classico-sosua": "d-classico-sosua-daytime.jpg",
   // Filename bump — authentic Voyvoy bar interior (not shared dining URL with all nights).
@@ -239,6 +240,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "galerias-padel-club": "galerias-padel-club-courts.jpg",
   "cabarete-boxing-club": "cabarete-boxing-club-ring.jpg",
   "chameleon-sport-bar": "chameleon-sport-bar-entrance.jpg",
+  "toscana-nightclub": "toscana-nightclub-facade.jpg",
   "la-quinta-rosa": "la-quinta-rosa-facade.jpg",
   "el-patio-de-frida": "el-patio-de-frida-patio.jpg",
   "the-last-drink": "the-last-drink-interior.jpg",

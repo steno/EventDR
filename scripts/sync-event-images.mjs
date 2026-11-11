@@ -1082,6 +1082,31 @@ const FILE_TO_VENUE_SLUG = {
   "the-hideout-puerto-plata-v2.jpg": "the-hideout-puerto-plata",
   "cabarete-boxing-club-ring.jpg": "cabarete-boxing-club-ring",
   "chameleon-sport-bar-entrance.jpg": "chameleon-sport-bar-entrance",
+  "pedro-santana-sus-dias-contados-2026-11-24.jpg":
+    "pedro-santana-sus-dias-contados-2026-11-24",
+  "ambar-lounge-bandoleras-2026-11-13.jpg": "ambar-lounge-bandoleras-2026-11-13",
+  "ambar-lounge-carlos-rivera-2026-11-14.jpg": "ambar-lounge-carlos-rivera-2026-11-14",
+  "twenty-disco-adrian-tineo-darwin-estrella-2026-11-14.jpg":
+    "twenty-disco-adrian-tineo-darwin-estrella-2026-11-14",
+  "aura-alice-wonderland-2026-11-14.jpg": "aura-alice-wonderland-2026-11-14",
+  "casa-arte-sosua-morphy-legado-2026-11-14.jpg":
+    "casa-arte-sosua-morphy-legado-2026-11-14",
+  "hard-rock-anne-live-2026-11-14.jpg": "hard-rock-anne-live-2026-11-14",
+  "aura-galactic-nights-christoo-2026-11-28.jpg":
+    "aura-galactic-nights-christoo-2026-11-28",
+  "hard-rock-allison-sade-2026-11-27.jpg": "hard-rock-allison-sade-2026-11-27",
+  "ocean-world-terrace-rubio-manon-2026-12-04.jpg":
+    "ocean-world-terrace-rubio-manon-2026-12-04",
+  "toscana-nightclub-gran-apertura-2026-12-04-v2.jpg":
+    "toscana-nightclub-gran-apertura-2026-12-04",
+  "chameleon-mananitas-kreizy-k-2026-12-05.jpg":
+    "chameleon-mananitas-kreizy-k-2026-12-05",
+  "isabela-food-fest-la-perversa-2026-12-18.jpg":
+    "isabela-food-fest-la-perversa-2026-12-18",
+  "groundzero-omega-2026-12-18.jpg": "groundzero-omega-2026-12-18",
+  "voyvoy-sunday-open-mic-v3.jpg": "voyvoy-sunday-open-mic",
+  "natura-cabana-yoga-daily-v2.jpg": "natura-cabana-yoga-daily",
+
   "tiki-bar-cabarete.jpg": "tiki-bar-cabarete",
   "xanadu-resort-hodelpa.jpg": "xanadu-resort-hodelpa",
   "jl-coaching-center-puerto-plata.jpg": "jl-coaching-center-puerto-plata",

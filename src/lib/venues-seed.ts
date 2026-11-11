@@ -2310,6 +2310,44 @@ export const SEED_VENUES: Venue[] = [
     website: "https://www.instagram.com/tikibarcabarete/",
   },
   {
+    slug: "sociedad-cultural-renovacion",
+    name: "Sociedad Cultural Renovación",
+    city: "Puerto Plata",
+    description:
+      "Historic cultural society and public library (est. 1928) at Calle Duarte No. 41, esquina Imbert — Biblioteca Renovación, Salón Dr. Osvaldo Brugal for book launches and talks, and arts programs for the city. Info +1 809-586-6240 · screnovacion.org · Instagram @screnovacion.",
+    lat: 19.797739,
+    lng: -70.694253,
+    emoji: "📚",
+    phone: "+18095866240",
+    instagram: "screnovacion",
+    website: "https://www.screnovacion.org/",
+  },
+  {
+    slug: "toscana-nightclub",
+    name: "Toscana Nightclub",
+    city: "Puerto Plata",
+    description:
+      "New mixology nightclub on the segundo nivel of Plaza Siblings Food Park, Av. Luis Ginebra, Puerto Plata (next to Palacio de Justicia) — cocktails, lounge energy, and billed opening nights. Soft launch / gran apertura Friday 4 December 2026 from 6:00 PM. Instagram @toscana_nightclub.",
+    lat: 19.784313,
+    lng: -70.673503,
+    emoji: "🍸",
+    instagram: "toscana_nightclub",
+    website: "https://www.instagram.com/toscana_nightclub/",
+  },
+  {
+    slug: "casa-de-arte-sosua",
+    name: "Casa de Arte de Sosúa",
+    city: "Sosúa",
+    description:
+      "Community art gallery and cultural center on Calle Pedro Clisante #1 at the entrance to El Batey / Sosúa Bay — rotating exhibitions, talks, and arts education. Typical gallery hours Mon–Fri mornings and afternoons, Saturdays mornings (Sunday closed); confirm via Instagram @casadeartedesosua or +1 809-571-2442.",
+    lat: 19.762481,
+    lng: -70.516697,
+    emoji: "🎨",
+    phone: "+18095712442",
+    instagram: "casadeartedesosua",
+    website: "https://www.facebook.com/CasaDeArteDeSosuaRepDom",
+  },
+  {
     slug: "parque-municipal-villa-isabela",
     name: "Parque Municipal Villa Isabela",
     city: "Puerto Plata",
@@ -2643,6 +2681,21 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /tiki\s*bar(\s*cabarete)?|cabarete\s*tiki(\s*bar)?|tikibarcabarete/i,
     slug: "tiki-bar-cabarete",
+  },
+  {
+    pattern:
+      /sociedad\s*cultural\s*renovaci[oó]n|biblioteca\s*renovaci[oó]n|sal[oó]n\s*(dr\.?\s*)?osvaldo\s*brugal|screnovacion/i,
+    slug: "sociedad-cultural-renovacion",
+  },
+  {
+    pattern:
+      /toscana\s*(nightclub|bar|lounge)|toscana_nightclub/i,
+    slug: "toscana-nightclub",
+  },
+  {
+    pattern:
+      /casa\s*de\s*arte(\s*de)?\s*sos[uú]a|casadeartedesosua/i,
+    slug: "casa-de-arte-sosua",
   },
   {
     pattern:

@@ -4557,21 +4557,21 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "kaovanny-hard-rock-2026-11-20",
-    body: "Kaovanny on the Hard Rock Sosúa stage at 8:30 PM — downtown El Batey concert energy, not Natura’s dinner-table Agua Tour a week later; confirm cover before you walk up.",
+    body: "Kaovanny AGUA album-release at Hard Rock Sosúa — RD$500 door at 8:00 PM; downtown El Batey concert energy, not Natura’s dinner-table Agua Tour a week later.",
     localized: {
-      es: "Kaovanny en el escenario Hard Rock Sosúa a las 8:30 PM — energía de concierto downtown El Batey, no el Agua Tour a mesa en Natura una semana después; confirma cover antes de llegar walk-up.",
-      fr: "Kaovanny sur la scène Hard Rock Sosúa à 20 h 30 — énergie concert downtown El Batey, pas l’Agua Tour à table à Natura une semaine plus tard ; confirmez le cover avant d’arriver walk-up.",
+      es: "Lanzamiento AGUA de Kaovanny en Hard Rock Sosúa — RD$500 en puerta a las 8:00 PM; energía de concierto downtown El Batey, no el Agua Tour a mesa en Natura una semana después.",
+      fr: "Sortie d’album AGUA de Kaovanny au Hard Rock Sosúa — RD$500 à la porte à 20 h ; énergie concert downtown El Batey, pas l’Agua Tour à table à Natura une semaine plus tard.",
     },
-    priceFeel: "varies",
-    priceNote: "Cover not on flyer — @hardrockcafepuertoplata / +1 849-505-7778",
+    priceFeel: "moderate",
+    priceNote: "RD$500 cover — @hardrockcafepuertoplata / +1 849-505-7778",
     priceNoteLocalized: {
-      es: "Cover no está en el flyer — @hardrockcafepuertoplata / +1 849-505-7778",
-      fr: "Cover absent de l’affiche — @hardrockcafepuertoplata / +1 849-505-7778",
+      es: "Cover RD$500 — @hardrockcafepuertoplata / +1 849-505-7778",
+      fr: "Cover RD$500 — @hardrockcafepuertoplata / +1 849-505-7778",
     },
-    attribution: "POP research · Hard Rock Puerto Plata Kaovanny flyer",
+    attribution: "POP research · Hard Rock Puerto Plata Kaovanny AGUA flyer",
     researchNotes:
-      "Editor flyer — Fri Nov 20 2026 8:30 PM Kaovanny Live Music at Hard Rock Cafe Puerto Plata.",
-    updatedAt: "2026-10-06T21:00:00.000Z",
+      "Editor flyer refresh — Fri Nov 20 2026 8:00 PM; RD$500; AGUA album release; Hard Rock Cafe Puerto Plata.",
+    updatedAt: "2026-11-11T12:00:00.000Z",
   },
   {
     eventId: "kaovanny-agua-natura-cabana-2026-11-28",
@@ -7788,10 +7788,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "geek-fest-pasarela-cosplay-navidad-2026-12-13",
-    body: "Christmas cosplay runway for Geek Fest at ED Salón on Andrés Brugal — indoor Ensanche Luperón hall, not September’s Polideportivo day; confirm fee on @geek_fest_rd / +1 809-708-0960.",
+    body: "Christmas cosplay runway plus K-pop Random Dance at ED Salón on Andrés Brugal — indoor Ensanche Luperón hall, not September’s Polideportivo day; confirm fee on @geek_fest_rd / +1 809-708-0960.",
     localized: {
-      es: "Pasarela cosplay navideña de Geek Fest en ED Salón en Andrés Brugal — salón techado en Ensanche Luperón, no el día de septiembre en el Polideportivo; confirma fee en @geek_fest_rd / +1 809-708-0960.",
-      fr: "Défilé cosplay de Noël Geek Fest à ED Salón sur Andrés Brugal — salon couvert à Ensanche Luperón, pas la journée de septembre au Polideportivo ; confirmez le droit sur @geek_fest_rd / +1 809-708-0960.",
+      es: "Pasarela cosplay navideña más K-pop Random Dance en ED Salón en Andrés Brugal — salón techado en Ensanche Luperón, no el día de septiembre en el Polideportivo; confirma fee en @geek_fest_rd / +1 809-708-0960.",
+      fr: "Défilé cosplay de Noël plus K-pop Random Dance à ED Salón sur Andrés Brugal — salon couvert à Ensanche Luperón, pas la journée de septembre au Polideportivo ; confirmez le droit sur @geek_fest_rd / +1 809-708-0960.",
     },
     priceFeel: "varies",
     priceNote: "Admission not on flyer — @geek_fest_rd · venue +1 809-708-0960",
@@ -7799,10 +7799,11 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       es: "Admisión no está en el flyer — @geek_fest_rd · venue +1 809-708-0960",
       fr: "Entrée absente de l’affiche — @geek_fest_rd · venue +1 809-708-0960",
     },
-    attribution: "POP research · @geek_fest_rd Pasarela Cosplay Navideña flyer",
+    attribution:
+      "POP research · @geek_fest_rd Pasarela Cosplay + K-pop Random Dance flyers",
     researchNotes:
-      "Editor flyer + IG — 13 de diciembre; Pasarela Cosplay Navideña; Salon de eventos ED; Ensanche Luperón C/ Andrés Brugal #19; partners Impresos Polanco / Pixeles 4D / Roblu / Eternal Moon; venue ed-salon-de-eventos.",
-    updatedAt: "2026-11-02T17:00:00.000Z",
+      "Editor flyers + IG — 13 Dic; Pasarela Cosplay Navideña + Kpop Random Dance; ED Salón; partners Impresos Polanco / Pixeles / Eternal Moon.",
+    updatedAt: "2026-11-11T12:30:00.000Z",
   },
   {
     eventId: "voramar-bbq-night-jac-2026-11-06",
@@ -8754,5 +8755,277 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer — WEEKEND Vibes; VIE 06 DJ ZELMAN; SAB 07 DJ TANQUE; DOM 08 MÚSICA EN VIVO & DJ ONE; LUN 09 DJ ONE; RSVP 849-517-5705; keep la-lola-rose-mateo-2026-11-08 as named Sunday afternoon live.",
     updatedAt: "2026-11-07T14:00:00.000Z",
+  },
+  {
+    eventId: "ambar-lounge-bandoleras-2026-11-13",
+    body: "Friday Bandoleras with Jhon Parra on Luis Ginebra #45 — ladies free drinks to 11 PM; RSVP (809) 781-8677 before you assume walk-up, and don’t mix it with Carlos Rivera’s Saturday next door on the calendar.",
+    localized: {
+      es: "Viernes Bandoleras con Jhon Parra en Luis Ginebra #45 — tragos gratis para damas hasta las 11 PM; RSVP (809) 781-8677 antes de asumir walk-up, y no lo mezcles con el sábado de Carlos Rivera en el calendario.",
+      fr: "Vendredi Bandoleras avec Jhon Parra sur Luis Ginebra #45 — boissons gratuites pour les dames jusqu’à 23 h ; RSVP (809) 781-8677 avant de croire au walk-up, et ne confondez pas avec le samedi Carlos Rivera au calendrier.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — ladies free drinks to 11 PM · RSVP (809) 781-8677",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — tragos gratis damas hasta 11 PM · RSVP (809) 781-8677",
+      fr: "Cover à confirmer — boissons gratuites dames jusqu’à 23 h · RSVP (809) 781-8677",
+    },
+    attribution: "POP research · @ambarloungepop Bandoleras 13 Nov flyer",
+    researchNotes:
+      "Editor flyer — Vie 13 Nov 2026; Jhon Parra; free drinks ladies hasta 11 PM; Av Luis Ginebra 45.",
+    updatedAt: "2026-11-11T16:00:00.000Z",
+  },
+  {
+    eventId: "ambar-lounge-carlos-rivera-2026-11-14",
+    body: "Saturday Carlos Rivera “casita de todos” on Luis Ginebra #45 — RSVP (809) 781-8677; not Bandoleras Friday with Jhon Parra, and not Twenty’s Adrian Tineo × Darwin Estrella mall stage the same night.",
+    localized: {
+      es: "Sábado Carlos Rivera “casita de todos” en Luis Ginebra #45 — RSVP (809) 781-8677; no es Bandoleras Friday con Jhon Parra, ni la tarima de Twenty con Adrian Tineo × Darwin Estrella la misma noche.",
+      fr: "Samedi Carlos Rivera « casita de todos » sur Luis Ginebra #45 — RSVP (809) 781-8677 ; pas Bandoleras Friday avec Jhon Parra, ni la scène Twenty Adrian Tineo × Darwin Estrella le même soir.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — RSVP (809) 781-8677 / @ambarloungepop",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — RSVP (809) 781-8677 / @ambarloungepop",
+      fr: "Cover à confirmer — RSVP (809) 781-8677 / @ambarloungepop",
+    },
+    attribution: "POP research · @ambarloungepop Carlos Rivera Saturday flyer",
+    researchNotes:
+      "Editor flyer — Sáb 14 Nov 2026; Carlos Rivera; Ambar Lounge; RSVP 809-781-8677.",
+    updatedAt: "2026-11-11T15:45:00.000Z",
+  },
+  {
+    eventId: "twenty-disco-adrian-tineo-darwin-estrella-2026-11-14",
+    body: "Mall-stage Saturday with Adrian Tineo × Darwin Estrella at Playa Dorada — reserve +1 849-507-7676; not Ambar’s Carlos Rivera downtown the same night.",
+    localized: {
+      es: "Sábado de tarima en el mall con Adrian Tineo × Darwin Estrella en Playa Dorada — reserva +1 849-507-7676; no es Carlos Rivera en Ambar el mismo día.",
+      fr: "Samedi scène mall avec Adrian Tineo × Darwin Estrella à Playa Dorada — réservez +1 849-507-7676 ; pas Carlos Rivera chez Ambar le même soir.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — reservas +1 849-507-7676 · @twenty_disco_lounge",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — reservas +1 849-507-7676 · @twenty_disco_lounge",
+      fr: "Cover à confirmer — réservations +1 849-507-7676 · @twenty_disco_lounge",
+    },
+    attribution: "POP research · Twenty Disco Adrian Tineo × Darwin Estrella flyer",
+    researchNotes:
+      "Editor flyer + IG — Sab 14 Nov; Adrian Tineo x Darwin Estrella; Playa Dorada Mall; 849-507-7676.",
+    updatedAt: "2026-11-11T15:30:00.000Z",
+  },
+  {
+    eventId: "aura-alice-wonderland-2026-11-14",
+    body: "10:30 PM Alice in Wonderland show at Aura Cabarete — late beach-club bill; confirm tables on @auracabarete / +1 829-787-0140, and don’t confuse it with Twenty’s mall live the same Saturday.",
+    localized: {
+      es: "Show Alice in Wonderland a las 10:30 PM en Aura Cabarete — cartel late de beach club; confirma mesas en @auracabarete / +1 829-787-0140, y no lo mezcles con el live del mall en Twenty el mismo sábado.",
+      fr: "Show Alice in Wonderland à 22 h 30 à Aura Cabarete — cartel late beach club ; confirmez tables sur @auracabarete / +1 829-787-0140, et ne confondez pas avec le live mall chez Twenty le même samedi.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — @auracabarete / +1 829-787-0140",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — @auracabarete / +1 829-787-0140",
+      fr: "Cover à confirmer — @auracabarete / +1 829-787-0140",
+    },
+    attribution: "POP research · @auracabarete Alice in Wonderland flyer",
+    researchNotes:
+      "Editor flyer — Sat 14 Nov 2026 10:30 PM; Aura Cabarete; Alice in Wonderland Show.",
+    updatedAt: "2026-11-11T15:15:00.000Z",
+  },
+  {
+    eventId: "casa-arte-sosua-morphy-legado-2026-11-14",
+    body: "6 PM Morphy gallery evening at Casa de Arte on Pedro Clisante — typically free exhibition energy; confirm on @casadeartedesosua, and don’t treat it like Hard Rock’s Anne live a few blocks later.",
+    localized: {
+      es: "Noche Morphy a las 6 PM en Casa de Arte en Pedro Clisante — energía de exposición (suele ser gratis); confirma en @casadeartedesosua, y no la trates como Anne en vivo en Hard Rock unas cuadras después.",
+      fr: "Soirée Morphy à 18 h à Casa de Arte sur Pedro Clisante — énergie d’exposition (souvent gratuite) ; confirmez sur @casadeartedesosua, et ne la confondez pas avec Anne live au Hard Rock quelques rues plus loin.",
+    },
+    priceFeel: "budget",
+    priceNote: "Usually free gallery entry — confirm @casadeartedesosua / +1 809-571-2442",
+    priceNoteLocalized: {
+      es: "Entrada de galería suele ser gratis — confirma @casadeartedesosua / +1 809-571-2442",
+      fr: "Entrée galerie souvent gratuite — confirmez @casadeartedesosua / +1 809-571-2442",
+    },
+    attribution: "POP research · @casadeartedesosua Morphy flyer",
+    researchNotes:
+      "Editor flyer — Sáb 14 Nov 6 PM; Morphy miradas a un legado; Casa de Arte Sosúa.",
+    updatedAt: "2026-11-11T15:00:00.000Z",
+  },
+  {
+    eventId: "hard-rock-anne-live-2026-11-14",
+    body: "No-cover 8 PM Anne live at Hard Rock Sosúa — downtown El Batey stage, not Casa de Arte’s 6 PM Morphy gallery the same Saturday; tables via +1 849-505-7778.",
+    localized: {
+      es: "Anne en vivo a las 8 PM sin cover en Hard Rock Sosúa — escenario downtown El Batey, no Morphy a las 6 PM en Casa de Arte el mismo sábado; mesas vía +1 849-505-7778.",
+      fr: "Anne live à 20 h sans cover au Hard Rock Sosúa — scène downtown El Batey, pas Morphy à 18 h à Casa de Arte le même samedi ; tables via +1 849-505-7778.",
+    },
+    priceFeel: "moderate",
+    priceNote: "No cover — food/drinks; WA +1 849-505-7778",
+    priceNoteLocalized: {
+      es: "Sin cover — comida/tragos; WA +1 849-505-7778",
+      fr: "Pas de cover — repas/boissons ; WA +1 849-505-7778",
+    },
+    attribution: "POP research · Hard Rock Puerto Plata Anne flyer",
+    researchNotes:
+      "Editor flyer — Sab 14 Nov 8 PM; Live Music by Anne; NO COVER; Hard Rock Puerto Plata.",
+    updatedAt: "2026-11-11T14:45:00.000Z",
+  },
+  {
+    eventId: "aura-galactic-nights-christoo-2026-11-28",
+    body: "Galactic Nights with DJ Christoo from 8 PM at Aura — outfit encouraged; confirm cover on @auracabarete, and don’t confuse it with Natura’s Kaovanny Agua Tour the same Saturday.",
+    localized: {
+      es: "Galactic Nights con DJ Christoo desde las 8 PM en Aura — outfit galáctico; confirma cover en @auracabarete, y no lo mezcles con el Agua Tour de Kaovanny en Natura el mismo sábado.",
+      fr: "Galactic Nights avec DJ Christoo dès 20 h à Aura — outfit galactique ; confirmez le cover sur @auracabarete, et ne confondez pas avec l’Agua Tour de Kaovanny à Natura le même samedi.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — @auracabarete / +1 829-787-0140",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — @auracabarete / +1 829-787-0140",
+      fr: "Cover à confirmer — @auracabarete / +1 829-787-0140",
+    },
+    attribution: "POP research · @auracabarete Galactic Nights / DJ Christoo flyer",
+    researchNotes:
+      "Editor flyer + Threads — Sat 28 Nov 2026 8 PM; DJ Christoo; Aura Beach Club.",
+    updatedAt: "2026-11-11T14:30:00.000Z",
+  },
+  {
+    eventId: "hard-rock-allison-sade-2026-11-27",
+    body: "No-cover Allison Sade Friday at Hard Rock Sosúa — not her prior Aura Thursday bills; tables via +1 849-505-7778 / @allisonsadeofficial.",
+    localized: {
+      es: "Allison Sade el viernes sin cover en Hard Rock Sosúa — no son sus jueves previos en Aura; mesas vía +1 849-505-7778 / @allisonsadeofficial.",
+      fr: "Allison Sade vendredi sans cover au Hard Rock Sosúa — pas ses jeudis Aura ; tables via +1 849-505-7778 / @allisonsadeofficial.",
+    },
+    priceFeel: "moderate",
+    priceNote: "No cover — food/drinks; WA +1 849-505-7778",
+    priceNoteLocalized: {
+      es: "Sin cover — comida/tragos; WA +1 849-505-7778",
+      fr: "Pas de cover — repas/boissons ; WA +1 849-505-7778",
+    },
+    attribution: "POP research · Hard Rock Puerto Plata Allison Sade flyer",
+    researchNotes:
+      "Editor flyer — Vie 27 Nov 8 PM; Allison Sade; NO COVER; Hard Rock Puerto Plata.",
+    updatedAt: "2026-11-11T14:15:00.000Z",
+  },
+  {
+    eventId: "ocean-world-terrace-rubio-manon-2026-12-04",
+    body: "RD$1,000 terrace típico with Rubio Acordeón + Manon from 8 PM — WhatsApp +1 829-521-9736 for stage-side tables only (door tickets day-of); not Toscana’s downtown grand opening the same Friday.",
+    localized: {
+      es: "Típico en terraza a RD$1,000 con Rubio Acordeón + Manon desde las 8 PM — WhatsApp +1 829-521-9736 solo para mesas cerca de tarima (boletos en puerta el día); no es la gran apertura de Toscana el mismo viernes en el centro.",
+      fr: "Típico en terrasse à RD$1,000 avec Rubio Acordeón + Manon dès 20 h — WhatsApp +1 829-521-9736 pour tables près de la scène seulement (billets à la porte le jour J) ; pas la grande ouverture de Toscana le même vendredi en centre-ville.",
+    },
+    priceFeel: "moderate",
+    priceNote: "RD$1,000 door · table WA +1 829-521-9736",
+    priceNoteLocalized: {
+      es: "RD$1,000 en puerta · mesa WA +1 829-521-9736",
+      fr: "RD$1,000 à la porte · table WA +1 829-521-9736",
+    },
+    attribution: "POP research · Ocean World Terrace Rubio + Manon flyer",
+    researchNotes:
+      "Editor flyer + reservation Story — Vie 4 Dic 8 PM; RD$1000; Rubio Acordeón + Manon Tambora; WA 829-521-9736 tables.",
+    updatedAt: "2026-11-11T14:00:00.000Z",
+  },
+  {
+    eventId: "toscana-nightclub-gran-apertura-2026-12-04",
+    body: "Dec 4 gran apertura at Toscana with Deury Luciano live + DJ Choco and a champagne toast — segundo nivel Siblings Food Park on Luis Ginebra; confirm doors on @toscana_nightclub, and don’t pin Ambar at No. 45 by mistake.",
+    localized: {
+      es: "Gran apertura el 4 dic en Toscana con Deury Luciano en vivo + DJ Choco y brindis de champán — segundo nivel Siblings Food Park en Luis Ginebra; confirma puertas en @toscana_nightclub, y no lo pines como Ambar en el No. 45.",
+      fr: "Grande ouverture le 4 déc chez Toscana avec Deury Luciano live + DJ Choco et toast champagne — 2e niveau Siblings Food Park sur Luis Ginebra ; confirmez les portes sur @toscana_nightclub, et ne le placez pas comme Ambar au n° 45.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — @toscana_nightclub · from 6:00 PM Dec 4",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — @toscana_nightclub · desde 6:00 PM 4 dic",
+      fr: "Cover à confirmer — @toscana_nightclub · dès 18 h le 4 déc",
+    },
+    attribution:
+      "POP research · @toscana_nightclub Gran Apertura Deury Luciano × DJ Choco flyer",
+    researchNotes:
+      "Editor flyer bump -v2 — Vie 4 Dic 2026; Deury Luciano + DJ Choco; brindis champán; Plaza Siblings segundo nivel; Av Luis Ginebra.",
+    updatedAt: "2026-11-11T15:00:00.000Z",
+  },
+  {
+    eventId: "chameleon-mananitas-kreizy-k-2026-12-05",
+    body: "Kreizy K Mañanitas at Chameleon in Sosúa Bay Center — late/after-hours energy; RSVP (829) 994-2304, and don’t treat it like a Pedro Clisante beach bar.",
+    localized: {
+      es: "Mañanitas con Kreizy K en Chameleon en Sosúa Bay Center — energía late/after-hours; RSVP (829) 994-2304, y no lo trates como un bar de playa en Pedro Clisante.",
+      fr: "Mañanitas avec Kreizy K au Chameleon à Sosúa Bay Center — énergie late/after-hours ; RSVP (829) 994-2304, et ne le traitez pas comme un bar de plage Pedro Clisante.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — RSVP (829) 994-2304 · @chameleonsportbar",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — RSVP (829) 994-2304 · @chameleonsportbar",
+      fr: "Cover à confirmer — RSVP (829) 994-2304 · @chameleonsportbar",
+    },
+    attribution: "POP research · @chameleonsportbar Mañanitas Kreizy K flyer",
+    researchNotes:
+      "Editor flyer + IG — Sáb 05 Dic; Kreizy K; Sosúa Bay Center Calle Alejo Martínez #1; 829-994-2304.",
+    updatedAt: "2026-11-11T13:30:00.000Z",
+  },
+  {
+    eventId: "isabela-food-fest-la-perversa-2026-12-18",
+    body: "Free Friday opener with La Perversa at Villa Isabela’s municipal plaza — tourism-sponsored door; not Ground Zero’s Omega club night the same Friday on the airport road.",
+    localized: {
+      es: "Apertura gratis del viernes con La Perversa en la plaza municipal de Villa Isabela — puerta patrocinada por turismo; no es la noche de club de Omega en Ground Zero el mismo viernes en la carretera del aeropuerto.",
+      fr: "Ouverture gratuite du vendredi avec La Perversa sur la place municipale de Villa Isabela — porte sponsorisée tourisme ; pas la soirée club d’Omega au Ground Zero le même vendredi sur la route de l’aéroport.",
+    },
+    priceFeel: "budget",
+    priceNote: "Totally free — info +1 829-336-6802 · @isabelafoodfest",
+    priceNoteLocalized: {
+      es: "Totalmente gratis — info +1 829-336-6802 · @isabelafoodfest",
+      fr: "Totalement gratuit — info +1 829-336-6802 · @isabelafoodfest",
+    },
+    attribution: "POP research · @isabelafoodfest La Perversa flyer",
+    researchNotes:
+      "Editor flyer + IG — Vie 18 Dic; La Perversa; Parque Municipal Villa Isabela; TOTALMENTE GRATIS; 829-336-6802.",
+    updatedAt: "2026-11-11T13:15:00.000Z",
+  },
+  {
+    eventId: "groundzero-omega-2026-12-18",
+    body: "Omega El Fuerte Christmas kickoff at Ground Zero Km 18 — reserve +1 849-465-1313; airport-road disco, not Isabela Food Fest’s free La Perversa plaza opener the same Friday.",
+    localized: {
+      es: "Arranque navideño de Omega El Fuerte en Ground Zero Km 18 — reserva +1 849-465-1313; disco en la carretera del aeropuerto, no la apertura gratis de La Perversa en Isabela Food Fest el mismo viernes.",
+      fr: "Lancement de Noël d’Omega El Fuerte au Ground Zero Km 18 — réservez +1 849-465-1313 ; disco route aéroport, pas l’ouverture gratuite de La Perversa à Isabela Food Fest le même vendredi.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — reservas +1 849-465-1313 · @groundzero_disco",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — reservas +1 849-465-1313 · @groundzero_disco",
+      fr: "Cover à confirmer — réservations +1 849-465-1313 · @groundzero_disco",
+    },
+    attribution: "POP research · @groundzero_disco Omega Dec 18 flyer",
+    researchNotes:
+      "Editor flyer + IG — Fri 18 Dic 2026 (IG said Jueves; calendar Friday); Omega; Km 18; 849-465-1313.",
+    updatedAt: "2026-11-11T13:00:00.000Z",
+  },
+  {
+    eventId: "voyvoy-sunday-open-mic",
+    seriesKey: "voyvoy-cabarete:weekly:0",
+    body: "Sunday 5–8 PM open mic with Lester Grant on Cabarete Beach — all musicians welcome; not Karaoke Monday at the same bayfront bar.",
+    localized: {
+      es: "Open mic dominical 5–8 PM con Lester Grant en Cabarete Beach — todos los músicos bienvenidos; no es Karaoke Monday en el mismo bar frente a la bahía.",
+      fr: "Open mic du dimanche 17 h–20 h avec Lester Grant sur Cabarete Beach — tous les musiciens bienvenus ; pas le Karaoke Monday au même bar face à la baie.",
+    },
+    priceFeel: "budget",
+    priceNote: "No cover on flyer — dinner/drinks · @voyvoybar / +1 809-571-0805",
+    priceNoteLocalized: {
+      es: "Sin cover en el flyer — cena/tragos · @voyvoybar / +1 809-571-0805",
+      fr: "Pas de cover sur le flyer — dîner/boissons · @voyvoybar / +1 809-571-0805",
+    },
+    attribution: "POP research · VOYVOY Open Mic Lester Grant flyer",
+    researchNotes:
+      "Editor flyer bump -v3 — Open Mic at Voyvoy; Hosted by Lester Grant; every Sunday 5–8 PM; Cabarete Beach sunset silhouette hero.",
+    updatedAt: "2026-11-11T15:10:00.000Z",
+  },
+  {
+    eventId: "pedro-santana-sus-dias-contados-2026-11-24",
+    body: "Free 6:30 PM puesta en circulación for Pedro Santana’s Sus días contados at Salón Osvaldo Brugal — Omar Messón presents; call +1 809-586-6240 / @screnovacion for seats, and don’t treat Duarte #41 like a Malecón night stop.",
+    localized: {
+      es: "Puesta en circulación gratis a las 6:30 PM de Sus días contados de Pedro Santana en el Salón Osvaldo Brugal — presenta Omar Messón; llama al +1 809-586-6240 / @screnovacion por asientos, y no trates Duarte #41 como una parada nocturna del Malecón.",
+      fr: "Lancement gratuit à 18 h 30 de Sus días contados de Pedro Santana au Salón Osvaldo Brugal — présenté par Omar Messón ; appelez +1 809-586-6240 / @screnovacion pour les places, et ne traitez pas Duarte #41 comme une halte nocturne du Malecón.",
+    },
+    priceFeel: "budget",
+    priceNote: "Free entry typical — confirm +1 809-586-6240 · @screnovacion",
+    priceNoteLocalized: {
+      es: "Entrada libre típica — confirma +1 809-586-6240 · @screnovacion",
+      fr: "Entrée libre typique — confirmez +1 809-586-6240 · @screnovacion",
+    },
+    attribution: "POP research · @screnovacion Sus días contados flyer",
+    researchNotes:
+      "Editor flyer + IG — Martes 24 Nov 2026 6:30 PM; Pedro Santana; Omar Messón; Salón Dr. Osvaldo Brugal; Sociedad Cultural Renovación; free typical.",
+    updatedAt: "2026-11-11T16:30:00.000Z",
   },
 ];

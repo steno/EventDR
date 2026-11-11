@@ -1449,6 +1449,30 @@ export const VENUE_TIP_COPY: Record<
       fr: "Sport bar tardif au Sosúa Bay Center à côté du Coral Reef Casino — DJs invités et soirées à thème jusqu’au lever du soleil, pas un crawl de bars Pedro Clisante ; WhatsApp +1 849-657-1500 / +1 829-994-2304 ou DM @chameleonsportbar avant de compter sur le VIP walk-in.",
     },
   },
+  "sociedad-cultural-renovacion": {
+    body: "Downtown library-and-salon on Calle Duarte #41 at Imbert — book launches in Salón Dr. Osvaldo Brugal are usually free and seated; call +1 809-586-6240 / @screnovacion before you assume walk-in capacity, and don’t confuse it with a Malecón nightlife stop.",
+    localized: {
+      en: "Downtown library-and-salon on Calle Duarte #41 at Imbert — book launches in Salón Dr. Osvaldo Brugal are usually free and seated; call +1 809-586-6240 / @screnovacion before you assume walk-in capacity, and don’t confuse it with a Malecón nightlife stop.",
+      es: "Biblioteca y salón en el centro en Calle Duarte #41 esquina Imbert — las puestas en circulación en el Salón Dr. Osvaldo Brugal suelen ser gratis y con asientos; llama al +1 809-586-6240 / @screnovacion antes de asumir cupo walk-in, y no lo confundas con una parada de nightlife del Malecón.",
+      fr: "Bibliothèque et salon downtown au Calle Duarte #41 coin Imbert — les lancements au Salón Dr. Osvaldo Brugal sont souvent gratuits et assis ; appelez +1 809-586-6240 / @screnovacion avant de compter sur le walk-in, et ne le confondez pas avec une halte nightlife du Malecón.",
+    },
+  },
+  "toscana-nightclub": {
+    body: "Brand-new segundo-nivel mixology club inside Plaza Siblings Food Park on Luis Ginebra (by Palacio de Justicia) — not Ambar at No. 45 or Mecla'o at No. 49; confirm opening doors on @toscana_nightclub before you climb for the Dec 4 champagne toast.",
+    localized: {
+      en: "Brand-new segundo-nivel mixology club inside Plaza Siblings Food Park on Luis Ginebra (by Palacio de Justicia) — not Ambar at No. 45 or Mecla'o at No. 49; confirm opening doors on @toscana_nightclub before you climb for the Dec 4 champagne toast.",
+      es: "Nuevo club de mixología en el segundo nivel de Plaza Siblings Food Park en Luis Ginebra (junto al Palacio de Justicia) — no es Ambar en el No. 45 ni Mecla'o en el No. 49; confirma puertas de apertura en @toscana_nightclub antes de subir al brindis del 4 dic.",
+      fr: "Nouveau club mixologie au 2e niveau de Plaza Siblings Food Park sur Luis Ginebra (près du Palacio de Justicia) — pas Ambar au n° 45 ni Mecla'o au n° 49 ; confirmez l’ouverture sur @toscana_nightclub avant de monter pour le toast du 4 déc.",
+    },
+  },
+  "casa-de-arte-sosua": {
+    body: "El Batey gallery at Pedro Clisante #1 by the bay entrance — rotating exhibitions and arts talks, not a Pedro Clisante nightlife crawl; check @casadeartedesosua / +1 809-571-2442 for the current show and Saturday morning hours (typically closed Sunday).",
+    localized: {
+      en: "El Batey gallery at Pedro Clisante #1 by the bay entrance — rotating exhibitions and arts talks, not a Pedro Clisante nightlife crawl; check @casadeartedesosua / +1 809-571-2442 for the current show and Saturday morning hours (typically closed Sunday).",
+      es: "Galería en El Batey en Pedro Clisante #1 a la entrada de la bahía — exposiciones rotativas y charlas de arte, no un crawl de nightlife en Pedro Clisante; revisa @casadeartedesosua / +1 809-571-2442 para la muestra actual y el horario del sábado por la mañana (suele cerrar domingo).",
+      fr: "Galerie El Batey au Pedro Clisante n° 1 à l’entrée de la baie — expositions tournantes et talks d’art, pas un crawl nightlife Pedro Clisante ; vérifiez @casadeartedesosua / +1 809-571-2442 pour l’expo en cours et les horaires du samedi matin (souvent fermé dimanche).",
+    },
+  },
   "la-quinta-rosa": {
     body: "Pink 1912 colonial on Calle 12 de Julio #88 — primarily a ticketed event host (talks, workshops, gatherings) by reservation, not a walk-up café; DM @laquintarosapop (or the flyer phone) before you assume open doors.",
     localized: {

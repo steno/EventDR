@@ -760,3 +760,26 @@ Curated images under `public/events/` and `public/venues/`.
 | `art-of-scent-petit-francois-2026-11-22.jpg` | POP-supplied — Sapphire Events *The Art of Scent* workshop flyer at Le Petit François | Sun 22 Nov 2026 from 11 AM US$50 (editor-provided; typography-heavy) |
 | `rumble-in-paradise-14-2027-02-12.jpg` | POP-supplied — *Rumble in Paradise 14* boxing flyer (Chiro Boxing / Bar 39 / Tiki Wiki) | Fri 12 Feb 2027 Super Bowl weekend (editor-provided; typography-heavy) |
 | `el-colibri-fiesta-latina-fridays.jpg` | POP-supplied — El Colibri *Fiesta Latina!* Fridays flyer (DJ Blue) | Weekly Fri from 6 Nov 2026 (editor-provided; typography-heavy) |
+
+| `ambar-lounge-bandoleras-2026-11-13.jpg` | POP-supplied — Ambar Bandoleras Jhon Parra flyer | Fri 13 Nov 2026; editor-provided; typography-heavy |
+| `ambar-lounge-carlos-rivera-2026-11-14.jpg` | POP-supplied — Ambar Carlos Rivera Saturday flyer | Sat 14 Nov 2026; editor-provided; typography-heavy |
+| `twenty-disco-adrian-tineo-darwin-estrella-2026-11-14.jpg` | POP-supplied — Twenty Disco Adrian Tineo × Darwin Estrella flyer | Sat 14 Nov 2026; editor-provided; typography-heavy |
+| `aura-alice-wonderland-2026-11-14.jpg` | POP-supplied — Aura Alice in Wonderland Show flyer | Sat 14 Nov 2026 10:30 PM; editor-provided; typography-heavy |
+| `casa-arte-sosua-morphy-legado-2026-11-14.jpg` | POP-supplied — Casa de Arte Morphy Legado flyer | Sat 14 Nov 2026 6 PM; editor-provided; typography-heavy |
+| `hard-rock-anne-live-2026-11-14.jpg` | POP-supplied — Hard Rock Live Music by Anne flyer | Sat 14 Nov 2026 8 PM no cover; editor-provided; typography-heavy |
+| `aura-galactic-nights-christoo-2026-11-28.jpg` | POP-supplied — Aura Galactic Nights DJ Christoo flyer | Sat 28 Nov 2026 8 PM; editor-provided; typography-heavy |
+| `hard-rock-allison-sade-2026-11-27.jpg` | POP-supplied — Hard Rock Allison Sade flyer | Fri 27 Nov 2026 8 PM no cover; editor-provided; typography-heavy |
+| `ocean-world-terrace-rubio-manon-2026-12-04.jpg` | POP-supplied — Ocean World Terrace Rubio + Manon flyer | Fri 4 Dec 2026 8 PM RD$1000; editor-provided; typography-heavy |
+| `toscana-nightclub-gran-apertura-2026-12-04.jpg` | POP-supplied — Toscana Nightclub Gran Apertura flyer | Fri 4 Dec 2026 from 6 PM; editor-provided; typography-heavy |
+| `chameleon-mananitas-kreizy-k-2026-12-05.jpg` | POP-supplied — Chameleon Mañanitas Kreizy K flyer | Sat 5 Dec 2026; editor-provided; typography-heavy |
+| `isabela-food-fest-la-perversa-2026-12-18.jpg` | POP-supplied — Isabela Food Fest La Perversa flyer | Fri 18 Dec 2026 free; editor-provided; typography-heavy |
+| `groundzero-omega-2026-12-18.jpg` | POP-supplied — Ground Zero Omega flyer | Fri 18 Dec 2026; editor-provided; typography-heavy |
+| `voyvoy-sunday-open-mic-v2.jpg` | POP-supplied — VOYVOY Sunday Open Mic Lester Grant flyer | Every Sun 5–8 PM; filename bump; typography-heavy |
+| `natura-cabana-yoga-daily-v2.jpg` | POP-supplied — Natura Cabana yoga temple class photo | Filename bump for daily yoga hero; scene-safe |
+| `venues/natura-cabana-pool-v2.jpg` | POP-supplied — Natura Cabana pool / thatched pavilion | Venue hero filename bump; scene-safe |
+| `venues/natura-cabana-sign-v2.jpg` | POP-supplied — Natura Cabana spa-restaurant entrance sign | Supporting venue asset |
+| `venues/toscana-nightclub-facade.jpg` | POP-supplied — Toscana Nightclub glass facade wordmark | New venue place shot |
+| `geek-fest-kpop-random-dance-ref-2026-12-13.jpg` | POP-supplied — Geek Fest K-pop Random Dance flyer (folded into pasarela seed) | Ref asset 13 Dec 2026; typography-heavy |
+| `pedro-santana-sus-dias-contados-2026-11-24.jpg` | POP-supplied — Sociedad Cultural Renovación Sus días contados book-launch flyer | Tue 24 Nov 2026 6:30 PM; editor-provided; typography-heavy |
+| `toscana-nightclub-gran-apertura-2026-12-04-v2.jpg` | POP-supplied — Toscana Gran Apertura Deury Luciano × DJ Choco flyer | Fri 4 Dec 2026; filename bump; typography-heavy |
+| `voyvoy-sunday-open-mic-v3.jpg` | POP-supplied — VOYVOY Open Mic at Voyvoy / Lester Grant sunset flyer | Every Sun 5–8 PM; filename bump; typography-heavy |
