@@ -210,6 +210,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "tyson-band-aura-2026-11-12": "tyson-band-aura-2026-11-12.jpg",
   "bachata-colmado-cabarete-2026-11-27":
     "bachata-colmado-cabarete-2026-11-27.jpg",
+  "pregame-roof-domino-sessions-weekly":
+    "pregame-roof-domino-sessions-weekly.jpg",
   "leos-banana-fiesta-blanca-2026-11-27":
     "leos-banana-fiesta-blanca-2026-11-27.jpg",
   "disco-club-pijama-party-2026-11-13":
@@ -1198,6 +1200,7 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "evolution-papy-crish-2026-11-14": "object-center",
   "tyson-band-aura-2026-11-12": "object-center",
   "bachata-colmado-cabarete-2026-11-27": "object-center",
+  "pregame-roof-domino-sessions-weekly": "object-center",
   "leos-banana-fiesta-blanca-2026-11-27": "object-center",
   "cabarete-stand-up-vol-3-2026-11-21": "object-center",
   "disco-club-pijama-party-2026-11-13": "object-center",
@@ -1511,6 +1514,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "evolution-papy-crish-2026-11-14.jpg",
   "tyson-band-aura-2026-11-12.jpg",
   "bachata-colmado-cabarete-2026-11-27.jpg",
+  "pregame-roof-domino-sessions-weekly.jpg",
   "leos-banana-fiesta-blanca-2026-11-27.jpg",
   "disco-club-pijama-party-2026-11-13.jpg",
   "samuel-gonzalez-la-lola-2026-12-05.jpg",

@@ -1124,6 +1124,8 @@ const FILE_TO_VENUE_SLUG = {
   "tyson-band-aura-2026-11-12.jpg": "tyson-band-aura-2026-11-12",
   "bachata-colmado-cabarete-2026-11-27.jpg":
     "bachata-colmado-cabarete-2026-11-27",
+  "pregame-roof-domino-sessions-weekly.jpg":
+    "pregame-roof-domino-sessions-weekly",
 };
 
 if (!existsSync(sourceDir)) {

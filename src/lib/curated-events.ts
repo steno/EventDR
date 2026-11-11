@@ -1096,6 +1096,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "aura-beach-club-cabarete",
     sourceUrl: "https://www.instagram.com/auracabarete/",
   },
+  "pregame-roof-domino-sessions-weekly": {
+    callForPricing: true,
+    phone: "+18097818677",
+    venueSlug: "pregame-roof-puerto-plata",
+    sourceUrl: "https://www.instagram.com/pregameroof/",
+  },
   "elias-serulle-villa-taina-2026-10-24": {
     callForPricing: true,
     phone: "+18095710722",

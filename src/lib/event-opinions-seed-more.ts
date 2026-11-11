@@ -9118,4 +9118,23 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer — Vie 27 Nov 6–10 PM Bachata Colmado Cabarete; Mini Market Vasquez; Callejón de la Loma frente al Dream Project; Bachata Escape × Flow Dance. No venueSlug (same as Nov 1).",
     updatedAt: "2026-11-11T18:15:00.000Z",
   },
+  {
+    eventId: "pregame-roof-domino-sessions-weekly",
+    seriesKey: "pregame-roof-puerto-plata:weekly:3",
+    body: "Wednesday Domino Sessions on Pregame Roof’s third level at Luis Ginebra #45 — DJ set 6 PM–midnight, 2x1 Cuba Libre until 8 PM; RSVP (809) 781-8677, and don’t confuse it with Ámbar Bandoleras downstairs on Fridays.",
+    localized: {
+      es: "Miércoles Domino Sessions en el tercer nivel de Pregame Roof en Luis Ginebra #45 — DJ set 6 PM–medianoche, 2x1 Cuba Libre hasta las 8 PM; RSVP (809) 781-8677, y no lo confundas con Bandoleras de Ámbar abajo los viernes.",
+      fr: "Mercredi Domino Sessions au troisième niveau de Pregame Roof sur Luis Ginebra #45 — DJ set 18 h–minuit, 2x1 Cuba Libre jusqu’à 20 h ; RSVP (809) 781-8677, et ne confondez pas avec Bandoleras d’Ámbar en bas le vendredi.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — 2x1 Cuba Libre 6–8 PM · (809) 781-8677 / @pregameroof",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — 2x1 Cuba Libre 6–8 PM · (809) 781-8677 / @pregameroof",
+      fr: "Cover à confirmer — 2x1 Cuba Libre 18 h–20 h · (809) 781-8677 / @pregameroof",
+    },
+    attribution: "POP research · @pregameroof Domino Sessions flyer",
+    researchNotes:
+      "Editor flyer — DOMINO SESSIONS; MIERCOLES 6 PM–12 PM (read as midnight); 2X1 CUBA LIBRE 6–8 PM; Luis Ginebra No.45 3er nivel; DJ set on the rooftop; weekly recurrenceDay 3.",
+    updatedAt: "2026-11-11T18:30:00.000Z",
+  },
 ];

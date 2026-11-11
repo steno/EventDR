@@ -3563,5 +3563,38 @@
       "Open Mic"
     ],
     "imageEmoji": "🎤"
+  },
+  {
+    "id": "pregame-roof-domino-sessions-weekly",
+    "title": "Pregame Roof — Domino Sessions (mercredis)",
+    "description": "Tous les mercredis — Domino Sessions au Pregame Roof, Av. Luis Ginebra n° 45, 3e niveau, Puerto Plata, 18 h–minuit. DJ set sur le rooftop ; 2x1 Cuba Libre 18 h–20 h. Troisième niveau au-dessus d’Ámbar Lounge — pas Bandoleras Fridays en bas, ni les Rooftop Pong datés. RSVP (809) 781-8677 · Instagram @pregameroof.",
+    "date": "2026-01-01",
+    "time": "6:00 PM – 12:00 AM",
+    "location": "Puerto Plata",
+    "venue": "Pregame Roof",
+    "venueSlug": "pregame-roof-puerto-plata",
+    "address": "Av. Luis Ginebra No. 45, 3er nivel, Puerto Plata",
+    "lat": 19.7894021,
+    "lng": -70.678834,
+    "category": "parties",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 3,
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18097818677",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/pregameroof/",
+    "instagram": "pregameroof",
+    "lineup": [
+      "Domino Sessions",
+      "DJ set sur le rooftop",
+      "2x1 Cuba Libre 18 h–20 h"
+    ],
+    "imageEmoji": "🁣"
   }
 ]
