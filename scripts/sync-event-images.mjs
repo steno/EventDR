@@ -412,6 +412,8 @@ const FILE_TO_EVENT_ID = {
     "groundzero-viral-sosua-birthday-2026-12-01",
   "alex-rene-rancho-catalina-2026-11-08.jpg":
     "alex-rene-rancho-catalina-2026-11-08",
+  "4to-dia-rancho-catalina-2026-11-15.jpg":
+    "4to-dia-rancho-catalina-2026-11-15",
   "leos-banana-fiesta-blanca-2026-11-27.jpg":
     "leos-banana-fiesta-blanca-2026-11-27",
   "disco-club-pijama-party-2026-11-13.jpg":
@@ -1116,6 +1118,12 @@ const FILE_TO_VENUE_SLUG = {
   "parque-municipal-villa-isabela.jpg": "parque-municipal-villa-isabela",
   "docean-bar-villa-isabela.jpg": "docean-bar-villa-isabela",
   "los-primos-disco-bar-maimon-dj-booth.jpg": "los-primos-disco-bar-maimon",
+  "evolution-disco-club-san-marcos.jpg": "evolution-disco-club-san-marcos",
+  "evolution-papy-crish-2026-11-14.jpg": "evolution-papy-crish-2026-11-14",
+  "la-lola-dancing-weekend-2026-11-13.jpg": "la-lola-dancing-weekend-2026-11-13",
+  "tyson-band-aura-2026-11-12.jpg": "tyson-band-aura-2026-11-12",
+  "bachata-colmado-cabarete-2026-11-27.jpg":
+    "bachata-colmado-cabarete-2026-11-27",
 };
 
 if (!existsSync(sourceDir)) {

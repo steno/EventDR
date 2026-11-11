@@ -11050,5 +11050,151 @@
       "Omar Messón",
       "Sus días contados"
     ]
+  },
+  {
+    "id": "4to-dia-rancho-catalina-2026-11-15",
+    "title": "4to Día en live au Rancho La Catalina",
+    "description": "Musique live avec 4to Día au Rancho La Catalina Restaurant, El Cupey, Puerto Plata — dimanche 15 novembre 2026 à 14 h 30. Pas de cover. Dîner ranch avec set d’après-midi — même créneau dimanche 14 h 30 que les affiches Catalina récentes. Réservations +1 809-781-3737 · Instagram @rancholacatalina. Pas une soirée club en centre-ville.",
+    "date": "2026-11-15",
+    "time": "2:30 PM",
+    "location": "Puerto Plata",
+    "venue": "Rancho La Catalina",
+    "venueSlug": "rancho-catalina-puerto-plata",
+    "address": "El Cupey, Puerto Plata",
+    "lat": 19.7371866,
+    "lng": -70.7253286,
+    "category": "music",
+    "categories": [
+      "food-drinks",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18097813737",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/rancholacatalina/",
+    "lineup": [
+      "4to Día"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "la-lola-dancing-weekend-2026-11-13",
+    "title": "La Lola — Dancing Weekend · 13–15 nov",
+    "description": "Dancing Weekend à La Lola Beach Club, Avenida Gregorio Luperón (Malecón), Puerto Plata — vendredi 13 au dimanche 15 novembre 2026. Affiche : ven. 13 DJ Zelman · sam. 14 DJ Tanque · dim. 15 DJ One D. L’affiche annonce aussi les Jueves Bailables avec DJ Zelman. RSVP +1 849-517-5705 · Instagram @lalolabeachclub. Trois soirées patio Malecón — pas le bloc Weekend Vibes du 6–9 nov, ni le live de Samuel González en décembre.",
+    "date": "2026-11-13",
+    "endDate": "2026-11-15",
+    "location": "Puerto Plata",
+    "venue": "La Lola Beach Club",
+    "venueSlug": "la-lola-malecon",
+    "address": "Avenida Gregorio Luperón (Malecón), Puerto Plata",
+    "lat": 19.789103,
+    "lng": -70.669808,
+    "category": "music",
+    "categories": [
+      "parties",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18495175705",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/lalolabeachclub/",
+    "instagram": "lalolabeachclub",
+    "lineup": [
+      "Ven. 13 — DJ Zelman",
+      "Sam. 14 — DJ Tanque",
+      "Dim. 15 — DJ One D",
+      "Jueves Bailables — DJ Zelman (en cours)"
+    ],
+    "imageEmoji": "🎧"
+  },
+  {
+    "id": "evolution-papy-crish-2026-11-14",
+    "title": "Evolution — Papy Crish · 14 nov",
+    "description": "Papy Crish en live avec DJ Maicol et DJ Yordy à Evolution Disco Club, Antigua Villana (ex La Villana), Calle Principal, San Marcos, Puerto Plata — samedi 14 novembre 2026. Entrée gratuite jusqu’à 23 h ; confirmez le cover après. Pas de mineurs à la porte. Soirée perreo / dembow / reggaetón — pas le Dancing Weekend de La Lola sur le Malecón le même samedi. Appelez +1 849-253-5178 · Instagram @evolution_disco_club146.",
+    "date": "2026-11-14",
+    "location": "Puerto Plata",
+    "venue": "Evolution Disco Club",
+    "venueSlug": "evolution-disco-club-san-marcos",
+    "address": "Antigua Villana (ex La Villana), Calle Principal, San Marcos, Puerto Plata",
+    "lat": 19.792511,
+    "lng": -70.72019,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18492535178",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/evolution_disco_club146/",
+    "instagram": "evolution_disco_club146",
+    "ageHint": "18-plus",
+    "lineup": [
+      "Papy Crish",
+      "DJ Maicol",
+      "DJ Yordy"
+    ],
+    "imageEmoji": "🪩"
+  },
+  {
+    "id": "tyson-band-aura-2026-11-12",
+    "title": "Tyson Band live à Aura — jeu. 12 nov.",
+    "description": "Tyson Band en live à Aura Beach Club, Calle Principal, Cabarete — jeudi 12 novembre 2026 à 20 h. Set nommé du jeudi au beach club — pas le jeudi Aura d’Allison Sade du 5 nov., ni Alice in Wonderland le samedi 14 nov. Confirmez cover et tables via Instagram @auracabarete ou WhatsApp +1 829-787-0140.",
+    "date": "2026-11-12",
+    "time": "8:00 PM",
+    "location": "Cabarete",
+    "venue": "Aura Beach Club Cabarete",
+    "venueSlug": "aura-beach-club-cabarete",
+    "address": "Calle Principal, Cabarete 57000",
+    "lat": 19.7500769,
+    "lng": -70.4070417,
+    "category": "concert",
+    "categories": [
+      "music",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18297870140",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/auracabarete/",
+    "instagram": "auracabarete",
+    "lineup": [
+      "Tyson Band"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "bachata-colmado-cabarete-2026-11-27",
+    "title": "Bachata Colmado Cabarete — ven. 27 nov.",
+    "description": "Bachata Colmado Cabarete au Mini Market Vásquez, Callejón de la Loma (face au Dream Project), Cabarete — vendredi 27 novembre 2026, 18 h–22 h. Bachata Escape × Flow Dance : bachata, dominó et coro dominicain au colmado. Pas de page venue POP pour ce dépanneur — l’épingle est le marché seulement. Confirmez sur Instagram @fraimy.nadine / Bachata Escape. Édition vendredi — pas la soirée du dimanche 1er nov.",
+    "date": "2026-11-27",
+    "time": "6:00 PM – 10:00 PM",
+    "location": "Cabarete",
+    "venue": "Mini Market Vásquez",
+    "address": "Callejón de la Loma, frente al Dream Project, Cabarete",
+    "lat": 19.744397,
+    "lng": -70.417453,
+    "category": "dance",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/fraimy.nadine/",
+    "lineup": [
+      "Bachata Escape",
+      "Flow Dance"
+    ],
+    "imageEmoji": "💃"
   }
 ]

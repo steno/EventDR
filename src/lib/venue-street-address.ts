@@ -122,6 +122,8 @@ export const VENUE_STREET_ADDRESS: Readonly<Record<string, string>> = {
   "pop-cinemas-playa-dorada": "Calle Principal Playa Dorada 538",
   "project-paradise-cabarete": "Costa Azul J6",
   "rancho-catalina-puerto-plata": "El Cupey",
+  "evolution-disco-club-san-marcos":
+    "Antigua Villana (ex La Villana), Calle Principal, San Marcos",
   "restaurant-maria-sov": "Carretera Sosúa–Cabarete km 2, Ocean Village Deluxe",
   "rincon-caliente-guananico": "Rincón Caliente, Guananico",
   "rio-martinico": "Madre Vieja",

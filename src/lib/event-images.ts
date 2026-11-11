@@ -201,6 +201,15 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "groundzero-viral-sosua-birthday-2026-12-01.jpg",
   "alex-rene-rancho-catalina-2026-11-08":
     "alex-rene-rancho-catalina-2026-11-08.jpg",
+  "4to-dia-rancho-catalina-2026-11-15":
+    "4to-dia-rancho-catalina-2026-11-15.jpg",
+  "la-lola-dancing-weekend-2026-11-13":
+    "la-lola-dancing-weekend-2026-11-13.jpg",
+  "evolution-papy-crish-2026-11-14":
+    "evolution-papy-crish-2026-11-14.jpg",
+  "tyson-band-aura-2026-11-12": "tyson-band-aura-2026-11-12.jpg",
+  "bachata-colmado-cabarete-2026-11-27":
+    "bachata-colmado-cabarete-2026-11-27.jpg",
   "leos-banana-fiesta-blanca-2026-11-27":
     "leos-banana-fiesta-blanca-2026-11-27.jpg",
   "disco-club-pijama-party-2026-11-13":
@@ -1184,6 +1193,11 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   // Tall MKNI flyer — keep Costa Norte / DJ SET BY / face in card crops.
   "mkni-after-party-villa-taina-2026-10-24": "object-top",
   "alex-rene-rancho-catalina-2026-11-08": "object-center",
+  "4to-dia-rancho-catalina-2026-11-15": "object-center",
+  "la-lola-dancing-weekend-2026-11-13": "object-center",
+  "evolution-papy-crish-2026-11-14": "object-center",
+  "tyson-band-aura-2026-11-12": "object-center",
+  "bachata-colmado-cabarete-2026-11-27": "object-center",
   "leos-banana-fiesta-blanca-2026-11-27": "object-center",
   "cabarete-stand-up-vol-3-2026-11-21": "object-center",
   "disco-club-pijama-party-2026-11-13": "object-center",
@@ -1492,6 +1506,11 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "groundzero-viral-sosua-birthday-2026-11-01.jpg",
   "groundzero-viral-sosua-birthday-2026-12-01.jpg",
   "alex-rene-rancho-catalina-2026-11-08.jpg",
+  "4to-dia-rancho-catalina-2026-11-15.jpg",
+  "la-lola-dancing-weekend-2026-11-13.jpg",
+  "evolution-papy-crish-2026-11-14.jpg",
+  "tyson-band-aura-2026-11-12.jpg",
+  "bachata-colmado-cabarete-2026-11-27.jpg",
   "leos-banana-fiesta-blanca-2026-11-27.jpg",
   "disco-club-pijama-party-2026-11-13.jpg",
   "samuel-gonzalez-la-lola-2026-12-05.jpg",

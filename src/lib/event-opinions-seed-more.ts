@@ -9028,4 +9028,94 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer + IG — Martes 24 Nov 2026 6:30 PM; Pedro Santana; Omar Messón; Salón Dr. Osvaldo Brugal; Sociedad Cultural Renovación; free typical.",
     updatedAt: "2026-11-11T16:30:00.000Z",
   },
+  {
+    eventId: "4to-dia-rancho-catalina-2026-11-15",
+    body: "Sunday 2:30 PM no-cover live with 4to Día at Rancho La Catalina in El Cupey — ranch lunch energy after Alex René’s prior Sunday; call +1 809-781-3737 if you want a table for the set.",
+    localized: {
+      es: "Domingo 2:30 PM sin cover con 4to Día en Rancho La Catalina en El Cupey — energía de almuerzo de rancho después del domingo de Alex René; llama al +1 809-781-3737 si quieres mesa para el set.",
+      fr: "Dimanche 14 h 30 sans cover avec 4to Día au Rancho La Catalina à El Cupey — énergie déjeuner ranch après le dimanche d’Alex René ; appelez +1 809-781-3737 si vous voulez une table pour le set.",
+    },
+    priceFeel: "free",
+    priceNote: "No cover — pay for ranch dining; +1 809-781-3737 / @rancholacatalina",
+    priceNoteLocalized: {
+      es: "Sin cover — pagas la comida del rancho; +1 809-781-3737 / @rancholacatalina",
+      fr: "Pas de cover — vous payez le repas ranch ; +1 809-781-3737 / @rancholacatalina",
+    },
+    attribution: "POP research · @rancholacatalina · 4to Día flyer",
+    researchNotes:
+      "Editor flyer + IG @rancholacatalina — NOV. 15 Música en Vivo 4TO DÍA 2:30PM | NO COVER; Rancho La Catalina Restaurant.",
+    updatedAt: "2026-11-11T17:00:00.000Z",
+  },
+  {
+    eventId: "la-lola-dancing-weekend-2026-11-13",
+    body: "Three Malecón patio nights at La Lola — Zelman Fri 13, Tanque Sat 14, One D Sun 15; RSVP +1 849-517-5705. Separate from the earlier Weekend Vibes 6–9 Nov block if you already sent that card.",
+    localized: {
+      es: "Tres noches de patio en La Lola en el Malecón — Zelman vie 13, Tanque sáb 14, One D dom 15; RSVP +1 849-517-5705. Sepáralo del bloque Weekend Vibes del 6–9 nov si ya mandaste esa tarjeta.",
+      fr: "Trois soirées patio à La Lola sur le Malecón — Zelman ven. 13, Tanque sam. 14, One D dim. 15 ; RSVP +1 849-517-5705. Séparez-le du bloc Weekend Vibes du 6–9 nov si vous avez déjà envoyé cette carte.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Cover not on flyer — RSVP +1 849-517-5705 · @lalolabeachclub",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — RSVP +1 849-517-5705 · @lalolabeachclub",
+      fr: "Cover absent de l’affiche — RSVP +1 849-517-5705 · @lalolabeachclub",
+    },
+    attribution: "POP research · @lalolabeachclub Dancing Weekend flyer",
+    researchNotes:
+      "Editor flyer + IG — DANCING WEEKEND; JUEVES BAILABLES DJ ZELMAN; VIE 13 DJ ZELMAN; SAB 14 DJ TANQUE; DOM 15 DJ ONE D; RSVP 849-517-5705; dated Fri–Sun 13–15 Nov 2026.",
+    updatedAt: "2026-11-11T17:30:00.000Z",
+  },
+  {
+    eventId: "evolution-papy-crish-2026-11-14",
+    body: "Saturday San Marcos club night with Papy Crish at Evolution — same pin as Antigua Villana / old La Villana on Calle Principal; free until 11 PM, no menores, and not La Lola’s Malecón Dancing Weekend the same night.",
+    localized: {
+      es: "Noche de club sábado en San Marcos con Papy Crish en Evolution — el mismo pin de Antigua Villana / ex La Villana en Calle Principal; gratis hasta las 11 PM, no menores, y no el Dancing Weekend de La Lola en el Malecón la misma noche.",
+      fr: "Soirée club samedi à San Marcos avec Papy Crish à Evolution — même pin qu’Antigua Villana / ancienne La Villana sur Calle Principal ; gratuit jusqu’à 23 h, pas de mineurs, et pas le Dancing Weekend de La Lola sur le Malecón la même nuit.",
+    },
+    priceFeel: "free",
+    priceNote: "Free until 11 PM — cover after TBA · +1 849-253-5178 / @evolution_disco_club146",
+    priceNoteLocalized: {
+      es: "Gratis hasta las 11 PM — cover después TBA · +1 849-253-5178 / @evolution_disco_club146",
+      fr: "Gratuit jusqu’à 23 h — cover après TBA · +1 849-253-5178 / @evolution_disco_club146",
+    },
+    attribution: "POP research · @evolution_disco_club146 Papy Crish flyer",
+    researchNotes:
+      "Editor flyer + IG — Sábado 14 Nov; Papy Crish / DJ Maicol / DJ Yordy; Antigua Villana San Marcos; entradas gratis hasta 11 PM; door NO MENORES → ageHint 18-plus; Maps pin Villanas Q7VH+2W9.",
+    updatedAt: "2026-11-11T17:45:00.000Z",
+  },
+  {
+    eventId: "tyson-band-aura-2026-11-12",
+    body: "Thursday 8 PM Tyson Band at Aura on Calle Principal — tables via +1 829-787-0140; this week’s beach-club live, not Allison Sade’s prior Thursday and not Alice in Wonderland on Saturday.",
+    localized: {
+      es: "Jueves 8 PM Tyson Band en Aura en Calle Principal — mesas vía +1 829-787-0140; el live de beach club de esta semana, no el jueves previo de Allison Sade ni Alice in Wonderland el sábado.",
+      fr: "Jeudi 20 h Tyson Band à Aura sur Calle Principal — tables via +1 829-787-0140 ; le live beach club de cette semaine, pas le jeudi Allison Sade précédent ni Alice in Wonderland le samedi.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — +1 829-787-0140 / @auracabarete",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — +1 829-787-0140 / @auracabarete",
+      fr: "Cover à confirmer — +1 829-787-0140 / @auracabarete",
+    },
+    attribution: "POP research · @auracabarete Tyson Band flyer",
+    researchNotes:
+      "Editor flyer — aura BEACH CLUB; TYSON BAND; Jueves 12 · 8:00 PM; Thu 12 Nov 2026; Cabarete Thursday live pattern.",
+    updatedAt: "2026-11-11T18:00:00.000Z",
+  },
+  {
+    eventId: "bachata-colmado-cabarete-2026-11-27",
+    body: "Friday 6–10 PM bachata and dominó at Mini Market Vásquez on Callejón de la Loma (frente al Dream Project) — same colmado pin as the Sunday 1 Nov night, no POP venue page; confirm on @fraimy.nadine before you treat it like a club.",
+    localized: {
+      es: "Viernes 6–10 PM de bachata y dominó en Mini Market Vásquez en Callejón de la Loma (frente al Dream Project) — el mismo pin del colmado que el domingo 1 nov, sin página de venue POP; confirma en @fraimy.nadine antes de tratarlo como club.",
+      fr: "Vendredi 18 h–22 h bachata et dominó au Mini Market Vásquez sur Callejón de la Loma (face au Dream Project) — même pin colmado que le dimanche 1er nov., pas de page venue POP ; confirmez sur @fraimy.nadine avant d’y aller comme un club.",
+    },
+    priceFeel: "budget",
+    priceNote: "Colmado hang — cover not printed · confirm @fraimy.nadine",
+    priceNoteLocalized: {
+      es: "Hang de colmado — cover no impreso · confirma @fraimy.nadine",
+      fr: "Hang colmado — cover non imprimé · confirmez @fraimy.nadine",
+    },
+    attribution: "POP research · Bachata Escape × Flow Dance colmado flyer",
+    researchNotes:
+      "Editor flyer — Vie 27 Nov 6–10 PM Bachata Colmado Cabarete; Mini Market Vasquez; Callejón de la Loma frente al Dream Project; Bachata Escape × Flow Dance. No venueSlug (same as Nov 1).",
+    updatedAt: "2026-11-11T18:15:00.000Z",
+  },
 ];

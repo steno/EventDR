@@ -83,7 +83,7 @@ import { buildListingSearchCopy } from "@/lib/search-snippets";
 import { filterCatalogForScope } from "@/lib/scope-listing";
 import { signalNavDone } from "@/lib/nav-feedback";
 import { NETWORK_ONLY_FETCH } from "@/lib/pwa-refresh";
-import { allEventsPath, categoryPath } from "@/lib/event-navigation";
+import { categoryPath } from "@/lib/event-navigation";
 import { scrollBehaviorPreference } from "@/lib/list-scroll";
 import { warmRoutesIdle } from "@/components/IntentLink";
 
@@ -537,9 +537,10 @@ function HomeApp({
   const savedExample =
     discoverLayout.heroEvent ?? discoverLayout.todayEvents[0] ?? scopedEvents[0];
 
-  // Happening today → full list on the All chip (day-grouped browse).
-  // Specials still use the today hub; weekend see-all stays on the weekend hub.
-  const seeAllTodayHref = allEventsPath(locale, selectedCity);
+  // Happening today / specials / weekend → indexable when hubs (regional or city×when).
+  const seeAllTodayHref = selectedCity
+    ? `/${locale}/city/${selectedCity}/when/today`
+    : `/${locale}/when/today`;
   const seeAllSpecialsHref = selectedCity
     ? `/${locale}/city/${selectedCity}/when/today`
     : `/${locale}/when/today`;
@@ -547,7 +548,7 @@ function HomeApp({
     ? `/${locale}/city/${selectedCity}/when/weekend`
     : `/${locale}/when/weekend`;
 
-  // Warm All-today / specials / weekend hubs after first paint so the next
+  // Warm today / specials / weekend hubs after first paint so the next
   // "See all" tap does not wait on a cold RSC payload (mobile has no hover).
   useEffect(() => {
     return warmRoutesIdle(

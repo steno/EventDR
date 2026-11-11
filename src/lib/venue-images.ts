@@ -245,6 +245,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "el-patio-de-frida": "el-patio-de-frida-patio.jpg",
   "the-last-drink": "the-last-drink-interior.jpg",
   "los-primos-disco-bar-maimon": "los-primos-disco-bar-maimon-dj-booth.jpg",
+  "evolution-disco-club-san-marcos": "evolution-disco-club-san-marcos.jpg",
 };
 
 /** Cache-busted URL for general venue thumbnails / JSON-LD. */

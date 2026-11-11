@@ -2411,6 +2411,20 @@ export const SEED_VENUES: Venue[] = [
     instagram: "losprimosdiscobar_",
     website: "https://www.instagram.com/losprimosdiscobar_/",
   },
+  {
+    slug: "evolution-disco-club-san-marcos",
+    name: "Evolution Disco Club",
+    city: "Puerto Plata",
+    description:
+      "Local disco club in San Marcos (Antigua Villana / former La Villana on Calle Principal) — perreo, dembow, reggaetón, and bachata nights. Door posts no menores. Open Friday–Monday late; confirm on Instagram @evolution_disco_club146 · +1 849-253-5178.",
+    // Google Places pin still listed as Villanas disco bar (Q7VH+2W9) — Evolution flyers call the same spot Antigua Villana.
+    lat: 19.792511,
+    lng: -70.72019,
+    emoji: "🪩",
+    instagram: "evolution_disco_club146",
+    phone: "+18492535178",
+    website: "https://www.instagram.com/evolution_disco_club146/",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
@@ -2715,6 +2729,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /los\s*primos\s*disco(\s*bar)?|losprimosdiscobar_?|primos\s*disco\s*bar\s*maim[oó]n/i,
     slug: "los-primos-disco-bar-maimon",
+  },
+  {
+    pattern:
+      /evolution\s*disco(\s*club)?(\s*146)?|evolution_disco_club146|antigua\s*villana|la\s*villana(\s*disco)?|villanas\s*disco/i,
+    slug: "evolution-disco-club-san-marcos",
   },
   {
     pattern: /mecla['’]?o\s*rooftop|meclao\s*rooftop/i,

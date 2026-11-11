@@ -1072,6 +1072,30 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18095866240",
     venueSlug: "sociedad-cultural-renovacion",
   },
+  "4to-dia-rancho-catalina-2026-11-15": {
+    isFree: true,
+    phone: "+18097813737",
+    venueSlug: "rancho-catalina-puerto-plata",
+    sourceUrl: "https://www.instagram.com/rancholacatalina/",
+  },
+  "la-lola-dancing-weekend-2026-11-13": {
+    callForPricing: true,
+    phone: "+18495175705",
+    venueSlug: "la-lola-malecon",
+    sourceUrl: "https://www.instagram.com/lalolabeachclub/",
+  },
+  "evolution-papy-crish-2026-11-14": {
+    isFree: true,
+    phone: "+18492535178",
+    venueSlug: "evolution-disco-club-san-marcos",
+    sourceUrl: "https://www.instagram.com/evolution_disco_club146/",
+  },
+  "tyson-band-aura-2026-11-12": {
+    callForPricing: true,
+    phone: "+18297870140",
+    venueSlug: "aura-beach-club-cabarete",
+    sourceUrl: "https://www.instagram.com/auracabarete/",
+  },
   "elias-serulle-villa-taina-2026-10-24": {
     callForPricing: true,
     phone: "+18095710722",

@@ -2140,6 +2140,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
       { key: "easy_to_find", sentiment: "mixed", audience: "visitor" },
     ],
   }),
+  editorial({
+    venueSlug: "evolution-disco-club-san-marcos",
+    verdictKey: "solid_local_nightlife",
+    crowdFit: ["local", "nightlife", "mixed"],
+    axes: { recommend: 3.9, atmosphere: 4.1, value: 4.0, practical: 3.5 },
+    themes: [
+      { key: "dance_floor", sentiment: "positive", audience: "nightlife" },
+      { key: "loud_late", sentiment: "mixed", audience: "nightlife" },
+      { key: "easy_to_find", sentiment: "mixed", audience: "visitor" },
+    ],
+  }),
 ];
 
 const bySlug = new Map(

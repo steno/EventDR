@@ -1289,6 +1289,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Disco bar et lounge nocturne sur Calle Principal à Maimón (bourg municipal) — soirées DJ, boissons et piste locale plus à l’intérieur depuis la Carretera Navarrete–Puerto Plata. Ce n’est pas Los Primos Fish Shop & Restaurant sur la route (~1 km / 2–3 min en voiture). Ouvert en général tous les jours dès 16 h ; confirmez la fermeture sur Instagram @losprimosdiscobar_.",
     },
   },
+  "evolution-disco-club-san-marcos": {
+    description: {
+      es: "Discoteca local en San Marcos (Antigua Villana / ex La Villana en Calle Principal) — noches de perreo, dembow, reggaetón y bachata. En la puerta: no menores. Abre viernes a lunes tarde; confirma en Instagram @evolution_disco_club146 · +1 849-253-5178.",
+      fr: "Disco locale à San Marcos (Antigua Villana / ancienne La Villana sur Calle Principal) — soirées perreo, dembow, reggaetón et bachata. Porte : pas de mineurs. Ouvert vendredi–lundi tard ; confirmez sur Instagram @evolution_disco_club146 · +1 849-253-5178.",
+    },
+  },
 };
 
 export function localizeVenue(venue: Venue, locale: Locale): Venue {

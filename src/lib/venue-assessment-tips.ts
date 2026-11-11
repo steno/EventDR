@@ -1281,6 +1281,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Disco bar sur Calle Principal à l’intérieur du bourg de Maimón — pas le célèbre Los Primos Fish Shop sur la Carretera Navarrete–Puerto Plata (~1 km / 2–3 min) ; épinglez la rue du village, pas la terrasse fruits de mer de la route, et confirmez les portes sur @losprimosdiscobar_.",
     },
   },
+  "evolution-disco-club-san-marcos": {
+    body: "San Marcos disco at the old La Villana / Villanas pin on Calle Principal — locals still say Antigua Villana; no menores at the door, Fri–Mon late, and confirm the night on @evolution_disco_club146 before you pin downtown Malecón clubs instead.",
+    localized: {
+      en: "San Marcos disco at the old La Villana / Villanas pin on Calle Principal — locals still say Antigua Villana; no menores at the door, Fri–Mon late, and confirm the night on @evolution_disco_club146 before you pin downtown Malecón clubs instead.",
+      es: "Disco en San Marcos en el pin de la antigua La Villana / Villanas en Calle Principal — la gente aún dice Antigua Villana; no menores en la puerta, vie–lun tarde, y confirma la noche en @evolution_disco_club146 antes de clavar clubs del Malecón del centro.",
+      fr: "Disco à San Marcos sur le pin de l’ancienne La Villana / Villanas sur Calle Principal — on dit encore Antigua Villana ; pas de mineurs à la porte, ven.–lun. tard, et confirmez la soirée sur @evolution_disco_club146 avant d’épingler les clubs du Malecón downtown.",
+    },
+  },
   "nova-salud-bienestar": {
     body: "Victorian-style centro clinic on Margarita Mears #6 (Mon–Fri 8 AM–5 PM on the door) — psychology talks here, not a spa day pass. WhatsApp seats before you walk the colonial grid.",
     localized: {
