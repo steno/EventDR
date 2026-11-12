@@ -322,24 +322,6 @@ export const EDITORIAL_ALERTS: readonly EditorialAlert[] = [
     },
   },
   {
-    id: "novus-flow-dance-noche-latina-cancelled-2026-11",
-    kind: "watch",
-    from: "2026-11-04",
-    until: "2026-12-31",
-    citySlugs: ["cabarete"],
-    href: { type: "event", id: "novus-flow-dance-noche-latina-weekly" },
-    title: {
-      en: "Novus Noche Latina by Flow Dance cancelled",
-      es: "Noche Latina de Flow Dance en Novus cancelada",
-      fr: "Noche Latina Flow Dance chez Novus annulée",
-    },
-    summary: {
-      en: "Wednesday 9 PM Latin nights at Novus are off until further notice.",
-      es: "Los miércoles 9 PM de latina en Novus están fuera hasta nuevo aviso.",
-      fr: "Les mercredis 21 h latin chez Novus sont annulés jusqu’à nouvel ordre.",
-    },
-  },
-  {
     id: "end-blackouts-protest-cancelled-2026-11-05",
     kind: "watch",
     from: "2026-11-05",

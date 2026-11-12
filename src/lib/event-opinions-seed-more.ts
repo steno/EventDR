@@ -8049,21 +8049,21 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   {
     eventId: "novus-flow-dance-noche-latina-weekly",
     seriesKey: "novus-beach-restaurant-cabarete:weekly:3",
-    body: "Cancelled — do not send guests for Wednesday Noche Latina at Novus until Flow Dance or the restaurant confirm a return; VOYVOY’s Tuesday Dominican Night and Tiki Flowdance Fridays are separate bills.",
+    body: "Wednesday 9 PM salsa/bachata/merengue with Flow Dance on the Novus sand terrace — beach restaurant that flips late, not VOYVOY’s Tuesday Dominican Night or Tiki Flowdance Fridays; call +1 809-571-0646 before you treat cover as free.",
     localized: {
-      es: "Cancelado — no mandes gente a Noche Latina de miércoles en Novus hasta que Flow Dance o el restaurante confirmen el regreso; Dominican Night de VOYVOY los martes y Flowdance de Tiki los viernes son carteles aparte.",
-      fr: "Annulé — n’envoyez personne à Noche Latina du mercredi chez Novus tant que Flow Dance ou le restaurant ne confirment pas un retour ; Dominican Night du VOYVOY le mardi et Flowdance du Tiki le vendredi sont d’autres affiches.",
+      es: "Miércoles 9 PM salsa/bachata/merengue con Flow Dance en la terraza de arena de Novus — restaurante de playa que se pone tarde, no Dominican Night de VOYVOY los martes ni Flowdance de Tiki los viernes; llama +1 809-571-0646 antes de tratar el cover como gratis.",
+      fr: "Mercredi 21 h salsa/bachata/merengue avec Flow Dance sur la terrasse sable de Novus — restaurant de plage qui bascule tard, pas Dominican Night du VOYVOY le mardi ni Flowdance du Tiki le vendredi ; appelez +1 809-571-0646 avant de traiter le cover comme gratuit.",
     },
     priceFeel: "varies",
-    priceNote: "Cancelled — confirm any return · +1 809-571-0646",
+    priceNote: "Cover not on flyer — +1 809-571-0646 · novusbeachrestaurant.com",
     priceNoteLocalized: {
-      es: "Cancelado — confirma cualquier regreso · +1 809-571-0646",
-      fr: "Annulé — confirmez tout retour · +1 809-571-0646",
+      es: "Cover no está en el flyer — +1 809-571-0646 · novusbeachrestaurant.com",
+      fr: "Cover absent de l’affiche — +1 809-571-0646 · novusbeachrestaurant.com",
     },
-    attribution: "POP research · Flow Dance Noche Latina / Novus Beach flyer + cancel notice",
+    attribution: "POP research · Flow Dance Noche Latina / Novus Beach flyer",
     researchNotes:
-      "Editor cancel — Noche Latina by Flow Dance Wednesdays at Novus cancelled; listing kept with temporarilyClosed until a return is confirmed.",
-    updatedAt: "2026-11-04T21:45:00.000Z",
+      "Editor restore — Wednesdays live again after cancel pause; FLOW DANCE NOCHE LATINA; 9 PM; Salsa Bachata Merengue; Novus Beach Restaurant.",
+    updatedAt: "2026-11-11T20:45:00.000Z",
   },
   {
     eventId: "natura-sunbar-sunset-sounds-ivan-ramirez-2026-11-05",

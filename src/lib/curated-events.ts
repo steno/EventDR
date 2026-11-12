@@ -1496,7 +1496,6 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     sourceUrl: "https://www.sea-horse-ranch.com/",
   },
   "novus-flow-dance-noche-latina-weekly": {
-    temporarilyClosed: true,
     callForPricing: true,
     phone: "+18095710646",
     venueSlug: "novus-beach-restaurant-cabarete",

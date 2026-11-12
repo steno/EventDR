@@ -3507,8 +3507,8 @@
   },
   {
     "id": "novus-flow-dance-noche-latina-weekly",
-    "title": "Novus Beach — Noche Latina by Flow Dance (Annulé)",
-    "description": "Noche Latina by Flow Dance au Novus Beach Restaurant est annulée — ne prévoyez pas les mercredis 21 h salsa/bachata/merengue sur la terrasse de Cabarete Beach tant que Flow Dance ou Novus ne confirment pas un retour. Était hebdomadaire le mercredi ; pas Dominican Night de Flow Dance au VOYVOY le mardi, ni Flowdance du Tiki le vendredi. Confirmez toute date future au +1 809-571-0646 · novusbeachrestaurant.com.",
+    "title": "Novus Beach — Noche Latina by Flow Dance (mercredis)",
+    "description": "Tous les mercredis dès 21 h — Noche Latina by Flow Dance au Novus Beach Restaurant, Cabarete Beach (Calle Principal). Salsa, bachata et merengue sur la terrasse côté sable ; le service restaurant du jour bascule vers une énergie disco-bar tardive après 23 h. Confirmez le cover au +1 809-571-0646 · novusbeachrestaurant.com. Social latin hebdo chez Novus — pas Dominican Night de Flow Dance au VOYVOY le mardi, ni Flowdance du Tiki le vendredi.",
     "date": "2026-01-01",
     "time": "21 h",
     "location": "Cabarete",
@@ -3525,16 +3525,14 @@
     "format": "physical",
     "recurrence": "weekly",
     "recurrenceDay": 3,
-    "trending": false,
-    "temporarilyClosed": true,
+    "trending": true,
     "callForPricing": true,
     "phone": "+18095710646",
     "sourceType": "flyer",
     "sourceUrl": "https://novusbeachrestaurant.com/",
     "lineup": [
       "Flow Dance",
-      "Salsa · Bachata · Merengue",
-      "Annulé"
+      "Salsa · Bachata · Merengue"
     ],
     "imageEmoji": "💃"
   },
