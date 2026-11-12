@@ -1102,6 +1102,26 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "pregame-roof-puerto-plata",
     sourceUrl: "https://www.instagram.com/pregameroof/",
   },
+  "ojo-noche-latina-back-to-bachata-2026-11-12": {
+    callForPricing: true,
+    phone: "+18297458811",
+    venueSlug: "lax-cabarete",
+    sourceUrl: "https://www.instagram.com/ninafrikadance/",
+  },
+  "twenty-disco-friday-lirol-j-2026-11-13": {
+    isFree: true,
+    venueSlug: "twenty-disco-lounge",
+    sourceUrl: "https://www.instagram.com/twenty_disco_lounge/",
+  },
+  "fortaleza-san-felipe-encendido-luces-azules-2026-11-13": {
+    isFree: true,
+    venueSlug: "fortaleza-san-felipe",
+    sourceUrl: "https://www.instagram.com/museosanfelipe/",
+  },
+  "spotland-fit-fusion-night-volumen-2-2026-11-18": {
+    venueSlug: "spotland-puerto-plata",
+    sourceUrl: "https://www.instagram.com/spotlandrd/",
+  },
   "elias-serulle-villa-taina-2026-10-24": {
     callForPricing: true,
     phone: "+18095710722",

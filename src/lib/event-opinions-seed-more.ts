@@ -9137,4 +9137,76 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer — DOMINO SESSIONS; MIERCOLES 6 PM–12 PM (read as midnight); 2X1 CUBA LIBRE 6–8 PM; Luis Ginebra No.45 3er nivel; DJ set on the rooftop; weekly recurrenceDay 3.",
     updatedAt: "2026-11-11T18:30:00.000Z",
   },
+  {
+    eventId: "ojo-noche-latina-back-to-bachata-2026-11-12",
+    body: "Thursday 9 PM–2 AM Ninafrika Noche Latina at Ojo with Back to Bachata from DC and Academia de Bachata live — special guest Latin Thursday on Cabarete Bay; confirm cover with +1 849-854-9692 / +1 829-745-8811 before you treat it like the plain weekly template.",
+    localized: {
+      es: "Jueves 9 PM–2 AM Noche Latina de Ninafrika en Ojo con Back to Bachata desde DC y Academia de Bachata en vivo — Latin Thursday especial en Bahía de Cabarete; confirma cover con +1 849-854-9692 / +1 829-745-8811 antes de tratarlo como la plantilla semanal sola.",
+      fr: "Jeudi 21 h–2 h Noche Latina Ninafrika à Ojo avec Back to Bachata de DC et Academia de Bachata en live — Latin Thursday spécial sur la baie de Cabarete ; confirmez le cover au +1 849-854-9692 / +1 829-745-8811 avant de le traiter comme le modèle hebdo seul.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — Ninafrika +1 849-854-9692 · Ojo +1 829-745-8811",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — Ninafrika +1 849-854-9692 · Ojo +1 829-745-8811",
+      fr: "Cover à confirmer — Ninafrika +1 849-854-9692 · Ojo +1 829-745-8811",
+    },
+    attribution: "POP research · @ninafrikadance Noche Latina / Back to Bachata flyer",
+    researchNotes:
+      "Editor flyer + IG captions — Thu 12 Nov 2026 9 PM–2 AM; Ojo Club Cabarete; Back to Bachata DC; Academia de Bachata LIVE; Ninafrika Dance School presents; salsa/bachata/merengue; not weekly ojo-latin-night-thursday alone.",
+    updatedAt: "2026-11-11T19:00:00.000Z",
+  },
+  {
+    eventId: "twenty-disco-friday-lirol-j-2026-11-13",
+    body: "Friday no-cover Lirol J live at Twenty in Playa Dorada Mall — pin the mall disco, not Latin Disco Club’s same-night Pijama Party, and not Twenty’s Saturday Adrian Tineo × Darwin Estrella bill.",
+    localized: {
+      es: "Viernes sin cover con Lirol J en vivo en Twenty en Playa Dorada Mall — clava el disco del mall, no el Pijama Party de Latin Disco Club la misma noche, ni el cartel del sábado de Adrian Tineo × Darwin Estrella en Twenty.",
+      fr: "Vendredi sans cover avec Lirol J en live au Twenty dans Playa Dorada Mall — épinglez le disco du mall, pas le Pijama Party de Latin Disco Club la même nuit, ni le cartel samedi Adrian Tineo × Darwin Estrella au Twenty.",
+    },
+    priceFeel: "free",
+    priceNote: "No cover on flyer — pay drinks · @twenty_disco_lounge",
+    priceNoteLocalized: {
+      es: "Sin cover en el flyer — pagas tragos · @twenty_disco_lounge",
+      fr: "Pas de cover sur l’affiche — payez les boissons · @twenty_disco_lounge",
+    },
+    attribution: "POP research · @twenty_disco_lounge Lirol J Friday Night flyer",
+    researchNotes:
+      "Editor flyer + IG — Vie 13 Nov; LIVE PERFORMANCE LIROL J; NO COVER; Playa Dorada Mall; Friday Night series with live act.",
+    updatedAt: "2026-11-11T18:45:00.000Z",
+  },
+  {
+    eventId: "fortaleza-san-felipe-encendido-luces-azules-2026-11-13",
+    body: "Friday 5:30 PM free blue-lights lighting on the San Felipe fortress for World Diabetes Day with ENDONORTE — pin La Puntilla for the commemorative wash, not the daytime museum circuit alone and not Ocean World’s Christmas lights encendido.",
+    localized: {
+      es: "Viernes 5:30 PM encendido gratis de luces azules en la Fortaleza San Felipe por el Día Mundial de la Diabetes con ENDONORTE — clava La Puntilla para el lavado conmemorativo, no solo el circuito diurno del museo ni el encendido navideño de Ocean World.",
+      fr: "Vendredi 17 h 30 allumage gratuit de lumières bleues sur la Fortaleza San Felipe pour la Journée mondiale du diabète avec ENDONORTE — épinglez La Puntilla pour le wash commémoratif, pas seulement le circuit diurne du musée ni l’allumage de Noël d’Ocean World.",
+    },
+    priceFeel: "free",
+    priceNote: "Free public invitation · @museosanfelipe",
+    priceNoteLocalized: {
+      es: "Invitación pública gratis · @museosanfelipe",
+      fr: "Invitation publique gratuite · @museosanfelipe",
+    },
+    attribution: "POP research · @museosanfelipe Encendido de Luces Azules flyer",
+    researchNotes:
+      "Editor flyer + IG caption — Vie 13 Nov 2026 5:30 PM; Museo Fortaleza San Felipe + ENDONORTE; World Diabetes Day; Dirección General de Museos / Ministerio de Cultura logos; free public commemorative lighting.",
+    updatedAt: "2026-11-11T19:15:00.000Z",
+  },
+  {
+    eventId: "spotland-fit-fusion-night-volumen-2-2026-11-18",
+    body: "Wednesday 7 PM Coolgym Fit Fusion at Spot Land — aerobics, functional, Zumba, and yoga for RD$700 pre-sale / RD$800 door with snacks and hydration; bring a towel or mat and pay ahead for limited spots — not Laser Tag hours alone.",
+    localized: {
+      es: "Miércoles 7 PM Fit Fusion de Coolgym en Spot Land — aeróbicos, funcional, Zumba y yoga por RD$700 preventa / RD$800 puerta con refrigerios e hidratación; lleva toalla o mat y paga antes por cupos limitados — no es solo el horario de Laser Tag.",
+      fr: "Mercredi 19 h Fit Fusion Coolgym à Spot Land — aérobic, fonctionnel, Zumba et yoga pour RD$700 prévente / RD$800 porte avec collations et hydratation ; apportez serviette ou tapis et payez avant pour les places limitées — pas seulement les horaires Laser Tag.",
+    },
+    priceFeel: "moderate",
+    priceNote: "RD$700 pre-sale · RD$800 door · includes snacks & hydration",
+    priceNoteLocalized: {
+      es: "RD$700 preventa · RD$800 puerta · incluye refrigerios e hidratación",
+      fr: "RD$700 prévente · RD$800 porte · inclut collations et hydratation",
+    },
+    attribution: "POP research · Spot Land / Coolgym Fit Fusion Night Vol. 2 flyer",
+    researchNotes:
+      "Editor flyer — Mié 18 Nov 2026 7 PM; Spot Land; Aeróbicos/Funcional/Zumba/Yoga; Coolgym; RD$700 preventa / RD$800 puerta; towel or mat; snacks+hydration; limited spots.",
+    updatedAt: "2026-11-11T19:30:00.000Z",
+  },
 ];

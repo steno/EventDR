@@ -1126,6 +1126,14 @@ const FILE_TO_VENUE_SLUG = {
     "bachata-colmado-cabarete-2026-11-27",
   "pregame-roof-domino-sessions-weekly.jpg":
     "pregame-roof-domino-sessions-weekly",
+  "ojo-noche-latina-back-to-bachata-2026-11-12-v2.jpg":
+    "ojo-noche-latina-back-to-bachata-2026-11-12",
+  "twenty-disco-friday-lirol-j-2026-11-13.jpg":
+    "twenty-disco-friday-lirol-j-2026-11-13",
+  "fortaleza-san-felipe-encendido-luces-azules-2026-11-13.jpg":
+    "fortaleza-san-felipe-encendido-luces-azules-2026-11-13",
+  "spotland-fit-fusion-night-volumen-2-2026-11-18.jpg":
+    "spotland-fit-fusion-night-volumen-2-2026-11-18",
 };
 
 if (!existsSync(sourceDir)) {

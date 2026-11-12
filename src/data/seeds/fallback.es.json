@@ -11198,5 +11198,125 @@
       "Flow Dance"
     ],
     "imageEmoji": "💃"
+  },
+  {
+    "id": "ojo-noche-latina-back-to-bachata-2026-11-12",
+    "title": "Ojo — Noche Latina · Back to Bachata · 12 nov",
+    "description": "Noche Latina con Back to Bachata (DC to DR) y Academia de Bachata en vivo en Ojo Club en Playa Cabarete (LAX Cabarete) — jueves 12 de noviembre 2026, 9:00 PM–2:00 AM. Presentado por Ninafrika Dance School — salsa, bachata, merengue; equipo, bailarines e instructores en la pista. Latin Thursday especial — no es solo la plantilla semanal de Latin Thursdays de Ninafrika, ni Tyson Band en Aura el mismo jueves. Confirma cover con Ninafrika +1 849-854-9692 u Ojo +1 829-745-8811 · Instagram @ninafrikadance / @ojoclubcabarete.",
+    "date": "2026-11-12",
+    "time": "9:00 PM – 2:00 AM",
+    "location": "Cabarete",
+    "venue": "Ojo Club at LAX Cabarete",
+    "venueSlug": "lax-cabarete",
+    "lat": 19.7503643,
+    "lng": -70.406125,
+    "category": "dance",
+    "categories": [
+      "music",
+      "parties"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18297458811",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/ninafrikadance/",
+    "instagram": "ninafrikadance",
+    "lineup": [
+      "Back to Bachata",
+      "Academia de Bachata",
+      "Ninafrika Dance School"
+    ],
+    "imageEmoji": "💃"
+  },
+  {
+    "id": "twenty-disco-friday-lirol-j-2026-11-13",
+    "title": "Twenty Disco viernes — Lirol J · 13 nov",
+    "description": "Friday Night con live performance de Lirol J en Twenty Disco & Lounge en Playa Dorada Mall, Puerto Plata — viernes 13 de noviembre 2026. Sin cover. Viernes de disco del mall — no es el Pijama Party de Latin Disco Club la misma noche al otro lado de la ciudad, ni el cartel Adrian Tineo × Darwin Estrella de Twenty el sábado 14. Confirma puertas por Instagram @twenty_disco_lounge.",
+    "date": "2026-11-13",
+    "location": "Playa Dorada",
+    "venue": "Twenty Disco Lounge",
+    "venueSlug": "twenty-disco-lounge",
+    "address": "Playa Dorada Mall, Puerto Plata",
+    "lat": 19.769476,
+    "lng": -70.643033,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/twenty_disco_lounge/",
+    "instagram": "twenty_disco_lounge",
+    "lineup": [
+      "Lirol J"
+    ],
+    "imageEmoji": "🪩"
+  },
+  {
+    "id": "fortaleza-san-felipe-encendido-luces-azules-2026-11-13",
+    "title": "Fortaleza San Felipe — Encendido de Luces Azules · 13 nov",
+    "description": "Encendido de luces azules del Museo Fortaleza San Felipe en Puerto Plata por el Día Mundial de la Diabetes — viernes 13 de noviembre 2026 a las 5:30 PM. El Museo Fortaleza San Felipe y la Asociación Dominicana de Endocrinólogos del Norte (ENDONORTE) invitan al público al monumento colonial para sensibilizar sobre prevención y atención. Encendido conmemorativo público gratis en La Puntilla — no es solo la visita diaria al museo, ni el encendido navideño de Ocean World. Confirma por Instagram @museosanfelipe.",
+    "date": "2026-11-13",
+    "time": "5:30 PM",
+    "location": "Puerto Plata",
+    "venue": "Fortaleza San Felipe",
+    "venueSlug": "fortaleza-san-felipe",
+    "address": "Av. Gral. Gregorio Luperón, Puerto Plata",
+    "lat": 19.8041466,
+    "lng": -70.6958831,
+    "category": "culture",
+    "categories": [
+      "festivals"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "ageHint": "all-ages",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/museosanfelipe/",
+    "instagram": "museosanfelipe",
+    "lineup": [
+      "Museo Fortaleza San Felipe",
+      "ENDONORTE",
+      "Dirección General de Museos"
+    ],
+    "imageEmoji": "💙"
+  },
+  {
+    "id": "spotland-fit-fusion-night-volumen-2-2026-11-18",
+    "title": "Spot Land — Fit Fusion Night Vol. 2 · 18 nov",
+    "description": "Fit Fusion Night Volumen 2 en Spot Land en Av. Luis Ginebra, Puerto Plata — miércoles 18 de noviembre 2026 a las 7:00 PM. Aeróbicos, funcional, Zumba y yoga con Coolgym; lleva toalla grande o mat de yoga. Incluye refrigerios e hidratación. Preventa RD$700 / puerta RD$800 por persona — cupos limitados, paga antes para reservar. Noche de fitness al aire libre en Spot Land — no es solo el horario de Laser Tag, ni las noches solidarias de Zumba rosa de JL Coaching. Confirma por Instagram @spotlandrd / Coolgym.",
+    "date": "2026-11-18",
+    "time": "7:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Spot Land",
+    "venueSlug": "spotland-puerto-plata",
+    "address": "Av. Luis Ginebra, Puerto Plata",
+    "lat": 19.791224,
+    "lng": -70.680629,
+    "category": "health-wellness",
+    "categories": [
+      "dance",
+      "sports"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$700 preventa / RD$800 puerta",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/spotlandrd/",
+    "instagram": "spotlandrd",
+    "lineup": [
+      "Coolgym",
+      "Aeróbicos",
+      "Funcional",
+      "Zumba",
+      "Yoga"
+    ],
+    "imageEmoji": "🏋️"
   }
 ]

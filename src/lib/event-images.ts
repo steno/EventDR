@@ -212,6 +212,14 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "bachata-colmado-cabarete-2026-11-27.jpg",
   "pregame-roof-domino-sessions-weekly":
     "pregame-roof-domino-sessions-weekly.jpg",
+  "ojo-noche-latina-back-to-bachata-2026-11-12":
+    "ojo-noche-latina-back-to-bachata-2026-11-12-v2.jpg",
+  "twenty-disco-friday-lirol-j-2026-11-13":
+    "twenty-disco-friday-lirol-j-2026-11-13.jpg",
+  "fortaleza-san-felipe-encendido-luces-azules-2026-11-13":
+    "fortaleza-san-felipe-encendido-luces-azules-2026-11-13.jpg",
+  "spotland-fit-fusion-night-volumen-2-2026-11-18":
+    "spotland-fit-fusion-night-volumen-2-2026-11-18.jpg",
   "leos-banana-fiesta-blanca-2026-11-27":
     "leos-banana-fiesta-blanca-2026-11-27.jpg",
   "disco-club-pijama-party-2026-11-13":
@@ -1061,7 +1069,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "camara-empresas-codigo-penal-2026-09-16": "object-center",
   "camara-taller-educacion-financiera-2026-10-27": "object-center",
   "camara-taller-marketing-digital-2026-11-05": "object-center",
-  "camara-taller-servicio-cliente-2026-11-12": "object-center",
+  // Mid crop (not bare object-center — cards remap that to object-top).
+  "camara-taller-servicio-cliente-2026-11-12": "object-[50%_50%]",
   "camara-taller-asociatividad-2026-11-19": "object-center",
   "camara-taller-negocios-sostenibles-2026-12-03": "object-center",
   "luna-lounge-noche-de-exitos-2026-09-19": "object-center",
@@ -1198,9 +1207,14 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "4to-dia-rancho-catalina-2026-11-15": "object-center",
   "la-lola-dancing-weekend-2026-11-13": "object-center",
   "evolution-papy-crish-2026-11-14": "object-center",
-  "tyson-band-aura-2026-11-12": "object-center",
+  // Mid crop (not bare object-center — cards remap that to object-top).
+  "tyson-band-aura-2026-11-12": "object-[50%_50%]",
   "bachata-colmado-cabarete-2026-11-27": "object-center",
   "pregame-roof-domino-sessions-weekly": "object-center",
+  "ojo-noche-latina-back-to-bachata-2026-11-12": "object-center",
+  "twenty-disco-friday-lirol-j-2026-11-13": "object-center",
+  "fortaleza-san-felipe-encendido-luces-azules-2026-11-13": "object-center",
+  "spotland-fit-fusion-night-volumen-2-2026-11-18": "object-center",
   "leos-banana-fiesta-blanca-2026-11-27": "object-center",
   "cabarete-stand-up-vol-3-2026-11-21": "object-center",
   "disco-club-pijama-party-2026-11-13": "object-center",
@@ -1515,6 +1529,10 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "tyson-band-aura-2026-11-12.jpg",
   "bachata-colmado-cabarete-2026-11-27.jpg",
   "pregame-roof-domino-sessions-weekly.jpg",
+  "ojo-noche-latina-back-to-bachata-2026-11-12-v2.jpg",
+  "twenty-disco-friday-lirol-j-2026-11-13.jpg",
+  "fortaleza-san-felipe-encendido-luces-azules-2026-11-13.jpg",
+  "spotland-fit-fusion-night-volumen-2-2026-11-18.jpg",
   "leos-banana-fiesta-blanca-2026-11-27.jpg",
   "disco-club-pijama-party-2026-11-13.jpg",
   "samuel-gonzalez-la-lola-2026-12-05.jpg",
