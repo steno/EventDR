@@ -1043,6 +1043,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18295219736",
     venueSlug: "ocean-world",
   },
+  "ocean-world-terrace-graduation-bash-2026-11-20": {
+    admissionPrice: "RD$200",
+    phone: "+18295219736",
+    venueSlug: "ocean-world",
+    sourceUrl: "https://www.instagram.com/oceanworldterrace/",
+  },
   "toscana-nightclub-gran-apertura-2026-12-04": {
     callForPricing: true,
     venueSlug: "toscana-nightclub",

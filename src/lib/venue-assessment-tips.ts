@@ -82,11 +82,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "el-parq-cabarete": {
-    body: "Open-air food-park night out near Encuentro — cash for stalls, casual crowd, more resident Cabarete than resort shuttle polish.",
+    body: "Open-air food-park night out near Encuentro — cash for stalls; 2nd & 4th Thursday kids karaoke is 5–7 PM with Francesca, then Shaka’s adult karaoke from 7:30 PM — more resident Cabarete than resort shuttle polish.",
     localized: {
-      en: "Open-air food-park night out near Encuentro — cash for stalls, casual crowd, more resident Cabarete than resort shuttle polish.",
-      es: "Noche de food park al aire libre cerca de Encuentro — efectivo para puestos, público casual, más Cabarete residente que shuttle de resort.",
-      fr: "Soirée food park en plein air près d'Encuentro — cash pour les stands, foule casual, plus résidents que navette resort.",
+      en: "Open-air food-park night out near Encuentro — cash for stalls; 2nd & 4th Thursday kids karaoke is 5–7 PM with Francesca, then Shaka’s adult karaoke from 7:30 PM — more resident Cabarete than resort shuttle polish.",
+      es: "Noche de food park al aire libre cerca de Encuentro — efectivo para puestos; el 2.º y 4.º jueves el karaoke kids es 5–7 PM con Francesca, luego el karaoke adulto de Shaka desde las 7:30 PM — más Cabarete residente que shuttle de resort.",
+      fr: "Soirée food park en plein air près d'Encuentro — cash pour les stands ; 2e et 4e jeudi karaoke kids 17 h–19 h avec Francesca, puis karaoke adulte Shaka dès 19 h 30 — plus résidents que navette resort.",
     },
   },
   "ninafrika-dance-school-cabarete": {
@@ -1287,6 +1287,22 @@ export const VENUE_TIP_COPY: Record<
       en: "San Marcos disco at the old La Villana / Villanas pin on Calle Principal — locals still say Antigua Villana; no menores at the door, Fri–Mon late, and confirm the night on @evolution_disco_club146 before you pin downtown Malecón clubs instead.",
       es: "Disco en San Marcos en el pin de la antigua La Villana / Villanas en Calle Principal — la gente aún dice Antigua Villana; no menores en la puerta, vie–lun tarde, y confirma la noche en @evolution_disco_club146 antes de clavar clubs del Malecón del centro.",
       fr: "Disco à San Marcos sur le pin de l’ancienne La Villana / Villanas sur Calle Principal — on dit encore Antigua Villana ; pas de mineurs à la porte, ven.–lun. tard, et confirmez la soirée sur @evolution_disco_club146 avant d’épingler les clubs du Malecón downtown.",
+    },
+  },
+  "los-guaos-veragua": {
+    body: "Veragua countryside paraje (Los Guaos / Alto Grande) inland from Cabarete — cabalgata pasture days with local ranch crews, not a Cabarete beach club; pin the field, bring sun cover, and confirm the day’s meeting point with the hosts before you Uber from the strip.",
+    localized: {
+      en: "Veragua countryside paraje (Los Guaos / Alto Grande) inland from Cabarete — cabalgata pasture days with local ranch crews, not a Cabarete beach club; pin the field, bring sun cover, and confirm the day’s meeting point with the hosts before you Uber from the strip.",
+      es: "Paraje de campo en Veragua (Los Guaos / Alto Grande) tierra adentro desde Cabarete — días de cabalgata en pastizal con cuadrillas de ranchos, no un beach club de Cabarete; clava el campo, lleva sombra, y confirma el punto de encuentro del día con los anfitriones antes del Uber desde la franja.",
+      fr: "Paraje de campagne à Veragua (Los Guaos / Alto Grande) à l’intérieur depuis Cabarete — journées de cabalgata au pâturage avec les équipes de ranchos, pas un beach club de Cabarete ; épinglez le champ, prévoyez de l’ombre, et confirmez le point de rendez-vous du jour avec les hôtes avant l’Uber depuis la bande.",
+    },
+  },
+  "037-bar-restaurant": {
+    body: "Malecón neon seafood bar at Gregorio Luperón #34 A — karaoke and cocktail nights here, not Victrola 037 Arte Café down the same avenue (@victrolart); confirm doors on @037barrestaurant or WhatsApp +1 849-785-1822 before you treat it as a walk-up tourist café.",
+    localized: {
+      en: "Malecón neon seafood bar at Gregorio Luperón #34 A — karaoke and cocktail nights here, not Victrola 037 Arte Café down the same avenue (@victrolart); confirm doors on @037barrestaurant or WhatsApp +1 849-785-1822 before you treat it as a walk-up tourist café.",
+      es: "Bar de mariscos con neón en el Malecón en Gregorio Luperón #34 A — karaoke y cócteles aquí, no Victrola 037 Arte Café en la misma avenida (@victrolart); confirma puertas en @037barrestaurant o WhatsApp +1 849-785-1822 antes de tratarlo como café turístico walk-up.",
+      fr: "Bar fruits de mer néon sur le Malecón au Gregorio Luperón #34 A — karaoke et cocktails ici, pas Victrola 037 Arte Café sur la même avenue (@victrolart) ; confirmez les portes sur @037barrestaurant ou WhatsApp +1 849-785-1822 avant de le traiter comme un café touristique walk-up.",
     },
   },
   "nova-salud-bienestar": {

@@ -174,7 +174,14 @@ export const CITIES: CityMeta[] = [
       es: "Cabarete",
       fr: "Cabarete",
     },
-    matchers: ["cabarete", "playa encuentro"],
+    matchers: [
+      "cabarete",
+      "playa encuentro",
+      "veragua",
+      "los guaos",
+      "gaspar hernández",
+      "gaspar hernandez",
+    ],
     topCategories: ["sports", "parties", "music", "health-wellness", "adventure"],
     seo: {
       en: {

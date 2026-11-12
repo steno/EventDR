@@ -6656,10 +6656,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "caribbean-surf-junior-puntilla-2026-11-14",
-    body: "Junior surf heats at La Puntilla on 14 Nov — register on @caribbeansurfconnection before you treat the tip like a free beach day; not the Dec 27–28 Encuentro junior stop and not Masters Surf Reunion earlier in November.",
+    body: "Cancelled — CSC pulled the 14 Nov La Puntilla junior surf day; watch @caribbeansurfconnection for a reschedule, and keep Dec 27–28 Encuentro on the calendar separately.",
     localized: {
-      es: "Heats junior de surf en La Puntilla el 14 nov — inscríbete en @caribbeansurfconnection antes de tratar la punta como día de playa gratis; no es la parada junior del 27–28 dic en Encuentro ni Masters Surf Reunion a principios de noviembre.",
-      fr: "Heats junior de surf à La Puntilla le 14 nov — inscrivez-vous sur @caribbeansurfconnection avant de traiter la pointe comme une journée plage gratuite ; pas l’étape junior des 27–28 déc. à Encuentro ni Masters Surf Reunion début novembre.",
+      es: "Cancelado — CSC retiró el día junior de surf del 14 nov en La Puntilla; sigue @caribbeansurfconnection por una nueva fecha, y mantén aparte el 27–28 dic en Encuentro.",
+      fr: "Annulé — CSC a retiré la journée junior de surf du 14 nov à La Puntilla ; suivez @caribbeansurfconnection pour une reprise, et gardez à part les 27–28 déc. à Encuentro.",
     },
     priceFeel: "varies",
     priceNote: "Register via @caribbeansurfconnection link in bio",
@@ -6669,15 +6669,15 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · Caribbean Surf Connection junior comps flyer",
     researchNotes:
-      "Editor flyers — Nov 14 La Puntilla Puerto Plata; Dec 27–28 Playa Encuentro La Izquierda Cabarete; @caribbeansurfconnection register link in bio. Pin uses anfiteatro-la-puntilla coords for the tip.",
-    updatedAt: "2026-10-21T19:30:00.000Z",
+      "CANCELLED — @caribbeansurfconnection IG + urgent flyer: Sat 14 Nov La Puntilla junior surf competition cancelled; more info later. Seed id in REMOVED_SEED_EVENT_IDS.",
+    updatedAt: "2026-11-12T22:30:00.000Z",
   },
   {
     eventId: "caribbean-surf-junior-encuentro-2026-12-27",
-    body: "Two-day junior surf stop at Playa Encuentro La Izquierda (27–28 Dec) — register on @caribbeansurfconnection; not the Nov 14 La Puntilla junior day and not Masters Surf Reunion’s early-November Encuentro week.",
+    body: "Two-day junior surf stop at Playa Encuentro La Izquierda (27–28 Dec) — register on @caribbeansurfconnection; not Masters Surf Reunion’s early-November Encuentro week, and not the cancelled Nov 14 La Puntilla junior day.",
     localized: {
-      es: "Parada junior de dos días en Playa Encuentro La Izquierda (27–28 dic) — inscríbete en @caribbeansurfconnection; no es el día junior del 14 nov en La Puntilla ni la semana de Masters Surf Reunion a principios de noviembre en Encuentro.",
-      fr: "Étape junior de deux jours à Playa Encuentro La Izquierda (27–28 déc.) — inscrivez-vous sur @caribbeansurfconnection ; pas la journée junior du 14 nov à La Puntilla ni la semaine Masters Surf Reunion début novembre à Encuentro.",
+      es: "Parada junior de dos días en Playa Encuentro La Izquierda (27–28 dic) — inscríbete en @caribbeansurfconnection; no es la semana de Masters Surf Reunion a principios de noviembre en Encuentro, ni el día junior del 14 nov en La Puntilla (cancelado).",
+      fr: "Étape junior de deux jours à Playa Encuentro La Izquierda (27–28 déc.) — inscrivez-vous sur @caribbeansurfconnection ; pas la semaine Masters Surf Reunion début novembre à Encuentro, ni la journée junior du 14 nov à La Puntilla (annulée).",
     },
     priceFeel: "varies",
     priceNote: "Register via @caribbeansurfconnection link in bio",
@@ -6687,8 +6687,8 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · Caribbean Surf Connection junior comps flyer",
     researchNotes:
-      "Editor flyer SAVE THESE DATES — Dec 27–28 Cabarete Playa Encuentro La Izquierda; @caribbeansurfconnection.",
-    updatedAt: "2026-10-21T19:15:00.000Z",
+      "Editor flyer SAVE THESE DATES — Dec 27–28 Cabarete Playa Encuentro La Izquierda; @caribbeansurfconnection. Nov 14 Puntilla cancelled 2026-11-12.",
+    updatedAt: "2026-11-12T22:30:00.000Z",
   },
   {
     eventId: "proyecto-x-el-calabozo-2026-10-31",
@@ -9244,5 +9244,116 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer + IG caption @chameleonsportbar — Vie 13 Nov 2026; PERREO A POCA LUZ; LIVE PERFORMANCE DJ H23 X DEEWAY; Sosúa Bay Center Calle Alejo Martínez #1 El Batey; RSVP (829) 994-2304; Pekke Redes. No start time or cover on art.",
     updatedAt: "2026-11-12T19:45:00.000Z",
+  },
+  {
+    eventId: "los-guaos-gran-cabalgata-natural-2026-11-15",
+    body: "Sunday cabalgata day in Los Guaos, Veragua — from 2 PM with DJ Monarka (El Therian), Team Pisacascaras hosts, and a 5 PM bachata contest with prizes; pin the countryside field inland from Cabarete, not Rancho La Catalina’s 4to Día set the same afternoon in El Cupey.",
+    localized: {
+      es: "Domingo de cabalgata en Los Guaos, Veragua — desde las 2 PM con DJ Monarka (El Therian), anfitriones Team Pisacascaras, y concurso de bachata a las 5 PM con premios; clava el pastizal tierra adentro desde Cabarete, no el set de 4to Día en Rancho La Catalina el mismo domingo en El Cupey.",
+      fr: "Dimanche de cabalgata à Los Guaos, Veragua — dès 14 h avec DJ Monarka (El Therian), hôtes Team Pisacascaras, et concours de bachata à 17 h avec prix ; épinglez le pâturage à l’intérieur depuis Cabarete, pas le set 4to Día à Rancho La Catalina le même dimanche à El Cupey.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — confirm with hosts (Pisacascaras / Ovidio)",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — confirma con anfitriones (Pisacascaras / Ovidio)",
+      fr: "Cover à confirmer — confirmez avec les hôtes (Pisacascaras / Ovidio)",
+    },
+    attribution:
+      "POP research · Los Guaos Gran Cabalgata Natural / DJ Monarka flyers (editor-provided)",
+    researchNotes:
+      "Editor flyers — Dom 15 Nov; desde las 2 de la tarde; concurso de bachata a las 5; DJ Monarka El Therian; invitan Los Pisacascaras, Los Therians y Ovidio; Gran Cabalgata Natural; patrocinadores Veragua ranchos; Pekke Redes. Field place shot POP-supplied for new venue los-guaos-veragua. Same Sunday as 4to Día at Rancho Catalina.",
+    updatedAt: "2026-11-12T21:00:00.000Z",
+  },
+  {
+    eventId: "037-bar-karaoke-2026-11-13",
+    body: "Friday karaoke from 7 PM at 037 Bar Restaurante on Malecón Gregorio Luperón #34 A — neon seafood bar nights here, not Victrola 037 Arte Café on the same avenue, and not Mecla'o’s Mr Alfredo rooftop or Chameleon’s Sosúa perreo the same Friday.",
+    localized: {
+      es: "Viernes de karaoke desde las 7 PM en 037 Bar Restaurante en el Malecón Gregorio Luperón #34 A — noches de bar de mariscos con neón aquí, no Victrola 037 Arte Café en la misma avenida, ni el rooftop de Mr Alfredo en Mecla'o ni el perreo de Chameleon en Sosúa el mismo viernes.",
+      fr: "Vendredi karaoke dès 19 h au 037 Bar Restaurante sur le Malecón Gregorio Luperón #34 A — soirées bar fruits de mer néon ici, pas Victrola 037 Arte Café sur la même avenue, ni le rooftop Mr Alfredo chez Mecla'o ni le perreo de Chameleon à Sosúa le même vendredi.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — @037barrestaurant · WhatsApp +1 849-785-1822",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — @037barrestaurant · WhatsApp +1 849-785-1822",
+      fr: "Cover à confirmer — @037barrestaurant · WhatsApp +1 849-785-1822",
+    },
+    attribution:
+      "POP research · @037barrestaurant Noche de Karaoke flyer (editor-provided)",
+    researchNotes:
+      "Editor flyer + IG @037barrestaurant — Vie 13 Nov from 7 PM; Noche de Karaoke; Av. Gral. Gregorio Luperón #34 A; not Victrola 037. Same Friday as Meclao Mr Alfredo, Chameleon Perreo, Ambar Bandoleras, Twenty Lirol J.",
+    updatedAt: "2026-11-12T21:30:00.000Z",
+  },
+  {
+    eventId: "el-parq-karaoke-kids-2026-11-12",
+    body: "Today’s 2nd-Thursday kids karaoke at Encuentro Food Park / El Parq 5–7 PM with Francesca — family mic hour before Shaka’s adult Thursday karaoke from 7:30 PM; bring cash for the stalls.",
+    localized: {
+      es: "Hoy, karaoke kids del 2.º jueves en Encuentro Food Park / El Parq 5–7 PM con Francesca — hora familiar de micrófono antes del karaoke adulto de Shaka desde las 7:30 PM; lleva efectivo para los puestos.",
+      fr: "Aujourd’hui, karaoke kids du 2e jeudi à Encuentro Food Park / El Parq 17 h–19 h avec Francesca — heure famille au micro avant le karaoke adulte de Shaka dès 19 h 30 ; prenez du cash pour les stands.",
+    },
+    priceFeel: "budget",
+    priceNote: "Cover TBA — food-park stall spend",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — gasto de puestos del food park",
+      fr: "Cover à confirmer — dépenses des stands du food park",
+    },
+    attribution: "POP research · El Parq Big Day Karaoke Kids flyer",
+    researchNotes:
+      "Editor flyer — BIG DAY KARAOKE Kids; Encuentro Food Park; Hosted by Francesca; 2nd & 4th Thursday every month 5–7 pm. Dated 12 Nov 2026 (2nd Thu). Distinct from el-parq-karaoke-thursday 7:30–9:30 PM.",
+    updatedAt: "2026-11-12T22:00:00.000Z",
+  },
+  {
+    eventId: "el-parq-karaoke-kids-2026-11-26",
+    body: "4th-Thursday kids karaoke at Encuentro Food Park / El Parq 5–7 PM with Francesca — family mic hour before Shaka’s adult Thursday karaoke from 7:30 PM; bring cash for the stalls.",
+    localized: {
+      es: "Karaoke kids del 4.º jueves en Encuentro Food Park / El Parq 5–7 PM con Francesca — hora familiar de micrófono antes del karaoke adulto de Shaka desde las 7:30 PM; lleva efectivo para los puestos.",
+      fr: "Karaoke kids du 4e jeudi à Encuentro Food Park / El Parq 17 h–19 h avec Francesca — heure famille au micro avant le karaoke adulte de Shaka dès 19 h 30 ; prenez du cash pour les stands.",
+    },
+    priceFeel: "budget",
+    priceNote: "Cover TBA — food-park stall spend",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — gasto de puestos del food park",
+      fr: "Cover à confirmer — dépenses des stands du food park",
+    },
+    attribution: "POP research · El Parq Big Day Karaoke Kids flyer",
+    researchNotes:
+      "Editor flyer — 2nd & 4th Thursday series; dated 26 Nov 2026 (4th Thu). Distinct from weekly Shaka karaoke 7:30–9:30 PM.",
+    updatedAt: "2026-11-12T21:50:00.000Z",
+  },
+  {
+    eventId: "el-parq-karaoke-kids-2026-12-10",
+    body: "December’s 2nd-Thursday kids karaoke at Encuentro Food Park / El Parq 5–7 PM with Francesca — family mic hour before Shaka’s adult Thursday karaoke from 7:30 PM; bring cash for the stalls.",
+    localized: {
+      es: "Karaoke kids del 2.º jueves de diciembre en Encuentro Food Park / El Parq 5–7 PM con Francesca — hora familiar de micrófono antes del karaoke adulto de Shaka desde las 7:30 PM; lleva efectivo para los puestos.",
+      fr: "Karaoke kids du 2e jeudi de décembre à Encuentro Food Park / El Parq 17 h–19 h avec Francesca — heure famille au micro avant le karaoke adulte de Shaka dès 19 h 30 ; prenez du cash pour les stands.",
+    },
+    priceFeel: "budget",
+    priceNote: "Cover TBA — food-park stall spend",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — gasto de puestos del food park",
+      fr: "Cover à confirmer — dépenses des stands du food park",
+    },
+    attribution: "POP research · El Parq Big Day Karaoke Kids flyer",
+    researchNotes:
+      "Editor flyer — 2nd & 4th Thursday series; dated 10 Dec 2026 (2nd Thu). Distinct from weekly Shaka karaoke 7:30–9:30 PM.",
+    updatedAt: "2026-11-12T21:40:00.000Z",
+  },
+  {
+    eventId: "ocean-world-terrace-graduation-bash-2026-11-20",
+    body: "UTESA graduation Friday on the Cofresí terrace — RD$200 with Melving Swing at night; reserve a decorated graduate table on WhatsApp +1 829-521-9736, and don’t mix it with the dolphin-park ticket line or Rubio + Manon on 4 Dec.",
+    localized: {
+      es: "Viernes de graduación UTESA en la terraza de Cofresí — RD$200 con Melving Swing en la noche; reserva mesa decorada estilo graduados por WhatsApp +1 829-521-9736, y no lo mezcles con la fila de delfines ni Rubio + Manon el 4 dic.",
+      fr: "Vendredi graduation UTESA sur la terrasse de Cofresí — RD$200 avec Melving Swing le soir ; réservez une table décorée style diplômés via WhatsApp +1 829-521-9736, et ne confondez pas avec la file des dauphins ni Rubio + Manon le 4 déc.",
+    },
+    priceFeel: "budget",
+    priceNote: "RD$200 · tables WhatsApp +1 829-521-9736",
+    priceNoteLocalized: {
+      es: "RD$200 · mesas WhatsApp +1 829-521-9736",
+      fr: "RD$200 · tables WhatsApp +1 829-521-9736",
+    },
+    attribution:
+      "POP research · @oceanworldterrace Graduation Bash flyer + caption",
+    researchNotes:
+      "Editor flyer + IG caption @oceanworldterrace — Vie 20 Nov; Graduation Bash; UTESA Puerto Plata; trago de bienvenida; photo booth; video 360; DJ; Melving Swing noche; entrada RD$200; mesas 829-521-9736.",
+    updatedAt: "2026-11-12T22:45:00.000Z",
   },
 ];

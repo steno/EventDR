@@ -110,6 +110,8 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "super-mega-urban-fest-2026-11-04",
   // Cancelled — Van Avakian live at Drifter, Sat 7 Nov 2026.
   "van-avakian-drifter-2026-11-07",
+  // Cancelled — CSC Junior Surf Comp at La Puntilla, Sat 14 Nov 2026 (@caribbeansurfconnection).
+  "caribbean-surf-junior-puntilla-2026-11-14",
 ]);
 
 /**
@@ -153,6 +155,7 @@ export const EVENT_PATH_REDIRECTS: Record<string, string> = {
   "sosua-coastal-pickleball-open-2026-10-24": "/city/sosua",
   "super-mega-urban-fest-2026-11-04": "/venue/anfiteatro-la-puntilla",
   "van-avakian-drifter-2026-11-07": "/venue/drifter-cabarete",
+  "caribbean-surf-junior-puntilla-2026-11-14": "/venue/anfiteatro-la-puntilla",
 };
 
 export function resolveEventPathRedirect(

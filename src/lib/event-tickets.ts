@@ -171,6 +171,7 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
   "hard-rock-the-king-mj-2026-09-19": "RD$1,300",
   "kaovanny-hard-rock-2026-11-20": "RD$500",
   "ocean-world-terrace-rubio-manon-2026-12-04": "RD$1,000",
+  "ocean-world-terrace-graduation-bash-2026-11-20": "RD$200",
   "sunset-cabarete-sessions-2026": "from US$16",
   "puerto-plata-poker-experience-2026": "Main Event US$900 buy-in",
   "los-event-trilogy-2026-09-03": "from US$875",

@@ -14,6 +14,12 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "meclao-reggaeton-rooftop-mr-alfredo-2026-11-13.jpg",
   "chameleon-perreo-poca-luz-h23-deeway-2026-11-13":
     "chameleon-perreo-poca-luz-h23-deeway-2026-11-13.jpg",
+  "los-guaos-gran-cabalgata-natural-2026-11-15":
+    "los-guaos-gran-cabalgata-natural-2026-11-15.jpg",
+  "037-bar-karaoke-2026-11-13": "037-bar-karaoke-2026-11-13.jpg",
+  "el-parq-karaoke-kids-2026-11-12": "el-parq-karaoke-kids-2026-11-12.jpg",
+  "ocean-world-terrace-graduation-bash-2026-11-20":
+    "ocean-world-terrace-graduation-bash-2026-11-20.jpg",
   "pregame-roof-rooftop-pong-2026-11-08":
     "pregame-roof-rooftop-pong-2026-11-08.jpg",
   "parada-choco-banditalia-2026-11-10":
@@ -982,6 +988,8 @@ const EVENT_IMAGE_ALIASES: Record<string, string> = {
   "gym-sov-zumba-lift-thursday": "gym-sov-zumba-tuesday",
   "flip-flop-weekday-happy-hour": "flip-flop-monday-happy-hour",
   "flip-flop-weekend-happy-hour": "flip-flop-monday-happy-hour",
+  "el-parq-karaoke-kids-2026-11-26": "el-parq-karaoke-kids-2026-11-12",
+  "el-parq-karaoke-kids-2026-12-10": "el-parq-karaoke-kids-2026-11-12",
 };
 
 const EVENT_IMAGE_PREFIXES: { prefix: string; file: string }[] = [
@@ -1039,6 +1047,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "chameleon-cursed-room-ronny-alca-2026-11-01": "object-center",
   "chameleon-monsters-ball-deeway-2026-10-18": "object-center",
   "chameleon-perreo-poca-luz-h23-deeway-2026-11-13": "object-center",
+  "los-guaos-gran-cabalgata-natural-2026-11-15": "object-center",
+  "037-bar-karaoke-2026-11-13": "object-center",
   "meclao-reggaeton-rooftop-mr-alfredo-2026-11-13": "object-center",
   "ann-soul-jazz-natura-cabana-2026-10-17": "object-center",
   // Portrait entrance — keep the walkers in a wide crop.
@@ -1491,6 +1501,10 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "meclao-tinder-party-2026-11-07.jpg",
   "meclao-reggaeton-rooftop-mr-alfredo-2026-11-13.jpg",
   "chameleon-perreo-poca-luz-h23-deeway-2026-11-13.jpg",
+  "los-guaos-gran-cabalgata-natural-2026-11-15.jpg",
+  "037-bar-karaoke-2026-11-13.jpg",
+  "el-parq-karaoke-kids-2026-11-12.jpg",
+  "ocean-world-terrace-graduation-bash-2026-11-20.jpg",
   "pregame-roof-rooftop-pong-2026-11-08.jpg",
   "parada-choco-banditalia-2026-11-10.jpg",
   "art-of-scent-petit-francois-2026-11-22.jpg",

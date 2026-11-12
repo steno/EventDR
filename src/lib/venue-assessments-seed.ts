@@ -2151,6 +2151,28 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
       { key: "easy_to_find", sentiment: "mixed", audience: "visitor" },
     ],
   }),
+  editorial({
+    venueSlug: "los-guaos-veragua",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["local", "mixed", "family"],
+    axes: { recommend: 4.0, atmosphere: 4.3, value: 4.1, practical: 3.2 },
+    themes: [
+      { key: "countryside", sentiment: "positive" },
+      { key: "outdoor_space", sentiment: "positive", audience: "mixed" },
+      { key: "easy_to_find", sentiment: "mixed", audience: "visitor" },
+    ],
+  }),
+  editorial({
+    venueSlug: "037-bar-restaurant",
+    verdictKey: "strong_mixed_food_nightlife",
+    crowdFit: ["local", "nightlife", "mixed", "visitor"],
+    axes: { recommend: 4.0, atmosphere: 4.2, value: 3.9, practical: 3.8 },
+    themes: [
+      { key: "cocktails", sentiment: "positive", audience: "nightlife" },
+      { key: "karaoke", sentiment: "positive", audience: "nightlife" },
+      { key: "easy_to_find", sentiment: "mixed", audience: "visitor" },
+    ],
+  }),
 ];
 
 const bySlug = new Map(

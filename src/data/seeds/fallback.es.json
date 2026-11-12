@@ -7469,7 +7469,7 @@
   {
     "id": "caribbean-surf-junior-encuentro-2026-12-27",
     "title": "Caribbean Surf Junior Comp — Playa Encuentro",
-    "description": "Competencia junior de Caribbean Surf Connection en Playa Encuentro — La Izquierda, Cabarete — sábado–domingo 27–28 de diciembre 2026. Continuación de heats junior tras la parada del 14 de noviembre en La Puntilla. Inscríbete vía Instagram @caribbeansurfconnection (link in bio). No es Masters Surf Reunion (principios de noviembre) ni el día junior del 14 nov en Puerto Plata.",
+    "description": "Competencia junior de Caribbean Surf Connection en Playa Encuentro — La Izquierda, Cabarete — sábado–domingo 27–28 de diciembre 2026. Inscríbete vía Instagram @caribbeansurfconnection (link in bio). No es Masters Surf Reunion (principios de noviembre). El día junior del 14 nov en La Puntilla fue cancelado por CSC.",
     "date": "2026-12-27",
     "endDate": "2026-12-28",
     "location": "Cabarete",
@@ -11375,5 +11375,180 @@
       "Deeway"
     ],
     "imageEmoji": "🔥"
+  },
+  {
+    "id": "los-guaos-gran-cabalgata-natural-2026-11-15",
+    "title": "Los Guaos — Gran Cabalgata Natural (DJ Monarka)",
+    "description": "Gran Cabalgata Natural en Los Guaos, Veragua (Distrito Municipal Veragua / Gaspar Hernández, tierra adentro desde Cabarete) — domingo 15 de noviembre 2026 desde las 2:00 PM. Invitan Team Pisacascaras, Los Therians y Ovidio con DJ Monarka (El Therian) en vivo; concurso de bachata con premios a las 5:00 PM. Cover no está en el flyer. Domingo de cabalgata en el campo — no es 4to Día en Rancho La Catalina la misma tarde en El Cupey.",
+    "date": "2026-11-15",
+    "time": "2:00 PM",
+    "location": "Veragua",
+    "venue": "Los Guaos",
+    "venueSlug": "los-guaos-veragua",
+    "address": "Los Guaos / Alto Grande, Veragua (Distrito Municipal Veragua), Gaspar Hernández",
+    "lat": 19.6203,
+    "lng": -70.3428,
+    "category": "parties",
+    "categories": [
+      "music",
+      "adventure"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "lineup": [
+      "DJ Monarka (El Therian)",
+      "Team Pisacascaras",
+      "Los Therians",
+      "Ovidio",
+      "Concurso de bachata con premios — 5:00 PM"
+    ],
+    "imageEmoji": "🐎"
+  },
+  {
+    "id": "037-bar-karaoke-2026-11-13",
+    "title": "037 Bar Restaurante — Noche de Karaoke",
+    "description": "Noche de Karaoke en 037 Bar Restaurante, Av. Gral. Gregorio Luperón #34 A, Malecón de Puerto Plata — viernes 13 de noviembre 2026 desde las 7:00 PM. Karaoke en bar de mariscos con neón — no es Victrola 037 Arte Café en la misma avenida, ni el Reggaeton Rooftop de Mecla'o con Mr Alfredo, ni Perreo a Poca Luz de Chameleon en Sosúa el mismo viernes. Cover no está en el flyer — Instagram @037barrestaurant · WhatsApp +1 849-785-1822.",
+    "date": "2026-11-13",
+    "time": "7:00 PM",
+    "location": "Puerto Plata",
+    "venue": "037 Bar Restaurante",
+    "venueSlug": "037-bar-restaurant",
+    "address": "Av. Gral. Gregorio Luperón #34 A, Puerto Plata 57000",
+    "lat": 19.7992,
+    "lng": -70.6904,
+    "category": "parties",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18497851822",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/037barrestaurant/",
+    "instagram": "037barrestaurant",
+    "lineup": [
+      "Noche de Karaoke",
+      "Desde las 7:00 PM"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "el-parq-karaoke-kids-2026-11-12",
+    "title": "El Parq Karaoke Kids — 12 nov",
+    "description": "Big Day Karaoke Kids en Encuentro Food Park (El Parq Foodpark) cerca de Encuentro, Cabarete — jueves 12 de noviembre 2026, 5:00–7:00 PM, presentado por Francesca. Karaoke familiar para kids el 2.º jueves del mes — no es el karaoke adulto de Shaka Bar la misma noche de 7:30–9:30 PM. Serie fija: 2.º y 4.º jueves de cada mes.",
+    "date": "2026-11-12",
+    "time": "5:00 PM – 7:00 PM",
+    "location": "Cabarete",
+    "venue": "El Parq Foodpark",
+    "venueSlug": "el-parq-cabarete",
+    "lat": 19.7739371,
+    "lng": -70.4446512,
+    "category": "music",
+    "categories": [
+      "family",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "ageHint": "family",
+    "sourceType": "flyer",
+    "lineup": [
+      "Presentado por Francesca",
+      "Big Day Karaoke Kids",
+      "2.º y 4.º jueves de cada mes"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "el-parq-karaoke-kids-2026-11-26",
+    "title": "El Parq Karaoke Kids — 26 nov",
+    "description": "Big Day Karaoke Kids en Encuentro Food Park (El Parq Foodpark) cerca de Encuentro, Cabarete — jueves 26 de noviembre 2026, 5:00–7:00 PM, presentado por Francesca. Karaoke familiar para kids el 4.º jueves del mes — no es el karaoke adulto de Shaka Bar la misma noche de 7:30–9:30 PM. Serie fija: 2.º y 4.º jueves de cada mes.",
+    "date": "2026-11-26",
+    "time": "5:00 PM – 7:00 PM",
+    "location": "Cabarete",
+    "venue": "El Parq Foodpark",
+    "venueSlug": "el-parq-cabarete",
+    "lat": 19.7739371,
+    "lng": -70.4446512,
+    "category": "music",
+    "categories": [
+      "family",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "ageHint": "family",
+    "sourceType": "flyer",
+    "lineup": [
+      "Presentado por Francesca",
+      "Big Day Karaoke Kids",
+      "2.º y 4.º jueves de cada mes"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "el-parq-karaoke-kids-2026-12-10",
+    "title": "El Parq Karaoke Kids — 10 dic",
+    "description": "Big Day Karaoke Kids en Encuentro Food Park (El Parq Foodpark) cerca de Encuentro, Cabarete — jueves 10 de diciembre 2026, 5:00–7:00 PM, presentado por Francesca. Karaoke familiar para kids el 2.º jueves del mes — no es el karaoke adulto de Shaka Bar la misma noche de 7:30–9:30 PM. Serie fija: 2.º y 4.º jueves de cada mes.",
+    "date": "2026-12-10",
+    "time": "5:00 PM – 7:00 PM",
+    "location": "Cabarete",
+    "venue": "El Parq Foodpark",
+    "venueSlug": "el-parq-cabarete",
+    "lat": 19.7739371,
+    "lng": -70.4446512,
+    "category": "music",
+    "categories": [
+      "family",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "ageHint": "family",
+    "sourceType": "flyer",
+    "lineup": [
+      "Presentado por Francesca",
+      "Big Day Karaoke Kids",
+      "2.º y 4.º jueves de cada mes"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "ocean-world-terrace-graduation-bash-2026-11-20",
+    "title": "Ocean World Terrace — Graduation Bash · UTESA",
+    "description": "Graduation Bash para graduandos de UTESA Puerto Plata en Terraza Ocean World & Casino, Calle Principal #3, Cofresí — viernes 20 de noviembre 2026. Trago de bienvenida para graduados, photo booth, video 360, DJ y música en vivo en la noche con Melving Swing. Entrada RD$200; mesas decoradas estilo graduación por WhatsApp +1 829-521-9736. Instagram @oceanworldterrace. Noche de graduación en la terraza de Cofresí — no es la fila de delfines, ni Rubio Acordeón + Manon el 4 dic.",
+    "date": "2026-11-20",
+    "location": "Puerto Plata",
+    "venue": "Terraza Ocean World",
+    "venueSlug": "ocean-world",
+    "address": "Calle Principal #3, Cofresí, Puerto Plata",
+    "lat": 19.826313,
+    "lng": -70.732062,
+    "phone": "+18295219736",
+    "category": "parties",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "admissionPrice": "RD$200",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/oceanworldterrace/",
+    "instagram": "oceanworldterrace",
+    "lineup": [
+      "Melving Swing",
+      "DJ",
+      "Trago de bienvenida para graduados",
+      "Photo booth · video 360"
+    ],
+    "imageEmoji": "🎓"
   }
 ]

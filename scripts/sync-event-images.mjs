@@ -449,6 +449,12 @@ const FILE_TO_EVENT_ID = {
     "meclao-reggaeton-rooftop-mr-alfredo-2026-11-13",
   "chameleon-perreo-poca-luz-h23-deeway-2026-11-13.jpg":
     "chameleon-perreo-poca-luz-h23-deeway-2026-11-13",
+  "los-guaos-gran-cabalgata-natural-2026-11-15.jpg":
+    "los-guaos-gran-cabalgata-natural-2026-11-15",
+  "037-bar-karaoke-2026-11-13.jpg": "037-bar-karaoke-2026-11-13",
+  "el-parq-karaoke-kids-2026-11-12.jpg": "el-parq-karaoke-kids-2026-11-12",
+  "ocean-world-terrace-graduation-bash-2026-11-20.jpg":
+    "ocean-world-terrace-graduation-bash-2026-11-20",
   "pregame-roof-rooftop-pong-2026-11-08.jpg":
     "pregame-roof-rooftop-pong-2026-11-08",
   "parada-choco-banditalia-2026-11-10.jpg":
@@ -1123,6 +1129,8 @@ const FILE_TO_VENUE_SLUG = {
   "docean-bar-villa-isabela.jpg": "docean-bar-villa-isabela",
   "los-primos-disco-bar-maimon-dj-booth.jpg": "los-primos-disco-bar-maimon",
   "evolution-disco-club-san-marcos.jpg": "evolution-disco-club-san-marcos",
+  "los-guaos-veragua-field.jpg": "los-guaos-veragua",
+  "037-bar-restaurant-entrance.jpg": "037-bar-restaurant",
   "evolution-papy-crish-2026-11-14.jpg": "evolution-papy-crish-2026-11-14",
   "la-lola-dancing-weekend-2026-11-13.jpg": "la-lola-dancing-weekend-2026-11-13",
   "tyson-band-aura-2026-11-12.jpg": "tyson-band-aura-2026-11-12",

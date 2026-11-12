@@ -160,6 +160,7 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "aura-galactic-nights-christoo-2026-11-28": "+18297870140",
   "hard-rock-allison-sade-2026-11-27": "+18495057778",
   "ocean-world-terrace-rubio-manon-2026-12-04": "+18295219736",
+  "ocean-world-terrace-graduation-bash-2026-11-20": "+18295219736",
   "chameleon-mananitas-kreizy-k-2026-12-05": "+18299942304",
   "groundzero-omega-2026-12-18": "+18494651313",
   "voyvoy-sunday-open-mic": "+18095710805",

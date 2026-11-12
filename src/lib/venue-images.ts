@@ -246,6 +246,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "the-last-drink": "the-last-drink-interior.jpg",
   "los-primos-disco-bar-maimon": "los-primos-disco-bar-maimon-dj-booth.jpg",
   "evolution-disco-club-san-marcos": "evolution-disco-club-san-marcos.jpg",
+  "los-guaos-veragua": "los-guaos-veragua-field.jpg",
+  "037-bar-restaurant": "037-bar-restaurant-entrance.jpg",
 };
 
 /** Cache-busted URL for general venue thumbnails / JSON-LD. */

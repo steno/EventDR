@@ -265,7 +265,7 @@ export const SEED_VENUES: Venue[] = [
     name: "El Parq Foodpark",
     city: "Cabarete",
     description:
-      "Open-air food park near Encuentro — street-food vendors, communal tables, Shaka Bar Thursday karaoke (7:30–9:30 PM), Ninafrika Dance School Cabarete Friday Noche Latina from 7 PM, and live bands on Saturdays.",
+      "Open-air food park near Encuentro (also billed Encuentro Food Park) — street-food vendors, communal tables, Big Day Karaoke Kids with Francesca on the 2nd & 4th Thursday 5:00–7:00 PM, Shaka Bar Thursday karaoke 7:30–9:30 PM, Ninafrika Dance School Cabarete Friday Noche Latina from 7 PM, and live bands on Saturdays.",
     lat: 19.7739371,
     lng: -70.4446512,
     emoji: "🍔",
@@ -2425,6 +2425,31 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18492535178",
     website: "https://www.instagram.com/evolution_disco_club146/",
   },
+  {
+    slug: "los-guaos-veragua",
+    name: "Los Guaos",
+    city: "Veragua",
+    description:
+      "Countryside paraje in Veragua (Distrito Municipal Veragua / Gaspar Hernández, inland from Cabarete) — open pasture, ranch gatherings, and cabalgata days among local horse crews. Approx pin for Los Guaos / Alto Grande; refine when a named ranch gate is published.",
+    // Fallingrain / municipal Los Guaos (Alto Grande) near Veragua — not the Sosúa Madre Vieja namesake.
+    lat: 19.6203,
+    lng: -70.3428,
+    emoji: "🐎",
+  },
+  {
+    slug: "037-bar-restaurant",
+    name: "037 Bar Restaurante",
+    city: "Puerto Plata",
+    description:
+      "Neon seafood bar & grill on the Puerto Plata Malecón at Av. Gral. Gregorio Luperón #34 A — cocktails, pescados y mariscos, karaoke, and billed live nights. Not Victrola 037 Arte Café (same avenue, different concept / @victrolart). Typical doors ~4:00 PM–12:00 AM; confirm on Instagram @037barrestaurant · WhatsApp +1 849-785-1822.",
+    // Approx Malecón pin near #34 A — slightly offset from Victrola 037 (Luperón & Padre Castellanos).
+    lat: 19.7992,
+    lng: -70.6904,
+    emoji: "🦞",
+    instagram: "037barrestaurant",
+    phone: "+18497851822",
+    website: "https://www.instagram.com/037barrestaurant/",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
@@ -2734,6 +2759,17 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /evolution\s*disco(\s*club)?(\s*146)?|evolution_disco_club146|antigua\s*villana|la\s*villana(\s*disco)?|villanas\s*disco/i,
     slug: "evolution-disco-club-san-marcos",
+  },
+  {
+    pattern:
+      /los\s*guaos(\s*veragua)?|guaos\s*veragua|paraje\s*los\s*guaos|alto\s*grande\s*veragua/i,
+    slug: "los-guaos-veragua",
+  },
+  {
+    // Must win over fuzzy “037” fragments before Victrola 037 Arte Café.
+    pattern:
+      /037\s*bar(\s*restaurante?)?|037barrestaurant|cero\s*treinta\s*y\s*siete\s*bar/i,
+    slug: "037-bar-restaurant",
   },
   {
     pattern: /mecla['’]?o\s*rooftop|meclao\s*rooftop/i,

@@ -151,8 +151,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "el-parq-cabarete": {
     description: {
-      es: "Food park al aire libre cerca de Encuentro — puestos de comida callejera, mesas comunes, karaoke de Shaka Bar los jueves (7:30–9:30 PM), Noche Latina de Ninafrika Dance School Cabarete los viernes desde las 7 PM y bandas en vivo los sábados.",
-      fr: "Food park en plein air près d'Encuentro — stands de street food, tables partagées, karaoké de Shaka Bar le jeudi (19 h 30–21 h 30), Noche Latina de Ninafrika Dance School Cabarete le vendredi dès 19 h et groupes live le samedi.",
+      es: "Food park al aire libre cerca de Encuentro (también Encuentro Food Park) — puestos de comida callejera, mesas comunes, Big Day Karaoke Kids con Francesca el 2.º y 4.º jueves 5:00–7:00 PM, karaoke de Shaka Bar los jueves 7:30–9:30 PM, Noche Latina de Ninafrika Dance School Cabarete los viernes desde las 7 PM y bandas en vivo los sábados.",
+      fr: "Food park en plein air près d'Encuentro (aussi Encuentro Food Park) — stands de street food, tables partagées, Big Day Karaoke Kids avec Francesca les 2e et 4e jeudis 17 h–19 h, karaoké de Shaka Bar le jeudi 19 h 30–21 h 30, Noche Latina de Ninafrika Dance School Cabarete le vendredi dès 19 h et groupes live le samedi.",
     },
   },
   "ninafrika-dance-school-cabarete": {
@@ -1293,6 +1293,26 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
     description: {
       es: "Discoteca local en San Marcos (Antigua Villana / ex La Villana en Calle Principal) — noches de perreo, dembow, reggaetón y bachata. En la puerta: no menores. Abre viernes a lunes tarde; confirma en Instagram @evolution_disco_club146 · +1 849-253-5178.",
       fr: "Disco locale à San Marcos (Antigua Villana / ancienne La Villana sur Calle Principal) — soirées perreo, dembow, reggaetón et bachata. Porte : pas de mineurs. Ouvert vendredi–lundi tard ; confirmez sur Instagram @evolution_disco_club146 · +1 849-253-5178.",
+    },
+  },
+  "los-guaos-veragua": {
+    name: {
+      es: "Los Guaos",
+      fr: "Los Guaos",
+    },
+    description: {
+      es: "Paraje de campo en Veragua (Distrito Municipal Veragua / Gaspar Hernández, tierra adentro desde Cabarete) — pastizales, reuniones de ranchos y días de cabalgata entre cuadrillas locales. Pin aproximado de Los Guaos / Alto Grande; refina cuando publiquen un portón de rancho concreto.",
+      fr: "Paraje de campagne à Veragua (Distrito Municipal Veragua / Gaspar Hernández, à l’intérieur depuis Cabarete) — pâturages, réunions de ranchos et journées de cabalgata entre équipes locales. Épingle approx. Los Guaos / Alto Grande ; à affiner quand une porte de rancho précise est publiée.",
+    },
+  },
+  "037-bar-restaurant": {
+    name: {
+      es: "037 Bar Restaurante",
+      fr: "037 Bar Restaurante",
+    },
+    description: {
+      es: "Bar & grill de mariscos con neón en el Malecón de Puerto Plata, Av. Gral. Gregorio Luperón #34 A — cócteles, pescados y mariscos, karaoke y noches en cartel. No es Victrola 037 Arte Café (misma avenida, otro concepto / @victrolart). Suele abrir ~4:00 PM–12:00 AM; confirma en Instagram @037barrestaurant · WhatsApp +1 849-785-1822.",
+      fr: "Bar & grill fruits de mer néon sur le Malecón de Puerto Plata, Av. Gral. Gregorio Luperón #34 A — cocktails, pescados y mariscos, karaoke et soirées annoncées. Ce n’est pas Victrola 037 Arte Café (même avenue, autre concept / @victrolart). Ouvert en général ~16 h–minuit ; confirmez sur Instagram @037barrestaurant · WhatsApp +1 849-785-1822.",
     },
   },
 };

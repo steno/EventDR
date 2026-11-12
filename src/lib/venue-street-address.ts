@@ -144,6 +144,10 @@ export const VENUE_STREET_ADDRESS: Readonly<Record<string, string>> = {
     "Próximo al Puente de la Guinea, al lado de Repuesto Amin Cid (antiguo Maggy Bar), Calle José del Carmen Ariza, Barrio La Rigola",
   "los-primos-disco-bar-maimon":
     "Calle Principal, Maimón (inland — not Carretera Navarrete–Puerto Plata)",
+  "los-guaos-veragua":
+    "Los Guaos / Alto Grande, Veragua (Distrito Municipal Veragua), Gaspar Hernández",
+  "037-bar-restaurant":
+    "Av. Gral. Gregorio Luperón #34 A, Puerto Plata 57000",
   "teleferico-puerto-plata": "C. del Teleférico",
   "templo-de-las-americas": "La Isabela / El Castillo, Luperón, Puerto Plata",
   "terramar-pickleball-club": "Cabarete / Sosúa, Puerto Plata",

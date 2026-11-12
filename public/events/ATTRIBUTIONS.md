@@ -796,3 +796,9 @@ Curated images under `public/events/` and `public/venues/`.
 | `pedro-santana-sus-dias-contados-2026-11-24.jpg` | POP-supplied — Sociedad Cultural Renovación Sus días contados book-launch flyer | Tue 24 Nov 2026 6:30 PM; editor-provided; typography-heavy |
 | `toscana-nightclub-gran-apertura-2026-12-04-v2.jpg` | POP-supplied — Toscana Gran Apertura Deury Luciano × DJ Choco flyer | Fri 4 Dec 2026; filename bump; typography-heavy |
 | `voyvoy-sunday-open-mic-v3.jpg` | POP-supplied — VOYVOY Open Mic at Voyvoy / Lester Grant sunset flyer | Every Sun 5–8 PM; filename bump; typography-heavy |
+| `los-guaos-gran-cabalgata-natural-2026-11-15.jpg` | POP-supplied — Los Guaos Gran Cabalgata Natural / DJ Monarka flyer (Team Pisacascaras) | Sun 15 Nov 2026 from 2 PM; editor-provided; typography-heavy |
+| `venues/los-guaos-veragua-field.jpg` | POP-supplied — Los Guaos Veragua pasture / field place shot (mug cropped) | New venue hero (editor-provided; scene-safe) |
+| `037-bar-karaoke-2026-11-13.jpg` | POP-supplied — 037 Bar Restaurante Noche de Karaoke flyer ([@037barrestaurant](https://www.instagram.com/037barrestaurant/)) | Fri 13 Nov 2026 from 7 PM; editor-provided; typography-heavy |
+| `venues/037-bar-restaurant-entrance.jpg` | POP-supplied — 037 Bar Restaurante neon entrance doors ([@037barrestaurant](https://www.instagram.com/037barrestaurant/)) | New venue place shot (editor-provided; compressed) |
+| `el-parq-karaoke-kids-2026-11-12.jpg` | POP-supplied — El Parq / Encuentro Food Park Big Day Karaoke Kids flyer (Francesca) | 2nd & 4th Thu 5–7 PM; also aliases for 26 Nov / 10 Dec seeds; editor-provided; typography-heavy |
+| `ocean-world-terrace-graduation-bash-2026-11-20.jpg` | POP-supplied — Ocean World Terrace Graduation Bash flyer ([@oceanworldterrace](https://www.instagram.com/oceanworldterrace/)) | Fri 20 Nov 2026; UTESA; RD$200; editor-provided; typography-heavy |
