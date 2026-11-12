@@ -445,6 +445,10 @@ const FILE_TO_EVENT_ID = {
   "chiche-almonte-grand-prix-2026-11-06.jpg":
     "chiche-almonte-grand-prix-2026-11-06",
   "meclao-tinder-party-2026-11-07.jpg": "meclao-tinder-party-2026-11-07",
+  "meclao-reggaeton-rooftop-mr-alfredo-2026-11-13.jpg":
+    "meclao-reggaeton-rooftop-mr-alfredo-2026-11-13",
+  "chameleon-perreo-poca-luz-h23-deeway-2026-11-13.jpg":
+    "chameleon-perreo-poca-luz-h23-deeway-2026-11-13",
   "pregame-roof-rooftop-pong-2026-11-08.jpg":
     "pregame-roof-rooftop-pong-2026-11-08",
   "parada-choco-banditalia-2026-11-10.jpg":

@@ -11316,5 +11316,62 @@
       "Yoga"
     ],
     "imageEmoji": "🏋️"
+  },
+  {
+    "id": "meclao-reggaeton-rooftop-mr-alfredo-2026-11-13",
+    "title": "Mecla'o Reggaeton Rooftop — Mr Alfredo",
+    "description": "Reggaeton Rooftop au Mecla'o Rooftop Lounge, Av. Luis Ginebra No. 49, Puerto Plata — vendredi 13 novembre 2026 avec Mr Alfredo. Réservations 829-374-7028 · Instagram @meclaorooftop. Reggaetón du vendredi sur le rooftop Luis Ginebra — pas Bandoleras d’Ambar Lounge une rue plus loin au n° 45, pas Lirol J de Twenty Disco au mall la même nuit, ni Perreo a Poca Luz de Chameleon à Sosúa.",
+    "date": "2026-11-13",
+    "location": "Puerto Plata",
+    "venue": "Mecla'o Rooftop Lounge",
+    "venueSlug": "meclao-rooftop",
+    "address": "Av. Luis Ginebra No. 49, Puerto Plata",
+    "lat": 19.788312,
+    "lng": -70.677453,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18293747028",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/meclaorooftop/",
+    "instagram": "meclaorooftop",
+    "lineup": [
+      "Mr Alfredo"
+    ],
+    "imageEmoji": "🔥"
+  },
+  {
+    "id": "chameleon-perreo-poca-luz-h23-deeway-2026-11-13",
+    "title": "Chameleon Perreo a Poca Luz — DJ H23 × Deeway",
+    "description": "Perreo a Poca Luz en live performance au Chameleon Sport Bar, Sosúa Bay Center (Calle Dr. Alejo Martínez No. 1 / Calle Alejo Martinez #1, El Batey) — vendredi 13 novembre 2026 avec DJ H23 × Deeway. Cover absent de l’affiche — RSVP (829) 994-2304 · Instagram @chameleonsportbar. Vendredi low-light à Sosúa — pas le Reggaeton Rooftop de Mecla'o avec Mr Alfredo la même nuit à Puerto Plata, ni Lirol J de Twenty Disco au mall.",
+    "date": "2026-11-13",
+    "location": "Sosúa",
+    "venue": "Chameleon Sport Bar",
+    "venueSlug": "chameleon-sport-bar",
+    "address": "Calle Dr. Alejo Martínez No. 1, Sosúa Bay Center, El Batey, Sosúa",
+    "lat": 19.762438,
+    "lng": -70.516813,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18299942304",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/chameleonsportbar/",
+    "instagram": "chameleonsportbar",
+    "lineup": [
+      "DJ H23",
+      "Deeway"
+    ],
+    "imageEmoji": "🔥"
   }
 ]

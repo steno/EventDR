@@ -137,6 +137,8 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "parada-choco-banditalia-2026-10-06": "+18098042510",
   "parada-choco-banditalia-2026-11-10": "+18098042510",
   "meclao-tinder-party-2026-11-07": "+18293747028",
+  "meclao-reggaeton-rooftop-mr-alfredo-2026-11-13": "+18293747028",
+  "chameleon-perreo-poca-luz-h23-deeway-2026-11-13": "+18299942304",
   "pregame-roof-rooftop-pong-2026-11-08": "+18097818677",
   "art-of-scent-petit-francois-2026-11-22": "+18294922910",
   "rumble-in-paradise-14-2027-02-12": "+18298172884",

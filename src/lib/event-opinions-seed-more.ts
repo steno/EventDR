@@ -9209,4 +9209,40 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer — Mié 18 Nov 2026 7 PM; Spot Land; Aeróbicos/Funcional/Zumba/Yoga; Coolgym; RD$700 preventa / RD$800 puerta; towel or mat; snacks+hydration; limited spots.",
     updatedAt: "2026-11-11T19:30:00.000Z",
   },
+  {
+    eventId: "meclao-reggaeton-rooftop-mr-alfredo-2026-11-13",
+    body: "Friday reggaetón rooftop on Luis Ginebra with Mr Alfredo — reserve 829-374-7028 before you treat doors as walk-in, and don’t mix it with Ambar Bandoleras one block over or Chameleon’s low-light Sosúa bill the same night.",
+    localized: {
+      es: "Viernes de reggaetón en el rooftop de Luis Ginebra con Mr Alfredo — reserva 829-374-7028 antes de asumir walk-in, y no lo mezcles con Bandoleras de Ambar a una cuadra ni el perreo a poca luz de Chameleon en Sosúa la misma noche.",
+      fr: "Vendredi reggaetón sur le rooftop Luis Ginebra avec Mr Alfredo — réservez 829-374-7028 avant d’assumer le walk-in, et ne confondez pas avec Bandoleras d’Ambar une rue plus loin ni le perreo low-light de Chameleon à Sosúa la même nuit.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — reserve 829-374-7028 / @meclaorooftop",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — reserva 829-374-7028 / @meclaorooftop",
+      fr: "Cover à confirmer — réservez 829-374-7028 / @meclaorooftop",
+    },
+    attribution: "POP research · @meclaorooftop Reggaeton Rooftop / Mr Alfredo flyer",
+    researchNotes:
+      "Editor flyer — 13 VIE NOV; REGGAETON ROOFTOP; MR ALFREDO; MECLAO Rooftop Lounge. No start time or cover on art. Same Friday as Ambar Bandoleras, Twenty Lirol J, Chameleon Perreo a Poca Luz.",
+    updatedAt: "2026-11-12T20:00:00.000Z",
+  },
+  {
+    eventId: "chameleon-perreo-poca-luz-h23-deeway-2026-11-13",
+    body: "Friday low-light perreo at Sosúa Bay Center with DJ H23 × Deeway — RSVP +1 829-994-2304 before you Uber, and don’t confuse it with Mecla'o’s Mr Alfredo rooftop the same night in Puerto Plata.",
+    localized: {
+      es: "Viernes de perreo a poca luz en Sosúa Bay Center con DJ H23 × Deeway — RSVP +1 829-994-2304 antes del Uber, y no lo confundas con el rooftop de Mr Alfredo en Mecla'o la misma noche en Puerto Plata.",
+      fr: "Vendredi perreo low-light au Sosúa Bay Center avec DJ H23 × Deeway — RSVP +1 829-994-2304 avant l’Uber, et ne le confondez pas avec le rooftop Mr Alfredo chez Mecla'o la même nuit à Puerto Plata.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — RSVP +1 829-994-2304 · @chameleonsportbar",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — RSVP +1 829-994-2304 · @chameleonsportbar",
+      fr: "Cover à confirmer — RSVP +1 829-994-2304 · @chameleonsportbar",
+    },
+    attribution: "POP research · @chameleonsportbar Perreo a Poca Luz flyer + caption",
+    researchNotes:
+      "Editor flyer + IG caption @chameleonsportbar — Vie 13 Nov 2026; PERREO A POCA LUZ; LIVE PERFORMANCE DJ H23 X DEEWAY; Sosúa Bay Center Calle Alejo Martínez #1 El Batey; RSVP (829) 994-2304; Pekke Redes. No start time or cover on art.",
+    updatedAt: "2026-11-12T19:45:00.000Z",
+  },
 ];

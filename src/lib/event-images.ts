@@ -10,6 +10,10 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "chiche-almonte-grand-prix-2026-11-06":
     "chiche-almonte-grand-prix-2026-11-06.jpg",
   "meclao-tinder-party-2026-11-07": "meclao-tinder-party-2026-11-07.jpg",
+  "meclao-reggaeton-rooftop-mr-alfredo-2026-11-13":
+    "meclao-reggaeton-rooftop-mr-alfredo-2026-11-13.jpg",
+  "chameleon-perreo-poca-luz-h23-deeway-2026-11-13":
+    "chameleon-perreo-poca-luz-h23-deeway-2026-11-13.jpg",
   "pregame-roof-rooftop-pong-2026-11-08":
     "pregame-roof-rooftop-pong-2026-11-08.jpg",
   "parada-choco-banditalia-2026-11-10":
@@ -1034,6 +1038,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "ocean-world-terrace-banda-sin-limite-2026-10-30": "object-center",
   "chameleon-cursed-room-ronny-alca-2026-11-01": "object-center",
   "chameleon-monsters-ball-deeway-2026-10-18": "object-center",
+  "chameleon-perreo-poca-luz-h23-deeway-2026-11-13": "object-center",
+  "meclao-reggaeton-rooftop-mr-alfredo-2026-11-13": "object-center",
   "ann-soul-jazz-natura-cabana-2026-10-17": "object-center",
   // Portrait entrance — keep the walkers in a wide crop.
   "nonas-grill-kitchen-daily": "object-[70%_80%]",
@@ -1483,6 +1489,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "geek-fest-kpop-random-dance-ref-2026-12-13.jpg",
   "chiche-almonte-grand-prix-2026-11-06.jpg",
   "meclao-tinder-party-2026-11-07.jpg",
+  "meclao-reggaeton-rooftop-mr-alfredo-2026-11-13.jpg",
+  "chameleon-perreo-poca-luz-h23-deeway-2026-11-13.jpg",
   "pregame-roof-rooftop-pong-2026-11-08.jpg",
   "parada-choco-banditalia-2026-11-10.jpg",
   "art-of-scent-petit-francois-2026-11-22.jpg",

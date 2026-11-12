@@ -1650,6 +1650,16 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18293747028",
     venueSlug: "meclao-rooftop",
   },
+  "meclao-reggaeton-rooftop-mr-alfredo-2026-11-13": {
+    callForPricing: true,
+    phone: "+18293747028",
+    venueSlug: "meclao-rooftop",
+  },
+  "chameleon-perreo-poca-luz-h23-deeway-2026-11-13": {
+    callForPricing: true,
+    phone: "+18299942304",
+    venueSlug: "chameleon-sport-bar",
+  },
   "pregame-roof-rooftop-pong-2026-11-08": {
     callForPricing: true,
     phone: "+18097818677",
