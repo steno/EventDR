@@ -919,6 +919,19 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18494606644",
   },
   {
+    slug: "waterworks-sosua",
+    name: "Waterworks Sosúa",
+    city: "Sosúa",
+    description:
+      "Family water park inside Casa Linda Villas (Phase 7–9) on Carretera El Choco — shallow aqua playground, pools, swim-up bar, and kids’ play areas. Open Tuesday–Sunday (closed Mondays); reserve WhatsApp +1 849-865-7494 · @waterworks.sosua.",
+    lat: 19.764029,
+    lng: -70.490101,
+    emoji: "💦",
+    instagram: "waterworks.sosua",
+    website: "https://linktr.ee/waterworks.sosua",
+    phone: "+18498657494",
+  },
+  {
     slug: "drifter-cabarete",
     name: "Drifter Cabarete",
     city: "Cabarete",
@@ -2570,6 +2583,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /grecialand(ia)?|grecia\s*landia|residencia\s+grecia|residencial\s+grecialandia|pueblo\s+griego(\s+en\s+el\s+caribe)?/i,
     slug: "grecialandia",
+  },
+  {
+    pattern:
+      /water\s*works(\s+(sos[uú]a|waterpark|water\s*park))?|waterworks(\s+sos[uú]a)?/i,
+    slug: "waterworks-sosua",
   },
   {
     pattern:

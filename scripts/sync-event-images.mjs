@@ -133,6 +133,8 @@ const FILE_TO_EVENT_ID = {
     "lokuras-pop-percusion-latina-2026-10-25",
   "mirando-pa-otro-lao-8-puerto-plata-2026-11-17-v2.jpg":
     "mirando-pa-otro-lao-8-puerto-plata-2026-11-17",
+  "mirando-pa-otro-lao-8-parque-central-2026-11-22.jpg":
+    "mirando-pa-otro-lao-8-puerto-plata-2026-11-17",
   "vinoteca-caballitos-halloween-2026-10-31.jpg":
     "vinoteca-caballitos-halloween-2026-10-31",
   "bachata-colmado-cabarete-2026-11-01.jpg":
@@ -455,6 +457,11 @@ const FILE_TO_EVENT_ID = {
   "el-parq-karaoke-kids-2026-11-12.jpg": "el-parq-karaoke-kids-2026-11-12",
   "ocean-world-terrace-graduation-bash-2026-11-20.jpg":
     "ocean-world-terrace-graduation-bash-2026-11-20",
+  "el-liquito-deeway-2026-11-15.jpg": "el-liquito-deeway-2026-11-15",
+  "dominican-surf-festival-2026-12-10.jpg":
+    "dominican-surf-festival-2026-12-10",
+  "aguinaldo-5k-navideno-2026-12-19.jpg": "aguinaldo-5k-navideno-2026-12-19",
+  "waterworks-sosua-daily.jpg": "waterworks-sosua-daily",
   "pregame-roof-rooftop-pong-2026-11-08.jpg":
     "pregame-roof-rooftop-pong-2026-11-08",
   "parada-choco-banditalia-2026-11-10.jpg":
@@ -1131,6 +1138,7 @@ const FILE_TO_VENUE_SLUG = {
   "evolution-disco-club-san-marcos.jpg": "evolution-disco-club-san-marcos",
   "los-guaos-veragua-field.jpg": "los-guaos-veragua",
   "037-bar-restaurant-entrance.jpg": "037-bar-restaurant",
+  "waterworks-sosua.jpg": "waterworks-sosua",
   "evolution-papy-crish-2026-11-14.jpg": "evolution-papy-crish-2026-11-14",
   "la-lola-dancing-weekend-2026-11-13.jpg": "la-lola-dancing-weekend-2026-11-13",
   "tyson-band-aura-2026-11-12.jpg": "tyson-band-aura-2026-11-12",

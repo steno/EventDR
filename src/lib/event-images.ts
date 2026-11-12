@@ -20,6 +20,12 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "el-parq-karaoke-kids-2026-11-12": "el-parq-karaoke-kids-2026-11-12.jpg",
   "ocean-world-terrace-graduation-bash-2026-11-20":
     "ocean-world-terrace-graduation-bash-2026-11-20.jpg",
+  "el-liquito-deeway-2026-11-15": "el-liquito-deeway-2026-11-15.jpg",
+  "dominican-surf-festival-2026-12-10":
+    "dominican-surf-festival-2026-12-10.jpg",
+  "aguinaldo-5k-navideno-2026-12-19":
+    "aguinaldo-5k-navideno-2026-12-19.jpg",
+  "waterworks-sosua-daily": "waterworks-sosua-daily.jpg",
   "pregame-roof-rooftop-pong-2026-11-08":
     "pregame-roof-rooftop-pong-2026-11-08.jpg",
   "parada-choco-banditalia-2026-11-10":
@@ -1047,6 +1053,10 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "chameleon-cursed-room-ronny-alca-2026-11-01": "object-center",
   "chameleon-monsters-ball-deeway-2026-10-18": "object-center",
   "chameleon-perreo-poca-luz-h23-deeway-2026-11-13": "object-center",
+  "el-liquito-deeway-2026-11-15": "object-center",
+  "dominican-surf-festival-2026-12-10": "object-center",
+  "aguinaldo-5k-navideno-2026-12-19": "object-center",
+  "waterworks-sosua-daily": "object-center",
   "los-guaos-gran-cabalgata-natural-2026-11-15": "object-center",
   "037-bar-karaoke-2026-11-13": "object-center",
   "meclao-reggaeton-rooftop-mr-alfredo-2026-11-13": "object-center",
@@ -1445,6 +1455,18 @@ const EVENT_GALLERY_SLIDES: Record<
       label: "Monday finals — Coconuts",
     },
   ],
+  "mirando-pa-otro-lao-8-puerto-plata-2026-11-17": [
+    {
+      file: "mirando-pa-otro-lao-8-puerto-plata-2026-11-17-v2.jpg",
+      venueSlug: "plaza-independencia",
+      label: "Festival flyer — Camilo Carrau",
+    },
+    {
+      file: "mirando-pa-otro-lao-8-parque-central-2026-11-22.jpg",
+      venueSlug: "plaza-independencia",
+      label: "Parque Central — Sun 22 Nov 7 PM",
+    },
+  ],
 };
 
 export function getEventGallerySlides(
@@ -1505,6 +1527,9 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "037-bar-karaoke-2026-11-13.jpg",
   "el-parq-karaoke-kids-2026-11-12.jpg",
   "ocean-world-terrace-graduation-bash-2026-11-20.jpg",
+  "el-liquito-deeway-2026-11-15.jpg",
+  "dominican-surf-festival-2026-12-10.jpg",
+  "aguinaldo-5k-navideno-2026-12-19.jpg",
   "pregame-roof-rooftop-pong-2026-11-08.jpg",
   "parada-choco-banditalia-2026-11-10.jpg",
   "art-of-scent-petit-francois-2026-11-22.jpg",
@@ -1588,6 +1613,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "premios-ola-dorada-2026-12-05.jpg",
   "lokuras-pop-percusion-latina-2026-10-25.jpg",
   "mirando-pa-otro-lao-8-puerto-plata-2026-11-17-v2.jpg",
+  "mirando-pa-otro-lao-8-parque-central-2026-11-22.jpg",
   "vinoteca-caballitos-halloween-2026-10-31.jpg",
   "bachata-colmado-cabarete-2026-11-01.jpg",
   "disco-club-viernes-tropical-2026-10-23.jpg",
@@ -2078,6 +2104,7 @@ const HOME_HERO_SCENE_FILES = new Set([
   "fun-city-daily.jpeg",
   "gran-ventana-day-pass.jpg",
   "grecialandia-entrance.jpg",
+  "waterworks-sosua-daily.jpg",
   "xanadu-bowling-center.jpg",
   "gregorio-luperon-museum.jpg",
   "gym-sov-zumba-fitness.jpg",

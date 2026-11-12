@@ -6710,21 +6710,22 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "mirando-pa-otro-lao-8-puerto-plata-2026-11-17",
-    body: "The pink graphic is the open call, which closes 30 Oct — the screens themselves run 17–22 Nov in Puerto Plata and Santiago. Don’t treat the city pin as a theater; follow @mirandopaotrolao for the day’s room.",
+    body: "Festival week still runs 17–22 Nov, but this pin is Sunday 22 only at Parque Central 7 PM — not a city-wide multi-day blob; other days’ rooms stay on @mirandopaotrolao.",
     localized: {
-      es: "El gráfico rosa es la convocatoria, que cierra el 30 oct — las pantallas en sí van del 17 al 22 nov en Puerto Plata y Santiago. No trates el pin de la ciudad como un cine; sigue @mirandopaotrolao para la sala del día.",
-      fr: "Le visuel rose est l’appel à films, qui ferme le 30 oct. — les écrans eux-mêmes vont du 17 au 22 nov. à Puerto Plata et Santiago. Ne prenez pas l’épingle de la ville pour un cinéma ; suivez @mirandopaotrolao pour la salle du jour.",
+      es: "La semana del festival sigue del 17 al 22 nov, pero este pin es solo el domingo 22 en el Parque Central a las 7 PM — no un blob multi-día de toda la ciudad; las salas de los otros días siguen en @mirandopaotrolao.",
+      fr: "La semaine du festival court toujours du 17 au 22 nov., mais cette épingle est le dimanche 22 seulement au Parque Central à 19 h — pas un blob multi-jours toute la ville ; les salles des autres jours restent sur @mirandopaotrolao.",
     },
     priceFeel: "varies",
-    priceNote: "Admission not posted — film call closes 30 Oct · @mirandopaotrolao",
+    priceNote: "Admission not posted — @mirandopaotrolao · Parque Central 7 PM",
     priceNoteLocalized: {
-      es: "Entrada no publicada — convocatoria cierra el 30 oct · @mirandopaotrolao",
-      fr: "Entrée non publiée — appel à films ferme le 30 oct. · @mirandopaotrolao",
+      es: "Entrada no publicada — @mirandopaotrolao · Parque Central 7 PM",
+      fr: "Entrée non publiée — @mirandopaotrolao · Parque Central 19 h",
     },
-    attribution: "POP research · @mirandopaotrolao 8th-edition convocatoria",
+    attribution:
+      "POP research · @mirandopaotrolao convocatoria + Parque Central flyer",
     researchNotes:
-      "Editor IG slides 23 Oct 2026 (@mirandopaotrolao): 8ª convocatoria hasta el 30 de octubre 2026; categories documentales cortos, videoarte, cortometrajes ficción, largometrajes. Caption: screens in Santiago and Puerto Plata 17–22 Nov 2026. https://www.instagram.com/mirandopaotrolao/ Pin is Puerto Plata city center until a room is named. Historical organizer El Nido Laboratorio (Santiago, since 2018) is in older press; the 2026 post does not restate it, so guest copy stays on the account.",
-    updatedAt: "2026-10-23T12:00:00.000Z",
+      "Editor IG + magenta Parque Central flyer: Domingo 22 Noviembre Parque Central Puerto Plata 7:00 PM. Festival window still 17–22 Nov in copy; seed date single-day 2026-11-22; venueSlug plaza-independencia. Keep Camilo Carrau festival flyer as card hero; gallery adds Parque Central poster.",
+    updatedAt: "2026-11-12T18:15:00.000Z",
   },
   {
     eventId: "vinoteca-caballitos-halloween-2026-10-31",
@@ -9355,5 +9356,82 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer + IG caption @oceanworldterrace — Vie 20 Nov; Graduation Bash; UTESA Puerto Plata; trago de bienvenida; photo booth; video 360; DJ; Melving Swing noche; entrada RD$200; mesas 829-521-9736.",
     updatedAt: "2026-11-12T22:45:00.000Z",
+  },
+  {
+    eventId: "el-liquito-deeway-2026-11-15",
+    body: "Sunday Deeway live at El Liquito on Callejón de la Loma Calle 7 — reserve on +1 829-268-9174 before you treat it as a walk-up free night; no POP venue page, and don’t mix it with Chameleon’s Fri 13 Deeway set.",
+    localized: {
+      es: "Domingo Deeway en vivo en El Liquito, Callejón de la Loma Calle 7 — reserva al +1 829-268-9174 antes de tratarlo como noche gratis walk-up; sin página de venue POP, y no lo mezcles con el set Deeway del vie 13 en Chameleon.",
+      fr: "Dimanche Deeway en vivo chez El Liquito, Callejón de la Loma Calle 7 — réservez au +1 829-268-9174 avant d’y aller en walk-in gratuit ; pas de page venue POP, et ne confondez pas avec le set Deeway du ven. 13 à Chameleon.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Cover/set TBA — reservas +1 829-268-9174",
+    priceNoteLocalized: {
+      es: "Cover/hora por confirmar — reservas +1 829-268-9174",
+      fr: "Cover/heure à confirmer — réservations +1 829-268-9174",
+    },
+    attribution: "POP research · El Liquito × Deeway flyer",
+    researchNotes:
+      "Editor flyer — EL LIQUITO BAR AND DRINK PRESENTA DEEWAY EN VIVO; Domingo 15 de noviembre; Cabarete Callejón de la Loma Calle 7; reservas 829-268-9174. No venueSlug per editor (venue in copy only).",
+    updatedAt: "2026-11-12T23:30:00.000Z",
+  },
+  {
+    eventId: "dominican-surf-festival-2026-12-10",
+    body: "Four-day Encuentro surf + culture fest (10–13 Dec) with junior-through-Gran Kahuna heats plus bachata, dominó, and live music — register on @dominicansurffestival; not CAC Games Surf, not Masters Surf Reunion, and not CSC juniors on 27–28 Dec.",
+    localized: {
+      es: "Fest de surf y cultura de cuatro días en Encuentro (10–13 dic) con heats de juniors a Gran Kahuna más bachata, dominó y música en vivo — inscríbete en @dominicansurffestival; no es Surf CAC, ni Masters Surf Reunion, ni los juniors CSC del 27–28 dic.",
+      fr: "Fest surf + culture de quatre jours à Encuentro (10–13 déc.) avec heats juniors jusqu’à Gran Kahuna plus bachata, dominó et musique live — inscrivez-vous sur @dominicansurffestival ; pas le surf CAC, ni Masters Surf Reunion, ni les juniors CSC des 27–28 déc.",
+    },
+    priceFeel: "varies",
+    priceNote: "Register / heats via @dominicansurffestival",
+    priceNoteLocalized: {
+      es: "Inscripción / heats vía @dominicansurffestival",
+      fr: "Inscription / heats via @dominicansurffestival",
+    },
+    attribution:
+      "POP research · @dominicansurffestival Dec 2026 post · Hard Rock logo art",
+    researchNotes:
+      "Editor IG @dominicansurffestival — 10–13 dic 2026 Playa Encuentro; categories White Water Push In, Juniors 8–19, Open, Longboard, SUP, Gran Kahuna 50+, Padre e Hijo; bachata/dominó/volleyball/live music; 30+ boards awarded historically; Hard Rock Cafe Puerto Plata sponsor. venueSlug playa-encuentro.",
+    updatedAt: "2026-11-12T23:15:00.000Z",
+  },
+  {
+    eventId: "aguinaldo-5k-navideno-2026-12-19",
+    body: "Christmas-dress evening 5K at the Malecón letters with Edwin Exercise and Manuel Fitness — RD$600, meet the Letrero at 6 PM, register on @__iamanuel; not Silent Run headphones and not Cabarete’s morning race.",
+    localized: {
+      es: "5K de tarde con vestimenta navideña en las letras del Malecón con Edwin Exercise y Manuel Fitness — RD$600, encuentro en el Letrero a las 6 PM, inscríbete en @__iamanuel; no es Silent Run con audífonos ni la carrera matutina de Cabarete.",
+      fr: "5K du soir en tenue de Noël aux lettres du Malecón avec Edwin Exercise et Manuel Fitness — RD$600, RDV au Letrero à 18 h, inscription sur @__iamanuel ; pas Silent Run casque et pas la course du matin à Cabarete.",
+    },
+    priceFeel: "budget",
+    priceNote: "RD$600 p/p · register @__iamanuel link in bio",
+    priceNoteLocalized: {
+      es: "RD$600 p/p · inscripción @__iamanuel link in bio",
+      fr: "RD$600 p/p · inscription @__iamanuel link in bio",
+    },
+    attribution: "POP research · @__iamanuel Aguinaldo 5K Navideño flyer",
+    researchNotes:
+      "Editor flyer + IG @__iamanuel — Sáb 19 dic 2026 6 PM; Letrero Malecón; RD$600; Edwin Exercise × Manuel Fitness; DJ truck, medical, hydration, after party; dress NAVIDEÑO. venueSlug letrero-puerto-plata.",
+    updatedAt: "2026-11-12T19:30:00.000Z",
+  },
+  {
+    eventId: "waterworks-sosua-daily",
+    seriesKey: "waterworks-sosua:weekly",
+    body: "Casa Linda aqua-park splash for little kids — closed Mondays; pin Carretera El Choco, not Ocean World’s dolphin ticket line in Cofresí.",
+    localized: {
+      es: "Splash de aqua park en Casa Linda para niños pequeños — cerrado lunes; clava Carretera El Choco, no la fila de delfines de Ocean World en Cofresí.",
+      fr: "Splash aqua park Casa Linda pour petits enfants — fermé le lundi ; épinglez Carretera El Choco, pas la file dauphins d’Ocean World à Cofresí.",
+    },
+    priceFeel: "budget",
+    priceNote:
+      "About RD$250 adults / RD$150 kids — confirm WhatsApp +1 849-865-7494",
+    priceNoteLocalized: {
+      es: "Alrededor de RD$250 adultos / RD$150 niños — confirma WhatsApp +1 849-865-7494",
+      fr: "Environ RD$250 adultes / RD$150 enfants — confirmez WhatsApp +1 849-865-7494",
+    },
+    attribution: "POP research · @waterworks.sosua · Google Places hours",
+    ratingCite: "Google 3.8",
+    googleRating: 3.8,
+    researchNotes:
+      "Google/Places + FB Waterworks Waterpark Sosua: Casa Linda Phase 7–9 Carretera El Choco; closed Mon; Tue–Fri ~11–6, Sat–Sun ~11–7; phone +1 849-865-7494; IG @waterworks.sosua; Aug 2026 post adults RD$250 kids RD$150. Editor place photos. Distinct from ocean-world-daily.",
+    updatedAt: "2026-11-12T20:00:00.000Z",
   },
 ];

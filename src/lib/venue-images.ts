@@ -90,6 +90,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "cuartel-bomberos-puerto-plata": "cuartel-bomberos-puerto-plata.jpg",
   "fun-city": "fun-city.jpg",
   "grecialandia": "grecialandia-village.jpg",
+  "waterworks-sosua": "waterworks-sosua.jpg",
   "monkeyland-puerto-plata": "monkeyland-puerto-plata.jpg",
   "coconut-cove": "coconut-cove.jpg",
   "brugal-rum-center": "brugal-rum-center.jpg",

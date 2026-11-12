@@ -7845,12 +7845,11 @@
   {
     "id": "mirando-pa-otro-lao-8-puerto-plata-2026-11-17",
     "title": "Puerto Plata — Mirando Pa' Otro Lao 8",
-    "description": "8.ª Muestra Audiovisual Mirando Pa' Otro Lao. Proyecciones públicas del 17 al 22 de noviembre 2026 en Puerto Plata y Santiago: documentales cortos, videoarte, cortometrajes de ficción y largometrajes. La convocatoria rosa cierra el 30 de octubre 2026 — esa fecha es el cierre de envío de obras, no la última función. Salas y horarios del día aún no están publicados; sigue @mirandopaotrolao antes de ir a una sala. Este listado es la semana de Puerto Plata (Santiago corre las mismas fechas). El pin del mapa es la ciudad, no un cine.",
-    "date": "2026-11-17",
-    "endDate": "2026-11-22",
+    "description": "8.ª Muestra Audiovisual Mirando Pa' Otro Lao — proyecciones públicas del 17 al 22 de noviembre 2026 en Puerto Plata y Santiago. Este listado es la noche de Puerto Plata en el Parque Central (Plaza Independencia) el domingo 22 de noviembre 2026 a las 7:00 PM. Documentales cortos, videoarte, cortometrajes de ficción y largometrajes; sigue @mirandopaotrolao para las salas de los otros días. La convocatoria rosa cerró el 30 de octubre 2026 (cierre de envío, no la última función). No es un pin multi-día — la fecha es solo el dom 22.",
+    "date": "2026-11-22",
     "location": "Puerto Plata",
-    "venue": "Salas por anunciar — @mirandopaotrolao",
-    "address": "Salas del día en @mirandopaotrolao",
+    "venue": "Parque Central (Plaza Independencia)",
+    "address": "Parque Central / Plaza Independencia, Puerto Plata",
     "lat": 19.7976623,
     "lng": -70.6932862,
     "category": "culture",
@@ -7868,7 +7867,9 @@
       "Cortometrajes de ficción",
       "Largometrajes"
     ],
-    "imageEmoji": "🎬"
+    "imageEmoji": "🎬",
+    "time": "7:00 PM",
+    "venueSlug": "plaza-independencia"
   },
   {
     "id": "vinoteca-caballitos-halloween-2026-10-31",
@@ -11550,5 +11551,96 @@
       "Photo booth · video 360"
     ],
     "imageEmoji": "🎓"
+  },
+  {
+    "id": "el-liquito-deeway-2026-11-15",
+    "title": "El Liquito — Deeway en Vivo",
+    "description": "Deeway en vivo en El Liquito Bar and Drink, Cabarete (Callejón de la Loma, Calle 7) — domingo 15 de noviembre 2026. Presenta El Liquito Bar and Drink; reservas +1 829-268-9174. Cover y hora del set no están en el flyer — confirma al reservar. Sin página de venue POP para este bar — el pin es solo la esquina de Calle 7. No es el Perreo a Poca Luz de Chameleon con Deeway (vie 13 nov) ni el Deeway Live Mix anterior del Hard Rock.",
+    "date": "2026-11-15",
+    "location": "Cabarete",
+    "venue": "El Liquito Bar and Drink",
+    "address": "Callejón de la Loma, Calle 7, Cabarete",
+    "lat": 19.7444,
+    "lng": -70.4175,
+    "category": "music",
+    "categories": [
+      "parties"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18292689174",
+    "sourceType": "flyer",
+    "lineup": [
+      "Deeway"
+    ],
+    "imageEmoji": "🎧"
+  },
+  {
+    "id": "dominican-surf-festival-2026-12-10",
+    "title": "Dominican Surf Festival — Playa Encuentro",
+    "description": "Dominican Surf Festival regresa en Playa Encuentro, Cabarete — jueves a domingo 10–13 de diciembre 2026. Competencia de surf más bachata, dominó, voleibol, música en vivo y programación comunitaria para conectar a los dominicanos con la escena local de surf; el fest ha premiado más de 30 tablas nuevas a jóvenes surfistas. Categorías (masculino y femenino): White Water Push In, Juniors 8–19, Open, Longboard, SUP paddle board, Gran Kahuna 50+, Padre e Hijo. Con el apoyo de Hard Rock Cafe Puerto Plata. Inscripción y heats vía Instagram @dominicansurffestival. No es Surf de los Juegos CAC (jul), ni Masters Surf Reunion (principios de nov), ni los juniors de Caribbean Surf Connection en Encuentro 27–28 dic.",
+    "date": "2026-12-10",
+    "endDate": "2026-12-13",
+    "location": "Cabarete",
+    "venue": "Playa Encuentro",
+    "venueSlug": "playa-encuentro",
+    "address": "Playa Encuentro, Cabarete",
+    "lat": 19.7834465,
+    "lng": -70.4516521,
+    "category": "sports",
+    "categories": [
+      "adventure",
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/dominicansurffestival/",
+    "lineup": [
+      "White Water Push In",
+      "Juniors 8–19",
+      "Open",
+      "Longboard",
+      "SUP paddle board",
+      "Gran Kahuna 50+",
+      "Padre e Hijo",
+      "Bachata · Dominó · Voleibol · Música en vivo"
+    ],
+    "imageEmoji": "🏄",
+    "ageHint": "family"
+  },
+  {
+    "id": "aguinaldo-5k-navideno-2026-12-19",
+    "title": "Aguinaldo 5K Navideño — Letrero Puerto Plata",
+    "description": "Aguinaldo 5K Navideño con Edwin Exercise y Manuel Fitness — sábado 19 de diciembre 2026 a las 6:00 PM, punto de encuentro Malecón (Letrero de Puerto Plata). Carrera/caminata 5K de vestimenta navideña con camión con DJ en vivo, asistencia médica, hidratación, after party y sorpresas. Costo RD$600 p/p; inscríbete vía Instagram @__iamanuel (enlace en el perfil). No es Silent Run 5K ni el Cabarete Run Festival.",
+    "date": "2026-12-19",
+    "time": "6:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Letrero de Puerto Plata",
+    "venueSlug": "letrero-puerto-plata",
+    "address": "Malecón — Letrero de Puerto Plata, Av. Gregorio Luperón",
+    "lat": 19.80155,
+    "lng": -70.69365,
+    "category": "sports",
+    "categories": [
+      "health-wellness",
+      "festivals"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$600",
+    "instagram": "__iamanuel",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/__iamanuel/",
+    "lineup": [
+      "Edwin Exercise",
+      "Manuel Fitness",
+      "Camión con DJ en vivo",
+      "After party"
+    ],
+    "imageEmoji": "🏃"
   }
 ]

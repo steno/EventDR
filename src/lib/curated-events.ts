@@ -1049,6 +1049,28 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "ocean-world",
     sourceUrl: "https://www.instagram.com/oceanworldterrace/",
   },
+  "el-liquito-deeway-2026-11-15": {
+    callForPricing: true,
+    phone: "+18292689174",
+  },
+  "dominican-surf-festival-2026-12-10": {
+    callForPricing: true,
+    venueSlug: "playa-encuentro",
+    sourceUrl: "https://www.instagram.com/dominicansurffestival/",
+  },
+  "aguinaldo-5k-navideno-2026-12-19": {
+    isFree: false,
+    admissionPrice: "RD$600",
+    venueSlug: "letrero-puerto-plata",
+    sourceUrl: "https://www.instagram.com/__iamanuel/",
+  },
+  "waterworks-sosua-daily": {
+    isFree: false,
+    admissionPrice: "Adults RD$250 · kids RD$150",
+    phone: "+18498657494",
+    venueSlug: "waterworks-sosua",
+    sourceUrl: "https://www.instagram.com/waterworks.sosua/",
+  },
   "toscana-nightclub-gran-apertura-2026-12-04": {
     callForPricing: true,
     venueSlug: "toscana-nightclub",

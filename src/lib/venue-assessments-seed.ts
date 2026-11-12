@@ -835,6 +835,23 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "waterworks-sosua",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["visitor", "family"],
+    axes: {
+      recommend: 3.8,
+      atmosphere: 4.0,
+      practical: 3.7,
+      reliability: 3.6,
+      value: 4.0,
+    },
+    themes: [
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "adventure_park", sentiment: "positive", audience: "family" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
     venueSlug: "drifter-cabarete",
     verdictKey: "strong_visitor_nightlife",
     crowdFit: ["visitor", "mixed", "nightlife"],

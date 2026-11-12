@@ -551,6 +551,7 @@ const VISIT_MINUTES_BY_SLUG: Record<string, number> = {
   "paella-pop-el-pueblito": 60,
   "fun-city": 90,
   "grecialandia": 150,
+  "waterworks-sosua": 45,
   "playa-dorada-golf": 120,
   "blue-jacktar-playa-dorada": 60,
   "senor-rock-playa-dorada": 60,

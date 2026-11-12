@@ -577,6 +577,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Village photo style Santorin dans les collines d'El Cupey — réservez un forfait journée piscines et déjeuner ; demi-journée thématique à l'intérieur, pas un beach club.",
     },
   },
+  "waterworks-sosua": {
+    body: "Casa Linda family splash day on Carretera El Choco — shallow aqua park and pool bar for kids, closed Mondays; not Ocean World’s dolphin park.",
+    localized: {
+      en: "Casa Linda family splash day on Carretera El Choco — shallow aqua park and pool bar for kids, closed Mondays; not Ocean World’s dolphin park.",
+      es: "Día de splash familiar en Casa Linda, Carretera El Choco — aqua park poco profundo y bar de piscina para niños, cerrado lunes; no es el parque de delfines de Ocean World.",
+      fr: "Journée splash famille à Casa Linda, Carretera El Choco — aire aquatique peu profonde et bar de piscine pour enfants, fermé le lundi ; pas le parc dauphins d’Ocean World.",
+    },
+  },
   "drifter-cabarete": {
     body: "Mediterranean beachfront on Cabarete Bay — come for sunset cocktails and dinner on the sand; Saturdays run dinner into DJ and dance, not a walk-up beach bar.",
     localized: {

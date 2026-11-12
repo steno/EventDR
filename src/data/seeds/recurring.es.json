@@ -3594,5 +3594,41 @@
       "2x1 Cuba Libre 6–8 PM"
     ],
     "imageEmoji": "🁣"
+  },
+  {
+    "id": "waterworks-sosua-daily",
+    "title": "Waterworks Sosúa — Día de water park",
+    "description": "Día de water park familiar en Waterworks Sosúa dentro de Casa Linda Villas (Fase 7–9, Carretera El Choco) — aqua park poco profundo, piscinas, snacks en el bar de la piscina y áreas infantiles. Abierto martes a domingo (cerrado lunes): suele ser 11:00 AM–6:00 PM entre semana y hasta 7:00 PM fines de semana — confirma antes de ir. Entrada reciente publicada alrededor de RD$250 adultos / RD$150 niños; reserva WhatsApp +1 849-865-7494 · @waterworks.sosua. Water park tierra adentro en Casa Linda — no es Ocean World Adventure Park en Cofresí ni Fun City go-karts.",
+    "date": "2026-01-01",
+    "time": "11:00 AM – 7:00 PM",
+    "location": "Sosúa",
+    "address": "Casa Linda Villas Phase 7–9, Carretera El Choco, Sosúa 57000",
+    "venue": "Waterworks Sosúa",
+    "venueSlug": "waterworks-sosua",
+    "lat": 19.764029,
+    "lng": -70.490101,
+    "category": "adventure",
+    "categories": [
+      "sports",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDays": [
+      0,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "Adultos RD$250 · niños RD$150",
+    "phone": "+18498657494",
+    "instagram": "waterworks.sosua",
+    "sourceUrl": "https://www.instagram.com/waterworks.sosua/",
+    "imageEmoji": "💦",
+    "ageHint": "family"
   }
 ]

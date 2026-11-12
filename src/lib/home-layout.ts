@@ -260,6 +260,7 @@ export const VENUE_AUDIENCE_POOLS: Record<
     "cayo-arena",
     "fun-city",
     "grecialandia",
+    "waterworks-sosua",
     "spotland-puerto-plata",
     "classic-cars-dominicana",
     "trolley-city-tours",

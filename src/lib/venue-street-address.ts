@@ -56,6 +56,8 @@ export const VENUE_STREET_ADDRESS: Readonly<Record<string, string>> = {
   "gran-ventana-beach-resort": "Complejo Hotelero Playa Dorada s/n, Puerto Plata",
   "grand-prix-puerto-plata": "Av. Manolo Tavares Justo esq. Presidente Caamaño #1, Edificio Grand Prix (Bomba Next), La Javilla",
   "grecialandia": "Carretera Principal, Residencia Grecia, Sabana del Corozo, El Cupey",
+  "waterworks-sosua":
+    "Casa Linda Villas Phase 7–9, Carretera El Choco, Sosúa 57000",
   "gregorio-luperon-airport": "Carretera Puerto Plata–Sosúa, Aeropuerto Internacional Gregorio Luperón (POP)",
   "gregorio-luperon-museum": "Calle 12 de Julio #54",
   "ground-zero-disco": "Km 18, Carretera Puerto Plata–Sosúa, frente al Aeropuerto Gregorio Luperón",

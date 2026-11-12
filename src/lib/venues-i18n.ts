@@ -517,6 +517,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Village thématique gréco-caribéen à Residencia Grecia, Sabana del Corozo, El Cupey — rues cycladiques blanc et bleu, terrasses panoramiques, piscines et forfaits journée avec musique, boisson de bienvenue et déjeuner optionnel, à ~10 minutes du centre de Puerto Plata.",
     },
   },
+  "waterworks-sosua": {
+    description: {
+      es: "Water park familiar dentro de Casa Linda Villas (Fase 7–9) en Carretera El Choco — aqua park poco profundo, piscinas, bar de piscina y áreas infantiles. Abierto martes a domingo (cerrado lunes); reserva WhatsApp +1 849-865-7494 · @waterworks.sosua.",
+      fr: "Water park familial dans Casa Linda Villas (Phase 7–9) sur Carretera El Choco — aire aquatique peu profonde, piscines, bar de piscine et zones enfants. Ouvert mardi–dimanche (fermé le lundi) ; réservez WhatsApp +1 849-865-7494 · @waterworks.sosua.",
+    },
+  },
   "drifter-cabarete": {
     description: {
       es: "Cocina mediterránea frente al mar con toques caribeños en la bahía de Cabarete — cócteles al atardecer, mesas barefoot en la terraza y sábados de cena a baile. Abierto todos los días; reserva en noches punta.",
