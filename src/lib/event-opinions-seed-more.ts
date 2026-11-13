@@ -8347,10 +8347,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "disco-club-pijama-party-2026-11-13",
-    body: "Friday pajama theme at Latin Disco by the Brugal depots with Camilo Taveras, Soky, and Yosma — cover not on the flyer; reserve +1 849-316-4858, and don’t pin La Lola’s Malecón live nights by mistake.",
+    body: "Friday pajama theme at Latin Disco by the Brugal depots with DJ Choco, Soky, and Yosma — cover not on the flyer; reserve +1 849-316-4858, and don’t pin La Lola’s Malecón live nights by mistake.",
     localized: {
-      es: "Viernes de pijama en Latin Disco junto a los depósitos de Brugal con Camilo Taveras, Soky y Yosma — cover no está en el flyer; reserva +1 849-316-4858, y no clavés los lives de La Lola en el Malecón por error.",
-      fr: "Vendredi pyjama au Latin Disco près des dépôts Brugal avec Camilo Taveras, Soky et Yosma — cover absent de l’affiche ; réservez +1 849-316-4858, et n’épinglez pas les lives de La Lola sur le Malecón par erreur.",
+      es: "Viernes de pijama en Latin Disco junto a los depósitos de Brugal con DJ Choco, Soky y Yosma — cover no está en el flyer; reserva +1 849-316-4858, y no clavés los lives de La Lola en el Malecón por error.",
+      fr: "Vendredi pyjama au Latin Disco près des dépôts Brugal avec DJ Choco, Soky et Yosma — cover absent de l’affiche ; réservez +1 849-316-4858, et n’épinglez pas les lives de La Lola sur le Malecón par erreur.",
     },
     priceFeel: "varies",
     priceNote: "Cover not on flyer — reserve +1 849-316-4858 / @latindiscoclubpp",
@@ -8360,8 +8360,8 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · Latin Disco Club Pijama Party flyer · BSM Entertainment",
     researchNotes:
-      "Editor flyer — Viernes 13 Noviembre; Pijama Party; Latin Disco Club; Av. Manolo Tavarez Justo frente depósitos Brugal; DJ Camilo Taveras / DJ Soky / DJ Yosma; Premios a la mejor pijama; 849-316-4858; BSM Entertainment; D Loren Carteras sponsor.",
-    updatedAt: "2026-11-04T20:20:00.000Z",
+      "Editor flyer v2 — Viernes 13 Noviembre; Pijama Party; Latin Disco Club; Av. Manolo Tavarez Justo frente depósitos Brugal; DJ Choco / DJ Soky / DJ Yosma; Premios a la mejor pijama; 849-316-4858; BSM Entertainment; D Loren Carteras sponsor.",
+    updatedAt: "2026-11-13T16:00:00.000Z",
   },
   {
     eventId: "samuel-gonzalez-la-lola-2026-12-05",

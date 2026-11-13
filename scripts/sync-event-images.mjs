@@ -420,6 +420,8 @@ const FILE_TO_EVENT_ID = {
     "leos-banana-fiesta-blanca-2026-11-27",
   "disco-club-pijama-party-2026-11-13.jpg":
     "disco-club-pijama-party-2026-11-13",
+  "disco-club-pijama-party-2026-11-13-v2.jpg":
+    "disco-club-pijama-party-2026-11-13",
   "samuel-gonzalez-la-lola-2026-12-05.jpg":
     "samuel-gonzalez-la-lola-2026-12-05",
   "twenty-disco-gran-noche-tipica-2026-11-08.jpg":

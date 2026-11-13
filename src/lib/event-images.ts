@@ -244,7 +244,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "leos-banana-fiesta-blanca-2026-11-27":
     "leos-banana-fiesta-blanca-2026-11-27.jpg",
   "disco-club-pijama-party-2026-11-13":
-    "disco-club-pijama-party-2026-11-13.jpg",
+    "disco-club-pijama-party-2026-11-13-v2.jpg",
   "samuel-gonzalez-la-lola-2026-12-05":
     "samuel-gonzalez-la-lola-2026-12-05.jpg",
   "twenty-disco-gran-noche-tipica-2026-11-08":
@@ -1592,7 +1592,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "fortaleza-san-felipe-encendido-luces-azules-2026-11-13.jpg",
   "spotland-fit-fusion-night-volumen-2-2026-11-18.jpg",
   "leos-banana-fiesta-blanca-2026-11-27.jpg",
-  "disco-club-pijama-party-2026-11-13.jpg",
+  "disco-club-pijama-party-2026-11-13-v2.jpg",
   "samuel-gonzalez-la-lola-2026-12-05.jpg",
   "twenty-disco-gran-noche-tipica-2026-11-08.jpg",
   "ambar-lounge-bandoleras-fridays-weekly.jpg",
