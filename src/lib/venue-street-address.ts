@@ -151,6 +151,8 @@ export const VENUE_STREET_ADDRESS: Readonly<Record<string, string>> = {
     "Los Guaos / Alto Grande, Veragua (Distrito Municipal Veragua), Gaspar Hernández",
   "037-bar-restaurant":
     "Av. Gral. Gregorio Luperón #34 A, Puerto Plata 57000",
+  "klok-smoke-bar":
+    "Plaza Sosúa, frente a Banco Popular (diagonal a Baileys), El Batey, Sosúa",
   "teleferico-puerto-plata": "C. del Teleférico",
   "templo-de-las-americas": "La Isabela / El Castillo, Luperón, Puerto Plata",
   "terramar-pickleball-club": "Cabarete / Sosúa, Puerto Plata",

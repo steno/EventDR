@@ -1331,6 +1331,16 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Bar & grill fruits de mer néon sur le Malecón de Puerto Plata, Av. Gral. Gregorio Luperón #34 A — cocktails, pescados y mariscos, karaoke et soirées annoncées. Ce n’est pas Victrola 037 Arte Café (même avenue, autre concept / @victrolart). Ouvert en général ~16 h–minuit ; confirmez sur Instagram @037barrestaurant · WhatsApp +1 849-785-1822.",
     },
   },
+  "klok-smoke-bar": {
+    name: {
+      es: "K-Lo-K Smoke Bar",
+      fr: "K-Lo-K Smoke Bar",
+    },
+    description: {
+      es: "Smoke bar / lounge con neón en Plaza Sosúa (El Batey) — frente al Banco Popular y en diagonal a Baileys; cócteles, cigarros y noches late en El Batey. No es Chameleon Sport Bar en Coral Reef Casino / Sosúa Bay Center. Confirma horarios en Instagram @kloksmokebar · +1 809-895-6889.",
+      fr: "Smoke bar / lounge néon à Plaza Sosúa (El Batey) — en face de Banco Popular et en diagonal de Baileys ; cocktails, cigares et nuits tardives à El Batey. Ce n’est pas Chameleon Sport Bar au Coral Reef Casino / Sosúa Bay Center. Confirmez les horaires sur Instagram @kloksmokebar · +1 809-895-6889.",
+    },
+  },
 };
 
 export function localizeVenue(venue: Venue, locale: Locale): Venue {

@@ -3,6 +3,7 @@ import { User } from "lucide-react";
 import type { EventOpinion, PriceFeel } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
+import { getBrandAssets } from "@/lib/brand-assets";
 import {
   resolveEventOpinionBody,
   resolveEventOpinionPriceNote,
@@ -87,6 +88,7 @@ export function EventOpinionBlock({
     citeParts.push(opinion.ratingCite.trim());
   }
   const cite = citeParts.join(o.sourceJoin);
+  const brand = getBrandAssets();
 
   return (
     <section className={className} aria-labelledby="event-opinion-heading">
@@ -94,7 +96,7 @@ export function EventOpinionBlock({
         <div className="relative mt-0.5 h-10 w-10 shrink-0 overflow-hidden rounded-full bg-gradient-to-br from-orange-500 via-rose-500 to-fuchsia-500 p-[2px] shadow-sm shadow-rose-500/25">
           <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-full bg-white dark:bg-neutral-950">
             <Image
-              src="/pop-home-logo.webp"
+              src={brand.headerLogoWebp}
               alt=""
               width={36}
               height={36}

@@ -6499,8 +6499,8 @@
   },
   {
     "id": "la-quinta-rosa-call-you-later-2026-11-21",
-    "title": "Call You Later at La Quinta Rosa",
-    "description": "Call You Later — las conversaciones que dejamos para después — at La Quinta Rosa (est. 1912), Calle 12 de Julio #88, downtown Puerto Plata — Saturday 21 November 2026, 10:00 AM–2:00 PM. Live podcast morning with brunch, conversation, writing, and sharing; anonymous questions welcome, participation optional. Guests: clinical psychologist / Gestalt psychotherapist Rosemilia García (@altruista.mente) on boundaries without guilt; menstrual therapist Zaliris Made (@wiserootsliving) on cycles and listening to the body; host Dhara Hernández (@dha.hersan), founder of @laquintarosapop. US$62 per person; limited spots — DM @laquintarosapop (card or bank transfer). Not Brunch & Pumpkin on 25 Oct or the Katz Home furniture workshop on 28 Nov at the same house.",
+    "title": "Call You Later at La Quinta Rosa (Postponed)",
+    "description": "POSTPONED — Call You Later podcast brunch at La Quinta Rosa (est. 1912), Calle 12 de Julio #88, downtown Puerto Plata — was Saturday 21 November 2026, 10:00 AM–2:00 PM. Do not plan on that date; watch @laquintarosapop for a new day. Was billed with guests Rosemilia García (@altruista.mente), Zaliris Made (@wiserootsliving), and host Dhara Hernández (@dha.hersan); US$62 when it returns. Not the Katz Home furniture workshop on 28 Nov at the same house.",
     "date": "2026-11-21",
     "time": "10:00 AM – 2:00 PM",
     "location": "Puerto Plata",
@@ -6515,17 +6515,18 @@
       "culture"
     ],
     "format": "physical",
-    "trending": true,
+    "trending": false,
     "isFree": false,
     "admissionPrice": "US$62",
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/laquintarosapop/",
     "instagram": "laquintarosapop",
+    "temporarilyClosed": true,
     "lineup": [
+      "Postponed — watch @laquintarosapop",
       "Rosemilia García — clinical psychologist / Gestalt",
       "Zaliris Made — menstrual therapist, Wise Roots Living",
-      "Dhara Hernández — host (@dha.hersan)",
-      "Live podcast · conversation · writing"
+      "Dhara Hernández — host (@dha.hersan)"
     ],
     "imageEmoji": "🎙️"
   },
@@ -8105,7 +8106,7 @@
   {
     "id": "isabela-food-fest-2026-12-18",
     "title": "Villa Isabela — Isabela Food Fest",
-    "description": "Isabela Food Fest (El Festival del Pueblo) at Parque Municipal Villa Isabela — Friday 18 through Sunday 20 December 2026. Live artists, DJs, and gastronomy in the municipal plaza. Confirmed so far: La Perversa opens Friday 18 December; Los Simpáticos Típicos and DJ Flacome Saturday 19 December; Ronny Manuel (El Chamaquito del Sonido), DJ Melcocha, and Bulin 47 gran cierre Sunday 20 December (separate listings). More artists as confirmed. Tickets at todotickets.do and Plaza Lama; info & reservations +1 829-336-6802 · Instagram @isabelafoodfest. West of Puerto Plata city — not D'Ocean Bar Halloween on 31 Oct.",
+    "description": "Isabela Food Fest (El Festival del Pueblo) at Parque Municipal Villa Isabela — Friday 18 through Sunday 20 December 2026. Live artists, DJs, and gastronomy in the municipal plaza. Confirmed so far: La Perversa and Carlos El Gusto (bachata) Friday 18 December; Los Simpáticos Típicos and DJ Flacome Saturday 19 December; Ronny Manuel (El Chamaquito del Sonido), DJ Melcocha, and Bulin 47 gran cierre Sunday 20 December (separate listings). More artists as confirmed. Tickets at todotickets.do and Plaza Lama; info & reservations +1 829-336-6802 · Instagram @isabelafoodfest. West of Puerto Plata city — not D'Ocean Bar Halloween on 31 Oct.",
     "date": "2026-12-18",
     "endDate": "2026-12-20",
     "location": "Villa Isabela",
@@ -8128,7 +8129,8 @@
     "sourceUrl": "https://www.instagram.com/isabelafoodfest/",
     "instagram": "isabelafoodfest",
     "lineup": [
-      "La Perversa — Friday 18 December opener",
+      "La Perversa — Friday 18 December",
+      "Carlos El Gusto — Friday 18 December",
       "Los Simpáticos Típicos — Saturday 19 December",
       "DJ Flacome — Saturday 19 December",
       "Ronny Manuel — Sunday 20 December",
@@ -10943,7 +10945,7 @@
   {
     "id": "isabela-food-fest-la-perversa-2026-12-18",
     "title": "Isabela Food Fest — La Perversa · 18 Dec",
-    "description": "La Perversa (artista confirmado) opens Isabela Food Fest with urban flavor at Parque Municipal Villa Isabela — Friday 18 December 2026. Totally free entry thanks to Ministerio de Turismo / RD Lo Tiene Todo. Info & reservations +1 829-336-6802 · Instagram @isabelafoodfest. Friday opener of the three-day festival (18–20 Dec) — see the main Isabela Food Fest listing for the full weekend; not Bulin 47’s Sunday gran cierre.",
+    "description": "La Perversa (artista confirmado) at Isabela Food Fest, Parque Municipal Villa Isabela — Friday 18 December 2026. Totally free entry thanks to Ministerio de Turismo / RD Lo Tiene Todo. Same free Friday plaza bill as Carlos El Gusto (bachata). Info & reservations +1 829-336-6802 · Instagram @isabelafoodfest. Friday night of the three-day festival (18–20 Dec) — see the main Isabela Food Fest listing for the full weekend; not Bulin 47’s Sunday gran cierre.",
     "date": "2026-12-18",
     "venue": "Parque Municipal Villa Isabela",
     "venueSlug": "parque-municipal-villa-isabela",
@@ -10971,7 +10973,7 @@
   {
     "id": "groundzero-omega-2026-12-18",
     "title": "Ground Zero — Omega El Fuerte · 18 Dec",
-    "description": "Omega El Fuerte (Mambo Violento) at Ground Zero, Km 18 Carretera Puerto Plata–Sosúa opposite Gregorio Luperón Airport — Friday 18 December 2026. Christmas-kickoff club night. Reservations +1 849-465-1313 · Instagram @groundzero_disco. Airport-road disco — not Isabela Food Fest’s La Perversa free plaza opener the same Friday in Villa Isabela.",
+    "description": "Omega El Fuerte (Mambo Violento) at Ground Zero, Km 18 Carretera Puerto Plata–Sosúa opposite Gregorio Luperón Airport — Friday 18 December 2026. Christmas-kickoff club night. Reservations +1 849-465-1313 · Instagram @groundzero_disco. Airport-road disco — not Isabela Food Fest’s free Friday plaza night (La Perversa / Carlos El Gusto) the same day in Villa Isabela.",
     "date": "2026-12-18",
     "venue": "Ground Zero",
     "venueSlug": "ground-zero-disco",
@@ -11673,5 +11675,93 @@
     "imageEmoji": "🎄",
     "title": "Cedāky Mall — Show Navideño · Magia de la Navidad",
     "description": "Show Navideño — La Magia de la Navidad at Cedāky Mall, Av. Manolo Tavárez Justo, Puerto Plata — Saturday 14 November 2026 at 5:30 PM. Free family Christmas show to welcome the season with joy, surprises, and magic for the whole family. Confirm via Instagram @cedakymall. Mall Christmas welcome — not Cedāky’s Market on Sunday 15 Nov, and not Aguinaldo 5K Navideño on 19 Dec."
+  },
+  {
+    "id": "chameleon-la-mas-doll-2026-12-19",
+    "title": "Chameleon — La Más Doll",
+    "description": "La Más Doll Christmas party night at Chameleon Sport Bar, Casino Coral Reef / Sosúa Bay Center (Calle Dr. Alejo Martínez No. 1, El Batey, Sosúa) — Saturday 19 December 2026 presented by PC Entertainments and Trivii Promoción. Cover not on the flyer. Reservations 829-566-7071 / (829) 994-2304 · Instagram @chameleonsportbar / @pcentertainments. Sosúa Bay Center Saturday — not Aguinaldo 5K Navideño on the Puerto Plata Malecón the same day, and not La Más Doll’s earlier Latin Disco Club bill in Puerto Plata.",
+    "date": "2026-12-19",
+    "location": "Sosúa",
+    "venue": "Chameleon Sport Bar",
+    "venueSlug": "chameleon-sport-bar",
+    "address": "Calle Dr. Alejo Martínez No. 1, Sosúa Bay Center, El Batey, Sosúa (Casino Coral Reef)",
+    "lat": 19.762438,
+    "lng": -70.516813,
+    "category": "christmas",
+    "categories": [
+      "parties",
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18299942304",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/pcentertainments/",
+    "instagram": "chameleonsportbar",
+    "lineup": [
+      "La Más Doll",
+      "PC Entertainments",
+      "Trivii Promoción"
+    ],
+    "imageEmoji": "💗"
+  },
+  {
+    "id": "ivan-garcia-concierto-sinfonico-2026-11-19",
+    "title": "Iván García — Gran Concierto Sinfónico",
+    "description": "Gran Concierto Sinfónico by Orquesta Sinfónica Juvenil de Puerto Plata (POP) at Teatro Escuela Iván García, Calle Profesor Juan Bosch #72, Puerto Plata — Thursday 19 November 2026 at 7:00 PM. Directed by Juan Melo (Orquesta Rep. Dom.) and Geumsil Oh (Director Musical Korea). Free entry. Confirm doors via 809-261-7393 · Instagram @teatroivangarcia. Free Thursday symphony in Sala Iván García — not the Salvador Pérez encuentro on Saturday 21 Nov, and not the 16th-anniversary graduation on 28 Nov.",
+    "date": "2026-11-19",
+    "time": "7:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Iván García Teatro-Escuela",
+    "venueSlug": "ivan-garcia-teatro-escuela",
+    "address": "Calle Profesor Juan Bosch #72, Puerto Plata",
+    "lat": 19.797438,
+    "lng": -70.6908212,
+    "category": "music",
+    "categories": [
+      "culture",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18092617393",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/teatroivangarcia/",
+    "lineup": [
+      "Orquesta Sinfónica Juvenil de Puerto Plata",
+      "Juan Melo",
+      "Geumsil Oh"
+    ],
+    "imageEmoji": "🎻"
+  },
+  {
+    "id": "isabela-food-fest-carlos-el-gusto-2026-12-18",
+    "title": "Isabela Food Fest — Carlos El Gusto · 18 Dic",
+    "description": "Carlos El Gusto de la Bachata (artista confirmado) at Isabela Food Fest, Parque Municipal Villa Isabela — Friday 18 December 2026. Totally free entry courtesy of República Dominicana Lo Tiene Todo / Triv Promoción. Same free Friday plaza bill as La Perversa. Info & reservations +1 829-336-6802 · Instagram @isabelafoodfest. Friday night of the three-day festival (18–20 Dec) — not Ground Zero’s Omega club night the same Friday on the airport road, and not Bulin 47’s Sunday gran cierre.",
+    "date": "2026-12-18",
+    "location": "Villa Isabela",
+    "venue": "Parque Municipal Villa Isabela",
+    "venueSlug": "parque-municipal-villa-isabela",
+    "address": "Parque Municipal, Villa Isabela, Puerto Plata",
+    "lat": 19.813027,
+    "lng": -71.055725,
+    "category": "festivals",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18293366802",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/isabelafoodfest/",
+    "instagram": "isabelafoodfest",
+    "lineup": [
+      "Carlos El Gusto de la Bachata"
+    ],
+    "imageEmoji": "🎤"
   }
 ]

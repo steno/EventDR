@@ -8,6 +8,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import { Map as MapIcon, Search, X } from "lucide-react";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { getBrandAssets } from "@/lib/brand-assets";
 import { clearHomeArea } from "@/lib/cities";
 import {
   hasSeenOnboarding,
@@ -62,6 +63,7 @@ export function AppHeader({
     setShowMapNew(!hasSeenOnboarding("map-feature-seen"));
   }, [onMap]);
 
+  const brand = getBrandAssets();
   const headerIconClass = `
     flex h-9 w-9 shrink-0 items-center justify-center rounded-full
     bg-white/80 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.7)] ring-1 backdrop-blur-xl
@@ -87,7 +89,7 @@ export function AppHeader({
         }}
       >
         <Image
-          src="/pop-home-logo.webp"
+          src={brand.headerLogoWebp}
           alt={dict.seo.siteName}
           width={192}
           height={192}

@@ -75,9 +75,9 @@ export const HALLOWEEN_RAIL_END_ISO = "2026-11-01";
 
 /**
  * Christmas / Navidad / Reyes local calendar window (America/Santo_Domingo).
- * Month–day range wraps the year: Nov 15–Dec 31 or Jan 1–Jan 6.
+ * Month–day range wraps the year: Nov 13–Dec 31 or Jan 1–Jan 6.
  */
-export const CHRISTMAS_RAIL_START_MD = "11-15";
+export const CHRISTMAS_RAIL_START_MD = "11-13";
 export const CHRISTMAS_RAIL_END_MD = "01-06";
 
 /** Id / title markers for costume / haunted Halloween listings (not “Halloween weekend” boxing copy). */
@@ -114,7 +114,7 @@ export function isHalloweenRailActive(now: Date = new Date()): boolean {
   return day >= HALLOWEEN_RAIL_START_ISO && day <= HALLOWEEN_RAIL_END_ISO;
 }
 
-/** Home Christmas section is visible Nov 15–Jan 6 (wraps the year). */
+/** Home Christmas section is visible Nov 13–Jan 6 (wraps the year). */
 export function isChristmasRailActive(now: Date = new Date()): boolean {
   const md = localDateISO(now).slice(5);
   return md >= CHRISTMAS_RAIL_START_MD || md <= CHRISTMAS_RAIL_END_MD;
@@ -1009,7 +1009,7 @@ export interface HomeDiscoverLayout {
    */
   halloweenEvents: Event[];
   /**
-   * Seasonal Christmas rail (empty outside Nov 15–Jan 6). Same placement as
+   * Seasonal Christmas rail (empty outside Nov 13–Jan 6). Same placement as
    * Halloween; those ids are stripped from Weekend while live.
    */
   christmasEvents: Event[];

@@ -2476,6 +2476,20 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18497851822",
     website: "https://www.instagram.com/037barrestaurant/",
   },
+  {
+    slug: "klok-smoke-bar",
+    name: "K-Lo-K Smoke Bar",
+    city: "Sosúa",
+    description:
+      "Neon smoke bar / lounge in Plaza Sosúa (El Batey) — across from Banco Popular and diagonally across from Baileys; cocktails, cigars, and late El Batey nights. Not Chameleon Sport Bar at Coral Reef Casino / Sosúa Bay Center. Confirm hours on Instagram @kloksmokebar · +1 809-895-6889.",
+    // Plaza Sosúa / El Batey — across Banco Popular (Alejo Martínez), near Baileys.
+    lat: 19.763707,
+    lng: -70.516645,
+    emoji: "💨",
+    instagram: "kloksmokebar",
+    phone: "+18098956889",
+    website: "https://www.instagram.com/kloksmokebar/",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
@@ -2805,6 +2819,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /037\s*bar(\s*restaurante?)?|037barrestaurant|cero\s*treinta\s*y\s*siete\s*bar/i,
     slug: "037-bar-restaurant",
+  },
+  {
+    pattern:
+      /k[-\s]?lo[-\s]?k(\s*smoke)?(\s*bar)?|kloksmokebar|klok\s*smoke/i,
+    slug: "klok-smoke-bar",
   },
   {
     pattern: /mecla['’]?o\s*rooftop|meclao\s*rooftop/i,

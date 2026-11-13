@@ -1313,6 +1313,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Bar fruits de mer néon sur le Malecón au Gregorio Luperón #34 A — karaoke et cocktails ici, pas Victrola 037 Arte Café sur la même avenue (@victrolart) ; confirmez les portes sur @037barrestaurant ou WhatsApp +1 849-785-1822 avant de le traiter comme un café touristique walk-up.",
     },
   },
+  "klok-smoke-bar": {
+    body: "Neon smoke lounge in Plaza Sosúa across from Banco Popular (diagonal to Baileys) — cigars and cocktails here, not Chameleon’s Coral Reef Casino sport-bar nights a block over; confirm hours on @kloksmokebar or +1 809-895-6889 before you Uber into El Batey.",
+    localized: {
+      en: "Neon smoke lounge in Plaza Sosúa across from Banco Popular (diagonal to Baileys) — cigars and cocktails here, not Chameleon’s Coral Reef Casino sport-bar nights a block over; confirm hours on @kloksmokebar or +1 809-895-6889 before you Uber into El Batey.",
+      es: "Lounge smoke con neón en Plaza Sosúa frente al Banco Popular (diagonal a Baileys) — cigarros y cócteles aquí, no las noches de sport bar de Chameleon en Coral Reef Casino a una cuadra; confirma horarios en @kloksmokebar o +1 809-895-6889 antes del Uber a El Batey.",
+      fr: "Lounge smoke néon à Plaza Sosúa en face de Banco Popular (diagonal à Baileys) — cigares et cocktails ici, pas les soirées sport-bar de Chameleon au Coral Reef Casino une rue plus loin ; confirmez les horaires sur @kloksmokebar ou +1 809-895-6889 avant l’Uber vers El Batey.",
+    },
+  },
   "nova-salud-bienestar": {
     body: "Victorian-style centro clinic on Margarita Mears #6 (Mon–Fri 8 AM–5 PM on the door) — psychology talks here, not a spa day pass. WhatsApp seats before you walk the colonial grid.",
     localized: {

@@ -1005,9 +1005,6 @@
     "venue": "Vivonté Cigar Factory",
     "venueSlug": "vivonte-cigar-factory",
     "category": "culture",
-    "categories": [
-      "food-drinks"
-    ],
     "format": "physical",
     "recurrence": "weekly",
     "recurrenceDay": 6,
@@ -3651,5 +3648,37 @@
     "imageEmoji": "🥟",
     "title": "Malecón Empanadas — Tres Golpes et plus",
     "description": "Empanadas croustillantes sur la bande du Malecón de Puerto Plata — y compris l’Empanada de los Tres Golpes (mangú, salami, œuf et fromage). Tables patio sous l’auvent Empanadas ; livraison aussi via Komida App. Confirmez horaires et goûts sur Instagram @maleconempanadas. Arrêt fried pastry sur le boardwalk — pas une résa fine dining front de mer, ni Empanadas Monumental sur Separación."
+  },
+  {
+    "id": "evolution-viernes-contrabandista-weekly",
+    "title": "Evolution — Viernes D' Contrabandista",
+    "description": "Tous les vendredis pendant les fêtes — Viernes D' Contrabandista ambiance Noël à Evolution Disco Club 146, Antigua Villana (ex La Villana), Calle Principal, San Marcos, Puerto Plata. Trae la bebida de tu preferencia (BYOB). Cover absent de l’affiche. Pas de mineurs à la porte. Appelez +1 849-253-5178 · Instagram @evolution_disco_club146. Série vendredi des fêtes à San Marcos — pas Exotic Friday de Luxury Club à Costa Dorada, ni les cartels samedi datés d’Evolution (ex. Papy Crish).",
+    "date": "2026-01-01",
+    "location": "Puerto Plata",
+    "venue": "Evolution Disco Club",
+    "venueSlug": "evolution-disco-club-san-marcos",
+    "address": "Antigua Villana (ex La Villana), Calle Principal, San Marcos, Puerto Plata",
+    "lat": 19.792511,
+    "lng": -70.72019,
+    "category": "parties",
+    "categories": [
+      "christmas",
+      "music"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 5,
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18492535178",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/evolution_disco_club146/",
+    "instagram": "evolution_disco_club146",
+    "ageHint": "18-plus",
+    "lineup": [
+      "Viernes D' Contrabandista",
+      "BYOB — trae tu bebida"
+    ],
+    "imageEmoji": "🎅"
   }
 ]

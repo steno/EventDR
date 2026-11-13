@@ -69,7 +69,7 @@ describe("Christmas category nav visibility", () => {
     assert.ok(CATEGORY_IDS.includes("christmas"));
   });
 
-  it("shows christmas in browse nav only inside Nov 15–Jan 6", () => {
+  it("shows christmas in browse nav only inside Nov 13–Jan 6", () => {
     assert.equal(
       isCategoryVisibleInNav("christmas", CHRISTMAS_IN_SEASON),
       true,

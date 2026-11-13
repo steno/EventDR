@@ -2191,6 +2191,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "klok-smoke-bar",
+    verdictKey: "local_favorite_night",
+    crowdFit: ["local", "nightlife", "mixed", "visitor"],
+    axes: { recommend: 4.0, atmosphere: 4.3, value: 3.8, practical: 3.9 },
+    themes: [
+      { key: "cigar_tour", sentiment: "positive" },
+      { key: "cocktails", sentiment: "positive", audience: "nightlife" },
+      { key: "easy_to_find", sentiment: "mixed", audience: "visitor" },
+    ],
+  }),
+  editorial({
     venueSlug: "malecon-empanadas",
     verdictKey: "strong_local_food",
     crowdFit: ["local", "family", "mixed", "visitor"],

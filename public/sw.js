@@ -1,11 +1,16 @@
-const CACHE_NAME = "eventdr-v22";
+const CACHE_NAME = "eventdr-v23";
 const STATIC_ASSETS = [
   "/manifest.webmanifest",
   "/pop-home-logo.webp",
   "/pop-home-logo.png",
+  "/pop-home-logo-christmas.webp",
+  "/pop-home-logo-christmas.png",
   "/icons/icon-192.png",
   "/icons/icon-512.png",
   "/icons/icon-512-maskable.png",
+  "/icons/christmas/icon-192.png",
+  "/icons/christmas/icon-512.png",
+  "/icons/christmas/icon-512-maskable.png",
 ];
 
 function isBypassPath(pathname) {
@@ -21,7 +26,10 @@ function isPrecacheable(pathname) {
     pathname === "/manifest.webmanifest" ||
     pathname.startsWith("/icons/") ||
     pathname === "/pop-home-logo.webp" ||
-    pathname === "/pop-home-logo.png"
+    pathname === "/pop-home-logo.png" ||
+    pathname === "/pop-home-logo-christmas.webp" ||
+    pathname === "/pop-home-logo-christmas.png" ||
+    pathname === "/favicon-christmas.png"
   );
 }
 

@@ -5709,21 +5709,21 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "la-quinta-rosa-call-you-later-2026-11-21",
-    body: "Saturday podcast brunch in the pink 1912 house — Rosemilia García and Zaliris Made on boundaries and cycles for US$62, not the furniture workshop a week later; DM @laquintarosapop before seats go (card or transfer).",
+    body: "Postponed — don’t plan the Sat 21 Nov podcast brunch at La Quinta Rosa; watch @laquintarosapop for a new date, and keep the Katz Home furniture workshop on 28 Nov separate.",
     localized: {
-      es: "Brunch de podcast el sábado en la casa rosa de 1912 — Rosemilia García y Zaliris Made sobre límites y ciclos por US$62, no el taller de mobiliario de la semana siguiente; DM @laquintarosapop antes de que se vayan los cupos (tarjeta o transferencia).",
-      fr: "Brunch podcast le samedi dans la maison rose de 1912 — Rosemilia García et Zaliris Made sur limites et cycles pour US$62, pas l’atelier mobilier de la semaine suivante ; DM @laquintarosapop avant que les places partent (carte ou virement).",
+      es: "Aplazado — no planees el brunch de podcast del sáb 21 nov en La Quinta Rosa; mira @laquintarosapop para nueva fecha, y separa el taller Katz Home del 28 nov.",
+      fr: "Reporté — ne planifiez pas le brunch podcast du sam. 21 nov. à La Quinta Rosa ; suivez @laquintarosapop pour une nouvelle date, et gardez l’atelier Katz Home du 28 nov. à part.",
     },
     priceFeel: "upscale",
-    priceNote: "US$62 per person — DM @laquintarosapop (card or bank transfer)",
+    priceNote: "Postponed — was US$62 · watch @laquintarosapop",
     priceNoteLocalized: {
-      es: "US$62 por persona — DM @laquintarosapop (tarjeta o transferencia)",
-      fr: "US$62 par personne — DM @laquintarosapop (carte ou virement)",
+      es: "Aplazado — era US$62 · mira @laquintarosapop",
+      fr: "Reporté — était US$62 · suivez @laquintarosapop",
     },
-    attribution: "POP research · @laquintarosapop Call You Later flyer + caption",
+    attribution: "POP research · @laquintarosapop Call You Later flyer + postpone notice",
     researchNotes:
-      "Editor flyer + IG @laquintarosapop — Sáb 21 Nov 2026 10 AM–2 PM Call You Later at La Quinta Rosa; live podcast, brunch, conversation; Rosemilia García (@altruista.mente), Zaliris Made (@wiserootsliving), Dhara Hernández (@dha.hersan); US$62; DM reserve; card/transfer. No phone on art.",
-    updatedAt: "2026-10-19T12:00:00.000Z",
+      "POSTPONED 2026-11-13 editor — was Sáb 21 Nov 2026 10 AM–2 PM Call You Later; listing kept with temporarilyClosed until new date. Original: Rosemilia García, Zaliris Made, Dhara Hernández; US$62; DM reserve.",
+    updatedAt: "2026-11-13T18:50:00.000Z",
   },
   {
     eventId: "la-quinta-rosa-taller-decoracion-mobiliario-2026-11-28",
@@ -6947,10 +6947,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "isabela-food-fest-2026-12-18",
-    body: "Three-day pueblo fest at Parque Municipal Villa Isabela (18–20 Dec) — food, DJs, and live acts on the glorieta plaza; Los Simpáticos Típicos (and DJ Flacome) Saturday, Ronny Manuel plus DJ Melcocha and Bulin 47 gran cierre Sunday (own listings) — buy tickets on todotickets.do / Plaza Lama, and don’t confuse it with D'Ocean’s Oct 31 Halloween night in the same town.",
+    body: "Three-day pueblo fest at Parque Municipal Villa Isabela (18–20 Dec) — food, DJs, and live acts on the glorieta plaza; La Perversa and Carlos El Gusto Friday, Los Simpáticos Típicos (and DJ Flacome) Saturday, Ronny Manuel plus DJ Melcocha and Bulin 47 gran cierre Sunday (own listings) — buy tickets on todotickets.do / Plaza Lama, and don’t confuse it with D'Ocean’s Oct 31 Halloween night in the same town.",
     localized: {
-      es: "Fest del pueblo de tres días en el Parque Municipal Villa Isabela (18–20 dic) — comida, DJs y actos en vivo en la plaza de la glorieta; Los Simpáticos Típicos (y DJ Flacome) el sábado, Ronny Manuel más DJ Melcocha y Bulin 47 gran cierre el domingo (fichas aparte) — compra boletas en todotickets.do / Plaza Lama, y no lo confundas con el Halloween del 31 oct en D'Ocean en el mismo pueblo.",
-      fr: "Fest du pueblo de trois jours au Parque Municipal Villa Isabela (18–20 déc.) — food, DJs et acts live sur la place de la gloriette ; Los Simpáticos Típicos (et DJ Flacome) le samedi, Ronny Manuel plus DJ Melcocha et Bulin 47 gran cierre le dimanche (fiches séparées) — achetez les billets sur todotickets.do / Plaza Lama, et ne confondez pas avec l’Halloween du 31 oct. au D'Ocean dans la même ville.",
+      es: "Fest del pueblo de tres días en el Parque Municipal Villa Isabela (18–20 dic) — comida, DJs y actos en vivo en la plaza de la glorieta; La Perversa y Carlos El Gusto el viernes, Los Simpáticos Típicos (y DJ Flacome) el sábado, Ronny Manuel más DJ Melcocha y Bulin 47 gran cierre el domingo (fichas aparte) — compra boletas en todotickets.do / Plaza Lama, y no lo confundas con el Halloween del 31 oct en D'Ocean en el mismo pueblo.",
+      fr: "Fest du pueblo de trois jours au Parque Municipal Villa Isabela (18–20 déc.) — food, DJs et acts live sur la place de la gloriette ; La Perversa et Carlos El Gusto le vendredi, Los Simpáticos Típicos (et DJ Flacome) le samedi, Ronny Manuel plus DJ Melcocha et Bulin 47 gran cierre le dimanche (fiches séparées) — achetez les billets sur todotickets.do / Plaza Lama, et ne confondez pas avec l’Halloween du 31 oct. au D'Ocean dans la même ville.",
     },
     priceFeel: "varies",
     priceNote: "Tickets todotickets.do / Plaza Lama · info +1 829-336-6802",
@@ -6959,10 +6959,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       fr: "Billets todotickets.do / Plaza Lama · infos +1 829-336-6802",
     },
     attribution:
-      "POP research · @isabelafoodfest official poster + Simpáticos Típicos + DJ Flacome + Ronny Manuel + DJ Melcocha + Bulin 47 gran cierre",
+      "POP research · @isabelafoodfest official poster + La Perversa + Carlos El Gusto + Simpáticos Típicos + DJ Flacome + Ronny Manuel + DJ Melcocha + Bulin 47 gran cierre",
     researchNotes:
-      "Editor assets — El Festival del Pueblo official poster; Los Simpáticos Típicos Sat 19 flyer (separate seed); DJ Flacome Sat 19; Ronny Manuel Dom 20 (separate seed); DJ Melcocha Dom 20 (separate seed); Bulin 47 Dom 20 gran cierre (separate seed); more artists TBA; IG caption Dec 18–20; park place shot for venue; phone 829-336-6802.",
-    updatedAt: "2026-11-06T03:30:00.000Z",
+      "Editor assets — El Festival del Pueblo official poster; La Perversa Fri 18; Carlos El Gusto Fri 18 (separate seed); Los Simpáticos Típicos Sat 19 flyer (separate seed); DJ Flacome Sat 19; Ronny Manuel Dom 20 (separate seed); DJ Melcocha Dom 20 (separate seed); Bulin 47 Dom 20 gran cierre (separate seed); more artists TBA; IG caption Dec 18–20; park place shot for venue; phone 829-336-6802.",
+    updatedAt: "2026-11-13T19:00:00.000Z",
   },
   {
     eventId: "isabela-food-fest-simpaticos-tipicos-2026-12-19",
@@ -8958,10 +8958,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "isabela-food-fest-la-perversa-2026-12-18",
-    body: "Free Friday opener with La Perversa at Villa Isabela’s municipal plaza — tourism-sponsored door; not Ground Zero’s Omega club night the same Friday on the airport road.",
+    body: "Free Friday plaza night with La Perversa at Villa Isabela — same free bill as Carlos El Gusto; tourism-sponsored door, not Ground Zero’s Omega club night the same Friday on the airport road.",
     localized: {
-      es: "Apertura gratis del viernes con La Perversa en la plaza municipal de Villa Isabela — puerta patrocinada por turismo; no es la noche de club de Omega en Ground Zero el mismo viernes en la carretera del aeropuerto.",
-      fr: "Ouverture gratuite du vendredi avec La Perversa sur la place municipale de Villa Isabela — porte sponsorisée tourisme ; pas la soirée club d’Omega au Ground Zero le même vendredi sur la route de l’aéroport.",
+      es: "Noche gratis del viernes con La Perversa en la plaza de Villa Isabela — mismo cartel gratis que Carlos El Gusto; puerta patrocinada por turismo, no es la noche de club de Omega en Ground Zero el mismo viernes en la carretera del aeropuerto.",
+      fr: "Soirée gratuite du vendredi avec La Perversa sur la place de Villa Isabela — même affiche gratuite que Carlos El Gusto ; porte sponsorisée tourisme, pas la soirée club d’Omega au Ground Zero le même vendredi sur la route de l’aéroport.",
     },
     priceFeel: "budget",
     priceNote: "Totally free — info +1 829-336-6802 · @isabelafoodfest",
@@ -8971,15 +8971,15 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · @isabelafoodfest La Perversa flyer",
     researchNotes:
-      "Editor flyer + IG — Vie 18 Dic; La Perversa; Parque Municipal Villa Isabela; TOTALMENTE GRATIS; 829-336-6802.",
-    updatedAt: "2026-11-11T13:15:00.000Z",
+      "Editor flyer + IG — Vie 18 Dic; La Perversa; Parque Municipal Villa Isabela; TOTALMENTE GRATIS; 829-336-6802. Same Friday as Carlos El Gusto.",
+    updatedAt: "2026-11-13T19:00:00.000Z",
   },
   {
     eventId: "groundzero-omega-2026-12-18",
-    body: "Omega El Fuerte Christmas kickoff at Ground Zero Km 18 — reserve +1 849-465-1313; airport-road disco, not Isabela Food Fest’s free La Perversa plaza opener the same Friday.",
+    body: "Omega El Fuerte Christmas kickoff at Ground Zero Km 18 — reserve +1 849-465-1313; airport-road disco, not Isabela Food Fest’s free Friday plaza night (La Perversa / Carlos El Gusto).",
     localized: {
-      es: "Arranque navideño de Omega El Fuerte en Ground Zero Km 18 — reserva +1 849-465-1313; disco en la carretera del aeropuerto, no la apertura gratis de La Perversa en Isabela Food Fest el mismo viernes.",
-      fr: "Lancement de Noël d’Omega El Fuerte au Ground Zero Km 18 — réservez +1 849-465-1313 ; disco route aéroport, pas l’ouverture gratuite de La Perversa à Isabela Food Fest le même vendredi.",
+      es: "Arranque navideño de Omega El Fuerte en Ground Zero Km 18 — reserva +1 849-465-1313; disco en la carretera del aeropuerto, no la noche gratis del viernes en Isabela Food Fest (La Perversa / Carlos El Gusto).",
+      fr: "Lancement de Noël d’Omega El Fuerte au Ground Zero Km 18 — réservez +1 849-465-1313 ; disco route aéroport, pas la soirée gratuite du vendredi à Isabela Food Fest (La Perversa / Carlos El Gusto).",
     },
     priceFeel: "varies",
     priceNote: "Cover TBA — reservas +1 849-465-1313 · @groundzero_disco",
@@ -9488,5 +9488,81 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor IG text + food + patio photos @maleconempanadas — Empanada de los Tres Golpes (mangú, salami, huevo, queso); Malecón Empanadas Puerto Plata; Komida App delivery. Soft Malecón pin near Café Lángos; refine when Places pin confirmed.",
     updatedAt: "2026-11-13T02:15:00.000Z",
+  },
+  {
+    eventId: "chameleon-la-mas-doll-2026-12-19",
+    body: "Saturday Christmas bill with La Más Doll at Chameleon by Coral Reef Casino — reserve 829-566-7071 / (829) 994-2304; Sosúa Bay Center night, not Aguinaldo 5K on the Puerto Plata Malecón the same day, and not her earlier Latin Disco Club date.",
+    localized: {
+      es: "Cartel navideño del sábado con La Más Doll en Chameleon junto a Coral Reef Casino — reserva 829-566-7071 / (829) 994-2304; noche en Sosúa Bay Center, no el Aguinaldo 5K en el Malecón de Puerto Plata el mismo día, ni su fecha anterior en Latin Disco Club.",
+      fr: "Cartel de Noël du samedi avec La Más Doll au Chameleon près du Coral Reef Casino — réservez 829-566-7071 / (829) 994-2304 ; nuit à Sosúa Bay Center, pas l’Aguinaldo 5K sur le Malecón de Puerto Plata le même jour, ni sa date antérieure au Latin Disco Club.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — reserve 829-566-7071 / (829) 994-2304 · @chameleonsportbar",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — reserva 829-566-7071 / (829) 994-2304 · @chameleonsportbar",
+      fr: "Cover à confirmer — réservez 829-566-7071 / (829) 994-2304 · @chameleonsportbar",
+    },
+    attribution:
+      "POP research · @pcentertainments La Más Doll flyer + caption · @chameleonsportbar",
+    researchNotes:
+      "Editor flyer + IG caption @pcentertainments — Sábado 19 de diciembre; LA MAS DOLL; Chameleón Sport Bar Casino Coral Reef Sosúa; PC Entertainments / Trivii Promoción; reservas 829-566-7071 | 829-994-2304; @la_mas_doll. Same Sat as aguinaldo-5k-navideno-2026-12-19. Prior Latin Disco bill disco-club-la-mas-doll-2026-10-02.",
+    updatedAt: "2026-11-13T17:30:00.000Z",
+  },
+  {
+    eventId: "ivan-garcia-concierto-sinfonico-2026-11-19",
+    body: "Free Thursday symphony at Sala Iván García with the Puerto Plata youth orchestra under Juan Melo and Geumsil Oh — 7 PM doors; not Salvador Pérez on Saturday 21 Nov and not the 28 Nov anniversary graduation.",
+    localized: {
+      es: "Sinfonía gratis el jueves en Sala Iván García con la orquesta juvenil de Puerto Plata bajo Juan Melo y Geumsil Oh — 7 PM; no es Salvador Pérez el sábado 21 nov ni la graduación del aniversario del 28 nov.",
+      fr: "Symphonie gratuite le jeudi à Sala Iván García avec l’orchestre jeunesse de Puerto Plata sous Juan Melo et Geumsil Oh — 19 h ; pas Salvador Pérez le samedi 21 nov. ni la remise des diplômes du 28 nov.",
+    },
+    priceFeel: "free",
+    priceNote: "Free entry — 809-261-7393 · @teatroivangarcia",
+    priceNoteLocalized: {
+      es: "Entrada gratis — 809-261-7393 · @teatroivangarcia",
+      fr: "Entrée gratuite — 809-261-7393 · @teatroivangarcia",
+    },
+    attribution:
+      "POP research · Gran Concierto Sinfónico flyer · Orquesta Sinfónica Juvenil de POP",
+    researchNotes:
+      "Editor flyer + caption (empleospuertoplata) — GRATIS; Gran Concierto Sinfónico; Orquesta Sinfónica Juvenil de POP / Puerto Plata; Juan Melo Director Orquesta Rep. Dom.; Geumsil Oh Director Musical Korea; Jueves 19 Nov 2026 7:00 p.m.; Teatro Escuela Iván García.",
+    updatedAt: "2026-11-13T18:15:00.000Z",
+  },
+  {
+    eventId: "isabela-food-fest-carlos-el-gusto-2026-12-18",
+    body: "Free Friday bachata with Carlos El Gusto at Villa Isabela’s municipal plaza — same free door as La Perversa; not Ground Zero’s Omega club night the same Friday on the airport road.",
+    localized: {
+      es: "Bachata gratis el viernes con Carlos El Gusto en la plaza municipal de Villa Isabela — misma puerta gratis que La Perversa; no es la noche de club de Omega en Ground Zero el mismo viernes en la carretera del aeropuerto.",
+      fr: "Bachata gratuite le vendredi avec Carlos El Gusto sur la place municipale de Villa Isabela — même porte gratuite que La Perversa ; pas la soirée club d’Omega au Ground Zero le même vendredi sur la route de l’aéroport.",
+    },
+    priceFeel: "budget",
+    priceNote: "Totally free — info +1 829-336-6802 · @isabelafoodfest",
+    priceNoteLocalized: {
+      es: "Totalmente gratis — info +1 829-336-6802 · @isabelafoodfest",
+      fr: "Totalement gratuit — info +1 829-336-6802 · @isabelafoodfest",
+    },
+    attribution: "POP research · @isabelafoodfest Carlos El Gusto flyer",
+    researchNotes:
+      "Editor flyer — ARTISTA CONFIRMADO Carlos El Gusto de la Bachata; Vie 18 Dic; Parque Villa Isabela; TOTALMENTE GRATIS; 829-336-6802; Triv Promoción; RD Lo Tiene Todo. Same Friday as La Perversa.",
+    updatedAt: "2026-11-13T19:00:00.000Z",
+  },
+  {
+    eventId: "evolution-viernes-contrabandista-weekly",
+    seriesKey: "evolution-disco-club-san-marcos:weekly:5",
+    body: "Holiday Friday BYOB at Evolution / Antigua Villana in San Marcos — no menores at the door; confirm cover on @evolution_disco_club146, and don’t pin Luxury’s Exotic Friday on Costa Dorada by mistake.",
+    localized: {
+      es: "Viernes navideño BYOB en Evolution / Antigua Villana en San Marcos — no menores en la puerta; confirma cover en @evolution_disco_club146, y no clavés Exotic Friday de Luxury en Costa Dorada por error.",
+      fr: "Vendredi des fêtes BYOB à Evolution / Antigua Villana à San Marcos — pas de mineurs à la porte ; confirmez le cover sur @evolution_disco_club146, et n’épinglez pas Exotic Friday de Luxury à Costa Dorada par erreur.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — BYOB · +1 849-253-5178 / @evolution_disco_club146",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — BYOB · +1 849-253-5178 / @evolution_disco_club146",
+      fr: "Cover à confirmer — BYOB · +1 849-253-5178 / @evolution_disco_club146",
+    },
+    attribution:
+      "POP research · @evolution_disco_club146 Viernes D' Contrabandista flyer",
+    researchNotes:
+      "Editor flyer — no calendar date; Antigua Villana Presenta; Viernes D' Contrabandista; Trae la bebida de tu preferencia; brisita D' Navidad; Evolution Disco Club 146. Seeded as weekly Fri (recurrenceDay 5) through holidays per editor. Door no menores → ageHint 18-plus (same venue as Papy Crish).",
+    updatedAt: "2026-11-13T18:45:00.000Z",
   },
 ];

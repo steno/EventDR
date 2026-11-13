@@ -5,6 +5,7 @@ import { ThemeAutoSync } from "@/components/ThemeAutoSync";
 import { ThemeScript } from "@/components/ThemeScript";
 import { PwaInstallCapture } from "@/components/PwaInstallCapture";
 import { PageGlow } from "@/components/PageGlow";
+import { getBrandAssets } from "@/lib/brand-assets";
 import "./globals.css";
 
 /**
@@ -77,6 +78,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const brand = getBrandAssets();
+
   return (
     <html
       lang="en"
@@ -89,7 +92,7 @@ export default function RootLayout({
         <style dangerouslySetInnerHTML={{ __html: bootSplashCriticalCss }} />
         <link
           rel="preload"
-          href="/pop-home-logo.webp"
+          href={brand.headerLogoWebp}
           as="image"
           type="image/webp"
         />
@@ -123,9 +126,9 @@ export default function RootLayout({
         >
           {/* eslint-disable-next-line @next/next/no-img-element -- must load before Next/Image hydrates */}
           <picture>
-            <source srcSet="/pop-home-logo.webp" type="image/webp" />
+            <source srcSet={brand.headerLogoWebp} type="image/webp" />
             <img
-              src="/pop-home-logo.png"
+              src={brand.headerLogoPng}
               alt=""
               width={120}
               height={120}

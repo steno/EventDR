@@ -114,6 +114,8 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "caribbean-surf-junior-puntilla-2026-11-14",
   // Editor removed — INFOTEP Bocadillos course at Love Does (still in Firestore).
   "love-does-bocadillos-course-2026",
+  // Postponed — Call You Later at La Quinta Rosa (was Sat 21 Nov); hide until new date.
+  "la-quinta-rosa-call-you-later-2026-11-21",
 ]);
 
 /**
@@ -159,6 +161,7 @@ export const EVENT_PATH_REDIRECTS: Record<string, string> = {
   "van-avakian-drifter-2026-11-07": "/venue/drifter-cabarete",
   "caribbean-surf-junior-puntilla-2026-11-14": "/venue/anfiteatro-la-puntilla",
   "love-does-bocadillos-course-2026": "/venue/love-does-sosua",
+  "la-quinta-rosa-call-you-later-2026-11-21": "/venue/la-quinta-rosa",
 };
 
 export function resolveEventPathRedirect(

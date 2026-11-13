@@ -934,6 +934,7 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     sourceUrl: "https://www.instagram.com/katzhomerd/",
   },
   "la-quinta-rosa-call-you-later-2026-11-21": {
+    temporarilyClosed: true,
     isFree: false,
     admissionPrice: "US$62",
     venueSlug: "la-quinta-rosa",
@@ -1085,6 +1086,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18293366802",
     venueSlug: "parque-municipal-villa-isabela",
   },
+  "isabela-food-fest-carlos-el-gusto-2026-12-18": {
+    isFree: true,
+    phone: "+18293366802",
+    venueSlug: "parque-municipal-villa-isabela",
+    sourceUrl: "https://www.instagram.com/isabelafoodfest/",
+  },
   "groundzero-omega-2026-12-18": {
     callForPricing: true,
     phone: "+18494651313",
@@ -1114,6 +1121,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
   },
   "evolution-papy-crish-2026-11-14": {
     isFree: true,
+    phone: "+18492535178",
+    venueSlug: "evolution-disco-club-san-marcos",
+    sourceUrl: "https://www.instagram.com/evolution_disco_club146/",
+  },
+  "evolution-viernes-contrabandista-weekly": {
+    callForPricing: true,
     phone: "+18492535178",
     venueSlug: "evolution-disco-club-san-marcos",
     sourceUrl: "https://www.instagram.com/evolution_disco_club146/",
@@ -1687,6 +1700,18 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     callForPricing: true,
     phone: "+18299942304",
     venueSlug: "chameleon-sport-bar",
+  },
+  "chameleon-la-mas-doll-2026-12-19": {
+    callForPricing: true,
+    phone: "+18299942304",
+    venueSlug: "chameleon-sport-bar",
+    sourceUrl: "https://www.instagram.com/pcentertainments/",
+  },
+  "ivan-garcia-concierto-sinfonico-2026-11-19": {
+    isFree: true,
+    phone: "+18092617393",
+    venueSlug: "ivan-garcia-teatro-escuela",
+    sourceUrl: "https://www.instagram.com/teatroivangarcia/",
   },
   "pregame-roof-rooftop-pong-2026-11-08": {
     callForPricing: true,

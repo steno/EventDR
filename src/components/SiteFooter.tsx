@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { FooterInstallLink } from "@/components/FooterInstallLink";
+import { getBrandAssets } from "@/lib/brand-assets";
 import { BRAND_SOCIAL_LINKS } from "@/lib/brand-social";
 import { CITIES, getCityName } from "@/lib/cities";
 import { cruisePath } from "@/lib/cruise";
@@ -69,6 +70,7 @@ export function SiteFooter({
 }: SiteFooterProps) {
   const homeHref = `/${locale}`;
   const compactMobileClass = compactOnMobile ? "max-lg:hidden" : "";
+  const brand = getBrandAssets();
 
   return (
     <footer
@@ -87,7 +89,7 @@ export function SiteFooter({
               className="inline-block shrink-0 justify-self-start focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
             >
               <Image
-                src="/pop-home-logo.webp"
+                src={brand.headerLogoWebp}
                 alt={dict.seo.siteName}
                 width={192}
                 height={192}

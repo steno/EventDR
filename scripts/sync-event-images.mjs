@@ -1142,6 +1142,16 @@ const FILE_TO_VENUE_SLUG = {
   "evolution-disco-club-san-marcos.jpg": "evolution-disco-club-san-marcos",
   "los-guaos-veragua-field.jpg": "los-guaos-veragua",
   "037-bar-restaurant-entrance.jpg": "037-bar-restaurant",
+  "klok-smoke-bar-interior.jpg": "klok-smoke-bar",
+  "klok-smoke-bar-interior-v2.jpg": "klok-smoke-bar",
+  "chameleon-la-mas-doll-2026-12-19.jpg":
+    "chameleon-la-mas-doll-2026-12-19",
+  "ivan-garcia-concierto-sinfonico-2026-11-19.jpg":
+    "ivan-garcia-concierto-sinfonico-2026-11-19",
+  "evolution-viernes-contrabandista-weekly.jpg":
+    "evolution-viernes-contrabandista-weekly",
+  "isabela-food-fest-carlos-el-gusto-2026-12-18.jpg":
+    "isabela-food-fest-carlos-el-gusto-2026-12-18",
   "malecon-empanadas.jpg": "malecon-empanadas",
   "waterworks-sosua.jpg": "waterworks-sosua",
   "evolution-papy-crish-2026-11-14.jpg": "evolution-papy-crish-2026-11-14",

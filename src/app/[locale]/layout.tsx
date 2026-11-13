@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { Viewport } from "next";
 import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+import { getBrandAssets } from "@/lib/brand-assets";
 import { SITE_URL } from "@/lib/site-url";
 import { SITE_NAME, defaultOpenGraph, defaultTwitter } from "@/lib/seo";
 import { Analytics } from "@/components/Analytics";
@@ -28,7 +29,8 @@ export async function generateMetadata({
   const { locale } = await params;
   const validLocale = isValidLocale(locale) ? locale : "en";
   const dict = getDictionary(validLocale);
-  
+  const brand = getBrandAssets();
+
   const googleVerification = process.env.GOOGLE_SITE_VERIFICATION;
 
   return {
@@ -55,12 +57,12 @@ export async function generateMetadata({
     },
     icons: {
       icon: [
-        { url: "/favicon.png", sizes: "192x192", type: "image/png" },
-        { url: "/icons/icon-48.png", sizes: "48x48", type: "image/png" },
-        { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+        { url: brand.faviconPng, sizes: "192x192", type: "image/png" },
+        { url: brand.icon48, sizes: "48x48", type: "image/png" },
+        { url: brand.icon192, sizes: "192x192", type: "image/png" },
       ],
-      shortcut: "/favicon.png",
-      apple: "/icons/icon-192.png",
+      shortcut: brand.faviconPng,
+      apple: brand.icon192,
     },
     other: {
       "mobile-web-app-capable": "yes",

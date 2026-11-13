@@ -904,13 +904,17 @@ describe("Christmas seasonal rail", () => {
     );
   });
 
-  it("is active Nov 15–Jan 6 including Reyes", () => {
+  it("is active Nov 13–Jan 6 including Reyes", () => {
     assert.equal(isChristmasRailActive(CHRISTMAS_SEASON), true);
     assert.equal(isChristmasRailActive(REYES_SEASON), true);
     assert.equal(isChristmasRailActive(FRIDAY), false);
     assert.equal(
-      isChristmasRailActive(new Date("2026-11-14T19:00:00.000Z")),
+      isChristmasRailActive(new Date("2026-11-12T19:00:00.000Z")),
       false,
+    );
+    assert.equal(
+      isChristmasRailActive(new Date("2026-11-13T19:00:00.000Z")),
+      true,
     );
     assert.equal(
       isChristmasRailActive(new Date("2027-01-07T19:00:00.000Z")),

@@ -1,14 +1,20 @@
 import sharp from "sharp";
 import pngToIco from "png-to-ico";
-import { mkdirSync, writeFileSync } from "fs";
+import { existsSync, mkdirSync, writeFileSync } from "fs";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const iconsDir = join(root, "public", "icons");
+const christmasIconsDir = join(iconsDir, "christmas");
 const appDir = join(root, "src", "app");
 const jpegLogoPath = join(root, "popevent-images", "pop-home-logo.jpeg");
 const faviconPath = join(root, "popevent-images", "favicon.png");
+const christmasLogoPath = join(
+  root,
+  "popevent-images",
+  "pop-home-logo-christmas.png",
+);
 const headerLogoOut = join(root, "public", "pop-home-logo.png");
 
 const whiteBackground = { r: 255, g: 255, b: 255, alpha: 1 };
@@ -126,3 +132,95 @@ writeFileSync(join(appDir, "favicon.ico"), faviconIco);
 writeFileSync(join(root, "public", "favicon.ico"), faviconIco);
 console.log("wrote src/app/favicon.ico");
 console.log("wrote public/favicon.ico");
+
+/**
+ * Seasonal Santa-P set (Nov 13–Jan 6 via getBrandAssets). Source lives beside
+ * the year-round marks; black plate kept for app icons, keyed transparent for
+ * header/splash.
+ */
+async function writeChristmasBrandAssets() {
+  if (!existsSync(christmasLogoPath)) {
+    console.log("skip christmas icons — missing popevent-images/pop-home-logo-christmas.png");
+    return;
+  }
+
+  mkdirSync(christmasIconsDir, { recursive: true });
+  const blackPlate = { r: 0, g: 0, b: 0, alpha: 1 };
+
+  async function iconFromChristmas(size, background = blackPlate) {
+    let pipeline = sharp(christmasLogoPath);
+    if (background.alpha === 1) {
+      pipeline = pipeline.flatten({ background });
+    }
+    return pipeline
+      .resize(size, size, { fit: "contain", background })
+      .png()
+      .toBuffer();
+  }
+
+  async function christmasPwa(size, out, { inset = 0 } = {}) {
+    const inner = size - inset * 2;
+    const mark = await iconFromChristmas(inner, blackPlate);
+    await sharp(mark)
+      .extend({
+        top: inset,
+        bottom: inset,
+        left: inset,
+        right: inset,
+        background: blackPlate,
+      })
+      .png()
+      .toFile(join(christmasIconsDir, out));
+    console.log(`wrote christmas/${out}`);
+  }
+
+  await christmasPwa(48, "icon-48.png");
+  await christmasPwa(192, "icon-192.png");
+  await christmasPwa(512, "icon-512.png");
+  await christmasPwa(512, "icon-512-maskable.png", { inset: 52 });
+
+  const raw = await sharp(christmasLogoPath)
+    .resize(192, 192, {
+      fit: "contain",
+      background: blackPlate,
+    })
+    .ensureAlpha()
+    .raw()
+    .toBuffer({ resolveWithObject: true });
+  const { data, info } = raw;
+  for (let i = 0; i < data.length; i += 4) {
+    if (data[i] < 28 && data[i + 1] < 28 && data[i + 2] < 28) {
+      data[i + 3] = 0;
+    }
+  }
+  const rgba = {
+    raw: { width: info.width, height: info.height, channels: 4 },
+  };
+  await sharp(data, rgba)
+    .png({
+      compressionLevel: 9,
+      palette: true,
+      quality: 80,
+      effort: 10,
+    })
+    .toFile(join(root, "public", "pop-home-logo-christmas.png"));
+  await sharp(data, rgba)
+    .webp({ quality: 82, alphaQuality: 80, effort: 6 })
+    .toFile(join(root, "public", "pop-home-logo-christmas.webp"));
+  console.log("wrote public/pop-home-logo-christmas.png/.webp");
+
+  const favXmas192 = await iconFromChristmas(192, blackPlate);
+  writeFileSync(join(root, "public", "favicon-christmas.png"), favXmas192);
+  console.log("wrote public/favicon-christmas.png");
+
+  const favXmas16 = await iconFromChristmas(16, blackPlate);
+  const favXmas32 = await iconFromChristmas(32, blackPlate);
+  const favXmas48 = await iconFromChristmas(48, blackPlate);
+  writeFileSync(
+    join(root, "public", "favicon-christmas.ico"),
+    await pngToIco([favXmas16, favXmas32, favXmas48]),
+  );
+  console.log("wrote public/favicon-christmas.ico");
+}
+
+await writeChristmasBrandAssets();

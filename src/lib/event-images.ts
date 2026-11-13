@@ -14,6 +14,12 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "meclao-reggaeton-rooftop-mr-alfredo-2026-11-13.jpg",
   "chameleon-perreo-poca-luz-h23-deeway-2026-11-13":
     "chameleon-perreo-poca-luz-h23-deeway-2026-11-13.jpg",
+  "chameleon-la-mas-doll-2026-12-19":
+    "chameleon-la-mas-doll-2026-12-19.jpg",
+  "ivan-garcia-concierto-sinfonico-2026-11-19":
+    "ivan-garcia-concierto-sinfonico-2026-11-19.jpg",
+  "evolution-viernes-contrabandista-weekly":
+    "evolution-viernes-contrabandista-weekly.jpg",
   "los-guaos-gran-cabalgata-natural-2026-11-15":
     "los-guaos-gran-cabalgata-natural-2026-11-15.jpg",
   "037-bar-karaoke-2026-11-13": "037-bar-karaoke-2026-11-13.jpg",
@@ -842,6 +848,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "chameleon-mananitas-kreizy-k-2026-12-05.jpg",
   "isabela-food-fest-la-perversa-2026-12-18":
     "isabela-food-fest-la-perversa-2026-12-18.jpg",
+  "isabela-food-fest-carlos-el-gusto-2026-12-18":
+    "isabela-food-fest-carlos-el-gusto-2026-12-18.jpg",
   "groundzero-omega-2026-12-18": "groundzero-omega-2026-12-18.jpg",
   "pedro-santana-sus-dias-contados-2026-11-24":
     "pedro-santana-sus-dias-contados-2026-11-24.jpg",
@@ -1525,6 +1533,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "toscana-nightclub-gran-apertura-2026-12-04-v2.jpg",
   "chameleon-mananitas-kreizy-k-2026-12-05.jpg",
   "isabela-food-fest-la-perversa-2026-12-18.jpg",
+  "isabela-food-fest-carlos-el-gusto-2026-12-18.jpg",
   "groundzero-omega-2026-12-18.jpg",
   "pedro-santana-sus-dias-contados-2026-11-24.jpg",
   "geek-fest-kpop-random-dance-ref-2026-12-13.jpg",
@@ -1532,6 +1541,9 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "meclao-tinder-party-2026-11-07.jpg",
   "meclao-reggaeton-rooftop-mr-alfredo-2026-11-13.jpg",
   "chameleon-perreo-poca-luz-h23-deeway-2026-11-13.jpg",
+  "chameleon-la-mas-doll-2026-12-19.jpg",
+  "ivan-garcia-concierto-sinfonico-2026-11-19.jpg",
+  "evolution-viernes-contrabandista-weekly.jpg",
   "los-guaos-gran-cabalgata-natural-2026-11-15.jpg",
   "037-bar-karaoke-2026-11-13.jpg",
   "el-parq-karaoke-kids-2026-11-12.jpg",
