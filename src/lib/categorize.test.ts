@@ -223,21 +223,6 @@ describe("inferSecondaryCategories — vocational / INFOTEP courses", () => {
   });
 });
 
-describe("love-does-bocadillos-course-2026 categories", () => {
-  it("lists under food-drinks and business across locales", () => {
-    for (const locale of ["en", "es", "fr"] as const) {
-      const event = getFallbackEventById(
-        "love-does-bocadillos-course-2026",
-        locale,
-      );
-      assert.ok(event, locale);
-      const resolved = withResolvedCategories(event);
-      assert.equal(eventInCategory(resolved, "food-drinks"), true, locale);
-      assert.equal(eventInCategory(resolved, "business"), true, locale);
-    }
-  });
-});
-
 describe("costambar-beach-fitness categories", () => {
   it("lists under health-wellness and sports across locales", () => {
     for (const locale of ["en", "es", "fr"] as const) {

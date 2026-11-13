@@ -74,6 +74,10 @@ export type Dictionary = {
     hiddenGems: string;
     mostPopular: string;
     moreEvents: string;
+    /** Desktop All calendar — previous event in a day column slider. */
+    browseDayPrev: string;
+    /** Desktop All calendar — next event in a day column slider. */
+    browseDayNext: string;
     /** Load-more on a category list. Use `{category}`. */
     moreCategory: string;
     /** Short-list CTA headline inviting submissions. */
@@ -847,6 +851,8 @@ export const en: Dictionary = {
     hiddenGems: "Local picks — the events you won't find on big ticket sites",
     mostPopular: "Most popular",
     moreEvents: "More events",
+    browseDayPrev: "Previous event that day",
+    browseDayNext: "Next event that day",
     moreCategory: "More {category}",
     yourEventHereTitle: "Your event here?",
     yourEventHere: "Add your {category} event",

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import type { FilterTimeRange } from "@/lib/filters";
@@ -37,6 +38,10 @@ const DAY_COL_STYLE = {
 /** Multi-event day autoplay — common carousel cadence. */
 const BROWSE_DAY_ROTATE_MS = 4000;
 
+/** z-index stays inside the card’s `isolate` context — never above sticky chrome. */
+const DAY_SLIDE_BTN_CLASS =
+  "absolute top-1/2 z-[1] flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-neutral-800 shadow-md ring-1 ring-neutral-200/90 transition-colors hover:bg-white dark:bg-neutral-900/95 dark:text-neutral-100 dark:ring-white/12 dark:hover:bg-neutral-900";
+
 type BrowseEvent = EventWithVenueSiblings;
 
 interface AllBrowseCalendarProps {
@@ -68,8 +73,8 @@ interface BrowseDayColumnProps {
 }
 
 /**
- * One fixed-height date cell — single poster. Extra events that day rotate
- * on a timer instead of stacking or chevron slides.
+ * One fixed-height date cell — single poster. Extra events that day auto-rotate
+ * and can also be stepped with chevrons (no stacked column).
  */
 function BrowseDayColumn({
   day,
@@ -138,21 +143,47 @@ function BrowseDayColumn({
           />
         </div>
         {multi ? (
-          <div
-            aria-hidden
-            className="pointer-events-none absolute bottom-2 left-1/2 z-[1] flex -translate-x-1/2 items-center gap-1 rounded-full bg-black/55 px-2 py-1 backdrop-blur-sm"
-          >
-            {day.events.map((slot, i) => (
-              <span
-                key={slot.id}
-                className={`h-1.5 rounded-full transition-[width,background-color] duration-300 ${
-                  i === activeIndex
-                    ? "w-3.5 bg-white"
-                    : "w-1.5 bg-white/45"
-                }`}
-              />
-            ))}
-          </div>
+          <>
+            <button
+              type="button"
+              aria-label={dict.events.browseDayPrev}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setIndex((i) => (i - 1 + count) % count);
+              }}
+              className={`${DAY_SLIDE_BTN_CLASS} left-1`}
+            >
+              <ChevronLeft className="h-4 w-4" aria-hidden />
+            </button>
+            <button
+              type="button"
+              aria-label={dict.events.browseDayNext}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setIndex((i) => (i + 1) % count);
+              }}
+              className={`${DAY_SLIDE_BTN_CLASS} right-1`}
+            >
+              <ChevronRight className="h-4 w-4" aria-hidden />
+            </button>
+            <div
+              aria-hidden
+              className="pointer-events-none absolute bottom-2 left-1/2 z-[1] flex -translate-x-1/2 items-center gap-1 rounded-full bg-black/55 px-2 py-1 backdrop-blur-sm"
+            >
+              {day.events.map((slot, i) => (
+                <span
+                  key={slot.id}
+                  className={`h-1.5 rounded-full transition-[width,background-color] duration-300 ${
+                    i === activeIndex
+                      ? "w-3.5 bg-white"
+                      : "w-1.5 bg-white/45"
+                  }`}
+                />
+              ))}
+            </div>
+          </>
         ) : null}
       </div>
     </section>
@@ -163,7 +194,7 @@ function BrowseDayColumn({
  * Desktop All-tab calendar strip: one column per dated day, then Weekly & daily.
  * Parent mounts this only at `xl+` — mobile keeps stacked day headings.
  * Day labels stick under list chrome; header + body rails share horizontal scroll.
- * Each day is a single-card row; multi-event days auto-rotate.
+ * Each day is a single-card row; multi-event days auto-rotate with chevron nav.
  */
 export function AllBrowseCalendar({
   days,

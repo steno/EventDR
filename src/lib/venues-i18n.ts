@@ -1097,6 +1097,16 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Centre commercial moderne sur Av. Manolo Tavárez Justo (Barrio Las Yaguitas) — boutiques, programmation familiale et stands communautaires à l’entrée principale et au premier niveau. Instagram @cedakymall.",
     },
   },
+  "malecon-empanadas": {
+    name: {
+      es: "Malecón Empanadas",
+      fr: "Malecón Empanadas",
+    },
+    description: {
+      es: "Patio de empanadas en la franja del Malecón de Puerto Plata — masas fritas crujientes incluida la Empanada de los Tres Golpes (mangú, salami, huevo, queso), mesas al aire libre bajo el toldo Empanadas y delivery por Komida App. Instagram @maleconempanadas. Clava la parada del malecón, no Empanadas Monumental en Separación.",
+      fr: "Patio d’empanadas sur la bande du Malecón de Puerto Plata — fritures croustillantes dont l’Empanada de los Tres Golpes (mangú, salami, œuf, fromage), tables en plein air sous l’auvent Empanadas et livraison Komida App. Instagram @maleconempanadas. Épinglez l’arrêt boardwalk, pas Empanadas Monumental sur Separación.",
+    },
+  },
   "spotland-puerto-plata": {
     description: {
       es: "Parque de diversión, comida y fotos en Av. Luis Ginebra — brinca-brincas, juegos familiares, street food, pizza artesanal, espacios para fotos y nuevo Laser Tag. Abierto mié–dom 2:00 PM–10:00 PM; cerrado lun–mar. Acceso niños típico RD$200; adultos gratis. Instagram @spotlandrd.",

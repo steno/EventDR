@@ -112,6 +112,54 @@ export function weekendHeadingDate(
   return heading;
 }
 
+export type WeekendDayGroup<T extends DatedEvent> = {
+  date: string;
+  events: T[];
+};
+
+/**
+ * Which weekend day section starts open: today when Fri–Sun, otherwise the
+ * upcoming Friday (Mon–Thu look-ahead).
+ */
+export function defaultOpenWeekendDay(now: Date = new Date()): string {
+  const today = localDateISO(now);
+  const { start, end } = getWeekendListingBounds(now);
+  if (today >= start && today <= end) return today;
+  return start;
+}
+
+/**
+ * Split weekend events into Fri → Sat → Sun sections. Same placement rules as
+ * {@link eventsInWeekendOrder} (continuing pre-weekend nights trail Friday’s
+ * own starts).
+ */
+export function splitWeekendDayGroups<T extends DatedEvent>(
+  events: T[],
+  now: Date = new Date(),
+): WeekendDayGroup<T>[] {
+  const { start } = getWeekendListingBounds(now);
+  const buckets = new Map<string, T[]>();
+  const continuing: T[] = [];
+  for (const event of events) {
+    const key = weekendHeadingDate(event, now);
+    if (event.date < start && key === start) {
+      continuing.push(event);
+      continue;
+    }
+    const list = buckets.get(key);
+    if (list) list.push(event);
+    else buckets.set(key, [event]);
+  }
+  if (continuing.length > 0) {
+    const friday = buckets.get(start);
+    if (friday) friday.push(...continuing);
+    else buckets.set(start, [...continuing]);
+  }
+  return [...buckets.keys()]
+    .sort()
+    .map((date) => ({ date, events: buckets.get(date) ?? [] }));
+}
+
 /**
  * Friday, then Saturday, then Sunday. Events that started earlier but are
  * still running sit at the end of Friday so they don't rename the weekend —
@@ -122,26 +170,5 @@ export function eventsInWeekendOrder<T extends DatedEvent>(
   events: T[],
   now: Date = new Date(),
 ): T[] {
-  const { start } = getWeekendListingBounds(now);
-  const buckets = new Map<string, T[]>();
-  const continuing: T[] = [];
-  for (const event of events) {
-    const key = weekendHeadingDate(event, now);
-    // Pre-weekend starts that still land on Friday trail that day's own starts.
-    if (event.date < start && key === start) {
-      continuing.push(event);
-      continue;
-    }
-    const list = buckets.get(key);
-    if (list) list.push(event);
-    else buckets.set(key, [event]);
-  }
-  const days = [...buckets.keys()].sort();
-  const ordered = days.flatMap((date) => buckets.get(date) ?? []);
-  if (days[0] === start && continuing.length > 0) {
-    const fridayCount = buckets.get(start)?.length ?? 0;
-    ordered.splice(fridayCount, 0, ...continuing);
-    return ordered;
-  }
-  return [...ordered, ...continuing];
+  return splitWeekendDayGroups(events, now).flatMap((group) => group.events);
 }

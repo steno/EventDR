@@ -462,6 +462,10 @@ const FILE_TO_EVENT_ID = {
     "dominican-surf-festival-2026-12-10",
   "aguinaldo-5k-navideno-2026-12-19.jpg": "aguinaldo-5k-navideno-2026-12-19",
   "waterworks-sosua-daily.jpg": "waterworks-sosua-daily",
+  "iberostar-deury-banda-2026-11-13.jpg": "iberostar-deury-banda-2026-11-13",
+  "grand-prix-deury-banda-2026-11-13.jpg": "grand-prix-deury-banda-2026-11-13",
+  "cedaky-show-navideno-2026-11-14.jpg": "cedaky-show-navideno-2026-11-14",
+  "malecon-empanadas-daily.jpg": "malecon-empanadas-daily",
   "pregame-roof-rooftop-pong-2026-11-08.jpg":
     "pregame-roof-rooftop-pong-2026-11-08",
   "parada-choco-banditalia-2026-11-10.jpg":
@@ -891,7 +895,6 @@ const FILE_TO_EVENT_ID = {
   "monkeyland.jpeg": "monkeyland-puerto-plata-daily",
   "outback-safari.jpeg": "outback-safari-daily",
   "PlayaDoradaSummerFest.JPG": "puerto-plata-carnaval-2026",
-  "love-does-bocadillos-course-2026.jpg": "love-does-bocadillos-course-2026",
   "love-does-cocktails-solidarity-2026-09-04.jpg":
     "love-does-cocktails-solidarity-2026-09-04",
   "waterfront-playa-alicia-sunset-dining.jpg":
@@ -1138,6 +1141,7 @@ const FILE_TO_VENUE_SLUG = {
   "evolution-disco-club-san-marcos.jpg": "evolution-disco-club-san-marcos",
   "los-guaos-veragua-field.jpg": "los-guaos-veragua",
   "037-bar-restaurant-entrance.jpg": "037-bar-restaurant",
+  "malecon-empanadas.jpg": "malecon-empanadas",
   "waterworks-sosua.jpg": "waterworks-sosua",
   "evolution-papy-crish-2026-11-14.jpg": "evolution-papy-crish-2026-11-14",
   "la-lola-dancing-weekend-2026-11-13.jpg": "la-lola-dancing-weekend-2026-11-13",

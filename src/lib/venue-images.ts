@@ -228,6 +228,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "luna-lounge-lcb": "luna-lounge-lcb-facade.jpg",
   "ivan-garcia-teatro-escuela": "ivan-garcia-teatro-escuela-facade.jpg",
   "cedaky-mall": "cedaky-mall.jpg",
+  "malecon-empanadas": "malecon-empanadas.jpg",
   "spotland-puerto-plata": "spotland-puerto-plata-entrance.jpg",
   // Filename bump — POP-supplied Calle de las Sombrillas classic-car line (not the coastal convoy event hero).
   "classic-cars-dominicana": "classic-cars-dominicana-umbrella-street.jpg",

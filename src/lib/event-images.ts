@@ -26,6 +26,13 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "aguinaldo-5k-navideno-2026-12-19":
     "aguinaldo-5k-navideno-2026-12-19.jpg",
   "waterworks-sosua-daily": "waterworks-sosua-daily.jpg",
+  "iberostar-deury-banda-2026-11-13":
+    "iberostar-deury-banda-2026-11-13.jpg",
+  "grand-prix-deury-banda-2026-11-13":
+    "grand-prix-deury-banda-2026-11-13.jpg",
+  "cedaky-show-navideno-2026-11-14":
+    "cedaky-show-navideno-2026-11-14.jpg",
+  "malecon-empanadas-daily": "malecon-empanadas-daily.jpg",
   "pregame-roof-rooftop-pong-2026-11-08":
     "pregame-roof-rooftop-pong-2026-11-08.jpg",
   "parada-choco-banditalia-2026-11-10":
@@ -956,7 +963,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "pop-cinemas-week-2026-10-15": "pop-cinemas-week-2026-10-15-posters.jpg",
   "petit-francois-friday-karaoke": "petit-francois-friday-karaoke.jpg",
   "costambar-beach-fitness": "costambar-beach-fitness.png",
-  "love-does-bocadillos-course-2026": "love-does-bocadillos-course-2026.jpg",
   "love-does-cocktails-solidarity-2026-09-04":
     "love-does-cocktails-solidarity-2026-09-04.jpg",
   "waterfront-playa-alicia-sunset-dining":
@@ -996,6 +1002,9 @@ const EVENT_IMAGE_ALIASES: Record<string, string> = {
   "flip-flop-weekend-happy-hour": "flip-flop-monday-happy-hour",
   "el-parq-karaoke-kids-2026-11-26": "el-parq-karaoke-kids-2026-11-12",
   "el-parq-karaoke-kids-2026-12-10": "el-parq-karaoke-kids-2026-11-12",
+  // Tour flyer (Iberostar hero) also covers Lifestyle + Nuestro Bar dates.
+  "cofresi-palm-deury-banda-2026-11-14": "iberostar-deury-banda-2026-11-13",
+  "nuestro-bar-deury-banda-2026-11-15": "iberostar-deury-banda-2026-11-13",
 };
 
 const EVENT_IMAGE_PREFIXES: { prefix: string; file: string }[] = [
@@ -1020,6 +1029,11 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "voyvoy-dominican-night-flow-dance-weekly": "object-center",
   "parada-el-choco-big-d-aperitivo-2026-10-27": "object-center",
   "hard-rock-deeway-live-mix-2026-10-23": "object-top",
+  // Deury Banda tour — accordion face mid/upper on Grand Prix + tour flyers.
+  "grand-prix-deury-banda-2026-11-13": "object-top",
+  "iberostar-deury-banda-2026-11-13": "object-[58%_42%]",
+  "cedaky-show-navideno-2026-11-14": "object-center",
+  "malecon-empanadas-daily": "object-center",
   // Hard Rock Kaovanny — face fills lower half; object-top cards only show logos + scalp.
   "kaovanny-hard-rock-2026-11-20": "object-[52%_68%]",
   // Natura Agua Tour — circular face mid-flyer; keep her over patio margins.
@@ -1530,6 +1544,9 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "el-liquito-deeway-2026-11-15.jpg",
   "dominican-surf-festival-2026-12-10.jpg",
   "aguinaldo-5k-navideno-2026-12-19.jpg",
+  "iberostar-deury-banda-2026-11-13.jpg",
+  "grand-prix-deury-banda-2026-11-13.jpg",
+  "cedaky-show-navideno-2026-11-14.jpg",
   "pregame-roof-rooftop-pong-2026-11-08.jpg",
   "parada-choco-banditalia-2026-11-10.jpg",
   "art-of-scent-petit-francois-2026-11-22.jpg",
@@ -1988,7 +2005,6 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "el-colibri-atrevete-saturdays.jpg",
   "spotland-sabado-retro-familiar-2026-09-19.jpg",
   "los-event-trilogy-2026-09-03.jpg",
-  "love-does-bocadillos-course-2026.jpg",
   "love-does-cocktails-solidarity-2026-09-04.jpg",
   "masters-surf-reunion-10-2026.png",
   "masters-surf-reunion-10-2026-badge.jpg",
@@ -2105,6 +2121,7 @@ const HOME_HERO_SCENE_FILES = new Set([
   "gran-ventana-day-pass.jpg",
   "grecialandia-entrance.jpg",
   "waterworks-sosua-daily.jpg",
+  "malecon-empanadas-daily.jpg",
   "xanadu-bowling-center.jpg",
   "gregorio-luperon-museum.jpg",
   "gym-sov-zumba-fitness.jpg",

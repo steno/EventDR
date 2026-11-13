@@ -9434,4 +9434,113 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Google/Places + FB Waterworks Waterpark Sosua: Casa Linda Phase 7–9 Carretera El Choco; closed Mon; Tue–Fri ~11–6, Sat–Sun ~11–7; phone +1 849-865-7494; IG @waterworks.sosua; Aug 2026 post adults RD$250 kids RD$150. Editor place photos. Distinct from ocean-world-daily.",
     updatedAt: "2026-11-12T20:00:00.000Z",
   },
+  {
+    eventId: "iberostar-deury-banda-2026-11-13",
+    body: "Accordion Friday at Iberostar Waves Costa Dorada with Deury Banda — confirm guest/entertainment access before you roll up; same-night La Javilla send is Grand Prix, not this resort stage.",
+    localized: {
+      es: "Viernes de acordeón en Iberostar Waves Costa Dorada con Deury Banda — confirma acceso de huésped/entretenimiento antes de ir; el envío de La Javilla esa misma noche es Grand Prix, no este escenario de resort.",
+      fr: "Vendredi accordéon à l’Iberostar Waves Costa Dorada avec Deury Banda — confirmez l’accès client/spectacle avant d’y aller ; l’envoi La Javilla le même soir est Grand Prix, pas cette scène resort.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover / guest access TBA — hotel +1 809-320-1000",
+    priceNoteLocalized: {
+      es: "Cover / acceso por confirmar — hotel +1 809-320-1000",
+      fr: "Cover / accès à confirmer — hôtel +1 809-320-1000",
+    },
+    attribution: "POP research · Deury Banda tour flyer (Iberostar line)",
+    researchNotes:
+      "Editor tour flyer — Vie 13 Hotel Iberostar Costa Dorada; Vie 13 Grand Prix La Javilla; Sáb 14 Hotel Lifestyle; Dom 15 Nuestro Bar. Iberostar uses tour art (2nd image). No cover/time on art.",
+    updatedAt: "2026-11-13T02:00:00.000Z",
+  },
+  {
+    eventId: "grand-prix-deury-banda-2026-11-13",
+    body: "Friday accordion with Deury Banda at Grand Prix in La Javilla — Manolo Tavarez / Bomba pin; cover isn’t on the flyer, so check @grandprixrd, and don’t mix it with the Iberostar Waves resort set the same night.",
+    localized: {
+      es: "Viernes de acordeón con Deury Banda en Grand Prix en La Javilla — pin Manolo Tavarez / Bomba; el cover no viene en el flyer, chequea @grandprixrd, y no lo mezcles con el set de Iberostar Waves el mismo viernes.",
+      fr: "Vendredi accordéon avec Deury Banda au Grand Prix à La Javilla — pin Manolo Tavarez / Bomba ; le cover n’est pas sur l’affiche, vérifiez @grandprixrd, et ne confondez pas avec le set Iberostar Waves le même vendredi.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — @grandprixrd · WhatsApp +1 809-753-4553",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — @grandprixrd · WhatsApp +1 809-753-4553",
+      fr: "Cover à confirmer — @grandprixrd · WhatsApp +1 809-753-4553",
+    },
+    attribution: "POP research · @grandprixrd Deury Banda flyer",
+    researchNotes:
+      "Editor Grand Prix flyer — VIERNES 13 NOV; DEURY BANDA; Grand Prix Smart Shop; LA JAVILLA PUERTO PLATA; Av. Manolo Tavares Justo esq Presidente Caamaño #1. Distinct from Iberostar same-night tour line.",
+    updatedAt: "2026-11-13T01:45:00.000Z",
+  },
+  {
+    eventId: "cofresi-palm-deury-banda-2026-11-14",
+    body: "Saturday típico with Deury Banda at Lifestyle / Cofresí Palm — confirm guest wristband rules; not the daytime day-pass listing and not Ocean World Terrace next door.",
+    localized: {
+      es: "Típico del sábado con Deury Banda en Lifestyle / Cofresí Palm — confirma reglas de pulsera de huésped; no es el day pass diurno ni Terraza Ocean World al lado.",
+      fr: "Típico du samedi avec Deury Banda à Lifestyle / Cofresí Palm — confirmez les règles de bracelet client ; pas le day pass de jour ni Terraza Ocean World à côté.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover / guest access TBA — resort +1 809-970-7777",
+    priceNoteLocalized: {
+      es: "Cover / acceso por confirmar — resort +1 809-970-7777",
+      fr: "Cover / accès à confirmer — resort +1 809-970-7777",
+    },
+    attribution: "POP research · Deury Banda tour flyer (Hotel Lifestyle line)",
+    researchNotes:
+      "Editor tour flyer — Sáb 14 Hotel Lifestyle → venueSlug cofresi-palm-beach-spa. Reuses Iberostar tour hero via image alias.",
+    updatedAt: "2026-11-13T01:30:00.000Z",
+  },
+  {
+    eventId: "nuestro-bar-deury-banda-2026-11-15",
+    body: "Sunday accordion closer with Deury Banda at Nuestro Bar — address isn’t on the flyer, so confirm before you go; not El Liquito’s Deeway night the same Sunday in Cabarete.",
+    localized: {
+      es: "Cierre de acordeón el domingo con Deury Banda en Nuestro Bar — la dirección no viene en el flyer, confirma antes de ir; no es la noche de Deeway en El Liquito el mismo domingo en Cabarete.",
+      fr: "Clôture accordéon le dimanche avec Deury Banda au Nuestro Bar — l’adresse n’est pas sur l’affiche, confirmez avant d’y aller ; pas la soirée Deeway d’El Liquito le même dimanche à Cabarete.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover / address TBA — confirm before you go",
+    priceNoteLocalized: {
+      es: "Cover / dirección por confirmar — verifica antes de ir",
+      fr: "Cover / adresse à confirmer — vérifiez avant d’y aller",
+    },
+    attribution: "POP research · Deury Banda tour flyer (Nuestro Bar line)",
+    researchNotes:
+      "Editor tour flyer — Dom 15 NUESTRO BAR. No address/pin; no venue seed yet. Reuses Iberostar tour hero via image alias.",
+    updatedAt: "2026-11-13T01:15:00.000Z",
+  },
+  {
+    eventId: "cedaky-show-navideno-2026-11-14",
+    body: "Free 5:30 PM Christmas welcome show at Cedāky Mall — family Magia de la Navidad on Manolo Tavárez Justo; not Sunday’s Cedāky’s Market and not the Dec 19 Aguinaldo 5K on the Malecón.",
+    localized: {
+      es: "Show navideño gratis a las 5:30 PM en Cedāky Mall — Magia de la Navidad familiar en Manolo Tavárez Justo; no es el Cedāky’s Market del domingo ni el Aguinaldo 5K del 19 dic en el Malecón.",
+      fr: "Spectacle de Noël gratuit à 17 h 30 au Cedāky Mall — Magia de la Navidad familiale sur Manolo Tavárez Justo ; pas le Cedāky’s Market du dimanche ni l’Aguinaldo 5K du 19 déc. sur le Malecón.",
+    },
+    priceFeel: "free",
+    priceNote: "Free mall show — @cedakymall",
+    priceNoteLocalized: {
+      es: "Show gratis en el mall — @cedakymall",
+      fr: "Spectacle gratuit au mall — @cedakymall",
+    },
+    attribution: "POP research · @cedakymall Show Navideño flyer",
+    researchNotes:
+      "Editor flyer + IG caption @cedakymall — SHOW NAVIDEÑO; ACOMPÁÑANOS A RECIBIR LA MAGIA DE LA NAVIDAD; Sáb 14 Nov 5:30 PM; Av. Manolo Tavárez Justo. Family free Christmas welcome.",
+    updatedAt: "2026-11-13T02:30:00.000Z",
+  },
+  {
+    eventId: "malecon-empanadas-daily",
+    seriesKey: "malecon-empanadas:daily",
+    body: "Malecón patio for crispy empanadas — try the Tres Golpes (mangú, salami, egg, cheese) or classic fillings under the Empanadas awning; Komida App for delivery, and don’t pin Separación’s Empanadas Monumental by mistake.",
+    localized: {
+      es: "Patio del Malecón para empanadas crujientes — prueba los Tres Golpes (mangú, salami, huevo, queso) u otros rellenos bajo el toldo Empanadas; Komida App para delivery, y no claves Empanadas Monumental en Separación por error.",
+      fr: "Patio du Malecón pour empanadas croustillantes — goûtez les Tres Golpes (mangú, salami, œuf, fromage) ou d’autres farces sous l’auvent Empanadas ; Komida App pour la livraison, et n’épinglez pas Empanadas Monumental sur Separación par erreur.",
+    },
+    priceFeel: "budget",
+    priceNote: "Pay per empanada — confirm hours @maleconempanadas · Komida App",
+    priceNoteLocalized: {
+      es: "Paga por empanada — confirma horario @maleconempanadas · Komida App",
+      fr: "Payez à l’empanada — confirmez horaires @maleconempanadas · Komida App",
+    },
+    attribution: "POP research · @maleconempanadas Tres Golpes post + patio photo",
+    researchNotes:
+      "Editor IG text + food + patio photos @maleconempanadas — Empanada de los Tres Golpes (mangú, salami, huevo, queso); Malecón Empanadas Puerto Plata; Komida App delivery. Soft Malecón pin near Café Lángos; refine when Places pin confirmed.",
+    updatedAt: "2026-11-13T02:15:00.000Z",
+  },
 ];

@@ -98,6 +98,8 @@ export const es: Dictionary = {
     hiddenGems: "Planes locales — eventos que no verás en las grandes plataformas",
     mostPopular: "Más populares",
     moreEvents: "Más eventos",
+    browseDayPrev: "Evento anterior ese día",
+    browseDayNext: "Siguiente evento ese día",
     moreCategory: "Más {category}",
     yourEventHereTitle: "¿Tu evento aquí?",
     yourEventHere: "Agrega tu evento de {category}",

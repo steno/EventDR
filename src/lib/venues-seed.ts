@@ -2127,6 +2127,19 @@ export const SEED_VENUES: Venue[] = [
     website: "https://www.instagram.com/cedakymall/",
   },
   {
+    slug: "malecon-empanadas",
+    name: "Malecón Empanadas",
+    city: "Puerto Plata",
+    description:
+      "Empanada patio on the Puerto Plata Malecón strip — crispy fried pastries including the Empanada de los Tres Golpes (mangú, salami, egg, cheese), outdoor tables under the Empanadas awning, and Komida App delivery. Instagram @maleconempanadas. Pin the Malecón boardwalk stop, not Empanadas Monumental on Separación.",
+    // Soft pin near Café Lángos / mid-Malecón — refine when Places pin is confirmed.
+    lat: 19.7975,
+    lng: -70.6886,
+    emoji: "🥟",
+    instagram: "maleconempanadas",
+    website: "https://www.instagram.com/maleconempanadas/",
+  },
+  {
     slug: "spotland-puerto-plata",
     name: "Spot Land",
     city: "Puerto Plata",
@@ -2478,6 +2491,10 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /spot\s*land|spotland/i,
     slug: "spotland-puerto-plata",
+  },
+  {
+    pattern: /malec[oó]n\s*empanadas|maleconempanadas/i,
+    slug: "malecon-empanadas",
   },
   {
     pattern: /classic\s*cars?\s*(dominicana|rd|puerto\s*plata)?/i,

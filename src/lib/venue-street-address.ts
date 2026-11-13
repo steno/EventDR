@@ -86,6 +86,7 @@ export const VENUE_STREET_ADDRESS: Readonly<Record<string, string>> = {
   "latinwok-plaza-uno": "Plaza 1, Av. Luis Ginebra",
   "le-petit-francois": "Playa Dorada G1, El Pueblito / Playa Chaparral, Puerto Plata",
   "letrero-puerto-plata": "Av. Gregorio Luperón (Malecón), road bend below Anfiteatro La Puntilla",
+  "malecon-empanadas": "Malecón / Av. Gregorio Luperón, Puerto Plata",
   "liquid-blue-cabarete": "Calle Principal #87",
   "lokuras-pop": "Calle Profesor Juan Bosch #11, near Junta Central Electoral",
   "long-beach-puerto-plata": "Av. Gregorio Luperón (Malecón), Long Beach",

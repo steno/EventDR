@@ -1393,6 +1393,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Nouveau mall sur Manolo Tavárez Justo (Las Yaguitas) — conférences familles et stands solidaires à l’entrée principale / premier niveau, pas une terrasse nightlife. Confirmez les places sur @cedakymall avant de compter sur le walk-up.",
     },
   },
+  "malecon-empanadas": {
+    body: "Malecón fried-empanada patio — order the Tres Golpes (mangú, salami, egg, cheese) or classic fillings, sit under the Empanadas awning, and don’t confuse it with Empanadas Monumental on Separación; Komida App if you’re not walking the boardwalk.",
+    localized: {
+      en: "Malecón fried-empanada patio — order the Tres Golpes (mangú, salami, egg, cheese) or classic fillings, sit under the Empanadas awning, and don’t confuse it with Empanadas Monumental on Separación; Komida App if you’re not walking the boardwalk.",
+      es: "Patio de empanadas fritas en el Malecón — pide los Tres Golpes (mangú, salami, huevo, queso) u otros rellenos, siéntate bajo el toldo Empanadas, y no lo confundas con Empanadas Monumental en Separación; Komida App si no estás caminando el malecón.",
+      fr: "Patio d’empanadas frites sur le Malecón — commandez les Tres Golpes (mangú, salami, œuf, fromage) ou d’autres farces, asseyez-vous sous l’auvent Empanadas, et ne confondez pas avec Empanadas Monumental sur Separación ; Komida App si vous n’êtes pas sur le boardwalk.",
+    },
+  },
   "spotland-puerto-plata": {
     body: "Outdoor fun-food-photo park on Av. Luis Ginebra — inflatables, pizza, and new Laser Tag for kids and adults; not a nightlife deck. Open Wed–Sun 2–10 PM (closed Mon–Tue); kids access typically RD$200, adults free — confirm laser-tag session price on @spotlandrd.",
     localized: {

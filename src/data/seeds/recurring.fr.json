@@ -3630,5 +3630,26 @@
     "sourceUrl": "https://www.instagram.com/waterworks.sosua/",
     "imageEmoji": "💦",
     "ageHint": "family"
+  },
+  {
+    "id": "malecon-empanadas-daily",
+    "date": "2026-01-01",
+    "location": "Puerto Plata",
+    "venue": "Malecón Empanadas",
+    "venueSlug": "malecon-empanadas",
+    "address": "Malecón / Av. Gregorio Luperón, Puerto Plata",
+    "lat": 19.7975,
+    "lng": -70.6886,
+    "category": "food-drinks",
+    "format": "physical",
+    "recurrence": "daily",
+    "callForPricing": true,
+    "ageHint": "family",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/maleconempanadas/",
+    "instagram": "maleconempanadas",
+    "imageEmoji": "🥟",
+    "title": "Malecón Empanadas — Tres Golpes et plus",
+    "description": "Empanadas croustillantes sur la bande du Malecón de Puerto Plata — y compris l’Empanada de los Tres Golpes (mangú, salami, œuf et fromage). Tables patio sous l’auvent Empanadas ; livraison aussi via Komida App. Confirmez horaires et goûts sur Instagram @maleconempanadas. Arrêt fried pastry sur le boardwalk — pas une résa fine dining front de mer, ni Empanadas Monumental sur Separación."
   }
 ]

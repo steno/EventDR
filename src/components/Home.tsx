@@ -83,7 +83,7 @@ import { buildListingSearchCopy } from "@/lib/search-snippets";
 import { filterCatalogForScope } from "@/lib/scope-listing";
 import { signalNavDone } from "@/lib/nav-feedback";
 import { NETWORK_ONLY_FETCH } from "@/lib/pwa-refresh";
-import { categoryPath } from "@/lib/event-navigation";
+import { allEventsPath, categoryPath } from "@/lib/event-navigation";
 import { scrollBehaviorPreference } from "@/lib/list-scroll";
 import { warmRoutesIdle } from "@/components/IntentLink";
 
@@ -537,10 +537,9 @@ function HomeApp({
   const savedExample =
     discoverLayout.heroEvent ?? discoverLayout.todayEvents[0] ?? scopedEvents[0];
 
-  // Happening today / specials / weekend → indexable when hubs (regional or city×when).
-  const seeAllTodayHref = selectedCity
-    ? `/${locale}/city/${selectedCity}/when/today`
-    : `/${locale}/when/today`;
+  // Today → All Events list with Today chip (soft-nav browse).
+  // Specials / weekend stay on indexable when hubs.
+  const seeAllTodayHref = allEventsPath(locale, selectedCity, "today");
   const seeAllSpecialsHref = selectedCity
     ? `/${locale}/city/${selectedCity}/when/today`
     : `/${locale}/when/today`;

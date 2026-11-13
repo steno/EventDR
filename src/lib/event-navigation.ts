@@ -77,11 +77,14 @@ export function categoryPath(
 export function allEventsPath(
   locale: Locale,
   citySlug?: CitySlug | null,
+  /** Time chip to land on (`?when=`). Default All. */
+  when: "all" | "today" | "tomorrow" | "weekend" = "all",
 ): string {
+  const qs = `when=${when}&all=1`;
   if (citySlug) {
-    return `/${locale}/city/${citySlug}?when=all&all=1`;
+    return `/${locale}/city/${citySlug}?${qs}`;
   }
-  return `/${locale}/events?when=all&all=1`;
+  return `/${locale}/events?${qs}`;
 }
 
 /** Indexable city × when hub (`/en/city/cabarete/when/today`). */

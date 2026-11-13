@@ -2190,6 +2190,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
       { key: "easy_to_find", sentiment: "mixed", audience: "visitor" },
     ],
   }),
+  editorial({
+    venueSlug: "malecon-empanadas",
+    verdictKey: "strong_local_food",
+    crowdFit: ["local", "family", "mixed", "visitor"],
+    axes: { recommend: 4.1, atmosphere: 3.9, value: 4.3, practical: 4.0 },
+    themes: [
+      { key: "dominican_plates", sentiment: "positive", audience: "local" },
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "easy_to_find", sentiment: "mixed", audience: "visitor" },
+    ],
+  }),
 ];
 
 const bySlug = new Map(

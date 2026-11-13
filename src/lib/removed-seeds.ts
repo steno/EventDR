@@ -112,6 +112,8 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "van-avakian-drifter-2026-11-07",
   // Cancelled — CSC Junior Surf Comp at La Puntilla, Sat 14 Nov 2026 (@caribbeansurfconnection).
   "caribbean-surf-junior-puntilla-2026-11-14",
+  // Editor removed — INFOTEP Bocadillos course at Love Does (still in Firestore).
+  "love-does-bocadillos-course-2026",
 ]);
 
 /**
@@ -156,6 +158,7 @@ export const EVENT_PATH_REDIRECTS: Record<string, string> = {
   "super-mega-urban-fest-2026-11-04": "/venue/anfiteatro-la-puntilla",
   "van-avakian-drifter-2026-11-07": "/venue/drifter-cabarete",
   "caribbean-surf-junior-puntilla-2026-11-14": "/venue/anfiteatro-la-puntilla",
+  "love-does-bocadillos-course-2026": "/venue/love-does-sosua",
 };
 
 export function resolveEventPathRedirect(

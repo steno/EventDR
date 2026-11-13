@@ -1342,33 +1342,6 @@
     "imageEmoji": "⛪"
   },
   {
-    "id": "love-does-bocadillos-course-2026",
-    "title": "Curso INFOTEP de Bocadillos",
-    "description": "Curso de cocina INFOTEP en Love Does Centro Para Mujeres, Pedro Clisante en Sosúa (frente a Playero). Miércoles y viernes 9:00 AM–1:00 PM desde el viernes 2 de octubre de 2026. Lleva copia de cédula. WhatsApp 809-571-3826 para inscribirte — confirma el costo al reservar.",
-    "date": "2026-10-02",
-    "time": "9:00 AM – 1:00 PM",
-    "location": "Sosúa",
-    "venue": "Love Does Centro Para Mujeres",
-    "venueSlug": "love-does-sosua",
-    "address": "Pedro Clisante 10, frente al supermercado Playero, Sosúa",
-    "lat": 19.7630314,
-    "lng": -70.515632,
-    "category": "food-drinks",
-    "categories": [
-      "business"
-    ],
-    "format": "physical",
-    "recurrence": "weekly",
-    "recurrenceDays": [
-      3,
-      5
-    ],
-    "callForPricing": true,
-    "phone": "+18095713826",
-    "sourceUrl": "https://www.facebook.com/locoamorsosua",
-    "imageEmoji": "🥟"
-  },
-  {
     "id": "love-does-cocktails-solidarity-2026-09-04",
     "title": "Noche de Cócteles, Sabores y Solidaridad",
     "description": "Noche de práctica del curso de bartender en Love Does Centro Para Mujeres, Sosúa — tres cócteles preparados por las estudiantes y tabla de quesos y charcutería. Viernes 4 de septiembre de 2026 desde las 5:00 PM, frente a Playero en Pedro Clisante. RD$2,000 por persona; WhatsApp 809-571-3826 para boletas.",
@@ -11642,5 +11615,141 @@
       "After party"
     ],
     "imageEmoji": "🏃"
+  },
+  {
+    "id": "iberostar-deury-banda-2026-11-13",
+    "date": "2026-11-13",
+    "location": "Puerto Plata",
+    "venue": "Iberostar Waves Costa Dorada",
+    "venueSlug": "iberostar-waves-costa-dorada",
+    "address": "Carretera Luperón Km 4, Costa Dorada, Puerto Plata",
+    "lat": 19.775977,
+    "lng": -70.657986,
+    "phone": "+18093201000",
+    "category": "music",
+    "categories": [
+      "parties",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.iberostar.com/en/hotels/puerto-plata/iberostar-waves-costa-dorada/",
+    "lineup": [
+      "Deury Banda",
+      "Merengue típico en vivo"
+    ],
+    "imageEmoji": "🪗",
+    "title": "Iberostar Waves — Deury Banda · 13 nov",
+    "description": "Merengue típico en vivo con Deury Banda en Iberostar Waves Costa Dorada (Costa Dorada / Carretera Luperón) — viernes 13 de noviembre 2026. Misma gira de acordeón que Grand Prix La Javilla esa noche, luego Lifestyle Cofresí (sáb 14) y Nuestro Bar (dom 15). Cover y hora no vienen en el flyer — confirma acceso de huésped/entretenimiento con el hotel (+1 809-320-1000). Típico de resort el viernes — no es el set de Deury Banda en Grand Prix La Javilla la misma noche, ni el day pass de piscinas de Iberostar."
+  },
+  {
+    "id": "grand-prix-deury-banda-2026-11-13",
+    "date": "2026-11-13",
+    "location": "Puerto Plata",
+    "venue": "Grand Prix Smart Shop",
+    "venueSlug": "grand-prix-puerto-plata",
+    "address": "Av. Manolo Tavares Justo esq. Presidente Caamaño #1, Edificio Grand Prix (Bomba Next), La Javilla, Puerto Plata",
+    "lat": 19.79096,
+    "lng": -70.70149,
+    "phone": "+18097534553",
+    "category": "music",
+    "categories": [
+      "parties",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/grandprixrd/",
+    "instagram": "grandprixrd",
+    "lineup": [
+      "Deury Banda"
+    ],
+    "imageEmoji": "🪗",
+    "title": "Grand Prix — Deury Banda · 13 nov",
+    "description": "Típico en vivo con Deury Banda en Grand Prix Smart Shop, La Javilla, Puerto Plata — viernes 13 de noviembre 2026. Dirección en el flyer: Av. Manolo Tavares Justo esq. Presidente Caamaño #1, Edificio Grand Prix (Bomba Next). Cover y hora de inicio no están impresos — confirma por Instagram @grandprixrd o WhatsApp +1 809-753-4553. Misma noche de acordeón que Iberostar Waves Costa Dorada — este es el show de patio en La Javilla, no el del resort."
+  },
+  {
+    "id": "cofresi-palm-deury-banda-2026-11-14",
+    "date": "2026-11-14",
+    "location": "Puerto Plata",
+    "venue": "Cofresí Palm Beach & Spa Resort",
+    "venueSlug": "cofresi-palm-beach-spa",
+    "address": "Playa Cofresí #1, Cofresí, Puerto Plata",
+    "lat": 19.8187231,
+    "lng": -70.7303509,
+    "phone": "+18099707777",
+    "category": "music",
+    "categories": [
+      "parties",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.cofresipalmbeachresort.com/",
+    "lineup": [
+      "Deury Banda",
+      "Merengue típico en vivo"
+    ],
+    "imageEmoji": "🪗",
+    "title": "Cofresí Palm / Lifestyle — Deury Banda · 14 nov",
+    "description": "Merengue típico en vivo con Deury Banda en Hotel Lifestyle / Cofresí Palm Beach & Spa Resort, Playa Cofresí — sábado 14 de noviembre 2026. Misma gira de acordeón que Iberostar y Grand Prix (vie 13) y Nuestro Bar (dom 15). Cover, hora y reglas de pulsera de huésped no vienen en el flyer — confirma con el resort (+1 809-970-7777). Típico del sábado en Lifestyle Cofresí — no es el day pass diurno de Cofresí Palm ni Terraza Ocean World al lado."
+  },
+  {
+    "id": "nuestro-bar-deury-banda-2026-11-15",
+    "date": "2026-11-15",
+    "location": "Puerto Plata",
+    "venue": "Nuestro Bar",
+    "category": "music",
+    "categories": [
+      "parties",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "lineup": [
+      "Deury Banda",
+      "Merengue típico en vivo"
+    ],
+    "imageEmoji": "🪗",
+    "title": "Nuestro Bar — Deury Banda · 15 nov",
+    "description": "Merengue típico en vivo con Deury Banda en Nuestro Bar — domingo 15 de noviembre 2026. Cierre de la misma gira de acordeón del flyer con Iberostar Waves (vie 13), Grand Prix La Javilla (vie 13) y Hotel Lifestyle / Cofresí Palm (sáb 14). Dirección exacta, cover y hora no están en el arte — confirma antes de ir. Aún no hay ficha POP de venue para Nuestro Bar. Típico del domingo — no es la noche de Deeway en El Liquito el mismo domingo en Cabarete."
+  },
+  {
+    "id": "cedaky-show-navideno-2026-11-14",
+    "date": "2026-11-14",
+    "time": "5:30 PM",
+    "location": "Puerto Plata",
+    "venue": "Cedāky Mall",
+    "venueSlug": "cedaky-mall",
+    "address": "Av. Manolo Tavárez Justo, Barrio Las Yaguitas, Puerto Plata",
+    "lat": 19.782269,
+    "lng": -70.673706,
+    "category": "family",
+    "categories": [
+      "festivals",
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "ageHint": "family",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/cedakymall/",
+    "instagram": "cedakymall",
+    "lineup": [
+      "Show Navideño",
+      "La Magia de la Navidad"
+    ],
+    "imageEmoji": "🎄",
+    "title": "Cedāky Mall — Show Navideño · Magia de la Navidad",
+    "description": "Show Navideño — La Magia de la Navidad en Cedāky Mall, Av. Manolo Tavárez Justo, Puerto Plata — sábado 14 de noviembre 2026 a las 5:30 PM. Show navideño familiar gratis para dar la bienvenida a la temporada con alegría, sorpresas y magia para toda la familia. Confirma vía Instagram @cedakymall. Bienvenida navideña en el mall — no es Cedāky’s Market del domingo 15 nov ni el Aguinaldo 5K Navideño del 19 dic."
   }
 ]

@@ -2,10 +2,12 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import {
   browseDayHeadingDate,
+  defaultOpenWeekendDay,
   eventsInAllBrowseOrder,
   eventsInCalendarOrder,
   eventsInWeekendOrder,
   splitAllBrowseSections,
+  splitWeekendDayGroups,
   weekendHeadingDate,
 } from "./list-day-groups";
 
@@ -152,6 +154,48 @@ describe("eventsInWeekendOrder", () => {
       ),
       "2026-11-07",
     );
+  });
+});
+
+describe("splitWeekendDayGroups", () => {
+  const wednesday = new Date("2026-09-30T16:00:00-04:00");
+
+  it("splits Fri then Sat with continuing on Friday", () => {
+    const groups = splitWeekendDayGroups(
+      [
+        { id: "old", date: "2026-09-18" },
+        { id: "sat", date: "2026-10-03" },
+        { id: "fri", date: "2026-10-02" },
+      ],
+      wednesday,
+    );
+    assert.deepEqual(
+      groups.map((group) => ({
+        date: group.date,
+        ids: group.events.map((event) => event.id),
+      })),
+      [
+        { date: "2026-10-02", ids: ["fri", "old"] },
+        { date: "2026-10-03", ids: ["sat"] },
+      ],
+    );
+  });
+});
+
+describe("defaultOpenWeekendDay", () => {
+  it("opens Friday when Mon–Thu look ahead", () => {
+    const wednesday = new Date("2026-09-30T16:00:00-04:00");
+    assert.equal(defaultOpenWeekendDay(wednesday), "2026-10-02");
+  });
+
+  it("opens today on Saturday", () => {
+    const saturday = new Date("2026-11-07T10:00:00-04:00");
+    assert.equal(defaultOpenWeekendDay(saturday), "2026-11-07");
+  });
+
+  it("opens today on Sunday", () => {
+    const sunday = new Date("2026-11-08T10:00:00-04:00");
+    assert.equal(defaultOpenWeekendDay(sunday), "2026-11-08");
   });
 });
 

@@ -186,7 +186,6 @@ export const CURATED_CALL_FOR_PRICING = new Set<string>([
   "aleva-color-vibe-la-lola-2026-12-20",
   "masters-surf-reunion-opening-natura-2026-11-06",
   "womens-reconnection-kite-camp-2026",
-  "love-does-bocadillos-course-2026",
   "inicio-del-campamento-pp-2026",
   "rumble-in-paradise-12",
   "rumble-in-paradise-13",

@@ -38,6 +38,13 @@ describe("EVENT_PATH_REDIRECTS (GSC soft 404s)", () => {
     );
   });
 
+  it("sends removed INFOTEP Bocadillos course to Love Does", () => {
+    assert.equal(
+      resolveEventPathRedirect("love-does-bocadillos-course-2026"),
+      "/venue/love-does-sosua",
+    );
+  });
+
   it("keeps every redirect path locale-free and absolute within the app", () => {
     for (const [id, path] of Object.entries(EVENT_PATH_REDIRECTS)) {
       assert.ok(path.startsWith("/"), `${id} → ${path}`);

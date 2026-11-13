@@ -41,10 +41,11 @@ import {
 import { clusterRecurringVenueEvents } from "@/lib/venue-recurring-siblings";
 import {
   browseDayHeadingDate,
+  defaultOpenWeekendDay,
   eventsInAllBrowseOrder,
   eventsInWeekendOrder,
   splitAllBrowseSections,
-  weekendHeadingDate,
+  splitWeekendDayGroups,
 } from "@/lib/list-day-groups";
 import { formatEventDate } from "@/lib/format-date";
 import { useCardGridColumns } from "@/hooks/useCardGridColumns";
@@ -70,7 +71,7 @@ import { syncListTimeRangeForCategory } from "@/lib/list-time-range";
 import { fillTemplate } from "@/lib/seo";
 import { CARD_GRID_CLASS, DAY_GROUP_TITLE_CLASS, LIST_PARK_FILL_CLASS, SECTION_TITLE_CLASS } from "@/lib/page-shell";
 import type { EventListView } from "@/lib/event-list-view";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ChevronDown } from "lucide-react";
 
 const UNBOUNDED = Number.POSITIVE_INFINITY;
 
@@ -229,6 +230,11 @@ export function FilteredEventList({
     () => false,
   );
   const [pendingId, setPendingId] = useState<string | null>(null);
+  /** Weekend day sections that are expanded (ISO dates). */
+  const [openWeekendDays, setOpenWeekendDays] = useState(
+    () => new Set<string>([defaultOpenWeekendDay()]),
+  );
+  const weekendRangeRef = useRef(false);
   const stickyCategoryLabel = categoryId ? dict.categories[categoryId] : null;
   // ← back cue only when category pills are NOT in the sticky bar (they scroll
   // away). Sticky `categoryNav` keeps pills pinned, so the cue is redundant.
@@ -380,6 +386,16 @@ export function FilteredEventList({
 
   // SSR/API payloads are already materialized — filter/sort only.
   const activeRange = fixedTimeRange ?? timeRange;
+
+  // Reset open day when entering Weekend (Today ↔ Weekend chip, or remount).
+  useEffect(() => {
+    const onWeekend = activeRange === "weekend";
+    if (onWeekend && !weekendRangeRef.current) {
+      setOpenWeekendDays(new Set([defaultOpenWeekendDay()]));
+    }
+    weekendRangeRef.current = onWeekend;
+  }, [activeRange]);
+
   const filtered = useMemo(() => {
     const combined = filterByTimeAndPrice(events, activeRange, priceFilter);
     const sorted = sortEventsForDisplay(combined, {
@@ -421,6 +437,13 @@ export function FilteredEventList({
   const visibleEvents = Number.isFinite(eventCap)
     ? displayEvents.slice(0, eventCap)
     : displayEvents;
+  const weekendDayGroups = useMemo(
+    () =>
+      activeRange === "weekend"
+        ? splitWeekendDayGroups(visibleEvents)
+        : null,
+    [activeRange, visibleEvents],
+  );
   const hasMore =
     Number.isFinite(eventCap) && displayEvents.length > visibleEvents.length;
 
@@ -442,9 +465,9 @@ export function FilteredEventList({
    * can sit on a complete row. The add-event teaser only appears once the
    * full list is already on screen.
    */
+  // All-tab flat grid only — weekend pads live inside each open day section.
   const dayGroupCardSpans = useMemo(() => {
-    if (view !== "cards") return null;
-    if (activeRange !== "weekend" && activeRange !== "all") return null;
+    if (view !== "cards" || activeRange !== "all") return null;
     const listed = Number.isFinite(eventCap)
       ? displayEvents.slice(0, eventCap)
       : displayEvents;
@@ -453,23 +476,16 @@ export function FilteredEventList({
     while (i < listed.length) {
       const event = listed[i];
       // All-tab recurring block is one undated section — don't day-split it.
-      if (activeRange === "all" && event.recurrence) {
+      if (event.recurrence) {
         dayLengths.push(listed.length - i);
         break;
       }
-      const day =
-        activeRange === "weekend"
-          ? weekendHeadingDate(event)
-          : browseDayHeadingDate(event);
+      const day = browseDayHeadingDate(event);
       let j = i + 1;
       while (j < listed.length) {
         const next = listed[j];
-        if (activeRange === "all" && next.recurrence) break;
-        const nextDay =
-          activeRange === "weekend"
-            ? weekendHeadingDate(next)
-            : browseDayHeadingDate(next);
-        if (nextDay !== day) break;
+        if (next.recurrence) break;
+        if (browseDayHeadingDate(next) !== day) break;
         j++;
       }
       dayLengths.push(j - i);
@@ -477,28 +493,15 @@ export function FilteredEventList({
     }
     return {
       spans: cardGridDayGroupSpans(dayLengths, columns),
-      // Weekend only: desktop day holes get “Your event here” pads. All has
-      // many days — pads every night would spam the CTA.
-      pads:
-        activeRange === "weekend"
-          ? cardGridDayGroupPadSpans(dayLengths, columns)
-          : new Map<number, number>(),
+      pads: new Map<number, number>(),
     };
   }, [activeRange, view, displayEvents, eventCap, columns]);
-
-  const lastVisibleHadWeekendPad =
-    Boolean(onAddEvent) &&
-    addEventCta === "pad" &&
-    dayGroupCardSpans != null &&
-    visibleEvents.length > 0 &&
-    dayGroupCardSpans.pads.has(visibleEvents.length - 1);
 
   const showEndTeaser =
     Boolean(onAddEvent) &&
     addEventCta === "pad" &&
     padDeficit === 0 &&
-    !hasMore &&
-    !lastVisibleHadWeekendPad;
+    !hasMore;
   const leftover = cardGridRowRemainder(
     showEndTeaser ? visibleEvents.length : displayEvents.length,
     columns,
@@ -773,6 +776,167 @@ export function FilteredEventList({
             />
             {addEventInlineCard}
           </>
+        ) : weekendDayGroups ? (
+          <>
+            <div className="space-y-3">
+              {/* Measure card columns even when the default-open day isn’t first. */}
+              {view === "cards" ? (
+                <div
+                  ref={gridRef}
+                  className={`${CARD_GRID_CLASS} pointer-events-none h-0 overflow-hidden`}
+                  aria-hidden
+                />
+              ) : null}
+              {weekendDayGroups.map((group) => {
+                const open = openWeekendDays.has(group.date);
+                const daySpans =
+                  view === "cards"
+                    ? cardGridDayGroupSpans([group.events.length], columns)
+                    : null;
+                const dayPads =
+                  view === "cards"
+                    ? cardGridDayGroupPadSpans([group.events.length], columns)
+                    : null;
+                const dayPadSpan = dayPads?.get(group.events.length - 1);
+                return (
+                  <section key={group.date} className="min-w-0">
+                    <h2 className="px-0.5">
+                      <button
+                        type="button"
+                        aria-expanded={open}
+                        onClick={() => {
+                          setOpenWeekendDays((prev) => {
+                            const next = new Set(prev);
+                            if (next.has(group.date)) next.delete(group.date);
+                            else next.add(group.date);
+                            return next;
+                          });
+                        }}
+                        className="flex w-full items-center gap-2 py-1.5 text-left touch-manipulation transition-colors hover:text-orange-600 dark:hover:text-orange-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
+                      >
+                        <span
+                          className={`min-w-0 flex-1 font-sans ${DAY_GROUP_TITLE_CLASS}`}
+                        >
+                          {formatEventDate(group.date, locale)}
+                          <span className="ml-2 text-sm font-semibold tabular-nums text-neutral-500 dark:text-neutral-400">
+                            {group.events.length}
+                          </span>
+                        </span>
+                        <ChevronDown
+                          className={`h-4 w-4 shrink-0 text-neutral-500 transition-transform dark:text-neutral-400 ${
+                            open ? "rotate-0" : "-rotate-90"
+                          }`}
+                          aria-hidden
+                        />
+                      </button>
+                    </h2>
+                    {open ? (
+                      <div
+                        className={
+                          view === "cards" ? CARD_GRID_CLASS : "space-y-2.5"
+                        }
+                      >
+                        {group.events.map((event, index) => (
+                          <Fragment key={event.id}>
+                            <EventCard
+                              event={event}
+                              dict={dict}
+                              locale={locale}
+                              returnTo={returnTo}
+                              returnTitle={returnTitle}
+                              listTimeRange={fixedTimeRange ?? timeRange}
+                              view={view}
+                              pending={pendingId === event.id}
+                              dimmed={
+                                pendingId != null && pendingId !== event.id
+                              }
+                              onNavigate={() => setPendingId(event.id)}
+                              showEnlarge={!categoryId}
+                              fillSpan={
+                                daySpans && daySpans[index] > 1
+                                  ? daySpans[index]
+                                  : undefined
+                              }
+                            />
+                            {dayPadSpan &&
+                            index === group.events.length - 1 &&
+                            onAddEvent &&
+                            addEventCta === "pad" ? (
+                              <EventCardPlaceholder
+                                title={dict.events.yourEventHereTitle}
+                                label={addEventLabelResolved}
+                                onClick={onAddEvent}
+                                view={view}
+                                fillSpan={dayPadSpan}
+                              />
+                            ) : null}
+                          </Fragment>
+                        ))}
+                      </div>
+                    ) : null}
+                  </section>
+                );
+              })}
+              {showEndTeaser ? (
+                <div
+                  className={view === "cards" ? CARD_GRID_CLASS : "space-y-2.5"}
+                >
+                  <EventCardPlaceholder
+                    title={dict.events.yourEventHereTitle}
+                    label={addEventLabelResolved}
+                    onClick={onAddEvent!}
+                    view={view}
+                    fillSpan={fillSpan}
+                  />
+                </div>
+              ) : null}
+              {showPadCta ? (
+                <div
+                  className={view === "cards" ? CARD_GRID_CLASS : undefined}
+                >
+                  <EventListScrollPads
+                    count={displayEvents.length}
+                    title={dict.events.yourEventHereTitle}
+                    label={addEventLabelResolved}
+                    onAddEvent={onAddEvent}
+                    view={view}
+                    fillSpan={fillSpan}
+                  />
+                </div>
+              ) : null}
+              {hasMore ? (
+                <div
+                  className={view === "cards" ? CARD_GRID_CLASS : undefined}
+                >
+                  <EventListMoreTile
+                    label={
+                      categoryId
+                        ? fillTemplate(dict.events.moreCategory, {
+                            category: dict.categories[categoryId],
+                          })
+                        : dict.events.moreEvents
+                    }
+                    view={view}
+                    onClick={() =>
+                      setVisibleCount((count) => {
+                        if (!Number.isFinite(count)) return count;
+                        const shown =
+                          view === "cards"
+                            ? fillCardGridPage(
+                                count,
+                                displayEvents.length,
+                                columns,
+                              )
+                            : count;
+                        return shown + pageSize;
+                      })
+                    }
+                  />
+                </div>
+              ) : null}
+            </div>
+            {addEventInlineCard}
+          </>
         ) : (
           <>
             <div
@@ -781,10 +945,6 @@ export function FilteredEventList({
             >
               {visibleEvents.map((event, index) => {
                 const previous = visibleEvents[index - 1];
-                const showWeekendDay =
-                  activeRange === "weekend" &&
-                  weekendHeadingDate(event) !==
-                    (previous ? weekendHeadingDate(previous) : undefined);
                 const showAllDay =
                   activeRange === "all" &&
                   !event.recurrence &&
@@ -796,15 +956,10 @@ export function FilteredEventList({
                   activeRange === "all" &&
                   Boolean(event.recurrence) &&
                   !previous?.recurrence;
-                const showDay = showWeekendDay || showAllDay;
-                const dayHeadingDate =
-                  activeRange === "weekend"
-                    ? weekendHeadingDate(event)
-                    : browseDayHeadingDate(event);
-                const weekendPadSpan = dayGroupCardSpans?.pads.get(index);
+                const dayHeadingDate = browseDayHeadingDate(event);
                 return (
                   <Fragment key={event.id}>
-                    {showDay ? (
+                    {showAllDay ? (
                       <h2 className="col-span-full pt-2">
                         <span className={`inline-block font-sans ${DAY_GROUP_TITLE_CLASS}`}>
                           {formatEventDate(dayHeadingDate, locale)}
@@ -836,15 +991,6 @@ export function FilteredEventList({
                           : undefined
                       }
                     />
-                    {weekendPadSpan && onAddEvent && addEventCta === "pad" ? (
-                      <EventCardPlaceholder
-                        title={dict.events.yourEventHereTitle}
-                        label={addEventLabelResolved}
-                        onClick={onAddEvent}
-                        view={view}
-                        fillSpan={weekendPadSpan}
-                      />
-                    ) : null}
                   </Fragment>
                 );
               })}
@@ -865,7 +1011,6 @@ export function FilteredEventList({
                   onAddEvent={onAddEvent}
                   view={view}
                   fillSpan={fillSpan}
-                  hideCta={lastVisibleHadWeekendPad}
                 />
               ) : null}
               {hasMore ? (
