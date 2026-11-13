@@ -807,7 +807,6 @@ Curated images under `public/events/` and `public/venues/`.
 | `aguinaldo-5k-navideno-2026-12-19.jpg` | POP-supplied — Aguinaldo 5K Navideño flyer ([@__iamanuel](https://www.instagram.com/__iamanuel/)) | Sat 19 Dec 2026 6 PM Letrero Malecón; RD$600; editor-provided; typography-heavy |
 | `venues/waterworks-sosua.jpg` | POP-supplied — Waterworks Sosúa aqua playground / pool overview (Casa Linda) | New venue place shot (editor-provided; scene-safe) |
 | `waterworks-sosua-daily.jpg` | POP-supplied — Waterworks Sosúa kids pool / slides place shot | Tue–Sun water park day listing (editor-provided; scene-safe) |
-| `iberostar-deury-banda-2026-11-13.jpg` | POP-supplied — Deury Banda merengue típico tour flyer (Iberostar / Grand Prix / Lifestyle / Nuestro Bar) | Fri 13–Sun 15 Nov 2026; Iberostar + Lifestyle + Nuestro Bar heroes; editor-provided; typography-heavy |
 | `grand-prix-deury-banda-2026-11-13.jpg` | POP-supplied — Grand Prix La Javilla Deury Banda flyer ([@grandprixrd](https://www.instagram.com/grandprixrd/)) | Fri 13 Nov 2026; editor-provided; typography-heavy |
 | `cedaky-show-navideno-2026-11-14.jpg` | POP-supplied — Cedāky Mall Show Navideño / Magia de la Navidad flyer ([@cedakymall](https://www.instagram.com/cedakymall/)) | Sat 14 Nov 2026 5:30 PM; editor-provided; typography-heavy |
 | `malecon-empanadas-daily.jpg` | POP-supplied — Malecón Empanadas Tres Golpes food shot ([@maleconempanadas](https://www.instagram.com/maleconempanadas/)) | Daily listing action shot (editor-provided; scene-safe food) |

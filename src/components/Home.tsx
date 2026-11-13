@@ -537,25 +537,24 @@ function HomeApp({
   const savedExample =
     discoverLayout.heroEvent ?? discoverLayout.todayEvents[0] ?? scopedEvents[0];
 
-  // Today → All Events list with Today chip (soft-nav browse).
-  // Specials / weekend stay on indexable when hubs.
-  const seeAllTodayHref = allEventsPath(locale, selectedCity, "today");
-  const seeAllSpecialsHref = selectedCity
-    ? `/${locale}/city/${selectedCity}/when/today`
-    : `/${locale}/when/today`;
+  // Specials + Today “See all” → Discover All Events with the All time chip.
+  // Weekend stays on the indexable when hub.
+  const seeAllDiscoverHref = allEventsPath(locale, selectedCity, "all");
+  const seeAllTodayHref = seeAllDiscoverHref;
+  const seeAllSpecialsHref = seeAllDiscoverHref;
   const seeAllWeekendHref = selectedCity
     ? `/${locale}/city/${selectedCity}/when/weekend`
     : `/${locale}/when/weekend`;
 
-  // Warm today / specials / weekend hubs after first paint so the next
+  // Warm Discover All + weekend hub after first paint so the next
   // "See all" tap does not wait on a cold RSC payload (mobile has no hover).
   useEffect(() => {
     return warmRoutesIdle(
       router,
-      [seeAllTodayHref, seeAllSpecialsHref, seeAllWeekendHref],
-      3,
+      [seeAllDiscoverHref, seeAllWeekendHref],
+      2,
     );
-  }, [router, seeAllTodayHref, seeAllSpecialsHref, seeAllWeekendHref]);
+  }, [router, seeAllDiscoverHref, seeAllWeekendHref]);
 
   const heroPlaceName = (() => {
     if (cruisePort) {

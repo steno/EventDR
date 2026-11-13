@@ -26,8 +26,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "aguinaldo-5k-navideno-2026-12-19":
     "aguinaldo-5k-navideno-2026-12-19.jpg",
   "waterworks-sosua-daily": "waterworks-sosua-daily.jpg",
-  "iberostar-deury-banda-2026-11-13":
-    "iberostar-deury-banda-2026-11-13.jpg",
   "grand-prix-deury-banda-2026-11-13":
     "grand-prix-deury-banda-2026-11-13.jpg",
   "cedaky-show-navideno-2026-11-14":
@@ -1002,9 +1000,6 @@ const EVENT_IMAGE_ALIASES: Record<string, string> = {
   "flip-flop-weekend-happy-hour": "flip-flop-monday-happy-hour",
   "el-parq-karaoke-kids-2026-11-26": "el-parq-karaoke-kids-2026-11-12",
   "el-parq-karaoke-kids-2026-12-10": "el-parq-karaoke-kids-2026-11-12",
-  // Tour flyer (Iberostar hero) also covers Lifestyle + Nuestro Bar dates.
-  "cofresi-palm-deury-banda-2026-11-14": "iberostar-deury-banda-2026-11-13",
-  "nuestro-bar-deury-banda-2026-11-15": "iberostar-deury-banda-2026-11-13",
 };
 
 const EVENT_IMAGE_PREFIXES: { prefix: string; file: string }[] = [
@@ -1029,9 +1024,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "voyvoy-dominican-night-flow-dance-weekly": "object-center",
   "parada-el-choco-big-d-aperitivo-2026-10-27": "object-center",
   "hard-rock-deeway-live-mix-2026-10-23": "object-top",
-  // Deury Banda tour — accordion face mid/upper on Grand Prix + tour flyers.
+  // Deury Banda at Grand Prix — accordion face mid/upper on the flyer.
   "grand-prix-deury-banda-2026-11-13": "object-top",
-  "iberostar-deury-banda-2026-11-13": "object-[58%_42%]",
   "cedaky-show-navideno-2026-11-14": "object-center",
   "malecon-empanadas-daily": "object-center",
   // Hard Rock Kaovanny — face fills lower half; object-top cards only show logos + scalp.
@@ -1260,7 +1254,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "disco-club-pijama-party-2026-11-13": "object-center",
   "samuel-gonzalez-la-lola-2026-12-05": "object-center",
   "twenty-disco-gran-noche-tipica-2026-11-08": "object-center",
-  "ambar-lounge-bandoleras-fridays-weekly": "object-top",
+  // Lips / glass / “bandoleras” title sit low on the portrait flyer.
+  "ambar-lounge-bandoleras-fridays-weekly": "object-bottom",
   "ambar-lounge-bandoleras-2026-11-06": "object-top",
   "isabela-food-fest-ronny-manuel-2026-12-20": "object-top",
 };
@@ -1544,7 +1539,6 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "el-liquito-deeway-2026-11-15.jpg",
   "dominican-surf-festival-2026-12-10.jpg",
   "aguinaldo-5k-navideno-2026-12-19.jpg",
-  "iberostar-deury-banda-2026-11-13.jpg",
   "grand-prix-deury-banda-2026-11-13.jpg",
   "cedaky-show-navideno-2026-11-14.jpg",
   "pregame-roof-rooftop-pong-2026-11-08.jpg",

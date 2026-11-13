@@ -11617,34 +11617,6 @@
     "imageEmoji": "🏃"
   },
   {
-    "id": "iberostar-deury-banda-2026-11-13",
-    "date": "2026-11-13",
-    "location": "Puerto Plata",
-    "venue": "Iberostar Waves Costa Dorada",
-    "venueSlug": "iberostar-waves-costa-dorada",
-    "address": "Carretera Luperón Km 4, Costa Dorada, Puerto Plata",
-    "lat": 19.775977,
-    "lng": -70.657986,
-    "phone": "+18093201000",
-    "category": "music",
-    "categories": [
-      "parties",
-      "performances"
-    ],
-    "format": "physical",
-    "trending": true,
-    "callForPricing": true,
-    "sourceType": "flyer",
-    "sourceUrl": "https://www.iberostar.com/en/hotels/puerto-plata/iberostar-waves-costa-dorada/",
-    "lineup": [
-      "Deury Banda",
-      "Merengue típico en vivo"
-    ],
-    "imageEmoji": "🪗",
-    "title": "Iberostar Waves — Deury Banda · 13 Nov",
-    "description": "Live merengue típico with Deury Banda at Iberostar Waves Costa Dorada (Costa Dorada / Carretera Luperón) — Friday 13 November 2026. On the same accordion tour bill as Grand Prix La Javilla that night, then Lifestyle Cofresí (Sat 14) and Nuestro Bar (Sun 15). Cover and set time aren’t on the flyer — confirm guest/entertainment access with the hotel (+1 809-320-1000). Resort típico Friday — not Grand Prix’s same-night Deury Banda set in La Javilla, and not the Iberostar day-pass pool listing."
-  },
-  {
     "id": "grand-prix-deury-banda-2026-11-13",
     "date": "2026-11-13",
     "location": "Puerto Plata",
@@ -11670,57 +11642,7 @@
     ],
     "imageEmoji": "🪗",
     "title": "Grand Prix — Deury Banda · 13 Nov",
-    "description": "Live típico with Deury Banda at Grand Prix Smart Shop, La Javilla, Puerto Plata — Friday 13 November 2026. Address on the flyer: Av. Manolo Tavares Justo esq. Presidente Caamaño #1, Edificio Grand Prix (Bomba Next). Cover and start time aren’t printed — confirm via Instagram @grandprixrd or WhatsApp +1 809-753-4553. Same-night accordion send as Iberostar Waves Costa Dorada — this is the La Javilla patio bill, not the resort show."
-  },
-  {
-    "id": "cofresi-palm-deury-banda-2026-11-14",
-    "date": "2026-11-14",
-    "location": "Puerto Plata",
-    "venue": "Cofresí Palm Beach & Spa Resort",
-    "venueSlug": "cofresi-palm-beach-spa",
-    "address": "Playa Cofresí #1, Cofresí, Puerto Plata",
-    "lat": 19.8187231,
-    "lng": -70.7303509,
-    "phone": "+18099707777",
-    "category": "music",
-    "categories": [
-      "parties",
-      "performances"
-    ],
-    "format": "physical",
-    "trending": true,
-    "callForPricing": true,
-    "sourceType": "flyer",
-    "sourceUrl": "https://www.cofresipalmbeachresort.com/",
-    "lineup": [
-      "Deury Banda",
-      "Merengue típico en vivo"
-    ],
-    "imageEmoji": "🪗",
-    "title": "Cofresí Palm / Lifestyle — Deury Banda · 14 Nov",
-    "description": "Live merengue típico with Deury Banda at Hotel Lifestyle / Cofresí Palm Beach & Spa Resort, Playa Cofresí — Saturday 14 November 2026. Part of the same accordion tour bill as Iberostar and Grand Prix (Fri 13) and Nuestro Bar (Sun 15). Cover, set time, and guest-wristband rules aren’t on the flyer — confirm with the resort (+1 809-970-7777). Saturday típico at Lifestyle Cofresí — not the daytime Cofresí Palm day pass, and not Ocean World Terrace next door."
-  },
-  {
-    "id": "nuestro-bar-deury-banda-2026-11-15",
-    "date": "2026-11-15",
-    "location": "Puerto Plata",
-    "venue": "Nuestro Bar",
-    "category": "music",
-    "categories": [
-      "parties",
-      "performances"
-    ],
-    "format": "physical",
-    "trending": true,
-    "callForPricing": true,
-    "sourceType": "flyer",
-    "lineup": [
-      "Deury Banda",
-      "Merengue típico en vivo"
-    ],
-    "imageEmoji": "🪗",
-    "title": "Nuestro Bar — Deury Banda · 15 Nov",
-    "description": "Live merengue típico with Deury Banda at Nuestro Bar — Sunday 15 November 2026. Closing night on the same accordion tour flyer as Iberostar Waves (Fri 13), Grand Prix La Javilla (Fri 13), and Hotel Lifestyle / Cofresí Palm (Sat 14). Exact address, cover, and set time aren’t on the art — confirm before you go. No POP venue page yet for Nuestro Bar. Sunday típico — not El Liquito’s Deeway night the same Sunday in Cabarete."
+    "description": "Live típico with Deury Banda at Grand Prix Smart Shop, La Javilla, Puerto Plata — Friday 13 November 2026. Address on the flyer: Av. Manolo Tavares Justo esq. Presidente Caamaño #1, Edificio Grand Prix (Bomba Next). Cover and start time aren’t printed — confirm via Instagram @grandprixrd or WhatsApp +1 809-753-4553. La Javilla patio accordion night — not a hotel day-pass listing."
   },
   {
     "id": "cedaky-show-navideno-2026-11-14",

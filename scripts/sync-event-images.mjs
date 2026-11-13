@@ -462,7 +462,6 @@ const FILE_TO_EVENT_ID = {
     "dominican-surf-festival-2026-12-10",
   "aguinaldo-5k-navideno-2026-12-19.jpg": "aguinaldo-5k-navideno-2026-12-19",
   "waterworks-sosua-daily.jpg": "waterworks-sosua-daily",
-  "iberostar-deury-banda-2026-11-13.jpg": "iberostar-deury-banda-2026-11-13",
   "grand-prix-deury-banda-2026-11-13.jpg": "grand-prix-deury-banda-2026-11-13",
   "cedaky-show-navideno-2026-11-14.jpg": "cedaky-show-navideno-2026-11-14",
   "malecon-empanadas-daily.jpg": "malecon-empanadas-daily",
