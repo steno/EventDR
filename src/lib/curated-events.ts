@@ -1588,6 +1588,11 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18095710805",
     venueSlug: "voyvoy-cabarete",
   },
+  "voyvoy-saturday-session-2026-11-14": {
+    isFree: true,
+    phone: "+18095710805",
+    venueSlug: "voyvoy-cabarete",
+  },
   "francesca-samuele-natura-cabana-2026-10-24": {
     callForPricing: true,
     phone: "+18492147010",

@@ -9584,4 +9584,22 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer — no calendar date; Antigua Villana Presenta; Viernes D' Contrabandista; Trae la bebida de tu preferencia; brisita D' Navidad; Evolution Disco Club 146. Seeded as weekly Fri (recurrenceDay 5) through holidays per editor. Door no menores → ageHint 18-plus (same venue as Papy Crish).",
     updatedAt: "2026-11-13T18:45:00.000Z",
   },
+  {
+    eventId: "voyvoy-saturday-session-2026-11-14",
+    body: "Bayfront Saturday Session at VOYVOY with Bencosmic, Marc Rosa, and Broken Doll — no cover, start not on the flyer; treat it as late dance energy on Cabarete Beach until 3 AM, not the Mohikaa October bill.",
+    localized: {
+      es: "Saturday Session frente a la bahía en VOYVOY con Bencosmic, Marc Rosa y Broken Doll — sin cover, hora de inicio no está en el flyer; trátalo como energía de baile tarde en Cabarete Beach hasta las 3 AM, no la noche de Mohikaa de octubre.",
+      fr: "Saturday Session face à la baie au VOYVOY avec Bencosmic, Marc Rosa et Broken Doll — sans cover, heure de début absente de l’affiche ; traitez-le comme énergie dance tardive sur Cabarete Beach jusqu’à 3 h, pas la soirée Mohikaa d’octobre.",
+    },
+    priceFeel: "free",
+    priceNote: "No cover — @voyvoybar · +1 809-571-0805",
+    priceNoteLocalized: {
+      es: "Sin cover — @voyvoybar · +1 809-571-0805",
+      fr: "Sans cover — @voyvoybar · +1 809-571-0805",
+    },
+    attribution: "POP research · VOYVOY Saturday Session Nov 14 flyer",
+    researchNotes:
+      "Editor flyer + IG @voyvoybar caption — Sat 14 Nov 2026; Bencosmic (@djbencosmic), Marc Rosa (@marcosadj), Broken Doll (@brokendoll.dj); NO COVER; start time not printed; venue Saturdays until 3 AM.",
+    updatedAt: "2026-11-14T02:00:00.000Z",
+  },
 ];

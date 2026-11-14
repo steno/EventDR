@@ -300,6 +300,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "caribbean-surf-junior-encuentro-2026-12-27.jpg",
   "voyvoy-saturday-session-2026-10-24":
     "voyvoy-saturday-session-2026-10-24.jpg",
+  "voyvoy-saturday-session-2026-11-14":
+    "voyvoy-saturday-session-2026-11-14.jpg",
   "francesca-samuele-natura-cabana-2026-10-24":
     "francesca-samuele-natura-cabana-2026-10-24.jpg",
   "ocean-world-terrace-banda-sin-limite-2026-10-30":
@@ -1066,6 +1068,7 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "natura-sunbar-sunset-sounds-em-zayd-2026-10-22": "object-center",
   "twenty-disco-friday-dj-soky-2026-10-23": "object-center",
   "voyvoy-saturday-session-2026-10-24": "object-center",
+  "voyvoy-saturday-session-2026-11-14": "object-center",
   "francesca-samuele-natura-cabana-2026-10-24": "object-center",
   "ocean-world-terrace-banda-sin-limite-2026-10-30": "object-center",
   "chameleon-cursed-room-ronny-alca-2026-11-01": "object-center",
@@ -1707,6 +1710,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "caribbean-surf-junior-puntilla-2026-11-14.jpg",
   "caribbean-surf-junior-encuentro-2026-12-27.jpg",
   "voyvoy-saturday-session-2026-10-24.jpg",
+  "voyvoy-saturday-session-2026-11-14.jpg",
   "francesca-samuele-natura-cabana-2026-10-24.jpg",
   "ocean-world-terrace-banda-sin-limite-2026-10-30.jpg",
   "chameleon-cursed-room-ronny-alca-2026-11-01.jpg",

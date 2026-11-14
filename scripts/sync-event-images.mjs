@@ -243,6 +243,7 @@ const FILE_TO_EVENT_ID = {
   "caribbean-surf-junior-encuentro-2026-12-27.jpg":
     "caribbean-surf-junior-encuentro-2026-12-27",
   "voyvoy-saturday-session-2026-10-24.jpg": "voyvoy-saturday-session-2026-10-24",
+  "voyvoy-saturday-session-2026-11-14.jpg": "voyvoy-saturday-session-2026-11-14",
   "francesca-samuele-natura-cabana-2026-10-24.jpg":
     "francesca-samuele-natura-cabana-2026-10-24",
   "ocean-world-terrace-banda-sin-limite-2026-10-30.jpg":

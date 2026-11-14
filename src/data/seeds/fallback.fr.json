@@ -11791,5 +11791,35 @@
       "Santana Events"
     ],
     "imageEmoji": "🎤"
+  },
+  {
+    "id": "voyvoy-saturday-session-2026-11-14",
+    "title": "VOYVOY Saturday Session — Bencosmic, Marc Rosa et Broken Doll",
+    "description": "Saturday Session au VOYVOY Cabarete le samedi 14 novembre 2026 — Bencosmic, Marc Rosa et Broken Doll, sans cover. L’heure de début n’est pas sur l’affiche ; énergie dance face à la baie jusqu’à tard (ouvert jusqu’à 3 h les samedis). Instagram @voyvoybar · +1 809-571-0805. Pas la soirée Mohikaa du 24 octobre ni Social Heartz du 7 novembre.",
+    "date": "2026-11-14",
+    "time": "Jusqu’à 3 h",
+    "location": "Cabarete",
+    "venue": "VOYVOY Cabarete",
+    "venueSlug": "voyvoy-cabarete",
+    "lat": 19.7502161,
+    "lng": -70.4066784,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18095710805",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/voyvoybar/",
+    "instagram": "voyvoybar",
+    "lineup": [
+      "Bencosmic",
+      "Marc Rosa",
+      "Broken Doll"
+    ],
+    "imageEmoji": "🪩"
   }
 ]

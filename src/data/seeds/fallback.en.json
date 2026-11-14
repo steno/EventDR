@@ -11766,7 +11766,7 @@
   },
   {
     "id": "twenty-disco-kreizy-k-2026-12-05",
-    "title": "Twenty Disco — Kreizy K · 5 Dec",
+    "title": "Twenty Disco — Kreizy K · 5 Dic",
     "description": "Kreizy K at Twenty Disco & Lounge, Playa Dorada Mall, Puerto Plata — Saturday 5 December 2026. Presented by Santana Events × Twenty Disco & Lounge. Preventa RD$600. Reservations +1 849-281-7727 · Instagram @twenty_disco_lounge / @santana_events0. Mall disco Saturday — not Chameleon’s Kreizy K Mañanitas the same night in Sosúa Bay Center.",
     "date": "2026-12-05",
     "location": "Puerto Plata",
@@ -11793,5 +11793,35 @@
       "Santana Events"
     ],
     "imageEmoji": "🎤"
+  },
+  {
+    "id": "voyvoy-saturday-session-2026-11-14",
+    "title": "VOYVOY Saturday Session — Bencosmic, Marc Rosa & Broken Doll",
+    "description": "Saturday Session at VOYVOY Cabarete on Saturday 14 November 2026 — Bencosmic, Marc Rosa, and Broken Doll, no cover. Start time is not on the flyer; bayfront dance energy until late (open until 3:00 AM Saturdays). Instagram @voyvoybar · +1 809-571-0805. Not the 24 October Mohikaa bill and not Social Heartz on 7 November.",
+    "date": "2026-11-14",
+    "time": "Until 3:00 AM",
+    "location": "Cabarete",
+    "venue": "VOYVOY Cabarete",
+    "venueSlug": "voyvoy-cabarete",
+    "lat": 19.7502161,
+    "lng": -70.4066784,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18095710805",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/voyvoybar/",
+    "instagram": "voyvoybar",
+    "lineup": [
+      "Bencosmic",
+      "Marc Rosa",
+      "Broken Doll"
+    ],
+    "imageEmoji": "🪩"
   }
 ]
