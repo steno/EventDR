@@ -10916,7 +10916,7 @@
   {
     "id": "chameleon-mananitas-kreizy-k-2026-12-05",
     "title": "Chameleon Mañanitas — Kreizy K · 5 dic",
-    "description": "Mañanitas Chameleon con Kreizy K en vivo en Chameleon Sport Bar, Sosúa Bay Center, Calle Alejo Martínez #1, El Batey, Sosúa — sábado 5 de diciembre 2026. Energía late/after-hours hacia la madrugada. Info/RSVP (829) 994-2304 · Instagram @chameleonsportbar. Noche tarde en Sosúa Bay Center — no es un crawl de bars en Pedro Clisante.",
+    "description": "Mañanitas Chameleon con Kreizy K en vivo en Chameleon Sport Bar, Sosúa Bay Center, Calle Alejo Martínez #1, El Batey, Sosúa — sábado 5 de diciembre 2026. Energía late/after-hours hacia la madrugada. Info/RSVP (829) 994-2304 · Instagram @chameleonsportbar. Noche tarde en Sosúa Bay Center — no es el cartel preventa de Kreizy K en Twenty Disco la misma noche en Playa Dorada Mall, ni un crawl de bars en Pedro Clisante.",
     "date": "2026-12-05",
     "venue": "Chameleon Sport Bar",
     "venueSlug": "chameleon-sport-bar",
@@ -11761,6 +11761,36 @@
     "instagram": "isabelafoodfest",
     "lineup": [
       "Carlos El Gusto de la Bachata"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "twenty-disco-kreizy-k-2026-12-05",
+    "title": "Twenty Disco — Kreizy K · 5 dic",
+    "description": "Kreizy K en Twenty Disco & Lounge, Playa Dorada Mall, Puerto Plata — sábado 5 de diciembre 2026. Presentado por Santana Events × Twenty Disco & Lounge. Preventa RD$600. Reservas +1 849-281-7727 · Instagram @twenty_disco_lounge / @santana_events0. Sábado de disco del mall — no es el Mañanitas de Kreizy K en Chameleon la misma noche en Sosúa Bay Center.",
+    "date": "2026-12-05",
+    "location": "Puerto Plata",
+    "venue": "Twenty Disco & Lounge",
+    "venueSlug": "twenty-disco-lounge",
+    "address": "Playa Dorada Mall, Puerto Plata",
+    "lat": 19.769476,
+    "lng": -70.643033,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$600",
+    "phone": "+18492817727",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/santana_events0/",
+    "instagram": "twenty_disco_lounge",
+    "lineup": [
+      "Kreizy K",
+      "Santana Events"
     ],
     "imageEmoji": "🎤"
   }

@@ -1092,6 +1092,13 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "parque-municipal-villa-isabela",
     sourceUrl: "https://www.instagram.com/isabelafoodfest/",
   },
+  "twenty-disco-kreizy-k-2026-12-05": {
+    isFree: false,
+    admissionPrice: "RD$600",
+    phone: "+18492817727",
+    venueSlug: "twenty-disco-lounge",
+    sourceUrl: "https://www.instagram.com/santana_events0/",
+  },
   "groundzero-omega-2026-12-18": {
     callForPricing: true,
     phone: "+18494651313",

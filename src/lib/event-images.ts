@@ -233,7 +233,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "la-lola-dancing-weekend-2026-11-13":
     "la-lola-dancing-weekend-2026-11-13.jpg",
   "evolution-papy-crish-2026-11-14":
-    "evolution-papy-crish-2026-11-14.jpg",
+    "evolution-papy-crish-2026-11-14-v2.jpg",
   "tyson-band-aura-2026-11-12": "tyson-band-aura-2026-11-12.jpg",
   "bachata-colmado-cabarete-2026-11-27":
     "bachata-colmado-cabarete-2026-11-27.jpg",
@@ -806,9 +806,11 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "d-classico-merengue-nights": "d-classico-merengue-bar.jpg",
   // Filename bump — POP-supplied yoga-temple class photo (prior still stays as file).
   "natura-cabana-yoga-daily": "natura-cabana-yoga-daily-v2.jpg",
-  // Filename bump — Ninafrika Latin Thursdays flyer (was the Ojo booth photo).
-  "ojo-latin-night-thursday": "ojo-latin-thursdays-ninafrika.jpg",
-  "ojo-pal-mambo-tuesday": "ojo-pal-mambo-tuesday.jpg",
+  // Filename bump — Ninafrika Latin Thursdays White & Tropical flyer.
+  "ojo-latin-night-thursday": "ojo-latin-thursdays-ninafrika-v2.jpg",
+  "ojo-pal-mambo-tuesday": "ojo-pal-mambo-tuesday-v2.jpg",
+  "twenty-disco-kreizy-k-2026-12-05":
+    "twenty-disco-kreizy-k-2026-12-05.jpg",
   "ojo-weekend-dj-parties": "ojo-weekend-dj-parties.jpg",
   "la-casita-papi-beach-dining": "la-casita-papi-sand-dining.jpg",
   "el-cocotazo-cafe-beach-dining": "el-cocotazo-cafe-beach-dining.jpg",
@@ -1595,7 +1597,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "alex-rene-rancho-catalina-2026-11-08.jpg",
   "4to-dia-rancho-catalina-2026-11-15.jpg",
   "la-lola-dancing-weekend-2026-11-13.jpg",
-  "evolution-papy-crish-2026-11-14.jpg",
+  "evolution-papy-crish-2026-11-14-v2.jpg",
   "tyson-band-aura-2026-11-12.jpg",
   "bachata-colmado-cabarete-2026-11-27.jpg",
   "pregame-roof-domino-sessions-weekly.jpg",
@@ -1808,8 +1810,9 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "hard-rock-rising-segunda-ronda-2026-09-16.jpg",
   "hard-rock-rising-final-local-2026-09-23.jpg",
   "ojo-equinoccio-neon-party-2026-09-25.jpg",
-  "ojo-latin-thursdays-ninafrika.jpg",
-  "ojo-pal-mambo-tuesday.jpg",
+  "ojo-latin-thursdays-ninafrika-v2.jpg",
+  "ojo-pal-mambo-tuesday-v2.jpg",
+  "twenty-disco-kreizy-k-2026-12-05.jpg",
   "hard-rock-catrinas-halloween-2026-10-31.jpg",
   "hard-rock-banditalia-2026-10-17.jpg",
   "hard-rock-baseball-game-day-2026-10-11.jpg",

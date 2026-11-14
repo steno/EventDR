@@ -1155,6 +1155,11 @@ const FILE_TO_VENUE_SLUG = {
   "malecon-empanadas.jpg": "malecon-empanadas",
   "waterworks-sosua.jpg": "waterworks-sosua",
   "evolution-papy-crish-2026-11-14.jpg": "evolution-papy-crish-2026-11-14",
+  "evolution-papy-crish-2026-11-14-v2.jpg":
+    "evolution-papy-crish-2026-11-14",
+  "ojo-latin-thursdays-ninafrika-v2.jpg": "ojo-latin-night-thursday",
+  "ojo-pal-mambo-tuesday-v2.jpg": "ojo-pal-mambo-tuesday",
+  "twenty-disco-kreizy-k-2026-12-05.jpg": "twenty-disco-kreizy-k-2026-12-05",
   "la-lola-dancing-weekend-2026-11-13.jpg": "la-lola-dancing-weekend-2026-11-13",
   "tyson-band-aura-2026-11-12.jpg": "tyson-band-aura-2026-11-12",
   "bachata-colmado-cabarete-2026-11-27.jpg":

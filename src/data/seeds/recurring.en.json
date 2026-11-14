@@ -1165,8 +1165,8 @@
   },
   {
     "id": "ojo-pal-mambo-tuesday",
-    "title": "Pal Mambo Tuesdays — Ninafrika at Ojo",
-    "description": "Every Tuesday from 9 PM at Ojo Club, LAX Cabarete — Pal Mambo, presented by Ninafrika. Salsa, bachata, merengue, and kizomba with animation by the Ninafrika Dance Team. Cover is not printed on the flyer; confirm with Ninafrika (+1 849-854-9692) or Ojo (+1 829-745-8811). Instagram @ninafrikadance.",
+    "title": "Pal Mambo Black Tuesdays — Ninafrika at Ojo",
+    "description": "Every Tuesday from 9:00 PM at LAX Ojo Club Cabarete — Pal Mambo Black Tuesday Latin dance social, presented by Ninafrika Dance School. Salsa, bachata, merengue y más with the Ninafrika Dance Team. Optional black dress code. Cover is not printed on the flyer; confirm with Ninafrika (+1 849-854-9692) or Ojo (+1 829-745-8811). Instagram @ninafrikadance. Tuesday black-theme floor — not Latin Thursdays White & Tropical the same week.",
     "date": "2026-01-01",
     "time": "9:00 PM",
     "location": "Cabarete",
@@ -1177,15 +1177,16 @@
     "recurrence": "weekly",
     "recurrenceDay": 2,
     "lineup": [
-      "Ninafrika Dance Team"
+      "Ninafrika Dance Team",
+      "Black dress code (optional)"
     ],
     "sourceUrl": "https://www.instagram.com/ninafrikadance/",
     "imageEmoji": "💃"
   },
   {
     "id": "ojo-latin-night-thursday",
-    "title": "Latin Thursdays — Ninafrika at Ojo",
-    "description": "Every Thursday from 9 PM at Ojo Club, LAX Cabarete — Latin Thursdays, presented by Ninafrika. DJ, live percussion, and animation by the Ninafrika team: salsa, bachata, merengue, and kizomba. Cover is not printed on the flyer; confirm with Ninafrika (+1 849-854-9692) or Ojo (+1 829-745-8811). Instagram @ninafrikadance.",
+    "title": "Latin Thursdays White & Tropical — Ninafrika at Ojo",
+    "description": "Every Thursday from 9:00 PM at LAX Ojo Club Cabarete — Latin Thursdays White & Tropical Edition, presented by Ninafrika Dance School. Salsa, bachata, merengue y más with the Ninafrika Dance Team. Optional white & tropical dress code. Cover is not printed on the flyer; confirm with Ninafrika (+1 849-854-9692) or Ojo (+1 829-745-8811). Instagram @ninafrikadance. Thursday tropical floor — not Pal Mambo Black Tuesday earlier in the week.",
     "date": "2026-01-01",
     "time": "9:00 PM",
     "location": "Cabarete",
@@ -1199,7 +1200,8 @@
     "recurrence": "weekly",
     "recurrenceDay": 4,
     "lineup": [
-      "Ninafrika Dance Team"
+      "Ninafrika Dance Team",
+      "White & Tropical dress code (optional)"
     ],
     "sourceUrl": "https://www.instagram.com/ninafrikadance/",
     "imageEmoji": "💃"

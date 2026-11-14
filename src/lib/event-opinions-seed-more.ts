@@ -7,10 +7,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   {
     eventId: "ojo-pal-mambo-tuesday",
     seriesKey: "lax-cabarete:weekly:2",
-    body: "Midweek dance night, not the food-park class — Ninafrika animates salsa, bachata, merengue, and kizomba at Ojo from 9 PM, a night before the Thursday percussion set.",
+    body: "Black-theme Tuesday social at LAX Ojo — Ninafrika runs salsa, bachata, and merengue from 9 PM; optional all-black look, not the Thursday White & Tropical floor.",
     localized: {
-      es: "Noche de baile entre semana, no la clase del food park — Ninafrika anima salsa, bachata, merengue y kizomba en Ojo desde las 9 PM, la víspera de la percusión del jueves.",
-      fr: "Soirée danse en semaine, pas le cours du food park — Ninafrika anime salsa, bachata, merengue et kizomba à Ojo dès 21 h, la veille des percussions du jeudi.",
+      es: "Social de martes en negro en LAX Ojo — Ninafrika anima salsa, bachata y merengue desde las 9 PM; look all-black opcional, no la pista White & Tropical del jueves.",
+      fr: "Social mardi en noir à LAX Ojo — Ninafrika anime salsa, bachata et merengue dès 21 h ; look all-black optionnel, pas la piste White & Tropical du jeudi.",
     },
     priceFeel: "upscale",
     priceNote:
@@ -19,20 +19,20 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       es: "Precios de beach club — el cover no está impreso; pregunta a Ninafrika u Ojo antes de ir",
       fr: "Tarifs beach club — le cover n'est pas imprimé ; demandez à Ninafrika ou Ojo avant d'y aller",
     },
-    attribution: "POP research · Ninafrika Pal Mambo flyer",
+    attribution: "POP research · Ninafrika Pal Mambo Black Tuesday flyer",
     ratingCite: "Google 4.4",
     googleRating: 4.4,
     researchNotes:
-      "Editor flyer Oct 2026: Ninafrika presents Pal Mambo Tuesdays, 9 PM, LAX Ojo Club Cabarete — salsa, bachata, merengue; animation by Ninafrika Dance Team.",
-    updatedAt: "2026-10-03T17:00:00.000Z",
+      "Editor flyer Nov 2026 v2: Pal Mambo BLACK TUESDAY; cada martes desde 9 PM; LAX Ojo Club; Ninafrika Dance Team; dress code black optional; salsa bachata merengue.",
+    updatedAt: "2026-11-14T00:15:00.000Z",
   },
   {
     eventId: "ojo-latin-night-thursday",
     seriesKey: "lax-cabarete:weekly:4",
-    body: "Ninafrika's Thursday floor at Ojo — DJ plus live percussion from 9 PM, not the Friday reggae night. Shoes you can turn in matter more than a dinner plan; cover isn't on the flyer.",
+    body: "White & Tropical Thursday at LAX Ojo with Ninafrika from 9 PM — optional white/tropical dress; not Pal Mambo Black Tuesday and not Friday reggae downstairs.",
     localized: {
-      es: "La pista del jueves de Ninafrika en Ojo — DJ y percusión en vivo desde las 9 PM, no la noche de reggae del viernes. Importan más los zapatos para girar que un plan de cena; el cover no sale en el flyer.",
-      fr: "Le jeudi de Ninafrika à Ojo — DJ et percussions live dès 21 h, pas la nuit reggae du vendredi. Des chaussures pour tourner comptent plus qu'un plan dîner ; le cover n'est pas sur le flyer.",
+      es: "Jueves White & Tropical en LAX Ojo con Ninafrika desde las 9 PM — dress code blanco/tropical opcional; no es Pal Mambo Black Tuesday ni el reggae del viernes abajo.",
+      fr: "Jeudi White & Tropical à LAX Ojo avec Ninafrika dès 21 h — dress code blanc/tropical optionnel ; pas Pal Mambo Black Tuesday ni le reggae du vendredi en bas.",
     },
     priceFeel: "upscale",
     priceNote:
@@ -41,12 +41,12 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       es: "Precios de beach club — el cover no está impreso; pregunta a Ninafrika u Ojo antes de ir",
       fr: "Tarifs beach club — le cover n'est pas imprimé ; demandez à Ninafrika ou Ojo avant d'y aller",
     },
-    attribution: "POP research · Ninafrika Latin Thursdays flyer",
+    attribution: "POP research · Ninafrika Latin Thursdays White & Tropical flyer",
     ratingCite: "Google 4.4",
     googleRating: 4.4,
     researchNotes:
-      "Editor flyer Oct 2026: Ninafrika presents Latin Thursdays, 9 PM, LAX Ojo Club Cabarete — DJ, live percussion, animation by the Ninafrika team; salsa, bachata, merengue and more.",
-    updatedAt: "2026-10-03T17:00:00.000Z",
+      "Editor flyer Nov 2026 v2: LATIN THURSDAY'S WHITE & TROPICAL EDITION; cada jueves desde 9 PM; LAX Ojo Club; Ninafrika Dance Team; dress code white & tropical optional.",
+    updatedAt: "2026-11-14T00:15:00.000Z",
   },
   {
     eventId: "ojo-weekend-dj-parties",
@@ -8940,10 +8940,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "chameleon-mananitas-kreizy-k-2026-12-05",
-    body: "Kreizy K Mañanitas at Chameleon in Sosúa Bay Center — late/after-hours energy; RSVP (829) 994-2304, and don’t treat it like a Pedro Clisante beach bar.",
+    body: "Kreizy K Mañanitas at Chameleon in Sosúa Bay Center — late/after-hours energy; RSVP (829) 994-2304; not Twenty’s same-night preventa RD$600 mall bill.",
     localized: {
-      es: "Mañanitas con Kreizy K en Chameleon en Sosúa Bay Center — energía late/after-hours; RSVP (829) 994-2304, y no lo trates como un bar de playa en Pedro Clisante.",
-      fr: "Mañanitas avec Kreizy K au Chameleon à Sosúa Bay Center — énergie late/after-hours ; RSVP (829) 994-2304, et ne le traitez pas comme un bar de plage Pedro Clisante.",
+      es: "Mañanitas con Kreizy K en Chameleon en Sosúa Bay Center — energía late/after-hours; RSVP (829) 994-2304; no es el preventa RD$600 de Twenty la misma noche en el mall.",
+      fr: "Mañanitas avec Kreizy K au Chameleon à Sosúa Bay Center — énergie late/after-hours ; RSVP (829) 994-2304 ; pas le preventa RD$600 de Twenty la même nuit au mall.",
     },
     priceFeel: "varies",
     priceNote: "Cover TBA — RSVP (829) 994-2304 · @chameleonsportbar",
@@ -8953,8 +8953,27 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · @chameleonsportbar Mañanitas Kreizy K flyer",
     researchNotes:
-      "Editor flyer + IG — Sáb 05 Dic; Kreizy K; Sosúa Bay Center Calle Alejo Martínez #1; 829-994-2304.",
-    updatedAt: "2026-11-11T13:30:00.000Z",
+      "Editor flyer + IG — Sáb 05 Dic; Kreizy K; Sosúa Bay Center Calle Alejo Martínez #1; 829-994-2304. Same Sat as twenty-disco-kreizy-k-2026-12-05.",
+    updatedAt: "2026-11-14T00:20:00.000Z",
+  },
+  {
+    eventId: "twenty-disco-kreizy-k-2026-12-05",
+    body: "Kreizy K preventa RD$600 at Twenty in Playa Dorada Mall — reserve +1 849-281-7727; mall disco Saturday, not Chameleon’s same-night Mañanitas in Sosúa.",
+    localized: {
+      es: "Kreizy K preventa RD$600 en Twenty en Playa Dorada Mall — reserva +1 849-281-7727; sábado de disco del mall, no el Mañanitas de Chameleon la misma noche en Sosúa.",
+      fr: "Kreizy K preventa RD$600 au Twenty dans Playa Dorada Mall — réservez +1 849-281-7727 ; samedi disco du mall, pas les Mañanitas de Chameleon la même nuit à Sosúa.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Preventa RD$600 — +1 849-281-7727 · @santana_events0",
+    priceNoteLocalized: {
+      es: "Preventa RD$600 — +1 849-281-7727 · @santana_events0",
+      fr: "Preventa RD$600 — +1 849-281-7727 · @santana_events0",
+    },
+    attribution:
+      "POP research · @santana_events0 Kreizy K flyer + caption · Twenty Disco",
+    researchNotes:
+      "Editor flyer + IG caption @santana_events0 — Sáb 5 Dic; Kreizy K; Twenty Disco Playa Dorada Mall; preventa RD$600; reservas 849-281-7727; Santana Events × Twenty; Red Bull / Brugal / Obra Leggend. Same Sat as chameleon-mananitas-kreizy-k-2026-12-05.",
+    updatedAt: "2026-11-14T00:20:00.000Z",
   },
   {
     eventId: "isabela-food-fest-la-perversa-2026-12-18",
