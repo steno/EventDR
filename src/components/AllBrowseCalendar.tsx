@@ -35,8 +35,8 @@ const DAY_COL_STYLE = {
   maxWidth: BROWSE_DAY_COL_MAX_PX,
 } as const;
 
-/** Multi-event day autoplay — common carousel cadence. */
-const BROWSE_DAY_ROTATE_MS = 4000;
+/** Multi-event day autoplay cadence. */
+const BROWSE_DAY_ROTATE_MS = 5000;
 
 /** z-index stays inside the card’s `isolate` context — never above sticky chrome. */
 const DAY_SLIDE_BTN_CLASS =
@@ -70,6 +70,9 @@ interface BrowseDayColumnProps {
   pendingId: string | null;
   onNavigate: (id: string) => void;
   showEnlarge: boolean;
+  /** Shared across all day columns — hover/focus on one pauses every slider. */
+  paused: boolean;
+  setPaused: (paused: boolean) => void;
 }
 
 /**
@@ -86,13 +89,14 @@ function BrowseDayColumn({
   pendingId,
   onNavigate,
   showEnlarge,
+  paused,
+  setPaused,
 }: BrowseDayColumnProps) {
   const count = day.events.length;
   const multi = count > 1;
   const [index, setIndex] = useState(() =>
     multi ? Math.floor(Math.random() * count) : 0,
   );
-  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
     if (!multi || paused) return;
@@ -213,6 +217,7 @@ export function AllBrowseCalendar({
   const headerRailRef = useRef<HTMLDivElement>(null);
   const bodyRailRef = useRef<HTMLDivElement>(null);
   const syncingScroll = useRef(false);
+  const [daySlidersPaused, setDaySlidersPaused] = useState(false);
 
   function syncRails(source: "header" | "body") {
     if (syncingScroll.current) return;
@@ -284,6 +289,8 @@ export function AllBrowseCalendar({
                   pendingId={pendingId}
                   onNavigate={onNavigate}
                   showEnlarge={showEnlarge}
+                  paused={daySlidersPaused}
+                  setPaused={setDaySlidersPaused}
                 />
               ))}
             </div>
