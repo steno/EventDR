@@ -86,17 +86,24 @@ function applyChromeDom(nextVisible: boolean): void {
   const filters = document.querySelectorAll<HTMLElement>(
     "[data-sticky-list-filters]",
   );
+  const dayLabels = document.querySelectorAll<HTMLElement>(
+    "[data-sticky-list-day]",
+  );
   const nav = document.querySelector<HTMLElement>("[data-scroll-chrome-nav]");
 
   if (nextVisible) {
     header?.removeAttribute("data-chrome-hidden");
     filters.forEach((el) => el.removeAttribute("data-chrome-hidden"));
+    dayLabels.forEach((el) => el.removeAttribute("data-chrome-hidden"));
     nav?.removeAttribute("data-chrome-hidden");
     return;
   }
 
   header?.setAttribute("data-chrome-hidden", "true");
   filters.forEach((el) => el.setAttribute("data-chrome-hidden", "true"));
+  // Same lift as filters — otherwise day titles keep a header-sized gap after
+  // park-scroll / hide-on-scroll tucks the Discover header away.
+  dayLabels.forEach((el) => el.setAttribute("data-chrome-hidden", "true"));
   nav?.setAttribute("data-chrome-hidden", "down");
 }
 

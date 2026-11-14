@@ -7,6 +7,7 @@ import { ArrowLeft, House } from "lucide-react";
 import { AppHeader } from "@/components/AppHeader";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { SoundCloudHeaderToggle } from "@/components/GlobalSoundCloudPlayer";
 import { warmRoute, warmRoutesIdle } from "@/components/IntentLink";
 import { useScrollChromeVisible } from "@/hooks/useScrollChrome";
 import type { Locale } from "@/i18n/config";
@@ -159,6 +160,7 @@ function CompactChromeRow({
         <div className="min-w-0 flex-1">{backControl}</div>
       </div>
       <div className="ml-auto flex shrink-0 items-center gap-1.5 sm:gap-2">
+        <SoundCloudHeaderToggle />
         <ThemeToggle dict={dict} />
         <LanguageSwitcher locale={locale} dict={dict} />
       </div>

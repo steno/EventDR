@@ -16,6 +16,20 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+# Retired Morphy flyer (IG chrome). force=true so CDN never serves a stale
+# immutable copy of the old path — crawlers get 301 to the clean -v2 asset.
+[[redirects]]
+  from = "/events/casa-arte-sosua-morphy-legado-2026-11-14.jpg"
+  to = "/events/casa-arte-sosua-morphy-legado-2026-11-14-v2.jpg"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/og/events/casa-arte-sosua-morphy-legado-2026-11-14.jpg"
+  to = "/og/events/casa-arte-sosua-morphy-legado-2026-11-14-v2.jpg"
+  status = 301
+  force = true
+
 # Netlify Durable cache ignores query strings unless Netlify-Vary lists them.
 # Without this, /api/events?venue=… can reuse the unscoped North Coast catalog.
 [[headers]]

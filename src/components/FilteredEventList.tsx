@@ -38,9 +38,9 @@ import {
   scrollToListTop,
   scrollCategoryNavIntoView,
 } from "@/lib/list-scroll";
+import { syncScrollChromeDom } from "@/lib/scroll-chrome";
 import { clusterRecurringVenueEvents } from "@/lib/venue-recurring-siblings";
 import {
-  browseDayHeadingDate,
   defaultOpenWeekendDay,
   eventsInAllBrowseOrder,
   eventsInWeekendOrder,
@@ -69,7 +69,14 @@ import { useEventListView } from "@/hooks/useEventListView";
 import { useListTimeRange } from "@/hooks/useListTimeRange";
 import { syncListTimeRangeForCategory } from "@/lib/list-time-range";
 import { fillTemplate } from "@/lib/seo";
-import { CARD_GRID_CLASS, DAY_GROUP_TITLE_CLASS, LIST_PARK_FILL_CLASS, SECTION_TITLE_CLASS } from "@/lib/page-shell";
+import {
+  CARD_GRID_CLASS,
+  DAY_GROUP_TITLE_CLASS,
+  LIST_PARK_FILL_CLASS,
+  PAGE_GUTTER_BLEED_CLASS,
+  SECTION_TITLE_CLASS,
+  STICKY_CHROME_SURFACE_CLASS,
+} from "@/lib/page-shell";
 import type { EventListView } from "@/lib/event-list-view";
 import { ArrowLeft, ChevronDown } from "lucide-react";
 
@@ -77,6 +84,17 @@ const UNBOUNDED = Number.POSITIVE_INFINITY;
 
 /** Cap sticky back-label width so All/Today/Weekend still fit on a phone. */
 const CATEGORY_BACK_MAX_CLASS = "max-w-[4.75rem] sm:max-w-[6.5rem]";
+
+/**
+ * Stacked All / Weekend day labels park under sticky list chrome + filters.
+ * Each section is its own sticky containing block — next day pushes the prior off.
+ */
+/**
+ * Park flush under filters (−2px overlap). Also set `data-sticky-list-day` on
+ * the node so hide-on-scroll / park-scroll lifts it with the filter bar when
+ * the Discover header slides away (otherwise a header-sized gap appears).
+ */
+const LIST_DAY_STICKY_CLASS = `sticky top-[calc(var(--sticky-list-header-height,3.5rem)-4px+var(--sticky-list-filters-height,5.5rem)-2px)] z-[8] ${PAGE_GUTTER_BLEED_CLASS} ${STICKY_CHROME_SURFACE_CLASS} pt-1.5 pb-1`;
 
 /** Scope/venue lists show the full upcoming schedule; home Our picks matches that. */
 const DEFAULT_SCOPE_TIME_RANGE: FilterTimeRange = "all";
@@ -465,37 +483,23 @@ export function FilteredEventList({
    * can sit on a complete row. The add-event teaser only appears once the
    * full list is already on screen.
    */
-  // All-tab flat grid only — weekend pads live inside each open day section.
-  const dayGroupCardSpans = useMemo(() => {
-    if (view !== "cards" || activeRange !== "all") return null;
-    const listed = Number.isFinite(eventCap)
-      ? displayEvents.slice(0, eventCap)
-      : displayEvents;
-    const dayLengths: number[] = [];
-    let i = 0;
-    while (i < listed.length) {
-      const event = listed[i];
-      // All-tab recurring block is one undated section — don't day-split it.
-      if (event.recurrence) {
-        dayLengths.push(listed.length - i);
-        break;
-      }
-      const day = browseDayHeadingDate(event);
-      let j = i + 1;
-      while (j < listed.length) {
-        const next = listed[j];
-        if (next.recurrence) break;
-        if (browseDayHeadingDate(next) !== day) break;
-        j++;
-      }
-      dayLengths.push(j - i);
-      i = j;
-    }
-    return {
-      spans: cardGridDayGroupSpans(dayLengths, columns),
-      pads: new Map<number, number>(),
-    };
-  }, [activeRange, view, displayEvents, eventCap, columns]);
+  /**
+   * Mobile / non-calendar All-tab: same day + weekly split as desktop, so each
+   * day can be a sticky section (calendar path uses AllBrowseCalendar instead).
+   */
+  const allListSections = useMemo(
+    () =>
+      activeRange === "all" && !(allBrowseSections && isXlShell)
+        ? splitAllBrowseSections(visibleEvents)
+        : null,
+    [activeRange, allBrowseSections, isXlShell, visibleEvents],
+  );
+
+  // Day stickies mount after chrome may already be tucked — re-apply hide attrs.
+  useLayoutEffect(() => {
+    if (!allListSections && !weekendDayGroups) return;
+    syncScrollChromeDom();
+  }, [allListSections, weekendDayGroups]);
 
   const showEndTeaser =
     Boolean(onAddEvent) &&
@@ -641,6 +645,20 @@ export function FilteredEventList({
 
       {listLead}
 
+      {/*
+        Spacing used to live as StickyListFilters `mb-4`, but that margin stays
+        under the stuck bar and read as a dead gap above day titles / cards.
+        Pad the list body instead so sticky day headers can sit flush.
+      */}
+      <div
+        className={
+          showStickyFilters
+            ? allListSections || weekendDayGroups
+              ? "mt-0"
+              : "mt-2 md:mt-1.5"
+            : undefined
+        }
+      >
       {(sectionTitle || showToggleInTitle) && (
         <div className="mb-3 flex items-center justify-between gap-2">
           {sectionTitle ? (
@@ -778,15 +796,19 @@ export function FilteredEventList({
           </>
         ) : weekendDayGroups ? (
           <>
-            <div className="space-y-3">
-              {/* Measure card columns even when the default-open day isn’t first. */}
+            <div className="relative">
+              {/*
+                Keep the column probe out of `space-y` — as the first sibling it
+                forced margin-top on the first day title (gap at scroll top only).
+              */}
               {view === "cards" ? (
                 <div
                   ref={gridRef}
-                  className={`${CARD_GRID_CLASS} pointer-events-none h-0 overflow-hidden`}
+                  className={`${CARD_GRID_CLASS} pointer-events-none absolute inset-x-0 top-0 h-0 overflow-hidden`}
                   aria-hidden
                 />
               ) : null}
+              <div className="space-y-2">
               {weekendDayGroups.map((group) => {
                 const open = openWeekendDays.has(group.date);
                 const daySpans =
@@ -800,7 +822,10 @@ export function FilteredEventList({
                 const dayPadSpan = dayPads?.get(group.events.length - 1);
                 return (
                   <section key={group.date} className="min-w-0">
-                    <h2 className="px-0.5">
+                    <h2
+                      className={`${LIST_DAY_STICKY_CLASS} px-0.5`}
+                      data-sticky-list-day
+                    >
                       <button
                         type="button"
                         aria-expanded={open}
@@ -812,7 +837,7 @@ export function FilteredEventList({
                             return next;
                           });
                         }}
-                        className="flex w-full items-center gap-2 py-1.5 text-left touch-manipulation transition-colors hover:text-orange-600 dark:hover:text-orange-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
+                        className="flex w-full items-center gap-2 py-0.5 text-left touch-manipulation transition-colors hover:text-orange-600 dark:hover:text-orange-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
                       >
                         <span
                           className={`min-w-0 flex-1 font-sans ${DAY_GROUP_TITLE_CLASS}`}
@@ -934,6 +959,158 @@ export function FilteredEventList({
                   />
                 </div>
               ) : null}
+              </div>
+            </div>
+            {addEventInlineCard}
+          </>
+        ) : allListSections ? (
+          <>
+            <div className="relative">
+              {view === "cards" ? (
+                <div
+                  ref={gridRef}
+                  className={`${CARD_GRID_CLASS} pointer-events-none absolute inset-x-0 top-0 h-0 overflow-hidden`}
+                  aria-hidden
+                />
+              ) : null}
+              <div className="space-y-2">
+              {allListSections.days.map((group) => {
+                const daySpans =
+                  view === "cards"
+                    ? cardGridDayGroupSpans([group.events.length], columns)
+                    : null;
+                return (
+                  <section key={group.date} className="min-w-0">
+                    <h2 className={LIST_DAY_STICKY_CLASS} data-sticky-list-day>
+                      <span
+                        className={`inline-block font-sans ${DAY_GROUP_TITLE_CLASS}`}
+                      >
+                        {formatEventDate(group.date, locale)}
+                      </span>
+                    </h2>
+                    <div
+                      className={
+                        view === "cards" ? CARD_GRID_CLASS : "space-y-2.5"
+                      }
+                    >
+                      {group.events.map((event, index) => (
+                        <EventCard
+                          key={event.id}
+                          event={event}
+                          dict={dict}
+                          locale={locale}
+                          returnTo={returnTo}
+                          returnTitle={returnTitle}
+                          listTimeRange={fixedTimeRange ?? timeRange}
+                          view={view}
+                          pending={pendingId === event.id}
+                          dimmed={
+                            pendingId != null && pendingId !== event.id
+                          }
+                          onNavigate={() => setPendingId(event.id)}
+                          showEnlarge={!categoryId}
+                          fillSpan={
+                            daySpans && daySpans[index] > 1
+                              ? daySpans[index]
+                              : undefined
+                          }
+                        />
+                      ))}
+                    </div>
+                  </section>
+                );
+              })}
+              {allListSections.recurring.length > 0 ? (
+                <section className="min-w-0">
+                  <h2 className={LIST_DAY_STICKY_CLASS} data-sticky-list-day>
+                    <span
+                      className={`inline-block font-sans ${DAY_GROUP_TITLE_CLASS}`}
+                    >
+                      {dict.events.weeklyAndDaily}
+                    </span>
+                  </h2>
+                  <div
+                    className={
+                      view === "cards" ? CARD_GRID_CLASS : "space-y-2.5"
+                    }
+                  >
+                    {allListSections.recurring.map((event) => (
+                      <EventCard
+                        key={event.id}
+                        event={event}
+                        dict={dict}
+                        locale={locale}
+                        returnTo={returnTo}
+                        returnTitle={returnTitle}
+                        listTimeRange={fixedTimeRange ?? timeRange}
+                        view={view}
+                        pending={pendingId === event.id}
+                        dimmed={pendingId != null && pendingId !== event.id}
+                        onNavigate={() => setPendingId(event.id)}
+                        showEnlarge={!categoryId}
+                      />
+                    ))}
+                  </div>
+                </section>
+              ) : null}
+              {showEndTeaser ? (
+                <div
+                  className={view === "cards" ? CARD_GRID_CLASS : "space-y-2.5"}
+                >
+                  <EventCardPlaceholder
+                    title={dict.events.yourEventHereTitle}
+                    label={addEventLabelResolved}
+                    onClick={onAddEvent!}
+                    view={view}
+                    fillSpan={fillSpan}
+                  />
+                </div>
+              ) : null}
+              {showPadCta ? (
+                <div
+                  className={view === "cards" ? CARD_GRID_CLASS : undefined}
+                >
+                  <EventListScrollPads
+                    count={displayEvents.length}
+                    title={dict.events.yourEventHereTitle}
+                    label={addEventLabelResolved}
+                    onAddEvent={onAddEvent}
+                    view={view}
+                    fillSpan={fillSpan}
+                  />
+                </div>
+              ) : null}
+              {hasMore ? (
+                <div
+                  className={view === "cards" ? CARD_GRID_CLASS : undefined}
+                >
+                  <EventListMoreTile
+                    label={
+                      categoryId
+                        ? fillTemplate(dict.events.moreCategory, {
+                            category: dict.categories[categoryId],
+                          })
+                        : dict.events.moreEvents
+                    }
+                    view={view}
+                    onClick={() =>
+                      setVisibleCount((count) => {
+                        if (!Number.isFinite(count)) return count;
+                        const shown =
+                          view === "cards"
+                            ? fillCardGridPage(
+                                count,
+                                displayEvents.length,
+                                columns,
+                              )
+                            : count;
+                        return shown + pageSize;
+                      })
+                    }
+                  />
+                </div>
+              ) : null}
+              </div>
             </div>
             {addEventInlineCard}
           </>
@@ -943,57 +1120,23 @@ export function FilteredEventList({
               ref={view === "cards" ? gridRef : undefined}
               className={view === "cards" ? CARD_GRID_CLASS : "space-y-2.5"}
             >
-              {visibleEvents.map((event, index) => {
-                const previous = visibleEvents[index - 1];
-                const showAllDay =
-                  activeRange === "all" &&
-                  !event.recurrence &&
-                  browseDayHeadingDate(event) !==
-                    (previous && !previous.recurrence
-                      ? browseDayHeadingDate(previous)
-                      : undefined);
-                const showWeeklyDaily =
-                  activeRange === "all" &&
-                  Boolean(event.recurrence) &&
-                  !previous?.recurrence;
-                const dayHeadingDate = browseDayHeadingDate(event);
-                return (
-                  <Fragment key={event.id}>
-                    {showAllDay ? (
-                      <h2 className="col-span-full pt-2">
-                        <span className={`inline-block font-sans ${DAY_GROUP_TITLE_CLASS}`}>
-                          {formatEventDate(dayHeadingDate, locale)}
-                        </span>
-                      </h2>
-                    ) : null}
-                    {showWeeklyDaily ? (
-                      <h2 className="col-span-full pt-2">
-                        <span className={`inline-block font-sans ${DAY_GROUP_TITLE_CLASS}`}>
-                          {dict.events.weeklyAndDaily}
-                        </span>
-                      </h2>
-                    ) : null}
-                    <EventCard
-                      event={event}
-                      dict={dict}
-                      locale={locale}
-                      returnTo={returnTo}
-                      returnTitle={returnTitle}
-                      listTimeRange={fixedTimeRange ?? timeRange}
-                      view={view}
-                      pending={pendingId === event.id}
-                      dimmed={pendingId != null && pendingId !== event.id}
-                      onNavigate={() => setPendingId(event.id)}
-                      showEnlarge={!categoryId}
-                      fillSpan={
-                        dayGroupCardSpans && dayGroupCardSpans.spans[index] > 1
-                          ? dayGroupCardSpans.spans[index]
-                          : undefined
-                      }
-                    />
-                  </Fragment>
-                );
-              })}
+              {visibleEvents.map((event) => (
+                <EventCard
+                  key={event.id}
+                  event={event}
+                  dict={dict}
+                  locale={locale}
+                  returnTo={returnTo}
+                  returnTitle={returnTitle}
+                  listTimeRange={fixedTimeRange ?? timeRange}
+                  view={view}
+                  pending={pendingId === event.id}
+                  dimmed={pendingId != null && pendingId !== event.id}
+                  onNavigate={() => setPendingId(event.id)}
+                  showEnlarge={!categoryId}
+                  fillSpan={fillSpan}
+                />
+              ))}
               {showEndTeaser ? (
                 <EventCardPlaceholder
                   title={dict.events.yourEventHereTitle}
@@ -1043,6 +1186,7 @@ export function FilteredEventList({
             {addEventInlineCard}
           </>
         )}
+      </div>
       </div>
 
       {showFooterAddButton ? (

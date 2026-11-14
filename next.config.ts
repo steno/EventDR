@@ -67,6 +67,17 @@ const nextConfig: NextConfig = {
         destination: "/:locale/when/tomorrow",
         permanent: true,
       },
+      // Retired IG-chrome Morphy flyer — send crawlers/browsers to the clean -v2.
+      {
+        source: "/events/casa-arte-sosua-morphy-legado-2026-11-14.jpg",
+        destination: "/events/casa-arte-sosua-morphy-legado-2026-11-14-v2.jpg",
+        permanent: true,
+      },
+      {
+        source: "/og/events/casa-arte-sosua-morphy-legado-2026-11-14.jpg",
+        destination: "/og/events/casa-arte-sosua-morphy-legado-2026-11-14-v2.jpg",
+        permanent: true,
+      },
     ];
   },
   async headers() {
@@ -87,18 +98,18 @@ const nextConfig: NextConfig = {
       "form-action 'self'",
       // Next inline boot scripts + GA snippet; Maps loader is external.
       // React dev overlays need eval(); production never does.
-      `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV !== "production" ? " 'unsafe-eval'" : ""} https://www.googletagmanager.com https://maps.googleapis.com https://maps.gstatic.com`,
+      `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV !== "production" ? " 'unsafe-eval'" : ""} https://www.googletagmanager.com https://maps.googleapis.com https://maps.gstatic.com https://w.soundcloud.com`,
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob: https://firebasestorage.googleapis.com https://*.googleusercontent.com https://maps.gstatic.com https://*.gstatic.com https://*.googleapis.com https://maps.googleapis.com https://*.ggpht.com https://*.google.com https://tile.openstreetmap.org https://*.tile.openstreetmap.org https://tile.openstreetmap.fr https://*.tile.openstreetmap.fr https://tiles.openfreemap.org https://*.openfreemap.org",
       "font-src 'self' data:",
       // Street View imagery hits streetviewpixels-pa / ggpht — not only maps.googleapis.com.
       // OpenFreeMap / MapLibre style + vector tiles for the North Coast pitched map.
-      "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://firebasestorage.googleapis.com https://maps.googleapis.com https://*.googleapis.com https://maps.gstatic.com https://*.gstatic.com https://*.ggpht.com https://*.google.com https://nominatim.openstreetmap.org https://router.project-osrm.org https://tiles.openfreemap.org https://*.openfreemap.org https://cdn.jsdelivr.net",
+      "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://firebasestorage.googleapis.com https://maps.googleapis.com https://*.googleapis.com https://maps.gstatic.com https://*.gstatic.com https://*.ggpht.com https://*.google.com https://nominatim.openstreetmap.org https://router.project-osrm.org https://tiles.openfreemap.org https://*.openfreemap.org https://cdn.jsdelivr.net https://w.soundcloud.com https://api.soundcloud.com https://soundcloud.com",
       "worker-src 'self' blob: https://cdn.jsdelivr.net",
       "child-src 'self' blob: https://cdn.jsdelivr.net",
       "manifest-src 'self'",
       "media-src 'self' blob:",
-      "frame-src https://www.google.com https://maps.google.com https://www.openstreetmap.org",
+      "frame-src https://www.google.com https://maps.google.com https://www.openstreetmap.org https://w.soundcloud.com https://soundcloud.com https://api.soundcloud.com",
       // Dev LAN phones (http://192.168.x.x) cannot satisfy HTTPS upgrades.
       ...(process.env.NODE_ENV === "production"
         ? ["upgrade-insecure-requests"]

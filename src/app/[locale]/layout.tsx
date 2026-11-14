@@ -16,6 +16,7 @@ import { PwaRegister } from "@/components/PwaRegister";
 import { PullToReload } from "@/components/PullToReload";
 import { SkipToContent } from "@/components/SkipToContent";
 import { SupportNudge } from "@/components/SupportNudge";
+import { GlobalSoundCloudProvider } from "@/components/GlobalSoundCloudPlayer";
 
 export const viewport: Viewport = {
   themeColor: "#0a0a0a",
@@ -83,7 +84,7 @@ export default async function LocaleLayout({
   const dict = getDictionary(locale);
 
   return (
-    <>
+    <GlobalSoundCloudProvider>
       <DocumentLang locale={locale} />
       <BodyScrollGuard />
       <SkipToContent dict={dict} />
@@ -99,6 +100,6 @@ export default async function LocaleLayout({
       {children}
       <SupportNudge locale={locale} dict={dict} />
       <AppFooter locale={locale} dict={dict} />
-    </>
+    </GlobalSoundCloudProvider>
   );
 }

@@ -559,6 +559,7 @@ button, a {
 
 [data-sticky-list-header],
 [data-sticky-list-filters],
+[data-sticky-list-day],
 [data-scroll-chrome-nav] {
   transform: translate3d(0, 0, 0);
   transition: transform var(--scroll-chrome-ms) var(--scroll-chrome-ease);
@@ -576,7 +577,8 @@ button, a {
   pointer-events: none;
 }
 
-[data-sticky-list-filters][data-chrome-hidden] {
+[data-sticky-list-filters][data-chrome-hidden],
+[data-sticky-list-day][data-chrome-hidden] {
   /* Keep in sync with StickyListFilters `top` underlap (−4px). */
   transform: translate3d(
     0,
@@ -589,6 +591,7 @@ button, a {
 @media (prefers-reduced-motion: reduce) {
   [data-sticky-list-header],
   [data-sticky-list-filters],
+  [data-sticky-list-day],
   [data-scroll-chrome-nav] {
     transition: none;
   }
@@ -642,6 +645,54 @@ button, a {
 
   .animate-attention-icon {
     animation: none;
+  }
+}
+
+/* Header SoundCloud — playing equalizer (click still pauses). */
+@keyframes sc-eq-bar {
+  0%,
+  100% {
+    transform: scaleY(0.35);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.sc-eq {
+  display: flex;
+  height: 0.875rem;
+  align-items: flex-end;
+  gap: 0.125rem;
+}
+
+.sc-eq__bar {
+  width: 0.1875rem;
+  height: 100%;
+  transform-origin: bottom;
+  border-radius: 9999px;
+  background: currentColor;
+  animation: sc-eq-bar 0.85s ease-in-out infinite;
+}
+
+.sc-eq__bar:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.sc-eq__bar:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sc-eq__bar {
+    animation: none;
+    transform: scaleY(0.7);
+  }
+  .sc-eq__bar:nth-child(2) {
+    transform: scaleY(1);
+  }
+  .sc-eq__bar:nth-child(3) {
+    transform: scaleY(0.5);
   }
 }
 

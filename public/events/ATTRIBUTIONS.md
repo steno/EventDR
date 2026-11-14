@@ -785,7 +785,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `ambar-lounge-reggaeton-la-residencia-2026-12.jpg` | POP-supplied — Ambar Lounge *Reggaeton La Residencia* flyer ([@ambarloungepop](https://www.instagram.com/ambarloungepop/)) | Dec 3 / 10 / 17 / 25 2026 series (editor-provided; typography-heavy) |
 | `twenty-disco-adrian-tineo-darwin-estrella-2026-11-14.jpg` | POP-supplied — Twenty Disco Adrian Tineo × Darwin Estrella flyer | Sat 14 Nov 2026; editor-provided; typography-heavy |
 | `aura-alice-wonderland-2026-11-14.jpg` | POP-supplied — Aura Alice in Wonderland Show flyer | Sat 14 Nov 2026 10:30 PM; editor-provided; typography-heavy |
-| `casa-arte-sosua-morphy-legado-2026-11-14.jpg` | POP-supplied — Casa de Arte Morphy Legado flyer | Sat 14 Nov 2026 6 PM; editor-provided; typography-heavy |
+| `casa-arte-sosua-morphy-legado-2026-11-14-v2.jpg` | POP-supplied — Casa de Arte Morphy Legado flyer (clean crop, no social chrome) | Sat 14 Nov 2026 6 PM; editor-provided; typography-heavy; `-v2` busts immutable card cache |
 | `hard-rock-anne-live-2026-11-14.jpg` | POP-supplied — Hard Rock Live Music by Anne flyer | Sat 14 Nov 2026 8 PM no cover; editor-provided; typography-heavy |
 | `aura-galactic-nights-christoo-2026-11-28.jpg` | POP-supplied — Aura Galactic Nights DJ Christoo flyer | Sat 28 Nov 2026 8 PM; editor-provided; typography-heavy |
 | `hard-rock-allison-sade-2026-11-27.jpg` | POP-supplied — Hard Rock Allison Sade flyer | Fri 27 Nov 2026 8 PM no cover; editor-provided; typography-heavy |

@@ -840,7 +840,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "twenty-disco-adrian-tineo-darwin-estrella-2026-11-14.jpg",
   "aura-alice-wonderland-2026-11-14": "aura-alice-wonderland-2026-11-14.jpg",
   "casa-arte-sosua-morphy-legado-2026-11-14":
-    "casa-arte-sosua-morphy-legado-2026-11-14.jpg",
+    "casa-arte-sosua-morphy-legado-2026-11-14-v2.jpg",
   "hard-rock-anne-live-2026-11-14": "hard-rock-anne-live-2026-11-14.jpg",
   "aura-galactic-nights-christoo-2026-11-28":
     "aura-galactic-nights-christoo-2026-11-28.jpg",
@@ -1533,7 +1533,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "ambar-lounge-reggaeton-la-residencia-2026-12.jpg",
   "twenty-disco-adrian-tineo-darwin-estrella-2026-11-14.jpg",
   "aura-alice-wonderland-2026-11-14.jpg",
-  "casa-arte-sosua-morphy-legado-2026-11-14.jpg",
+  "casa-arte-sosua-morphy-legado-2026-11-14-v2.jpg",
   "hard-rock-anne-live-2026-11-14.jpg",
   "aura-galactic-nights-christoo-2026-11-28.jpg",
   "hard-rock-allison-sade-2026-11-27.jpg",

@@ -72,7 +72,7 @@ export function StickyListFilters({
       ref={rootRef}
       data-sticky-list-filters
       className={`
-        sticky z-10 mb-4 md:mb-3
+        sticky z-10 mb-0
         ${
           belowListHeader
             ? "top-[calc(var(--sticky-list-header-height,3.5rem)-4px)]"

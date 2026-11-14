@@ -8,6 +8,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import { Map as MapIcon, Search, X } from "lucide-react";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { SoundCloudHeaderToggle } from "@/components/GlobalSoundCloudPlayer";
 import { getBrandAssets } from "@/lib/brand-assets";
 import { clearHomeArea } from "@/lib/cities";
 import {
@@ -64,10 +65,11 @@ export function AppHeader({
   }, [onMap]);
 
   const brand = getBrandAssets();
+  /** Match ThemeToggle / weather / SoundCloud — not the older glass `white/7%` fill. */
   const headerIconClass = `
     flex h-9 w-9 shrink-0 items-center justify-center rounded-full
-    bg-white/80 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.7)] ring-1 backdrop-blur-xl
-    dark:bg-white/[0.07] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)]
+    bg-white/85 shadow-sm ring-1 backdrop-blur
+    dark:bg-neutral-800/85
     transition-colors active:scale-95 touch-manipulation
     focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500
   `;
@@ -118,18 +120,11 @@ export function AppHeader({
           }
           title={dict.footer.map}
           aria-current={onMap ? "page" : undefined}
-          className={`
-            relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full
-            bg-gradient-to-br from-orange-500 via-rose-500 to-fuchsia-500
-            text-white shadow-sm ring-2
-            transition-[transform,box-shadow,ring-color] active:scale-95 touch-manipulation
-            focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500
-            ${
-              onMap
-                ? "ring-white/80 shadow-[0_0_0_3px_rgba(251,146,60,0.35)] dark:ring-white/50"
-                : "ring-orange-300/60 hover:shadow-[0_4px_14px_-2px_rgba(251,146,60,0.55)] dark:ring-orange-400/40"
-            }
-          `}
+          className={`relative ${headerIconClass} ${
+            onMap
+              ? "text-orange-600 ring-orange-400/70 hover:text-orange-700 dark:text-orange-300 dark:ring-orange-300/50 dark:hover:text-orange-200"
+              : "text-neutral-500 ring-neutral-200/70 hover:text-neutral-900 dark:text-neutral-300 dark:ring-neutral-700/70 dark:hover:text-neutral-100"
+          }`}
         >
           <MapIcon className="h-4 w-4" strokeWidth={2.25} aria-hidden />
           {showMapNew ? (
@@ -143,6 +138,7 @@ export function AppHeader({
           ) : null}
         </Link>
         <WeatherWidget locale={locale} dict={dict} />
+        <SoundCloudHeaderToggle />
         <ThemeToggle dict={dict} />
         <LanguageSwitcher locale={locale} dict={dict} />
         {searchToggle ? (
@@ -151,7 +147,7 @@ export function AppHeader({
             className={`${headerIconClass} ${search ? "lg:hidden" : ""} ${
               searchToggle.open
                 ? "text-orange-600 ring-orange-400/70 hover:text-orange-700 dark:text-orange-300 dark:ring-orange-300/50 dark:hover:text-orange-200"
-                : "text-neutral-500 ring-neutral-200/70 hover:text-neutral-900 dark:text-neutral-300 dark:ring-white/12 dark:hover:text-neutral-100"
+                : "text-neutral-500 ring-neutral-200/70 hover:text-neutral-900 dark:text-neutral-300 dark:ring-neutral-700/70 dark:hover:text-neutral-100"
             }`}
             aria-label={searchToggle.open ? dict.search.close : dict.search.open}
             title={searchToggle.open ? dict.search.close : dict.search.open}

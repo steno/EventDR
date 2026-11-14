@@ -1115,8 +1115,9 @@ const FILE_TO_VENUE_SLUG = {
   "twenty-disco-adrian-tineo-darwin-estrella-2026-11-14.jpg":
     "twenty-disco-adrian-tineo-darwin-estrella-2026-11-14",
   "aura-alice-wonderland-2026-11-14.jpg": "aura-alice-wonderland-2026-11-14",
-  "casa-arte-sosua-morphy-legado-2026-11-14.jpg":
-    "casa-arte-sosua-morphy-legado-2026-11-14",
+  // Keep -v2 in dest so sync never recreates the retired IG-chrome URL.
+  "casa-arte-sosua-morphy-legado-2026-11-14-v2.jpg":
+    "casa-arte-sosua-morphy-legado-2026-11-14-v2",
   "hard-rock-anne-live-2026-11-14.jpg": "hard-rock-anne-live-2026-11-14",
   "aura-galactic-nights-christoo-2026-11-28.jpg":
     "aura-galactic-nights-christoo-2026-11-28",

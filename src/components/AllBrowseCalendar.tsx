@@ -246,6 +246,7 @@ export function AllBrowseCalendar({
           <div
             className={`${BROWSE_DAY_STICKY_TOP_CLASS} -mx-1 mb-0 min-w-0 max-w-full px-1 pb-2 pt-2 ${STICKY_CHROME_SURFACE_CLASS}`}
             data-sticky-browse-days
+            data-sticky-list-day
           >
             <div
               ref={headerRailRef}

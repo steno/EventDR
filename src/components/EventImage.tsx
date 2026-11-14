@@ -1,5 +1,6 @@
 import { memo } from "react";
-import Image from "next/image";
+import Image, { type ImageLoaderProps } from "next/image";
+import { getAppVersion } from "@/lib/app-version";
 import { isOptimizableImageSrc } from "@/lib/optimizable-image";
 
 interface EventImageProps {
@@ -11,6 +12,23 @@ interface EventImageProps {
   variant?: "thumb" | "hero";
 }
 
+/**
+ * Local `/_next/image` URLs must include the deploy stamp. EventImage used to
+ * strip `?v=` so the optimizer would accept the path — that left a 24h disk
+ * cache keyed only on the file path, so swapped flyers stayed stale on cards
+ * while a hard-refreshed detail hero looked updated.
+ */
+function versionedLocalLoader({ src, width, quality }: ImageLoaderProps): string {
+  const path = src.includes("?") ? src.slice(0, src.indexOf("?")) : src;
+  const params = new URLSearchParams({
+    url: path,
+    w: String(width),
+    q: String(quality ?? 75),
+    v: getAppVersion(),
+  });
+  return `/_next/image?${params.toString()}`;
+}
+
 const EventImageComponent = ({
   src,
   alt,
@@ -20,12 +38,14 @@ const EventImageComponent = ({
   variant = "thumb",
 }: EventImageProps) => {
   const optimize = isOptimizableImageSrc(src);
-  // Strip ?v= cache-busters so next/image can optimize local assets.
-  // Remote URLs keep their query string (Firebase download tokens).
+  const isLocal = src.startsWith("/");
+  // Path without ?v= for next/image `src`; version rides on the loader query.
   const imageSrc =
-    optimize && src.startsWith("/") && src.includes("?")
+    optimize && isLocal && src.includes("?")
       ? src.slice(0, src.indexOf("?"))
       : src;
+  const loader =
+    optimize && isLocal ? versionedLocalLoader : undefined;
 
   if (!optimize) {
     return (
@@ -58,6 +78,7 @@ const EventImageComponent = ({
         loading={priority ? "eager" : "lazy"}
         decoding={priority ? "sync" : "async"}
         fetchPriority={priority ? "high" : "low"}
+        loader={loader}
         className={`block w-full h-auto ${className}`}
       />
     );
@@ -74,6 +95,7 @@ const EventImageComponent = ({
       loading={priority ? "eager" : "lazy"}
       decoding={priority ? "sync" : "async"}
       fetchPriority={priority ? "high" : "low"}
+      loader={loader}
       className={className}
     />
   );

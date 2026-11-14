@@ -1,3 +1,4 @@
+import { getAppVersion } from "@/lib/app-version";
 import { isOptimizableImageSrc } from "@/lib/optimizable-image";
 
 /** Display size of pin face (CSS px). */
@@ -23,6 +24,8 @@ function nextImageUrl(src: string, width: number): string {
     url: src,
     w: String(width),
     q: String(PIN_THUMB_QUALITY),
+    // Match EventImage — bust the 24h optimizer cache when assets swap.
+    v: getAppVersion(),
   });
   return `/_next/image?${params.toString()}`;
 }
