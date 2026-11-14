@@ -1134,7 +1134,6 @@ export function FilteredEventList({
                   dimmed={pendingId != null && pendingId !== event.id}
                   onNavigate={() => setPendingId(event.id)}
                   showEnlarge={!categoryId}
-                  fillSpan={fillSpan}
                 />
               ))}
               {showEndTeaser ? (
