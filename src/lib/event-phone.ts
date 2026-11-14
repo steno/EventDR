@@ -152,6 +152,7 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "isabela-food-fest-simpaticos-tipicos-2026-12-19": "+18293366802",
   "ambar-lounge-bandoleras-2026-11-13": "+18097818677",
   "ambar-lounge-carlos-rivera-2026-11-14": "+18097818677",
+  "ambar-lounge-reggaeton-la-residencia-2026-12": "+18097818677",
   "twenty-disco-adrian-tineo-darwin-estrella-2026-11-14": "+18495077676",
   "aura-alice-wonderland-2026-11-14": "+18297870140",
   "casa-arte-sosua-morphy-legado-2026-11-14": "+18095712442",

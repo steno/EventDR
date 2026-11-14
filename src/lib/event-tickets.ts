@@ -240,6 +240,7 @@ export const CURATED_CALL_FOR_PRICING = new Set<string>([
   "elias-serulle-villa-taina-2026-10-24",
   "ambar-lounge-bandoleras-2026-11-13",
   "ambar-lounge-carlos-rivera-2026-11-14",
+  "ambar-lounge-reggaeton-la-residencia-2026-12",
   "twenty-disco-adrian-tineo-darwin-estrella-2026-11-14",
   "aura-alice-wonderland-2026-11-14",
   "aura-galactic-nights-christoo-2026-11-28",

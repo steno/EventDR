@@ -1110,6 +1110,8 @@ const FILE_TO_VENUE_SLUG = {
     "pedro-santana-sus-dias-contados-2026-11-24",
   "ambar-lounge-bandoleras-2026-11-13.jpg": "ambar-lounge-bandoleras-2026-11-13",
   "ambar-lounge-carlos-rivera-2026-11-14.jpg": "ambar-lounge-carlos-rivera-2026-11-14",
+  "ambar-lounge-reggaeton-la-residencia-2026-12.jpg":
+    "ambar-lounge-reggaeton-la-residencia-2026-12",
   "twenty-disco-adrian-tineo-darwin-estrella-2026-11-14.jpg":
     "twenty-disco-adrian-tineo-darwin-estrella-2026-11-14",
   "aura-alice-wonderland-2026-11-14.jpg": "aura-alice-wonderland-2026-11-14",

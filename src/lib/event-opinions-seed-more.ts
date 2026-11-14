@@ -9602,4 +9602,22 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer + IG @voyvoybar caption — Sat 14 Nov 2026; Bencosmic (@djbencosmic), Marc Rosa (@marcosadj), Broken Doll (@brokendoll.dj); NO COVER; start time not printed; venue Saturdays until 3 AM.",
     updatedAt: "2026-11-14T02:00:00.000Z",
   },
+  {
+    eventId: "ambar-lounge-reggaeton-la-residencia-2026-12",
+    body: "One December Reggaeton La Residencia card for Ambar’s four nights (3 / 10 / 17 / 25 Dic) — check the lineup for which DJ owns which date; tickets on TIX, RSVP (809) 781-8677, and don’t confuse it with Bandoleras Friday or Mecla'o at No. 49.",
+    localized: {
+      es: "Una sola ficha de Reggaeton La Residencia en diciembre para las cuatro noches de Ambar (3 / 10 / 17 / 25 dic) — mira el lineup para saber qué DJ toca cada fecha; tickets en TIX, RSVP (809) 781-8677, y no lo confundas con Bandoleras Friday ni Mecla'o en el n.º 49.",
+      fr: "Une seule fiche Reggaeton La Residencia en décembre pour les quatre soirées d’Ambar (3 / 10 / 17 / 25 déc) — vérifiez le lineup pour le DJ de chaque date ; billets sur TIX, RSVP (809) 781-8677, et ne confondez pas avec Bandoleras Friday ni Mecla'o au n° 49.",
+    },
+    priceFeel: "varies",
+    priceNote: "Tickets on TIX — cover TBA · (809) 781-8677 / @ambarloungepop",
+    priceNoteLocalized: {
+      es: "Tickets en TIX — cover por confirmar · (809) 781-8677 / @ambarloungepop",
+      fr: "Billets sur TIX — cover à confirmer · (809) 781-8677 / @ambarloungepop",
+    },
+    attribution: "POP research · @ambarloungepop Reggaeton La Residencia flyer",
+    researchNotes:
+      "Editor flyer + IG caption — Reggaeton LA RESIDENCIA; 3/10/17/25 DIC; 4 funciones: Ramón x Raúl, @djmikedizla, @mannyfigueroa_, @djcamilotaveras B2B @yonaramzmusic; TIX; Brugal. Single series seed per editor (not four dated cards).",
+    updatedAt: "2026-11-14T01:00:00.000Z",
+  },
 ];

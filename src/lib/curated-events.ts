@@ -1009,6 +1009,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18097818677",
     venueSlug: "ambar-lounge-pop",
   },
+  "ambar-lounge-reggaeton-la-residencia-2026-12": {
+    callForPricing: true,
+    phone: "+18097818677",
+    venueSlug: "ambar-lounge-pop",
+    sourceUrl: "https://www.instagram.com/ambarloungepop/",
+  },
   "twenty-disco-adrian-tineo-darwin-estrella-2026-11-14": {
     callForPricing: true,
     phone: "+18495077676",

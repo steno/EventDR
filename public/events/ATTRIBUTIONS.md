@@ -782,6 +782,7 @@ Curated images under `public/events/` and `public/venues/`.
 
 | `ambar-lounge-bandoleras-2026-11-13.jpg` | POP-supplied — Ambar Bandoleras Jhon Parra flyer | Fri 13 Nov 2026; editor-provided; typography-heavy |
 | `ambar-lounge-carlos-rivera-2026-11-14.jpg` | POP-supplied — Ambar Carlos Rivera Saturday flyer | Sat 14 Nov 2026; editor-provided; typography-heavy |
+| `ambar-lounge-reggaeton-la-residencia-2026-12.jpg` | POP-supplied — Ambar Lounge *Reggaeton La Residencia* flyer ([@ambarloungepop](https://www.instagram.com/ambarloungepop/)) | Dec 3 / 10 / 17 / 25 2026 series (editor-provided; typography-heavy) |
 | `twenty-disco-adrian-tineo-darwin-estrella-2026-11-14.jpg` | POP-supplied — Twenty Disco Adrian Tineo × Darwin Estrella flyer | Sat 14 Nov 2026; editor-provided; typography-heavy |
 | `aura-alice-wonderland-2026-11-14.jpg` | POP-supplied — Aura Alice in Wonderland Show flyer | Sat 14 Nov 2026 10:30 PM; editor-provided; typography-heavy |
 | `casa-arte-sosua-morphy-legado-2026-11-14.jpg` | POP-supplied — Casa de Arte Morphy Legado flyer | Sat 14 Nov 2026 6 PM; editor-provided; typography-heavy |

@@ -11823,5 +11823,37 @@
       "Broken Doll"
     ],
     "imageEmoji": "🪩"
+  },
+  {
+    "id": "ambar-lounge-reggaeton-la-residencia-2026-12",
+    "title": "Ambar Lounge — Reggaeton La Residencia · Dec",
+    "description": "Reggaeton — La Residencia: four discrete perreo nights at Ambar Lounge POP, Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata — Thursday 3 December (Ramón x Raúl), Thursday 10 December (DJ Mike Dizla), Thursday 17 December (Manny Figueroa), and Christmas Friday 25 December (DJ Camilo Taveras B2B Yona Ramz). One series listing for now — not four separate cards. Tickets on TIX; RSVP (809) 781-8677 · Instagram @ambarloungepop. Brugal. Downtown Luis Ginebra residency — not Bandoleras Fridays, and not Mecla'o Rooftop at No. 49.",
+    "date": "2026-12-03",
+    "endDate": "2026-12-25",
+    "location": "Puerto Plata",
+    "venue": "Ambar Lounge POP",
+    "venueSlug": "ambar-lounge-pop",
+    "address": "Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata 57000",
+    "lat": 19.7894021,
+    "lng": -70.678834,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18097818677",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/ambarloungepop/",
+    "instagram": "ambarloungepop",
+    "lineup": [
+      "3 Dec — Ramón x Raúl",
+      "10 Dic — DJ Mike Dizla",
+      "17 Dic — Manny Figueroa",
+      "25 Dic — DJ Camilo Taveras B2B Yona Ramz"
+    ],
+    "imageEmoji": "🎄"
   }
 ]

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { warmRoute, warmRoutesIdle } from "@/components/IntentLink";
 import { locales, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { signalNavPending } from "@/lib/nav-feedback";
@@ -14,7 +15,7 @@ interface LanguageSwitcherProps {
    * `expanded` — always show EN · ES · FR (modals / roomy surfaces).
    */
   variant?: "responsive" | "expanded";
-  /** Runs before cookie + soft — e.g. hold city-priming overlay across remount. */
+  /** Runs before cookie + replace — e.g. hold city-priming overlay across remount. */
   beforeNavigate?: (target: Locale) => void;
 }
 
@@ -43,16 +44,38 @@ const optionClassName = (active: boolean, pending: boolean, dimmed: boolean) => 
   ${dimmed ? "opacity-45" : ""}
 `;
 
+/** Address-bar path + query with the locale segment swapped (soft-nav safe). */
+function localeHref(
+  target: Locale,
+  fallbackPath: string,
+  fallbackLocale: Locale,
+): string {
+  const currentPath =
+    typeof window !== "undefined" ? window.location.pathname : fallbackPath;
+  const pathSeg = currentPath.split("/")[1];
+  const pathLocale = locales.includes(pathSeg as Locale)
+    ? (pathSeg as Locale)
+    : fallbackLocale;
+  const newPath = currentPath.replace(`/${pathLocale}`, `/${target}`);
+  const qs =
+    typeof window !== "undefined"
+      ? window.location.search.replace(/^\?/, "")
+      : "";
+  return qs ? `${newPath}?${qs}` : newPath;
+}
+
 function LocaleButtons({
   locale,
   dict,
   pendingLang,
   onSelect,
+  onWarm,
 }: {
   locale: Locale;
   dict: Dictionary;
   pendingLang: Locale | null;
   onSelect: (lang: Locale) => void;
+  onWarm: (lang: Locale) => void;
 }) {
   return (
     <>
@@ -65,6 +88,9 @@ function LocaleButtons({
             key={lang}
             type="button"
             onClick={() => onSelect(lang)}
+            onPointerEnter={() => onWarm(lang)}
+            onPointerDown={() => onWarm(lang)}
+            onFocus={() => onWarm(lang)}
             aria-busy={pending || undefined}
             className={optionClassName(active, pending, dimmed)}
             aria-current={active ? "true" : undefined}
@@ -96,6 +122,11 @@ export function LanguageSwitcher({
   const rootRef = useRef<HTMLDivElement>(null);
   const expanded = variant === "expanded";
 
+  function warmLocale(target: Locale) {
+    if (target === locale) return;
+    warmRoute(router, localeHref(target, pathname, locale));
+  }
+
   function switchLocale(target: Locale) {
     if (target === locale) {
       setOpen(false);
@@ -103,24 +134,32 @@ export function LanguageSwitcher({
     }
     // Prefer the address bar — soft city/category swaps update history without
     // notifying the App Router, so usePathname can lag behind.
-    const currentPath =
-      typeof window !== "undefined" ? window.location.pathname : pathname;
     // Path locale may differ from the display `locale` prop when a parent
     // optimistically flips language (city priming sheet) before navigation.
-    const pathSeg = currentPath.split("/")[1];
-    const pathLocale = locales.includes(pathSeg as Locale)
-      ? (pathSeg as Locale)
-      : locale;
-    const newPath = currentPath.replace(`/${pathLocale}`, `/${target}`);
-    const qs =
-      typeof window !== "undefined" ? window.location.search.replace(/^\?/, "") : "";
+    const href = localeHref(target, pathname, locale);
     beforeNavigate?.(target);
     document.cookie = `eventdr-locale=${target};path=/;max-age=31536000`;
     setPendingLang(target);
     setOpen(false);
     signalNavPending("soft");
-    router.push(qs ? `${newPath}?${qs}` : newPath);
+    // Prefetch overlap + replace (no history stack of EN→ES→FR flips).
+    warmRoute(router, href);
+    router.replace(href);
   }
+
+  // Warm the other two locales for this URL so the first tap is already cached.
+  useEffect(() => {
+    const others = locales.filter((lang) => lang !== locale);
+    return warmRoutesIdle(
+      router,
+      others.map((lang) => localeHref(lang, pathname, locale)),
+      others.length,
+    );
+  }, [locale, pathname, router]);
+
+  useEffect(() => {
+    if (pendingLang && pendingLang === locale) setPendingLang(null);
+  }, [locale, pendingLang]);
 
   useEffect(() => {
     if (!open || expanded) return;
@@ -143,12 +182,22 @@ export function LanguageSwitcher({
     };
   }, [open, expanded]);
 
+  // Opening the mobile popover: warm both targets while the strip is visible.
+  useEffect(() => {
+    if (!open || expanded) return;
+    for (const lang of locales) {
+      if (lang !== locale) warmLocale(lang);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- warm on open only
+  }, [open, expanded, locale]);
+
   const localeButtons = (
     <LocaleButtons
       locale={locale}
       dict={dict}
       pendingLang={pendingLang}
       onSelect={switchLocale}
+      onWarm={warmLocale}
     />
   );
 
@@ -173,6 +222,11 @@ export function LanguageSwitcher({
         aria-label={dict.lang.switchTo}
         aria-expanded={open}
         aria-haspopup="listbox"
+        onPointerEnter={() => {
+          for (const lang of locales) {
+            if (lang !== locale) warmLocale(lang);
+          }
+        }}
         onClick={() => setOpen((value) => !value)}
       >
         {dict.lang[locale]}

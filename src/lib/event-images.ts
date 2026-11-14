@@ -834,6 +834,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "ambar-lounge-bandoleras-2026-11-13.jpg",
   "ambar-lounge-carlos-rivera-2026-11-14":
     "ambar-lounge-carlos-rivera-2026-11-14.jpg",
+  "ambar-lounge-reggaeton-la-residencia-2026-12":
+    "ambar-lounge-reggaeton-la-residencia-2026-12.jpg",
   "twenty-disco-adrian-tineo-darwin-estrella-2026-11-14":
     "twenty-disco-adrian-tineo-darwin-estrella-2026-11-14.jpg",
   "aura-alice-wonderland-2026-11-14": "aura-alice-wonderland-2026-11-14.jpg",
@@ -1528,6 +1530,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "voyvoy-sunday-open-mic-v3.jpg",
   "ambar-lounge-bandoleras-2026-11-13.jpg",
   "ambar-lounge-carlos-rivera-2026-11-14.jpg",
+  "ambar-lounge-reggaeton-la-residencia-2026-12.jpg",
   "twenty-disco-adrian-tineo-darwin-estrella-2026-11-14.jpg",
   "aura-alice-wonderland-2026-11-14.jpg",
   "casa-arte-sosua-morphy-legado-2026-11-14.jpg",
