@@ -2103,6 +2103,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "goddess-la-diosa-cabarete",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "mixed", "local"],
+    axes: { recommend: 4.1, atmosphere: 4.4, value: 3.8, practical: 3.9 },
+    themes: [
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "photo_spot", sentiment: "positive", audience: "visitor" },
+      { key: "easy_to_find", sentiment: "positive" },
+    ],
+  }),
+  editorial({
     venueSlug: "casa-de-arte-sosua",
     verdictKey: "reliable_visitor_pick",
     crowdFit: ["visitor", "mixed", "local"],

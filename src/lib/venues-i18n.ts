@@ -1197,6 +1197,16 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Nouveau nightclub mixologie au 2e niveau de Plaza Siblings Food Park, Av. Luis Ginebra, Puerto Plata (à côté du Palacio de Justicia) — cocktails, énergie lounge et soirées d’ouverture. Soft launch / gran apertura vendredi 4 décembre 2026 dès 18 h. Instagram @toscana_nightclub.",
     },
   },
+  "goddess-la-diosa-cabarete": {
+    name: {
+      es: "Goddess La Diosa",
+      fr: "Goddess La Diosa",
+    },
+    description: {
+      es: "Beach club frente al mar (Goddess Beach Club / La Diosa) en la arena de Cabarete — piscina, restaurante-bar y tardes/noches en vivo. Confirma horarios y cover vía Instagram @goddess.cabarete o +1 829-521-2365.",
+      fr: "Beach club face à l’océan (Goddess Beach Club / La Diosa) sur le sable de Cabarete — piscine, restaurant-bar et après-midis/soirées live. Confirmez horaires et cover via Instagram @goddess.cabarete ou +1 829-521-2365.",
+    },
+  },
   "casa-de-arte-sosua": {
     name: {
       es: "Casa de Arte de Sosúa",

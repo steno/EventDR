@@ -573,8 +573,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "natura-market-2026-11-01": "natura-market-2026-11-01.jpg",
   // Filename bump — Domingo de Desacato flyer (replaces Domingo de Calle art).
   "disco-club-domingo-de-calle": "disco-club-domingo-de-desacato.jpg",
-  "aurazul-wellness-day-costambar-2026-11-15":
-    "aurazul-wellness-day-costambar-2026-11-15.jpg",
   "licor-lab-car-show-2026-10-10": "licor-lab-car-show-2026-10-10.jpg",
   "nueve-bingo-friday": "nueve-bingo-friday.jpg",
   "lokuras-pop-percusion-latina-2026-09-20":
@@ -850,6 +848,18 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   // Filename bump — Deury Luciano × DJ Choco gran apertura flyer.
   "toscana-nightclub-gran-apertura-2026-12-04":
     "toscana-nightclub-gran-apertura-2026-12-04-v2.jpg",
+  "toscana-nightclub-jacob-henriquez-2026-12-05":
+    "toscana-nightclub-jacob-henriquez-2026-12-05.jpg",
+  "chameleon-sunday-on-fire-yosma-2026-11-15":
+    "chameleon-sunday-on-fire-yosma-2026-11-15.jpg",
+  "goddess-francesca-samuele-2026-11-27":
+    "goddess-francesca-samuele-2026-11-27-v2.jpg",
+  "latin-disco-semaforo-yeffrey-estrella-2026-11-20":
+    "latin-disco-semaforo-yeffrey-estrella-2026-11-20.jpg",
+  "casa-balcon-cooltura-mexico-eterno-2026-11-20":
+    "casa-balcon-cooltura-mexico-eterno-2026-11-20-v2.jpg",
+  "voyvoy-cabarete-groove-moreno-prieto-2026-11-29":
+    "voyvoy-cabarete-groove-moreno-prieto-2026-11-29.jpg",
   "chameleon-mananitas-kreizy-k-2026-12-05":
     "chameleon-mananitas-kreizy-k-2026-12-05.jpg",
   "isabela-food-fest-la-perversa-2026-12-18":
@@ -1187,7 +1197,6 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "disco-club-halloween-2026-10-30": "object-center",
   "disco-club-domingo-de-calle": "object-center",
   "natura-market-2026-11-01": "object-center",
-  "aurazul-wellness-day-costambar-2026-11-15": "object-center",
   "natura-cabana-halloween-2026-10-31": "object-center",
   "blue-ice-halloween-chimbala-2026-10-31": "object-center",
   "amarea-one-last-escape-2026-11-07": "object-center",
@@ -1539,6 +1548,12 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "hard-rock-allison-sade-2026-11-27.jpg",
   "ocean-world-terrace-rubio-manon-2026-12-04.jpg",
   "toscana-nightclub-gran-apertura-2026-12-04-v2.jpg",
+  "toscana-nightclub-jacob-henriquez-2026-12-05.jpg",
+  "chameleon-sunday-on-fire-yosma-2026-11-15.jpg",
+  "goddess-francesca-samuele-2026-11-27-v2.jpg",
+  "latin-disco-semaforo-yeffrey-estrella-2026-11-20.jpg",
+  "casa-balcon-cooltura-mexico-eterno-2026-11-20-v2.jpg",
+  "voyvoy-cabarete-groove-moreno-prieto-2026-11-29.jpg",
   "chameleon-mananitas-kreizy-k-2026-12-05.jpg",
   "isabela-food-fest-la-perversa-2026-12-18.jpg",
   "isabela-food-fest-carlos-el-gusto-2026-12-18.jpg",
@@ -2034,7 +2049,6 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "natura-market-2026-10-04.jpg",
   "natura-market-2026-11-01.jpg",
   "disco-club-domingo-de-calle.jpg",
-  "aurazul-wellness-day-costambar-2026-11-15.jpg",
   "licor-lab-car-show-2026-10-10.jpg",
   "petit-francois-friday-karaoke.jpg",
   "pop-cinemas-week-2026-08-20.jpg",

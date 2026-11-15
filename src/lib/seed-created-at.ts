@@ -264,7 +264,6 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "hard-rock-old-school-party-2026-11-07": "2026-10-16T14:00:00.000Z",
   "ojo-rojo-halloween-2026-10-31": "2026-10-17T16:00:00.000Z",
   "ocean-world-terrace-luces-navidenas-2026-11-01": "2026-10-17T15:00:00.000Z",
-  "aurazul-wellness-day-costambar-2026-11-15": "2026-10-18T16:00:00.000Z",
   "natura-market-2026-11-01": "2026-10-18T15:00:00.000Z",
   "disco-club-domingo-de-calle": "2026-10-18T14:00:00.000Z",
   "la-quinta-rosa-call-you-later-2026-11-21": "2026-10-19T12:00:00.000Z",
@@ -485,6 +484,16 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "twenty-disco-kreizy-k-2026-12-05": "2026-11-14T00:20:00.000Z",
   "ambar-lounge-reggaeton-la-residencia-2026-12": "2026-11-14T01:00:00.000Z",
   "voyvoy-saturday-session-2026-11-14": "2026-11-14T02:00:00.000Z",
+  "voyvoy-cabarete-groove-moreno-prieto-2026-11-29":
+    "2026-11-15T18:00:00.000Z",
+  "toscana-nightclub-jacob-henriquez-2026-12-05":
+    "2026-11-15T17:30:00.000Z",
+  "goddess-francesca-samuele-2026-11-27": "2026-11-15T17:00:00.000Z",
+  "casa-balcon-cooltura-mexico-eterno-2026-11-20":
+    "2026-11-15T16:30:00.000Z",
+  "latin-disco-semaforo-yeffrey-estrella-2026-11-20":
+    "2026-11-15T16:00:00.000Z",
+  "chameleon-sunday-on-fire-yosma-2026-11-15": "2026-11-15T15:30:00.000Z",
 };
 
 /** Fill missing `createdAt` from {@link SEED_CREATED_AT} (does not overwrite). */

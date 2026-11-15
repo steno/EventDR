@@ -1082,6 +1082,42 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     callForPricing: true,
     venueSlug: "toscana-nightclub",
   },
+  "toscana-nightclub-jacob-henriquez-2026-12-05": {
+    callForPricing: true,
+    venueSlug: "toscana-nightclub",
+    sourceUrl: "https://www.instagram.com/toscana_nightclub/",
+  },
+  "chameleon-sunday-on-fire-yosma-2026-11-15": {
+    callForPricing: true,
+    phone: "+18299942304",
+    venueSlug: "chameleon-sport-bar",
+    sourceUrl: "https://www.instagram.com/chameleonsportbar/",
+  },
+  "goddess-francesca-samuele-2026-11-27": {
+    callForPricing: true,
+    phone: "+18295212365",
+    venueSlug: "goddess-la-diosa-cabarete",
+    sourceUrl: "https://www.instagram.com/goddess.cabarete/",
+  },
+  "latin-disco-semaforo-yeffrey-estrella-2026-11-20": {
+    isFree: true,
+    phone: "+18295639469",
+    venueSlug: "disco-club-brugal",
+    sourceUrl: "https://www.instagram.com/latindiscoclubpp/",
+  },
+  "casa-balcon-cooltura-mexico-eterno-2026-11-20": {
+    isFree: false,
+    admissionPrice: "RD$2,500",
+    phone: "+18093816676",
+    venueSlug: "casa-balcon-puerto-plata",
+    sourceUrl: "https://www.instagram.com/casabalconrd/",
+  },
+  "voyvoy-cabarete-groove-moreno-prieto-2026-11-29": {
+    callForPricing: true,
+    phone: "+18095710805",
+    venueSlug: "voyvoy-cabarete",
+    sourceUrl: "https://www.instagram.com/voyvoybar/",
+  },
   "chameleon-mananitas-kreizy-k-2026-12-05": {
     callForPricing: true,
     phone: "+18299942304",
@@ -1329,11 +1365,6 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     callForPricing: true,
     phone: "+18095862390",
     venueSlug: "camara-comercio-puerto-plata",
-  },
-  "aurazul-wellness-day-costambar-2026-11-15": {
-    isFree: false,
-    admissionPrice: "RD$4,200",
-    phone: "+18098513452",
   },
   "natura-sunbar-sunset-sounds-em-zayd-2026-10-01": {
     phone: "+18492147010",

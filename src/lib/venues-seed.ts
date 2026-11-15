@@ -2361,6 +2361,19 @@ export const SEED_VENUES: Venue[] = [
     website: "https://www.instagram.com/toscana_nightclub/",
   },
   {
+    slug: "goddess-la-diosa-cabarete",
+    name: "Goddess La Diosa",
+    city: "Cabarete",
+    description:
+      "Oceanfront beach club (Goddess Beach Club / La Diosa) on Cabarete’s sand — pool, restaurant-bar, and billed live afternoons and evenings. Confirm hours and covers via Instagram @goddess.cabarete or +1 829-521-2365.",
+    lat: 19.7470726,
+    lng: -70.3961885,
+    emoji: "🏖️",
+    phone: "+18295212365",
+    instagram: "goddess.cabarete",
+    website: "https://www.instagram.com/goddess.cabarete/",
+  },
+  {
     slug: "casa-de-arte-sosua",
     name: "Casa de Arte de Sosúa",
     city: "Sosúa",
@@ -2779,6 +2792,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /toscana\s*(nightclub|bar|lounge)|toscana_nightclub/i,
     slug: "toscana-nightclub",
+  },
+  {
+    pattern:
+      /goddess(\s*(la\s*)?diosa)?(\s*beach\s*club)?|goddess\.cabarete|la\s*diosa\s*(cabarete|beach)?/i,
+    slug: "goddess-la-diosa-cabarete",
   },
   {
     pattern:

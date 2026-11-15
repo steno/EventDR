@@ -781,8 +781,6 @@ const FILE_TO_EVENT_ID = {
   "natura-market-2026-10-04.jpg": "natura-market-2026-10-04",
   "natura-market-2026-11-01.jpg": "natura-market-2026-11-01",
   "disco-club-domingo-de-calle.jpg": "disco-club-domingo-de-calle",
-  "aurazul-wellness-day-costambar-2026-11-15.jpg":
-    "aurazul-wellness-day-costambar-2026-11-15",
   "licor-lab-car-show-2026-10-10.jpg": "licor-lab-car-show-2026-10-10",
   "nueve-bingo-friday.jpg": "nueve-bingo-friday",
   "vibes-night-live-voramar-2026-10-02-v2.jpg":
@@ -1126,6 +1124,18 @@ const FILE_TO_VENUE_SLUG = {
     "ocean-world-terrace-rubio-manon-2026-12-04",
   "toscana-nightclub-gran-apertura-2026-12-04-v2.jpg":
     "toscana-nightclub-gran-apertura-2026-12-04",
+  "toscana-nightclub-jacob-henriquez-2026-12-05.jpg":
+    "toscana-nightclub-jacob-henriquez-2026-12-05",
+  "chameleon-sunday-on-fire-yosma-2026-11-15.jpg":
+    "chameleon-sunday-on-fire-yosma-2026-11-15",
+  "goddess-francesca-samuele-2026-11-27-v2.jpg":
+    "goddess-francesca-samuele-2026-11-27",
+  "latin-disco-semaforo-yeffrey-estrella-2026-11-20.jpg":
+    "latin-disco-semaforo-yeffrey-estrella-2026-11-20",
+  "casa-balcon-cooltura-mexico-eterno-2026-11-20-v2.jpg":
+    "casa-balcon-cooltura-mexico-eterno-2026-11-20",
+  "voyvoy-cabarete-groove-moreno-prieto-2026-11-29.jpg":
+    "voyvoy-cabarete-groove-moreno-prieto-2026-11-29",
   "chameleon-mananitas-kreizy-k-2026-12-05.jpg":
     "chameleon-mananitas-kreizy-k-2026-12-05",
   "isabela-food-fest-la-perversa-2026-12-18.jpg":
@@ -1146,6 +1156,7 @@ const FILE_TO_VENUE_SLUG = {
   "evolution-disco-club-san-marcos.jpg": "evolution-disco-club-san-marcos",
   "los-guaos-veragua-field.jpg": "los-guaos-veragua",
   "037-bar-restaurant-entrance.jpg": "037-bar-restaurant",
+  "goddess-la-diosa-cabarete-v2.jpg": "goddess-la-diosa-cabarete",
   "klok-smoke-bar-interior.jpg": "klok-smoke-bar",
   "klok-smoke-bar-interior-v2.jpg": "klok-smoke-bar",
   "chameleon-la-mas-doll-2026-12-19.jpg":

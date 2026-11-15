@@ -6000,25 +6000,6 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-10-19T14:00:00.000Z",
   },
   {
-    eventId: "aurazul-wellness-day-costambar-2026-11-15",
-    body: "Full-day Costambar wellness bus from Bellavista at 5:30 AM — Pilates, gong, kayak, snorkel, and a Puerto Plata town loop for RD$4,200 with meals and a shirt included; reserve +1 809-851-3452, and don’t pin a single club venue for this organizer day.",
-    localized: {
-      es: "Día completo de wellness en Costambar con bus desde Bellavista a las 5:30 AM — pilates, gong, kayak, snorkel y tour por el pueblo por RD$4,200 con comida y camiseta incluidas; reserva +1 809-851-3452, y no pines un solo club para este día de organizador.",
-      fr: "Journée wellness Costambar en bus depuis Bellavista à 5 h 30 — pilates, gong, kayak, snorkel et tour du village pour RD$4,200 avec repas et t-shirt inclus ; réservez +1 809-851-3452, et n’épinglez pas un seul club pour cette journée organisateur.",
-    },
-    priceFeel: "upscale",
-    priceNote:
-      "RD$4,200 includes transport, breakfast, drinks, vegetarian meals, t-shirt — WhatsApp +1 809-851-3452",
-    priceNoteLocalized: {
-      es: "RD$4,200 incluye transporte, desayuno, bebidas, comida vegetariana, camiseta — WhatsApp +1 809-851-3452",
-      fr: "RD$4,200 inclut transport, petit-déj, boissons, repas végétariens, t-shirt — WhatsApp +1 809-851-3452",
-    },
-    attribution: "POP research · AURAZUL Wellness Day flyer · @laelopez",
-    researchNotes:
-      "Editor flyer + Threads/IG @laelopez — Dom 15 Nov 2026 Wellness Day by AURAZUL, Puerto Plata Costambar; salida 5:30 AM, regreso 4:00 PM; punto Av. Dr. Defilló #15 Bellavista; RD$4,200; pilates, baño de gong, kayak, snorkel, tour pueblo; no new venue — destination Costambar without venueSlug.",
-    updatedAt: "2026-10-18T16:00:00.000Z",
-  },
-  {
     eventId: "xanadu-bowling-daily",
     seriesKey: "xanadu-resort-hodelpa:bowling-daily",
     body: "Indoor neon bowling inside Playa Dorada when the beach is done — call +1 829-548-0666 for a lane first; walk-ins work but availability is the gate.",
@@ -9619,5 +9600,118 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer + IG caption — Reggaeton LA RESIDENCIA; 3/10/17/25 DIC; 4 funciones: Ramón x Raúl, @djmikedizla, @mannyfigueroa_, @djcamilotaveras B2B @yonaramzmusic; TIX; Brugal. Single series seed per editor (not four dated cards).",
     updatedAt: "2026-11-14T01:00:00.000Z",
+  },
+  {
+    eventId: "toscana-nightclub-jacob-henriquez-2026-12-05",
+    body: "Night two after Toscana’s Dec 4 gran apertura — Jacob Henriquez live with DJ Wakanda from Punta Cana on the Siblings Food Park segundo nivel; confirm cover on @toscana_nightclub, and don’t pin Chameleon’s same-Saturday Kreizy K Mañanitas in Sosúa.",
+    localized: {
+      es: "Segunda noche tras la gran apertura de Toscana el 4 dic — Jacob Henriquez en vivo con DJ Wakanda desde Punta Cana en el segundo nivel de Siblings Food Park; confirma cover en @toscana_nightclub, y no lo pines como el Mañanitas de Kreizy K en Chameleon el mismo sábado en Sosúa.",
+      fr: "Deuxième soir après la gran apertura de Toscana le 4 déc — Jacob Henriquez live avec DJ Wakanda depuis Punta Cana au 2e niveau de Siblings Food Park ; confirmez le cover sur @toscana_nightclub, et ne le placez pas comme les Mañanitas Kreizy K de Chameleon le même samedi à Sosúa.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — @toscana_nightclub · Sat 5 Dec",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — @toscana_nightclub · sáb 5 dic",
+      fr: "Cover à confirmer — @toscana_nightclub · sam 5 déc",
+    },
+    attribution:
+      "POP research · @toscana_nightclub Jacob Henriquez × DJ Wakanda flyer",
+    researchNotes:
+      "Editor flyer + IG caption — Sáb 5 Dic 2026; Jacob Henriquez + DJ Wakanda desde Punta Cana; Plaza Siblin/Siblings 2do nivel; post–gran apertura.",
+    updatedAt: "2026-11-15T17:30:00.000Z",
+  },
+  {
+    eventId: "chameleon-sunday-on-fire-yosma-2026-11-15",
+    body: "Sunday On Fire with DJ Yosma at Chameleon in Sosúa Bay Center — RSVP (829) 994-2304; late sport-bar Sunday, not El Liquito’s same-day Deeway set in Cabarete.",
+    localized: {
+      es: "Sunday On Fire con DJ Yosma en Chameleon en Sosúa Bay Center — RSVP (829) 994-2304; domingo late de sport bar, no el set de Deeway el mismo día en El Liquito (Cabarete).",
+      fr: "Sunday On Fire avec DJ Yosma au Chameleon à Sosúa Bay Center — RSVP (829) 994-2304 ; dimanche late sport bar, pas le set Deeway le même jour à El Liquito (Cabarete).",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — RSVP (829) 994-2304 · @chameleonsportbar",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — RSVP (829) 994-2304 · @chameleonsportbar",
+      fr: "Cover à confirmer — RSVP (829) 994-2304 · @chameleonsportbar",
+    },
+    attribution: "POP research · @chameleonsportbar Sunday On Fire DJ Yosma flyer",
+    researchNotes:
+      "Editor flyer + IG — Dom 15 Nov 2026; DJ Yosma; Sosúa Bay Center Calle Alejo Martínez #1; 829-994-2304. Same Sun as el-liquito-deeway-2026-11-15.",
+    updatedAt: "2026-11-15T15:30:00.000Z",
+  },
+  {
+    eventId: "goddess-francesca-samuele-2026-11-27",
+    body: "4–6 PM Francesca y Samuele on Cabarete sand at Goddess La Diosa — Brugal-backed afternoon live; confirm doors on @goddess.cabarete / +1 829-521-2365, not Natura Cabana’s earlier duo date.",
+    localized: {
+      es: "4–6 PM Francesca y Samuele en la arena de Cabarete en Goddess La Diosa — en vivo de tarde con Brugal; confirma puertas en @goddess.cabarete / +1 829-521-2365, no la fecha anterior del dúo en Natura Cabana.",
+      fr: "16 h–18 h Francesca y Samuele sur le sable de Cabarete au Goddess La Diosa — live d’après-midi avec Brugal ; confirmez les portes sur @goddess.cabarete / +1 829-521-2365, pas la date duo plus tôt à Natura Cabana.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — @goddess.cabarete · +1 829-521-2365 · 4–6 PM",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — @goddess.cabarete · +1 829-521-2365 · 4–6 PM",
+      fr: "Cover à confirmer — @goddess.cabarete · +1 829-521-2365 · 16 h–18 h",
+    },
+    attribution:
+      "POP research · Goddess La Diosa Francesca y Samuele flyer + Brugal",
+    researchNotes:
+      "Editor flyer — Vie 27 Nov 2026 4–6 PM; Francesca y Samuele; Goddess Beach Club Cabarete; Brugal; @goddess.cabarete; +1 829-521-2365.",
+    updatedAt: "2026-11-15T17:00:00.000Z",
+  },
+  {
+    eventId: "latin-disco-semaforo-yeffrey-estrella-2026-11-20",
+    body: "Free Semaforo Party with DJ Yeffrey Estrella at Latin Disco by the Brugal warehouses — wear the traffic-light code; not Ocean World Terrace’s same-Friday Melving Swing / Graduation Bash in Cofresí.",
+    localized: {
+      es: "Semaforo Party gratis con DJ Yeffrey Estrella en Latin Disco junto a los depósitos Brugal — viste el código semáforo; no es Melving Swing / Graduation Bash de Ocean World Terrace el mismo viernes en Cofresí.",
+      fr: "Semaforo Party gratuit avec DJ Yeffrey Estrella au Latin Disco près des dépôts Brugal — portez le code feu ; pas Melving Swing / Graduation Bash d’Ocean World Terrace le même vendredi à Cofresí.",
+    },
+    priceFeel: "free",
+    priceNote: "No cover — 829-563-9469 · @latindiscoclubpp",
+    priceNoteLocalized: {
+      es: "Sin cover — 829-563-9469 · @latindiscoclubpp",
+      fr: "Sans cover — 829-563-9469 · @latindiscoclubpp",
+    },
+    attribution:
+      "POP research · @latindiscoclubpp Estrella Semaforo Party flyer",
+    researchNotes:
+      "Editor flyer + IG — Vie 20 Nov 2026; DJ Yeffrey Estrella; NO COVER; Circunvalación Sur frente depósitos Brugal; 829-563-9469 / 829-453-9469. Same Fri as ocean-world-terrace-graduation-bash + casa-balcon-cooltura.",
+    updatedAt: "2026-11-15T16:00:00.000Z",
+  },
+  {
+    eventId: "casa-balcon-cooltura-mexico-eterno-2026-11-20",
+    body: "RD$2,500 Cooltura México Eterno at Casa Balcón — Iris Gan Hernandez talk + pointillism piece, three Mexican snack courses and wine included; plaza balcony culture night, not the free Semaforo Party at Latin Disco the same Friday.",
+    localized: {
+      es: "Cooltura México Eterno a RD$2,500 en Casa Balcón — charla de Iris Gan Hernandez + pieza de puntillismo, tres tiempos de bocadillos mexicanos y vino incluidos; noche cultural en balcón de plaza, no el Semaforo Party gratis de Latin Disco el mismo viernes.",
+      fr: "Cooltura México Eterno à RD$2,500 chez Casa Balcón — talk d’Iris Gan Hernandez + pièce en pointillisme, trois temps de snacks mexicains et vin inclus ; soirée culture en balcon de place, pas le Semaforo Party gratuit de Latin Disco le même vendredi.",
+    },
+    priceFeel: "upscale",
+    priceNote: "RD$2,500 — talk, materials, snacks & wine · @casabalconrd",
+    priceNoteLocalized: {
+      es: "RD$2,500 — charla, materiales, bocadillos y vino · @casabalconrd",
+      fr: "RD$2,500 — talk, matériel, snacks et vin · @casabalconrd",
+    },
+    attribution:
+      "POP research · Cooltura vol. 2 México Eterno flyer + The Host caption",
+    researchNotes:
+      "Editor flyer + caption — Vie 20 Nov 6 PM; Casa Balcón; Iris Gan Hernandez; RD$2500 (caption; flyer starburst showed 500); includes materials, pointillism workshop, Mexican snacks, wine. Same Fri as latin-disco-semaforo + ocean-world graduation.",
+    updatedAt: "2026-11-15T16:30:00.000Z",
+  },
+  {
+    eventId: "voyvoy-cabarete-groove-moreno-prieto-2026-11-29",
+    body: "Cabarete Groove at VOYVOY with Colombian duo Moreno & Prieto plus a deep local support list (Gabriel Beats, Xtrill, Mohikaa, Moon, Andrew Enc., Nissa Gómez) — cover/start TBA on @voyvoybar; not the 14 Nov Bencosmic Saturday Session.",
+    localized: {
+      es: "Cabarete Groove en VOYVOY con el dúo colombiano Moreno & Prieto más un lineup local profundo (Gabriel Beats, Xtrill, Mohikaa, Moon, Andrew Enc., Nissa Gómez) — cover/hora por confirmar en @voyvoybar; no es el Saturday Session de Bencosmic del 14 nov.",
+      fr: "Cabarete Groove au VOYVOY avec le duo colombien Moreno & Prieto plus une deep support list locale (Gabriel Beats, Xtrill, Mohikaa, Moon, Andrew Enc., Nissa Gómez) — cover/heure à confirmer sur @voyvoybar ; pas le Saturday Session Bencosmic du 14 nov.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — @voyvoybar · +1 809-571-0805 · Sat 29 Nov",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — @voyvoybar · +1 809-571-0805 · sáb 29 nov",
+      fr: "Cover à confirmer — @voyvoybar · +1 809-571-0805 · sam 29 nov",
+    },
+    attribution:
+      "POP research · VOYVOY Cabarete Groove Moreno & Prieto flyer (editor crop)",
+    researchNotes:
+      "Editor-supplied flyer crop — Sáb 29 Nov 2026; Moreno & Prieto FROM COLOMBIA; support Gabriel Beats, Xtrill, Mohikaa, Moon, Andrew Enc., Nissa Gómez; Gruf Plastic × voyvoy Cabarete; start/cover not printed.",
+    updatedAt: "2026-11-15T18:00:00.000Z",
   },
 ];

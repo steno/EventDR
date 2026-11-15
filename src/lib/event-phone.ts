@@ -76,7 +76,6 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "natura-market-2026-10-04": "+18492147010",
   "natura-market-2026-11-01": "+18492147010",
   "disco-club-domingo-de-calle": "+18295639469",
-  "aurazul-wellness-day-costambar-2026-11-15": "+18098513452",
   "natura-sunbar-sunset-sounds-em-zayd-2026-10-01": "+18492147010",
   "natura-sunbar-sunset-sounds-hyper-2026-10-08": "+18492147010",
   "natura-cabana-jazz-ensemble-2026-10-03": "+18492147010",

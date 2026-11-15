@@ -1513,6 +1513,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Nouveau club mixologie au 2e niveau de Plaza Siblings Food Park sur Luis Ginebra (près du Palacio de Justicia) — pas Ambar au n° 45 ni Mecla'o au n° 49 ; confirmez l’ouverture sur @toscana_nightclub avant de monter pour le toast du 4 déc.",
     },
   },
+  "goddess-la-diosa-cabarete": {
+    body: "Cabarete beachfront pool-and-bar club (Goddess Beach Club / La Diosa) — afternoon live sets and dinner energy on the sand, not VOYVOY’s bayfront dance sessions or Natura Cabana’s hillside calendar; confirm doors on @goddess.cabarete / +1 829-521-2365.",
+    localized: {
+      en: "Cabarete beachfront pool-and-bar club (Goddess Beach Club / La Diosa) — afternoon live sets and dinner energy on the sand, not VOYVOY’s bayfront dance sessions or Natura Cabana’s hillside calendar; confirm doors on @goddess.cabarete / +1 829-521-2365.",
+      es: "Beach club con piscina y bar frente al mar en Cabarete (Goddess Beach Club / La Diosa) — sets en vivo de tarde y energía de cena en la arena, no las sesiones de baile frente a la bahía de VOYVOY ni el calendario de Natura Cabana en la ladera; confirma puertas en @goddess.cabarete / +1 829-521-2365.",
+      fr: "Beach club piscine-bar face à la mer à Cabarete (Goddess Beach Club / La Diosa) — sets live d’après-midi et énergie dîner sur le sable, pas les sessions dance face à la baie de VOYVOY ni le calendrier de Natura Cabana sur la colline ; confirmez les portes sur @goddess.cabarete / +1 829-521-2365.",
+    },
+  },
   "casa-de-arte-sosua": {
     body: "El Batey gallery at Pedro Clisante #1 by the bay entrance — rotating exhibitions and arts talks, not a Pedro Clisante nightlife crawl; check @casadeartedesosua / +1 809-571-2442 for the current show and Saturday morning hours (typically closed Sunday).",
     localized: {

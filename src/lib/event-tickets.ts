@@ -172,6 +172,7 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
   "kaovanny-hard-rock-2026-11-20": "RD$500",
   "ocean-world-terrace-rubio-manon-2026-12-04": "RD$1,000",
   "ocean-world-terrace-graduation-bash-2026-11-20": "RD$200",
+  "casa-balcon-cooltura-mexico-eterno-2026-11-20": "RD$2,500",
   "sunset-cabarete-sessions-2026": "from US$16",
   "puerto-plata-poker-experience-2026": "Main Event US$900 buy-in",
   "los-event-trilogy-2026-09-03": "from US$875",
@@ -245,6 +246,10 @@ export const CURATED_CALL_FOR_PRICING = new Set<string>([
   "aura-alice-wonderland-2026-11-14",
   "aura-galactic-nights-christoo-2026-11-28",
   "toscana-nightclub-gran-apertura-2026-12-04",
+  "toscana-nightclub-jacob-henriquez-2026-12-05",
+  "chameleon-sunday-on-fire-yosma-2026-11-15",
+  "goddess-francesca-samuele-2026-11-27",
+  "voyvoy-cabarete-groove-moreno-prieto-2026-11-29",
   "chameleon-mananitas-kreizy-k-2026-12-05",
   "groundzero-omega-2026-12-18",
 ]);
@@ -257,6 +262,7 @@ export const CURATED_CALL_FOR_PRICING = new Set<string>([
  */
 export const CURATED_FREE_EVENTS = new Set<string>([
   "disco-club-halloween-weekend-2026-10-31",
+  "latin-disco-semaforo-yeffrey-estrella-2026-11-20",
   // Festivals & public
   "voyvoy-soft-reopening-sunset-2026-10-09",
   "voyvoy-soft-reopening-saturday-2026-10-10",

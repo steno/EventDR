@@ -3848,10 +3848,10 @@
     "address": "La Mulata #1, El Batey, Sosúa 57000",
     "lat": 19.765324,
     "lng": -70.499295,
-    "category": "performances",
+    "category": "christmas",
     "categories": [
-      "culture",
-      "music"
+      "performances",
+      "culture"
     ],
     "format": "physical",
     "trending": true,
@@ -6786,38 +6786,6 @@
       "Comunidad"
     ],
     "imageEmoji": "🛍️"
-  },
-  {
-    "id": "aurazul-wellness-day-costambar-2026-11-15",
-    "title": "AURAZUL Wellness Day — Costambar",
-    "description": "Wellness Day by AURAZUL en Costambar, Puerto Plata — domingo 15 de noviembre 2026. Salida 5:30 a.m., regreso 4:00 p.m. Punto de encuentro Av. Dr. Defilló #15, Bellavista. Incluye transporte, desayuno en el bus, bebidas hidratantes, alimentación vegetariana y camiseta con logo. Actividades: pilates, baño de gong, paseo en kayak, snorkel y tour por el pueblo de Puerto Plata. Inversión RD$4,200 — WhatsApp +1 809-851-3452 · @laelopez.",
-    "date": "2026-11-15",
-    "time": "5:30 a.m. – 4:00 p.m.",
-    "location": "Costambar",
-    "venue": "Costambar",
-    "address": "Costambar, Puerto Plata — punto de encuentro Av. Dr. Defilló #15, Bellavista",
-    "lat": 19.8145,
-    "lng": -70.7151,
-    "category": "health-wellness",
-    "categories": [
-      "adventure",
-      "culture"
-    ],
-    "format": "physical",
-    "trending": true,
-    "isFree": false,
-    "admissionPrice": "RD$4,200",
-    "phone": "+18098513452",
-    "sourceType": "flyer",
-    "sourceUrl": "https://www.instagram.com/laelopez/",
-    "lineup": [
-      "Pilates",
-      "Baño de gong",
-      "Kayak",
-      "Snorkel",
-      "Tour por el pueblo de Puerto Plata"
-    ],
-    "imageEmoji": "💙"
   },
   {
     "id": "twenty-disco-bichotas-jhon-parra-2026-10-22",
@@ -11499,7 +11467,7 @@
   {
     "id": "ocean-world-terrace-graduation-bash-2026-11-20",
     "title": "Ocean World Terrace — Graduation Bash · UTESA",
-    "description": "Graduation Bash para graduandos de UTESA Puerto Plata en Terraza Ocean World & Casino, Calle Principal #3, Cofresí — viernes 20 de noviembre 2026. Trago de bienvenida para graduados, photo booth, video 360, DJ y música en vivo en la noche con Melving Swing. Entrada RD$200; mesas decoradas estilo graduación por WhatsApp +1 829-521-9736. Instagram @oceanworldterrace. Noche de graduación en la terraza de Cofresí — no es la fila de delfines, ni Rubio Acordeón + Manon el 4 dic.",
+    "description": "Graduation Bash para egresados UTESA Puerto Plata en Terraza Ocean World & Casino, Calle Principal #3, Cofresí — viernes 20 de noviembre 2026 desde las 8:00 PM con Melving Swing (El Swing Diferente) en la tarima de la terraza. Bebida de bienvenida para egresados, photo booth, 360 video booth, DJ y típico en vivo. Entrada RD$200; mesas estilo graduación vía WhatsApp +1 829-521-9736 · info +1 809-291-2400. Instagram @oceanworldterrace. Noche de graduación en terraza de Cofresí — no es la fila de delfines del parque, ni el Semaforo Party gratis de Latin Disco el mismo viernes en el centro, ni Rubio Acordeón + Manon el 4 dic.",
     "date": "2026-11-20",
     "location": "Puerto Plata",
     "venue": "Terraza Ocean World",
@@ -11525,7 +11493,8 @@
       "Trago de bienvenida para graduados",
       "Photo booth · video 360"
     ],
-    "imageEmoji": "🎓"
+    "imageEmoji": "🎓",
+    "time": "8:00 PM"
   },
   {
     "id": "el-liquito-deeway-2026-11-15",
@@ -11855,5 +11824,185 @@
       "25 dic — DJ Camilo Taveras B2B Yona Ramz"
     ],
     "imageEmoji": "🎄"
+  },
+  {
+    "id": "toscana-nightclub-jacob-henriquez-2026-12-05",
+    "title": "Toscana Nightclub — Jacob Henriquez × DJ Wakanda · 5 dic",
+    "description": "Después de la gran apertura, Toscana Nightclub sigue la fiesta con Jacob Henriquez en vivo y DJ Wakanda desde Punta Cana — sábado 5 de diciembre 2026 en Plaza Siblings Food Park, segundo nivel, Av. Luis Ginebra, Puerto Plata (al lado del Palacio de Justicia). Confirma puertas y cover vía Instagram @toscana_nightclub. Cartel del segundo día del club de mixología — no es la gran apertura del viernes 4 dic con Deury Luciano × DJ Choco, ni el Mañanitas de Chameleon el mismo sábado con Kreizy K en Sosúa.",
+    "date": "2026-12-05",
+    "venue": "Toscana Nightclub",
+    "venueSlug": "toscana-nightclub",
+    "address": "Plaza Siblings Food Park, segundo nivel, Av. Luis Ginebra, Puerto Plata (al lado del Palacio de Justicia)",
+    "lat": 19.784313,
+    "lng": -70.673503,
+    "location": "Puerto Plata",
+    "category": "parties",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/toscana_nightclub/",
+    "instagram": "toscana_nightclub",
+    "lineup": [
+      "Jacob Henriquez",
+      "DJ Wakanda",
+      "Desde Punta Cana"
+    ],
+    "imageEmoji": "🪗"
+  },
+  {
+    "id": "chameleon-sunday-on-fire-yosma-2026-11-15",
+    "title": "Chameleon Sunday On Fire — DJ Yosma · 15 nov",
+    "description": "Sunday On Fire con DJ Yosma en Chameleon Sport Bar, Sosúa Bay Center, Calle Alejo Martínez #1, El Batey, Sosúa — domingo 15 de noviembre 2026. Música, baile y energía late del sport bar. Info y RSVP (829) 994-2304 · Instagram @chameleonsportbar. Domingo en Sosúa Bay Center — no es el set de Deeway el mismo domingo en El Liquito (Cabarete), ni un crawl de bares en Pedro Clisante.",
+    "date": "2026-11-15",
+    "venue": "Chameleon Sport Bar",
+    "venueSlug": "chameleon-sport-bar",
+    "address": "Sosúa Bay Center, Calle Alejo Martínez #1, El Batey, Sosúa",
+    "lat": 19.762438,
+    "lng": -70.516813,
+    "phone": "+18299942304",
+    "location": "Sosúa",
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/chameleonsportbar/",
+    "instagram": "chameleonsportbar",
+    "lineup": [
+      "DJ Yosma",
+      "Sunday On Fire"
+    ],
+    "imageEmoji": "🔥"
+  },
+  {
+    "id": "goddess-francesca-samuele-2026-11-27",
+    "title": "Goddess La Diosa — Francesca y Samuele · 27 nov",
+    "description": "Francesca y Samuele en vivo en Goddess La Diosa (Goddess Beach Club), frente al mar en Cabarete — viernes 27 de noviembre 2026, 4:00–6:00 PM. Set en vivo de tarde junto a la piscina/océano presentado por Brugal. Confirma puertas y cover vía Instagram @goddess.cabarete o +1 829-521-2365. Cartel sunset del beach club — no es la fecha anterior de Francesca & Samuele en Natura Cabana, ni las Saturday Sessions de VOYVOY frente a la bahía.",
+    "date": "2026-11-27",
+    "time": "4:00 PM – 6:00 PM",
+    "venue": "Goddess La Diosa",
+    "venueSlug": "goddess-la-diosa-cabarete",
+    "address": "Goddess Beach Club, Cabarete beachfront",
+    "lat": 19.7470726,
+    "lng": -70.3961885,
+    "phone": "+18295212365",
+    "location": "Cabarete",
+    "category": "music",
+    "categories": [
+      "performances",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/goddess.cabarete/",
+    "instagram": "goddess.cabarete",
+    "lineup": [
+      "Francesca y Samuele",
+      "Brugal"
+    ],
+    "imageEmoji": "🌅"
+  },
+  {
+    "id": "latin-disco-semaforo-yeffrey-estrella-2026-11-20",
+    "title": "Latin Disco Club Semaforo Party — DJ Yeffrey Estrella · 20 nov",
+    "description": "Estrella Semaforo Party con DJ Yeffrey Estrella en Latin Disco Club, Avenida Circunvalación Sur frente a los depósitos de Brugal, Puerto Plata — viernes 20 de noviembre 2026. Viste el código semáforo (verde soltero / amarillo indeciso / rojo comprometido); entrada totalmente gratis (no cover). Info 829-563-9469 · Instagram @latindiscoclubpp. Noche de club junto a los depósitos Brugal — no es Melving Swing / Graduation Bash de Ocean World Terrace el mismo viernes en Cofresí, ni el paint & sip Cooltura de Casa Balcón en el centro.",
+    "date": "2026-11-20",
+    "venue": "Latin Disco Club",
+    "venueSlug": "disco-club-brugal",
+    "address": "Avenida Circunvalación Sur, frente a los depósitos de Brugal, Puerto Plata",
+    "lat": 19.7792778,
+    "lng": -70.6690061,
+    "phone": "+18295639469",
+    "location": "Puerto Plata",
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/latindiscoclubpp/",
+    "instagram": "latindiscoclubpp",
+    "lineup": [
+      "DJ Yeffrey Estrella",
+      "Semaforo Party"
+    ],
+    "imageEmoji": "🚦"
+  },
+  {
+    "id": "casa-balcon-cooltura-mexico-eterno-2026-11-20",
+    "title": "Casa Balcón Cooltura vol. 2 — México Eterno · 20 nov",
+    "description": "Cooltura vol. 2 — México Eterno paint & sip en Casa Balcón, Puerto Plata — viernes 20 de noviembre 2026 desde las 6:00 PM. Iris Gan Hernandez guía las historias detrás del Día de Muertos, La Catrina, Frida Kahlo, Diego Rivera y el muralismo mexicano mientras cada invitado hace una pieza libre de puntillismo (no hace falta experiencia). Incluye charla, materiales, bocadillos mexicanos en tres tiempos (taco de chicharrón, taco de pollo crocante, flauta de res) y una copa de vino blanco después de focaccia de la casa. RD$2,500 por persona · Instagram @casabalconrd / The Host. Cocina en balcón frente a Plaza Independencia — no es el Semaforo Party gratis de Latin Disco el mismo viernes junto a Brugal, ni Melving Swing en Ocean World Terrace (Cofresí).",
+    "date": "2026-11-20",
+    "time": "6:00 PM",
+    "venue": "Casa Balcón",
+    "venueSlug": "casa-balcon-puerto-plata",
+    "address": "Plaza Independencia area, Puerto Plata",
+    "lat": 19.79725,
+    "lng": -70.69295,
+    "phone": "+18093816676",
+    "location": "Puerto Plata",
+    "category": "culture",
+    "format": "physical",
+    "trending": true,
+    "admissionPrice": "RD$2,500",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/casabalconrd/",
+    "instagram": "casabalconrd",
+    "lineup": [
+      "Iris Gan Hernandez",
+      "Cooltura vol. 2",
+      "Paint & sip · México Eterno"
+    ],
+    "imageEmoji": "🎨",
+    "categories": [
+      "food-drinks"
+    ]
+  },
+  {
+    "id": "voyvoy-cabarete-groove-moreno-prieto-2026-11-29",
+    "title": "VOYVOY Cabarete Groove — Moreno & Prieto · 29 nov",
+    "description": "Cabarete Groove en VOYVOY Cabarete el sábado 29 de noviembre 2026 — Moreno & Prieto desde Colombia, con Gabriel Beats, Xtrill, Mohikaa, Moon, Andrew Enc. y Nissa Gómez. Presentado con Gruf Plastic. Hora de inicio y cover no están en el flyer — confirma vía Instagram @voyvoybar o +1 809-571-0805. Sábado de DJs invitados frente a la bahía — no es el cartel de Bencosmic del 14 nov ni las noches Social Heartz.",
+    "date": "2026-11-29",
+    "venue": "VOYVOY Cabarete",
+    "venueSlug": "voyvoy-cabarete",
+    "lat": 19.7502161,
+    "lng": -70.4066784,
+    "phone": "+18095710805",
+    "location": "Cabarete",
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/voyvoybar/",
+    "instagram": "voyvoybar",
+    "lineup": [
+      "Moreno & Prieto",
+      "Gabriel Beats",
+      "Xtrill",
+      "Mohikaa",
+      "Moon",
+      "Andrew Enc.",
+      "Nissa Gómez"
+    ],
+    "imageEmoji": "🪩"
   }
 ]
