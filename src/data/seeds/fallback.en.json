@@ -12004,5 +12004,129 @@
       "Nissa Gómez"
     ],
     "imageEmoji": "🪩"
+  },
+  {
+    "id": "twenty-disco-money-heist-2026-11-21",
+    "title": "Twenty Disco — Money Heist: La Casa de Papel · 21 Nov",
+    "description": "Money Heist: La Casa de Papel themed night at Twenty Disco & Lounge, Playa Dorada Mall, Puerto Plata — Saturday 21 November 2026. Confirmed special guests Félix Fire (@felixfire), La Paulina (@lapaulina01_), and Jhunior (@jhunior.oficial). Cover not on the flyer — reserve +1 849-507-7676 · Instagram @twenty_disco_lounge. Mall disco heist Saturday — not Cabarete Stand Up Vol. 3 the same evening, and not Natura Cabana’s Frusty Balusti dinner set.",
+    "date": "2026-11-21",
+    "venue": "Twenty Disco & Lounge",
+    "venueSlug": "twenty-disco-lounge",
+    "address": "Playa Dorada Mall, Puerto Plata",
+    "lat": 19.769476,
+    "lng": -70.643033,
+    "phone": "+18495077676",
+    "location": "Puerto Plata",
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/p/Dfm-b2SRiU0/",
+    "instagram": "twenty_disco_lounge",
+    "lineup": [
+      "Félix Fire",
+      "La Paulina",
+      "Jhunior"
+    ],
+    "imageEmoji": "🎭"
+  },
+  {
+    "id": "disco-club-gogo-dancers-2026-11-19",
+    "title": "Latin Disco Club GOGO Dancers — Angel Carela · 19 Nov",
+    "description": "Noche de GOGO Dancers at Latin Disco Club, Avenida Circunvalación Sur frente a los depósitos de Brugal, Puerto Plata — Thursday 19 November 2026 with animation Angel Carela (El Terremoto). Adult gogo-show Thursday by the Brugal warehouses — not Latin Disco’s free Semaforo Party with DJ Yeffrey Estrella the next night (20 Nov). Reservations 829-563-9469 · Instagram @latindiscoclubpp.",
+    "date": "2026-11-19",
+    "venue": "Latin Disco Club",
+    "venueSlug": "disco-club-brugal",
+    "address": "Avenida Circunvalación Sur, frente a los depósitos de Brugal, Puerto Plata",
+    "lat": 19.7792778,
+    "lng": -70.6690061,
+    "phone": "+18295639469",
+    "location": "Puerto Plata",
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/latindiscoclubpp/",
+    "instagram": "latindiscoclubpp",
+    "lineup": [
+      "Angel Carela",
+      "Gogo dancers"
+    ],
+    "imageEmoji": "🔥",
+    "ageHint": "18-plus"
+  },
+  {
+    "id": "chiche-almonte-vinoteca-2026-11-28",
+    "title": "Vinoteca — Chiche Almonte Pre-Navidad · 28 Nov",
+    "description": "Fiesta con Chiche Almonte — Pre-Navidad al ritmo de merengue típico at Vinoteca Wine House, Carretera Luperón, Costa Dorada / Hotel Marien, Puerto Plata — Saturday 28 November 2026 from 10:00 PM. Free entry. More info WhatsApp +1 849-451-1197 · Instagram @vinotecamarienpp. Costa Dorada wine-house típico Saturday — not Aura Cabarete’s Galactic Nights with DJ Christoo the same evening, and not Chiche’s earlier Vinoteca bill on 17 Oct.",
+    "date": "2026-11-28",
+    "time": "10:00 PM",
+    "venue": "Vinoteca Wine House",
+    "venueSlug": "vinoteca-wine-house",
+    "address": "Carretera Luperón, Costa Dorada / Hotel Marien, Puerto Plata",
+    "lat": 19.7768222,
+    "lng": -70.6597699,
+    "phone": "+18494511197",
+    "location": "Puerto Plata",
+    "category": "concert",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/vinotecamarienpp/",
+    "instagram": "vinotecamarienpp",
+    "lineup": [
+      "Chiche Almonte"
+    ],
+    "imageEmoji": "🪗"
+  },
+  {
+    "id": "montellano-gran-dia-de-campo-2026-11-21",
+    "title": "Villa Montellano — Gran Día de Campo · 21–22 Nov",
+    "description": "Gran Día de Campo with Asociación de Ganaderos de Montellano / D’emanuel Embutidos y Lácteos at the Explanada de la Cooperativa de la Federación de Ganaderos de la Región Norte, Villa Montellano, Puerto Plata — Saturday 21–Sunday 22 November 2026. Saturday: grounds from 8:00 AM with cabalgata at 3:00 PM. Sunday from 8:00 AM: milking competition, Paso Fino horse competition, calf exchange, farm-supply sale, heifer/sheep/turkey raffle, plus food, drinks, and dairy sales. Family fairgrounds weekend — not Twenty Disco’s Money Heist mall night the same Saturday. WhatsApp +1 829-729-2835 · Instagram @agmontellano.",
+    "date": "2026-11-21",
+    "endDate": "2026-11-22",
+    "time": "8:00 AM – 6:00 PM",
+    "venue": "Explanada Federación de Ganaderos Región Norte",
+    "venueSlug": "federacion-ganaderos-norte-montellano",
+    "address": "Explanada de la Cooperativa de la Federación de Ganaderos de la Región Norte, Villa Montellano, Puerto Plata",
+    "lat": 19.70826,
+    "lng": -70.59261,
+    "phone": "+18297292835",
+    "location": "Villa Montellano",
+    "category": "festivals",
+    "categories": [
+      "culture",
+      "adventure"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/agmontellano/",
+    "instagram": "agmontellano",
+    "lineup": [
+      "Cabalgata",
+      "Competencia de ordeño",
+      "Paso Fino",
+      "Rifa de becerras",
+      "D’emanuel Embutidos y Lácteos"
+    ],
+    "imageEmoji": "🐄",
+    "ageHint": "family"
   }
 ]

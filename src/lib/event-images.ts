@@ -836,6 +836,14 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "ambar-lounge-reggaeton-la-residencia-2026-12.jpg",
   "twenty-disco-adrian-tineo-darwin-estrella-2026-11-14":
     "twenty-disco-adrian-tineo-darwin-estrella-2026-11-14.jpg",
+  "twenty-disco-money-heist-2026-11-21":
+    "twenty-disco-money-heist-2026-11-21.jpg",
+  "disco-club-gogo-dancers-2026-11-19":
+    "disco-club-gogo-dancers-2026-11-19.jpg",
+  "chiche-almonte-vinoteca-2026-11-28":
+    "chiche-almonte-vinoteca-2026-11-28.jpg",
+  "montellano-gran-dia-de-campo-2026-11-21":
+    "montellano-gran-dia-de-campo-2026-11-21.jpg",
   "aura-alice-wonderland-2026-11-14": "aura-alice-wonderland-2026-11-14.jpg",
   "casa-arte-sosua-morphy-legado-2026-11-14":
     "casa-arte-sosua-morphy-legado-2026-11-14-v2.jpg",
@@ -1071,6 +1079,9 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "cabarete-boxing-club-movie-night-2026-10-29": "object-center",
   "disco-club-gogo-dancers-2026-10-22": "object-center",
   "disco-club-gogo-dancers-2026-10-29": "object-center",
+  "disco-club-gogo-dancers-2026-11-19": "object-center",
+  "chiche-almonte-vinoteca-2026-11-28": "object-top",
+  "montellano-gran-dia-de-campo-2026-11-21": "object-top",
   "tiki-bar-flowdance-2026-10-30": "object-center",
   "ambar-lounge-bandoleras-2026-10-30": "object-center",
   "ambar-lounge-house-of-fear-2026-10-31": "object-center",
@@ -1500,6 +1511,28 @@ const EVENT_GALLERY_SLIDES: Record<
       label: "Parque Central — Sun 22 Nov 7 PM",
     },
   ],
+  "twenty-disco-money-heist-2026-11-21": [
+    {
+      file: "twenty-disco-money-heist-2026-11-21.jpg",
+      venueSlug: "twenty-disco-lounge",
+      label: "Money Heist Party",
+    },
+    {
+      file: "twenty-disco-money-heist-felix-fire-2026-11-21.jpg",
+      venueSlug: "twenty-disco-lounge",
+      label: "Félix Fire",
+    },
+    {
+      file: "twenty-disco-money-heist-la-paulina-2026-11-21.jpg",
+      venueSlug: "twenty-disco-lounge",
+      label: "La Paulina",
+    },
+    {
+      file: "twenty-disco-money-heist-jhunior-2026-11-21.jpg",
+      venueSlug: "twenty-disco-lounge",
+      label: "Jhunior",
+    },
+  ],
 };
 
 export function getEventGallerySlides(
@@ -1541,6 +1574,13 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "ambar-lounge-carlos-rivera-2026-11-14.jpg",
   "ambar-lounge-reggaeton-la-residencia-2026-12.jpg",
   "twenty-disco-adrian-tineo-darwin-estrella-2026-11-14.jpg",
+  "twenty-disco-money-heist-2026-11-21.jpg",
+  "twenty-disco-money-heist-felix-fire-2026-11-21.jpg",
+  "twenty-disco-money-heist-la-paulina-2026-11-21.jpg",
+  "twenty-disco-money-heist-jhunior-2026-11-21.jpg",
+  "disco-club-gogo-dancers-2026-11-19.jpg",
+  "chiche-almonte-vinoteca-2026-11-28.jpg",
+  "montellano-gran-dia-de-campo-2026-11-21.jpg",
   "aura-alice-wonderland-2026-11-14.jpg",
   "casa-arte-sosua-morphy-legado-2026-11-14-v2.jpg",
   "hard-rock-anne-live-2026-11-14.jpg",

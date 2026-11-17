@@ -18,12 +18,23 @@ function getPreferredLocale(request: NextRequest): Locale {
 export function middleware(request: NextRequest) {
   const { pathname, searchParams } = request.nextUrl;
 
-  // Collapse legacy `?from=` / `?fromTitle=` detail URLs so Google indexes only
-  // the clean path (GSC: "Duplicate without user-selected canonical").
-  if (searchParams.has("from") || searchParams.has("fromTitle")) {
+  // Collapse legacy / UI-only query URLs so Google indexes the clean path
+  // (GSC: "Alternative page with proper canonical" / duplicate ?from=).
+  const stripKeys: string[] = [];
+  if (searchParams.has("from")) stripKeys.push("from");
+  if (searchParams.has("fromTitle")) stripKeys.push("fromTitle");
+  // Venue directions UI — was `?directions=1`; now sessionStorage.
+  if (searchParams.has("directions")) stripKeys.push("directions");
+  // Map pin deep-link — was `/map?venue=`; now sessionStorage.
+  if (
+    searchParams.has("venue") &&
+    locales.some((locale) => pathname === `/${locale}/map`)
+  ) {
+    stripKeys.push("venue");
+  }
+  if (stripKeys.length > 0) {
     const clean = request.nextUrl.clone();
-    clean.searchParams.delete("from");
-    clean.searchParams.delete("fromTitle");
+    for (const key of stripKeys) clean.searchParams.delete(key);
     return NextResponse.redirect(clean, 301);
   }
 

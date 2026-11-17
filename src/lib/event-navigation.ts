@@ -164,8 +164,9 @@ export function resolveEventVenueSlug(
 }
 
 /**
- * Venue URL. Optional `returnTo` / `returnTitle` are not put in the query string
- * (use `rememberReturnPath`); only `directions=1` stays in the URL for UI state.
+ * Venue URL. Optional `returnTo` / `returnTitle` / `openDirections` are not put
+ * in the query string — use {@link rememberReturnPath} and
+ * {@link rememberOpenVenueDirections} before navigate.
  */
 export function venueDetailPath(
   locale: Locale,
@@ -176,9 +177,51 @@ export function venueDetailPath(
 ): string {
   void returnTo;
   void returnTitle;
-  const base = `/${locale}/venue/${slug}`;
-  if (openDirections) return `${base}?directions=1`;
-  return base;
+  void openDirections;
+  return `/${locale}/venue/${slug}`;
+}
+
+const OPEN_DIRECTIONS_KEY = "pop-event-open-directions";
+let lastOpenDirectionsAtPath: string | null = null;
+let lastOpenDirections = false;
+
+/** Ask the next venue page load to open the directions planner. */
+export function rememberOpenVenueDirections(): void {
+  if (typeof window === "undefined") return;
+  lastOpenDirections = false;
+  lastOpenDirectionsAtPath = null;
+  try {
+    sessionStorage.setItem(OPEN_DIRECTIONS_KEY, "1");
+  } catch {
+    // Private mode / quota — venue still loads; user can tap Directions.
+  }
+}
+
+/** Read and clear open-directions intent for this venue page load. */
+export function takeOpenVenueDirections(): boolean {
+  if (typeof window === "undefined") return false;
+  const atPath = currentPathname();
+
+  if (lastOpenDirections && lastOpenDirectionsAtPath === atPath) {
+    return true;
+  }
+
+  try {
+    const raw = sessionStorage.getItem(OPEN_DIRECTIONS_KEY);
+    if (!raw) return false;
+    sessionStorage.removeItem(OPEN_DIRECTIONS_KEY);
+    lastOpenDirections = true;
+    lastOpenDirectionsAtPath = atPath;
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/** @internal Test helper — clears open-directions replay cache. */
+export function resetOpenVenueDirectionsForTests(): void {
+  lastOpenDirections = false;
+  lastOpenDirectionsAtPath = null;
 }
 
 const RETURN_STORAGE_KEY = "pop-event-return";
@@ -295,7 +338,10 @@ export function sanitizeReturnTitle(raw: string | null | undefined): string | nu
   return trimmed;
 }
 
-/** Parse remaining detail-page query flags (`directions`); legacy `from` ignored after 301 strip. */
+/**
+ * Legacy parser for detail-page query flags. `from` / `directions` are 301-stripped
+ * in middleware; prefer {@link takeReturnPath} / {@link takeOpenVenueDirections}.
+ */
 export function readReturnParams(
   search: string,
   locale: Locale,
@@ -306,14 +352,10 @@ export function readReturnParams(
   const fromRaw = params.get("from");
   const from =
     fromRaw && isSafeReturnPath(fromRaw, locale) ? fromRaw : null;
-  const directionsRaw = params.get("directions");
   return {
     from,
     fromTitle: sanitizeReturnTitle(params.get("fromTitle")),
-    directions:
-      directionsRaw === "1" ||
-      directionsRaw === "true" ||
-      directionsRaw === "directions",
+    directions: false,
   };
 }
 

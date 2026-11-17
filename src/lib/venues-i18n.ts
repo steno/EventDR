@@ -1341,6 +1341,16 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Bar & grill fruits de mer néon sur le Malecón de Puerto Plata, Av. Gral. Gregorio Luperón #34 A — cocktails, pescados y mariscos, karaoke et soirées annoncées. Ce n’est pas Victrola 037 Arte Café (même avenue, autre concept / @victrolart). Ouvert en général ~16 h–minuit ; confirmez sur Instagram @037barrestaurant · WhatsApp +1 849-785-1822.",
     },
   },
+  "federacion-ganaderos-norte-montellano": {
+    name: {
+      es: "Explanada Federación de Ganaderos Región Norte",
+      fr: "Explanada Federación de Ganaderos Región Norte",
+    },
+    description: {
+      es: "Explanada de la cooperativa ganadera en Villa Montellano, Puerto Plata — sede de días de campo, cabalgatas y ferias de la Asociación de Ganaderos de Montellano / Federación de Ganaderos de la Región Norte. Pin municipal aproximado; refina cuando publiquen un portón concreto. Confirma en Instagram @agmontellano · WhatsApp +1 829-729-2835.",
+      fr: "Explanada de la coopérative d’élevage à Villa Montellano, Puerto Plata — terrain des días de campo, cabalgatas et foires de l’Asociación de Ganaderos de Montellano / Federación de Ganaderos de la Región Norte. Épingle municipale approx. ; à affiner quand une porte précise est publiée. Confirmez sur Instagram @agmontellano · WhatsApp +1 829-729-2835.",
+    },
+  },
   "klok-smoke-bar": {
     name: {
       es: "K-Lo-K Smoke Bar",

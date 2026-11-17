@@ -2213,6 +2213,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "federacion-ganaderos-norte-montellano",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["local", "family", "mixed"],
+    axes: { recommend: 4.0, atmosphere: 4.2, value: 4.1, practical: 3.1 },
+    themes: [
+      { key: "countryside", sentiment: "positive" },
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "easy_to_find", sentiment: "mixed", audience: "visitor" },
+    ],
+  }),
+  editorial({
     venueSlug: "malecon-empanadas",
     verdictKey: "strong_local_food",
     crowdFit: ["local", "family", "mixed", "visitor"],

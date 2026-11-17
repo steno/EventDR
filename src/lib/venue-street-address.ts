@@ -153,6 +153,8 @@ export const VENUE_STREET_ADDRESS: Readonly<Record<string, string>> = {
     "Av. Gral. Gregorio Luperón #34 A, Puerto Plata 57000",
   "klok-smoke-bar":
     "Plaza Sosúa, frente a Banco Popular (diagonal a Baileys), El Batey, Sosúa",
+  "federacion-ganaderos-norte-montellano":
+    "Explanada de la Cooperativa de la Federación de Ganaderos de la Región Norte, Villa Montellano, Puerto Plata",
   "teleferico-puerto-plata": "C. del Teleférico",
   "templo-de-las-americas": "La Isabela / El Castillo, Luperón, Puerto Plata",
   "terramar-pickleball-club": "Cabarete / Sosúa, Puerto Plata",

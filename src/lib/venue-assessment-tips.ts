@@ -1313,6 +1313,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Bar fruits de mer néon sur le Malecón au Gregorio Luperón #34 A — karaoke et cocktails ici, pas Victrola 037 Arte Café sur la même avenue (@victrolart) ; confirmez les portes sur @037barrestaurant ou WhatsApp +1 849-785-1822 avant de le traiter comme un café touristique walk-up.",
     },
   },
+  "federacion-ganaderos-norte-montellano": {
+    body: "Villa Montellano livestock cooperative grounds — días de campo, cabalgatas, and farm-supply fairs with Asociación de Ganaderos / @agmontellano, not a Playa Dorada mall disco; pin the municipal area, bring sun cover, and confirm the day’s gate on WhatsApp +1 829-729-2835 before you Uber from Puerto Plata or Sosúa.",
+    localized: {
+      en: "Villa Montellano livestock cooperative grounds — días de campo, cabalgatas, and farm-supply fairs with Asociación de Ganaderos / @agmontellano, not a Playa Dorada mall disco; pin the municipal area, bring sun cover, and confirm the day’s gate on WhatsApp +1 829-729-2835 before you Uber from Puerto Plata or Sosúa.",
+      es: "Explanada ganadera en Villa Montellano — días de campo, cabalgatas y ferias de insumos con Asociación de Ganaderos / @agmontellano, no un disco del mall de Playa Dorada; clava la zona municipal, lleva sombra, y confirma el portón del día por WhatsApp +1 829-729-2835 antes del Uber desde Puerto Plata o Sosúa.",
+      fr: "Terrain de coopérative d’élevage à Villa Montellano — días de campo, cabalgatas et foires d’intrants avec Asociación de Ganaderos / @agmontellano, pas une disco du mall de Playa Dorada ; épinglez la zone municipale, prévoyez de l’ombre, et confirmez la porte du jour sur WhatsApp +1 829-729-2835 avant l’Uber depuis Puerto Plata ou Sosúa.",
+    },
+  },
   "klok-smoke-bar": {
     body: "Neon smoke lounge in Plaza Sosúa across from Banco Popular (diagonal to Baileys) — cigars and cocktails here, not Chameleon’s Coral Reef Casino sport-bar nights a block over; confirm hours on @kloksmokebar or +1 809-895-6889 before you Uber into El Batey.",
     localized: {

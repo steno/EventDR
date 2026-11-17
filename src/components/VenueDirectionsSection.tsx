@@ -216,6 +216,8 @@ interface VenueMapPanelProps {
    * When set, does not reveal the inline Leaflet map.
    */
   seeAreaHref?: string | null;
+  /** Stash map pin focus before navigating to {@link seeAreaHref}. */
+  onSeeAreaClick?: () => void;
   /** Street View opened or closed — parent can grow the map frame. */
   onStreetViewChange?: (open: boolean) => void;
   /** Controlled Street View; omit to keep it internal. */
@@ -248,6 +250,7 @@ export function VenueMapPanel({
   forceReveal = false,
   onReveal,
   seeAreaHref = null,
+  onSeeAreaClick,
   onStreetViewChange,
   streetViewOpen: streetViewOpenProp,
   overlayStreetView = false,
@@ -340,6 +343,7 @@ export function VenueMapPanel({
           <MapReveal
             label={dict.venues.showMap}
             href={seeAreaHref}
+            onHrefClick={onSeeAreaClick}
             secondary={streetViewInReveal ? streetViewControl : undefined}
             forceReveal={mapOpen}
             onReveal={onReveal}

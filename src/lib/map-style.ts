@@ -201,13 +201,61 @@ export function enhanceMapLabelLegibility(map: MapLabelApi): void {
 
 export { NORTH_COAST_CENTER };
 
-/** North Coast events map — optional `venue` deep-link zooms that pin on load. */
+const MAP_VENUE_FOCUS_KEY = "pop-event-map-venue";
+let lastMapVenueFocus: string | null = null;
+let lastMapVenueFocusAtPath: string | null = null;
+
+/**
+ * North Coast events map. Optional `venue` is no longer put in the query string
+ * (GSC was indexing `/map?venue=` as canonical alternates) — call
+ * {@link rememberMapVenueFocus} on click before navigate.
+ */
 export function eventsMapPath(
   locale: Locale,
   opts?: { venue?: string | null },
 ): string {
-  const base = localePath(locale, "/map");
-  const slug = opts?.venue?.trim();
-  if (!slug) return base;
-  return `${base}?venue=${encodeURIComponent(slug)}`;
+  void opts?.venue;
+  return localePath(locale, "/map");
+}
+
+/** Ask the next `/map` load to zoom/open this venue pin. */
+export function rememberMapVenueFocus(slug: string | null | undefined): void {
+  if (typeof window === "undefined") return;
+  const trimmed = slug?.trim();
+  if (!trimmed) return;
+  lastMapVenueFocus = null;
+  lastMapVenueFocusAtPath = null;
+  try {
+    sessionStorage.setItem(MAP_VENUE_FOCUS_KEY, trimmed);
+  } catch {
+    // Private mode / quota — map still opens without a focused pin.
+  }
+}
+
+/** Read and clear map venue deep-link for this `/map` load. */
+export function takeMapVenueFocus(): string | null {
+  if (typeof window === "undefined") return null;
+  const atPath =
+    typeof window !== "undefined" ? window.location.pathname : "";
+
+  if (lastMapVenueFocus && lastMapVenueFocusAtPath === atPath) {
+    return lastMapVenueFocus;
+  }
+
+  try {
+    const raw = sessionStorage.getItem(MAP_VENUE_FOCUS_KEY);
+    if (!raw?.trim()) return null;
+    sessionStorage.removeItem(MAP_VENUE_FOCUS_KEY);
+    lastMapVenueFocus = raw.trim();
+    lastMapVenueFocusAtPath = atPath;
+    return lastMapVenueFocus;
+  } catch {
+    return null;
+  }
+}
+
+/** @internal Test helper. */
+export function resetMapVenueFocusForTests(): void {
+  lastMapVenueFocus = null;
+  lastMapVenueFocusAtPath = null;
 }

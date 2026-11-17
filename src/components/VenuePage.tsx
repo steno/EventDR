@@ -34,6 +34,7 @@ import {
   isCruiseReturnPath,
   rememberReturnPath,
   resolveBackLabel,
+  takeOpenVenueDirections,
   takeReturnPath,
 } from "@/lib/event-navigation";
 import { formatPhoneTel } from "@/lib/event-phone";
@@ -60,7 +61,7 @@ import {
   isRestaurantWeekParticipantVenue,
   RESTAURANT_WEEK_2026_ID,
 } from "@/lib/restaurant-week";
-import { eventsMapPath } from "@/lib/map-style";
+import { eventsMapPath, rememberMapVenueFocus } from "@/lib/map-style";
 
 interface VenuePageProps {
   venue: Venue;
@@ -199,6 +200,13 @@ export function VenuePage({
     // then the existing directions hook draws the driving route on the map.
     directions.handleUseMyLocation();
   }
+
+  // Event → venue “directions” intent (sessionStorage; `?directions=1` is 301-stripped).
+  useEffect(() => {
+    if (!takeOpenVenueDirections()) return;
+    openDirectionsMode();
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- one-shot deep-link on mount
+  }, [venue.slug]);
 
   const backHref = returnTo ?? fallbackHref;
   const backLabel = resolveBackLabel(locale, backHref, dict, returnTitle);
@@ -403,6 +411,7 @@ export function VenuePage({
                       <Link
                         href={eventsMapPath(locale, { venue: venue.slug })}
                         prefetch={false}
+                        onClick={() => rememberMapVenueFocus(venue.slug)}
                         className="pointer-events-auto inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-4 py-2.5 text-sm font-bold text-white shadow-lg shadow-rose-500/25 touch-manipulation transition-[transform,filter] hover:brightness-105 active:scale-[0.98]"
                       >
                         <MapPin
@@ -432,6 +441,7 @@ export function VenuePage({
                     forceReveal={plannerOpen}
                     onReveal={openDirectionsMode}
                     seeAreaHref={eventsMapPath(locale, { venue: venue.slug })}
+                    onSeeAreaClick={() => rememberMapVenueFocus(venue.slug)}
                     streetViewOpen={areaViewOpen}
                     onStreetViewChange={setAreaViewOpen}
                     streetViewAvailable={streetViewAvailable}

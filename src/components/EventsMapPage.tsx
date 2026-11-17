@@ -32,6 +32,7 @@ import { getVenueStreetAddress } from "@/lib/venue-street-address";
 import {
   MAP_AREAS,
   resolveDefaultMapZoom,
+  takeMapVenueFocus,
   type MapAreaId,
   type MapCameraTarget,
 } from "@/lib/map-style";
@@ -140,10 +141,14 @@ export function EventsMapPage({
   initialEvents,
   initialVenueSlug = null,
 }: EventsMapPageProps) {
+  // Prop (legacy SSR) or sessionStorage from venue “See the area” (query stripped).
+  const [venueFocusSlug] = useState<string | null>(
+    () => initialVenueSlug?.trim() || takeMapVenueFocus(),
+  );
   const [area, setArea] = useState<MapAreaId>("north-coast");
   const [when, setWhen] = useState<MapTimeFilter>(() =>
-    initialVenueSlug?.trim()
-      ? mapWhenForVenueDeepLink(initialEvents, initialVenueSlug)
+    venueFocusSlug
+      ? mapWhenForVenueDeepLink(initialEvents, venueFocusSlug)
       : "today",
   );
   const [focusedPinId, setFocusedPinId] = useState<string | null>(null);
@@ -174,11 +179,11 @@ export function EventsMapPage({
     [initialEvents, when],
   );
   const deepLinkVenue = useMemo(() => {
-    const slug = initialVenueSlug?.trim();
+    const slug = venueFocusSlug?.trim();
     if (!slug) return null;
     const seed = getSeedVenue(slug);
     return seed ? localizeVenue(seed, locale) : null;
-  }, [initialVenueSlug, locale]);
+  }, [venueFocusSlug, locale]);
   const pins = useMemo(() => {
     const eventPins = withVenueDeepLinkPin(
       buildMapPins(filtered),
@@ -248,7 +253,7 @@ export function EventsMapPage({
   // Mirror home’s chosen city/region into the map picker + camera (skip venue deep-links).
   useLayoutEffect(() => {
     if (homeAreaAppliedRef.current) return;
-    if (initialVenueSlug?.trim()) return;
+    if (venueFocusSlug?.trim()) return;
     homeAreaAppliedRef.current = true;
     const next = mapAreaFromHomeStorage();
     if (!next) return;
@@ -260,11 +265,11 @@ export function EventsMapPage({
         : target),
       key: Date.now(),
     });
-  }, [initialVenueSlug]);
+  }, [venueFocusSlug]);
 
   // Venue page “See the area” → open that venue’s pin (event stack or venue-only).
   useEffect(() => {
-    const slug = initialVenueSlug?.trim();
+    const slug = venueFocusSlug?.trim();
     if (!slug || venueDeepLinkDoneRef.current) return;
 
     const match = pins.find(
@@ -277,7 +282,7 @@ export function EventsMapPage({
     venueDeepLinkDoneRef.current = true;
     setFocusedPinId(match.id);
     setOpenPinId(match.id);
-  }, [initialVenueSlug, pins]);
+  }, [venueFocusSlug, pins]);
 
   useLayoutEffect(() => {
     if (!openPin) {

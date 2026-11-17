@@ -2503,6 +2503,20 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18098956889",
     website: "https://www.instagram.com/kloksmokebar/",
   },
+  {
+    slug: "federacion-ganaderos-norte-montellano",
+    name: "Explanada Federación de Ganaderos Región Norte",
+    city: "Villa Montellano",
+    description:
+      "Livestock cooperative grounds (explanada) in Villa Montellano, Puerto Plata — home field for Asociación de Ganaderos de Montellano / Federación de Ganaderos de la Región Norte días de campo, cabalgatas, and farm-supply fairs. Approx municipal pin; refine when a named gate is published. Confirm on Instagram @agmontellano · WhatsApp +1 829-729-2835.",
+    // GeoNames / Fedomu Villa Montellano municipal centroid — not a verified gate pin.
+    lat: 19.70826,
+    lng: -70.59261,
+    emoji: "🐄",
+    instagram: "agmontellano",
+    phone: "+18297292835",
+    website: "https://www.instagram.com/agmontellano/",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
@@ -2842,6 +2856,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /k[-\s]?lo[-\s]?k(\s*smoke)?(\s*bar)?|kloksmokebar|klok\s*smoke/i,
     slug: "klok-smoke-bar",
+  },
+  {
+    pattern:
+      /federaci[oó]n\s*de\s*ganaderos(\s*de\s*la)?\s*regi[oó]n\s*norte|explanada\s*(de\s*la\s*)?cooperativa.*ganaderos|asociaci[oó]n\s*de\s*ganaderos\s*de\s*montellano|agmontellano|villa\s*montellano.*ganaderos/i,
+    slug: "federacion-ganaderos-norte-montellano",
   },
   {
     pattern: /mecla['’]?o\s*rooftop|meclao\s*rooftop/i,

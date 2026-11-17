@@ -9714,4 +9714,80 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor-supplied flyer crop — Sáb 29 Nov 2026; Moreno & Prieto FROM COLOMBIA; support Gabriel Beats, Xtrill, Mohikaa, Moon, Andrew Enc., Nissa Gómez; Gruf Plastic × voyvoy Cabarete; start/cover not printed.",
     updatedAt: "2026-11-15T18:00:00.000Z",
   },
+  {
+    eventId: "twenty-disco-money-heist-2026-11-21",
+    body: "Money Heist costume Saturday at Twenty Playa Dorada — Félix Fire, La Paulina, and Jhunior are the confirmed guest wave; cover TBA so call +1 849-507-7676 before you dress for the atraco.",
+    localized: {
+      es: "Sábado Money Heist en Twenty Playa Dorada — Félix Fire, La Paulina y Jhunior son la ola de invitados confirmados; cover por confirmar, llama al +1 849-507-7676 antes de vestirte para el atraco.",
+      fr: "Samedi Money Heist chez Twenty Playa Dorada — Félix Fire, La Paulina et Jhunior sont la vague d’invités confirmés ; cover à confirmer, appelez +1 849-507-7676 avant de vous habiller pour le braquage.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — reservas +1 849-507-7676 · @twenty_disco_lounge",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — reservas +1 849-507-7676 · @twenty_disco_lounge",
+      fr: "Cover à confirmer — réservations +1 849-507-7676 · @twenty_disco_lounge",
+    },
+    attribution:
+      "POP research · @twenty_disco_lounge Money Heist flyers (editor-provided)",
+    researchNotes:
+      "Editor IG screenshots + masked-men cover — Sáb 21 Nov 2026; Money Heist: La Casa de Papel; guests Félix Fire, La Paulina, Jhunior; Playa Dorada Mall; reservas 849-507-7676; cover not printed.",
+    updatedAt: "2026-11-17T12:00:00.000Z",
+  },
+  {
+    eventId: "disco-club-gogo-dancers-2026-11-19",
+    body: "Thursday gogo night at Latin Disco by the Brugal warehouses with Angel Carela hosting — adult-show energy, not Friday’s free Semaforo with DJ Yeffrey Estrella; reserve 829-563-9469 before you treat doors as walk-in.",
+    localized: {
+      es: "Jueves de gogo en Latin Disco junto a los depósitos Brugal con Angel Carela — energía de show adulto, no el Semaforo gratis del viernes con DJ Yeffrey Estrella; reserva 829-563-9469 antes de asumir entrada walk-in.",
+      fr: "Jeudi gogo au Latin Disco près des dépôts Brugal avec Angel Carela — énergie show adulte, pas le Semaforo gratuit du vendredi avec DJ Yeffrey Estrella ; réservez 829-563-9469 avant d’assumer une entrée walk-in.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — 829-563-9469 · @latindiscoclubpp · 18+",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — 829-563-9469 · @latindiscoclubpp · 18+",
+      fr: "Cover à confirmer — 829-563-9469 · @latindiscoclubpp · 18+",
+    },
+    attribution:
+      "POP research · @latindiscoclubpp Noche de Gogo Dancers flyer",
+    researchNotes:
+      "Editor flyer + IG caption — Jue 19 Nov 2026; GOGO Dancers; Angel Carela El Terremoto; Circunvalación Sur frente Brugal; 829-563-9469; ageHint 18-plus. Same week as latin-disco-semaforo Fri 20.",
+    updatedAt: "2026-11-17T15:00:00.000Z",
+  },
+  {
+    eventId: "chiche-almonte-vinoteca-2026-11-28",
+    body: "Free Pre-Navidad Chiche Almonte típico from 10 PM at Vinoteca / Hotel Marien Costa Dorada — accordion night with wine-house energy, not Aura’s Galactic Nights the same Saturday; WhatsApp +1 849-451-1197 for tables.",
+    localized: {
+      es: "Chiche Almonte Pre-Navidad gratis desde las 10 PM en Vinoteca / Hotel Marien Costa Dorada — noche de acordeón con energía de vinoteca, no Galactic Nights de Aura el mismo sábado; WhatsApp +1 849-451-1197 para mesas.",
+      fr: "Chiche Almonte Pre-Navidad gratuit dès 22 h à Vinoteca / Hotel Marien Costa Dorada — soirée accordéon énergie wine house, pas Galactic Nights d’Aura le même samedi ; WhatsApp +1 849-451-1197 pour les tables.",
+    },
+    priceFeel: "free",
+    priceNote: "Free entry — WA +1 849-451-1197 · @vinotecamarienpp",
+    priceNoteLocalized: {
+      es: "Entrada gratis — WA +1 849-451-1197 · @vinotecamarienpp",
+      fr: "Entrée gratuite — WA +1 849-451-1197 · @vinotecamarienpp",
+    },
+    attribution:
+      "POP research · Vinoteca Fiesta con Chiche Almonte Pre-Navidad flyer",
+    researchNotes:
+      "Editor flyer — Sáb 28 Nov 2026 from 10 PM; GRATIS; Chiche Almonte; Carretera Luperón Costa Dorada; 849-451-1197. Distinct from chiche-almonte-vinoteca-2026-10-17.",
+    updatedAt: "2026-11-17T14:00:00.000Z",
+  },
+  {
+    eventId: "montellano-gran-dia-de-campo-2026-11-21",
+    body: "Two-day Montellano livestock fairgrounds hang — Saturday cabalgata at 3 PM, Sunday milking/Paso Fino/raffle block; pin Villa Montellano and confirm the gate on +1 829-729-2835, not Twenty’s Money Heist mall night the same Saturday.",
+    localized: {
+      es: "Fin de semana en la explanada ganadera de Montellano — cabalgata sábado a las 3 PM, bloque de ordeño/Paso Fino/rifa el domingo; clava Villa Montellano y confirma el portón al +1 829-729-2835, no Money Heist en Twenty el mismo sábado.",
+      fr: "Week-end sur l’explanada d’élevage de Montellano — cabalgata samedi à 15 h, bloc traite/Paso Fino/tombola dimanche ; épinglez Villa Montellano et confirmez la porte au +1 829-729-2835, pas Money Heist chez Twenty le même samedi.",
+    },
+    priceFeel: "varies",
+    priceNote: "Admission TBA — WA +1 829-729-2835 · @agmontellano",
+    priceNoteLocalized: {
+      es: "Entrada por confirmar — WA +1 829-729-2835 · @agmontellano",
+      fr: "Entrée à confirmer — WA +1 829-729-2835 · @agmontellano",
+    },
+    attribution:
+      "POP research · @agmontellano / D’emanuel Gran Día de Campo flyer",
+    researchNotes:
+      "Editor flyer + Threads/IG — Sáb 21 Nov cabalgata 3 PM + grounds 8–6; Dom 22 Nov from 8 AM ordeño, Paso Fino, insumos, rifa; Villa Montellano explanada Federación Ganaderos Norte; 829-729-2835; ageHint family. New venueSlug federacion-ganaderos-norte-montellano.",
+    updatedAt: "2026-11-17T16:00:00.000Z",
+  },
 ];

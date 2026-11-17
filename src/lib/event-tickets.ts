@@ -263,6 +263,7 @@ export const CURATED_CALL_FOR_PRICING = new Set<string>([
 export const CURATED_FREE_EVENTS = new Set<string>([
   "disco-club-halloween-weekend-2026-10-31",
   "latin-disco-semaforo-yeffrey-estrella-2026-11-20",
+  "chiche-almonte-vinoteca-2026-11-28",
   // Festivals & public
   "voyvoy-soft-reopening-sunset-2026-10-09",
   "voyvoy-soft-reopening-saturday-2026-10-10",

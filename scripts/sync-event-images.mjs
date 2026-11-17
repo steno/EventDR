@@ -1112,6 +1112,20 @@ const FILE_TO_VENUE_SLUG = {
     "ambar-lounge-reggaeton-la-residencia-2026-12",
   "twenty-disco-adrian-tineo-darwin-estrella-2026-11-14.jpg":
     "twenty-disco-adrian-tineo-darwin-estrella-2026-11-14",
+  "twenty-disco-money-heist-2026-11-21.jpg":
+    "twenty-disco-money-heist-2026-11-21",
+  "twenty-disco-money-heist-felix-fire-2026-11-21.jpg":
+    "twenty-disco-money-heist-felix-fire-2026-11-21",
+  "twenty-disco-money-heist-la-paulina-2026-11-21.jpg":
+    "twenty-disco-money-heist-la-paulina-2026-11-21",
+  "twenty-disco-money-heist-jhunior-2026-11-21.jpg":
+    "twenty-disco-money-heist-jhunior-2026-11-21",
+  "disco-club-gogo-dancers-2026-11-19.jpg":
+    "disco-club-gogo-dancers-2026-11-19",
+  "chiche-almonte-vinoteca-2026-11-28.jpg":
+    "chiche-almonte-vinoteca-2026-11-28",
+  "montellano-gran-dia-de-campo-2026-11-21.jpg":
+    "montellano-gran-dia-de-campo-2026-11-21",
   "aura-alice-wonderland-2026-11-14.jpg": "aura-alice-wonderland-2026-11-14",
   // Keep -v2 in dest so sync never recreates the retired IG-chrome URL.
   "casa-arte-sosua-morphy-legado-2026-11-14-v2.jpg":

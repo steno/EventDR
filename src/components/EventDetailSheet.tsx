@@ -28,7 +28,13 @@ import {
 } from "@/lib/event-tickets";
 import { useSwipeToDismiss } from "@/hooks/useSwipeToDismiss";
 import { scrollBehaviorPreference } from "@/lib/list-scroll";
-import { eventDetailPath, rememberReturnPath, resolveEventVenueSlug, venueDetailPath } from "@/lib/event-navigation";
+import {
+  eventDetailPath,
+  rememberOpenVenueDirections,
+  rememberReturnPath,
+  resolveEventVenueSlug,
+  venueDetailPath,
+} from "@/lib/event-navigation";
 import { navigateSoft } from "@/lib/nav-feedback";
 import {
   getOnboardingCopy,
@@ -459,23 +465,13 @@ export function EventDetailSheet({
     if (!venueSlug || !event) return;
     const from = eventDetailPath(locale, event.id);
     rememberReturnPath(from, event.title);
-    navigateSoft(
-      router,
-      venueDetailPath(locale, venueSlug, from, event.title, true),
-    );
+    rememberOpenVenueDirections();
+    navigateSoft(router, venueDetailPath(locale, venueSlug));
   }
 
   function warmVenueRoute() {
     if (!venueSlug || !event) return;
-    void router.prefetch(
-      venueDetailPath(
-        locale,
-        venueSlug,
-        eventDetailPath(locale, event.id),
-        event.title,
-        true,
-      ),
-    );
+    void router.prefetch(venueDetailPath(locale, venueSlug));
   }
 
   const contentSection = (

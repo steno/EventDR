@@ -1020,6 +1020,30 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18495077676",
     venueSlug: "twenty-disco-lounge",
   },
+  "twenty-disco-money-heist-2026-11-21": {
+    callForPricing: true,
+    phone: "+18495077676",
+    venueSlug: "twenty-disco-lounge",
+    sourceUrl: "https://www.instagram.com/p/Dfm-b2SRiU0/",
+  },
+  "disco-club-gogo-dancers-2026-11-19": {
+    callForPricing: true,
+    phone: "+18295639469",
+    venueSlug: "disco-club-brugal",
+    sourceUrl: "https://www.instagram.com/latindiscoclubpp/",
+  },
+  "chiche-almonte-vinoteca-2026-11-28": {
+    isFree: true,
+    phone: "+18494511197",
+    venueSlug: "vinoteca-wine-house",
+    sourceUrl: "https://www.instagram.com/vinotecamarienpp/",
+  },
+  "montellano-gran-dia-de-campo-2026-11-21": {
+    callForPricing: true,
+    phone: "+18297292835",
+    venueSlug: "federacion-ganaderos-norte-montellano",
+    sourceUrl: "https://www.instagram.com/agmontellano/",
+  },
   "aura-alice-wonderland-2026-11-14": {
     callForPricing: true,
     phone: "+18297870140",

@@ -18,6 +18,8 @@ interface MapRevealProps {
    * map (venue → North Coast events map with this pin zoomed).
    */
   href?: string | null;
+  /** Fired on href CTA click (e.g. stash map pin focus in sessionStorage). */
+  onHrefClick?: () => void;
   /** Brief pulse on the Show map control (e.g. deep-linked from an event). */
   attention?: boolean;
   onAttentionEnd?: () => void;
@@ -41,6 +43,7 @@ export function MapReveal({
   forceReveal = false,
   onReveal,
   href = null,
+  onHrefClick,
   attention = false,
   onAttentionEnd,
   previewUrl = null,
@@ -115,6 +118,7 @@ export function MapReveal({
           href={href}
           prefetch={false}
           aria-label={label}
+          onClick={onHrefClick}
           className="absolute inset-0 z-[1] cursor-pointer touch-manipulation"
         />
       ) : (
@@ -144,6 +148,7 @@ export function MapReveal({
           <Link
             href={href}
             prefetch={false}
+            onClick={onHrefClick}
             data-attention={attention ? "true" : undefined}
             onAnimationEnd={(event) => {
               if (!attention) return;
