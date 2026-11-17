@@ -2340,9 +2340,10 @@ export const SEED_VENUES: Venue[] = [
     name: "Sociedad Cultural Renovación",
     city: "Puerto Plata",
     description:
-      "Historic cultural society and public library (est. 1928) at Calle Duarte No. 41, esquina Imbert — Biblioteca Renovación, Salón Dr. Osvaldo Brugal for book launches and talks, and arts programs for the city. Info +1 809-586-6240 · screnovacion.org · Instagram @screnovacion.",
-    lat: 19.797739,
-    lng: -70.694253,
+      "Historic cultural society and public library (est. 1928) at Calle Duarte No. 41, esquina Calle Imbert, in Puerto Plata’s historic center (near Plaza Independencia / Calle de las Sombrillas) — Biblioteca Renovación reading rooms and shelves (4th floor with Atlantic views), Salón Dr. Osvaldo Brugal for book launches and talks, and arts programs for the city. Not the inland town of Imbert. Info +1 809-586-6240 · screnovacion.org · Instagram @screnovacion.",
+    // Google Maps place for Calle Duarte 41, esq. Imbert (verified 2026-11-17).
+    lat: 19.797728,
+    lng: -70.694135,
     emoji: "📚",
     phone: "+18095866240",
     instagram: "screnovacion",

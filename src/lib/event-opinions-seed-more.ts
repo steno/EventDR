@@ -9340,10 +9340,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "ocean-world-terrace-graduation-bash-2026-11-20",
-    body: "UTESA graduation Friday on the Cofresí terrace — RD$200 with Melving Swing at night; reserve a decorated graduate table on WhatsApp +1 829-521-9736, and don’t mix it with the dolphin-park ticket line or Rubio + Manon on 4 Dec.",
+    body: "UTESA graduation Friday on the Cofresí terrace — RD$200 with Melving Swing headlining from 8 PM; reserve a decorated graduate table on WhatsApp +1 829-521-9736, and don’t mix it with the dolphin-park ticket line or Rubio + Manon on 4 Dec.",
     localized: {
-      es: "Viernes de graduación UTESA en la terraza de Cofresí — RD$200 con Melving Swing en la noche; reserva mesa decorada estilo graduados por WhatsApp +1 829-521-9736, y no lo mezcles con la fila de delfines ni Rubio + Manon el 4 dic.",
-      fr: "Vendredi graduation UTESA sur la terrasse de Cofresí — RD$200 avec Melving Swing le soir ; réservez une table décorée style diplômés via WhatsApp +1 829-521-9736, et ne confondez pas avec la file des dauphins ni Rubio + Manon le 4 déc.",
+      es: "Viernes de graduación UTESA en la terraza de Cofresí — RD$200 con Melving Swing de headliner desde las 8 PM; reserva mesa decorada estilo graduados por WhatsApp +1 829-521-9736, y no lo mezcles con la fila de delfines ni Rubio + Manon el 4 dic.",
+      fr: "Vendredi graduation UTESA sur la terrasse de Cofresí — RD$200 avec Melving Swing en tête d’affiche dès 20 h ; réservez une table décorée style diplômés via WhatsApp +1 829-521-9736, et ne confondez pas avec la file des dauphins ni Rubio + Manon le 4 déc.",
     },
     priceFeel: "budget",
     priceNote: "RD$200 · tables WhatsApp +1 829-521-9736",
@@ -9352,10 +9352,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       fr: "RD$200 · tables WhatsApp +1 829-521-9736",
     },
     attribution:
-      "POP research · @oceanworldterrace Graduation Bash flyer + caption",
+      "POP research · @oceanworldterrace Graduation Bash + Melving Swing flyer",
     researchNotes:
-      "Editor flyer + IG caption @oceanworldterrace — Vie 20 Nov; Graduation Bash; UTESA Puerto Plata; trago de bienvenida; photo booth; video 360; DJ; Melving Swing noche; entrada RD$200; mesas 829-521-9736.",
-    updatedAt: "2026-11-12T22:45:00.000Z",
+      "Editor flyers + IG @oceanworldterrace — Vie 20 Nov; Graduation Bash UTESA + Melving Swing El Swing Diferente desde 8 PM; RD$200; mesas 829-521-9736; info 809-291-2400. Cover hero -v2 Melvin flyer; gallery keeps graduation art.",
+    updatedAt: "2026-11-17T18:00:00.000Z",
   },
   {
     eventId: "el-liquito-deeway-2026-11-15",
@@ -9789,5 +9789,80 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer + Threads/IG — Sáb 21 Nov cabalgata 3 PM + grounds 8–6; Dom 22 Nov from 8 AM ordeño, Paso Fino, insumos, rifa; Villa Montellano explanada Federación Ganaderos Norte; 829-729-2835; ageHint family. New venueSlug federacion-ganaderos-norte-montellano.",
     updatedAt: "2026-11-17T16:00:00.000Z",
+  },
+  {
+    eventId: "docean-bar-la-insuperable-2026-12-25",
+    body: "Christmas Day La Insuperable at D'Ocean in Villa Isabela — west of Puerto Plata city; RSVP +1 809-840-2860 before you treat it like a Playa Dorada mall walk-up, and don’t mix it with El Prodigio there on the 26th.",
+    localized: {
+      es: "Día de Navidad con La Insuperable en D'Ocean en Villa Isabela — al oeste de Puerto Plata ciudad; RSVP +1 809-840-2860 antes de tratarlo como walk-up del mall de Playa Dorada, y no lo mezcles con El Prodigio ahí el 26.",
+      fr: "Jour de Noël avec La Insuperable au D'Ocean à Villa Isabela — à l’ouest de Puerto Plata ville ; RSVP +1 809-840-2860 avant de le traiter comme un walk-in du mall de Playa Dorada, et ne le confondez pas avec El Prodigio là-bas le 26.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — reservas +1 809-840-2860 · @d_oceanbar",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — reservas +1 809-840-2860 · @d_oceanbar",
+      fr: "Cover à confirmer — réservations +1 809-840-2860 · @d_oceanbar",
+    },
+    attribution:
+      "POP research · D'Ocean / Ramirito La Insuperable Christmas flyer",
+    researchNotes:
+      "Editor flyer — Vie 25 Dic 2026; La Insuperable; D'Ocean Bar Villa Isabela; Ramirito Eventos / Trivypromocion; 809-840-2860; cover not printed.",
+    updatedAt: "2026-11-17T17:00:00.000Z",
+  },
+  {
+    eventId: "docean-bar-el-prodigio-2026-12-26",
+    body: "Boxing Day El Prodigio (El Amarillo) at D'Ocean Villa Isabela — típico energy the night after La Insuperable; call +1 809-840-2860, and don’t confuse it with Food Fest at Parque Municipal earlier that week.",
+    localized: {
+      es: "El Prodigio (El Amarillo) el 26 en D'Ocean Villa Isabela — energía típico la noche después de La Insuperable; llama al +1 809-840-2860, y no lo confundas con Food Fest en el Parque Municipal esa misma semana.",
+      fr: "El Prodigio (El Amarillo) le 26 au D'Ocean Villa Isabela — énergie típico la nuit après La Insuperable ; appelez +1 809-840-2860, et ne le confondez pas avec Food Fest au Parque Municipal plus tôt dans la semaine.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — reservas +1 809-840-2860 · @d_oceanbar",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — reservas +1 809-840-2860 · @d_oceanbar",
+      fr: "Cover à confirmer — réservations +1 809-840-2860 · @d_oceanbar",
+    },
+    attribution:
+      "POP research · D'Ocean / Ramirito El Prodigio El Amarillo flyer",
+    researchNotes:
+      "Editor flyer — Sáb 26 Dic 2026; El Amarillo / El Prodigio En La Casa; D'Ocean Bar Villa Isabela; Organiza Ramirito; 809-840-2860; cover not printed.",
+    updatedAt: "2026-11-17T16:30:00.000Z",
+  },
+  {
+    eventId: "santa-fe-nye-2026-12-31",
+    body: "New Year’s Eve at Santa Fe’s oceanfront fortress in Sosúa Ocean Village — fireworks, buffet, DJ, and Santa on the bill; book WhatsApp +1 829-345-1097 before you treat it like a day-pass walk-up, and don’t mix it with Restaurant Maria next door.",
+    localized: {
+      es: "Año Nuevo en la fortaleza frente al mar de Santa Fe en Sosúa Ocean Village — fuegos, buffet, DJ y Santa en la cartelera; reserva WhatsApp +1 829-345-1097 antes de tratarlo como day pass walk-up, y no lo mezcles con Restaurant Maria al lado.",
+      fr: "Réveillon à la forteresse océanfront Santa Fe dans Sosúa Ocean Village — feux, buffet, DJ et Père Noël au programme ; réservez WhatsApp +1 829-345-1097 avant d’y aller comme un day pass walk-in, et ne confondez pas avec Restaurant Maria à côté.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Admission TBA — WA +1 829-345-1097 · @santafesov",
+    priceNoteLocalized: {
+      es: "Entrada por confirmar — WA +1 829-345-1097 · @santafesov",
+      fr: "Entrée à confirmer — WA +1 829-345-1097 · @santafesov",
+    },
+    attribution: "POP research · @santafesov Happy New Year 2027 flyer + caption",
+    researchNotes:
+      "Editor flyer + IG caption @santafesov — 31 Dic 2026; Happy New Year 2027; fireworks, live DJ, Crazy Hour, buffet, Santa; WA +1 829-345-1097; venue phone 829-961-2269; affordable admission not priced on art.",
+    updatedAt: "2026-11-17T19:00:00.000Z",
+  },
+  {
+    eventId: "aura-girls-in-glow-up-2026-12-05",
+    body: "Saturday 4 PM spa/glow afternoon upstairs at Aura for 20 Glow Girls only — Orchid Beauty Spa owns the RSVP on (849) 630-9540; don’t treat it like Aura Disco late night or the same-Saturday Kreizy K bills at Twenty / Chameleon.",
+    localized: {
+      es: "Sábado 4 PM tarde spa/glow en el piso de arriba de Aura solo para 20 Glow Girls — Orchid Beauty Spa maneja el RSVP al (849) 630-9540; no lo trates como Aura Disco de madrugada ni los Kreizy K del mismo sábado en Twenty / Chameleon.",
+      fr: "Samedi 16 h après-midi spa/glow à l’étage d’Aura pour 20 Glow Girls seulement — Orchid Beauty Spa gère le RSVP au (849) 630-9540 ; ne le traitez pas comme Aura Disco tard le soir ni les Kreizy K du même samedi à Twenty / Chameleon.",
+    },
+    priceFeel: "varies",
+    priceNote: "Admission TBA — (849) 630-9540 · @orchidspabeauty",
+    priceNoteLocalized: {
+      es: "Entrada por confirmar — (849) 630-9540 · @orchidspabeauty",
+      fr: "Entrée à confirmer — (849) 630-9540 · @orchidspabeauty",
+    },
+    attribution:
+      "POP research · @orchidspabeauty Girls in Glow Up flyer + caption",
+    researchNotes:
+      "Editor flyer + IG caption @orchidspabeauty — Sáb 5 Dic 2026 4 PM; 2do nivel Restaurante Aura zona VIP Cabarete; 20 Glow Girls; Orquidea C. Henríquez Almonte; (849) 630-9540; Aura Beach Club logo on art.",
+    updatedAt: "2026-11-17T18:30:00.000Z",
   },
 ];

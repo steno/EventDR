@@ -10973,9 +10973,9 @@
     "location": "Puerto Plata",
     "venue": "Sociedad Cultural Renovación",
     "venueSlug": "sociedad-cultural-renovacion",
-    "address": "Salón Dr. Osvaldo Brugal, Calle Duarte No. 41, esq. Imbert, Puerto Plata",
-    "lat": 19.797739,
-    "lng": -70.694253,
+    "address": "Salón Dr. Osvaldo Brugal, Calle Duarte No. 41, esq. Calle Imbert, Puerto Plata",
+    "lat": 19.797728,
+    "lng": -70.694135,
     "category": "culture",
     "categories": [
       "art",
@@ -10990,7 +10990,7 @@
     "instagram": "screnovacion",
     "imageEmoji": "📖",
     "title": "Renovación — Sus días contados (Pedro Santana)",
-    "description": "Book launch (puesta en circulación) of the historical novel Sus días contados by Pedro Santana, presented by writer Omar Messón, at Salón Dr. Osvaldo Brugal, Sociedad Cultural Renovación, Calle Duarte No. 41, Puerto Plata — Tuesday 24 November 2026 at 6:30 PM. Free entry typical for Renovación launches; confirm via Instagram @screnovacion or +1 809-586-6240 · screnovacion.org. Downtown literary salon — not a Malecón nightlife stop.",
+    "description": "Book launch (puesta en circulación) of the historical novel Sus días contados by Pedro Santana, presented by writer Omar Messón, at Salón Dr. Osvaldo Brugal, Sociedad Cultural Renovación, Calle Duarte No. 41 esq. Calle Imbert, Puerto Plata historic center — Tuesday 24 November 2026 at 6:30 PM. Free entry typical for Renovación launches; confirm via Instagram @screnovacion or +1 809-586-6240 · screnovacion.org. Literary salon near Plaza Independencia — not the inland town of Imbert, and not a Malecón nightlife stop.",
     "lineup": [
       "Pedro Santana",
       "Omar Messón",
@@ -11467,7 +11467,7 @@
   {
     "id": "ocean-world-terrace-graduation-bash-2026-11-20",
     "title": "Ocean World Terrace — Graduation Bash · UTESA",
-    "description": "Graduation Bash for UTESA Puerto Plata graduates at Terraza Ocean World & Casino, Calle Principal #3, Cofresí — Friday 20 November 2026 from 8:00 PM with Melving Swing (El Swing Diferente) on the terrace stage. Welcome drink for graduates, photo booth, 360 video booth, DJ, and live típico. Entry RD$200; decorated graduate-style tables via WhatsApp +1 829-521-9736 · info +1 809-291-2400. Instagram @oceanworldterrace. Cofresí terrace graduation night — not the dolphin-park ticket line, not Latin Disco’s same-Friday free Semaforo Party downtown, and not Rubio Acordeón + Manon on 4 Dec.",
+    "description": "Graduation Bash for UTESA Puerto Plata graduates at Terraza Ocean World & Casino, Calle Principal #3, Cofresí — Friday 20 November 2026 from 8:00 PM with Melving Swing (El Swing Diferente) headlining the terrace stage. Welcome drink for graduates, photo booth, 360 video booth, DJ, and live típico. Entry RD$200; decorated graduate-style tables via WhatsApp +1 829-521-9736 · info +1 809-291-2400. Instagram @oceanworldterrace. Same Melvin Swing Friday night as the terrace IG flyer — not the dolphin-park ticket line, not Latin Disco’s same-Friday free Semaforo Party downtown, and not Rubio Acordeón + Manon on 4 Dec.",
     "date": "2026-11-20",
     "time": "8:00 PM",
     "location": "Puerto Plata",
@@ -12128,5 +12128,124 @@
     ],
     "imageEmoji": "🐄",
     "ageHint": "family"
+  },
+  {
+    "id": "docean-bar-la-insuperable-2026-12-25",
+    "title": "D'Ocean — La Insuperable · Christmas Day · 25 Dec",
+    "description": "Christmas Day with La Insuperable at D'Ocean Bar, Villa Isabela, Puerto Plata — Friday 25 December 2026. Presented by Ramirito Eventos / Trivypromocion. Cover not on the flyer — reservations +1 809-840-2860 · Instagram @d_oceanbar. Villa Isabela Christmas disco — not Isabela Food Fest at Parque Municipal (18–20 Dec), and not El Prodigio at D'Ocean the next night (26 Dec).",
+    "date": "2026-12-25",
+    "venue": "D'Ocean Bar",
+    "venueSlug": "docean-bar-villa-isabela",
+    "address": "Villa Isabela, Puerto Plata",
+    "lat": 19.823158,
+    "lng": -71.056938,
+    "phone": "+18098402860",
+    "location": "Villa Isabela",
+    "category": "christmas",
+    "categories": [
+      "music",
+      "parties"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/d_oceanbar/",
+    "instagram": "d_oceanbar",
+    "lineup": [
+      "La Insuperable"
+    ],
+    "imageEmoji": "🎄"
+  },
+  {
+    "id": "docean-bar-el-prodigio-2026-12-26",
+    "title": "D'Ocean — El Prodigio (El Amarillo) · 26 Dec",
+    "description": "El Prodigio (El Amarillo) en la casa at D'Ocean Bar, Villa Isabela, Puerto Plata — Saturday 26 December 2026. Organized by Ramirito. Cover not on the flyer — info & reservations +1 809-840-2860 · Instagram @d_oceanbar. Boxing Day típico/disco night in Villa Isabela — not La Insuperable on Christmas Day (25 Dec), and not Isabela Food Fest at Parque Municipal (18–20 Dec).",
+    "date": "2026-12-26",
+    "venue": "D'Ocean Bar",
+    "venueSlug": "docean-bar-villa-isabela",
+    "address": "Villa Isabela, Puerto Plata",
+    "lat": 19.823158,
+    "lng": -71.056938,
+    "phone": "+18098402860",
+    "location": "Villa Isabela",
+    "category": "christmas",
+    "categories": [
+      "music",
+      "parties"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/d_oceanbar/",
+    "instagram": "d_oceanbar",
+    "lineup": [
+      "El Prodigio",
+      "El Amarillo"
+    ],
+    "imageEmoji": "🪗"
+  },
+  {
+    "id": "santa-fe-nye-2026-12-31",
+    "title": "Santa Fe — Happy New Year 2027 · 31 Dec",
+    "description": "Ring in the New Year at Santa Fe Club, Sosúa Ocean Village — Thursday 31 December 2026. Fireworks, live DJ, Crazy Hour, buffet dinner, and a Santa Claus visit; admission priced as affordable (confirm when you book). Reservations WhatsApp +1 829-345-1097 · venue +1 829-961-2269 · Instagram @santafesov. Ocean Village NYE fortress/pool night — not Restaurant Maria’s day pass, and not a Playa Dorada mall countdown.",
+    "date": "2026-12-31",
+    "location": "Sosúa",
+    "venue": "Santa Fe",
+    "venueSlug": "santa-fe-sov",
+    "address": "Ocean Village Deluxe, Sosúa Ocean Village, Sosúa 57000",
+    "lat": 19.7803548,
+    "lng": -70.505895,
+    "phone": "+18293451097",
+    "category": "parties",
+    "categories": [
+      "food-drinks",
+      "festivals"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/santafesov/",
+    "instagram": "santafesov",
+    "lineup": [
+      "Fireworks",
+      "Live DJ",
+      "Crazy Hour",
+      "Buffet dinner",
+      "Santa Claus"
+    ],
+    "imageEmoji": "🎆"
+  },
+  {
+    "id": "aura-girls-in-glow-up-2026-12-05",
+    "title": "Aura — Girls in Glow Up · 5 Dec",
+    "description": "Girls in Glow Up by Orchid Beauty Spa — women-only beauty, wellness, and personal-growth afternoon on the 2nd level VIP zone at Aura Beach Club / Restaurante Aura, Calle Principal, Cabarete — Saturday 5 December 2026 at 4:00 PM. Limited to 20 Glow Girls. Skin · hair · intimate · mind · party focus. RSVP (849) 630-9540 · Instagram @orchidspabeauty. Cabarete spa afternoon upstairs at Aura — not Kreizy K the same Saturday at Twenty Disco or Chameleon Mañanitas, and not Aura Disco late night.",
+    "date": "2026-12-05",
+    "time": "4:00 PM",
+    "location": "Cabarete",
+    "venue": "Aura Beach Club Cabarete",
+    "venueSlug": "aura-beach-club-cabarete",
+    "address": "Calle Principal, Cabarete (2nd level / VIP zone)",
+    "lat": 19.7500769,
+    "lng": -70.4070417,
+    "phone": "+18496309540",
+    "category": "health-wellness",
+    "categories": [
+      "parties",
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/orchidspabeauty/",
+    "instagram": "orchidspabeauty",
+    "lineup": [
+      "Orchid Beauty Spa",
+      "Glow Girls (20 spots)"
+    ],
+    "imageEmoji": "✨"
   }
 ]

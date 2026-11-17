@@ -1044,6 +1044,30 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "federacion-ganaderos-norte-montellano",
     sourceUrl: "https://www.instagram.com/agmontellano/",
   },
+  "docean-bar-la-insuperable-2026-12-25": {
+    callForPricing: true,
+    phone: "+18098402860",
+    venueSlug: "docean-bar-villa-isabela",
+    sourceUrl: "https://www.instagram.com/d_oceanbar/",
+  },
+  "docean-bar-el-prodigio-2026-12-26": {
+    callForPricing: true,
+    phone: "+18098402860",
+    venueSlug: "docean-bar-villa-isabela",
+    sourceUrl: "https://www.instagram.com/d_oceanbar/",
+  },
+  "santa-fe-nye-2026-12-31": {
+    callForPricing: true,
+    phone: "+18293451097",
+    venueSlug: "santa-fe-sov",
+    sourceUrl: "https://www.instagram.com/santafesov/",
+  },
+  "aura-girls-in-glow-up-2026-12-05": {
+    callForPricing: true,
+    phone: "+18496309540",
+    venueSlug: "aura-beach-club-cabarete",
+    sourceUrl: "https://www.instagram.com/orchidspabeauty/",
+  },
   "aura-alice-wonderland-2026-11-14": {
     callForPricing: true,
     phone: "+18297870140",

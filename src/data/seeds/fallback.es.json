@@ -10973,9 +10973,9 @@
     "location": "Puerto Plata",
     "venue": "Sociedad Cultural Renovación",
     "venueSlug": "sociedad-cultural-renovacion",
-    "address": "Salón Dr. Osvaldo Brugal, Calle Duarte No. 41, esq. Imbert, Puerto Plata",
-    "lat": 19.797739,
-    "lng": -70.694253,
+    "address": "Salón Dr. Osvaldo Brugal, Calle Duarte No. 41, esq. Calle Imbert, Puerto Plata",
+    "lat": 19.797728,
+    "lng": -70.694135,
     "category": "culture",
     "categories": [
       "art",
@@ -10990,7 +10990,7 @@
     "instagram": "screnovacion",
     "imageEmoji": "📖",
     "title": "Renovación — Sus días contados (Pedro Santana)",
-    "description": "Puesta en circulación de la novela histórica Sus días contados de Pedro Santana, presentada por el escritor Omar Messón, en el Salón Dr. Osvaldo Brugal, Sociedad Cultural Renovación, Calle Duarte No. 41, Puerto Plata — martes 24 de noviembre 2026 a las 6:30 PM. Entrada libre típica en Renovación; confirma vía Instagram @screnovacion o +1 809-586-6240 · screnovacion.org. Salón literario en el centro — no es una parada de nightlife del Malecón.",
+    "description": "Puesta en circulación de la novela histórica Sus días contados de Pedro Santana, presentada por el escritor Omar Messón, en el Salón Dr. Osvaldo Brugal, Sociedad Cultural Renovación, Calle Duarte No. 41 esq. Calle Imbert, centro histórico de Puerto Plata — martes 24 de noviembre 2026 a las 6:30 PM. Entrada libre típica en Renovación; confirma vía Instagram @screnovacion o +1 809-586-6240 · screnovacion.org. Salón literario cerca de Plaza Independencia — no es el municipio de Imbert tierra adentro, ni una parada de nightlife del Malecón.",
     "lineup": [
       "Pedro Santana",
       "Omar Messón",
@@ -11467,7 +11467,7 @@
   {
     "id": "ocean-world-terrace-graduation-bash-2026-11-20",
     "title": "Ocean World Terrace — Graduation Bash · UTESA",
-    "description": "Graduation Bash para egresados UTESA Puerto Plata en Terraza Ocean World & Casino, Calle Principal #3, Cofresí — viernes 20 de noviembre 2026 desde las 8:00 PM con Melving Swing (El Swing Diferente) en la tarima de la terraza. Bebida de bienvenida para egresados, photo booth, 360 video booth, DJ y típico en vivo. Entrada RD$200; mesas estilo graduación vía WhatsApp +1 829-521-9736 · info +1 809-291-2400. Instagram @oceanworldterrace. Noche de graduación en terraza de Cofresí — no es la fila de delfines del parque, ni el Semaforo Party gratis de Latin Disco el mismo viernes en el centro, ni Rubio Acordeón + Manon el 4 dic.",
+    "description": "Graduation Bash para egresados UTESA Puerto Plata en Terraza Ocean World & Casino, Calle Principal #3, Cofresí — viernes 20 de noviembre 2026 desde las 8:00 PM con Melving Swing (El Swing Diferente) de headliner en la tarima de la terraza. Bebida de bienvenida para egresados, photo booth, 360 video booth, DJ y típico en vivo. Entrada RD$200; mesas estilo graduación vía WhatsApp +1 829-521-9736 · info +1 809-291-2400. Instagram @oceanworldterrace. Misma noche Melvin Swing del flyer de terraza — no es la fila de delfines del parque, ni el Semaforo Party gratis de Latin Disco el mismo viernes en el centro, ni Rubio Acordeón + Manon el 4 dic.",
     "date": "2026-11-20",
     "location": "Puerto Plata",
     "venue": "Terraza Ocean World",
@@ -12128,5 +12128,124 @@
     ],
     "imageEmoji": "🐄",
     "ageHint": "family"
+  },
+  {
+    "id": "docean-bar-la-insuperable-2026-12-25",
+    "title": "D'Ocean — La Insuperable · Día de Navidad · 25 dic",
+    "description": "Día de Navidad con La Insuperable en D'Ocean Bar, Villa Isabela, Puerto Plata — viernes 25 de diciembre de 2026. Organiza Ramirito Eventos / Trivypromocion. Cover no figura en el flyer — reservaciones +1 809-840-2860 · Instagram @d_oceanbar. Disco de Navidad en Villa Isabela — no es Isabela Food Fest en el Parque Municipal (18–20 dic), ni El Prodigio en D'Ocean al día siguiente (26 dic).",
+    "date": "2026-12-25",
+    "venue": "D'Ocean Bar",
+    "venueSlug": "docean-bar-villa-isabela",
+    "address": "Villa Isabela, Puerto Plata",
+    "lat": 19.823158,
+    "lng": -71.056938,
+    "phone": "+18098402860",
+    "location": "Villa Isabela",
+    "category": "christmas",
+    "categories": [
+      "music",
+      "parties"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/d_oceanbar/",
+    "instagram": "d_oceanbar",
+    "lineup": [
+      "La Insuperable"
+    ],
+    "imageEmoji": "🎄"
+  },
+  {
+    "id": "docean-bar-el-prodigio-2026-12-26",
+    "title": "D'Ocean — El Prodigio (El Amarillo) · 26 dic",
+    "description": "El Prodigio (El Amarillo) en la casa en D'Ocean Bar, Villa Isabela, Puerto Plata — sábado 26 de diciembre de 2026. Organiza Ramirito. Cover no figura en el flyer — info y reservaciones +1 809-840-2860 · Instagram @d_oceanbar. Noche típico/disco del 26 en Villa Isabela — no es La Insuperable el Día de Navidad (25 dic), ni Isabela Food Fest en el Parque Municipal (18–20 dic).",
+    "date": "2026-12-26",
+    "venue": "D'Ocean Bar",
+    "venueSlug": "docean-bar-villa-isabela",
+    "address": "Villa Isabela, Puerto Plata",
+    "lat": 19.823158,
+    "lng": -71.056938,
+    "phone": "+18098402860",
+    "location": "Villa Isabela",
+    "category": "christmas",
+    "categories": [
+      "music",
+      "parties"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/d_oceanbar/",
+    "instagram": "d_oceanbar",
+    "lineup": [
+      "El Prodigio",
+      "El Amarillo"
+    ],
+    "imageEmoji": "🪗"
+  },
+  {
+    "id": "santa-fe-nye-2026-12-31",
+    "title": "Santa Fe — Happy New Year 2027 · 31 dic",
+    "description": "Año Nuevo en Santa Fe Club, Sosúa Ocean Village — jueves 31 de diciembre de 2026. Fuegos artificiales, DJ en vivo, Crazy Hour, cena buffet y visita de Santa Claus; entrada a precio accesible (confirma al reservar). Reservaciones WhatsApp +1 829-345-1097 · venue +1 829-961-2269 · Instagram @santafesov. Noche de Año Nuevo en la fortaleza/piscinas de Ocean Village — no es el day pass de Restaurant Maria, ni una cuenta regresiva en el mall de Playa Dorada.",
+    "date": "2026-12-31",
+    "location": "Sosúa",
+    "venue": "Santa Fe",
+    "venueSlug": "santa-fe-sov",
+    "address": "Ocean Village Deluxe, Sosúa Ocean Village, Sosúa 57000",
+    "lat": 19.7803548,
+    "lng": -70.505895,
+    "phone": "+18293451097",
+    "category": "parties",
+    "categories": [
+      "food-drinks",
+      "festivals"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/santafesov/",
+    "instagram": "santafesov",
+    "lineup": [
+      "Fuegos artificiales",
+      "DJ en vivo",
+      "Crazy Hour",
+      "Cena buffet",
+      "Santa Claus"
+    ],
+    "imageEmoji": "🎆"
+  },
+  {
+    "id": "aura-girls-in-glow-up-2026-12-05",
+    "title": "Aura — Girls in Glow Up · 5 dic",
+    "description": "Girls in Glow Up by Orchid Beauty Spa — tarde solo para mujeres de belleza, bienestar y crecimiento personal en el 2do nivel zona VIP de Aura Beach Club / Restaurante Aura, Calle Principal, Cabarete — sábado 5 de diciembre de 2026 a las 4:00 p. m. Cupos limitados a 20 Glow Girls. Enfoque skin · hair · intimate · mind · party. RSVP (849) 630-9540 · Instagram @orchidspabeauty. Tarde spa en el piso de arriba de Aura en Cabarete — no es Kreizy K el mismo sábado en Twenty Disco ni Mañanitas de Chameleon, ni Aura Disco de madrugada.",
+    "date": "2026-12-05",
+    "time": "4:00 PM",
+    "location": "Cabarete",
+    "venue": "Aura Beach Club Cabarete",
+    "venueSlug": "aura-beach-club-cabarete",
+    "address": "Calle Principal, Cabarete (2do nivel / zona VIP)",
+    "lat": 19.7500769,
+    "lng": -70.4070417,
+    "phone": "+18496309540",
+    "category": "health-wellness",
+    "categories": [
+      "parties",
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/orchidspabeauty/",
+    "instagram": "orchidspabeauty",
+    "lineup": [
+      "Orchid Beauty Spa",
+      "Glow Girls (20 cupos)"
+    ],
+    "imageEmoji": "✨"
   }
 ]

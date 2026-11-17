@@ -460,6 +460,8 @@ const FILE_TO_EVENT_ID = {
   "el-parq-karaoke-kids-2026-11-12.jpg": "el-parq-karaoke-kids-2026-11-12",
   "ocean-world-terrace-graduation-bash-2026-11-20.jpg":
     "ocean-world-terrace-graduation-bash-2026-11-20",
+  "ocean-world-terrace-graduation-bash-2026-11-20-v2.jpg":
+    "ocean-world-terrace-graduation-bash-2026-11-20-v2",
   "el-liquito-deeway-2026-11-15.jpg": "el-liquito-deeway-2026-11-15",
   "dominican-surf-festival-2026-12-10.jpg":
     "dominican-surf-festival-2026-12-10",
@@ -1126,6 +1128,15 @@ const FILE_TO_VENUE_SLUG = {
     "chiche-almonte-vinoteca-2026-11-28",
   "montellano-gran-dia-de-campo-2026-11-21.jpg":
     "montellano-gran-dia-de-campo-2026-11-21",
+  "docean-bar-la-insuperable-2026-12-25.jpg":
+    "docean-bar-la-insuperable-2026-12-25",
+  "docean-bar-el-prodigio-2026-12-26.jpg": "docean-bar-el-prodigio-2026-12-26",
+  "santa-fe-nye-2026-12-31.jpg": "santa-fe-nye-2026-12-31",
+  "aura-girls-in-glow-up-2026-12-05.jpg": "aura-girls-in-glow-up-2026-12-05",
+  "sociedad-cultural-renovacion-library.jpg":
+    "sociedad-cultural-renovacion-library",
+  "sociedad-cultural-renovacion-reading-room.jpg":
+    "sociedad-cultural-renovacion-reading-room",
   "aura-alice-wonderland-2026-11-14.jpg": "aura-alice-wonderland-2026-11-14",
   // Keep -v2 in dest so sync never recreates the retired IG-chrome URL.
   "casa-arte-sosua-morphy-legado-2026-11-14-v2.jpg":
@@ -1171,6 +1182,10 @@ const FILE_TO_VENUE_SLUG = {
   "los-guaos-veragua-field.jpg": "los-guaos-veragua",
   "037-bar-restaurant-entrance.jpg": "037-bar-restaurant",
   "goddess-la-diosa-cabarete-v2.jpg": "goddess-la-diosa-cabarete",
+  "sociedad-cultural-renovacion-library.jpg":
+    "sociedad-cultural-renovacion-library",
+  "sociedad-cultural-renovacion-reading-room.jpg":
+    "sociedad-cultural-renovacion-reading-room",
   "klok-smoke-bar-interior.jpg": "klok-smoke-bar",
   "klok-smoke-bar-interior-v2.jpg": "klok-smoke-bar",
   "chameleon-la-mas-doll-2026-12-19.jpg":

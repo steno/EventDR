@@ -25,7 +25,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "037-bar-karaoke-2026-11-13": "037-bar-karaoke-2026-11-13.jpg",
   "el-parq-karaoke-kids-2026-11-12": "el-parq-karaoke-kids-2026-11-12.jpg",
   "ocean-world-terrace-graduation-bash-2026-11-20":
-    "ocean-world-terrace-graduation-bash-2026-11-20.jpg",
+    "ocean-world-terrace-graduation-bash-2026-11-20-v2.jpg",
   "el-liquito-deeway-2026-11-15": "el-liquito-deeway-2026-11-15.jpg",
   "dominican-surf-festival-2026-12-10":
     "dominican-surf-festival-2026-12-10.jpg",
@@ -844,6 +844,11 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "chiche-almonte-vinoteca-2026-11-28.jpg",
   "montellano-gran-dia-de-campo-2026-11-21":
     "montellano-gran-dia-de-campo-2026-11-21.jpg",
+  "docean-bar-la-insuperable-2026-12-25":
+    "docean-bar-la-insuperable-2026-12-25.jpg",
+  "docean-bar-el-prodigio-2026-12-26": "docean-bar-el-prodigio-2026-12-26.jpg",
+  "santa-fe-nye-2026-12-31": "santa-fe-nye-2026-12-31.jpg",
+  "aura-girls-in-glow-up-2026-12-05": "aura-girls-in-glow-up-2026-12-05.jpg",
   "aura-alice-wonderland-2026-11-14": "aura-alice-wonderland-2026-11-14.jpg",
   "casa-arte-sosua-morphy-legado-2026-11-14":
     "casa-arte-sosua-morphy-legado-2026-11-14-v2.jpg",
@@ -1533,6 +1538,35 @@ const EVENT_GALLERY_SLIDES: Record<
       label: "Jhunior",
     },
   ],
+  "ocean-world-terrace-graduation-bash-2026-11-20": [
+    {
+      file: "ocean-world-terrace-graduation-bash-2026-11-20-v2.jpg",
+      venueSlug: "ocean-world",
+      label: "Melving Swing",
+    },
+    {
+      file: "ocean-world-terrace-graduation-bash-2026-11-20.jpg",
+      venueSlug: "ocean-world",
+      label: "Graduation Bash",
+    },
+  ],
+  "pedro-santana-sus-dias-contados-2026-11-24": [
+    {
+      file: "pedro-santana-sus-dias-contados-2026-11-24.jpg",
+      venueSlug: "sociedad-cultural-renovacion",
+      label: "Sus días contados",
+    },
+    {
+      file: "sociedad-cultural-renovacion-library.jpg",
+      venueSlug: "sociedad-cultural-renovacion",
+      label: "Biblioteca Renovación",
+    },
+    {
+      file: "sociedad-cultural-renovacion-reading-room.jpg",
+      venueSlug: "sociedad-cultural-renovacion",
+      label: "Reading room",
+    },
+  ],
 };
 
 export function getEventGallerySlides(
@@ -1581,6 +1615,10 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "disco-club-gogo-dancers-2026-11-19.jpg",
   "chiche-almonte-vinoteca-2026-11-28.jpg",
   "montellano-gran-dia-de-campo-2026-11-21.jpg",
+  "docean-bar-la-insuperable-2026-12-25.jpg",
+  "docean-bar-el-prodigio-2026-12-26.jpg",
+  "santa-fe-nye-2026-12-31.jpg",
+  "aura-girls-in-glow-up-2026-12-05.jpg",
   "aura-alice-wonderland-2026-11-14.jpg",
   "casa-arte-sosua-morphy-legado-2026-11-14-v2.jpg",
   "hard-rock-anne-live-2026-11-14.jpg",
@@ -1611,6 +1649,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "037-bar-karaoke-2026-11-13.jpg",
   "el-parq-karaoke-kids-2026-11-12.jpg",
   "ocean-world-terrace-graduation-bash-2026-11-20.jpg",
+  "ocean-world-terrace-graduation-bash-2026-11-20-v2.jpg",
   "el-liquito-deeway-2026-11-15.jpg",
   "dominican-surf-festival-2026-12-10.jpg",
   "aguinaldo-5k-navideno-2026-12-19.jpg",

@@ -1506,11 +1506,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "sociedad-cultural-renovacion": {
-    body: "Downtown library-and-salon on Calle Duarte #41 at Imbert — book launches in Salón Dr. Osvaldo Brugal are usually free and seated; call +1 809-586-6240 / @screnovacion before you assume walk-in capacity, and don’t confuse it with a Malecón nightlife stop.",
+    body: "Biblioteca Renovación in the historic center at Calle Duarte #41 / Calle Imbert (near Plaza Independencia — not the inland town of Imbert) — 4th-floor reading rooms with Atlantic views; launches in Salón Dr. Osvaldo Brugal are usually free and seated; call +1 809-586-6240 / @screnovacion before you assume walk-in capacity.",
     localized: {
-      en: "Downtown library-and-salon on Calle Duarte #41 at Imbert — book launches in Salón Dr. Osvaldo Brugal are usually free and seated; call +1 809-586-6240 / @screnovacion before you assume walk-in capacity, and don’t confuse it with a Malecón nightlife stop.",
-      es: "Biblioteca y salón en el centro en Calle Duarte #41 esquina Imbert — las puestas en circulación en el Salón Dr. Osvaldo Brugal suelen ser gratis y con asientos; llama al +1 809-586-6240 / @screnovacion antes de asumir cupo walk-in, y no lo confundas con una parada de nightlife del Malecón.",
-      fr: "Bibliothèque et salon downtown au Calle Duarte #41 coin Imbert — les lancements au Salón Dr. Osvaldo Brugal sont souvent gratuits et assis ; appelez +1 809-586-6240 / @screnovacion avant de compter sur le walk-in, et ne le confondez pas avec une halte nightlife du Malecón.",
+      en: "Biblioteca Renovación in the historic center at Calle Duarte #41 / Calle Imbert (near Plaza Independencia — not the inland town of Imbert) — 4th-floor reading rooms with Atlantic views; launches in Salón Dr. Osvaldo Brugal are usually free and seated; call +1 809-586-6240 / @screnovacion before you assume walk-in capacity.",
+      es: "Biblioteca Renovación en el centro histórico en Calle Duarte #41 / Calle Imbert (cerca de Plaza Independencia — no el municipio de Imbert tierra adentro) — salas de lectura en el 4to piso con vista al Atlántico; las puestas en circulación en el Salón Dr. Osvaldo Brugal suelen ser gratis y con asientos; llama al +1 809-586-6240 / @screnovacion antes de asumir cupo walk-in.",
+      fr: "Biblioteca Renovación dans le centre historique au Calle Duarte #41 / Calle Imbert (près de Plaza Independencia — pas la ville d’Imbert à l’intérieur) — salles de lecture au 4e étage avec vue Atlantique ; les lancements au Salón Dr. Osvaldo Brugal sont souvent gratuits et assis ; appelez +1 809-586-6240 / @screnovacion avant de compter sur le walk-in.",
     },
   },
   "toscana-nightclub": {

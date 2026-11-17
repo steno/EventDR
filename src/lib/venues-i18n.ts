@@ -1183,8 +1183,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Sociedad Cultural Renovación",
     },
     description: {
-      es: "Sociedad cultural e histórica y biblioteca pública (est. 1928) en Calle Duarte No. 41, esquina Imbert — Biblioteca Renovación, Salón Dr. Osvaldo Brugal para puestas en circulación y charlas, y programas de arte para la ciudad. Info +1 809-586-6240 · screnovacion.org · Instagram @screnovacion.",
-      fr: "Société culturelle historique et bibliothèque publique (est. 1928) au Calle Duarte n° 41, coin Imbert — Biblioteca Renovación, Salón Dr. Osvaldo Brugal pour lancements de livres et talks, et programmes artistiques pour la ville. Info +1 809-586-6240 · screnovacion.org · Instagram @screnovacion.",
+      es: "Sociedad cultural e histórica y biblioteca pública (est. 1928) en Calle Duarte No. 41, esquina Calle Imbert, en el centro histórico de Puerto Plata (cerca de Plaza Independencia / Calle de las Sombrillas) — salas y estantes de Biblioteca Renovación (4to piso con vista al Atlántico), Salón Dr. Osvaldo Brugal para puestas en circulación y charlas, y programas de arte para la ciudad. No es el municipio de Imbert tierra adentro. Info +1 809-586-6240 · screnovacion.org · Instagram @screnovacion.",
+      fr: "Société culturelle historique et bibliothèque publique (est. 1928) au Calle Duarte n° 41, coin Calle Imbert, dans le centre historique de Puerto Plata (près de Plaza Independencia / Calle de las Sombrillas) — salles et rayons de Biblioteca Renovación (4e étage avec vue sur l’Atlantique), Salón Dr. Osvaldo Brugal pour lancements de livres et talks, et programmes artistiques pour la ville. Ce n’est pas la ville d’Imbert à l’intérieur. Info +1 809-586-6240 · screnovacion.org · Instagram @screnovacion.",
     },
   },
   "toscana-nightclub": {
