@@ -61,6 +61,9 @@ const FILE_TO_EVENT_ID = {
     "novus-flow-dance-noche-latina-weekly",
   "natura-sunbar-sunset-sounds-ivan-ramirez-2026-11-05.jpg":
     "natura-sunbar-sunset-sounds-ivan-ramirez-2026-11-05",
+  "natura-sunbar-sunset-sounds-aldenkings-2026-11-19.jpg":
+    "natura-sunbar-sunset-sounds-aldenkings-2026-11-19",
+  "chill-grill-paul-naar-2026-11-18.jpg": "chill-grill-paul-naar-2026-11-18",
   "christmas-popup-market-calle-sombrillas-2026-12-20.jpg":
     "christmas-popup-market-calle-sombrillas-2026-12-20",
   "parada-el-choco-los-frescos-aperitivo-2026-11-03.jpg":
@@ -322,6 +325,7 @@ const FILE_TO_EVENT_ID = {
   "womens-reconnection-kite-camp-2026.jpg": "womens-reconnection-kite-camp-2026",
   "brugal-rum-center-weekdays.jpg": "brugal-rum-center-weekdays",
   "brugal-corporate-tours.jpg": "brugal-corporate-tours",
+  "del-oro-chocolate-factory-tour-v2.jpg": "del-oro-chocolate-factory-tour",
   "del-oro-chocolate-factory-tour.jpg": "del-oro-chocolate-factory-tour",
   "hacienda-cufa-cacao-tour.jpg": "hacienda-cufa-cacao-tour",
   "tabacalera-cremo-factory-tour.jpg": "tabacalera-cremo-factory-tour",
@@ -644,6 +648,7 @@ const FILE_TO_EVENT_ID = {
   "cabarete-classic-2026.jpg": "cabarete-classic-2026",
 
   // --- 2026 crawl: food & culture ---
+  "paella-pop-el-pueblito-pan-v3.jpg": "paella-pop-el-pueblito",
   "paella-pop-el-pueblito-pan-v2.jpg": "paella-pop-el-pueblito",
   "paella-pop-el-pueblito-pan.jpg": "paella-pop-el-pueblito",
   "paella-pop-el-pueblito.jpg": "paella-pop-el-pueblito",
@@ -1017,7 +1022,8 @@ const FILE_TO_VENUE_SLUG = {
   "ground-zero-disco-lounge.jpg": "ground-zero-disco-lounge",
   "aurabeach.jpg": "aura-beach-club-cabarete",
   "macorix-house-of-rum.jpg": "macorix-house-of-rum",
-  // Filename bump — Google Maps Del Oro facade (not the chocolate-box overlay).
+  // Filename bump — POP-supplied group at oval Del Oro facade (shop stays on the event).
+  "del-oro-chocolate-factory-facade-v2.jpg": "del-oro-chocolate-factory-facade",
   "del-oro-chocolate-factory-facade.jpg": "del-oro-chocolate-factory-facade",
   "espadrillas.jpeg": "handmade-the-brand",
   // Filename bump — Wikimedia lawn + flags (event uses the visitors/ramparts shot).

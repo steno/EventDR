@@ -94,8 +94,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "monkeyland-puerto-plata": "monkeyland-puerto-plata.jpg",
   "coconut-cove": "coconut-cove.jpg",
   "brugal-rum-center": "brugal-rum-center.jpg",
-  // Filename bump — Google Maps facade (not the shared chocolate-box overlay).
-  "del-oro-chocolate-factory": "del-oro-chocolate-factory-facade.jpg",
+  // Filename bump — POP-supplied group at oval Del Oro facade (shop stays on the event).
+  "del-oro-chocolate-factory": "del-oro-chocolate-factory-facade-v2.jpg",
   "hacienda-cufa": "hacienda-cufa.jpg",
   "tabacalera-cremo": "tabacalera-cremo.jpg",
   "vivonte-cigar-factory": "vivonte-cigar-factory.jpg",

@@ -1062,6 +1062,19 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "santa-fe-sov",
     sourceUrl: "https://www.instagram.com/santafesov/",
   },
+  "natura-sunbar-sunset-sounds-aldenkings-2026-11-19": {
+    callForPricing: true,
+    phone: "+18492147010",
+    venueSlug: "natura-cabana",
+    sourceUrl:
+      "https://naturacabana.com/event/events-sunset-and-sounds-cabarete/",
+  },
+  "chill-grill-paul-naar-2026-11-18": {
+    callForPricing: true,
+    phone: "+18296798389",
+    venueSlug: "castaways-sosua",
+    sourceUrl: "https://www.instagram.com/chillandgrilldr/",
+  },
   "aura-girls-in-glow-up-2026-12-05": {
     callForPricing: true,
     phone: "+18496309540",

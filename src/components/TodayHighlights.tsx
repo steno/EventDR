@@ -271,7 +271,8 @@ function TodayHighlightCard({
         ) : null}
 
         {liveStatusLabel && liveStatus ? (
-          <div className="pointer-events-none absolute bottom-2 left-2 z-[3]">
+          // Top-left — bottom-left collides with flyer type (e.g. DOMINICAN on Voyvoy).
+          <div className="pointer-events-none absolute left-2 top-2 z-[3]">
             <EventStatusBadge
               label={liveStatusLabel}
               status={liveStatus}

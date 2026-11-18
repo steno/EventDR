@@ -139,30 +139,29 @@ function EventCardMedia({
           showOnDesktop={enlargeHitArea === "media"}
         />
       ) : null}
-      {statusBadge || mediaAction ? (
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex items-end justify-between gap-2 p-2">
-          <div className="min-w-0 shrink">
-            {statusBadge ? (
-              <EventStatusBadge
-                label={statusBadge.label}
-                status={statusBadge.status}
-                surface="onMedia"
-              />
-            ) : null}
-          </div>
-          {mediaAction ? (
-            <button
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation();
-                mediaAction.onClick();
-              }}
-              className="pointer-events-auto relative z-30 inline-flex max-w-[55%] shrink-0 items-center gap-1 rounded-full bg-black/65 px-2.5 py-1.5 text-[11px] font-bold text-white shadow-md backdrop-blur-sm transition-colors hover:bg-black/80 touch-manipulation"
-            >
-              <span className="truncate">{mediaAction.label}</span>
-              <ChevronDown className="h-3.5 w-3.5 shrink-0" aria-hidden />
-            </button>
-          ) : null}
+      {statusBadge ? (
+        // Top-left — bottom-left sits on flyer titles (home + poster tiles).
+        <div className="pointer-events-none absolute left-2 top-2 z-20">
+          <EventStatusBadge
+            label={statusBadge.label}
+            status={statusBadge.status}
+            surface="onMedia"
+          />
+        </div>
+      ) : null}
+      {mediaAction ? (
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex items-end justify-end gap-2 p-2">
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              mediaAction.onClick();
+            }}
+            className="pointer-events-auto relative z-30 inline-flex max-w-[55%] shrink-0 items-center gap-1 rounded-full bg-black/65 px-2.5 py-1.5 text-[11px] font-bold text-white shadow-md backdrop-blur-sm transition-colors hover:bg-black/80 touch-manipulation"
+          >
+            <span className="truncate">{mediaAction.label}</span>
+            <ChevronDown className="h-3.5 w-3.5 shrink-0" aria-hidden />
+          </button>
         </div>
       ) : null}
     </div>

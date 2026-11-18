@@ -9548,10 +9548,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   {
     eventId: "evolution-viernes-contrabandista-weekly",
     seriesKey: "evolution-disco-club-san-marcos:weekly:5",
-    body: "Holiday Friday BYOB at Evolution / Antigua Villana in San Marcos — no menores at the door; confirm cover on @evolution_disco_club146, and don’t pin Luxury’s Exotic Friday on Costa Dorada by mistake.",
+    body: "Friday BYOB at Evolution / Antigua Villana in San Marcos — no menores at the door; confirm cover on @evolution_disco_club146, and don’t pin Luxury’s Exotic Friday on Costa Dorada by mistake.",
     localized: {
-      es: "Viernes navideño BYOB en Evolution / Antigua Villana en San Marcos — no menores en la puerta; confirma cover en @evolution_disco_club146, y no clavés Exotic Friday de Luxury en Costa Dorada por error.",
-      fr: "Vendredi des fêtes BYOB à Evolution / Antigua Villana à San Marcos — pas de mineurs à la porte ; confirmez le cover sur @evolution_disco_club146, et n’épinglez pas Exotic Friday de Luxury à Costa Dorada par erreur.",
+      es: "Viernes BYOB en Evolution / Antigua Villana en San Marcos — no menores en la puerta; confirma cover en @evolution_disco_club146, y no clavés Exotic Friday de Luxury en Costa Dorada por error.",
+      fr: "Vendredi BYOB à Evolution / Antigua Villana à San Marcos — pas de mineurs à la porte ; confirmez le cover sur @evolution_disco_club146, et n’épinglez pas Exotic Friday de Luxury à Costa Dorada par erreur.",
     },
     priceFeel: "varies",
     priceNote: "Cover TBA — BYOB · +1 849-253-5178 / @evolution_disco_club146",
@@ -9562,8 +9562,8 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     attribution:
       "POP research · @evolution_disco_club146 Viernes D' Contrabandista flyer",
     researchNotes:
-      "Editor flyer — no calendar date; Antigua Villana Presenta; Viernes D' Contrabandista; Trae la bebida de tu preferencia; brisita D' Navidad; Evolution Disco Club 146. Seeded as weekly Fri (recurrenceDay 5) through holidays per editor. Door no menores → ageHint 18-plus (same venue as Papy Crish).",
-    updatedAt: "2026-11-13T18:45:00.000Z",
+      "Editor flyer — Antigua Villana Presenta; Viernes D' Contrabandista; BYOB; Evolution Disco Club 146. Weekly Fri (recurrenceDay 5). Editor removed christmas hub tag (keep parties/music only). Door no menores → ageHint 18-plus.",
+    updatedAt: "2026-11-17T22:00:00.000Z",
   },
   {
     eventId: "voyvoy-saturday-session-2026-11-14",
@@ -9716,10 +9716,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "twenty-disco-money-heist-2026-11-21",
-    body: "Money Heist costume Saturday at Twenty Playa Dorada — Félix Fire, La Paulina, and Jhunior are the confirmed guest wave; cover TBA so call +1 849-507-7676 before you dress for the atraco.",
+    body: "Money Heist costume Saturday from 8 PM at Twenty Playa Dorada — Félix Fire, La Paulina, and Jhunior are the confirmed guest wave; cover TBA so call +1 849-507-7676 before you dress for the atraco.",
     localized: {
-      es: "Sábado Money Heist en Twenty Playa Dorada — Félix Fire, La Paulina y Jhunior son la ola de invitados confirmados; cover por confirmar, llama al +1 849-507-7676 antes de vestirte para el atraco.",
-      fr: "Samedi Money Heist chez Twenty Playa Dorada — Félix Fire, La Paulina et Jhunior sont la vague d’invités confirmés ; cover à confirmer, appelez +1 849-507-7676 avant de vous habiller pour le braquage.",
+      es: "Sábado Money Heist desde las 8 PM en Twenty Playa Dorada — Félix Fire, La Paulina y Jhunior son la ola de invitados confirmados; cover por confirmar, llama al +1 849-507-7676 antes de vestirte para el atraco.",
+      fr: "Samedi Money Heist dès 20 h chez Twenty Playa Dorada — Félix Fire, La Paulina et Jhunior sont la vague d’invités confirmés ; cover à confirmer, appelez +1 849-507-7676 avant de vous habiller pour le braquage.",
     },
     priceFeel: "varies",
     priceNote: "Cover TBA — reservas +1 849-507-7676 · @twenty_disco_lounge",
@@ -9730,8 +9730,8 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     attribution:
       "POP research · @twenty_disco_lounge Money Heist flyers (editor-provided)",
     researchNotes:
-      "Editor IG screenshots + masked-men cover — Sáb 21 Nov 2026; Money Heist: La Casa de Papel; guests Félix Fire, La Paulina, Jhunior; Playa Dorada Mall; reservas 849-507-7676; cover not printed.",
-    updatedAt: "2026-11-17T12:00:00.000Z",
+      "Editor IG screenshots + masked-men cover — Sáb 21 Nov 2026 from 8:00 PM (editor-announced start); Money Heist: La Casa de Papel; guests Félix Fire, La Paulina, Jhunior; Playa Dorada Mall; reservas 849-507-7676; cover not printed.",
+    updatedAt: "2026-11-17T21:00:00.000Z",
   },
   {
     eventId: "disco-club-gogo-dancers-2026-11-19",
@@ -9864,5 +9864,44 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer + IG caption @orchidspabeauty — Sáb 5 Dic 2026 4 PM; 2do nivel Restaurante Aura zona VIP Cabarete; 20 Glow Girls; Orquidea C. Henríquez Almonte; (849) 630-9540; Aura Beach Club logo on art.",
     updatedAt: "2026-11-17T18:30:00.000Z",
+  },
+  {
+    eventId: "natura-sunbar-sunset-sounds-aldenkings-2026-11-19",
+    body: "Thursday 6:30–9:30 PM Sunset & Sounds with ALDENKINGS at Natura SunBar — extended happy hour on the Perla Marina rail; not the 15 Oct ALDENKINGS bill, not Taïf’s 26 Nov Thanksgiving-week session, and not Disco Club gogo the same Thursday in town.",
+    localized: {
+      es: "Jueves 6:30–9:30 PM Sunset & Sounds con ALDENKINGS en SunBar de Natura — happy hour extendido en la baranda de Perla Marina; no es el cartel ALDENKINGS del 15 oct, ni la sesión de Taïf del 26 nov en semana de Thanksgiving, ni el gogo de Disco Club ese mismo jueves en la ciudad.",
+      fr: "Jeudi 18 h 30–21 h 30 Sunset & Sounds avec ALDENKINGS au SunBar de Natura — happy hour prolongée sur la rambarde de Perla Marina ; pas l’affiche ALDENKINGS du 15 oct., ni la session Taïf du 26 nov. semaine Thanksgiving, ni les gogo de Disco Club le même jeudi en ville.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Cover not on flyer — extended happy hour · +1 849-214-7010",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — happy hour extendido · +1 849-214-7010",
+      fr: "Cover absent de l’affiche — happy hour prolongée · +1 849-214-7010",
+    },
+    attribution: "POP research · SunBar Sunset & Sounds ALDENKINGS Nov 19 flyer",
+    researchNotes:
+      "Editor flyer + naturacabana.com/events — Sunset & Sounds; DJ SET BY ALDENKINGS; Thursday Nov 19; flyer 6:30–9:30 PM (site lists 6:15–9:30); Special Extended Happy Hour at SunBar; confirmed Guest DJ ALDENKINGS on site calendar.",
+    updatedAt: "2026-11-17T19:30:00.000Z",
+  },
+  {
+    eventId: "chill-grill-paul-naar-2026-11-18",
+    body: "Wednesday 6:30 PM Paul Naar Latin Version at Chill & Grill on Carretera El Choco — dinner-and-dance on the Casa Linda terrace; reserve +1 829-679-8389, and don’t mix it with Saturday karaoke, Sunday bingo, or Spotland Fit Fusion the same night in Puerto Plata.",
+    localized: {
+      es: "Miércoles 6:30 PM Paul Naar Latin Version en Chill & Grill en Carretera El Choco — cena y baile en la terraza de Casa Linda; reserva +1 829-679-8389, y no lo mezcles con el karaoke del sábado, el bingo del domingo ni Spotland Fit Fusion esa misma noche en Puerto Plata.",
+      fr: "Mercredi 18 h 30 Paul Naar Latin Version au Chill & Grill sur Carretera El Choco — dîner et danse sur la terrasse Casa Linda ; réservez +1 829-679-8389, et ne le confondez pas avec le karaoké du samedi, le bingo du dimanche ni Spotland Fit Fusion le même soir à Puerto Plata.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Cover not on flyer — reservations +1 829-679-8389 · @chillandgrilldr",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — reservaciones +1 829-679-8389 · @chillandgrilldr",
+      fr: "Cover absent de l’affiche — réservations +1 829-679-8389 · @chillandgrilldr",
+    },
+    attribution:
+      "POP research · @chillandgrilldr Paul Naar Latin Version flyer + caption",
+    researchNotes:
+      "Editor flyer + IG caption @chillandgrilldr — TOMORROW 6:30 PM (= Wed 18 Nov 2026 from editor capture day Tue 17 Nov); Paul Naar Latin Version Live Music; Casa Linda Phase 7-9; reservations 829-679-8389.",
+    updatedAt: "2026-11-17T20:00:00.000Z",
   },
 ];

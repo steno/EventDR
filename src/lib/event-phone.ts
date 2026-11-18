@@ -161,6 +161,8 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "docean-bar-el-prodigio-2026-12-26": "+18098402860",
   "santa-fe-nye-2026-12-31": "+18293451097",
   "aura-girls-in-glow-up-2026-12-05": "+18496309540",
+  "natura-sunbar-sunset-sounds-aldenkings-2026-11-19": "+18492147010",
+  "chill-grill-paul-naar-2026-11-18": "+18296798389",
   "aura-alice-wonderland-2026-11-14": "+18297870140",
   "casa-arte-sosua-morphy-legado-2026-11-14": "+18095712442",
   "hard-rock-anne-live-2026-11-14": "+18495057778",

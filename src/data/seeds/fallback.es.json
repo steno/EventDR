@@ -12008,8 +12008,9 @@
   {
     "id": "twenty-disco-money-heist-2026-11-21",
     "title": "Twenty Disco — Money Heist: La Casa de Papel · 21 nov",
-    "description": "Noche temática Money Heist: La Casa de Papel en Twenty Disco & Lounge, Playa Dorada Mall, Puerto Plata — sábado 21 de noviembre de 2026. Invitados especiales confirmados: Félix Fire (@felixfire), La Paulina (@lapaulina01_) y Jhunior (@jhunior.oficial). Cover no figura en el flyer — reserva +1 849-507-7676 · Instagram @twenty_disco_lounge. Sábado de atraco en el mall — no es Cabarete Stand Up Vol. 3 esa misma noche ni Frusty Balusti en Natura Cabana.",
+    "description": "Noche temática Money Heist: La Casa de Papel en Twenty Disco & Lounge, Playa Dorada Mall, Puerto Plata — sábado 21 de noviembre de 2026 a partir de las 8:00 PM. Invitados especiales confirmados: Félix Fire (@felixfire), La Paulina (@lapaulina01_) y Jhunior (@jhunior.oficial). Cover no figura en el flyer — reserva +1 849-507-7676 · Instagram @twenty_disco_lounge. Sábado de atraco en el mall — no es Cabarete Stand Up Vol. 3 esa misma noche ni Frusty Balusti en Natura Cabana.",
     "date": "2026-11-21",
+    "time": "8:00 PM",
     "venue": "Twenty Disco & Lounge",
     "venueSlug": "twenty-disco-lounge",
     "address": "Playa Dorada Mall, Puerto Plata",
@@ -12247,5 +12248,62 @@
       "Glow Girls (20 cupos)"
     ],
     "imageEmoji": "✨"
+  },
+  {
+    "id": "natura-sunbar-sunset-sounds-aldenkings-2026-11-19",
+    "title": "SunBar Sunset & Sounds — ALDENKINGS · 19 nov",
+    "description": "Sunset & Sounds en SunBar, Natura Cabana, Perla Marina, Cabarete — jueves 19 de noviembre 2026, 6:30–9:30 PM. DJ set de ALDENKINGS — DJ en vivo, cócteles, vibes de océano y happy hour especial extendido en SunBar. +1 849-214-7010 · naturacabana.com. Sesión de atardecer del jueves — no es el cartel ALDENKINGS del 15 oct en SunBar, ni Sunset & Sounds de Taïf la semana de Thanksgiving el 26 nov, ni el gogo de Disco Club ese mismo jueves en Puerto Plata.",
+    "date": "2026-11-19",
+    "time": "6:30 PM – 9:30 PM",
+    "venue": "Natura Cabana",
+    "venueSlug": "natura-cabana",
+    "location": "Cabarete",
+    "address": "Paseo del Sol 5, Perla Marina, Cabarete",
+    "lat": 19.7833499,
+    "lng": -70.4621124,
+    "phone": "+18492147010",
+    "sourceUrl": "https://naturacabana.com/event/events-sunset-and-sounds-cabarete/",
+    "category": "music",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "lineup": [
+      "ALDENKINGS",
+      "Happy hour especial extendido"
+    ],
+    "imageEmoji": "🌅"
+  },
+  {
+    "id": "chill-grill-paul-naar-2026-11-18",
+    "date": "2026-11-18",
+    "time": "6:30 PM",
+    "location": "Sosúa",
+    "venue": "Chill & Grill Bar & Eatery",
+    "venueSlug": "castaways-sosua",
+    "address": "Casa Linda Villas Phase 7-9, Carretera El Choco, Sosúa 57000",
+    "lat": 19.7643646,
+    "lng": -70.4890209,
+    "category": "music",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18296798389",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/chillandgrilldr/",
+    "instagram": "chillandgrilldr",
+    "imageEmoji": "🎤",
+    "title": "Chill & Grill — Paul Naar Latin Version · 18 nov",
+    "description": "Paul Naar Latin Version en vivo en Chill & Grill Bar & Eatery, Casa Linda Villas Phase 7–9, Carretera El Choco, Sosúa–Cabarete — miércoles 18 de noviembre 2026 a las 6:30 PM. Noche de cena y baile con ritmo, sabor y vibra relajada; reservaciones +1 829-679-8389 · Instagram @chillandgrilldr. Música en vivo en Casa Linda — no es el karaoke del sábado ni el bingo del domingo en la misma terraza, ni Spotland Fit Fusion Volumen 2 ese mismo miércoles en Puerto Plata.",
+    "lineup": [
+      "Paul Naar",
+      "Latin Version"
+    ]
   }
 ]

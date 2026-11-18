@@ -116,6 +116,8 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "love-does-bocadillos-course-2026",
   // Postponed — Call You Later at La Quinta Rosa (was Sat 21 Nov); hide until new date.
   "la-quinta-rosa-call-you-later-2026-11-21",
+  // Editor removed — Liquid Blue Sunrise Yoga daily.
+  "liquid-blue-sunrise-yoga",
 ]);
 
 /**
@@ -162,6 +164,7 @@ export const EVENT_PATH_REDIRECTS: Record<string, string> = {
   "caribbean-surf-junior-puntilla-2026-11-14": "/venue/anfiteatro-la-puntilla",
   "love-does-bocadillos-course-2026": "/venue/love-does-sosua",
   "la-quinta-rosa-call-you-later-2026-11-21": "/venue/la-quinta-rosa",
+  "liquid-blue-sunrise-yoga": "/venue/liquid-blue-cabarete",
 };
 
 export function resolveEventPathRedirect(

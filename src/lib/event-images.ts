@@ -69,6 +69,10 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "novus-flow-dance-noche-latina-weekly.jpg",
   "natura-sunbar-sunset-sounds-ivan-ramirez-2026-11-05":
     "natura-sunbar-sunset-sounds-ivan-ramirez-2026-11-05.jpg",
+  "natura-sunbar-sunset-sounds-aldenkings-2026-11-19":
+    "natura-sunbar-sunset-sounds-aldenkings-2026-11-19.jpg",
+  "chill-grill-paul-naar-2026-11-18":
+    "chill-grill-paul-naar-2026-11-18.jpg",
   "christmas-popup-market-calle-sombrillas-2026-12-20":
     "christmas-popup-market-calle-sombrillas-2026-12-20.jpg",
   "parada-el-choco-los-frescos-aperitivo-2026-11-03":
@@ -416,8 +420,9 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "brugal-rum-center-weekdays": "brugal-rum-center-weekdays.jpg",
   "brugal-corporate-tours": "brugal-corporate-tours.jpg",
   // Filename bump — Google Maps tour-counter action (not the chocolate-box overlay).
-  "del-oro-chocolate-factory-weekdays": "del-oro-chocolate-factory-tour.jpg",
-  "del-oro-chocolate-factory-saturday": "del-oro-chocolate-factory-tour.jpg",
+  // Filename bump — POP-supplied shop floor (facade stays on the venue).
+  "del-oro-chocolate-factory-weekdays": "del-oro-chocolate-factory-tour-v2.jpg",
+  "del-oro-chocolate-factory-saturday": "del-oro-chocolate-factory-tour-v2.jpg",
   "hacienda-cufa-cacao-tour": "hacienda-cufa-cacao-tour.jpg",
   "tabacalera-cremo-factory-tour": "tabacalera-cremo-factory-tour.jpg",
   "tabacalera-cremo-rolling-experience": "tabacalera-cremo-rolling-experience.jpg",
@@ -908,8 +913,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   // Filename bump — gallery opening (peach facade stays on the venue).
   "casa-de-la-cultura-exhibitions": "casa-de-la-cultura-gallery-opening.jpg",
 
-  // Filename bump — POP-supplied paella pan (patio stays on the venue).
-  "paella-pop-el-pueblito": "paella-pop-el-pueblito-pan-v2.jpg",
+  // Filename bump — plating action + Paellas POP sign (patio stays on the venue).
+  "paella-pop-el-pueblito": "paella-pop-el-pueblito-pan-v3.jpg",
   "lil-naay-2026-07-17": "lil-naay-2026-07-17.jpg",
   "lena-dardelet-aura-beach-club-2026-07-24":
     "lena-dardelet-aura-beach-club-2026-07-24.jpg",
@@ -1058,7 +1063,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "rebeca-duque-aura-2026-10-29": "object-top",
   "isabela-food-fest-dj-melcocha-2026-12-20": "object-top",
   "tiki-bar-catamaran-party-2026-12-05": "object-center",
-  "voyvoy-dominican-night-flow-dance-weekly": "object-center",
+  // Home cards: keep DOMINICAN NIGHT + flag + HOSTED BY (not EVERY TUESDAY / logos).
+  "voyvoy-dominican-night-flow-dance-weekly": "object-[50%_30%]",
   "parada-el-choco-big-d-aperitivo-2026-10-27": "object-center",
   "hard-rock-deeway-live-mix-2026-10-23": "object-top",
   // Deury Banda at Grand Prix — accordion face mid/upper on the flyer.
@@ -1086,6 +1092,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "disco-club-gogo-dancers-2026-10-29": "object-center",
   "disco-club-gogo-dancers-2026-11-19": "object-center",
   "chiche-almonte-vinoteca-2026-11-28": "object-top",
+  // Portrait plating — keep the pan (not only the Paellas POP sign) in wide crops.
+  "paella-pop-el-pueblito": "object-[50%_58%]",
   "montellano-gran-dia-de-campo-2026-11-21": "object-top",
   "tiki-bar-flowdance-2026-10-30": "object-center",
   "ambar-lounge-bandoleras-2026-10-30": "object-center",
@@ -1615,6 +1623,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "disco-club-gogo-dancers-2026-11-19.jpg",
   "chiche-almonte-vinoteca-2026-11-28.jpg",
   "montellano-gran-dia-de-campo-2026-11-21.jpg",
+  // Brand sign in frame — keep off Discover / city photo heroes.
+  "paella-pop-el-pueblito-pan-v3.jpg",
   "docean-bar-la-insuperable-2026-12-25.jpg",
   "docean-bar-el-prodigio-2026-12-26.jpg",
   "santa-fe-nye-2026-12-31.jpg",
@@ -1668,6 +1678,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "frusty-balusti-natura-cabana-2026-11-21.jpg",
   "novus-flow-dance-noche-latina-weekly.jpg",
   "natura-sunbar-sunset-sounds-ivan-ramirez-2026-11-05.jpg",
+  "natura-sunbar-sunset-sounds-aldenkings-2026-11-19.jpg",
+  "chill-grill-paul-naar-2026-11-18.jpg",
   "christmas-popup-market-calle-sombrillas-2026-12-20.jpg",
   "parada-el-choco-los-frescos-aperitivo-2026-11-03.jpg",
   "parada-el-choco-los-frescos-aperitivo-2026-11-03-v2.jpg",
@@ -2210,6 +2222,7 @@ const HOME_HERO_SCENE_FILES = new Set([
   "cremo-salsa-friday.jpg",
   "cuartel-bomberos-puerto-plata-trucks.jpg",
   "d-classico-merengue-bar.jpg",
+  "del-oro-chocolate-factory-tour-v2.jpg",
   "del-oro-chocolate-factory-tour.jpg",
   "don-limon-beach-dining.jpeg",
   "el-batey-weekend-nightlife-clisante.jpg",
@@ -2268,6 +2281,7 @@ const HOME_HERO_SCENE_FILES = new Set([
   "terraza-ocean-world-evenings.jpg",
   "ojo-weekend-dj-parties.jpg",
   "outback-safari-daily.jpeg",
+  "paella-pop-el-pueblito-pan-v3.jpg",
   "paella-pop-el-pueblito-pan-v2.jpg",
   "paella-pop-el-pueblito-pan.jpg",
   "paella-pop-el-pueblito.jpg",
