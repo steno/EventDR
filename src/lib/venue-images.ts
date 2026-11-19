@@ -48,6 +48,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "el-rincon-del-cafe-sombrillas": "el-rincon-del-cafe-sombrillas-v3.jpg",
   "el-rincon-del-cafe-separacion": "el-rincon-del-cafe-separacion-v2.jpg",
   "leos-banana-bar-sosua": "leos-banana-bar-sosua.jpg",
+  "terraza-isla-puerto-plata": "terraza-isla-puerto-plata.jpg",
   "aura-beach-club-cabarete": "aura-beach-club-cabarete-entrance.jpg",
   // Filename bump after replacing a generic Restaurant Guru table shot.
   "la-casita-de-papi": "la-casita-de-papi-awning.jpg",

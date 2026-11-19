@@ -12,6 +12,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "meclao-tinder-party-2026-11-07": "meclao-tinder-party-2026-11-07.jpg",
   "meclao-reggaeton-rooftop-mr-alfredo-2026-11-13":
     "meclao-reggaeton-rooftop-mr-alfredo-2026-11-13.jpg",
+  "meclao-viernes-social-junier-lockward-2026-11-20":
+    "meclao-viernes-social-junier-lockward-2026-11-20.jpg",
   "chameleon-perreo-poca-luz-h23-deeway-2026-11-13":
     "chameleon-perreo-poca-luz-h23-deeway-2026-11-13.jpg",
   "chameleon-la-mas-doll-2026-12-19":
@@ -234,6 +236,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "alex-rene-rancho-catalina-2026-11-08.jpg",
   "4to-dia-rancho-catalina-2026-11-15":
     "4to-dia-rancho-catalina-2026-11-15.jpg",
+  "euridis-mena-rancho-catalina-2026-11-22":
+    "euridis-mena-rancho-catalina-2026-11-22.jpg",
   "la-lola-dancing-weekend-2026-11-13":
     "la-lola-dancing-weekend-2026-11-13.jpg",
   "evolution-papy-crish-2026-11-14":
@@ -253,6 +257,16 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "spotland-fit-fusion-night-volumen-2-2026-11-18.jpg",
   "leos-banana-fiesta-blanca-2026-11-27":
     "leos-banana-fiesta-blanca-2026-11-27.jpg",
+  "leos-banana-enrico-music-live-2026-11-26":
+    "leos-banana-enrico-music-live-2026-11-26.jpg",
+  "terraza-isla-banda-sin-limite-2026-11-20":
+    "terraza-isla-banda-sin-limite-2026-11-20.jpg",
+  "aguaji-tiempo-de-las-mariposas-2026-11-21":
+    "aguaji-tiempo-de-las-mariposas-2026-11-21.jpg",
+  "renovacion-hispanidad-felix-jimenez-2026-11-20":
+    "renovacion-hispanidad-felix-jimenez-2026-11-20.jpg",
+  "isabela-food-fest-dj-opg-2026-12-20":
+    "isabela-food-fest-dj-opg-2026-12-20.jpg",
   "disco-club-pijama-party-2026-11-13":
     "disco-club-pijama-party-2026-11-13-v2.jpg",
   "samuel-gonzalez-la-lola-2026-12-05":
@@ -837,6 +851,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "ambar-lounge-bandoleras-2026-11-13.jpg",
   "ambar-lounge-carlos-rivera-2026-11-14":
     "ambar-lounge-carlos-rivera-2026-11-14.jpg",
+  "ambar-lounge-darvin-estrella-2026-11-21":
+    "ambar-lounge-darvin-estrella-2026-11-21.jpg",
   "ambar-lounge-reggaeton-la-residencia-2026-12":
     "ambar-lounge-reggaeton-la-residencia-2026-12.jpg",
   "twenty-disco-adrian-tineo-darwin-estrella-2026-11-14":
@@ -858,6 +874,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "casa-arte-sosua-morphy-legado-2026-11-14":
     "casa-arte-sosua-morphy-legado-2026-11-14-v2.jpg",
   "hard-rock-anne-live-2026-11-14": "hard-rock-anne-live-2026-11-14.jpg",
+  "hard-rock-magica-navidad-2026-12-19":
+    "hard-rock-magica-navidad-2026-12-19.jpg",
   "aura-galactic-nights-christoo-2026-11-28":
     "aura-galactic-nights-christoo-2026-11-28.jpg",
   "hard-rock-allison-sade-2026-11-27": "hard-rock-allison-sade-2026-11-27.jpg",
@@ -870,6 +888,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "toscana-nightclub-jacob-henriquez-2026-12-05.jpg",
   "chameleon-sunday-on-fire-yosma-2026-11-15":
     "chameleon-sunday-on-fire-yosma-2026-11-15.jpg",
+  "chameleon-vibras-party-monarka-2026-11-22":
+    "chameleon-vibras-party-monarka-2026-11-22.jpg",
   "goddess-francesca-samuele-2026-11-27":
     "goddess-francesca-samuele-2026-11-27-v2.jpg",
   "latin-disco-semaforo-yeffrey-estrella-2026-11-20":
@@ -1110,6 +1130,7 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "chameleon-cursed-room-ronny-alca-2026-11-01": "object-center",
   "chameleon-monsters-ball-deeway-2026-10-18": "object-center",
   "chameleon-perreo-poca-luz-h23-deeway-2026-11-13": "object-center",
+  "chameleon-vibras-party-monarka-2026-11-22": "object-center",
   "el-liquito-deeway-2026-11-15": "object-center",
   "dominican-surf-festival-2026-12-10": "object-center",
   "aguinaldo-5k-navideno-2026-12-19": "object-center",
@@ -1117,6 +1138,7 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "los-guaos-gran-cabalgata-natural-2026-11-15": "object-center",
   "037-bar-karaoke-2026-11-13": "object-center",
   "meclao-reggaeton-rooftop-mr-alfredo-2026-11-13": "object-center",
+  "meclao-viernes-social-junier-lockward-2026-11-20": "object-center",
   "ann-soul-jazz-natura-cabana-2026-10-17": "object-center",
   // Portrait entrance — keep the walkers in a wide crop.
   "nonas-grill-kitchen-daily": "object-[70%_80%]",
@@ -1287,6 +1309,7 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "mkni-after-party-villa-taina-2026-10-24": "object-top",
   "alex-rene-rancho-catalina-2026-11-08": "object-center",
   "4to-dia-rancho-catalina-2026-11-15": "object-center",
+  "euridis-mena-rancho-catalina-2026-11-22": "object-center",
   "la-lola-dancing-weekend-2026-11-13": "object-center",
   "evolution-papy-crish-2026-11-14": "object-center",
   // Mid crop (not bare object-center — cards remap that to object-top).
@@ -1298,6 +1321,11 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "fortaleza-san-felipe-encendido-luces-azules-2026-11-13": "object-center",
   "spotland-fit-fusion-night-volumen-2-2026-11-18": "object-center",
   "leos-banana-fiesta-blanca-2026-11-27": "object-center",
+  "leos-banana-enrico-music-live-2026-11-26": "object-center",
+  "terraza-isla-banda-sin-limite-2026-11-20": "object-center",
+  "aguaji-tiempo-de-las-mariposas-2026-11-21": "object-center",
+  "renovacion-hispanidad-felix-jimenez-2026-11-20": "object-top",
+  "isabela-food-fest-dj-opg-2026-12-20": "object-center",
   "cabarete-stand-up-vol-3-2026-11-21": "object-center",
   "disco-club-pijama-party-2026-11-13": "object-center",
   "samuel-gonzalez-la-lola-2026-12-05": "object-center",
@@ -1545,6 +1573,16 @@ const EVENT_GALLERY_SLIDES: Record<
       venueSlug: "twenty-disco-lounge",
       label: "Jhunior",
     },
+    {
+      file: "twenty-disco-money-heist-masiory-2026-11-21.jpg",
+      venueSlug: "twenty-disco-lounge",
+      label: "Masiory",
+    },
+    {
+      file: "twenty-disco-money-heist-papi-cejas-2026-11-21.jpg",
+      venueSlug: "twenty-disco-lounge",
+      label: "Papi Cejas",
+    },
   ],
   "ocean-world-terrace-graduation-bash-2026-11-20": [
     {
@@ -1614,12 +1652,15 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "voyvoy-sunday-open-mic-v3.jpg",
   "ambar-lounge-bandoleras-2026-11-13.jpg",
   "ambar-lounge-carlos-rivera-2026-11-14.jpg",
+  "ambar-lounge-darvin-estrella-2026-11-21.jpg",
   "ambar-lounge-reggaeton-la-residencia-2026-12.jpg",
   "twenty-disco-adrian-tineo-darwin-estrella-2026-11-14.jpg",
   "twenty-disco-money-heist-2026-11-21.jpg",
   "twenty-disco-money-heist-felix-fire-2026-11-21.jpg",
   "twenty-disco-money-heist-la-paulina-2026-11-21.jpg",
   "twenty-disco-money-heist-jhunior-2026-11-21.jpg",
+  "twenty-disco-money-heist-masiory-2026-11-21.jpg",
+  "twenty-disco-money-heist-papi-cejas-2026-11-21.jpg",
   "disco-club-gogo-dancers-2026-11-19.jpg",
   "chiche-almonte-vinoteca-2026-11-28.jpg",
   "montellano-gran-dia-de-campo-2026-11-21.jpg",
@@ -1632,12 +1673,14 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "aura-alice-wonderland-2026-11-14.jpg",
   "casa-arte-sosua-morphy-legado-2026-11-14-v2.jpg",
   "hard-rock-anne-live-2026-11-14.jpg",
+  "hard-rock-magica-navidad-2026-12-19.jpg",
   "aura-galactic-nights-christoo-2026-11-28.jpg",
   "hard-rock-allison-sade-2026-11-27.jpg",
   "ocean-world-terrace-rubio-manon-2026-12-04.jpg",
   "toscana-nightclub-gran-apertura-2026-12-04-v2.jpg",
   "toscana-nightclub-jacob-henriquez-2026-12-05.jpg",
   "chameleon-sunday-on-fire-yosma-2026-11-15.jpg",
+  "chameleon-vibras-party-monarka-2026-11-22.jpg",
   "goddess-francesca-samuele-2026-11-27-v2.jpg",
   "latin-disco-semaforo-yeffrey-estrella-2026-11-20.jpg",
   "casa-balcon-cooltura-mexico-eterno-2026-11-20-v2.jpg",
@@ -1651,6 +1694,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "chiche-almonte-grand-prix-2026-11-06.jpg",
   "meclao-tinder-party-2026-11-07.jpg",
   "meclao-reggaeton-rooftop-mr-alfredo-2026-11-13.jpg",
+  "meclao-viernes-social-junier-lockward-2026-11-20.jpg",
   "chameleon-perreo-poca-luz-h23-deeway-2026-11-13.jpg",
   "chameleon-la-mas-doll-2026-12-19.jpg",
   "ivan-garcia-concierto-sinfonico-2026-11-19.jpg",
@@ -1708,6 +1752,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "groundzero-viral-sosua-birthday-2026-12-01.jpg",
   "alex-rene-rancho-catalina-2026-11-08.jpg",
   "4to-dia-rancho-catalina-2026-11-15.jpg",
+  "euridis-mena-rancho-catalina-2026-11-22.jpg",
   "la-lola-dancing-weekend-2026-11-13.jpg",
   "evolution-papy-crish-2026-11-14-v2.jpg",
   "tyson-band-aura-2026-11-12.jpg",
@@ -1718,6 +1763,11 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "fortaleza-san-felipe-encendido-luces-azules-2026-11-13.jpg",
   "spotland-fit-fusion-night-volumen-2-2026-11-18.jpg",
   "leos-banana-fiesta-blanca-2026-11-27.jpg",
+  "leos-banana-enrico-music-live-2026-11-26.jpg",
+  "terraza-isla-banda-sin-limite-2026-11-20.jpg",
+  "aguaji-tiempo-de-las-mariposas-2026-11-21.jpg",
+  "renovacion-hispanidad-felix-jimenez-2026-11-20.jpg",
+  "isabela-food-fest-dj-opg-2026-12-20.jpg",
   "disco-club-pijama-party-2026-11-13-v2.jpg",
   "samuel-gonzalez-la-lola-2026-12-05.jpg",
   "twenty-disco-gran-noche-tipica-2026-11-08.jpg",

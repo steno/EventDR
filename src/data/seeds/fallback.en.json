@@ -12008,7 +12008,7 @@
   {
     "id": "twenty-disco-money-heist-2026-11-21",
     "title": "Twenty Disco — Money Heist: La Casa de Papel · 21 Nov",
-    "description": "Money Heist: La Casa de Papel themed night at Twenty Disco & Lounge, Playa Dorada Mall, Puerto Plata — Saturday 21 November 2026 from 8:00 PM. Confirmed special guests Félix Fire (@felixfire), La Paulina (@lapaulina01_), and Jhunior (@jhunior.oficial). Cover not on the flyer — reserve +1 849-507-7676 · Instagram @twenty_disco_lounge. Mall disco heist Saturday — not Cabarete Stand Up Vol. 3 the same evening, and not Natura Cabana’s Frusty Balusti dinner set.",
+    "description": "Money Heist: La Casa de Papel themed night at Twenty Disco & Lounge, Playa Dorada Mall, Puerto Plata — Saturday 21 November 2026 from 8:00 PM. Confirmed special guests Félix Fire (@felixfire), La Paulina (@lapaulina01_), Jhunior (@jhunior.oficial), Masiory (@masiory1), and 5th invitee Papi Cejas (@soypapicejas). More cast still dropping — follow @twenty_disco_lounge for revelations. Cover not on the flyer — reserve +1 849-507-7676. Mall disco heist Saturday — not Cabarete Stand Up Vol. 3 the same evening, and not Natura Cabana’s Frusty Balusti dinner set.",
     "date": "2026-11-21",
     "time": "8:00 PM",
     "venue": "Twenty Disco & Lounge",
@@ -12032,7 +12032,9 @@
     "lineup": [
       "Félix Fire",
       "La Paulina",
-      "Jhunior"
+      "Jhunior",
+      "Masiory",
+      "Papi Cejas"
     ],
     "imageEmoji": "🎭"
   },
@@ -12300,10 +12302,300 @@
     "instagram": "chillandgrilldr",
     "imageEmoji": "🎤",
     "title": "Chill & Grill — Paul Naar Latin Version · 18 Nov",
-    "description": "Paul Naar Latin Version live music at Chill & Grill Bar & Eatery, Casa Linda Villas Phase 7–9, Carretera El Choco, Sosúa–Cabarete — Wednesday 18 November 2026 at 6:30 PM. Dinner-and-dance night with rhythm, flavor, and a relaxed vibe; reservations +1 829-679-8389 · Instagram @chillandgrilldr. Casa Linda live music — not Saturday karaoke or Sunday bingo at the same terrace, and not Spotland Fit Fusion Volumen 2 the same Wednesday in Puerto Plata.",
+    "description": "Paul Naar Latin Version live music at Chill & Grill Bar & Eatery, Casa Linda Villas Phase 7–9, Carretera El Choco, Sosúa–Cabarete — Wednesday 18 November 2026 at 6:30 PM. Dinner-and-dance night with rhythm, flavor, and a relaxed vibe; reservations +1 829-679-8389 · Instagram @chillandgrilldr. Casa Linda live music — not Saturday karaoke or Sunday bingo at the same terrace.",
     "lineup": [
       "Paul Naar",
       "Latin Version"
     ]
+  },
+  {
+    "id": "leos-banana-enrico-music-live-2026-11-26",
+    "title": "Leo's Banana — Enrico Music Live · 26 Nov",
+    "description": "Live music with Enrico Music Live at Leo's Banana Bar & Restaurant, Calle Coral, Antiguo Hotel Sosúa Bay (behind Casino Reef), El Batey, Sosúa — Thursday 26 November 2026 at 5:30 PM. Great music, delicious food, and signature drinks on the bay. Cover not on the flyer — WhatsApp +1 829-993-4071 · Instagram @leosbananabarandrestaurant. Sosúa Bay Thursday live set — not Parada El Choco’s Thanksgiving Big D dinner the same evening, and not Leo’s Fiesta Blanca the next night.",
+    "date": "2026-11-26",
+    "time": "5:30 PM",
+    "location": "Sosúa",
+    "venue": "Leo's Banana Bar & Restaurant",
+    "venueSlug": "leos-banana-bar-sosua",
+    "address": "Calle Coral, Antiguo Hotel Sosúa Bay (detrás del Casino Reef), El Batey, Sosúa",
+    "lat": 19.762218,
+    "lng": -70.517299,
+    "category": "music",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18299934071",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/leosbananabarandrestaurant/",
+    "instagram": "leosbananabarandrestaurant",
+    "lineup": [
+      "Enrico Music Live"
+    ],
+    "imageEmoji": "🎸"
+  },
+  {
+    "id": "terraza-isla-banda-sin-limite-2026-11-20",
+    "title": "Terraza Isla — Banda Sin Límite · 20 Nov",
+    "description": "Banda Sin Límite live at Terraza Isla, Calle 12 de Julio No. 88 esquina 27 de Febrero, Puerto Plata — Friday 20 November 2026 at 9:00 PM. Free entry to the public. Upstairs lounge over the Shell / Bomba Isla pumps — not La Quinta Rosa’s pink Victorian on the same #88 street address, and not Vinoteca’s earlier Banda Sin Límite night. Instagram @terrazaisla.",
+    "date": "2026-11-20",
+    "time": "9:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Terraza Isla",
+    "venueSlug": "terraza-isla-puerto-plata",
+    "address": "Calle 12 de Julio No. 88, esquina 27 de Febrero, Puerto Plata",
+    "lat": 19.79482,
+    "lng": -70.684878,
+    "category": "music",
+    "categories": [
+      "parties"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/terrazaisla/",
+    "instagram": "terrazaisla",
+    "lineup": [
+      "Banda Sin Límite"
+    ],
+    "imageEmoji": "🎸"
+  },
+  {
+    "id": "aguaji-tiempo-de-las-mariposas-2026-11-21",
+    "title": "Aguají — En el Tiempo de las Mariposas · 21 Nov",
+    "description": "En el Tiempo de las Mariposas — encuentro gastronómico celebrando a la mujer at Aguají by Chef Tita, The Ocean Club Costa Norte (Luxury Collection), Calle Bruno Philip No. 5, Sosúa — Saturday 21 November 2026 at 7:00 PM. Chefs share stories, flavors, and visions; reservations +1 809-706-1482. Fine-dining women’s gastronomy night at Ocean Club — not Terraza Isla’s Friday banda set downtown, and not Money Heist at Twenty Disco the same Saturday. Instagram @aguaji.altacocina.",
+    "date": "2026-11-21",
+    "time": "7:00 PM",
+    "location": "Sosúa",
+    "venue": "Aguají",
+    "venueSlug": "aguaji-sosua",
+    "address": "Calle Bruno Philip No. 5, The Ocean Club Costa Norte, Sosúa",
+    "lat": 19.7691248,
+    "lng": -70.5168106,
+    "category": "food-drinks",
+    "categories": [
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18097061482",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/aguaji.altacocina/",
+    "instagram": "aguaji.altacocina",
+    "lineup": [
+      "Chef Tita",
+      "Encuentro gastronómico celebrando a la mujer"
+    ],
+    "imageEmoji": "🦋"
+  },
+  {
+    "id": "renovacion-hispanidad-felix-jimenez-2026-11-20",
+    "title": "Renovación — La hispanidad para una sana dominicanidad · 20 Nov",
+    "description": "Conference «La hispanidad para una sana dominicanidad» with speaker Félix A. Jiménez at Salón Dr. Osvaldo Brugal, Sociedad Cultural Renovación, Calle Duarte No. 41 esquina Calle Imbert, Puerto Plata — Friday 20 November 2026 at 6:30 PM. Free entry. Invited by Sociedad Cultural Renovación, VH Gran Ventana Beach Resort, and INPOSDOM. Historic-center talk — not Terraza Isla’s free Banda Sin Límite set the same Friday at 9 PM. Info +1 809-586-6240 · Instagram @screnovacion.",
+    "date": "2026-11-20",
+    "time": "6:30 PM",
+    "location": "Puerto Plata",
+    "venue": "Sociedad Cultural Renovación",
+    "venueSlug": "sociedad-cultural-renovacion",
+    "address": "Salón Dr. Osvaldo Brugal, Calle Duarte No. 41, esquina Calle Imbert, Puerto Plata",
+    "lat": 19.797728,
+    "lng": -70.694135,
+    "category": "culture",
+    "categories": [
+      "family"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18095866240",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/screnovacion/",
+    "instagram": "screnovacion",
+    "lineup": [
+      "Félix A. Jiménez"
+    ],
+    "imageEmoji": "📚"
+  },
+  {
+    "id": "isabela-food-fest-dj-opg-2026-12-20",
+    "title": "Isabela Food Fest — DJ OPG",
+    "description": "DJ OPG (DJ confirmado) at Isabela Food Fest, Parque Municipal Villa Isabela — Sunday 20 December 2026. Sunday of the three-day festival (18–20 Dec); same park night as Ronny Manuel, DJ Melcocha, and Bulin 47’s gran cierre — see the main Isabela Food Fest listing for the full weekend. Tickets at todotickets.do and Plaza Lama; info & reservations +1 829-336-6802 · Instagram @isabelafoodfest / @djopg. Festival stage bill in Villa Isabela — not Ojo Club’s earlier Equinoccio neon night with OPG.",
+    "date": "2026-12-20",
+    "location": "Villa Isabela",
+    "venue": "Parque Municipal Villa Isabela",
+    "venueSlug": "parque-municipal-villa-isabela",
+    "address": "Parque Municipal, Villa Isabela, Puerto Plata",
+    "lat": 19.813027,
+    "lng": -71.055725,
+    "category": "concert",
+    "categories": [
+      "festivals",
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18293366802",
+    "ticketUrl": "https://todotickets.do",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/isabelafoodfest/",
+    "instagram": "isabelafoodfest",
+    "lineup": [
+      "DJ OPG"
+    ],
+    "imageEmoji": "🎧"
+  },
+  {
+    "id": "chameleon-vibras-party-monarka-2026-11-22",
+    "title": "Chameleon Vibras Party — DJ Monarka · 22 Nov",
+    "description": "Vibras Party with DJ Monarka (El Therians) live at Chameleon Sport Bar, Sosúa Bay Center, Calle Alejo Martínez #1, El Batey, Sosúa — Sunday 22 November 2026. Cover not on the flyer — info & RSVP (829) 994-2304 · Instagram @chameleonsportbar. Sosúa Bay Center Sunday — not Mirando Pa' Otro Lao at Parque Central the same evening, and not Monarka's earlier Haunted night at Chameleon.",
+    "date": "2026-11-22",
+    "venue": "Chameleon Sport Bar",
+    "venueSlug": "chameleon-sport-bar",
+    "address": "Sosúa Bay Center, Calle Alejo Martínez #1, El Batey, Sosúa",
+    "lat": 19.762438,
+    "lng": -70.516813,
+    "phone": "+18299942304",
+    "location": "Sosúa",
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/chameleonsportbar/",
+    "instagram": "chameleonsportbar",
+    "lineup": [
+      "DJ Monarka",
+      "El Therians",
+      "Vibras Party"
+    ],
+    "imageEmoji": "🎧"
+  },
+  {
+    "id": "meclao-viernes-social-junier-lockward-2026-11-20",
+    "title": "Mecla'o Viernes Social — Junier Lockward · 20 Nov",
+    "description": "Viernes Social with Junier Lockward (@jlockward) at Mecla'o Rooftop Lounge, Av. Luis Ginebra No. 49, Puerto Plata — Friday 20 November 2026. Open 6:00 PM–3:00 AM; 2x1 mojitos, sangría, and Cuba Libre 6:00–9:00 PM. Cover not on the flyer — reservations 829-374-7028 · Instagram @meclaorooftop. Luis Ginebra Friday social — not Terraza Isla's free Banda Sin Límite the same night at the Shell, and not Ambar Lounge one block over at No. 45.",
+    "date": "2026-11-20",
+    "time": "6:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Mecla'o Rooftop Lounge",
+    "venueSlug": "meclao-rooftop",
+    "address": "Av. Luis Ginebra No. 49, Puerto Plata",
+    "lat": 19.788312,
+    "lng": -70.677453,
+    "category": "parties",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18293747028",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/meclaorooftop/",
+    "instagram": "meclaorooftop",
+    "lineup": [
+      "Junier Lockward",
+      "2x1 mojitos / sangría / Cuba Libre 6–9 PM"
+    ],
+    "imageEmoji": "🍸"
+  },
+  {
+    "id": "hard-rock-magica-navidad-2026-12-19",
+    "title": "Hard Rock — Mágica Navidad · 19–20 Dec",
+    "description": "Mágica Navidad — Tu Carta para Santa (Family Fun Fest by Producciones Giank) at Hard Rock Cafe Puerto Plata, Calle Duarte 7, Plaza Downtown, Sosúa — Saturday 19 December 2026 at 3:00 PM and Sunday 20 December at 1:00 PM. Shows, animation, face painting, Christmas characters, and letters to Santa. Tickets WhatsApp +1 849-505-7778 · Instagram @produccionesgiank / @hardrockcafepuertoplata. Hard Rock family Christmas weekend — not La Casa de Mickey Mouse Family Fun Fest in September, and not Chameleon’s La Más Doll the same Saturday night.",
+    "date": "2026-12-19",
+    "endDate": "2026-12-20",
+    "time": "Sat 3:00 PM · Sun 1:00 PM",
+    "location": "Sosúa",
+    "venue": "Hard Rock Cafe Puerto Plata",
+    "venueSlug": "hard-rock-sosua",
+    "address": "Calle Duarte 7, Plaza Downtown, Sosúa",
+    "lat": 19.7634107,
+    "lng": -70.5162309,
+    "category": "festivals",
+    "categories": [
+      "family",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18495057778",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/produccionesgiank/",
+    "instagram": "produccionesgiank",
+    "lineup": [
+      "Santa",
+      "Shows · animation · face painting",
+      "Tu Carta para Santa"
+    ],
+    "imageEmoji": "🎅",
+    "ageHint": "family"
+  },
+  {
+    "id": "ambar-lounge-darvin-estrella-2026-11-21",
+    "title": "Ambar Lounge — Darvin Estrella · 21 Nov",
+    "description": "Antes que se acabe — Saturday night with Darvin Estrella (@darvinestrella) at Ambar Lounge POP, Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata — Saturday 21 November 2026. Cover not on the flyer — RSVP (809) 781-8677 · Instagram @ambarloungepop. Downtown Luis Ginebra Saturday — not Twenty Disco’s Money Heist the same night at Playa Dorada Mall, and not Aguají’s En el Tiempo de las Mariposas dinner in Sosúa.",
+    "date": "2026-11-21",
+    "venue": "Ambar Lounge POP",
+    "venueSlug": "ambar-lounge-pop",
+    "address": "Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata 57000",
+    "lat": 19.7894021,
+    "lng": -70.678834,
+    "phone": "+18097818677",
+    "location": "Puerto Plata",
+    "category": "parties",
+    "categories": [
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/ambarloungepop/",
+    "instagram": "ambarloungepop",
+    "lineup": [
+      "Darvin Estrella"
+    ],
+    "imageEmoji": "🎧"
+  },
+  {
+    "id": "euridis-mena-rancho-catalina-2026-11-22",
+    "title": "Euridis Mena Live at Rancho La Catalina · 22 Nov",
+    "description": "Live music with Euridis Mena at Rancho La Catalina Restaurant, El Cupey, Puerto Plata — Sunday 22 November 2026 at 2:30 PM. No cover. Countryside ranch dining with an afternoon set — same Sunday 2:30 slot as recent Catalina bills (4to Día, Alex René). Reservations +1 809-781-3737 · Instagram @rancholacatalina. Ranch afternoon — not Chameleon’s Vibras Party with DJ Monarka the same evening in Sosúa.",
+    "date": "2026-11-22",
+    "time": "2:30 PM",
+    "location": "Puerto Plata",
+    "venue": "Rancho La Catalina",
+    "venueSlug": "rancho-catalina-puerto-plata",
+    "address": "El Cupey, Puerto Plata",
+    "lat": 19.7371866,
+    "lng": -70.7253286,
+    "category": "music",
+    "categories": [
+      "food-drinks",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18097813737",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/rancholacatalina/",
+    "instagram": "rancholacatalina",
+    "lineup": [
+      "Euridis Mena"
+    ],
+    "imageEmoji": "🎤"
   }
 ]

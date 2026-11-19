@@ -9207,8 +9207,8 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · Spot Land / Coolgym Fit Fusion Night Vol. 2 flyer",
     researchNotes:
-      "Editor flyer — Mié 18 Nov 2026 7 PM; Spot Land; Aeróbicos/Funcional/Zumba/Yoga; Coolgym; RD$700 preventa / RD$800 puerta; towel or mat; snacks+hydration; limited spots.",
-    updatedAt: "2026-11-11T19:30:00.000Z",
+      "REMOVED from mix — editor 2026-11-18. Was: Mié 18 Nov 2026 7 PM; Spot Land; Coolgym Fit Fusion Vol. 2; RD$700/800. Id in REMOVED_SEED_EVENT_IDS → /venue/spotland-puerto-plata.",
+    updatedAt: "2026-11-18T19:30:00.000Z",
   },
   {
     eventId: "meclao-reggaeton-rooftop-mr-alfredo-2026-11-13",
@@ -9716,22 +9716,22 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "twenty-disco-money-heist-2026-11-21",
-    body: "Money Heist costume Saturday from 8 PM at Twenty Playa Dorada — Félix Fire, La Paulina, and Jhunior are the confirmed guest wave; cover TBA so call +1 849-507-7676 before you dress for the atraco.",
+    body: "Money Heist costume Saturday from 8 PM at Twenty Playa Dorada — Félix Fire, La Paulina, Jhunior, Masiory, and 5th invitee Papi Cejas are confirmed; more cast still dropping so follow @twenty_disco_lounge for revelations, and call +1 849-507-7676 before you dress for the atraco (cover TBA).",
     localized: {
-      es: "Sábado Money Heist desde las 8 PM en Twenty Playa Dorada — Félix Fire, La Paulina y Jhunior son la ola de invitados confirmados; cover por confirmar, llama al +1 849-507-7676 antes de vestirte para el atraco.",
-      fr: "Samedi Money Heist dès 20 h chez Twenty Playa Dorada — Félix Fire, La Paulina et Jhunior sont la vague d’invités confirmés ; cover à confirmer, appelez +1 849-507-7676 avant de vous habiller pour le braquage.",
+      es: "Sábado Money Heist desde las 8 PM en Twenty Playa Dorada — Félix Fire, La Paulina, Jhunior, Masiory y el 5.º invitado Papi Cejas están confirmados; todavía faltan piezas, sigue @twenty_disco_lounge para más revelaciones, y llama al +1 849-507-7676 antes de vestirte para el atraco (cover por confirmar).",
+      fr: "Samedi Money Heist dès 20 h chez Twenty Playa Dorada — Félix Fire, La Paulina, Jhunior, Masiory et le 5e invité Papi Cejas sont confirmés ; d’autres révélations à venir, suivez @twenty_disco_lounge, et appelez +1 849-507-7676 avant de vous habiller pour le braquage (cover à confirmer).",
     },
     priceFeel: "varies",
-    priceNote: "Cover TBA — reservas +1 849-507-7676 · @twenty_disco_lounge",
+    priceNote: "Cover TBA — reservas +1 849-507-7676 · follow @twenty_disco_lounge for more reveals",
     priceNoteLocalized: {
-      es: "Cover por confirmar — reservas +1 849-507-7676 · @twenty_disco_lounge",
-      fr: "Cover à confirmer — réservations +1 849-507-7676 · @twenty_disco_lounge",
+      es: "Cover por confirmar — reservas +1 849-507-7676 · sigue @twenty_disco_lounge para más revelaciones",
+      fr: "Cover à confirmer — réservations +1 849-507-7676 · suivez @twenty_disco_lounge pour plus de révélations",
     },
     attribution:
       "POP research · @twenty_disco_lounge Money Heist flyers (editor-provided)",
     researchNotes:
-      "Editor IG screenshots + masked-men cover — Sáb 21 Nov 2026 from 8:00 PM (editor-announced start); Money Heist: La Casa de Papel; guests Félix Fire, La Paulina, Jhunior; Playa Dorada Mall; reservas 849-507-7676; cover not printed.",
-    updatedAt: "2026-11-17T21:00:00.000Z",
+      "Editor IG screenshots + masked-men cover — Sáb 21 Nov 2026 from 8:00 PM (editor-announced start); Money Heist: La Casa de Papel; guests Félix Fire, La Paulina, Jhunior, Masiory (4th), Papi Cejas (5th); more reveals pending @twenty_disco_lounge; Playa Dorada Mall; reservas 849-507-7676; cover not printed.",
+    updatedAt: "2026-11-19T03:30:00.000Z",
   },
   {
     eventId: "disco-club-gogo-dancers-2026-11-19",
@@ -9886,10 +9886,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "chill-grill-paul-naar-2026-11-18",
-    body: "Wednesday 6:30 PM Paul Naar Latin Version at Chill & Grill on Carretera El Choco — dinner-and-dance on the Casa Linda terrace; reserve +1 829-679-8389, and don’t mix it with Saturday karaoke, Sunday bingo, or Spotland Fit Fusion the same night in Puerto Plata.",
+    body: "Wednesday 6:30 PM Paul Naar Latin Version at Chill & Grill on Carretera El Choco — dinner-and-dance on the Casa Linda terrace; reserve +1 829-679-8389, and don’t mix it with Saturday karaoke or Sunday bingo on the same terrace.",
     localized: {
-      es: "Miércoles 6:30 PM Paul Naar Latin Version en Chill & Grill en Carretera El Choco — cena y baile en la terraza de Casa Linda; reserva +1 829-679-8389, y no lo mezcles con el karaoke del sábado, el bingo del domingo ni Spotland Fit Fusion esa misma noche en Puerto Plata.",
-      fr: "Mercredi 18 h 30 Paul Naar Latin Version au Chill & Grill sur Carretera El Choco — dîner et danse sur la terrasse Casa Linda ; réservez +1 829-679-8389, et ne le confondez pas avec le karaoké du samedi, le bingo du dimanche ni Spotland Fit Fusion le même soir à Puerto Plata.",
+      es: "Miércoles 6:30 PM Paul Naar Latin Version en Chill & Grill en Carretera El Choco — cena y baile en la terraza de Casa Linda; reserva +1 829-679-8389, y no lo mezcles con el karaoke del sábado ni el bingo del domingo en la misma terraza.",
+      fr: "Mercredi 18 h 30 Paul Naar Latin Version au Chill & Grill sur Carretera El Choco — dîner et danse sur la terrasse Casa Linda ; réservez +1 829-679-8389, et ne le confondez pas avec le karaoké du samedi ni le bingo du dimanche sur la même terrasse.",
     },
     priceFeel: "moderate",
     priceNote:
@@ -9903,5 +9903,194 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer + IG caption @chillandgrilldr — TOMORROW 6:30 PM (= Wed 18 Nov 2026 from editor capture day Tue 17 Nov); Paul Naar Latin Version Live Music; Casa Linda Phase 7-9; reservations 829-679-8389.",
     updatedAt: "2026-11-17T20:00:00.000Z",
+  },
+  {
+    eventId: "leos-banana-enrico-music-live-2026-11-26",
+    body: "Thursday 5:30 PM Enrico Music Live on Sosúa Bay at Leo's — food-and-drinks terrace set, cover TBA so WhatsApp +1 829-993-4071; not Parada El Choco’s Thanksgiving Big D the same night, and not Fiesta Blanca the next evening.",
+    localized: {
+      es: "Jueves 5:30 PM Enrico Music Live en Bahía de Sosúa en Leo's — set de terraza con comida y drinks, cover por confirmar vía WhatsApp +1 829-993-4071; no es el Thanksgiving Big D de Parada El Choco esa misma noche, ni la Fiesta Blanca al día siguiente.",
+      fr: "Jeudi 17 h 30 Enrico Music Live sur la baie de Sosúa chez Leo’s — set terrasse food & drinks, cover à confirmer via WhatsApp +1 829-993-4071 ; pas le Thanksgiving Big D de Parada El Choco le même soir, ni la Fiesta Blanca le lendemain.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Cover TBA — WA +1 829-993-4071 · @leosbananabarandrestaurant",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — WA +1 829-993-4071 · @leosbananabarandrestaurant",
+      fr: "Cover à confirmer — WA +1 829-993-4071 · @leosbananabarandrestaurant",
+    },
+    attribution:
+      "POP research · Leo's Banana Enrico Music Live flyer · @leosbananabarandrestaurant",
+    researchNotes:
+      "Editor flyer — Thu 26 Nov 2026 5:30 PM; Enrico Music Live; LEOS BANANA Bar & Restaurant; no cover on art; WA 829-993-4071 from venue seed.",
+    updatedAt: "2026-11-18T20:00:00.000Z",
+  },
+  {
+    eventId: "terraza-isla-banda-sin-limite-2026-11-20",
+    body: "Friday 9 PM free Banda Sin Límite upstairs at Terraza Isla over the Shell pumps on 12 de Julio #88 — climb the station stairs, not La Quinta Rosa’s pink Victorian at the same street number, and not Vinoteca’s earlier Sin Límite night.",
+    localized: {
+      es: "Viernes 9 PM Banda Sin Límite gratis arriba en Terraza Isla sobre las bombas Shell en 12 de Julio #88 — sube las escaleras de la estación, no la casa rosa de La Quinta Rosa en el mismo número, ni la noche anterior de Sin Límite en Vinoteca.",
+      fr: "Vendredi 21 h Banda Sin Límite gratuit en haut à Terraza Isla au-dessus des pompes Shell au 12 de Julio #88 — montez les escaliers de la station, pas la maison rose de La Quinta Rosa au même numéro, ni la soirée Sin Límite plus tôt à Vinoteca.",
+    },
+    priceFeel: "free",
+    priceNote: "Free entry — @terrazaisla · Shell / 12 de Julio #88 stairs",
+    priceNoteLocalized: {
+      es: "Entrada gratis — @terrazaisla · escaleras Shell / 12 de Julio #88",
+      fr: "Entrée gratuite — @terrazaisla · escaliers Shell / 12 de Julio #88",
+    },
+    attribution: "POP research · @terrazaisla Banda Sin Límite flyer",
+    researchNotes:
+      "Editor flyer — Vie 20 Nov 2026 9 PM; Banda Sin Limite; Terraza Isla; Calle 12 de Julio No.88 esq 27 de Febrero; ENTRADA GRATIS; Brugal logo; new venue @terrazaisla over Shell.",
+    updatedAt: "2026-11-18T21:00:00.000Z",
+  },
+  {
+    eventId: "aguaji-tiempo-de-las-mariposas-2026-11-21",
+    body: "Saturday 7 PM women’s gastronomy encuentro at Aguají / Chef Tita on Ocean Club — reserve +1 809-706-1482 before you treat it like walk-in dinner; not Twenty’s Money Heist the same night.",
+    localized: {
+      es: "Sábado 7 PM encuentro gastronómico de mujeres en Aguají / Chef Tita en Ocean Club — reserva +1 809-706-1482 antes de asumir walk-in; no es Money Heist de Twenty esa misma noche.",
+      fr: "Samedi 19 h rencontre gastronomique femmes chez Aguají / Chef Tita à Ocean Club — réservez +1 809-706-1482 avant d’assumer le walk-in ; pas Money Heist au Twenty la même nuit.",
+    },
+    priceFeel: "varies",
+    priceNote: "Price TBA — reservas +1 809-706-1482 · @aguaji.altacocina",
+    priceNoteLocalized: {
+      es: "Precio por confirmar — reservas +1 809-706-1482 · @aguaji.altacocina",
+      fr: "Prix à confirmer — réservations +1 809-706-1482 · @aguaji.altacocina",
+    },
+    attribution:
+      "POP research · Aguají En el Tiempo de las Mariposas flyer",
+    researchNotes:
+      "Editor flyer — Sáb 21 Nov 2026 7 PM; En el Tiempo de las Mariposas; Aguají by Chef Tita; Ocean Club Costa Norte; reservas +1 809-706-1482; price not on art.",
+    updatedAt: "2026-11-18T20:45:00.000Z",
+  },
+  {
+    eventId: "renovacion-hispanidad-felix-jimenez-2026-11-20",
+    body: "Friday 6:30 PM free Félix A. Jiménez talk at Salón Osvaldo Brugal / Renovación on Duarte — historic-center conference energy, not Terraza Isla’s free banda set at 9 PM the same night.",
+    localized: {
+      es: "Viernes 6:30 PM charla gratis de Félix A. Jiménez en el Salón Osvaldo Brugal / Renovación en Duarte — energía de conferencia del centro histórico, no el set gratis de banda en Terraza Isla a las 9 PM esa misma noche.",
+      fr: "Vendredi 18 h 30 conférence gratuite de Félix A. Jiménez au Salón Osvaldo Brugal / Renovación sur Duarte — énergie conférence du centre historique, pas le set banda gratuit à Terraza Isla à 21 h la même nuit.",
+    },
+    priceFeel: "free",
+    priceNote: "Free entry — +1 809-586-6240 · @screnovacion",
+    priceNoteLocalized: {
+      es: "Entrada libre — +1 809-586-6240 · @screnovacion",
+      fr: "Entrée libre — +1 809-586-6240 · @screnovacion",
+    },
+    attribution:
+      "POP research · @screnovacion La hispanidad… Félix A. Jiménez flyer",
+    researchNotes:
+      "Editor flyer + IG caption @screnovacion — Vie 20 Nov 2026 6:30 PM; Félix A. Jiménez; Salón Dr. Osvaldo Brugal; entrada libre; Gran Ventana + INPOSDOM co-invite.",
+    updatedAt: "2026-11-18T20:30:00.000Z",
+  },
+  {
+    eventId: "isabela-food-fest-dj-opg-2026-12-20",
+    body: "Sunday DJ OPG on the Villa Isabela park stage — same Dec 20 night as Ronny Manuel, Melcocha, and Bulin 47’s gran cierre; tickets via todotickets.do / Plaza Lama, and don’t mix it with Ojo’s earlier Equinoccio OPG neon night.",
+    localized: {
+      es: "Domingo DJ OPG en el escenario del parque de Villa Isabela — misma noche del 20 dic que Ronny Manuel, Melcocha y el gran cierre de Bulin 47; boletas en todotickets.do / Plaza Lama, y no lo mezcles con la noche neón Equinoccio de OPG en Ojo.",
+      fr: "Dimanche DJ OPG sur la scène du parc de Villa Isabela — même soirée du 20 déc. que Ronny Manuel, Melcocha et le grand closing Bulin 47 ; billets via todotickets.do / Plaza Lama, et ne confondez pas avec la soirée néon Equinoccio OPG à Ojo.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Tickets todotickets.do / Plaza Lama — info +1 829-336-6802 · @isabelafoodfest",
+    priceNoteLocalized: {
+      es: "Boletas todotickets.do / Plaza Lama — info +1 829-336-6802 · @isabelafoodfest",
+      fr: "Billets todotickets.do / Plaza Lama — info +1 829-336-6802 · @isabelafoodfest",
+    },
+    attribution: "POP research · Isabela Food Fest DJ OPG flyer",
+    researchNotes:
+      "Editor flyer — Dom 20 Dic; DJ OPG @djopg; Parque Villa Isabela; same Sunday slate as Melcocha/Ronny/Bulin; 829-336-6802; todotickets.do / Plaza Lama.",
+    updatedAt: "2026-11-18T20:15:00.000Z",
+  },
+  {
+    eventId: "chameleon-vibras-party-monarka-2026-11-22",
+    body: "Sunday Vibras Party at Chameleon with DJ Monarka (El Therians) — pin Sosúa Bay Center next to Coral Reef Casino; cover TBA so RSVP (829) 994-2304, and don’t mix it with Mirando Pa' Otro Lao at Parque Central the same evening.",
+    localized: {
+      es: "Domingo Vibras Party en Chameleon con DJ Monarka (El Therians) — clava Sosúa Bay Center junto a Coral Reef Casino; cover por confirmar, RSVP (829) 994-2304, y no lo mezcles con Mirando Pa' Otro Lao en Parque Central esa misma noche.",
+      fr: "Dimanche Vibras Party au Chameleon avec DJ Monarka (El Therians) — épinglez Sosúa Bay Center à côté du Coral Reef Casino ; cover à confirmer, RSVP (829) 994-2304, et ne confondez pas avec Mirando Pa' Otro Lao au Parque Central le même soir.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — RSVP (829) 994-2304 · @chameleonsportbar",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — RSVP (829) 994-2304 · @chameleonsportbar",
+      fr: "Cover à confirmer — RSVP (829) 994-2304 · @chameleonsportbar",
+    },
+    attribution: "POP research · @chameleonsportbar Vibras Party flyer + caption",
+    researchNotes:
+      "Editor flyer + IG caption @chameleonsportbar — Dom 22 Nov 2026; Vibras Party; DJ Monarka / El Therians live; Sosúa Bay Center Calle Alejo Martínez #1; RSVP (829) 994-2304; cover not printed; Pekke Redes.",
+    updatedAt: "2026-11-19T03:00:00.000Z",
+  },
+  {
+    eventId: "meclao-viernes-social-junier-lockward-2026-11-20",
+    body: "Friday social on Luis Ginebra with Junier Lockward — 2x1 mojitos/sangría/Cuba Libre 6–9 PM before the late rooftop set; reserve 829-374-7028, and don’t mix it with Terraza Isla’s free Banda Sin Límite the same night or Ambar one block over.",
+    localized: {
+      es: "Viernes social en Luis Ginebra con Junier Lockward — 2x1 de mojitos/sangría/Cuba Libre 6–9 PM antes del set late del rooftop; reserva 829-374-7028, y no lo mezcles con el Banda Sin Límite gratis de Terraza Isla esa misma noche ni Ambar a una cuadra.",
+      fr: "Vendredi social sur Luis Ginebra avec Junier Lockward — 2x1 mojitos/sangría/Cuba Libre 18 h–21 h avant le set late du rooftop ; réservez 829-374-7028, et ne confondez pas avec le Banda Sin Límite gratuit de Terraza Isla la même nuit ni Ambar une rue plus loin.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Cover TBA · 2x1 drinks 6–9 PM — 829-374-7028 · @meclaorooftop",
+    priceNoteLocalized: {
+      es: "Cover por confirmar · 2x1 tragos 6–9 PM — 829-374-7028 · @meclaorooftop",
+      fr: "Cover à confirmer · 2x1 boissons 18 h–21 h — 829-374-7028 · @meclaorooftop",
+    },
+    attribution:
+      "POP research · @meclaorooftop Viernes Social Junier Lockward flyer + caption",
+    researchNotes:
+      "Editor flyer + IG caption @meclaorooftop — Vie 20 Nov 2026; Viernes Social; Junier Lockward @jlockward; 2x1 mojitos/sangría/Cuba Libre 6–9 PM; open 6 PM–3 AM; Luis Ginebra 49; reservas 829-374-7028; cover not printed.",
+    updatedAt: "2026-11-19T03:15:00.000Z",
+  },
+  {
+    eventId: "hard-rock-magica-navidad-2026-12-19",
+    body: "Producciones Giank family Christmas at Hard Rock Sosúa — Sat 19 Dec 3 PM and Sun 20 Dec 1 PM for Santa letters, shows, and face painting; WhatsApp +1 849-505-7778 for boletas, and don’t mix it with Chameleon’s La Más Doll the same Saturday night.",
+    localized: {
+      es: "Navidad familiar de Producciones Giank en Hard Rock Sosúa — sáb 19 dic 3 PM y dom 20 dic 1 PM para cartas a Santa, shows y pintacaritas; WhatsApp +1 849-505-7778 por boletas, y no lo mezcles con La Más Doll de Chameleon esa misma noche del sábado.",
+      fr: "Noël famille Producciones Giank au Hard Rock Sosúa — sam. 19 déc. 15 h et dim. 20 déc. 13 h pour lettres au Père Noël, shows et peinture faciale ; WhatsApp +1 849-505-7778 pour les billets, et ne confondez pas avec La Más Doll de Chameleon le même samedi soir.",
+    },
+    priceFeel: "varies",
+    priceNote: "Tickets TBA — WhatsApp +1 849-505-7778 · @produccionesgiank",
+    priceNoteLocalized: {
+      es: "Boletas por confirmar — WhatsApp +1 849-505-7778 · @produccionesgiank",
+      fr: "Billets à confirmer — WhatsApp +1 849-505-7778 · @produccionesgiank",
+    },
+    attribution:
+      "POP research · @produccionesgiank Mágica Navidad flyer + caption",
+    researchNotes:
+      "Editor flyer + IG @produccionesgiank — Sáb 19 Dic 3 PM / Dom 20 Dic 1 PM; Mágica Navidad Tu Carta para Santa; Family Fun Fest; Hard Rock Sosúa; boletas 849-505-7778; ageHint family; price not printed.",
+    updatedAt: "2026-11-19T03:30:00.000Z",
+  },
+  {
+    eventId: "ambar-lounge-darvin-estrella-2026-11-21",
+    body: "Saturday Antes que se acabe at Ambar with Darvin Estrella on Luis Ginebra — RSVP (809) 781-8677 before you treat doors as walk-in, and don’t mix it with Twenty’s Money Heist the same night at Playa Dorada Mall.",
+    localized: {
+      es: "Sábado Antes que se acabe en Ambar con Darvin Estrella en Luis Ginebra — RSVP (809) 781-8677 antes de asumir walk-in, y no lo mezcles con Money Heist de Twenty esa misma noche en Playa Dorada Mall.",
+      fr: "Samedi Antes que se acabe à Ambar avec Darvin Estrella sur Luis Ginebra — RSVP (809) 781-8677 avant d’assumer le walk-in, et ne confondez pas avec Money Heist au Twenty la même nuit à Playa Dorada Mall.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — RSVP (809) 781-8677 · @ambarloungepop",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — RSVP (809) 781-8677 · @ambarloungepop",
+      fr: "Cover à confirmer — RSVP (809) 781-8677 · @ambarloungepop",
+    },
+    attribution:
+      "POP research · @ambarloungepop Antes que se acabe / Darvin Estrella flyer + caption",
+    researchNotes:
+      "Editor flyer + IG caption @ambarloungepop — Sáb 21 Nov 2026; Antes que se acabe; Darvin Estrella @darvinestrella; Luis Ginebra 45; RSVP 809-781-8677; cover not printed.",
+    updatedAt: "2026-11-19T03:45:00.000Z",
+  },
+  {
+    eventId: "euridis-mena-rancho-catalina-2026-11-22",
+    body: "Sunday 2:30 PM ranch live with Euridis Mena — same no-cover El Cupey lunch slot as 4to Día and Alex René; book a table if you want the set with the meal, not Chameleon’s Vibras Party later the same night.",
+    localized: {
+      es: "Domingo 2:30 PM de live en el rancho con Euridis Mena — el mismo slot sin cover de almuerzo en El Cupey que 4to Día y Alex René; reserva mesa si quieres el set con la comida, no el Vibras Party de Chameleon más tarde esa misma noche.",
+      fr: "Dimanche 14 h 30 live au ranch avec Euridis Mena — même créneau déjeuner sans cover à El Cupey que 4to Día et Alex René ; réservez une table pour le set avec le repas, pas le Vibras Party de Chameleon plus tard le même soir.",
+    },
+    priceFeel: "free",
+    priceNote: "No cover — pay for ranch dining; +1 809-781-3737 / @rancholacatalina",
+    priceNoteLocalized: {
+      es: "Sin cover — pagas la comida del rancho; +1 809-781-3737 / @rancholacatalina",
+      fr: "Pas de cover — vous payez le repas ranch ; +1 809-781-3737 / @rancholacatalina",
+    },
+    attribution: "POP research · @rancholacatalina · Euridis Mena flyer",
+    researchNotes:
+      "Editor flyer + IG caption @rancholacatalina — Dom 22 Nov 2026 2:30 PM; Euridis Mena; NO COVER; Rancho La Catalina Restaurant.",
+    updatedAt: "2026-11-19T04:00:00.000Z",
   },
 ];

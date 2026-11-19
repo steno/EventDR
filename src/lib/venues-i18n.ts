@@ -1217,14 +1217,24 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Galerie communautaire et centre culturel au Calle Pedro Clisante n° 1 à l’entrée d’El Batey / baie de Sosúa — expositions tournantes, talks et éducation artistique. Horaires typiques lun–ven matin et après-midi, samedis matin (fermé dimanche) ; confirmez via Instagram @casadeartedesosua ou +1 809-571-2442.",
     },
   },
+  "terraza-isla-puerto-plata": {
+    name: {
+      es: "Terraza Isla",
+      fr: "Terraza Isla",
+    },
+    description: {
+      es: "Terraza-lounge arriba de la Shell / Bomba Isla en Calle 12 de Julio No. 88, esquina 27 de Febrero — bandas en vivo, noches de ron y nightlife adulto sobre el patio de bombas. Clava las escaleras de la Shell, no la casa rosa victoriana de La Quinta Rosa (misma dirección #88). Instagram @terrazaisla.",
+      fr: "Lounge terrasse au-dessus de la Shell / Bomba Isla, Calle 12 de Julio n° 88 coin 27 de Febrero — groupes live, soirées rhum et nightlife adulte au-dessus du parvis. Épinglez les escaliers Shell, pas la maison rose victorienne de La Quinta Rosa (même adresse #88). Instagram @terrazaisla.",
+    },
+  },
   "la-quinta-rosa": {
     name: {
       es: "La Quinta Rosa",
       fr: "La Quinta Rosa",
     },
     description: {
-      es: "Casa colonial rosa histórica (est. 1912) en Calle 12 de Julio #88, centro de Puerto Plata — espacio de eventos con entradas para charlas en vivo, talleres y encuentros con estilo en las salas y el porche victorianos (a veces hay comida en el programa). Instagram @laquintarosapop.",
-      fr: "Maison coloniale rose historique (est. 1912) au Calle 12 de Julio #88, centre de Puerto Plata — lieu d’événements sur billet pour talks live, ateliers et rencontres stylées dans les salons et le porche victorien (la nourriture peut figurer au programme). Instagram @laquintarosapop.",
+      es: "Casa colonial rosa histórica (est. 1912) en Calle 12 de Julio #88, centro de Puerto Plata — espacio de eventos con entradas para charlas en vivo, talleres y encuentros con estilo en las salas y el porche victorianos (a veces hay comida en el programa). Instagram @laquintarosapop. No es Terraza Isla arriba de la Shell en la misma dirección #88.",
+      fr: "Maison coloniale rose historique (est. 1912) au Calle 12 de Julio #88, centre de Puerto Plata — lieu d’événements sur billet pour talks live, ateliers et rencontres stylées dans les salons et le porche victorien (la nourriture peut figurer au programme). Instagram @laquintarosapop. Pas Terraza Isla au-dessus de la Shell à la même adresse #88.",
     },
   },
   "luxury-club-puerto-plata": {

@@ -421,8 +421,20 @@ const FILE_TO_EVENT_ID = {
     "alex-rene-rancho-catalina-2026-11-08",
   "4to-dia-rancho-catalina-2026-11-15.jpg":
     "4to-dia-rancho-catalina-2026-11-15",
+  "euridis-mena-rancho-catalina-2026-11-22.jpg":
+    "euridis-mena-rancho-catalina-2026-11-22",
   "leos-banana-fiesta-blanca-2026-11-27.jpg":
     "leos-banana-fiesta-blanca-2026-11-27",
+  "leos-banana-enrico-music-live-2026-11-26.jpg":
+    "leos-banana-enrico-music-live-2026-11-26",
+  "terraza-isla-banda-sin-limite-2026-11-20.jpg":
+    "terraza-isla-banda-sin-limite-2026-11-20",
+  "aguaji-tiempo-de-las-mariposas-2026-11-21.jpg":
+    "aguaji-tiempo-de-las-mariposas-2026-11-21",
+  "renovacion-hispanidad-felix-jimenez-2026-11-20.jpg":
+    "renovacion-hispanidad-felix-jimenez-2026-11-20",
+  "isabela-food-fest-dj-opg-2026-12-20.jpg":
+    "isabela-food-fest-dj-opg-2026-12-20",
   "disco-club-pijama-party-2026-11-13.jpg":
     "disco-club-pijama-party-2026-11-13",
   "disco-club-pijama-party-2026-11-13-v2.jpg":
@@ -456,6 +468,8 @@ const FILE_TO_EVENT_ID = {
   "meclao-tinder-party-2026-11-07.jpg": "meclao-tinder-party-2026-11-07",
   "meclao-reggaeton-rooftop-mr-alfredo-2026-11-13.jpg":
     "meclao-reggaeton-rooftop-mr-alfredo-2026-11-13",
+  "meclao-viernes-social-junier-lockward-2026-11-20.jpg":
+    "meclao-viernes-social-junier-lockward-2026-11-20",
   "chameleon-perreo-poca-luz-h23-deeway-2026-11-13.jpg":
     "chameleon-perreo-poca-luz-h23-deeway-2026-11-13",
   "los-guaos-gran-cabalgata-natural-2026-11-15.jpg":
@@ -949,6 +963,7 @@ const SAME_VENUE_COPIES = [
 
 /** popevent-images filename → venue slug (copied to public/venues/). */
 const FILE_TO_VENUE_SLUG = {
+  "terraza-isla-puerto-plata.jpg": "terraza-isla-puerto-plata",
   "pregame-roof-puerto-plata.jpg": "pregame-roof-puerto-plata",
   "casa-tuva-cabarete.jpg": "casa-tuva-cabarete",
   "cedaky-mall.jpg": "cedaky-mall",
@@ -1116,6 +1131,8 @@ const FILE_TO_VENUE_SLUG = {
     "pedro-santana-sus-dias-contados-2026-11-24",
   "ambar-lounge-bandoleras-2026-11-13.jpg": "ambar-lounge-bandoleras-2026-11-13",
   "ambar-lounge-carlos-rivera-2026-11-14.jpg": "ambar-lounge-carlos-rivera-2026-11-14",
+  "ambar-lounge-darvin-estrella-2026-11-21.jpg":
+    "ambar-lounge-darvin-estrella-2026-11-21",
   "ambar-lounge-reggaeton-la-residencia-2026-12.jpg":
     "ambar-lounge-reggaeton-la-residencia-2026-12",
   "twenty-disco-adrian-tineo-darwin-estrella-2026-11-14.jpg":
@@ -1128,6 +1145,10 @@ const FILE_TO_VENUE_SLUG = {
     "twenty-disco-money-heist-la-paulina-2026-11-21",
   "twenty-disco-money-heist-jhunior-2026-11-21.jpg":
     "twenty-disco-money-heist-jhunior-2026-11-21",
+  "twenty-disco-money-heist-masiory-2026-11-21.jpg":
+    "twenty-disco-money-heist-masiory-2026-11-21",
+  "twenty-disco-money-heist-papi-cejas-2026-11-21.jpg":
+    "twenty-disco-money-heist-papi-cejas-2026-11-21",
   "disco-club-gogo-dancers-2026-11-19.jpg":
     "disco-club-gogo-dancers-2026-11-19",
   "chiche-almonte-vinoteca-2026-11-28.jpg":
@@ -1148,6 +1169,8 @@ const FILE_TO_VENUE_SLUG = {
   "casa-arte-sosua-morphy-legado-2026-11-14-v2.jpg":
     "casa-arte-sosua-morphy-legado-2026-11-14-v2",
   "hard-rock-anne-live-2026-11-14.jpg": "hard-rock-anne-live-2026-11-14",
+  "hard-rock-magica-navidad-2026-12-19.jpg":
+    "hard-rock-magica-navidad-2026-12-19",
   "aura-galactic-nights-christoo-2026-11-28.jpg":
     "aura-galactic-nights-christoo-2026-11-28",
   "hard-rock-allison-sade-2026-11-27.jpg": "hard-rock-allison-sade-2026-11-27",
@@ -1159,6 +1182,8 @@ const FILE_TO_VENUE_SLUG = {
     "toscana-nightclub-jacob-henriquez-2026-12-05",
   "chameleon-sunday-on-fire-yosma-2026-11-15.jpg":
     "chameleon-sunday-on-fire-yosma-2026-11-15",
+  "chameleon-vibras-party-monarka-2026-11-22.jpg":
+    "chameleon-vibras-party-monarka-2026-11-22",
   "goddess-francesca-samuele-2026-11-27-v2.jpg":
     "goddess-francesca-samuele-2026-11-27",
   "latin-disco-semaforo-yeffrey-estrella-2026-11-20.jpg":

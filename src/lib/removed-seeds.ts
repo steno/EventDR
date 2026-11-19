@@ -118,6 +118,8 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "la-quinta-rosa-call-you-later-2026-11-21",
   // Editor removed — Liquid Blue Sunrise Yoga daily.
   "liquid-blue-sunrise-yoga",
+  // Editor removed — Spot Land Fit Fusion Night Vol. 2 (Wed 18 Nov).
+  "spotland-fit-fusion-night-volumen-2-2026-11-18",
 ]);
 
 /**
@@ -165,6 +167,8 @@ export const EVENT_PATH_REDIRECTS: Record<string, string> = {
   "love-does-bocadillos-course-2026": "/venue/love-does-sosua",
   "la-quinta-rosa-call-you-later-2026-11-21": "/venue/la-quinta-rosa",
   "liquid-blue-sunrise-yoga": "/venue/liquid-blue-cabarete",
+  "spotland-fit-fusion-night-volumen-2-2026-11-18":
+    "/venue/spotland-puerto-plata",
 };
 
 export function resolveEventPathRedirect(

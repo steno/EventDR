@@ -45,6 +45,15 @@ describe("EVENT_PATH_REDIRECTS (GSC soft 404s)", () => {
     );
   });
 
+  it("sends removed Spot Land Fit Fusion to Spot Land", () => {
+    assert.equal(
+      resolveEventPathRedirect(
+        "spotland-fit-fusion-night-volumen-2-2026-11-18",
+      ),
+      "/venue/spotland-puerto-plata",
+    );
+  });
+
   it("keeps every redirect path locale-free and absolute within the app", () => {
     for (const [id, path] of Object.entries(EVENT_PATH_REDIRECTS)) {
       assert.ok(path.startsWith("/"), `${id} → ${path}`);

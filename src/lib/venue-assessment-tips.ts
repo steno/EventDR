@@ -465,6 +465,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Cocktails océanfront sur Calle Coral derrière Casino Reef (ancien Hôtel Sosúa Bay) — WhatsApp +1 829-993-4071 pour une table vue baie, et n’épinglez pas Hard Rock sur Duarte par erreur.",
     },
   },
+  "terraza-isla-puerto-plata": {
+    body: "Upstairs lounge over the Shell pumps at 12 de Julio #88 / 27 de Febrero — climb the station stairs for the banda night, and don’t walk into La Quinta Rosa’s pink Victorian by mistake (same street number).",
+    localized: {
+      en: "Upstairs lounge over the Shell pumps at 12 de Julio #88 / 27 de Febrero — climb the station stairs for the banda night, and don’t walk into La Quinta Rosa’s pink Victorian by mistake (same street number).",
+      es: "Lounge arriba de las bombas Shell en 12 de Julio #88 / 27 de Febrero — sube las escaleras de la estación para la noche de banda, y no entres a la casa rosa de La Quinta Rosa por error (mismo número de calle).",
+      fr: "Lounge au-dessus des pompes Shell au 12 de Julio #88 / 27 de Febrero — montez les escaliers de la station pour la soirée banda, et n’entrez pas dans la maison rose de La Quinta Rosa par erreur (même numéro de rue).",
+    },
+  },
   "ed-salon-de-eventos": {
     body: "Indoor event hall on Andrés Brugal in Ensanche Luperón — call +1 809-708-0960 to book or confirm a billed night; don’t Uber to the Polideportivo by mistake.",
     localized: {

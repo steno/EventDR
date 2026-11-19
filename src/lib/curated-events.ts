@@ -402,6 +402,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18495057778",
     venueSlug: "hard-rock-sosua",
   },
+  "hard-rock-magica-navidad-2026-12-19": {
+    callForPricing: true,
+    phone: "+18495057778",
+    venueSlug: "hard-rock-sosua",
+    sourceUrl: "https://www.instagram.com/produccionesgiank/",
+  },
   "hard-rock-karaoke-wednesday": {
     isFree: true,
     phone: "+18495057778",
@@ -1009,6 +1015,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18097818677",
     venueSlug: "ambar-lounge-pop",
   },
+  "ambar-lounge-darvin-estrella-2026-11-21": {
+    callForPricing: true,
+    phone: "+18097818677",
+    venueSlug: "ambar-lounge-pop",
+    sourceUrl: "https://www.instagram.com/ambarloungepop/",
+  },
   "ambar-lounge-reggaeton-la-residencia-2026-12": {
     callForPricing: true,
     phone: "+18097818677",
@@ -1149,6 +1161,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     sourceUrl: "https://www.instagram.com/toscana_nightclub/",
   },
   "chameleon-sunday-on-fire-yosma-2026-11-15": {
+    callForPricing: true,
+    phone: "+18299942304",
+    venueSlug: "chameleon-sport-bar",
+    sourceUrl: "https://www.instagram.com/chameleonsportbar/",
+  },
+  "chameleon-vibras-party-monarka-2026-11-22": {
     callForPricing: true,
     phone: "+18299942304",
     venueSlug: "chameleon-sport-bar",
@@ -1581,12 +1599,48 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "rancho-catalina-puerto-plata",
     sourceUrl: "https://www.instagram.com/rancholacatalina/",
   },
+  "euridis-mena-rancho-catalina-2026-11-22": {
+    isFree: true,
+    phone: "+18097813737",
+    venueSlug: "rancho-catalina-puerto-plata",
+    sourceUrl: "https://www.instagram.com/rancholacatalina/",
+  },
   "leos-banana-fiesta-blanca-2026-11-27": {
     isFree: false,
     admissionPrice: "RD$500",
     phone: "+18299934071",
     venueSlug: "leos-banana-bar-sosua",
     sourceUrl: "https://www.instagram.com/leosbananabarandrestaurant/",
+  },
+  "leos-banana-enrico-music-live-2026-11-26": {
+    callForPricing: true,
+    phone: "+18299934071",
+    venueSlug: "leos-banana-bar-sosua",
+    sourceUrl: "https://www.instagram.com/leosbananabarandrestaurant/",
+  },
+  "terraza-isla-banda-sin-limite-2026-11-20": {
+    isFree: true,
+    venueSlug: "terraza-isla-puerto-plata",
+    sourceUrl: "https://www.instagram.com/terrazaisla/",
+  },
+  "aguaji-tiempo-de-las-mariposas-2026-11-21": {
+    callForPricing: true,
+    phone: "+18097061482",
+    venueSlug: "aguaji-sosua",
+    sourceUrl: "https://www.instagram.com/aguaji.altacocina/",
+  },
+  "renovacion-hispanidad-felix-jimenez-2026-11-20": {
+    isFree: true,
+    phone: "+18095866240",
+    venueSlug: "sociedad-cultural-renovacion",
+    sourceUrl: "https://www.instagram.com/screnovacion/",
+  },
+  "isabela-food-fest-dj-opg-2026-12-20": {
+    callForPricing: true,
+    phone: "+18293366802",
+    ticketUrl: "https://todotickets.do",
+    venueSlug: "parque-municipal-villa-isabela",
+    sourceUrl: "https://www.instagram.com/isabelafoodfest/",
   },
   "disco-club-pijama-party-2026-11-13": {
     callForPricing: true,
@@ -1805,6 +1859,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     callForPricing: true,
     phone: "+18293747028",
     venueSlug: "meclao-rooftop",
+  },
+  "meclao-viernes-social-junier-lockward-2026-11-20": {
+    callForPricing: true,
+    phone: "+18293747028",
+    venueSlug: "meclao-rooftop",
+    sourceUrl: "https://www.instagram.com/meclaorooftop/",
   },
   "chameleon-perreo-poca-luz-h23-deeway-2026-11-13": {
     callForPricing: true,

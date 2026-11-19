@@ -671,6 +671,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "terraza-isla-puerto-plata",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["nightlife", "local", "mixed"],
+    axes: { recommend: 4.0, atmosphere: 4.1, practical: 3.8 },
+    themes: [
+      { key: "live_music", sentiment: "positive", audience: "nightlife" },
+      { key: "loud_late", sentiment: "mixed", audience: "nightlife" },
+      { key: "easy_to_find", sentiment: "mixed" },
+    ],
+  }),
+  editorial({
     venueSlug: "ed-salon-de-eventos",
     verdictKey: "reliable_visitor_pick",
     crowdFit: ["visitor", "family", "mixed"],

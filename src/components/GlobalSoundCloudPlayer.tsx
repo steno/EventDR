@@ -133,7 +133,8 @@ export function GlobalSoundCloudProvider({ children }: { children: ReactNode }) 
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const widgetRef = useRef<SoundCloudWidget | null>(null);
   const playingRef = useRef(false);
-  const pendingPlayRef = useRef(false);
+  /** True only after the header button asks to play. Never set on load. */
+  const userRequestedRef = useRef(false);
   const [playing, setPlaying] = useState(false);
   const [ready, setReady] = useState(false);
 
@@ -142,40 +143,29 @@ export function GlobalSoundCloudProvider({ children }: { children: ReactNode }) 
     if (!iframe) return;
 
     let cancelled = false;
-    let gestureBound = false;
 
     function setPlayingState(next: boolean) {
       playingRef.current = next;
       setPlaying(next);
     }
 
+    function stopUnlessRequested(widget: SoundCloudWidget) {
+      if (cancelled || userRequestedRef.current) return;
+      widget.pause();
+      setPlayingState(false);
+    }
+
     function markReady(widget: SoundCloudWidget) {
       if (cancelled) return;
       setReady(true);
-      if (pendingPlayRef.current) {
-        pendingPlayRef.current = false;
+      if (userRequestedRef.current) {
         widget.play();
-      } else {
-        // Soft autoplay attempt — browsers may still require a gesture.
-        widget.play();
+        return;
       }
-      window.setTimeout(() => {
-        if (cancelled) return;
-        widget.isPaused((paused) => {
-          setPlayingState(!paused);
-          if (paused) bindGestureFallback(widget);
-        });
-      }, 500);
-    }
-
-    function bindGestureFallback(widget: SoundCloudWidget) {
-      if (gestureBound || cancelled) return;
-      gestureBound = true;
-      const opts: AddEventListenerOptions = { once: true, capture: true };
-      const kick = () => widget.play();
-      window.addEventListener("pointerdown", kick, opts);
-      window.addEventListener("keydown", kick, opts);
-      window.addEventListener("touchstart", kick, opts);
+      // Widget can start on READY even with auto_play=false. Only the header button starts it.
+      stopUnlessRequested(widget);
+      window.setTimeout(() => stopUnlessRequested(widget), 500);
+      window.setTimeout(() => stopUnlessRequested(widget), 1500);
     }
 
     void (async () => {
@@ -193,13 +183,21 @@ export function GlobalSoundCloudProvider({ children }: { children: ReactNode }) 
           markReady(widget);
         });
         widget.bind(Widget.Events.PLAY, () => {
-          if (!cancelled) setPlayingState(true);
+          if (cancelled) return;
+          if (!userRequestedRef.current) {
+            widget.pause();
+            setPlayingState(false);
+            return;
+          }
+          setPlayingState(true);
         });
         widget.bind(Widget.Events.PAUSE, () => {
           if (!cancelled) setPlayingState(false);
         });
         widget.bind(Widget.Events.FINISH, () => {
-          if (!cancelled) setPlayingState(false);
+          if (cancelled) return;
+          userRequestedRef.current = false;
+          setPlayingState(false);
         });
 
         // READY can fire before bind if the iframe was already warm — probe.
@@ -230,15 +228,17 @@ export function GlobalSoundCloudProvider({ children }: { children: ReactNode }) 
   const toggle = useCallback(() => {
     const widget = widgetRef.current;
     if (!widget) {
-      // Widget still booting — remember intent for markReady.
-      pendingPlayRef.current = !playingRef.current;
+      // Widget still booting — play once it is ready. Do not start on load.
+      userRequestedRef.current = true;
       return;
     }
-    if (playingRef.current) {
+    if (playingRef.current || userRequestedRef.current) {
+      userRequestedRef.current = false;
       widget.pause();
       playingRef.current = false;
       setPlaying(false);
     } else {
+      userRequestedRef.current = true;
       widget.play();
       playingRef.current = true;
       setPlaying(true);
@@ -255,6 +255,8 @@ export function GlobalSoundCloudProvider({ children }: { children: ReactNode }) 
       {/*
         Real size + tiny opacity (not display:none / 1×1 / hard clip). SoundCloud
         needs measurable layout for Widget READY; off-screen left:-9999 can break play().
+        allow=autoplay only lets the header button start this cross-origin frame.
+        The URL keeps auto_play=false, and we pause unless that button was pressed.
       */}
       <iframe
         ref={iframeRef}

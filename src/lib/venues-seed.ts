@@ -2262,11 +2262,24 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18496571500",
   },
   {
+    slug: "terraza-isla-puerto-plata",
+    name: "Terraza Isla",
+    city: "Puerto Plata",
+    description:
+      "Upstairs terrace lounge over the Shell / Bomba Isla pumps at Calle 12 de Julio No. 88, esquina 27 de Febrero — live bands, rum nights, and adult nightlife above the forecourt. Pin the Shell station stairs, not La Quinta Rosa’s pink Victorian (same #88 street address). Instagram @terrazaisla.",
+    // Google Places — Shell / Estación Shell Clinio Javier, C. 12 de Julio #88.
+    lat: 19.79482,
+    lng: -70.684878,
+    emoji: "🏝️",
+    instagram: "terrazaisla",
+    website: "https://www.instagram.com/terrazaisla/",
+  },
+  {
     slug: "la-quinta-rosa",
     name: "La Quinta Rosa",
     city: "Puerto Plata",
     description:
-      "Historic pink colonial house (est. 1912) on Calle 12 de Julio #88 in downtown Puerto Plata — ticketed event space for live talks, workshops, and styled gatherings in the Victorian-era rooms and porch (food sometimes on the bill). Instagram @laquintarosapop.",
+      "Historic pink colonial house (est. 1912) on Calle 12 de Julio #88 in downtown Puerto Plata — ticketed event space for live talks, workshops, and styled gatherings in the Victorian-era rooms and porch (food sometimes on the bill). Instagram @laquintarosapop. Not Terraza Isla upstairs at the Shell pumps on the same #88 address.",
     // Calle 12 de Julio #88 pin (same street as Casa Museo Luperón / La Confluencia; east of #54).
     lat: 19.7948,
     lng: -70.6849,
@@ -3146,6 +3159,10 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /la\s*quinta\s*rosa|laquintarosapop/i,
     slug: "la-quinta-rosa",
+  },
+  {
+    pattern: /terraza\s*isla|terrazaisla|bomba\s*isla/i,
+    slug: "terraza-isla-puerto-plata",
   },
 ];
 
