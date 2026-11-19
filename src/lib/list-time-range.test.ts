@@ -99,4 +99,31 @@ describe("syncListTimeRangeForCategory", () => {
     syncListTimeRangeForCategory("music");
     assert.equal(getListTimeRange(), "all");
   });
+
+  it("forces All when landing on christmas from another scope", () => {
+    writeListTimeRange("weekend");
+    syncListTimeRangeForCategory("music");
+    assert.equal(getListTimeRange(), "weekend");
+
+    syncListTimeRangeForCategory("christmas");
+    assert.equal(getListTimeRange(), "all");
+    assert.equal(
+      sessionStorage.getItem(LIST_TIME_RANGE_STORAGE_KEY),
+      "all",
+    );
+  });
+
+  it("keeps a christmas chip while staying on christmas", () => {
+    writeListTimeRange("all");
+    syncListTimeRangeForCategory("christmas");
+    writeListTimeRange("today");
+    syncListTimeRangeForCategory("christmas");
+    assert.equal(getListTimeRange(), "today");
+  });
+
+  it("forces All on a cold christmas land with a stale session chip", () => {
+    writeListTimeRange("today");
+    syncListTimeRangeForCategory("christmas");
+    assert.equal(getListTimeRange(), "all");
+  });
 });

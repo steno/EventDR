@@ -317,7 +317,7 @@ export function EventScopePage({
         const parsed = parseScopeListingPath(url.pathname, locale);
         if (!parsed) return false;
         const next = normalizeScopeSelection(parsed);
-        // Keep All/Today/Weekend across category soft-nav (same session chip).
+        // Keep All/Today/Weekend across category soft-nav (Christmas → All).
         syncListTimeRangeForCategory(next.categoryId ?? "");
         applySoftSelection(next);
         return true;

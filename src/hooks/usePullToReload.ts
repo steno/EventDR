@@ -21,6 +21,7 @@ import {
   prefersPullToReload,
   reloadCurrentPage,
   shouldIgnorePullTarget,
+  shouldSuppressFollowingClick,
   subscribePullToReloadMedia,
   type PullReloadStatus,
 } from "@/lib/pull-to-reload";
@@ -249,8 +250,11 @@ export function usePullToReload(enabled = true) {
         return;
       }
 
-      suppressFollowingClick();
       const visual = dampPullDistance(clientY - drag.startY);
+      // Micro-pulls (thumb jitter on a link) must not eat the next tap.
+      if (shouldSuppressFollowingClick(visual)) {
+        suppressFollowingClick();
+      }
       if (isPullArmed(visual)) {
         triggerReload();
         return;

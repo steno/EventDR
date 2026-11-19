@@ -3,11 +3,13 @@ import { describe, it } from "node:test";
 import {
   PULL_ARM_PX,
   PULL_MAX_PX,
+  PULL_SUPPRESS_CLICK_PX,
   canStartPull,
   dampPullDistance,
   isMostlyVertical,
   isPullArmed,
   shouldIgnorePullTarget,
+  shouldSuppressFollowingClick,
 } from "./pull-to-reload";
 
 describe("dampPullDistance", () => {
@@ -74,5 +76,26 @@ describe("shouldIgnorePullTarget", () => {
 
     const page = { closest: () => null } as unknown as Element;
     assert.equal(shouldIgnorePullTarget(page), false);
+  });
+
+  it("ignores links and buttons so home See all taps are not stolen", () => {
+    const interactive = {
+      closest: (sel: string) =>
+        sel.includes("a, button") || sel.startsWith("a,") ? {} : null,
+    } as unknown as Element;
+    assert.equal(shouldIgnorePullTarget(interactive), true);
+
+    const blank = { closest: () => null } as unknown as Element;
+    assert.equal(shouldIgnorePullTarget(blank), false);
+  });
+});
+
+describe("shouldSuppressFollowingClick", () => {
+  it("ignores micro-pulls that are just thumb jitter on a control", () => {
+    assert.equal(shouldSuppressFollowingClick(PULL_SUPPRESS_CLICK_PX - 1), false);
+  });
+
+  it("suppresses only after a visible shell pull", () => {
+    assert.equal(shouldSuppressFollowingClick(PULL_SUPPRESS_CLICK_PX), true);
   });
 });

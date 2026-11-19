@@ -153,8 +153,8 @@ interface FilteredEventListProps {
   clusterVenueRecurring?: boolean;
   /**
    * Keep All/Today/Tomorrow/Weekend across city swaps (sessionStorage).
-   * Selecting a different category resets to All. Off for venue schedules so
-   * a listing chip does not hide the weekly grid.
+   * Christmas is the exception — landing that hub forces All. Off for venue
+   * schedules so a listing chip does not hide the weekly grid.
    */
   persistTimeRange?: boolean;
   /**

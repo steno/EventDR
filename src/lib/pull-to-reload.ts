@@ -50,9 +50,14 @@ export function subscribePullToReloadMedia(onChange: () => void): () => void {
   return () => media.removeEventListener("change", onChange);
 }
 
-/** Surfaces that own vertical gestures (map pins, dialogs) — never page reload. */
+/**
+ * Surfaces that own the finger — never page reload.
+ * Links/buttons must be here: a thumb tap on home “See all” often includes
+ * ≥12px downward travel, which used to activate pull, cancel the click, then
+ * `suppressFollowingClick` ate the next tap too.
+ */
 const PULL_IGNORE_CLOSEST =
-  "input, textarea, select, [contenteditable='true'], [data-pull-reload='ignore'], [data-map-pin-sheet], .north-coast-map, [aria-modal='true'], [role='dialog'], .fixed.inset-0";
+  "a, button, summary, input, textarea, select, label, [role='button'], [role='link'], [role='tab'], [contenteditable='true'], [data-pull-reload='ignore'], [data-map-pin-sheet], .north-coast-map, [aria-modal='true'], [role='dialog'], .fixed.inset-0";
 
 export function shouldIgnorePullTarget(target: EventTarget | null): boolean {
   // Duck-type — `instanceof Element` is unavailable in node:test (no DOM).
@@ -63,6 +68,13 @@ export function shouldIgnorePullTarget(target: EventTarget | null): boolean {
     return false;
   }
   return Boolean((target as Element).closest(PULL_IGNORE_CLOSEST));
+}
+
+/** Only kill the synthetic click after a pull that actually moved the shell. */
+export const PULL_SUPPRESS_CLICK_PX = 28;
+
+export function shouldSuppressFollowingClick(visualPull: number): boolean {
+  return visualPull >= PULL_SUPPRESS_CLICK_PX;
 }
 
 /** True while a local sheet/card gesture is claiming the finger. */
