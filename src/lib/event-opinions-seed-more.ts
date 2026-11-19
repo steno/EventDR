@@ -10093,4 +10093,77 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer + IG caption @rancholacatalina — Dom 22 Nov 2026 2:30 PM; Euridis Mena; NO COVER; Rancho La Catalina Restaurant.",
     updatedAt: "2026-11-19T04:00:00.000Z",
   },
+  {
+    eventId: "groundzero-gala-night-love-love-2026-11-29",
+    body: "Sunday 29 Nov Gala Night Love Love at Ground Zero with L WON — RD$1,200 doors from 9 PM; reserve 829-523-0252 before you treat it like free Domingos de Hookah, and don’t confuse it with VOYVOY’s Cabarete Groove the same date.",
+    localized: {
+      es: "Domingo 29 nov Gala Night Love Love en Ground Zero con L WON — RD$1,200 desde las 9 PM; reserva 829-523-0252 antes de tratarlo como Domingos de Hookah gratis, y no lo mezcles con el Cabarete Groove de VOYVOY la misma fecha.",
+      fr: "Dimanche 29 nov. Gala Night Love Love au Ground Zero avec L WON — RD$1,200 dès 21 h ; réservez 829-523-0252 avant de le traiter comme un Domingos de Hookah gratuit, et ne confondez pas avec le Cabarete Groove de VOYVOY le même jour.",
+    },
+    priceFeel: "varies",
+    priceNote: "RD$1,200 entrada · doors 9 PM — 829-523-0252 / 849-465-1313",
+    priceNoteLocalized: {
+      es: "RD$1,200 entrada · puertas 9 PM — 829-523-0252 / 849-465-1313",
+      fr: "RD$1,200 entrée · portes 21 h — 829-523-0252 / 849-465-1313",
+    },
+    attribution:
+      "POP research · @groundzero_disco Gala Night Love Love + Junier/Melo flyers",
+    researchNotes:
+      "Editor flyers — Dom 29 Nov 2026; Gala Night Love Love; L WON; DJ Adoni Mix; Animador Sovaj; DJ Junior Lockward; RD$1,200; doors 9 PM; Chocolate 13; phones 829-523-0252 / 829-329-2624 / 809-814-9588; second flyer DJ Junier & DJ Melo WA 849-465-1313; gallery both images.",
+    updatedAt: "2026-11-19T22:00:00.000Z",
+  },
+  {
+    eventId: "hecho-aqui-cabarete-2026-11-21",
+    body: "IV HECHO AQUÍ opens Sat 21 Nov 5:30 PM at Estudio CREA, then Genaro Reyes (Cayuco) at Cuevas de Cabarete Sun 22 Nov 11 AM, with the month running through 21 Dec — Saturday Plaza Popular opening, not VOYVOY’s Saturday Session later that evening.",
+    localized: {
+      es: "IV HECHO AQUÍ abre sáb 21 nov 5:30 PM en Estudio CREA, luego Genaro Reyes (Cayuco) en Cuevas de Cabarete dom 22 nov 11 AM, con el mes hasta el 21 dic — apertura del sábado en Plaza Popular, no el Saturday Session de VOYVOY más tarde esa noche.",
+      fr: "IV HECHO AQUÍ ouvre sam. 21 nov. 17 h 30 à Estudio CREA, puis Genaro Reyes (Cayuco) aux Cuevas de Cabarete dim. 22 nov. 11 h, mois jusqu’au 21 déc. — ouverture du samedi à Plaza Popular, pas le Saturday Session de VOYVOY plus tard le même soir.",
+    },
+    priceFeel: "free",
+    priceNote: "Inauguration / exhibition stroll — confirm site hours on the night",
+    priceNoteLocalized: {
+      es: "Inauguración / recorrido de exposición — confirma horarios de cada sede esa noche",
+      fr: "Inauguration / parcours d’expo — confirmez les horaires de chaque lieu le soir même",
+    },
+    attribution: "POP research · HECHO AQUÍ Cabarete IV flyer + inauguration notice",
+    researchNotes:
+      "Editor flyer + inauguration copy — Sat 21 Nov 2026 5:30 PM Estudio CREA Plaza Popular; month 21 Nov–21 Dec; ~40 artists; satellite sites Fresh Fresh, Lili & Lou, Ferretería Linares, Vagamundo, Coconuts, Fundación Cabarete Sostenible, Honey Company, Cabarete Boxing Club; same flyer Genaro Reyes (Cayuco) Cuevas 22 Nov 11 AM.",
+    updatedAt: "2026-11-19T22:30:00.000Z",
+  },
+  {
+    eventId: "voyvoy-saturday-session-2026-11-21",
+    body: "Bayfront Saturday Session at VOYVOY with Robert Heyaime, ROM (Argentina), and Bryant Burgos — no cover, start not on the flyer; treat it as late dance energy on Cabarete Beach until 3 AM, not HECHO AQUÍ’s Estudio CREA inauguration the same afternoon.",
+    localized: {
+      es: "Saturday Session frente a la bahía en VOYVOY con Robert Heyaime, ROM (Argentina) y Bryant Burgos — sin cover, hora de inicio no está en el flyer; trátalo como energía de baile tarde en Cabarete Beach hasta las 3 AM, no la inauguración de HECHO AQUÍ en Estudio CREA esa misma tarde.",
+      fr: "Saturday Session face à la baie au VOYVOY avec Robert Heyaime, ROM (Argentine) et Bryant Burgos — sans cover, heure de début absente de l’affiche ; traitez-le comme énergie dance tardive sur Cabarete Beach jusqu’à 3 h, pas l’inauguration HECHO AQUÍ à Estudio CREA le même après-midi.",
+    },
+    priceFeel: "free",
+    priceNote: "No cover — @voyvoybar · +1 809-571-0805",
+    priceNoteLocalized: {
+      es: "Sin cover — @voyvoybar · +1 809-571-0805",
+      fr: "Sans cover — @voyvoybar · +1 809-571-0805",
+    },
+    attribution: "POP research · VOYVOY Saturday Session Nov 21 flyer",
+    researchNotes:
+      "Editor flyer + IG @voyvoybar — Sat 21 Nov 2026; Robert Heyaime, ROM (Argentina), Bryant Burgos; NO COVER assumed (series pattern); start time not printed; venue Saturdays until 3 AM.",
+    updatedAt: "2026-11-19T23:00:00.000Z",
+  },
+  {
+    eventId: "aura-gatsby-by-the-sea-nye-2026-12-31",
+    body: "Aura’s Gatsby by the Sea NYE on Calle Principal is reservation-only for Dec 31 ringing in 2027 — three billed experiences, black-tie/Gatsby dress; don’t confuse it with Santa Fe’s Ocean Village countdown the same night.",
+    localized: {
+      es: "El NYE Gatsby by the Sea de Aura en Calle Principal es solo con reserva el 31 dic para recibir 2027 — tres experiencias, dress code Gatsby/black-tie; no lo mezcles con el countdown de Santa Fe en Ocean Village esa misma noche.",
+      fr: "Le NYE Gatsby by the Sea d’Aura sur Calle Principal est sur réservation le 31 déc. pour accueillir 2027 — trois expériences, dress code Gatsby/black-tie ; ne confondez pas avec le countdown de Santa Fe à Ocean Village le même soir.",
+    },
+    priceFeel: "varies",
+    priceNote: "Reservation only — @auracabarete / +1 829-787-0140",
+    priceNoteLocalized: {
+      es: "Solo con reserva — @auracabarete / +1 829-787-0140",
+      fr: "Sur réservation uniquement — @auracabarete / +1 829-787-0140",
+    },
+    attribution: "POP research · @auracabarete Gatsby by the Sea NYE flyer + caption",
+    researchNotes:
+      "Editor flyer + IG caption @auracabarete — Gatsby by the Sea NEW YEAR’S EVE 2027; Thu 31 Dec 2026; three experiences; reservation only; dress Gatsby glamour / black tie; no start time or cover on art; WA +1 829-787-0140.",
+    updatedAt: "2026-11-19T23:30:00.000Z",
+  },
 ];

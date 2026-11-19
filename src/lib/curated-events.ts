@@ -333,6 +333,29 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "ground-zero-disco",
     sourceUrl: "https://www.instagram.com/groundzero_disco/",
   },
+  "groundzero-gala-night-love-love-2026-11-29": {
+    isFree: false,
+    admissionPrice: "RD$1,200",
+    phone: "+18295230252",
+    venueSlug: "ground-zero-disco",
+    sourceUrl: "https://www.instagram.com/groundzero_disco/",
+  },
+  "hecho-aqui-cabarete-2026-11-21": {
+    isFree: true,
+    venueSlug: "estudio-crea-cabarete",
+  },
+  "voyvoy-saturday-session-2026-11-21": {
+    isFree: true,
+    phone: "+18095710805",
+    venueSlug: "voyvoy-cabarete",
+    sourceUrl: "https://www.instagram.com/voyvoybar/",
+  },
+  "aura-gatsby-by-the-sea-nye-2026-12-31": {
+    callForPricing: true,
+    phone: "+18297870140",
+    venueSlug: "aura-beach-club-cabarete",
+    sourceUrl: "https://www.instagram.com/auracabarete/",
+  },
   "trillo-la-guaita-long-beach-2026-09-24": {
     isFree: true,
     venueSlug: "long-beach-puerto-plata",

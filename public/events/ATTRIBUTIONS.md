@@ -824,6 +824,14 @@ Curated images under `public/events/` and `public/venues/`.
 | `chameleon-mananitas-kreizy-k-2026-12-05.jpg` | POP-supplied — Chameleon Mañanitas Kreizy K flyer | Sat 5 Dec 2026; editor-provided; typography-heavy |
 | `isabela-food-fest-la-perversa-2026-12-18.jpg` | POP-supplied — Isabela Food Fest La Perversa flyer | Fri 18 Dec 2026 free; editor-provided; typography-heavy |
 | `groundzero-omega-2026-12-18.jpg` | POP-supplied — Ground Zero Omega flyer | Fri 18 Dec 2026; editor-provided; typography-heavy |
+| `groundzero-gala-night-love-love-2026-11-29.jpg` | POP-supplied — Ground Zero *Gala Night Love Love* / L WON flyer ([@groundzero_disco](https://www.instagram.com/groundzero_disco/)) | Sun 29 Nov 2026; RD$1,200; doors 9 PM (editor-provided; typography-heavy) |
+| `groundzero-gala-night-love-love-2026-11-29-junier-melo.jpg` | POP-supplied — Ground Zero DJ Junier & DJ Melo flyer ([@groundzero_disco](https://www.instagram.com/groundzero_disco/)) | Same Sun 29 Nov 2026; gallery slide 2 (editor-provided; typography-heavy) |
+| `hecho-aqui-cabarete-2026-11-21.jpg` | POP-supplied — HECHO AQUÍ Cabarete IV edición flyer | Sat 21 Nov–21 Dec 2026; inauguration Estudio CREA 5:30 PM (editor-provided; typography-heavy) |
+| `voyvoy-saturday-session-2026-11-21.jpg` | POP-supplied — VOYVOY Saturday Session Robert Heyaime / ROM / Bryant Burgos flyer ([@voyvoybar](https://www.instagram.com/voyvoybar/)) | Sat 21 Nov 2026; no cover; start not on art (editor-provided; typography-heavy) |
+| `aura-gatsby-by-the-sea-nye-2026-12-31.jpg` | POP-supplied — Aura Beach Club *Gatsby by the Sea* New Year’s Eve flyer ([@auracabarete](https://www.instagram.com/auracabarete/)) | Thu 31 Dec 2026; reservation only; rings in 2027 (editor-provided; typography-heavy) |
+| `venues/estudio-crea-cabarete-lounge.jpg` | POP-supplied — Estudio CREA coworking lounge interior (Plaza Popular 2F / above Banco Popular) | Superseded by lounge-v2 |
+| `venues/estudio-crea-cabarete-lounge-v2.jpg` | POP-supplied — Estudio CREA coworking lounge (yellow chairs / wood counter, Plaza Popular 2F) | Superseded by lounge-v3 |
+| `venues/estudio-crea-cabarete-lounge-v3.jpg` | POP-supplied — Estudio CREA DJ set / studio interior with wall art (Plaza Popular 2F) | Venue place shot filename bump (editor-provided) |
 | `voyvoy-sunday-open-mic-v2.jpg` | POP-supplied — VOYVOY Sunday Open Mic Lester Grant flyer | Every Sun 5–8 PM; filename bump; typography-heavy |
 | `natura-cabana-yoga-daily-v2.jpg` | POP-supplied — Natura Cabana yoga temple class photo | Filename bump for daily yoga hero; scene-safe |
 | `venues/natura-cabana-pool-v2.jpg` | POP-supplied — Natura Cabana pool / thatched pavilion | Venue hero filename bump; scene-safe |

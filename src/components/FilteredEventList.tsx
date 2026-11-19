@@ -24,6 +24,7 @@ import {
   type PriceFilter,
   type TimeRange,
 } from "@/lib/filters";
+import { preferVenueImagesForFoodDrinksCategory } from "@/lib/event-images";
 import { sortEventsForDisplay } from "@/lib/event-sort";
 import { LIST_PAGE_SIZE, SCOPE_LIST_LIMIT } from "@/lib/home-layout";
 import { pinSpecialEvents } from "@/lib/special-events";
@@ -431,10 +432,18 @@ export function FilteredEventList({
     const clustered = clusterVenueRecurring
       ? clusterRecurringVenueEvents(filtered, locale, dict)
       : filtered;
-    if (activeRange === "weekend") return eventsInWeekendOrder(clustered);
-    if (activeRange === "all") return eventsInAllBrowseOrder(clustered);
-    return clustered;
-  }, [filtered, clusterVenueRecurring, locale, dict, activeRange]);
+    const ordered =
+      activeRange === "weekend"
+        ? eventsInWeekendOrder(clustered)
+        : activeRange === "all"
+          ? eventsInAllBrowseOrder(clustered)
+          : clustered;
+    // Food & Drinks hub: venue place shots so the grid reads as dining.
+    if (categoryId === "food-drinks") {
+      return preferVenueImagesForFoodDrinksCategory(ordered);
+    }
+    return ordered;
+  }, [filtered, clusterVenueRecurring, locale, dict, activeRange, categoryId]);
 
   /** All + cards: dated day columns (desktop) + weekly/daily tail. */
   const allBrowseSections = useMemo(

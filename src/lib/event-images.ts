@@ -905,6 +905,13 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "isabela-food-fest-carlos-el-gusto-2026-12-18":
     "isabela-food-fest-carlos-el-gusto-2026-12-18.jpg",
   "groundzero-omega-2026-12-18": "groundzero-omega-2026-12-18.jpg",
+  "groundzero-gala-night-love-love-2026-11-29":
+    "groundzero-gala-night-love-love-2026-11-29.jpg",
+  "hecho-aqui-cabarete-2026-11-21": "hecho-aqui-cabarete-2026-11-21.jpg",
+  "voyvoy-saturday-session-2026-11-21":
+    "voyvoy-saturday-session-2026-11-21.jpg",
+  "aura-gatsby-by-the-sea-nye-2026-12-31":
+    "aura-gatsby-by-the-sea-nye-2026-12-31.jpg",
   "pedro-santana-sus-dias-contados-2026-11-24":
     "pedro-santana-sus-dias-contados-2026-11-24.jpg",
   "voyvoy-soft-reopening-sunset-2026-10-09":
@@ -1125,6 +1132,9 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "twenty-disco-friday-dj-soky-2026-10-23": "object-center",
   "voyvoy-saturday-session-2026-10-24": "object-center",
   "voyvoy-saturday-session-2026-11-14": "object-center",
+  "voyvoy-saturday-session-2026-11-21": "object-center",
+  "hecho-aqui-cabarete-2026-11-21": "object-center",
+  "aura-gatsby-by-the-sea-nye-2026-12-31": "object-center",
   "francesca-samuele-natura-cabana-2026-10-24": "object-center",
   "ocean-world-terrace-banda-sin-limite-2026-10-30": "object-center",
   "chameleon-cursed-room-ronny-alca-2026-11-01": "object-center",
@@ -1613,6 +1623,18 @@ const EVENT_GALLERY_SLIDES: Record<
       label: "Reading room",
     },
   ],
+  "groundzero-gala-night-love-love-2026-11-29": [
+    {
+      file: "groundzero-gala-night-love-love-2026-11-29.jpg",
+      venueSlug: "ground-zero-disco",
+      label: "Gala Night Love Love — L WON",
+    },
+    {
+      file: "groundzero-gala-night-love-love-2026-11-29-junier-melo.jpg",
+      venueSlug: "ground-zero-disco",
+      label: "DJ Junier & DJ Melo",
+    },
+  ],
 };
 
 export function getEventGallerySlides(
@@ -1689,6 +1711,11 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "isabela-food-fest-la-perversa-2026-12-18.jpg",
   "isabela-food-fest-carlos-el-gusto-2026-12-18.jpg",
   "groundzero-omega-2026-12-18.jpg",
+  "groundzero-gala-night-love-love-2026-11-29.jpg",
+  "groundzero-gala-night-love-love-2026-11-29-junier-melo.jpg",
+  "hecho-aqui-cabarete-2026-11-21.jpg",
+  "voyvoy-saturday-session-2026-11-21.jpg",
+  "aura-gatsby-by-the-sea-nye-2026-12-31.jpg",
   "pedro-santana-sus-dias-contados-2026-11-24.jpg",
   "geek-fest-kpop-random-dance-ref-2026-12-13.jpg",
   "chiche-almonte-grand-prix-2026-11-06.jpg",
@@ -2450,4 +2477,26 @@ export function attachEventImages<
   T extends { id: string; imageUrl?: string; venueSlug?: string },
 >(events: T[], locale?: Locale): (T & { imageUrl?: string })[] {
   return events.map((event) => attachEventImage(event, locale));
+}
+
+/**
+ * Food & Drinks category cards: prefer the venue place shot so the hub reads
+ * as dining rooms / cafés / food parks, not flyer collage. Detail pages and
+ * other categories keep curated event heroes. No venue photo → leave flyer.
+ */
+export function preferVenueImageForFoodDrinksCategory<
+  T extends { imageUrl?: string; venueSlug?: string },
+>(event: T): T {
+  const slug = event.venueSlug?.trim();
+  if (!slug) return event;
+  const venueImage = getVenueImageUrl(slug);
+  if (!venueImage) return event;
+  if (event.imageUrl === venueImage) return event;
+  return { ...event, imageUrl: venueImage };
+}
+
+export function preferVenueImagesForFoodDrinksCategory<
+  T extends { imageUrl?: string; venueSlug?: string },
+>(events: T[]): T[] {
+  return events.map(preferVenueImageForFoodDrinksCategory);
 }

@@ -843,7 +843,7 @@ function HomeApp({
                   limit={HOME_SPECIALS_LIMIT}
                   seeAllHref={seeAllSpecialsHref}
                   seeAllLabel={dict.events.seeAllSpecials}
-                  listTimeRange="today"
+                  listTimeRange="all"
                   returnTo={homePath}
                   featurePromo
                   storyCards

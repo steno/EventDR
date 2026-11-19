@@ -2245,6 +2245,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
       { key: "easy_to_find", sentiment: "mixed", audience: "visitor" },
     ],
   }),
+  editorial({
+    venueSlug: "estudio-crea-cabarete",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["local", "visitor", "mixed", "family"],
+    axes: { recommend: 4.0, atmosphere: 4.2, value: 4.1, practical: 3.7 },
+    themes: [
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "easy_to_find", sentiment: "mixed", audience: "visitor" },
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+    ],
+  }),
 ];
 
 const bySlug = new Map(

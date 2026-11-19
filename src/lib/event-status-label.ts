@@ -146,10 +146,11 @@ export function resolveLiveStatusDisplay(
   if (!happensOnLocalDate(event, today)) return null;
 
   // Untimed / missing clocks: calm "Happening today" (not "Happening now").
-  // Skip on-request labels. On the Today list, timed upcoming omits the chip
-  // because the time line is enough — untimed has no time line, so keep the chip.
+  // Skip on-request labels. On the Today rail/list the section already says
+  // Today — omit the chip for timed and untimed alike.
   if (status === "unknown") {
     if (isOnRequestHoursLabel(event.time)) return null;
+    if (options?.listTimeRange === "today") return null;
     return { status: "unknown", label: dict.events.happeningToday };
   }
 

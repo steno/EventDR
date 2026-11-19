@@ -77,7 +77,7 @@ describe("resolveLiveStatusDisplay untimed", () => {
     assert.equal(display?.label, dict.events.happeningToday);
   });
 
-  it("keeps happening today for missing-time events on the Today list", () => {
+  it("omits happening today on the Today list — the section already says it", () => {
     const martesSensorial = {
       date: "2026-09-15",
       recurrence: "weekly" as const,
@@ -88,7 +88,7 @@ describe("resolveLiveStatusDisplay untimed", () => {
       tuesdayNoon,
       { listTimeRange: "today" },
     );
-    assert.equal(display?.label, dict.events.happeningToday);
+    assert.equal(display, null);
   });
 
   it("still says happening today for a timed event later the same day", () => {

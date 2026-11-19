@@ -12597,5 +12597,126 @@
       "Euridis Mena"
     ],
     "imageEmoji": "🎤"
+  },
+  {
+    "id": "groundzero-gala-night-love-love-2026-11-29",
+    "title": "Ground Zero Gala Night Love Love — L WON · 29 nov",
+    "description": "Gala Night Love Love en Ground Zero Discoteca, carretera Puerto Plata–Sosúa frente al Aeropuerto Gregorio Luperón — domingo 29 de noviembre de 2026, puertas 9:00 PM. Headliner L WON con DJ Adoni Mix, animador Sovaj y DJ Junior Lockward; Chocolate 13 Productions. Entrada RD$1,200. Reserva 829-523-0252 / 829-329-2624 / 809-814-9588 (promo alterna también lista WhatsApp 849-465-1313 para DJ Junier & DJ Melo). Gala dominical con cartel — no es el Domingos de Hookah de plantilla ni el Cabarete Groove de VOYVOY la misma fecha.",
+    "date": "2026-11-29",
+    "time": "9:00 PM",
+    "location": "Sosúa",
+    "venue": "Ground Zero Discoteca",
+    "venueSlug": "ground-zero-disco",
+    "address": "Km 18, Carretera Puerto Plata–Sosúa, frente al Aeropuerto Gregorio Luperón",
+    "lat": 19.76,
+    "lng": -70.565,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "admissionPrice": "RD$1,200",
+    "phone": "+18295230252",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/groundzero_disco/",
+    "instagram": "groundzero_disco",
+    "lineup": [
+      "L WON",
+      "DJ Adoni Mix",
+      "Animador Sovaj",
+      "DJ Junior Lockward",
+      "DJ Melo"
+    ],
+    "imageEmoji": "🪩"
+  },
+  {
+    "id": "hecho-aqui-cabarete-2026-11-21",
+    "title": "HECHO AQUÍ Cabarete IV — inauguración · 21 nov",
+    "description": "IV Edición HECHO AQUÍ Cabarete 2026 — inauguración el sábado 21 de noviembre de 2026 a las 5:30 PM en Estudio CREA, Plaza Popular (Carretera Principal / plaza Banco Popular), Cabarete. Mes colectivo de artes visuales con ~40 artistas dominicanos y extranjeros residentes, del 21 de noviembre al 21 de diciembre, en Estudio CREA, Fresh Fresh Café, Lili & Lou Boutique, Ferretería Linares, Vagamundo, Coconuts, Fundación Cabarete Sostenible, Honey Company, Cabarete Boxing Club y más. El mismo programa también abre Genaro Reyes (Cayuco) con la Asociación de Guías Cuevas de Cabarete en el Monumento Natural Lagunas Cabarete y Goleta el domingo 22 de noviembre a las 11:00 AM. Apertura del sábado por la tarde en Plaza Popular — no es el Saturday Session de VOYVOY en la bahía más tarde esa misma noche.",
+    "date": "2026-11-21",
+    "endDate": "2026-12-21",
+    "time": "5:30 PM",
+    "location": "Cabarete",
+    "venue": "Estudio CREA",
+    "venueSlug": "estudio-crea-cabarete",
+    "address": "Plaza Popular, Carretera Principal, Cabarete",
+    "lat": 19.74897,
+    "lng": -70.41143,
+    "category": "culture",
+    "categories": [
+      "art"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "flyer",
+    "lineup": [
+      "IV Edición HECHO AQUÍ — 40 artistas",
+      "Inauguración Estudio CREA · 21 nov 5:30 PM",
+      "Genaro Reyes (Cayuco) · Cuevas de Cabarete · 22 nov 11:00 AM"
+    ],
+    "imageEmoji": "🎨"
+  },
+  {
+    "id": "voyvoy-saturday-session-2026-11-21",
+    "title": "VOYVOY Saturday Session — Robert Heyaime, ROM y Bryant Burgos",
+    "description": "Saturday Session en VOYVOY Cabarete el sábado 21 de noviembre de 2026 — Robert Heyaime, ROM (Argentina) y Bryant Burgos. La hora de inicio no está en el flyer; energía de baile frente a la bahía hasta tarde (abierto hasta las 3:00 AM los sábados). Instagram @voyvoybar · +1 809-571-0805. No es la noche de Bencosmic del 14 de noviembre ni la inauguración de HECHO AQUÍ en Estudio CREA esa misma tarde.",
+    "date": "2026-11-21",
+    "time": "Hasta las 3:00 AM",
+    "location": "Cabarete",
+    "venue": "VOYVOY Cabarete",
+    "venueSlug": "voyvoy-cabarete",
+    "lat": 19.7502161,
+    "lng": -70.4066784,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18095710805",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/voyvoybar/",
+    "instagram": "voyvoybar",
+    "lineup": [
+      "Robert Heyaime",
+      "ROM (Argentina)",
+      "Bryant Burgos"
+    ],
+    "imageEmoji": "🪩"
+  },
+  {
+    "id": "aura-gatsby-by-the-sea-nye-2026-12-31",
+    "title": "Aura — Gatsby by the Sea · Año Nuevo 2027",
+    "description": "Gatsby by the Sea — Año Nuevo en Aura Beach Club, Calle Principal, Cabarete — jueves 31 de diciembre de 2026, para recibir el 2027. Tres experiencias exclusivas en una noche: celebraciones luxury/VIP, cena y entretenimiento en vivo, música y countdown; dress code Gatsby glamour / black-tie. Solo con reserva — Instagram @auracabarete · WhatsApp +1 829-787-0140. NYE de beach club en Cabarete — no es el Happy New Year 2027 de Santa Fe Club en Sosúa Ocean Village esa misma noche.",
+    "date": "2026-12-31",
+    "location": "Cabarete",
+    "venue": "Aura Beach Club Cabarete",
+    "venueSlug": "aura-beach-club-cabarete",
+    "address": "Calle Principal, Cabarete 57000",
+    "lat": 19.7500769,
+    "lng": -70.4070417,
+    "phone": "+18297870140",
+    "category": "parties",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/auracabarete/",
+    "instagram": "auracabarete",
+    "lineup": [
+      "Gatsby by the Sea",
+      "Tres experiencias exclusivas",
+      "Cena · entretenimiento en vivo · countdown"
+    ],
+    "imageEmoji": "🥂"
   }
 ]

@@ -2531,6 +2531,17 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18297292835",
     website: "https://www.instagram.com/agmontellano/",
   },
+  {
+    slug: "estudio-crea-cabarete",
+    name: "Estudio CREA",
+    city: "Cabarete",
+    description:
+      "Hybrid coworking and creative studio on the second floor of Plaza Popular (above Banco Popular) in Cabarete — community art events, podcast recordings, music/DJ nights, and tattoo sessions via CREA Ink Studio. Coworking hours typically Mon–Fri 9:00 AM–6:00 PM. Pin the Banco Popular plaza corridor, not Playa Encuentro Coconuts or VOYVOY bayfront.",
+    // Google Places — Banco Popular Autobanco / Plaza Popular, Ctra. Principal Cabarete.
+    lat: 19.74897,
+    lng: -70.41143,
+    emoji: "🎨",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
@@ -3163,6 +3174,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /terraza\s*isla|terrazaisla|bomba\s*isla/i,
     slug: "terraza-isla-puerto-plata",
+  },
+  {
+    pattern:
+      /estudio\s*crea|plaza\s*(del\s*)?popular(\s*(de\s*)?cabarete)?/i,
+    slug: "estudio-crea-cabarete",
   },
 ];
 

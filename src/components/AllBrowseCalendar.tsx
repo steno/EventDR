@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
@@ -11,7 +11,6 @@ import {
   BRAND_GRADIENT_TEXT_CLASS,
   CARD_GRID_CLASS,
   DAY_GROUP_TITLE_CLASS,
-  STICKY_CHROME_SURFACE_CLASS,
 } from "@/lib/page-shell";
 import { EventCard } from "@/components/EventCard";
 import type { EventWithVenueSiblings } from "@/lib/venue-recurring-siblings";
@@ -20,20 +19,11 @@ import type { EventWithVenueSiblings } from "@/lib/venue-recurring-siblings";
 const BROWSE_DAY_HEADER_CLASS = `text-[0.8125rem] font-bold uppercase leading-tight tracking-[0.06em] ${BRAND_GRADIENT_TEXT_CLASS}`;
 
 /**
- * Flush under StickyListHeader + StickyListFilters (live heights). Overlap 1px
- * so cards can’t show through the hairline between the two sticky surfaces.
+ * Desktop All-tab dated strip — wrap instead of a horizontal scroller.
+ * ~220px tiles match the old column min so posters stay large.
  */
-const BROWSE_DAY_STICKY_TOP_CLASS =
-  "sticky top-[calc(var(--sticky-list-header-height,3.5rem)-4px+var(--sticky-list-filters-height,5.5rem)-1px)] z-[9]";
-
-/** Wider than the Weekly & daily auto-fill tiles (148px min) — ~5–6 large posters. */
-const BROWSE_DAY_COL_MIN_PX = 220;
-const BROWSE_DAY_COL_MAX_PX = 300;
-const DAY_COL_STYLE = {
-  flex: `1 0 ${BROWSE_DAY_COL_MIN_PX}px`,
-  minWidth: BROWSE_DAY_COL_MIN_PX,
-  maxWidth: BROWSE_DAY_COL_MAX_PX,
-} as const;
+const BROWSE_DAY_GRID_CLASS =
+  "grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] items-start gap-2.5";
 
 /** Multi-event day autoplay cadence. */
 const BROWSE_DAY_ROTATE_MS = 5000;
@@ -76,7 +66,7 @@ interface BrowseDayColumnProps {
 }
 
 /**
- * One fixed-height date cell — single poster. Extra events that day auto-rotate
+ * One date cell — day label + single poster. Extra events that day auto-rotate
  * and can also be stepped with chevrons (no stacked column).
  */
 function BrowseDayColumn({
@@ -115,8 +105,7 @@ function BrowseDayColumn({
   return (
     <section
       role="listitem"
-      className="flex min-w-0 shrink-0 flex-col"
-      style={DAY_COL_STYLE}
+      className="flex min-w-0 flex-col"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
@@ -126,7 +115,11 @@ function BrowseDayColumn({
         }
       }}
     >
-      <h2 className="sr-only">{formatBrowseDayHeader(day.date, locale)}</h2>
+      <h2
+        className={`mb-2 border-b-2 border-orange-400/70 pb-1.5 font-sans dark:border-orange-400/50 ${BROWSE_DAY_HEADER_CLASS}`}
+      >
+        {formatBrowseDayHeader(day.date, locale)}
+      </h2>
       <div className="relative isolate">
         <div
           key={event.id}
@@ -195,10 +188,9 @@ function BrowseDayColumn({
 }
 
 /**
- * Desktop All-tab calendar strip: one column per dated day, then Weekly & daily.
+ * Desktop All-tab calendar: one cell per dated day (wraps), then Weekly & daily.
  * Parent mounts this only at `xl+` — mobile keeps stacked day headings.
- * Day labels stick under list chrome; header + body rails share horizontal scroll.
- * Each day is a single-card row; multi-event days auto-rotate with chevron nav.
+ * Each day is a single-card cell; multi-event days auto-rotate with chevron nav.
  */
 export function AllBrowseCalendar({
   days,
@@ -214,88 +206,32 @@ export function AllBrowseCalendar({
   weeklyHeading,
   weeklyTrailing,
 }: AllBrowseCalendarProps) {
-  const headerRailRef = useRef<HTMLDivElement>(null);
-  const bodyRailRef = useRef<HTMLDivElement>(null);
-  const syncingScroll = useRef(false);
   const [daySlidersPaused, setDaySlidersPaused] = useState(false);
 
-  function syncRails(source: "header" | "body") {
-    if (syncingScroll.current) return;
-    const from =
-      source === "header" ? headerRailRef.current : bodyRailRef.current;
-    const to =
-      source === "header" ? bodyRailRef.current : headerRailRef.current;
-    if (!from || !to) return;
-    syncingScroll.current = true;
-    to.scrollLeft = from.scrollLeft;
-    requestAnimationFrame(() => {
-      syncingScroll.current = false;
-    });
-  }
-
   return (
-    // min-w-0: flex/grid ancestors default to min-content; without it the
-    // day rail widens the whole page instead of scrolling inside the shell.
     <div className="min-w-0 max-w-full">
-      {/*
-        Wrap only the dated strip so sticky day labels release once this
-        block ends — they must not stay pinned over Weekly & daily.
-      */}
       {days.length > 0 ? (
-        <div className="relative min-w-0 max-w-full">
-          <div
-            className={`${BROWSE_DAY_STICKY_TOP_CLASS} -mx-1 mb-0 min-w-0 max-w-full px-1 pb-2 pt-2 ${STICKY_CHROME_SURFACE_CLASS}`}
-            data-sticky-browse-days
-            data-sticky-list-day
-          >
-            <div
-              ref={headerRailRef}
-              onScroll={() => syncRails("header")}
-              className="min-w-0 w-full max-w-full overflow-x-auto overscroll-x-contain scrollbar-hide"
-              aria-hidden
-            >
-              <div className="flex w-max gap-2.5">
-                {days.map((day) => (
-                  <div
-                    key={`h-${day.date}`}
-                    className="min-w-0 shrink-0 border-b-2 border-orange-400/70 pb-1.5 dark:border-orange-400/50"
-                    style={DAY_COL_STYLE}
-                  >
-                    <p className={`font-sans ${BROWSE_DAY_HEADER_CLASS}`}>
-                      {formatBrowseDayHeader(day.date, locale)}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div
-            ref={bodyRailRef}
-            onScroll={() => syncRails("body")}
-            className="min-w-0 w-full max-w-full overflow-x-auto overscroll-x-contain pb-0.5 pt-2 scrollbar-hide"
-            role="list"
-            aria-label={dict.time.all}
-          >
-            <div className="flex w-max gap-2.5">
-              {days.map((day) => (
-                <BrowseDayColumn
-                  key={day.date}
-                  day={day}
-                  dict={dict}
-                  locale={locale}
-                  returnTo={returnTo}
-                  returnTitle={returnTitle}
-                  listTimeRange={listTimeRange}
-                  pendingId={pendingId}
-                  onNavigate={onNavigate}
-                  showEnlarge={showEnlarge}
-                  paused={daySlidersPaused}
-                  setPaused={setDaySlidersPaused}
-                />
-              ))}
-            </div>
-          </div>
+        <div
+          className={BROWSE_DAY_GRID_CLASS}
+          role="list"
+          aria-label={dict.time.all}
+        >
+          {days.map((day) => (
+            <BrowseDayColumn
+              key={day.date}
+              day={day}
+              dict={dict}
+              locale={locale}
+              returnTo={returnTo}
+              returnTitle={returnTitle}
+              listTimeRange={listTimeRange}
+              pendingId={pendingId}
+              onNavigate={onNavigate}
+              showEnlarge={showEnlarge}
+              paused={daySlidersPaused}
+              setPaused={setDaySlidersPaused}
+            />
+          ))}
         </div>
       ) : null}
 

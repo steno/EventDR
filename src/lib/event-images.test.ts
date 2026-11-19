@@ -1,6 +1,11 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { attachEventImage, getEventImageUrl } from "./event-images";
+import {
+  attachEventImage,
+  getEventImageUrl,
+  preferVenueImageForFoodDrinksCategory,
+} from "./event-images";
+import { getVenueImageUrl } from "./venue-images";
 
 describe("attachEventImage", () => {
   it("aliases ingest-deep-caves-tour to the curated El Choco cave photo", () => {
@@ -63,5 +68,38 @@ describe("attachEventImage", () => {
       attachEventImage({ id }, "es").imageUrl,
       getEventImageUrl(id, "es"),
     );
+  });
+});
+
+describe("preferVenueImageForFoodDrinksCategory", () => {
+  it("swaps a curated flyer for the venue place shot when one exists", () => {
+    const venueImage = getVenueImageUrl("parada-tipica-el-choco");
+    assert.ok(venueImage?.startsWith("/venues/"));
+
+    const swapped = preferVenueImageForFoodDrinksCategory({
+      id: "parada-el-choco-thanksgiving-big-d-2026-11-26",
+      venueSlug: "parada-tipica-el-choco",
+      imageUrl: "/events/parada-el-choco-thanksgiving-big-d-2026-11-26.jpg",
+    });
+    assert.equal(swapped.imageUrl, venueImage);
+  });
+
+  it("keeps the flyer when the venue has no place shot", () => {
+    const flyer = "/events/some-flyer.jpg";
+    const kept = preferVenueImageForFoodDrinksCategory({
+      id: "orphan-food-night",
+      venueSlug: "venue-with-no-mapped-photo-zzzz",
+      imageUrl: flyer,
+    });
+    assert.equal(kept.imageUrl, flyer);
+  });
+
+  it("keeps the flyer when there is no venueSlug", () => {
+    const flyer = "/events/some-flyer.jpg";
+    const kept = preferVenueImageForFoodDrinksCategory({
+      id: "no-venue-food-night",
+      imageUrl: flyer,
+    });
+    assert.equal(kept.imageUrl, flyer);
   });
 });

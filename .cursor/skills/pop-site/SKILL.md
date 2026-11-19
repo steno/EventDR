@@ -38,7 +38,7 @@ Do not “fix” category order by pinning scarce weeklies after discovery sort 
 
 ## Listing photo heroes
 
-Category hubs and region `/events` hide the photo banner; keep title/intro in `sr-only` for SEO (see `EventScopePage` `hideScopePhotoHero`). City and when hubs keep the photo hero.
+Category hubs, region `/events`, and city hubs hide the photo banner; keep title/intro in `sr-only` for SEO (see `EventScopePage` `hideScopePhotoHero`). When hubs keep the photo hero.
 
 ## Home Today’s specials
 

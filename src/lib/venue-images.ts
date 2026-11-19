@@ -256,6 +256,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   // POP-supplied Biblioteca Renovación reading nook (4th-floor windows).
   "sociedad-cultural-renovacion":
     "sociedad-cultural-renovacion-library.jpg",
+  // POP-supplied Estudio CREA lounge / coworking interior (Plaza Popular 2F).
+  "estudio-crea-cabarete": "estudio-crea-cabarete-lounge-v3.jpg",
 };
 
 /** Cache-busted URL for general venue thumbnails / JSON-LD. */

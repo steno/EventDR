@@ -457,11 +457,13 @@ export function EventScopePage({
     )
       ? specialHeroEvent.imageUrl?.trim()
       : undefined;
-  // Category hubs + region /events: no photo hero — H1/intro stay in DOM
-  // (sr-only) for SEO, same as category pages. City + when hubs keep a photo.
+  // Category, region /events, and city hubs: no photo hero — H1/intro stay
+  // in DOM (sr-only) for SEO. When hubs keep a photo.
   const hideScopePhotoHero =
-    Boolean(activeCategoryId) ||
-    (activeRegionScope && !activeCitySlug && !fixedTimeRange);
+    !fixedTimeRange &&
+    (Boolean(activeCategoryId) ||
+      Boolean(activeCitySlug) ||
+      Boolean(activeRegionScope));
   const scopeHeroImage = hideScopePhotoHero
     ? undefined
     : specialHeroImage ||
@@ -564,7 +566,7 @@ export function EventScopePage({
               returnTo={returnTo}
             />
           ) : (
-            /* Category + /events: keep H1/intro for SEO + AT, no visual banner. */
+            /* Category / region / city hubs: H1/intro for SEO + AT, no banner. */
             <div className="sr-only">
               {eyebrow ? <p>{eyebrow}</p> : null}
               <h1>{title}</h1>

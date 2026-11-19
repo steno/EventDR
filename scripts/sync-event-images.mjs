@@ -1197,6 +1197,18 @@ const FILE_TO_VENUE_SLUG = {
   "isabela-food-fest-la-perversa-2026-12-18.jpg":
     "isabela-food-fest-la-perversa-2026-12-18",
   "groundzero-omega-2026-12-18.jpg": "groundzero-omega-2026-12-18",
+  "groundzero-gala-night-love-love-2026-11-29.jpg":
+    "groundzero-gala-night-love-love-2026-11-29",
+  "groundzero-gala-night-love-love-2026-11-29-junier-melo.jpg":
+    "groundzero-gala-night-love-love-2026-11-29",
+  "hecho-aqui-cabarete-2026-11-21.jpg": "hecho-aqui-cabarete-2026-11-21",
+  "voyvoy-saturday-session-2026-11-21.jpg":
+    "voyvoy-saturday-session-2026-11-21",
+  "aura-gatsby-by-the-sea-nye-2026-12-31.jpg":
+    "aura-gatsby-by-the-sea-nye-2026-12-31",
+  "estudio-crea-cabarete-lounge.jpg": "estudio-crea-cabarete",
+  "estudio-crea-cabarete-lounge-v2.jpg": "estudio-crea-cabarete",
+  "estudio-crea-cabarete-lounge-v3.jpg": "estudio-crea-cabarete",
   "voyvoy-sunday-open-mic-v3.jpg": "voyvoy-sunday-open-mic",
   "natura-cabana-yoga-daily-v2.jpg": "natura-cabana-yoga-daily",
 

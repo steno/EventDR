@@ -1553,4 +1553,12 @@ export const VENUE_TIP_COPY: Record<
       fr: "Maison coloniale rose de 1912 au Calle 12 de Julio #88 — surtout un lieu d’événements sur billet (talks, ateliers, rencontres) sur réservation, pas un café walk-up ; DM @laquintarosapop (ou le téléphone de l’affiche) avant de croire les portes ouvertes.",
     },
   },
+  "estudio-crea-cabarete": {
+    body: "Second-floor coworking + creative studio above Banco Popular in Plaza Popular — Mon–Fri ~9 AM–6 PM desk hours, plus art nights, podcasts, DJ sets, and CREA Ink tattoos; not VOYVOY bayfront or Coconuts at Playa Encuentro.",
+    localized: {
+      en: "Second-floor coworking + creative studio above Banco Popular in Plaza Popular — Mon–Fri ~9 AM–6 PM desk hours, plus art nights, podcasts, DJ sets, and CREA Ink tattoos; not VOYVOY bayfront or Coconuts at Playa Encuentro.",
+      es: "Coworking + estudio creativo en el segundo piso encima del Banco Popular en Plaza Popular — horario de escritorio lun–vie ~9 AM–6 PM, más noches de arte, podcasts, sets de DJ y tatuajes CREA Ink; no es VOYVOY frente a la bahía ni Coconuts en Playa Encuentro.",
+      fr: "Coworking + studio créatif au 2e étage au-dessus de Banco Popular dans Plaza Popular — bureaux lun–ven ~9 h–18 h, plus soirées art, podcasts, sets DJ et tatouages CREA Ink ; pas VOYVOY face à la baie ni Coconuts à Playa Encuentro.",
+    },
+  },
 };

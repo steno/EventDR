@@ -1371,6 +1371,16 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Smoke bar / lounge néon à Plaza Sosúa (El Batey) — en face de Banco Popular et en diagonal de Baileys ; cocktails, cigares et nuits tardives à El Batey. Ce n’est pas Chameleon Sport Bar au Coral Reef Casino / Sosúa Bay Center. Confirmez les horaires sur Instagram @kloksmokebar · +1 809-895-6889.",
     },
   },
+  "estudio-crea-cabarete": {
+    name: {
+      es: "Estudio CREA",
+      fr: "Estudio CREA",
+    },
+    description: {
+      es: "Coworking híbrido y estudio creativo en el segundo piso de Plaza Popular (arriba del Banco Popular) en Cabarete — eventos de arte comunitario, grabaciones de podcast, noches de música/DJ y sesiones de tatuaje vía CREA Ink Studio. Horario de coworking típico lun–vie 9:00 AM–6:00 PM. Clava el corredor de la plaza Banco Popular, no Coconuts en Playa Encuentro ni VOYVOY frente a la bahía.",
+      fr: "Coworking hybride et studio créatif au 2e étage de Plaza Popular (au-dessus de Banco Popular) à Cabarete — événements d’art communautaire, podcasts, soirées musique/DJ et sessions tatouage via CREA Ink Studio. Horaires coworking typiques lun–ven 9 h–18 h. Épinglez le corridor plaza Banco Popular, pas Coconuts à Playa Encuentro ni VOYVOY face à la baie.",
+    },
+  },
 };
 
 export function localizeVenue(venue: Venue, locale: Locale): Venue {
