@@ -16,9 +16,11 @@
  *   FEATURE_EVENT_ID=...     Pin this event first (cover image)
  *   EXCLUDE_EVENT_IDS=a,b    Skip these ids
  *   ONLY_EVENT_IDS=a,b       Post exactly these (“run this post”)
+ *   SKIP_PHOTO_TAGS=true     Do not photo-tag venue Instagram accounts
  *   TODAY_SPECIALS=true      Today’s specials only
  *   TOMORROW_SPECIALS=true   Tomorrow’s specials only
  *   SOURCE=today|today-specials|tomorrow-specials|manual
+ *   LOCALE=es|en|fr          Caption locale (default en)
  */
 
 const SITE_URL = (process.env.SITE_URL || "https://pop-event.com").replace(
@@ -54,6 +56,7 @@ const SPOTLIGHT_SOURCE = ONLY_EVENT_IDS.length
       : process.env.SOURCE === "manual"
         ? "manual"
         : "today";
+const SKIP_PHOTO_TAGS = process.env.SKIP_PHOTO_TAGS === "true";
 const MAX_STEPS = 80;
 const WAIT_MS = 4_000;
 
@@ -101,6 +104,7 @@ function progressFrom(json) {
     instagramChildIds: json.instagramChildIds,
     caption: json.caption,
     eventCaptions: json.eventCaptions,
+    photoTagUsernames: json.photoTagUsernames,
     imageUrls: json.imageUrls,
     videoUrls: json.videoUrls,
     link: json.link,
@@ -128,6 +132,7 @@ async function main() {
     featureEventId: FEATURE_EVENT_ID || undefined,
     excludeEventIds: EXCLUDE_EVENT_IDS.length ? EXCLUDE_EVENT_IDS : undefined,
     onlyEventIds: ONLY_EVENT_IDS.length ? ONLY_EVENT_IDS : undefined,
+    skipPhotoTags: SKIP_PHOTO_TAGS || undefined,
     facebook: INSTAGRAM_ONLY ? false : undefined,
     instagram: FACEBOOK_ONLY ? false : undefined,
   };

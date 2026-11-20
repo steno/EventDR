@@ -30,6 +30,61 @@ export type MetaPostConfig = {
   graphVersion: string;
 };
 
+/** Instagram photo “tag people” entry (Graph `user_tags`). */
+export type InstagramPhotoTag = {
+  username: string;
+  /** 0–1 from left edge; default center. */
+  x?: number;
+  /** 0–1 from top edge; default center. */
+  y?: number;
+};
+
+const IG_USERNAME_RE = /^[a-z0-9._]{1,30}$/i;
+
+/** Strip @ / URL noise → bare username, or null if invalid. */
+export function normalizeInstagramUsername(
+  raw: string | undefined | null,
+): string | null {
+  if (!raw?.trim()) return null;
+  let value = raw.trim();
+  try {
+    if (/^https?:\/\//i.test(value)) {
+      const path = new URL(value).pathname.replace(/\/+$/, "");
+      value = path.split("/").filter(Boolean).pop() ?? "";
+    }
+  } catch {
+    return null;
+  }
+  value = value.replace(/^@+/, "").split(/[/?#\s]/)[0] ?? "";
+  if (!IG_USERNAME_RE.test(value)) return null;
+  return value.toLowerCase();
+}
+
+/** Encode photo tags for Graph `user_tags` (max 20). */
+export function encodeInstagramUserTags(
+  tags: InstagramPhotoTag[],
+): string | undefined {
+  const cleaned: { username: string; x: number; y: number }[] = [];
+  const seen = new Set<string>();
+  for (const tag of tags) {
+    const username = normalizeInstagramUsername(tag.username);
+    if (!username || seen.has(username)) continue;
+    seen.add(username);
+    cleaned.push({
+      username,
+      x: clampUnit(tag.x ?? 0.5),
+      y: clampUnit(tag.y ?? 0.5),
+    });
+    if (cleaned.length >= 20) break;
+  }
+  return cleaned.length ? JSON.stringify(cleaned) : undefined;
+}
+
+function clampUnit(value: number): number {
+  if (!Number.isFinite(value)) return 0.5;
+  return Math.min(1, Math.max(0, value));
+}
+
 export type MetaGraphError = {
   message: string;
   type?: string;
@@ -400,7 +455,13 @@ export function instagramContainerFailure(
 
 export async function createInstagramMediaContainers(
   config: MetaPostConfig,
-  input: { imageUrls: string[]; caption?: string; carousel: boolean },
+  input: {
+    imageUrls: string[];
+    caption?: string;
+    carousel: boolean;
+    /** Photo “tag people” — curated public usernames only. */
+    userTags?: InstagramPhotoTag[];
+  },
   fetchImpl?: GraphFetch,
 ): Promise<{ ok: true; ids: string[] } | { ok: false; error: MetaGraphError }> {
   if (!config.instagramAccountId) {
@@ -412,11 +473,16 @@ export async function createInstagramMediaContainers(
   const paced = shouldPace(fetchImpl);
   const ids: string[] = [];
   const imageUrls = input.imageUrls.slice(0, 10);
+  const userTagsJson =
+    !input.carousel && input.userTags?.length
+      ? encodeInstagramUserTags(input.userTags)
+      : undefined;
   for (const [index, imageUrl] of imageUrls.entries()) {
     if (paced && index > 0) await sleep(GRAPH_WRITE_GAP_MS);
     const params: Record<string, string> = { image_url: imageUrl };
     if (input.carousel) params.is_carousel_item = "true";
     else if (input.caption) params.caption = input.caption;
+    if (userTagsJson && !input.carousel) params.user_tags = userTagsJson;
     const child = await metaGraphRequest<{ id?: string }>(
       config,
       `${config.instagramAccountId}/media`,
@@ -665,7 +731,11 @@ export async function publishFacebookAlbum(
 
 export async function publishInstagramPhoto(
   config: MetaPostConfig,
-  input: { caption: string; imageUrl: string },
+  input: {
+    caption: string;
+    imageUrl: string;
+    userTags?: InstagramPhotoTag[];
+  },
   fetchImpl?: GraphFetch,
 ): Promise<{ ok: true; id: string } | { ok: false; error: MetaGraphError }> {
   if (!config.instagramAccountId) {
@@ -674,15 +744,20 @@ export async function publishInstagramPhoto(
       error: { message: "META_INSTAGRAM_ACCOUNT_ID is not set" },
     };
   }
+  const params: Record<string, string> = {
+    image_url: input.imageUrl,
+    caption: input.caption,
+  };
+  const userTagsJson = input.userTags?.length
+    ? encodeInstagramUserTags(input.userTags)
+    : undefined;
+  if (userTagsJson) params.user_tags = userTagsJson;
   const container = await metaGraphRequest<{ id?: string }>(
     config,
     `${config.instagramAccountId}/media`,
     {
       method: "POST",
-      params: {
-        image_url: input.imageUrl,
-        caption: input.caption,
-      },
+      params,
       fetchImpl,
     },
   );

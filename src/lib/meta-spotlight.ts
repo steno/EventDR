@@ -17,9 +17,11 @@ import {
   weekendMetaHashtags,
 } from "@/lib/meta-post";
 import { getEventById } from "@/lib/get-event";
+import { normalizeInstagramUsername } from "@/lib/meta-post";
 import { getPublicEvents } from "@/lib/public-events";
 import { SITE_URL } from "@/lib/site-url";
 import type { Event } from "@/lib/types";
+import { getSeedVenue } from "@/lib/venues-seed";
 
 /** Default fill when few (or no) specials — mixed happening-today picks. */
 export const TODAY_SPOTLIGHT_LIMIT = 3;
@@ -91,6 +93,11 @@ export type TodaySpotlightEvent = {
   imageUrl: string;
   /** Localized app description — same body Share → Instagram copies. */
   description?: string;
+  /**
+   * Curated venue Instagram username for photo tags (no @).
+   * Only from `Venue.instagram` — never scraped from description @mentions.
+   */
+  photoTagUsername?: string;
 };
 
 export type TodayMetaPost = {
@@ -98,12 +105,36 @@ export type TodayMetaPost = {
   caption: string;
   /** One Instagram caption per event (parallel to `events`). */
   eventCaptions: string[];
+  /**
+   * Proposed photo-tag usernames parallel to `events` (empty string = none).
+   * Dry-run / skill must show these for confirmation before go-live.
+   */
+  photoTagUsernames: string[];
   link: string;
   imageUrl: string;
   imageUrls: string[];
   events: TodaySpotlightEvent[];
   repeatKeys: string[];
 };
+
+/**
+ * Curated photo-tag handle from the seed venue — not description @mentions.
+ * Pass `override: null` to skip; a string to force that username.
+ */
+export function resolveSpotlightPhotoTagUsername(
+  event: Pick<Event, "venueSlug">,
+  override?: string | null,
+): string | undefined {
+  if (override === null) return undefined;
+  if (typeof override === "string") {
+    return normalizeInstagramUsername(override) ?? undefined;
+  }
+  const slug = event.venueSlug?.trim();
+  if (!slug) return undefined;
+  return (
+    normalizeInstagramUsername(getSeedVenue(slug)?.instagram) ?? undefined
+  );
+}
 
 const ISO_DATE_SUFFIX = /-\d{4}-\d{2}-\d{2}$/;
 const WEEKDAY_SUFFIX =
@@ -552,7 +583,11 @@ function toSpotlightEvent(
   event: Event,
   locale: Locale,
   origin = SITE_URL,
+  options: { photoTagUsername?: string | null; skipPhotoTags?: boolean } = {},
 ): TodaySpotlightEvent {
+  const photoTagUsername = options.skipPhotoTags
+    ? undefined
+    : resolveSpotlightPhotoTagUsername(event, options.photoTagUsername);
   return {
     id: event.id,
     title: event.title,
@@ -565,13 +600,21 @@ function toSpotlightEvent(
     url: `${siteOrigin(origin)}/${locale}/event/${event.id}`,
     imageUrl: spotlightShareImageUrl(event.id, origin),
     description: event.description?.trim() || undefined,
+    photoTagUsername,
   };
 }
+
+export type BuildTodayMetaPostOptions = SpotlightPickOptions & {
+  /** Skip all Instagram photo tags. */
+  skipPhotoTags?: boolean;
+  /** Per-event username overrides (event id → handle, or "" to skip that event). */
+  photoTagOverrides?: Record<string, string>;
+};
 
 export async function buildTodayMetaPost(
   locale: Locale,
   origin = SITE_URL,
-  options: SpotlightPickOptions = {},
+  options: BuildTodayMetaPostOptions = {},
 ): Promise<{ ok: true; post: TodayMetaPost } | { ok: false; error: string }> {
   const now = new Date();
   const dayISO = options.dayISO ?? localDateISO(now);
@@ -607,10 +650,19 @@ export async function buildTodayMetaPost(
   const events = await Promise.all(
     picked.map(async (event) => {
       const full = await getEventById(event.id, locale);
-      return toSpotlightEvent(full ?? event, locale, origin);
+      const base = full ?? event;
+      const override = options.photoTagOverrides?.[base.id];
+      return toSpotlightEvent(base, locale, origin, {
+        skipPhotoTags: options.skipPhotoTags,
+        photoTagUsername:
+          override === undefined ? undefined : override === "" ? null : override,
+      });
     }),
   );
   const imageUrls = events.map((event) => event.imageUrl);
+  const photoTagUsernames = events.map(
+    (event) => event.photoTagUsername ?? "",
+  );
   const listingPath = when === "tomorrow" ? "tomorrow" : "today";
   const listingUrl = `${siteOrigin(origin)}/${locale}/when/${listingPath}`;
 
@@ -621,6 +673,7 @@ export async function buildTodayMetaPost(
       eventCaptions: events.map((event) =>
         buildSingleEventSpotlightCaption(event, locale, dayISO),
       ),
+      photoTagUsernames,
       link: listingUrl,
       imageUrl: imageUrls[0] ?? defaultMetaImageUrl(origin),
       imageUrls,

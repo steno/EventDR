@@ -83,13 +83,23 @@ For each id: `https://pop-event.com/api/ig-card/{id}.jpg` (or localhost while
 iterating). Confirm flyer fills the cream card (no cream letterbox; orange
 frame only outside).
 
-### 3. Assign locale per event (required)
+### 3. Assign locale + photo tags (required)
 
 Before posting, build a table and show it to the user:
 
-| Event id | Venue | Locale | Why |
-|----------|-------|--------|-----|
-| … | … | `es` or `en` | … |
+| Event id | Venue | Locale | Photo tag | Why |
+|----------|-------|--------|-----------|-----|
+| … | … | `es` or `en` | `@handle` or — | … |
+
+**Photo tags** (Instagram “tag people” on the image):
+
+- Only from curated `Venue.instagram` on the seed venue (e.g. Luxury Club → `luxury.club.puerto_plata`).
+- Never invent tags from `@` mentions inside the description — those stay caption text only.
+- Dry-run returns `photoTags[]` / `photoTagUsernames[]` — show them in the table.
+- If the handle looks wrong, ask before go-live; override with
+  `photoTagOverrides: { "event-id": "correct.handle" }` or `""` to skip that
+  event; or `SKIP_PHOTO_TAGS=true` / `skipPhotoTags: true` for the whole run.
+- Missing venue Instagram → no photo tag (caption @mentions still OK).
 
 **Default heuristics** (override when the user says otherwise):
 
@@ -109,7 +119,7 @@ locale for that event.
 Send:
 
 1. Mode (today specials / tomorrow specials / this post)  
-2. Locale table  
+2. Locale + photo-tag table  
 3. Sample `es` and/or `en` IG captions  
 4. Card URLs  
 

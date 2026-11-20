@@ -113,6 +113,10 @@ type PostBody = Partial<MetaPublishInput> &
     excludeEventIds?: string[];
     /** Post exactly these ids (“run this post”). */
     onlyEventIds?: string[];
+    /** Skip Instagram photo tags. */
+    skipPhotoTags?: boolean;
+    /** Per-event photo-tag overrides (id → username, or "" to skip). */
+    photoTagOverrides?: Record<string, string>;
     step?: "next" | "all";
     /** Upload a still-derived MP4 for Instagram Reels hosting. */
     action?: "upload-reel" | "render-story-card";
@@ -252,6 +256,8 @@ export async function POST(request: NextRequest) {
           hardExcludeIds: [...exclusions.hardExcludeIds, ...excludeEventIds],
           featureEventId: body.featureEventId,
           onlyEventIds: onlyEventIds.length ? onlyEventIds : undefined,
+          skipPhotoTags: body.skipPhotoTags,
+          photoTagOverrides: body.photoTagOverrides,
           ...spotlightPickOptionsForSource(channel, { specialsAlreadyPosted }),
         });
       } catch (error) {
@@ -267,17 +273,42 @@ export async function POST(request: NextRequest) {
       if (!built.ok) {
         return NextResponse.json({ error: built.error }, { status: 422 });
       }
-      return jsonPublishResult(
-        await publishToMeta(parsed.config, {
-          caption: built.post.caption,
-          imageUrl: built.post.imageUrl,
-          imageUrls: built.post.imageUrls,
-          link: built.post.link,
-          facebook: body.facebook,
-          instagram: body.instagram,
-          dryRun: true,
-        }),
+      const dry = await publishToMeta(parsed.config, {
+        caption: built.post.caption,
+        imageUrl: built.post.imageUrl,
+        imageUrls: built.post.imageUrls,
+        link: built.post.link,
+        facebook: body.facebook,
+        instagram: body.instagram,
+        dryRun: true,
+      });
+      const dryPayload = publishPayload(
+        dry,
         built.post.events.map((event) => event.id),
+      );
+      return NextResponse.json(
+        {
+          ...dryPayload,
+          eventCaptions: built.post.eventCaptions,
+          photoTagUsernames: built.post.photoTagUsernames,
+          photoTags: built.post.events.map((event, index) => ({
+            eventId: event.id,
+            username: built.post.photoTagUsernames[index] || null,
+            source: built.post.photoTagUsernames[index] ? "venue" : null,
+          })),
+        },
+        {
+          status: dryPayload.rateLimited
+            ? 429
+            : !dry.ok
+              ? 400
+              : dryPayload.success
+                ? 200
+                : 502,
+          headers: dryPayload.rateLimited
+            ? { "Retry-After": "300" }
+            : undefined,
+        },
       );
     }
 
@@ -291,6 +322,8 @@ export async function POST(request: NextRequest) {
         featureEventId: body.featureEventId,
         excludeEventIds: body.excludeEventIds,
         onlyEventIds: onlyEventIds.length ? onlyEventIds : undefined,
+        skipPhotoTags: body.skipPhotoTags,
+        photoTagOverrides: body.photoTagOverrides,
         channel,
         progress: {
           facebookId: body.facebookId,
@@ -300,6 +333,7 @@ export async function POST(request: NextRequest) {
           instagramChildIds: body.instagramChildIds,
           caption: body.caption,
           eventCaptions: body.eventCaptions,
+          photoTagUsernames: body.photoTagUsernames,
           imageUrls: body.imageUrls,
           videoUrls: body.videoUrls,
           link: body.link,

@@ -5,6 +5,7 @@ import {
   createInstagramMediaContainers,
   createInstagramReelContainer,
   defaultMetaImageUrl,
+  encodeInstagramUserTags,
   instagramContainersFinished,
   instagramContainerFailure,
   isAllowedMetaImageUrl,
@@ -12,6 +13,7 @@ import {
   isMetaRateLimitError,
   META_CAPTION_MAX,
   metaGraphRequest,
+  normalizeInstagramUsername,
   publishToMeta,
   type MetaPostConfig,
 } from "./meta-post";
@@ -22,6 +24,36 @@ const config: MetaPostConfig = {
   instagramAccountId: "ig-1",
   graphVersion: "v22.0",
 };
+
+describe("normalizeInstagramUsername", () => {
+  it("strips @, URLs, and lowercases", () => {
+    assert.equal(normalizeInstagramUsername("@Luxury.Club.Puerto_Plata"), "luxury.club.puerto_plata");
+    assert.equal(
+      normalizeInstagramUsername("https://www.instagram.com/laxcabarete/"),
+      "laxcabarete",
+    );
+    assert.equal(normalizeInstagramUsername("  "), null);
+    assert.equal(normalizeInstagramUsername("!!!"), null);
+    assert.equal(normalizeInstagramUsername("bad handle!"), "bad");
+  });
+});
+
+describe("encodeInstagramUserTags", () => {
+  it("encodes user_tags JSON and dedupes", () => {
+    assert.equal(
+      encodeInstagramUserTags([
+        { username: "@laxcabarete" },
+        { username: "laxcabarete", x: 0.2, y: 0.8 },
+        { username: "lbcabarete" },
+      ]),
+      JSON.stringify([
+        { username: "laxcabarete", x: 0.5, y: 0.5 },
+        { username: "lbcabarete", x: 0.5, y: 0.5 },
+      ]),
+    );
+    assert.equal(encodeInstagramUserTags([{ username: "!!!" }]), undefined);
+  });
+});
 
 describe("meta-post", () => {
   it("allows HTTPS images on pop-event.com", () => {
@@ -226,6 +258,45 @@ describe("meta-post", () => {
     if (!created.ok) return;
     assert.deepEqual(created.ids, ["ig-1", "ig-2"]);
     assert.deepEqual(paths, ["POST /ig-1/media", "POST /ig-1/media"]);
+  });
+
+  it("sends user_tags on single-image Instagram containers", async () => {
+    let body = "";
+    const fetchImpl: typeof fetch = async (_input, init) => {
+      body = String(init?.body ?? "");
+      return jsonResponse({ id: "ig-tag-1" });
+    };
+    const created = await createInstagramMediaContainers(
+      config,
+      {
+        imageUrls: ["https://pop-event.com/events/a.jpg"],
+        caption: "Tonight",
+        carousel: false,
+        userTags: [{ username: "@luxury.club.puerto_plata" }],
+      },
+      fetchImpl,
+    );
+    assert.equal(created.ok, true);
+    assert.match(body, /user_tags=/);
+    assert.match(body, /luxury\.club\.puerto_plata/);
+  });
+
+  it("omits user_tags on carousel children", async () => {
+    let body = "";
+    const fetchImpl: typeof fetch = async (_input, init) => {
+      body = String(init?.body ?? "");
+      return jsonResponse({ id: "ig-child-1" });
+    };
+    await createInstagramMediaContainers(
+      config,
+      {
+        imageUrls: ["https://pop-event.com/events/a.jpg"],
+        carousel: true,
+        userTags: [{ username: "laxcabarete" }],
+      },
+      fetchImpl,
+    );
+    assert.equal(body.includes("user_tags"), false);
   });
 
   it("creates an Instagram Reel container with share_to_feed off", async () => {

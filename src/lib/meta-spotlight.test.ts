@@ -5,6 +5,7 @@ import {
   buildTodaySpotlightCaption,
   otherSpotlightChannel,
   pickTodaySpotlights,
+  resolveSpotlightPhotoTagUsername,
   sameSpotlightEventSet,
   spotlightCaptionIntro,
   spotlightLimitForOptions,
@@ -798,6 +799,38 @@ describe("toAbsoluteMetaImageUrl", () => {
   it("rejects off-site images", () => {
     assert.equal(
       toAbsoluteMetaImageUrl("https://cdn.example/photo.jpg"),
+      undefined,
+    );
+  });
+});
+
+describe("resolveSpotlightPhotoTagUsername", () => {
+  it("uses curated Venue.instagram, not description mentions", () => {
+    assert.equal(
+      resolveSpotlightPhotoTagUsername({
+        venueSlug: "luxury-club-puerto-plata",
+      }),
+      "luxury.club.puerto_plata",
+    );
+    assert.equal(
+      resolveSpotlightPhotoTagUsername({ venueSlug: "xanadu-resort-hodelpa" }),
+      undefined,
+    );
+  });
+
+  it("honors overrides and null skip", () => {
+    assert.equal(
+      resolveSpotlightPhotoTagUsername(
+        { venueSlug: "luxury-club-puerto-plata" },
+        "LaxCabarete",
+      ),
+      "laxcabarete",
+    );
+    assert.equal(
+      resolveSpotlightPhotoTagUsername(
+        { venueSlug: "luxury-club-puerto-plata" },
+        null,
+      ),
       undefined,
     );
   });

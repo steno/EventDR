@@ -37,6 +37,7 @@ export type TodaySpotlightProgress = {
   instagramChildIds?: string[];
   caption?: string;
   eventCaptions?: string[];
+  photoTagUsernames?: string[];
   imageUrls?: string[];
   /** @deprecated Reels path. Image posts use `imageUrls`. */
   videoUrls?: string[];
@@ -54,6 +55,7 @@ export type TodaySpotlightStepResult = {
   eventIds: string[];
   caption?: string;
   eventCaptions?: string[];
+  photoTagUsernames?: string[];
   imageUrls?: string[];
   videoUrls?: string[];
   link?: string;
@@ -132,6 +134,10 @@ export async function runTodaySpotlightStep(input: {
   excludeEventIds?: string[];
   /** Post exactly these ids (“run this post”). Implies channel `manual`. */
   onlyEventIds?: string[];
+  /** Skip Instagram photo tags entirely. */
+  skipPhotoTags?: boolean;
+  /** Per-event photo-tag overrides (id → username, or "" to skip). */
+  photoTagOverrides?: Record<string, string>;
   channel?: SpotlightChannel;
   progress?: TodaySpotlightProgress;
 }): Promise<{ status: number; body: TodaySpotlightStepResult }> {
@@ -164,6 +170,8 @@ export async function runTodaySpotlightStep(input: {
     hardExcludeIds: [...exclusions.hardExcludeIds, ...excludeEventIds],
     featureEventId: input.featureEventId,
     onlyEventIds: onlyEventIds.length ? onlyEventIds : undefined,
+    skipPhotoTags: input.skipPhotoTags,
+    photoTagOverrides: input.photoTagOverrides,
     ...spotlightPickOptionsForSource(channel, { specialsAlreadyPosted }),
   });
   if (!built.ok) {
@@ -204,6 +212,7 @@ export async function runTodaySpotlightStep(input: {
     repeatKeys: built.post.repeatKeys,
     caption: built.post.caption,
     eventCaptions: built.post.eventCaptions,
+    photoTagUsernames: built.post.photoTagUsernames,
     imageUrls: built.post.imageUrls,
     videoUrls: input.progress?.videoUrls,
     link: built.post.link,
@@ -224,6 +233,7 @@ export async function runTodaySpotlightStep(input: {
         eventIds: claimed.record.eventIds,
         caption: claimed.record.caption,
         eventCaptions: claimed.record.eventCaptions,
+        photoTagUsernames: claimed.record.photoTagUsernames,
         imageUrls: claimed.record.imageUrls,
         videoUrls: claimed.record.videoUrls,
         link: claimed.record.link,
@@ -262,6 +272,11 @@ export async function runTodaySpotlightStep(input: {
     : progress.eventCaptions?.length
       ? progress.eventCaptions
       : built.post.eventCaptions;
+  const photoTagUsernames = record?.photoTagUsernames?.length
+    ? record.photoTagUsernames
+    : progress.photoTagUsernames?.length
+      ? progress.photoTagUsernames
+      : built.post.photoTagUsernames;
   const imageUrls = record?.imageUrls?.length
     ? record.imageUrls
     : progress.imageUrls?.length
@@ -279,6 +294,7 @@ export async function runTodaySpotlightStep(input: {
   const job = {
     caption,
     eventCaptions,
+    photoTagUsernames,
     imageUrls,
     videoUrls,
     link,
@@ -312,6 +328,7 @@ export async function runTodaySpotlightStep(input: {
       eventIds: job.eventIds,
       caption: job.caption,
       eventCaptions: job.eventCaptions,
+      photoTagUsernames: job.photoTagUsernames,
       imageUrls: job.imageUrls,
       videoUrls: patch.videoUrls ?? job.videoUrls,
       link: job.link,
@@ -339,6 +356,7 @@ export async function runTodaySpotlightStep(input: {
         eventIds: job.eventIds,
         caption: job.caption,
         eventCaptions: job.eventCaptions,
+        photoTagUsernames: job.photoTagUsernames,
         imageUrls: job.imageUrls,
         videoUrls: job.videoUrls,
         link: job.link,
@@ -407,6 +425,7 @@ export async function runTodaySpotlightStep(input: {
     eventIds: job.eventIds,
     caption: job.caption,
     eventCaptions: job.eventCaptions,
+    photoTagUsernames: job.photoTagUsernames,
     imageUrls: job.imageUrls,
     videoUrls: job.videoUrls,
     link: job.link,
@@ -510,10 +529,12 @@ export async function runTodaySpotlightStep(input: {
         },
       };
     }
+    const tagUsername = job.photoTagUsernames?.[index]?.trim();
     const created = await createInstagramMediaContainers(config, {
       imageUrls: [imageUrl],
       caption: eventCaption,
       carousel: false,
+      userTags: tagUsername ? [{ username: tagUsername }] : undefined,
     });
     if (!created.ok) {
       const fail = graphFail(created.error);
