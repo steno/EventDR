@@ -1210,6 +1210,10 @@ const FILE_TO_VENUE_SLUG = {
     "punto-frio-reapertura-gta-monarka-2026-11-21",
   "grand-prix-caballitos-2026-11-20.jpg":
     "grand-prix-caballitos-2026-11-20",
+  "meclao-sabado-latino-dj-choco-2026-11-21.jpg":
+    "meclao-sabado-latino-dj-choco-2026-11-21",
+  "surfskate-fest-encuentro-2026-12-11.jpg":
+    "surfskate-fest-encuentro-2026-12-11",
   "estudio-crea-cabarete-lounge.jpg": "estudio-crea-cabarete",
   "estudio-crea-cabarete-lounge-v2.jpg": "estudio-crea-cabarete",
   "estudio-crea-cabarete-lounge-v3.jpg": "estudio-crea-cabarete",

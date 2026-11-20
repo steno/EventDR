@@ -12787,5 +12787,69 @@
       "Los Caballitos — El Padre y El Hijo"
     ],
     "imageEmoji": "🪗"
+  },
+  {
+    "id": "meclao-sabado-latino-dj-choco-2026-11-21",
+    "title": "Mecla'o Sábado Latino — DJ Choco · 21 nov",
+    "description": "Sábado Latino avec DJ Choco (@ch.17x) au Mecla'o Rooftop Lounge, Av. Luis Ginebra n° 49, Puerto Plata — samedi 21 novembre 2026. Cover absent de l’affiche — réservations 829-374-7028 · Instagram @meclaorooftop. Rooftop latino du samedi sur Luis Ginebra — pas la soirée Darvin Estrella d’Ambar Lounge le même samedi au n° 45, ni le Viernes Social de Mecla'o avec Junier Lockward la veille.",
+    "date": "2026-11-21",
+    "location": "Puerto Plata",
+    "venue": "Mecla'o Rooftop Lounge",
+    "venueSlug": "meclao-rooftop",
+    "address": "Av. Luis Ginebra No. 49, Puerto Plata",
+    "lat": 19.788312,
+    "lng": -70.677453,
+    "category": "parties",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18293747028",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/meclaorooftop/",
+    "lineup": [
+      "DJ Choco",
+      "Sábado Latino"
+    ],
+    "imageEmoji": "🌴",
+    "photoTags": [
+      "ch.17x"
+    ]
+  },
+  {
+    "id": "surfskate-fest-encuentro-2026-12-11",
+    "title": "Parallel Surf — Surfskate Fest · 11 déc",
+    "description": "Surfskate Fest à Playa Encuentro, Cabarete — vendredi 11 décembre 2026 à 16 h 30, organisé par Parallel Surf avec Dominican Surf Festival / Hard Rock Dominican Surf Festival. Catégories : Groms (6–11 ans) et Adults (12+). Prix : 1er surfskate neuf, 2e protection, 3e goodies. Inscription RD$300 à la réception Parallel Surf. Confirmez via Instagram @parallel.surf · @dominicansurffestival. Vendredi surfskate à Encuentro pendant la semaine du Dominican Surf Festival — pas seulement les heats océan du DSF, ni les juniors Caribbean Surf Connection des 27–28 déc.",
+    "date": "2026-12-11",
+    "time": "4:30 PM",
+    "location": "Cabarete",
+    "venue": "Playa Encuentro",
+    "venueSlug": "playa-encuentro",
+    "address": "Playa Encuentro, Cabarete — inscription à la réception Parallel Surf",
+    "lat": 19.7834465,
+    "lng": -70.4516521,
+    "category": "sports",
+    "categories": [
+      "festivals"
+    ],
+    "format": "physical",
+    "trending": true,
+    "admissionPrice": "RD$300",
+    "ageHint": "family",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/parallel.surf/",
+    "lineup": [
+      "Surfskate Fest",
+      "Groms 6–11 · Adults 12+",
+      "Parallel Surf × Dominican Surf Festival"
+    ],
+    "imageEmoji": "🛹",
+    "photoTags": [
+      "parallel.surf",
+      "dominicansurffestival"
+    ]
   }
 ]

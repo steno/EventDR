@@ -14,6 +14,10 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "meclao-reggaeton-rooftop-mr-alfredo-2026-11-13.jpg",
   "meclao-viernes-social-junier-lockward-2026-11-20":
     "meclao-viernes-social-junier-lockward-2026-11-20.jpg",
+  "meclao-sabado-latino-dj-choco-2026-11-21":
+    "meclao-sabado-latino-dj-choco-2026-11-21.jpg",
+  "surfskate-fest-encuentro-2026-12-11":
+    "surfskate-fest-encuentro-2026-12-11.jpg",
   "chameleon-perreo-poca-luz-h23-deeway-2026-11-13":
     "chameleon-perreo-poca-luz-h23-deeway-2026-11-13.jpg",
   "chameleon-la-mas-doll-2026-12-19":
@@ -1681,6 +1685,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "ambar-lounge-bandoleras-2026-11-13.jpg",
   "ambar-lounge-carlos-rivera-2026-11-14.jpg",
   "ambar-lounge-darvin-estrella-2026-11-21.jpg",
+  "meclao-sabado-latino-dj-choco-2026-11-21.jpg",
+  "surfskate-fest-encuentro-2026-12-11.jpg",
   "ambar-lounge-reggaeton-la-residencia-2026-12.jpg",
   "twenty-disco-adrian-tineo-darwin-estrella-2026-11-14.jpg",
   "twenty-disco-money-heist-2026-11-21.jpg",

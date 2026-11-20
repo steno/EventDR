@@ -10204,4 +10204,42 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer — VIERNES 20 NOV; LOS CABALLITOS; EL PADRE Y EL HIJO AL 2X1; Grand Prix Smart Shop; LA JAVILLA — PUERTO PLATA. No gratis / start / cover on art (unlike 23 Oct free Caballitos).",
     updatedAt: "2026-11-20T15:00:00.000Z",
   },
+  {
+    eventId: "meclao-sabado-latino-dj-choco-2026-11-21",
+    body: "Saturday Latin rooftop at Mecla'o with DJ Choco (@ch.17x) on Luis Ginebra 49 — cover isn’t printed, so RSVP 829-374-7028; don’t mix it up with Ambar’s Darvin Estrella night the same Saturday at No. 45 or Mecla'o’s Junier Lockward Friday before.",
+    localized: {
+      es: "Rooftop latino del sábado en Mecla'o con DJ Choco (@ch.17x) en Luis Ginebra 49 — el cover no viene impreso, RSVP 829-374-7028; no lo mezcles con Darvin Estrella en Ambar el mismo sábado en el No. 45 ni el Viernes Social de Junier Lockward la noche anterior en Mecla'o.",
+      fr: "Rooftop latino du samedi au Mecla'o avec DJ Choco (@ch.17x) au Luis Ginebra 49 — le cover n’est pas imprimé, RSVP 829-374-7028 ; ne confondez pas avec Darvin Estrella à Ambar le même samedi au n° 45 ni le Viernes Social de Junier Lockward la veille au Mecla'o.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — @meclaorooftop · 829-374-7028",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — @meclaorooftop · 829-374-7028",
+      fr: "Cover à confirmer — @meclaorooftop · 829-374-7028",
+    },
+    attribution:
+      "POP research · @meclaorooftop Sábado Latino DJ Choco flyer + caption",
+    researchNotes:
+      "Editor flyer + IG caption — SABADO LATINO; DJ CHOCO @ch.17x; SAB 21 NOV; MECLAO ROOFTOP; Luis Ginebra No. 49; res 829-374-7028; @meclaorooftop. Same Saturday as Ambar Darvin Estrella.",
+    updatedAt: "2026-11-20T17:00:00.000Z",
+  },
+  {
+    eventId: "surfskate-fest-encuentro-2026-12-11",
+    body: "Friday 4:30 PM Encuentro surfskate day (Groms 6–11 / Adults 12+) with RD$300 registration at Parallel Surf reception — prizes include a new board for 1st; it’s a Parallel × Dominican Surf Festival side day during DSF week, not the main ocean heats alone or CSC juniors on 27–28 Dec.",
+    localized: {
+      es: "Viernes 4:30 PM de surfskate en Encuentro (Groms 6–11 / Adults 12+) con inscripción RD$300 en recepción Parallel Surf — premios incluyen tabla nueva al 1.er lugar; es un día Parallel × Dominican Surf Festival dentro de la semana DSF, no solo los heats de ola ni los juniors CSC del 27–28 dic.",
+      fr: "Vendredi 16 h 30 de surfskate à Encuentro (Groms 6–11 / Adults 12+) avec inscription RD$300 à la réception Parallel Surf — prix incluent une planche neuve pour le 1er ; journée Parallel × Dominican Surf Festival pendant la semaine DSF, pas seulement les heats océan ni les juniors CSC des 27–28 déc.",
+    },
+    priceFeel: "budget",
+    priceNote: "Registration RD$300 — @parallel.surf · @dominicansurffestival",
+    priceNoteLocalized: {
+      es: "Inscripción RD$300 — @parallel.surf · @dominicansurffestival",
+      fr: "Inscription RD$300 — @parallel.surf · @dominicansurffestival",
+    },
+    attribution:
+      "POP research · @parallel.surf Surfskate Fest flyer + caption",
+    researchNotes:
+      "Editor flyer + IG @parallel.surf — SURFSKATE FEST; FRI DEC 11 4:30 PM PLAYA ENCUENTRO; Groms 6–11 / Adults 12+; prizes 1st new surfskate / 2nd protection / 3rd goodies; RD$300 register Parallel Surf reception; logos Parallel Surf + Hard Rock Dominican Surf Festival; @dominicansurffestival. During DSF 10–13 Dec week.",
+    updatedAt: "2026-11-20T16:45:00.000Z",
+  },
 ];
