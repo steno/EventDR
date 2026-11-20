@@ -1,5 +1,3 @@
-import { readFile } from "node:fs/promises";
-import path from "node:path";
 import sharp from "sharp";
 import type { Locale } from "@/i18n/config";
 import type { Event } from "./types";
@@ -20,8 +18,6 @@ import {
 
 export { FEED_CARD_H, FEED_CARD_W } from "./instagram-story-card-layout";
 
-const PUBLIC_IMAGE = /^\/(events|venues|og)\//i;
-
 function absoluteImageUrl(raw: string | undefined, origin = SITE_URL): string | undefined {
   const value = raw?.trim();
   if (!value) return undefined;
@@ -35,33 +31,17 @@ function absoluteImageUrl(raw: string | undefined, origin = SITE_URL): string | 
   }
 }
 
-/** Prefer local `public/` bytes so ig-card never self-fetches localhost. */
+/**
+ * Load flyer bytes over HTTP only. Do not `path.join(process.cwd(), …)` —
+ * NFT/Turbopack then traces the whole repo into Netlify’s server handler and
+ * deploy fails with “request body too large”. Pass `request.nextUrl.origin`
+ * from `/api/ig-card` so localhost fetches the same host.
+ */
 async function loadImageBuffer(
   raw: string | undefined,
   origin = SITE_URL,
 ): Promise<Buffer | null> {
-  const value = raw?.trim();
-  if (!value) return null;
-
-  let pathname = value;
-  try {
-    if (/^https?:\/\//i.test(value)) {
-      pathname = new URL(value).pathname;
-    }
-  } catch {
-    return null;
-  }
-
-  if (PUBLIC_IMAGE.test(pathname)) {
-    try {
-      const filePath = path.join(process.cwd(), "public", pathname.replace(/^\//, ""));
-      return await readFile(filePath);
-    } catch {
-      /* fall through to HTTP */
-    }
-  }
-
-  const url = absoluteImageUrl(value, origin);
+  const url = absoluteImageUrl(raw, origin);
   if (!url) return null;
   try {
     const response = await fetch(url, {

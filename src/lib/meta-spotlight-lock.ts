@@ -15,6 +15,8 @@ const COLLECTION = "ops";
 const LOCK_DOCS: Record<SpotlightChannel, string> = {
   today: "metaDailySpotlight",
   "today-specials": "metaTodaySpecialsSpotlight",
+  "tomorrow-specials": "metaTomorrowSpecialsSpotlight",
+  manual: "metaManualSpotlight",
 };
 
 export const SPOTLIGHT_HISTORY_DAYS = 7;
@@ -339,12 +341,43 @@ export async function readTodaySpotlightLock(
 export async function readSpotlightLocks(): Promise<{
   today: SpotlightLockRecord | null;
   specials: SpotlightLockRecord | null;
+  tomorrowSpecials: SpotlightLockRecord | null;
+  manual: SpotlightLockRecord | null;
 }> {
-  const [today, specials] = await Promise.all([
+  const [today, specials, tomorrowSpecials, manual] = await Promise.all([
     readTodaySpotlightLock("today"),
     readTodaySpotlightLock("today-specials"),
+    readTodaySpotlightLock("tomorrow-specials"),
+    readTodaySpotlightLock("manual"),
   ]);
-  return { today, specials };
+  return { today, specials, tomorrowSpecials, manual };
+}
+
+export function spotlightLockForChannel(
+  locks: Awaited<ReturnType<typeof readSpotlightLocks>>,
+  channel: SpotlightChannel,
+): SpotlightLockRecord | null {
+  if (channel === "today-specials") return locks.specials;
+  if (channel === "tomorrow-specials") return locks.tomorrowSpecials;
+  if (channel === "manual") return locks.manual;
+  return locks.today;
+}
+
+/** Peer locks whose same-day ids must not be re-posted. */
+export function spotlightPeerLocks(
+  locks: Awaited<ReturnType<typeof readSpotlightLocks>>,
+  channel: SpotlightChannel,
+): Array<SpotlightLockRecord | null> {
+  if (channel === "today") {
+    return [locks.specials, locks.tomorrowSpecials, locks.manual];
+  }
+  if (channel === "today-specials") {
+    return [locks.today, locks.tomorrowSpecials, locks.manual];
+  }
+  if (channel === "tomorrow-specials") {
+    return [locks.today, locks.specials, locks.manual];
+  }
+  return [locks.today, locks.specials, locks.tomorrowSpecials];
 }
 
 export async function claimTodaySpotlightLock(input: {

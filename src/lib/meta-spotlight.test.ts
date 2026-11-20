@@ -633,18 +633,24 @@ describe("pickTodaySpotlights", () => {
 
 describe("spotlight channels", () => {
   it("maps scheduled vs specials pick flags", () => {
-    assert.deepEqual(spotlightPickOptionsForSource("today"), {
-      preferTodaySpecials: true,
-    });
-    assert.deepEqual(
-      spotlightPickOptionsForSource("today", { specialsAlreadyPosted: true }),
-      { excludeTodaySpecials: true },
+    const todayOpts = spotlightPickOptionsForSource("today");
+    assert.equal(todayOpts.preferTodaySpecials, true);
+    assert.equal(todayOpts.when, "today");
+    assert.equal(
+      spotlightPickOptionsForSource("today", { specialsAlreadyPosted: true })
+        .excludeTodaySpecials,
+      true,
     );
-    assert.deepEqual(spotlightPickOptionsForSource("today-specials"), {
-      onlyTodaySpecials: true,
-    });
+    const specials = spotlightPickOptionsForSource("today-specials");
+    assert.equal(specials.onlyTodaySpecials, true);
+    assert.equal(specials.when, "today");
+    const tomorrow = spotlightPickOptionsForSource("tomorrow-specials");
+    assert.equal(tomorrow.onlyTodaySpecials, true);
+    assert.equal(tomorrow.when, "tomorrow");
+    assert.ok(tomorrow.asOf instanceof Date);
     assert.equal(otherSpotlightChannel("today"), "today-specials");
     assert.equal(otherSpotlightChannel("today-specials"), "today");
+    assert.equal(otherSpotlightChannel("tomorrow-specials"), "today-specials");
   });
 
   it("detects the same event set regardless of order", () => {

@@ -50,6 +50,25 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     "/api/ig-card/[eventId]": ["./assets/fonts/**/*"],
   },
+  // Never ship curated heroes inside the SSR/handler zip — CDN serves them.
+  // A static `path.join(..., "public", ...)` once pulled ~140MB into
+  // ___netlify-server-handler and Netlify rejected the upload.
+  outputFileTracingExcludes: {
+    "/*": [
+      "./public/events/**/*",
+      "./public/venues/**/*",
+      "./public/og/**/*",
+      "./popevent-images/**/*",
+      "./raw-exports/**/*",
+    ],
+    "next-server": [
+      "./public/events/**/*",
+      "./public/venues/**/*",
+      "./public/og/**/*",
+      "./popevent-images/**/*",
+      "./raw-exports/**/*",
+    ],
+  },
   images: {
     // WebP only — AVIF encoding of unique venue heroes OOM-kills Netlify SSG.
     formats: ["image/webp"],

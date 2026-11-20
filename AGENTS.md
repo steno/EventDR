@@ -37,7 +37,7 @@ For Instagram—the primary source for many DR event flyers—run skill `pop-ins
 | **Fri morning** | — (catalog desk habit) | Skill `pop-instagram-ingest` (rule `instagram-weekly`) — primary logged-in discovery for weekend bills |
 | Fri ~9:00 AST | `weekly-marketing-digest.yml` → artifact `weekend-marketing-digests` | Skills `pop-social-weekly`, `pop-weekend-b2b-digest` |
 | Sun ~12:00 AST | `weekly-event-ingest.yml` | Skill `pop-facebook-ingest` (optional light IG catch-up only), then `pop-content-pipeline` — **no** full Instagram rescan |
-| Manual only | `daily-today-spotlight.yml` (workflow_dispatch) or ask the agent — **Facebook album + Instagram image posts** (specials first, then up to 3 happening-today, cap 10). IG images are the Share → Instagram card. Not Reels. No daily cron. | **spotlight today’s specials** → skill `pop-spotlight-specials` (`TODAY_SPECIALS=true`): dry-run, assign `es`/`en` per venue audience, confirm, then post. Default both networks; do not set `INSTAGRAM_ONLY` unless asked. |
+| Manual only | `daily-today-spotlight.yml` (workflow_dispatch) or ask the agent — **Facebook album + Instagram image posts** (specials first, then up to 3 happening-today, cap 10). IG images are the Share → Instagram card. Not Reels. No daily cron. | Skill `pop-spotlight-specials`: **run today’s specials** (`TODAY_SPECIALS=true`), **run tomorrow’s specials** (`TOMORROW_SPECIALS=true`), or **run this post** (`ONLY_EVENT_IDS=…`). Dry-run, assign `es`/`en` per venue, confirm, then post. Default both networks; do not set `INSTAGRAM_ONLY` unless asked. |
 
 Partner digest API: `GET /api/cron/partner-digest` with `Authorization: Bearer CRON_SECRET` (formats: `json`, `markdown`, `whatsapp`; locales: `en`, `es`, `fr`).
 

@@ -1,6 +1,10 @@
 import type { Locale } from "@/i18n/config";
 import { CITIES, eventMatchesCity, type CitySlug } from "@/lib/cities";
-import { localDateISO, weekdayFromISO } from "@/lib/event-dates";
+import {
+  addDaysISO,
+  localDateISO,
+  weekdayFromISO,
+} from "@/lib/event-dates";
 import { formatEventPlace } from "@/lib/event-location";
 import {
   getEventLiveStatus,
@@ -21,17 +25,54 @@ export const TODAY_SPOTLIGHT_LIMIT = 3;
 /** Instagram / Facebook album hard cap (Graph also slices to 10). */
 export const TODAY_SPOTLIGHT_MAX = 10;
 
-/** Mixed today post (specials first + happening-today) vs specials-only. */
-export type SpotlightChannel = "today" | "today-specials";
+/**
+ * Mixed today (specials first + happening-today), specials-only for today or
+ * tomorrow, or a manual id list (“run this post”).
+ */
+export type SpotlightChannel =
+  | "today"
+  | "today-specials"
+  | "tomorrow-specials"
+  | "manual";
 
 export function otherSpotlightChannel(
   channel: SpotlightChannel,
 ): SpotlightChannel {
-  return channel === "today" ? "today-specials" : "today";
+  if (channel === "today") return "today-specials";
+  if (channel === "today-specials") return "today";
+  if (channel === "tomorrow-specials") return "today-specials";
+  return "today";
 }
 
 export function isSpotlightChannel(value: unknown): value is SpotlightChannel {
-  return value === "today" || value === "today-specials";
+  return (
+    value === "today" ||
+    value === "today-specials" ||
+    value === "tomorrow-specials" ||
+    value === "manual"
+  );
+}
+
+export function spotlightWhenForChannel(
+  channel: SpotlightChannel,
+): "today" | "tomorrow" | undefined {
+  if (channel === "tomorrow-specials") return "tomorrow";
+  if (channel === "manual") return undefined;
+  return "today";
+}
+
+/** Calendar day the captions / specials rail refer to (AST). */
+export function spotlightDayISOForChannel(
+  channel: SpotlightChannel,
+  now = new Date(),
+): string {
+  const today = localDateISO(now);
+  return channel === "tomorrow-specials" ? addDaysISO(today, 1) : today;
+}
+
+/** Noon America/Santo_Domingo for specials / live-status checks on that day. */
+export function spotlightAsOfForDay(dayISO: string): Date {
+  return new Date(`${dayISO}T12:00:00-04:00`);
 }
 
 const SKIP_STATUSES = new Set([
@@ -88,10 +129,21 @@ export type SpotlightPickOptions = {
    * event already on Facebook/IG today is never repeated.
    */
   hardExcludeIds?: Iterable<string>;
-  /** Pin this event first (cover image) when it is happening today. */
+  /** Pin this event first (cover image) when it is in the pool. */
   featureEventId?: string;
-  /** Manual specials post: only dated one-offs that start today. */
+  /**
+   * Post exactly these ids (order preserved), e.g. “run this post”.
+   * Skips specials / happening-today fill.
+   */
+  onlyEventIds?: Iterable<string>;
+  /** Manual specials post: only dated one-offs that start on `asOf`’s day. */
   onlyTodaySpecials?: boolean;
+  /** Listing window for the pool (`undefined` = unscoped, for manual ids). */
+  when?: "today" | "tomorrow";
+  /** Calendar day for captions + specials checks (defaults to today AST). */
+  dayISO?: string;
+  /** Instant used for live-status / isListedTodaySpecial (defaults to now). */
+  asOf?: Date;
   /**
    * Scheduled post after a specials run: skip the home “Today’s specials”
    * pool so the two posts stay distinct.
@@ -109,11 +161,32 @@ export function spotlightPickOptionsForSource(
   options: { specialsAlreadyPosted?: boolean } = {},
 ): Pick<
   SpotlightPickOptions,
-  "onlyTodaySpecials" | "excludeTodaySpecials" | "preferTodaySpecials"
+  | "onlyTodaySpecials"
+  | "excludeTodaySpecials"
+  | "preferTodaySpecials"
+  | "when"
+  | "dayISO"
+  | "asOf"
 > {
-  if (source === "today-specials") return { onlyTodaySpecials: true };
-  if (options.specialsAlreadyPosted) return { excludeTodaySpecials: true };
-  return { preferTodaySpecials: true };
+  const dayISO = spotlightDayISOForChannel(source);
+  const when = spotlightWhenForChannel(source);
+  const asOf =
+    source === "tomorrow-specials" ? spotlightAsOfForDay(dayISO) : undefined;
+  if (source === "today-specials" || source === "tomorrow-specials") {
+    return {
+      onlyTodaySpecials: true,
+      when,
+      dayISO,
+      ...(asOf ? { asOf } : {}),
+    };
+  }
+  if (source === "manual") {
+    return { dayISO };
+  }
+  if (options.specialsAlreadyPosted) {
+    return { excludeTodaySpecials: true, when, dayISO };
+  }
+  return { preferTodaySpecials: true, when, dayISO };
 }
 
 /**
@@ -219,7 +292,8 @@ export function pickTodaySpotlights(
   now = new Date(),
   options: SpotlightPickOptions = {},
 ): Event[] {
-  const isSpecial = (event: Event) => isListedTodaySpecial(event, now);
+  const asOf = options.asOf ?? now;
+  const isSpecial = (event: Event) => isListedTodaySpecial(event, asOf);
   const excludeIds = new Set(
     [...(options.excludeIds ?? [])].filter((id) => id.length > 0),
   );
@@ -229,9 +303,23 @@ export function pickTodaySpotlights(
   const hardExcludeIds = new Set(
     [...(options.hardExcludeIds ?? [])].filter((id) => id.length > 0),
   );
+  const onlyEventIds = [...(options.onlyEventIds ?? [])]
+    .map((id) => id.trim())
+    .filter((id) => id.length > 0);
+  if (onlyEventIds.length) {
+    const byId = new Map(events.map((event) => [event.id, event]));
+    const forced: Event[] = [];
+    for (const id of onlyEventIds) {
+      if (hardExcludeIds.has(id)) continue;
+      const event = byId.get(id);
+      if (event) forced.push(event);
+      if (forced.length >= TODAY_SPOTLIGHT_MAX) break;
+    }
+    return forced;
+  }
   const open = events.filter((event) => {
     if (hardExcludeIds.has(event.id)) return false;
-    const status = getEventLiveStatus(event, now);
+    const status = getEventLiveStatus(event, asOf);
     if (SKIP_STATUSES.has(status)) return false;
     if (options.onlyTodaySpecials) return isSpecial(event);
     if (options.excludeTodaySpecials) return !isSpecial(event);
@@ -265,8 +353,8 @@ export function pickTodaySpotlights(
         const tier = spotlightRecurrenceTier(a) - spotlightRecurrenceTier(b);
         if (tier !== 0) return tier;
         return (
-          spotlightScore(b, usedCategories, usedCities, now) -
-          spotlightScore(a, usedCategories, usedCities, now)
+          spotlightScore(b, usedCategories, usedCities, asOf) -
+          spotlightScore(a, usedCategories, usedCities, asOf)
         );
       });
       const next = remaining.shift();
@@ -475,26 +563,48 @@ export async function buildTodayMetaPost(
   options: SpotlightPickOptions = {},
 ): Promise<{ ok: true; post: TodayMetaPost } | { ok: false; error: string }> {
   const now = new Date();
-  const today = await getPublicEvents({ locale, when: "today" });
-  const limit = spotlightLimitForOptions(today, options, now);
-  const picked = pickTodaySpotlights(today, limit, now, options);
+  const dayISO = options.dayISO ?? localDateISO(now);
+  const asOf = options.asOf ?? now;
+  const onlyEventIds = [...(options.onlyEventIds ?? [])]
+    .map((id) => id.trim())
+    .filter((id) => id.length > 0);
+  const when = onlyEventIds.length ? undefined : (options.when ?? "today");
+  const pool = await getPublicEvents({
+    locale,
+    ...(when ? { when } : {}),
+  });
+  const limit = onlyEventIds.length
+    ? Math.min(TODAY_SPOTLIGHT_MAX, onlyEventIds.length)
+    : spotlightLimitForOptions(pool, options, asOf);
+  const picked = pickTodaySpotlights(pool, limit, asOf, {
+    ...options,
+    onlyEventIds: onlyEventIds.length ? onlyEventIds : options.onlyEventIds,
+    asOf,
+    dayISO,
+  });
   if (!picked.length) {
-    return { ok: false, error: "No today events to spotlight" };
+    const empty =
+      options.onlyTodaySpecials && when === "tomorrow"
+        ? "No tomorrow specials to spotlight"
+        : onlyEventIds.length
+          ? "No matching events to spotlight"
+          : "No today events to spotlight";
+    return { ok: false, error: empty };
   }
 
   const events = picked.map((event) => toSpotlightEvent(event, locale, origin));
   const imageUrls = events.map((event) => event.imageUrl);
-  const dateISO = localDateISO();
-  const todayUrl = `${siteOrigin(origin)}/${locale}/when/today`;
+  const listingPath = when === "tomorrow" ? "tomorrow" : "today";
+  const listingUrl = `${siteOrigin(origin)}/${locale}/when/${listingPath}`;
 
   return {
     ok: true,
     post: {
-      caption: buildTodaySpotlightCaption(events, locale, todayUrl, dateISO),
+      caption: buildTodaySpotlightCaption(events, locale, listingUrl, dayISO),
       eventCaptions: events.map((event) =>
-        buildSingleEventSpotlightCaption(event, locale, dateISO),
+        buildSingleEventSpotlightCaption(event, locale, dayISO),
       ),
-      link: todayUrl,
+      link: listingUrl,
       imageUrl: imageUrls[0] ?? defaultMetaImageUrl(origin),
       imageUrls,
       events,

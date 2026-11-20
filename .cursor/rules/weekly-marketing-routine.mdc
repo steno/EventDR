@@ -17,7 +17,7 @@ Run when the user says **weekly marketing**, **content pipeline**, **Sunday rout
 | Fri morning | Social + B2B | Skills: `pop-social-weekly`, `pop-weekend-b2b-digest` |
 | Sun ~12:00 AST | Event ingest | GitHub: `weekly-event-ingest.yml` |
 | Sun after ingest | Moderate + pipeline (no full IG rescan) | Skills: `pop-facebook-ingest` (optional), `pop-content-pipeline`; light IG catch-up only if Friday was thin |
-| Manual only | Facebook + Instagram when you ask: today’s specials first, then up to 3 happening-today (cap 10). Not Reels. No daily cron. | Specials: skill `pop-spotlight-specials` (per-event `es`/`en`). Or `daily-today-spotlight.yml` / `run-today-spotlight.mjs` |
+| Manual only | Facebook + Instagram when you ask: today’s specials first, then up to 3 happening-today (cap 10). Not Reels. No daily cron. | Skill `pop-spotlight-specials`: today’s specials, tomorrow’s specials, or this post (per-event `es`/`en`). Or `daily-today-spotlight.yml` / `run-today-spotlight.mjs` |
 
 ## Friday checklist
 

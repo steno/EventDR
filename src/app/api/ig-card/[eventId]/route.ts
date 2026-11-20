@@ -29,7 +29,13 @@ export async function GET(
   }
 
   try {
-    const jpeg = await buildInstagramFeedCardJpeg(event, locale);
+    // Same-host origin so localhost ig-card can fetch /events/* without
+    // bundling public/ into the Netlify server handler.
+    const jpeg = await buildInstagramFeedCardJpeg(
+      event,
+      locale,
+      request.nextUrl.origin,
+    );
     return new NextResponse(new Uint8Array(jpeg), {
       status: 200,
       headers: {

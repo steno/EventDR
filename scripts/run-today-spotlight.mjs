@@ -9,12 +9,16 @@
  *   SITE_URL=https://pop-event.com CRON_SECRET=... node scripts/run-today-spotlight.mjs
  *
  * Env:
- *   DRY_RUN=true          Preview without publishing
- *   INSTAGRAM_ONLY=true   Skip Facebook
- *   FACEBOOK_ONLY=true    Skip Instagram
- *   FORCE=true            Ignore today's lock and start over
- *   FEATURE_EVENT_ID=...  Pin this event first (cover image)
- *   TODAY_SPECIALS=true   Specials-only rail (skip happening-today fill)
+ *   DRY_RUN=true             Preview without publishing
+ *   INSTAGRAM_ONLY=true      Skip Facebook
+ *   FACEBOOK_ONLY=true       Skip Instagram
+ *   FORCE=true               Ignore today's lock and start over
+ *   FEATURE_EVENT_ID=...     Pin this event first (cover image)
+ *   EXCLUDE_EVENT_IDS=a,b    Skip these ids
+ *   ONLY_EVENT_IDS=a,b       Post exactly these (“run this post”)
+ *   TODAY_SPECIALS=true      Today’s specials only
+ *   TOMORROW_SPECIALS=true   Tomorrow’s specials only
+ *   SOURCE=today|today-specials|tomorrow-specials|manual
  */
 
 const SITE_URL = (process.env.SITE_URL || "https://pop-event.com").replace(
@@ -31,10 +35,25 @@ const EXCLUDE_EVENT_IDS = (process.env.EXCLUDE_EVENT_IDS || "")
   .split(",")
   .map((id) => id.trim())
   .filter((id) => id.length > 0);
+const ONLY_EVENT_IDS = (process.env.ONLY_EVENT_IDS || "")
+  .split(",")
+  .map((id) => id.trim())
+  .filter((id) => id.length > 0);
 const TODAY_SPECIALS =
   process.env.TODAY_SPECIALS === "true" ||
   process.env.SOURCE === "today-specials";
-const SPOTLIGHT_SOURCE = TODAY_SPECIALS ? "today-specials" : "today";
+const TOMORROW_SPECIALS =
+  process.env.TOMORROW_SPECIALS === "true" ||
+  process.env.SOURCE === "tomorrow-specials";
+const SPOTLIGHT_SOURCE = ONLY_EVENT_IDS.length
+  ? "manual"
+  : TOMORROW_SPECIALS
+    ? "tomorrow-specials"
+    : TODAY_SPECIALS
+      ? "today-specials"
+      : process.env.SOURCE === "manual"
+        ? "manual"
+        : "today";
 const MAX_STEPS = 80;
 const WAIT_MS = 4_000;
 
@@ -97,6 +116,9 @@ async function main() {
   if (EXCLUDE_EVENT_IDS.length) {
     console.log(`Skipping event ids: ${EXCLUDE_EVENT_IDS.join(", ")}`);
   }
+  if (ONLY_EVENT_IDS.length) {
+    console.log(`Only event ids: ${ONLY_EVENT_IDS.join(", ")}`);
+  }
 
   const payload = {
     source: SPOTLIGHT_SOURCE,
@@ -105,23 +127,32 @@ async function main() {
     force: FORCE || undefined,
     featureEventId: FEATURE_EVENT_ID || undefined,
     excludeEventIds: EXCLUDE_EVENT_IDS.length ? EXCLUDE_EVENT_IDS : undefined,
+    onlyEventIds: ONLY_EVENT_IDS.length ? ONLY_EVENT_IDS : undefined,
     facebook: INSTAGRAM_ONLY ? false : undefined,
     instagram: FACEBOOK_ONLY ? false : undefined,
   };
 
   if (DRY_RUN) {
     console.log(
-      TODAY_SPECIALS
-        ? "Dry run — building today's specials spotlight without publishing."
-        : "Dry run — building today’s spotlight without publishing.",
+      ONLY_EVENT_IDS.length
+        ? `Dry run — manual spotlight for ${ONLY_EVENT_IDS.join(", ")}.`
+        : TOMORROW_SPECIALS
+          ? "Dry run — building tomorrow’s specials spotlight without publishing."
+          : TODAY_SPECIALS
+            ? "Dry run — building today's specials spotlight without publishing."
+            : "Dry run — building today’s spotlight without publishing.",
     );
     const { http, json, text } = await post(payload);
     console.log(json ? JSON.stringify(json, null, 2) : text);
     if (http === 422) {
       console.log(
-        SPOTLIGHT_SOURCE === "today-specials"
-          ? "No today specials to spotlight."
-          : "No today events to spotlight.",
+        SPOTLIGHT_SOURCE === "tomorrow-specials"
+          ? "No tomorrow specials to spotlight."
+          : SPOTLIGHT_SOURCE === "today-specials"
+            ? "No today specials to spotlight."
+            : SPOTLIGHT_SOURCE === "manual"
+              ? "No matching events to spotlight."
+              : "No today events to spotlight.",
       );
       process.exit(0);
     }
@@ -154,9 +185,13 @@ async function main() {
 
     if (http === 422) {
       console.log(
-        SPOTLIGHT_SOURCE === "today-specials"
-          ? "No today specials to spotlight."
-          : "No today events to spotlight.",
+        SPOTLIGHT_SOURCE === "tomorrow-specials"
+          ? "No tomorrow specials to spotlight."
+          : SPOTLIGHT_SOURCE === "today-specials"
+            ? "No today specials to spotlight."
+            : SPOTLIGHT_SOURCE === "manual"
+              ? "No matching events to spotlight."
+              : "No today events to spotlight.",
       );
       process.exit(0);
     }

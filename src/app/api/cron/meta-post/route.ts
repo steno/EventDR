@@ -20,6 +20,8 @@ import {
 import {
   mergeSpotlightExclusions,
   readSpotlightLocks,
+  spotlightLockForChannel,
+  spotlightPeerLocks,
 } from "@/lib/meta-spotlight-lock";
 import { localDateISO } from "@/lib/event-dates";
 import {
@@ -59,6 +61,8 @@ export async function GET(request: NextRequest) {
       ready: true,
       lock: locks.today,
       specialsLock: locks.specials,
+      tomorrowSpecialsLock: locks.tomorrowSpecials,
+      manualLock: locks.manual,
     });
   }
 
@@ -96,12 +100,19 @@ export async function GET(request: NextRequest) {
 
 type PostBody = Partial<MetaPublishInput> &
   TodaySpotlightProgress & {
-    source?: "weekend" | "today" | "today-specials";
+    source?:
+      | "weekend"
+      | "today"
+      | "today-specials"
+      | "tomorrow-specials"
+      | "manual";
     locale?: string;
     force?: boolean;
     featureEventId?: string;
     /** Event ids to skip for this run only. */
     excludeEventIds?: string[];
+    /** Post exactly these ids (“run this post”). */
+    onlyEventIds?: string[];
     step?: "next" | "all";
     /** Upload a still-derived MP4 for Instagram Reels hosting. */
     action?: "upload-reel" | "render-story-card";
@@ -203,15 +214,25 @@ export async function POST(request: NextRequest) {
   const localeParam = body.locale ?? "en";
   const locale: Locale = isValidLocale(localeParam) ? localeParam : "en";
 
-  if (isSpotlightChannel(body.source)) {
-    const channel = body.source;
+  const onlyEventIds = (body.onlyEventIds ?? [])
+    .map((id) => id.trim())
+    .filter((id) => id.length > 0);
+  const spotlightSource =
+    onlyEventIds.length > 0
+      ? "manual"
+      : isSpotlightChannel(body.source)
+        ? body.source
+        : null;
+
+  if (spotlightSource) {
+    const channel = spotlightSource;
     if (body.dryRun) {
       let built: Awaited<ReturnType<typeof buildTodayMetaPost>>;
       try {
         const locks = await readSpotlightLocks();
         const today = localDateISO();
-        const own = channel === "today-specials" ? locks.specials : locks.today;
-        const other = channel === "today-specials" ? locks.today : locks.specials;
+        const own = spotlightLockForChannel(locks, channel);
+        const peers = spotlightPeerLocks(locks, channel);
         const specialsAlreadyPosted =
           channel === "today" &&
           Boolean(
@@ -220,7 +241,7 @@ export async function POST(request: NextRequest) {
               locks.specials.status !== "failed" &&
               locks.specials.eventIds.length > 0,
           );
-        const exclusions = mergeSpotlightExclusions(own, [other], today, {
+        const exclusions = mergeSpotlightExclusions(own, peers, today, {
           force: body.force,
         });
         const excludeEventIds = (body.excludeEventIds ?? [])
@@ -230,6 +251,7 @@ export async function POST(request: NextRequest) {
           ...exclusions,
           hardExcludeIds: [...exclusions.hardExcludeIds, ...excludeEventIds],
           featureEventId: body.featureEventId,
+          onlyEventIds: onlyEventIds.length ? onlyEventIds : undefined,
           ...spotlightPickOptionsForSource(channel, { specialsAlreadyPosted }),
         });
       } catch (error) {
@@ -268,6 +290,7 @@ export async function POST(request: NextRequest) {
         force: body.force,
         featureEventId: body.featureEventId,
         excludeEventIds: body.excludeEventIds,
+        onlyEventIds: onlyEventIds.length ? onlyEventIds : undefined,
         channel,
         progress: {
           facebookId: body.facebookId,

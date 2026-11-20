@@ -24,7 +24,8 @@ import {
   mergeSpotlightExclusions,
   readSpotlightLocks,
   spotlightInstagramComplete,
-  type SpotlightLockRecord,
+  spotlightLockForChannel,
+  spotlightPeerLocks,
 } from "@/lib/meta-spotlight-lock";
 import { nextSpotlightWork } from "@/lib/meta-spotlight-steps";
 
@@ -129,16 +130,21 @@ export async function runTodaySpotlightStep(input: {
   featureEventId?: string;
   /** Never pick these ids on this run (still allows the rest of the day). */
   excludeEventIds?: string[];
+  /** Post exactly these ids (“run this post”). Implies channel `manual`. */
+  onlyEventIds?: string[];
   channel?: SpotlightChannel;
   progress?: TodaySpotlightProgress;
 }): Promise<{ status: number; body: TodaySpotlightStepResult }> {
-  const channel = input.channel ?? "today";
+  const onlyEventIds = (input.onlyEventIds ?? [])
+    .map((id) => id.trim())
+    .filter((id) => id.length > 0);
+  const channel: SpotlightChannel = onlyEventIds.length
+    ? "manual"
+    : (input.channel ?? "today");
   const today = localDateISO();
   const locks = await readSpotlightLocks();
-  const own: SpotlightLockRecord | null =
-    channel === "today-specials" ? locks.specials : locks.today;
-  const other =
-    channel === "today-specials" ? locks.today : locks.specials;
+  const own = spotlightLockForChannel(locks, channel);
+  const peers = spotlightPeerLocks(locks, channel);
   const specialsAlreadyPosted =
     channel === "today" &&
     Boolean(
@@ -147,7 +153,7 @@ export async function runTodaySpotlightStep(input: {
         locks.specials.status !== "failed" &&
         locks.specials.eventIds.length > 0,
     );
-  const exclusions = mergeSpotlightExclusions(own, [other], today, {
+  const exclusions = mergeSpotlightExclusions(own, peers, today, {
     force: input.force,
   });
   const excludeEventIds = (input.excludeEventIds ?? [])
@@ -157,6 +163,7 @@ export async function runTodaySpotlightStep(input: {
     ...exclusions,
     hardExcludeIds: [...exclusions.hardExcludeIds, ...excludeEventIds],
     featureEventId: input.featureEventId,
+    onlyEventIds: onlyEventIds.length ? onlyEventIds : undefined,
     ...spotlightPickOptionsForSource(channel, { specialsAlreadyPosted }),
   });
   if (!built.ok) {
@@ -172,10 +179,11 @@ export async function runTodaySpotlightStep(input: {
   }
 
   const eventIds = built.post.events.map((event) => event.id);
+  const specialsPeer = locks.specials;
   if (
     channel === "today" &&
-    other?.date === today &&
-    sameSpotlightEventSet(eventIds, other.eventIds)
+    specialsPeer?.date === today &&
+    sameSpotlightEventSet(eventIds, specialsPeer.eventIds)
   ) {
     return {
       status: 200,
