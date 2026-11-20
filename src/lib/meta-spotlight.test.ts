@@ -725,7 +725,34 @@ describe("buildTodaySpotlightCaption", () => {
 });
 
 describe("buildSingleEventSpotlightCaption", () => {
-  it("captions one event with its detail URL", () => {
+  it("uses the app description like Share → Instagram", () => {
+    const caption = buildSingleEventSpotlightCaption(
+      {
+        id: "luxury-club-exotic-friday",
+        title: "Exotic Friday",
+        time: "10:00 PM",
+        place: "Luxury Club Puerto Plata",
+        url: "https://pop-event.com/es/event/luxury-club-exotic-friday",
+        imageUrl:
+          "https://pop-event.com/events/luxury-club-exotic-friday.jpg",
+        description:
+          "Todos los viernes — Exotic Friday en Luxury Club Puerto Plata. RSVP +1 829-848-4259.",
+      },
+      "es",
+      "2026-11-20",
+    );
+    assert.match(caption, /Todos los viernes — Exotic Friday/);
+    assert.match(caption, /RSVP \+1 829-848-4259/);
+    assert.doesNotMatch(caption, /No te pierdas/);
+    assert.doesNotMatch(caption, /•/);
+    assert.match(
+      caption,
+      /Más en pop-event.com\/es\/event\/luxury-club-exotic-friday/,
+    );
+    assert.match(caption, /#POPEvents/);
+  });
+
+  it("falls back to title · time · place without a description", () => {
     const caption = buildSingleEventSpotlightCaption(
       {
         id: "a",
@@ -738,9 +765,7 @@ describe("buildSingleEventSpotlightCaption", () => {
       "en",
       "2026-08-20",
     );
-    assert.match(caption, /What's on Thursday/);
     assert.match(caption, /Viernes Locos · 11pm · Ground Zero/);
-    assert.doesNotMatch(caption, /•/);
     assert.match(caption, /More at pop-event.com\/en\/event\/a/);
     assert.match(caption, /#POPEvents/);
   });

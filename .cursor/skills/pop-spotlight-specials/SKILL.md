@@ -152,9 +152,13 @@ were `es` vs `en`. Do not commit unless asked.
 
 ## Copy rules
 
-- Captions come from `buildTodayMetaPost` / `buildSingleEventSpotlightCaption`
-  for that locale (intro uses the spotlight **day** — today or tomorrow).
-- Listing link is `/when/today` or `/when/tomorrow` to match the mode.
+- **Facebook album** caption stays the short bullet list from
+  `buildTodaySpotlightCaption` (intro + picks + `/when/today` or
+  `/when/tomorrow`).
+- **Instagram** per-event captions use the **app event description** (same
+  body as Share → Instagram clipboard), then “Más en” / “More at” + event
+  URL + hashtags — `buildSingleEventSpotlightCaption`. Applies to today’s
+  specials, tomorrow’s specials, and “this post”.
 - Hashtags stay the shared North Coast set from `weekendMetaHashtags()`.
 - Do not invent bilingual Franken-captions. One locale per post.
 - Flyer text on the image is whatever the art has; caption language is

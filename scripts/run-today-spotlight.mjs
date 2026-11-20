@@ -122,7 +122,7 @@ async function main() {
 
   const payload = {
     source: SPOTLIGHT_SOURCE,
-    locale: "en",
+    locale: process.env.LOCALE || "en",
     dryRun: DRY_RUN,
     force: FORCE || undefined,
     featureEventId: FEATURE_EVENT_ID || undefined,

@@ -16,6 +16,7 @@ import {
   isAllowedMetaImageUrl,
   weekendMetaHashtags,
 } from "@/lib/meta-post";
+import { getEventById } from "@/lib/get-event";
 import { getPublicEvents } from "@/lib/public-events";
 import { SITE_URL } from "@/lib/site-url";
 import type { Event } from "@/lib/types";
@@ -88,6 +89,8 @@ export type TodaySpotlightEvent = {
   place: string;
   url: string;
   imageUrl: string;
+  /** Localized app description — same body Share → Instagram copies. */
+  description?: string;
 };
 
 export type TodayMetaPost = {
@@ -507,21 +510,28 @@ export function buildTodaySpotlightCaption(
   return lines.join("\n").trim();
 }
 
-/** One Instagram post per event — not a grouped carousel caption. */
+/**
+ * One Instagram post per event — not a grouped carousel caption.
+ * Prefer the app event description (Share → Instagram clipboard copy); fall
+ * back to title · time · place when description is missing.
+ */
 export function buildSingleEventSpotlightCaption(
   event: TodaySpotlightEvent,
   locale: Locale,
-  dateISO = localDateISO(),
+  _dateISO = localDateISO(),
 ): string {
-  const bits = [displayTitle(event.title)];
-  const when = shortEventTime(event.time);
-  if (when) bits.push(when);
-  const place = shortPlace(event);
-  if (place) bits.push(place);
+  const description = event.description?.trim();
+  let body = description;
+  if (!body) {
+    const bits = [displayTitle(event.title)];
+    const when = shortEventTime(event.time);
+    if (when) bits.push(when);
+    const place = shortPlace(event);
+    if (place) bits.push(place);
+    body = bits.join(" · ");
+  }
   const lines = [
-    spotlightCaptionIntro(locale, dateISO),
-    "",
-    bits.join(" · "),
+    body,
     "",
     `${MORE[locale]} ${displayUrl(event.url)}`,
     "",
@@ -554,6 +564,7 @@ function toSpotlightEvent(
       ""),
     url: `${siteOrigin(origin)}/${locale}/event/${event.id}`,
     imageUrl: spotlightShareImageUrl(event.id, origin),
+    description: event.description?.trim() || undefined,
   };
 }
 
@@ -592,7 +603,13 @@ export async function buildTodayMetaPost(
     return { ok: false, error: empty };
   }
 
-  const events = picked.map((event) => toSpotlightEvent(event, locale, origin));
+  // List payloads slim descriptions to ""; hydrate for IG captions (Share → IG copy).
+  const events = await Promise.all(
+    picked.map(async (event) => {
+      const full = await getEventById(event.id, locale);
+      return toSpotlightEvent(full ?? event, locale, origin);
+    }),
+  );
   const imageUrls = events.map((event) => event.imageUrl);
   const listingPath = when === "tomorrow" ? "tomorrow" : "today";
   const listingUrl = `${siteOrigin(origin)}/${locale}/when/${listingPath}`;
