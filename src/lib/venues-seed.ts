@@ -257,6 +257,7 @@ export const SEED_VENUES: Venue[] = [
     lat: 19.7833499,
     lng: -70.4621124,
     emoji: "🧘",
+    instagram: "naturacabana",
     website: "https://naturacabana.com/",
     phone: "+18492147010",
   },
@@ -2541,6 +2542,8 @@ export const SEED_VENUES: Venue[] = [
     lat: 19.74897,
     lng: -70.41143,
     emoji: "🎨",
+    instagram: "estudiocrea.online",
+    website: "https://www.instagram.com/estudiocrea.online/",
   },
   {
     slug: "punto-frio-life-bar",

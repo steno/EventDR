@@ -87,19 +87,23 @@ frame only outside).
 
 Before posting, build a table and show it to the user:
 
-| Event id | Venue | Locale | Photo tag | Why |
-|----------|-------|--------|-----------|-----|
-| … | … | `es` or `en` | `@handle` or — | … |
+| Event id | Venue | Locale | Photo tags | Why |
+|----------|-------|--------|------------|-----|
+| … | … | `es` or `en` | `@venue` · `@dj` or — | … |
 
 **Photo tags** (Instagram “tag people” on the image):
 
-- Only from curated `Venue.instagram` on the seed venue (e.g. Luxury Club → `luxury.club.puerto_plata`).
-- Never invent tags from `@` mentions inside the description — those stay caption text only.
-- Dry-run returns `photoTags[]` / `photoTagUsernames[]` — show them in the table.
-- If the handle looks wrong, ask before go-live; override with
-  `photoTagOverrides: { "event-id": "correct.handle" }` or `""` to skip that
-  event; or `SKIP_PHOTO_TAGS=true` / `skipPhotoTags: true` for the whole run.
-- Missing venue Instagram → no photo tag (caption @mentions still OK).
+- **Venue:** curated `Venue.instagram` (e.g. Luxury Club → `luxury.club.puerto_plata`).
+- **DJs / promoters / headliners:** when the bill names them with a known handle,
+  include them too — seed `Event.photoTags` (e.g. `["dj_monarka"]`) and/or
+  propose them in the confirm table. Prefer flyer/source handles over guessing.
+- Never invent tags by scraping every `@` in the description — caption @mentions
+  stay caption text unless confirmed as a photo tag.
+- Dry-run returns `photoTags[].usernames` / comma-joined `photoTagUsernames[]`.
+- Wrong or missing handle → ask before go-live; override with
+  `photoTagOverrides: { "event-id": "venue,dj_handle" }` or `""` to skip;
+  `SKIP_PHOTO_TAGS=true` / `skipPhotoTags: true` for the whole run.
+- Missing venue Instagram → still tag curated DJ/promoter `photoTags` when set.
 
 **Default heuristics** (override when the user says otherwise):
 

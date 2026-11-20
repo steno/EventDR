@@ -94,10 +94,10 @@ export type TodaySpotlightEvent = {
   /** Localized app description — same body Share → Instagram copies. */
   description?: string;
   /**
-   * Curated venue Instagram username for photo tags (no @).
-   * Only from `Venue.instagram` — never scraped from description @mentions.
+   * Curated Instagram photo-tag usernames (no @) — venue + DJs/promoters.
+   * Never scraped from description @mentions.
    */
-  photoTagUsername?: string;
+  photoTagUsernames?: string[];
 };
 
 export type TodayMetaPost = {
@@ -106,7 +106,7 @@ export type TodayMetaPost = {
   /** One Instagram caption per event (parallel to `events`). */
   eventCaptions: string[];
   /**
-   * Proposed photo-tag usernames parallel to `events` (empty string = none).
+   * Proposed photo-tag usernames parallel to `events` (comma-joined; empty = none).
    * Dry-run / skill must show these for confirmation before go-live.
    */
   photoTagUsernames: string[];
@@ -117,23 +117,59 @@ export type TodayMetaPost = {
   repeatKeys: string[];
 };
 
+/** Split a lock/progress slot or override into unique bare usernames. */
+export function parseSpotlightPhotoTagList(
+  raw: string | string[] | undefined | null,
+): string[] {
+  if (raw == null) return [];
+  const parts = Array.isArray(raw) ? raw : raw.split(",");
+  const out: string[] = [];
+  const seen = new Set<string>();
+  for (const part of parts) {
+    const username = normalizeInstagramUsername(part);
+    if (!username || seen.has(username)) continue;
+    seen.add(username);
+    out.push(username);
+  }
+  return out;
+}
+
+export function formatSpotlightPhotoTagList(tags: string[]): string {
+  return parseSpotlightPhotoTagList(tags).join(",");
+}
+
 /**
- * Curated photo-tag handle from the seed venue — not description @mentions.
- * Pass `override: null` to skip; a string to force that username.
+ * Curated photo tags: venue Instagram + event `photoTags` (DJs / promoters).
+ * Pass `override: null` or `""` to skip; a string/list replaces the full set.
  */
+export function resolveSpotlightPhotoTagUsernames(
+  event: Pick<Event, "venueSlug" | "photoTags">,
+  override?: string | string[] | null,
+): string[] {
+  if (override === null) return [];
+  if (override !== undefined) return parseSpotlightPhotoTagList(override);
+
+  const tags: string[] = [];
+  const seen = new Set<string>();
+  const push = (raw: string | undefined | null) => {
+    const username = normalizeInstagramUsername(raw);
+    if (!username || seen.has(username)) return;
+    seen.add(username);
+    tags.push(username);
+  };
+
+  const slug = event.venueSlug?.trim();
+  if (slug) push(getSeedVenue(slug)?.instagram);
+  for (const extra of event.photoTags ?? []) push(extra);
+  return tags;
+}
+
+/** @deprecated Prefer `resolveSpotlightPhotoTagUsernames` (multi-tag). */
 export function resolveSpotlightPhotoTagUsername(
-  event: Pick<Event, "venueSlug">,
+  event: Pick<Event, "venueSlug" | "photoTags">,
   override?: string | null,
 ): string | undefined {
-  if (override === null) return undefined;
-  if (typeof override === "string") {
-    return normalizeInstagramUsername(override) ?? undefined;
-  }
-  const slug = event.venueSlug?.trim();
-  if (!slug) return undefined;
-  return (
-    normalizeInstagramUsername(getSeedVenue(slug)?.instagram) ?? undefined
-  );
+  return resolveSpotlightPhotoTagUsernames(event, override)[0];
 }
 
 const ISO_DATE_SUFFIX = /-\d{4}-\d{2}-\d{2}$/;
@@ -583,11 +619,14 @@ function toSpotlightEvent(
   event: Event,
   locale: Locale,
   origin = SITE_URL,
-  options: { photoTagUsername?: string | null; skipPhotoTags?: boolean } = {},
+  options: {
+    photoTagOverride?: string | string[] | null;
+    skipPhotoTags?: boolean;
+  } = {},
 ): TodaySpotlightEvent {
-  const photoTagUsername = options.skipPhotoTags
-    ? undefined
-    : resolveSpotlightPhotoTagUsername(event, options.photoTagUsername);
+  const photoTagUsernames = options.skipPhotoTags
+    ? []
+    : resolveSpotlightPhotoTagUsernames(event, options.photoTagOverride);
   return {
     id: event.id,
     title: event.title,
@@ -600,14 +639,17 @@ function toSpotlightEvent(
     url: `${siteOrigin(origin)}/${locale}/event/${event.id}`,
     imageUrl: spotlightShareImageUrl(event.id, origin),
     description: event.description?.trim() || undefined,
-    photoTagUsername,
+    photoTagUsernames,
   };
 }
 
 export type BuildTodayMetaPostOptions = SpotlightPickOptions & {
   /** Skip all Instagram photo tags. */
   skipPhotoTags?: boolean;
-  /** Per-event username overrides (event id → handle, or "" to skip that event). */
+  /**
+   * Per-event photo-tag overrides (id → handle, comma-list, or "" to skip).
+   * Replaces the full curated set for that event.
+   */
   photoTagOverrides?: Record<string, string>;
 };
 
@@ -654,14 +696,14 @@ export async function buildTodayMetaPost(
       const override = options.photoTagOverrides?.[base.id];
       return toSpotlightEvent(base, locale, origin, {
         skipPhotoTags: options.skipPhotoTags,
-        photoTagUsername:
+        photoTagOverride:
           override === undefined ? undefined : override === "" ? null : override,
       });
     }),
   );
   const imageUrls = events.map((event) => event.imageUrl);
-  const photoTagUsernames = events.map(
-    (event) => event.photoTagUsername ?? "",
+  const photoTagUsernames = events.map((event) =>
+    formatSpotlightPhotoTagList(event.photoTagUsernames ?? []),
   );
   const listingPath = when === "tomorrow" ? "tomorrow" : "today";
   const listingUrl = `${siteOrigin(origin)}/${locale}/when/${listingPath}`;

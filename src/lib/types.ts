@@ -236,6 +236,11 @@ export interface Event {
   /** Named performers when announced in the source. */
   lineup?: string[];
   /**
+   * Extra Instagram photo-tag handles (DJs, promoters, headliners) — no @.
+   * Spotlight merges these with `Venue.instagram`; never scraped from description.
+   */
+  photoTags?: string[];
+  /**
    * Participating places for multi-venue events (e.g. Restaurant Week spots).
    * Shown as chips; suppresses the Google Maps place-row link when set.
    */

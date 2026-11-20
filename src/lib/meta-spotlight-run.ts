@@ -529,12 +529,17 @@ export async function runTodaySpotlightStep(input: {
         },
       };
     }
-    const tagUsername = job.photoTagUsernames?.[index]?.trim();
+    const tagUsernames = (job.photoTagUsernames?.[index] ?? "")
+      .split(",")
+      .map((tag) => tag.trim())
+      .filter((tag) => tag.length > 0);
     const created = await createInstagramMediaContainers(config, {
       imageUrls: [imageUrl],
       caption: eventCaption,
       carousel: false,
-      userTags: tagUsername ? [{ username: tagUsername }] : undefined,
+      userTags: tagUsernames.length
+        ? tagUsernames.map((username) => ({ username }))
+        : undefined,
     });
     if (!created.ok) {
       const fail = graphFail(created.error);

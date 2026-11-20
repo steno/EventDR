@@ -5,7 +5,7 @@ import {
   buildTodaySpotlightCaption,
   otherSpotlightChannel,
   pickTodaySpotlights,
-  resolveSpotlightPhotoTagUsername,
+  resolveSpotlightPhotoTagUsernames,
   sameSpotlightEventSet,
   spotlightCaptionIntro,
   spotlightLimitForOptions,
@@ -804,34 +804,53 @@ describe("toAbsoluteMetaImageUrl", () => {
   });
 });
 
-describe("resolveSpotlightPhotoTagUsername", () => {
-  it("uses curated Venue.instagram, not description mentions", () => {
-    assert.equal(
-      resolveSpotlightPhotoTagUsername({
+describe("resolveSpotlightPhotoTagUsernames", () => {
+  it("uses curated Venue.instagram plus event photoTags", () => {
+    assert.deepEqual(
+      resolveSpotlightPhotoTagUsernames({
         venueSlug: "luxury-club-puerto-plata",
       }),
-      "luxury.club.puerto_plata",
+      ["luxury.club.puerto_plata"],
     );
-    assert.equal(
-      resolveSpotlightPhotoTagUsername({ venueSlug: "xanadu-resort-hodelpa" }),
-      undefined,
+    assert.deepEqual(
+      resolveSpotlightPhotoTagUsernames({
+        venueSlug: "natura-cabana",
+      }),
+      ["naturacabana"],
+    );
+    assert.deepEqual(
+      resolveSpotlightPhotoTagUsernames({
+        venueSlug: "estudio-crea-cabarete",
+      }),
+      ["estudiocrea.online"],
+    );
+    assert.deepEqual(
+      resolveSpotlightPhotoTagUsernames({
+        venueSlug: "punto-frio-life-bar",
+        photoTags: ["dj_monarka"],
+      }),
+      ["puntofrio_lifebar", "dj_monarka"],
+    );
+    assert.deepEqual(
+      resolveSpotlightPhotoTagUsernames({ venueSlug: "xanadu-resort-hodelpa" }),
+      [],
     );
   });
 
   it("honors overrides and null skip", () => {
-    assert.equal(
-      resolveSpotlightPhotoTagUsername(
+    assert.deepEqual(
+      resolveSpotlightPhotoTagUsernames(
         { venueSlug: "luxury-club-puerto-plata" },
-        "LaxCabarete",
+        "LaxCabarete,dj_monarka",
       ),
-      "laxcabarete",
+      ["laxcabarete", "dj_monarka"],
     );
-    assert.equal(
-      resolveSpotlightPhotoTagUsername(
-        { venueSlug: "luxury-club-puerto-plata" },
+    assert.deepEqual(
+      resolveSpotlightPhotoTagUsernames(
+        { venueSlug: "luxury-club-puerto-plata", photoTags: ["dj_monarka"] },
         null,
       ),
-      undefined,
+      [],
     );
   });
 });

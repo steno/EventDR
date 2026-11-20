@@ -291,11 +291,20 @@ export async function POST(request: NextRequest) {
           ...dryPayload,
           eventCaptions: built.post.eventCaptions,
           photoTagUsernames: built.post.photoTagUsernames,
-          photoTags: built.post.events.map((event, index) => ({
-            eventId: event.id,
-            username: built.post.photoTagUsernames[index] || null,
-            source: built.post.photoTagUsernames[index] ? "venue" : null,
-          })),
+          photoTags: built.post.events.map((event, index) => {
+            const usernames = (event.photoTagUsernames?.length
+              ? event.photoTagUsernames
+              : (built.post.photoTagUsernames[index] ?? "")
+                  .split(",")
+                  .map((tag) => tag.trim())
+                  .filter(Boolean));
+            return {
+              eventId: event.id,
+              username: usernames[0] ?? null,
+              usernames,
+              source: usernames.length ? "curated" : null,
+            };
+          }),
         },
         {
           status: dryPayload.rateLimited

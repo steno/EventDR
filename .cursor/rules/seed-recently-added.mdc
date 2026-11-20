@@ -68,6 +68,14 @@ Optional `ageHint` on the event (`"all-ages" | "family" | "18-plus" | "21-plus"`
 5. Set the **same** `ageHint` on EN/ES/FR seed rows for that `id` (locale copy may differ; the enum must match).
 6. Type + labels live in `src/lib/types.ts` (`AgeHint`) and `dict.detail.ageHint` (en/es/fr).
 
+## 6b. Instagram photo tags (DJs / promoters)
+
+When a flyer names a **DJ, promoter, or headliner** with a known Instagram handle, set
+`photoTags: ["handle"]` on the EN/ES/FR seed rows (no `@`). Spotlight merges these
+with `Venue.instagram` for Meta photo tags. Do not scrape every `@` from the
+description — only confirmed talent/promoter handles. Venue handle stays on the
+venue seed, not duplicated here unless there is no venue Instagram.
+
 ## 7. Contingent sports series (watch nights / playoffs)
 
 When a flyer or bar bills a **best-of-N**, “if necessary”, or other series that can end before the last listed date (NLCS, World Series, Licey playoffs, etc.):
