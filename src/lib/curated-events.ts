@@ -356,6 +356,18 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "aura-beach-club-cabarete",
     sourceUrl: "https://www.instagram.com/auracabarete/",
   },
+  "punto-frio-reapertura-gta-monarka-2026-11-21": {
+    callForPricing: true,
+    phone: "+18099825850",
+    venueSlug: "punto-frio-life-bar",
+    sourceUrl: "https://www.instagram.com/puntofrio_lifebar/",
+  },
+  "grand-prix-caballitos-2026-11-20": {
+    callForPricing: true,
+    phone: "+18097534553",
+    venueSlug: "grand-prix-puerto-plata",
+    sourceUrl: "https://www.instagram.com/grandprixrd/",
+  },
   "trillo-la-guaita-long-beach-2026-09-24": {
     isFree: true,
     venueSlug: "long-beach-puerto-plata",

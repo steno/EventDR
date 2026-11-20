@@ -30,7 +30,6 @@ import { useSwipeToDismiss } from "@/hooks/useSwipeToDismiss";
 import { scrollBehaviorPreference } from "@/lib/list-scroll";
 import {
   eventDetailPath,
-  rememberOpenVenueDirections,
   rememberReturnPath,
   resolveEventVenueSlug,
   venueDetailPath,
@@ -465,7 +464,7 @@ export function EventDetailSheet({
     if (!venueSlug || !event) return;
     const from = eventDetailPath(locale, event.id);
     rememberReturnPath(from, event.title);
-    rememberOpenVenueDirections();
+    // Land on the venue place photo — directions stay a separate tap on the venue page.
     navigateSoft(router, venueDetailPath(locale, venueSlug));
   }
 

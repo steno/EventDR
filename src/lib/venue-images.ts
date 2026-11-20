@@ -258,6 +258,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
     "sociedad-cultural-renovacion-library.jpg",
   // POP-supplied Estudio CREA lounge / coworking interior (Plaza Popular 2F).
   "estudio-crea-cabarete": "estudio-crea-cabarete-lounge-v3.jpg",
+  // POP-supplied red-lounge / step-and-repeat interior (Villa Progreso Veragua).
+  "punto-frio-life-bar": "punto-frio-life-bar.jpg",
 };
 
 /** Cache-busted URL for general venue thumbnails / JSON-LD. */

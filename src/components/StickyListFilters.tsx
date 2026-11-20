@@ -17,6 +17,11 @@ type StickyListFiltersProps = {
    * AppHeader scrolls away and the area chip should park at the viewport top.
    */
   belowListHeader?: boolean;
+  /**
+   * When true (default), cancel page gutters so the bar paints edge-to-edge in
+   * the shell. Set false on venue schedules so tabs match event card width.
+   */
+  bleed?: boolean;
 };
 
 /**
@@ -31,6 +36,7 @@ export function StickyListFilters({
   children,
   className = "",
   belowListHeader = true,
+  bleed = true,
 }: StickyListFiltersProps) {
   const rootRef = useRef<HTMLDivElement>(null);
 
@@ -78,7 +84,7 @@ export function StickyListFilters({
             ? "top-[calc(var(--sticky-list-header-height,3.5rem)-4px)]"
             : "top-0"
         }
-        ${PAGE_GUTTER_BLEED_CLASS}
+        ${bleed ? PAGE_GUTTER_BLEED_CLASS : ""}
         ${STICKY_CHROME_SURFACE_CLASS}
         pb-2 pt-1.5
         md:pb-1.5 md:pt-1.5

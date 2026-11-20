@@ -89,13 +89,26 @@ const CATEGORY_BACK_MAX_CLASS = "max-w-[4.75rem] sm:max-w-[6.5rem]";
 /**
  * Stacked All / Weekend day labels park under sticky list chrome + filters.
  * Each section is its own sticky containing block — next day pushes the prior off.
+ *
+ * Park just under filters (no underlap — filter chrome is semi-transparent, so
+ * a negative top lets glyphs show through the tab bar). `data-sticky-list-day`
+ * lets hide-on-scroll re-park via CSS `top` when the Discover header tucks away
+ * (see globals.css) — do not translate these nodes or in-flow titles overlap
+ * the section/card above.
+ *
+ * Venue schedules pass `sectionTitle` (“Upcoming events”): that row sticks
+ * instead, and day/weekly labels stay in normal flow so they don’t stack into
+ * the same band and clip the title. Venue sticky chrome also skips gutter
+ * bleed so tabs/title match event card width.
  */
-/**
- * Park flush under filters (−2px overlap). Also set `data-sticky-list-day` on
- * the node so hide-on-scroll / park-scroll lifts it with the filter bar when
- * the Discover header slides away (otherwise a header-sized gap appears).
- */
-const LIST_DAY_STICKY_CLASS = `sticky top-[calc(var(--sticky-list-header-height,3.5rem)-4px+var(--sticky-list-filters-height,5.5rem)-2px)] z-[8] ${PAGE_GUTTER_BLEED_CLASS} ${STICKY_CHROME_SURFACE_CLASS} pt-1.5 pb-1`;
+const LIST_STICKY_TOP_CLASS =
+  "sticky top-[calc(var(--sticky-list-header-height,3.5rem)-4px+var(--sticky-list-filters-height,5.5rem))] z-[8]";
+const LIST_STICKY_UNDER_FILTERS_CLASS = `${LIST_STICKY_TOP_CLASS} ${PAGE_GUTTER_BLEED_CLASS} ${STICKY_CHROME_SURFACE_CLASS}`;
+/** Same park as above, but inset — same width as cards (venue schedules). */
+const LIST_STICKY_UNDER_FILTERS_INSET_CLASS = `${LIST_STICKY_TOP_CLASS} ${STICKY_CHROME_SURFACE_CLASS}`;
+const LIST_DAY_STICKY_CLASS = `${LIST_STICKY_UNDER_FILTERS_CLASS} pt-1.5 pb-1`;
+const LIST_SECTION_STICKY_CLASS = `${LIST_STICKY_UNDER_FILTERS_INSET_CLASS} pt-2 pb-2`;
+const LIST_DAY_STATIC_CLASS = "pt-1.5 pb-1";
 
 /** Scope/venue lists show the full upcoming schedule; home Our picks matches that. */
 const DEFAULT_SCOPE_TIME_RANGE: FilterTimeRange = "all";
@@ -504,11 +517,11 @@ export function FilteredEventList({
     [activeRange, allBrowseSections, isXlShell, visibleEvents],
   );
 
-  // Day stickies mount after chrome may already be tucked — re-apply hide attrs.
+  // Day/section stickies mount after chrome may already be tucked — re-apply hide attrs.
   useLayoutEffect(() => {
-    if (!allListSections && !weekendDayGroups) return;
+    if (!allListSections && !weekendDayGroups && !sectionTitle) return;
     syncScrollChromeDom();
-  }, [allListSections, weekendDayGroups]);
+  }, [allListSections, weekendDayGroups, sectionTitle]);
 
   const showEndTeaser =
     Boolean(onAddEvent) &&
@@ -578,6 +591,18 @@ export function FilteredEventList({
     <EventViewToggle value={view} onChange={setView} dict={dict} />
   );
   const showToggleInTitle = Boolean(viewToggle) && !showStickyFilters;
+  /**
+   * Venue `sectionTitle` owns the sticky slot under filters when the tab bar is
+   * present — days stay static so they don’t stack into the same band.
+   * Without sticky filters (e.g. venue Past), keep a normal in-flow title.
+   * Any list with `sectionTitle` skips sticky day chrome (avoids a false
+   * filters-height park on Past).
+   */
+  const stickySectionTitle = Boolean(sectionTitle) && showStickyFilters;
+  const stickyDayHeaders = !sectionTitle;
+  const dayHeadingClass = stickyDayHeaders
+    ? LIST_DAY_STICKY_CLASS
+    : LIST_DAY_STATIC_CLASS;
 
   return (
     <>
@@ -587,7 +612,7 @@ export function FilteredEventList({
             anchorRef={scrollAnchorRef}
             className={stickyLead ? "mt-2 md:mt-1" : "mt-4 md:mt-2"}
           />
-          <StickyListFilters>
+          <StickyListFilters bleed={!stickySectionTitle}>
             {/*
               Area select left + category pills (desktop). Mobile area select
               stays above the time tabs via stickyLead.
@@ -657,31 +682,42 @@ export function FilteredEventList({
       {/*
         Spacing used to live as StickyListFilters `mb-4`, but that margin stays
         under the stuck bar and read as a dead gap above day titles / cards.
-        Pad the list body instead so sticky day headers can sit flush.
+        Pad the list body instead so sticky day/section headers can sit flush.
       */}
       <div
         className={
           showStickyFilters
-            ? allListSections || weekendDayGroups
+            ? stickySectionTitle || allListSections || weekendDayGroups
               ? "mt-0"
               : "mt-2 md:mt-1.5"
             : undefined
         }
       >
-      {(sectionTitle || showToggleInTitle) && (
-        <div className="mb-3 flex items-center justify-between gap-2">
-          {sectionTitle ? (
+      {(sectionTitle || showToggleInTitle) &&
+        (stickySectionTitle ? (
+          <div
+            className={`${LIST_SECTION_STICKY_CLASS} flex items-center justify-between gap-2`}
+            data-sticky-list-day
+          >
             <h2 className={`min-w-0 font-sans ${SECTION_TITLE_CLASS}`}>
               {sectionTitle}
             </h2>
-          ) : (
-            <span className="min-w-0 text-copy-meta font-semibold text-neutral-400 dark:text-neutral-500">
-              {dict.events.sortedUpcoming}
-            </span>
-          )}
-          {showToggleInTitle ? viewToggle : null}
-        </div>
-      )}
+            {showToggleInTitle ? viewToggle : null}
+          </div>
+        ) : (
+          <div className="mb-3 flex items-center justify-between gap-2">
+            {sectionTitle ? (
+              <h2 className={`min-w-0 font-sans ${SECTION_TITLE_CLASS}`}>
+                {sectionTitle}
+              </h2>
+            ) : (
+              <span className="min-w-0 text-copy-meta font-semibold text-neutral-400 dark:text-neutral-500">
+                {dict.events.sortedUpcoming}
+              </span>
+            )}
+            {showToggleInTitle ? viewToggle : null}
+          </div>
+        ))}
 
       <div
         className={`min-w-0 max-w-full${
@@ -832,8 +868,10 @@ export function FilteredEventList({
                 return (
                   <section key={group.date} className="min-w-0">
                     <h2
-                      className={`${LIST_DAY_STICKY_CLASS} px-0.5`}
-                      data-sticky-list-day
+                      className={`${dayHeadingClass} px-0.5`}
+                      {...(stickyDayHeaders
+                        ? { "data-sticky-list-day": true }
+                        : {})}
                     >
                       <button
                         type="button"
@@ -990,7 +1028,12 @@ export function FilteredEventList({
                     : null;
                 return (
                   <section key={group.date} className="min-w-0">
-                    <h2 className={LIST_DAY_STICKY_CLASS} data-sticky-list-day>
+                    <h2
+                      className={dayHeadingClass}
+                      {...(stickyDayHeaders
+                        ? { "data-sticky-list-day": true }
+                        : {})}
+                    >
                       <span
                         className={`inline-block font-sans ${DAY_GROUP_TITLE_CLASS}`}
                       >
@@ -1031,7 +1074,12 @@ export function FilteredEventList({
               })}
               {allListSections.recurring.length > 0 ? (
                 <section className="min-w-0">
-                  <h2 className={LIST_DAY_STICKY_CLASS} data-sticky-list-day>
+                  <h2
+                    className={dayHeadingClass}
+                    {...(stickyDayHeaders
+                      ? { "data-sticky-list-day": true }
+                      : {})}
+                  >
                     <span
                       className={`inline-block font-sans ${DAY_GROUP_TITLE_CLASS}`}
                     >

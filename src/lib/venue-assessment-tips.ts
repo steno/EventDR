@@ -1337,6 +1337,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Lounge smoke néon à Plaza Sosúa en face de Banco Popular (diagonal à Baileys) — cigares et cocktails ici, pas les soirées sport-bar de Chameleon au Coral Reef Casino une rue plus loin ; confirmez les horaires sur @kloksmokebar ou +1 809-895-6889 avant l’Uber vers El Batey.",
     },
   },
+  "punto-frio-life-bar": {
+    body: "Villa Progreso Veragua nightlife on C/ Duarte #51 — DJ, karaoke, and hookah table specials inland from Cabarete, not a Playa Dorada mall disco or a Puerto Plata Malecón crawl; cash-only walk-in, confirm doors on @puntofrio_lifebar or WhatsApp +1 809-982-5850 before you Uber from the strip.",
+    localized: {
+      en: "Villa Progreso Veragua nightlife on C/ Duarte #51 — DJ, karaoke, and hookah table specials inland from Cabarete, not a Playa Dorada mall disco or a Puerto Plata Malecón crawl; cash-only walk-in, confirm doors on @puntofrio_lifebar or WhatsApp +1 809-982-5850 before you Uber from the strip.",
+      es: "Nightlife en Villa Progreso, Veragua, en C/ Duarte #51 — DJ, karaoke y especiales de hookah tierra adentro desde Cabarete, no un disco del mall de Playa Dorada ni un crawl del Malecón de Puerto Plata; walk-in solo efectivo, confirma puertas en @puntofrio_lifebar o WhatsApp +1 809-982-5850 antes del Uber desde la franja.",
+      fr: "Nightlife à Villa Progreso, Veragua, au C/ Duarte #51 — DJ, karaoke et spéciaux hookah à l’intérieur depuis Cabarete, pas une disco du mall de Playa Dorada ni un crawl du Malecón de Puerto Plata ; walk-in cash only, confirmez les portes sur @puntofrio_lifebar ou WhatsApp +1 809-982-5850 avant l’Uber depuis la bande.",
+    },
+  },
   "nova-salud-bienestar": {
     body: "Victorian-style centro clinic on Margarita Mears #6 (Mon–Fri 8 AM–5 PM on the door) — psychology talks here, not a spa day pass. WhatsApp seats before you walk the colonial grid.",
     localized: {

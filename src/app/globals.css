@@ -551,6 +551,11 @@ button, a {
  * Sticky list header / filters / bottom nav — hide-on-scroll slide.
  * Uses transform (not Tailwind translate) so the reveal interpolates on sticky
  * elements when chrome comes back after the category back control.
+ *
+ * Day titles (`data-sticky-list-day`) must NOT use the same translate: that
+ * pulls every in-flow day/weekly row up into the card or section title above.
+ * When the Discover header tucks away, re-park stuck day labels via `top`
+ * under the filter bar instead (same net position as a header-height lift).
  */
 :root {
   --scroll-chrome-ms: 360ms;
@@ -559,11 +564,14 @@ button, a {
 
 [data-sticky-list-header],
 [data-sticky-list-filters],
-[data-sticky-list-day],
 [data-scroll-chrome-nav] {
   transform: translate3d(0, 0, 0);
   transition: transform var(--scroll-chrome-ms) var(--scroll-chrome-ease);
   will-change: transform;
+}
+
+[data-sticky-list-day] {
+  transition: top var(--scroll-chrome-ms) var(--scroll-chrome-ease);
 }
 
 [data-sticky-list-header][data-chrome-hidden],
@@ -577,14 +585,22 @@ button, a {
   pointer-events: none;
 }
 
-[data-sticky-list-filters][data-chrome-hidden],
-[data-sticky-list-day][data-chrome-hidden] {
+[data-sticky-list-filters][data-chrome-hidden] {
   /* Keep in sync with StickyListFilters `top` underlap (−4px). */
   transform: translate3d(
     0,
     calc(4px - var(--sticky-list-header-height, 0px)),
     0
   );
+}
+
+/*
+ * Filters have translated to y≈0; park day/section labels flush under them
+ * (same as LIST_STICKY_UNDER_FILTERS_CLASS — no underlap). Spec (0,2,0) beats
+ * the Tailwind top utility.
+ */
+[data-sticky-list-day][data-chrome-hidden] {
+  top: var(--sticky-list-filters-height, 5.5rem);
 }
 
 

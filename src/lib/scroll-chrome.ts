@@ -101,8 +101,8 @@ function applyChromeDom(nextVisible: boolean): void {
 
   header?.setAttribute("data-chrome-hidden", "true");
   filters.forEach((el) => el.setAttribute("data-chrome-hidden", "true"));
-  // Same lift as filters — otherwise day titles keep a header-sized gap after
-  // park-scroll / hide-on-scroll tucks the Discover header away.
+  // Day labels re-park via CSS `top` (not translate) when this attr is set —
+  // see globals.css. Translate would slide in-flow titles into rows above.
   dayLabels.forEach((el) => el.setAttribute("data-chrome-hidden", "true"));
   nav?.setAttribute("data-chrome-hidden", "down");
 }

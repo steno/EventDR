@@ -10166,4 +10166,42 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer + IG caption @auracabarete — Gatsby by the Sea NEW YEAR’S EVE 2027; Thu 31 Dec 2026; three experiences; reservation only; dress Gatsby glamour / black tie; no start time or cover on art; WA +1 829-787-0140.",
     updatedAt: "2026-11-19T23:30:00.000Z",
   },
+  {
+    eventId: "punto-frio-reapertura-gta-monarka-2026-11-21",
+    body: "Veragua reopening Saturday with DJ Monarka’s GTA night on C/ Duarte #51 — table special 2 Stoli + hookah RD$2,999 on the flyer; pin Villa Progreso inland from Cabarete, not Chameleon’s Vibras Party with Monarka Sunday in Sosúa or VOYVOY’s Saturday Session the same night.",
+    localized: {
+      es: "Reapertura del sábado en Veragua con la noche GTA de DJ Monarka en C/ Duarte #51 — especial de mesa 2 Stoli + hookah RD$2,999 en el flyer; clava Villa Progreso tierra adentro desde Cabarete, no el Vibras Party de Chameleon con Monarka el domingo en Sosúa ni el Saturday Session de VOYVOY la misma noche.",
+      fr: "Réouverture du samedi à Veragua avec la soirée GTA de DJ Monarka au C/ Duarte #51 — spécial table 2 Stoli + hookah RD$2,999 sur l’affiche ; épinglez Villa Progreso à l’intérieur depuis Cabarete, pas le Vibras Party de Chameleon avec Monarka dimanche à Sosúa ni le Saturday Session de VOYVOY le même soir.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Cover TBA · flyer 2 Stoli + hookah RD$2,999 — @puntofrio_lifebar · WhatsApp +1 809-982-5850",
+    priceNoteLocalized: {
+      es: "Cover por confirmar · flyer 2 Stoli + hookah RD$2,999 — @puntofrio_lifebar · WhatsApp +1 809-982-5850",
+      fr: "Cover à confirmer · flyer 2 Stoli + hookah RD$2,999 — @puntofrio_lifebar · WhatsApp +1 809-982-5850",
+    },
+    attribution:
+      "POP research · @puntofrio_lifebar Reapertura / Sábado de GTA flyer",
+    researchNotes:
+      "Editor flyer — REAPERTURA DEL PUNTO FRÍO; sábado de GTA; 21 NOVIEMBRE; DJ MONARKA; 2 STOLI + HOOKAH X RD$2,999; WA 809-982-5850; C/ Duarte #51 Villa Progreso Veragua G.H.; Licor Star; Instagram puntofrio_lifebar. New venue seed. Same Saturday as VOYVOY Session; Monarka also bills Chameleon Vibras Sun 22 Nov.",
+    updatedAt: "2026-11-20T16:00:00.000Z",
+  },
+  {
+    eventId: "grand-prix-caballitos-2026-11-20",
+    body: "Friday Caballitos (El Padre y El Hijo al 2x1) at Grand Prix in La Javilla — Manolo Tavarez / Bomba pin; cover isn’t on the flyer, so check @grandprixrd before you roll up, and don’t confuse it with the free Oct 23 Caballitos set or Willman’s RD$500 anniversary on 27 Nov.",
+    localized: {
+      es: "Caballitos del viernes (El Padre y El Hijo al 2x1) en Grand Prix en La Javilla — pin Manolo Tavarez / Bomba; el cover no viene en el flyer, chequea @grandprixrd antes de ir, y no lo mezcles con el Caballitos gratis del 23 oct ni el aniversario de Willman a RD$500 el 27 nov.",
+      fr: "Caballitos du vendredi (El Padre y El Hijo al 2x1) au Grand Prix à La Javilla — pin Manolo Tavarez / Bomba ; le cover n’est pas sur l’affiche, vérifiez @grandprixrd avant d’y aller, et ne confondez pas avec le Caballitos gratuit du 23 oct. ni l’anniversaire de Willman à RD$500 le 27 nov.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — @grandprixrd · WhatsApp +1 809-753-4553",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — @grandprixrd · WhatsApp +1 809-753-4553",
+      fr: "Cover à confirmer — @grandprixrd · WhatsApp +1 809-753-4553",
+    },
+    attribution: "POP research · @grandprixrd Los Caballitos 20 Nov flyer",
+    researchNotes:
+      "Editor flyer — VIERNES 20 NOV; LOS CABALLITOS; EL PADRE Y EL HIJO AL 2X1; Grand Prix Smart Shop; LA JAVILLA — PUERTO PLATA. No gratis / start / cover on art (unlike 23 Oct free Caballitos).",
+    updatedAt: "2026-11-20T15:00:00.000Z",
+  },
 ];

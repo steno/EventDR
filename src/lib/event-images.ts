@@ -129,6 +129,10 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "disco-club-viernes-tropical-2026-10-23.jpg",
   "grand-prix-caballitos-2026-10-23":
     "grand-prix-caballitos-2026-10-23.jpg",
+  "grand-prix-caballitos-2026-11-20":
+    "grand-prix-caballitos-2026-11-20.jpg",
+  "punto-frio-reapertura-gta-monarka-2026-11-21":
+    "punto-frio-reapertura-gta-monarka-2026-11-21.jpg",
   "copa-gencloben-final-2026-10-24":
     "copa-gencloben-final-2026-10-24.jpg",
   "ivan-garcia-salvador-perez-2026-11-21":
@@ -1096,6 +1100,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "hard-rock-deeway-live-mix-2026-10-23": "object-top",
   // Deury Banda at Grand Prix — accordion face mid/upper on the flyer.
   "grand-prix-deury-banda-2026-11-13": "object-top",
+  "grand-prix-caballitos-2026-11-20": "object-top",
+  "punto-frio-reapertura-gta-monarka-2026-11-21": "object-center",
   "cedaky-show-navideno-2026-11-14": "object-center",
   "malecon-empanadas-daily": "object-center",
   // Hard Rock Kaovanny — face fills lower half; object-top cards only show logos + scalp.
@@ -1735,6 +1741,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "dominican-surf-festival-2026-12-10.jpg",
   "aguinaldo-5k-navideno-2026-12-19.jpg",
   "grand-prix-deury-banda-2026-11-13.jpg",
+  "grand-prix-caballitos-2026-11-20.jpg",
+  "punto-frio-reapertura-gta-monarka-2026-11-21.jpg",
   "cedaky-show-navideno-2026-11-14.jpg",
   "pregame-roof-rooftop-pong-2026-11-08.jpg",
   "parada-choco-banditalia-2026-11-10.jpg",

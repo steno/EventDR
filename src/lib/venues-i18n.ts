@@ -1381,6 +1381,16 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Coworking hybride et studio créatif au 2e étage de Plaza Popular (au-dessus de Banco Popular) à Cabarete — événements d’art communautaire, podcasts, soirées musique/DJ et sessions tatouage via CREA Ink Studio. Horaires coworking typiques lun–ven 9 h–18 h. Épinglez le corridor plaza Banco Popular, pas Coconuts à Playa Encuentro ni VOYVOY face à la baie.",
     },
   },
+  "punto-frio-life-bar": {
+    name: {
+      es: "Punto Frío Life Bar",
+      fr: "Punto Frío Life Bar",
+    },
+    description: {
+      es: "Bar de nightlife y entretenimiento en C/ Duarte #51, Villa Progreso, Veragua (Distrito Municipal Veragua / Gaspar Hernández, Espaillat) — noches de DJ, servicio a la mesa, cerveza y licores, karaoke y especiales de hookah. Walk-in solo efectivo; estacionamiento gratis en la calle; no es accesible en silla de ruedas. Confirma puertas en Instagram @puntofrio_lifebar · WhatsApp +1 809-982-5850 (también listado +1 849-201-4422).",
+      fr: "Bar nightlife et divertissement au C/ Duarte #51, Villa Progreso, Veragua (Distrito Municipal Veragua / Gaspar Hernández, Espaillat) — soirées DJ, service à table, bière et spiritueux, karaoke et spéciaux hookah. Walk-in cash only ; stationnement gratuit dans la rue ; non accessible en fauteuil. Confirmez les portes sur Instagram @puntofrio_lifebar · WhatsApp +1 809-982-5850 (aussi listé +1 849-201-4422).",
+    },
+  },
 };
 
 export function localizeVenue(venue: Venue, locale: Locale): Venue {

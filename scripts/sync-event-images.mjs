@@ -1206,6 +1206,10 @@ const FILE_TO_VENUE_SLUG = {
     "voyvoy-saturday-session-2026-11-21",
   "aura-gatsby-by-the-sea-nye-2026-12-31.jpg":
     "aura-gatsby-by-the-sea-nye-2026-12-31",
+  "punto-frio-reapertura-gta-monarka-2026-11-21.jpg":
+    "punto-frio-reapertura-gta-monarka-2026-11-21",
+  "grand-prix-caballitos-2026-11-20.jpg":
+    "grand-prix-caballitos-2026-11-20",
   "estudio-crea-cabarete-lounge.jpg": "estudio-crea-cabarete",
   "estudio-crea-cabarete-lounge-v2.jpg": "estudio-crea-cabarete",
   "estudio-crea-cabarete-lounge-v3.jpg": "estudio-crea-cabarete",
@@ -1223,6 +1227,7 @@ const FILE_TO_VENUE_SLUG = {
   "los-primos-disco-bar-maimon-dj-booth.jpg": "los-primos-disco-bar-maimon",
   "evolution-disco-club-san-marcos.jpg": "evolution-disco-club-san-marcos",
   "los-guaos-veragua-field.jpg": "los-guaos-veragua",
+  "punto-frio-life-bar-interior.jpg": "punto-frio-life-bar",
   "037-bar-restaurant-entrance.jpg": "037-bar-restaurant",
   "goddess-la-diosa-cabarete-v2.jpg": "goddess-la-diosa-cabarete",
   "sociedad-cultural-renovacion-library.jpg":

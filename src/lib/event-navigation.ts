@@ -165,8 +165,9 @@ export function resolveEventVenueSlug(
 
 /**
  * Venue URL. Optional `returnTo` / `returnTitle` / `openDirections` are not put
- * in the query string — use {@link rememberReturnPath} and
- * {@link rememberOpenVenueDirections} before navigate.
+ * in the query string — use {@link rememberReturnPath} before navigate.
+ * Call {@link rememberOpenVenueDirections} only when the next load should open
+ * the directions planner (not for plain “View venue”).
  */
 export function venueDetailPath(
   locale: Locale,

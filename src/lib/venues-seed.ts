@@ -2542,6 +2542,20 @@ export const SEED_VENUES: Venue[] = [
     lng: -70.41143,
     emoji: "🎨",
   },
+  {
+    slug: "punto-frio-life-bar",
+    name: "Punto Frío Life Bar",
+    city: "Veragua",
+    description:
+      "Nightlife bar and entertainment spot on C/ Duarte #51, Villa Progreso, Veragua (Distrito Municipal Veragua / Gaspar Hernández, Espaillat) — DJ nights, table service, beer and liquor, karaoke, and hookah specials. Cash-only walk-in energy; free street parking; not wheelchair accessible. Confirm doors on Instagram @puntofrio_lifebar · WhatsApp +1 809-982-5850 (also listed +1 849-201-4422).",
+    // Villa Progreso / Cruce de Veragua pin near MJ9J+W6J (La Kalle Punto Frio Drink area) — not the Puerto Plata Q8M5+6P5 listing.
+    lat: 19.66984,
+    lng: -70.36949,
+    emoji: "🍸",
+    instagram: "puntofrio_lifebar",
+    phone: "+18099825850",
+    website: "https://www.instagram.com/puntofrio_lifebar/",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
@@ -2870,6 +2884,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /los\s*guaos(\s*veragua)?|guaos\s*veragua|paraje\s*los\s*guaos|alto\s*grande\s*veragua/i,
     slug: "los-guaos-veragua",
+  },
+  {
+    pattern:
+      /punto\s*fr[ií]o(\s*life)?(\s*bar)?|puntofrio_?lifebar|la\s*kalle\s*punto\s*fr[ií]o/i,
+    slug: "punto-frio-life-bar",
   },
   {
     // Must win over fuzzy “037” fragments before Victrola 037 Arte Café.

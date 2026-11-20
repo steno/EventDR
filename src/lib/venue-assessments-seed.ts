@@ -2224,6 +2224,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "punto-frio-life-bar",
+    verdictKey: "local_favorite_night",
+    crowdFit: ["local", "nightlife", "mixed"],
+    axes: { recommend: 3.8, atmosphere: 4.0, value: 3.9, practical: 3.2 },
+    themes: [
+      { key: "loud_late", sentiment: "positive", audience: "nightlife" },
+      { key: "cocktails", sentiment: "positive", audience: "nightlife" },
+      { key: "easy_to_find", sentiment: "mixed", audience: "visitor" },
+    ],
+  }),
+  editorial({
     venueSlug: "federacion-ganaderos-norte-montellano",
     verdictKey: "solid_visitor_activity",
     crowdFit: ["local", "family", "mixed"],

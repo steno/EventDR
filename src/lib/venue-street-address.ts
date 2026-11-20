@@ -149,6 +149,8 @@ export const VENUE_STREET_ADDRESS: Readonly<Record<string, string>> = {
     "Calle Principal, Maimón (inland — not Carretera Navarrete–Puerto Plata)",
   "los-guaos-veragua":
     "Los Guaos / Alto Grande, Veragua (Distrito Municipal Veragua), Gaspar Hernández",
+  "punto-frio-life-bar":
+    "C/ Duarte #51, Villa Progreso, Veragua (Distrito Municipal Veragua), Gaspar Hernández",
   "037-bar-restaurant":
     "Av. Gral. Gregorio Luperón #34 A, Puerto Plata 57000",
   "klok-smoke-bar":

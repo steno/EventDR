@@ -521,6 +521,9 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "hecho-aqui-cabarete-2026-11-21": "2026-11-19T22:30:00.000Z",
   "voyvoy-saturday-session-2026-11-21": "2026-11-19T23:00:00.000Z",
   "aura-gatsby-by-the-sea-nye-2026-12-31": "2026-11-19T23:30:00.000Z",
+  "punto-frio-reapertura-gta-monarka-2026-11-21":
+    "2026-11-20T16:00:00.000Z",
+  "grand-prix-caballitos-2026-11-20": "2026-11-20T15:00:00.000Z",
 };
 
 /** Fill missing `createdAt` from {@link SEED_CREATED_AT} (does not overwrite). */

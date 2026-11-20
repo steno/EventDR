@@ -31,7 +31,6 @@ import { formatEventPlace } from "@/lib/event-location";
 import { EventCallLink } from "@/components/EventCallLink";
 import {
   eventDetailPath,
-  rememberOpenVenueDirections,
   rememberReturnPath,
   venueDetailPath,
 } from "@/lib/event-navigation";
@@ -180,7 +179,6 @@ export function EventDetailContent({
             href={venueDetailPath(locale, venueSlug)}
             onClick={() => {
               rememberReturnPath(eventDetailPath(locale, event.id), event.title);
-              rememberOpenVenueDirections();
             }}
             className="group/place flex items-start gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200 touch-manipulation"
           >

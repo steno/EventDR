@@ -12716,5 +12716,63 @@
       "Dîner · divertissement live · countdown"
     ],
     "imageEmoji": "🥂"
+  },
+  {
+    "id": "punto-frio-reapertura-gta-monarka-2026-11-21",
+    "title": "Punto Frío — Réouverture · Sábado de GTA · DJ Monarka · 21 nov",
+    "description": "Réouverture du Punto Frío — Sábado de GTA avec DJ Monarka au Punto Frío Life Bar, C/ Duarte #51, Villa Progreso, Veragua (Distrito Municipal Veragua / Gaspar Hernández) — samedi 21 novembre 2026. Promo sur l’affiche : 2 Stoli + hookah pour RD$2,999. Cover et heure de début non imprimés — confirmez via Instagram @puntofrio_lifebar ou WhatsApp +1 809-982-5850. Réouverture nightlife à Veragua — pas le Vibras Party de Chameleon avec Monarka le lendemain à Sosúa, ni le Saturday Session de VOYVOY le même soir à Cabarete.",
+    "date": "2026-11-21",
+    "location": "Veragua",
+    "venue": "Punto Frío Life Bar",
+    "venueSlug": "punto-frio-life-bar",
+    "address": "C/ Duarte #51, Villa Progreso, Veragua (Distrito Municipal Veragua), Gaspar Hernández",
+    "lat": 19.66984,
+    "lng": -70.36949,
+    "phone": "+18099825850",
+    "category": "parties",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/puntofrio_lifebar/",
+    "instagram": "puntofrio_lifebar",
+    "lineup": [
+      "DJ Monarka",
+      "Sábado de GTA",
+      "2 Stoli + hookah RD$2,999"
+    ],
+    "imageEmoji": "🍸"
+  },
+  {
+    "id": "grand-prix-caballitos-2026-11-20",
+    "title": "Grand Prix — Los Caballitos · 20 nov",
+    "description": "Los Caballitos (El Padre y El Hijo al 2x1) en live au Grand Prix Smart Shop, La Javilla, Puerto Plata — vendredi 20 novembre 2026. Av. Manolo Tavares Justo esq. Presidente Caamaño #1, Edificio Grand Prix (à côté de Bomba). Cover et heure de début non imprimés — confirmez via Instagram @grandprixrd ou WhatsApp +1 809-753-4553. Típico du vendredi à La Javilla — pas le Caballitos gratuit du 23 oct., ni la Fiesta de Aniversario de Willman Peña le 27 nov.",
+    "date": "2026-11-20",
+    "location": "Puerto Plata",
+    "venue": "Grand Prix Smart Shop",
+    "venueSlug": "grand-prix-puerto-plata",
+    "address": "Av. Manolo Tavares Justo esq. Presidente Caamaño #1, Edificio Grand Prix (Bomba Next), La Javilla, Puerto Plata",
+    "lat": 19.79096,
+    "lng": -70.70149,
+    "phone": "+18097534553",
+    "category": "music",
+    "categories": [
+      "parties",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/grandprixrd/",
+    "instagram": "grandprixrd",
+    "lineup": [
+      "Los Caballitos — El Padre y El Hijo"
+    ],
+    "imageEmoji": "🪗"
   }
 ]
