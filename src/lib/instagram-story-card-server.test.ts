@@ -7,25 +7,17 @@ import {
   FEED_CARD_W,
   buildInstagramFeedCardJpeg,
 } from "./instagram-story-card-server";
-import {
-  CARD_H,
-  CARD_X,
-  CARD_Y,
-  IMAGE_H,
-  STORY_COLORS,
-  TEXT_PAD_TOP,
-} from "./instagram-story-card-layout";
+import { FEED_CARD_PAD } from "./instagram-story-card-layout";
 
 describe("buildInstagramFeedCardJpeg", () => {
-  it("renders the share card at a 4:5 feed size with readable title ink", async () => {
+  it("renders a 4:5 flyer-only card", async () => {
     const jpeg = await buildInstagramFeedCardJpeg(
       {
         id: "card-test",
         title: "BandItalia Aperitivo",
+        description: "Test event",
         date: "2026-10-06",
-        time: "5:00 PM",
-        location: "Sosúa",
-        venue: "Parada Típica El Choco",
+        location: "Cabarete",
         category: "music",
         format: "physical",
         sourceType: "seed",
@@ -37,31 +29,36 @@ describe("buildInstagramFeedCardJpeg", () => {
     assert.equal(meta.format, "jpeg");
     assert.equal(meta.width, FEED_CARD_W);
     assert.equal(meta.height, FEED_CARD_H);
+    assert.ok((meta.size ?? 0) > 5_000);
+  });
 
-    // Cream panel under the hero — title must paint dark ink (not tofu/empty).
-    const feedTop = CARD_Y + CARD_H - FEED_CARD_H;
-    const titleTopInFeed = CARD_Y + IMAGE_H + TEXT_PAD_TOP - feedTop;
-    const { data, info } = await sharp(jpeg)
-      .extract({
-        left: CARD_X + 48,
-        top: Math.max(0, titleTopInFeed),
-        width: 700,
-        height: 80,
-      })
-      .raw()
-      .toBuffer({ resolveWithObject: true });
-
-    let dark = 0;
-    for (let i = 0; i < data.length; i += info.channels) {
-      const r = data[i] ?? 255;
-      const g = data[i + 1] ?? 255;
-      const b = data[i + 2] ?? 255;
-      // Title color #7c2d12 vs cream #fff7ed — count clearly inked pixels.
-      if (r < 180 && g < 140 && b < 100) dark += 1;
-    }
-    assert.ok(
-      dark > 200,
-      `expected title ink on cream panel, got ${dark} dark pixels (card cream ${STORY_COLORS.card})`,
+  it("embeds a local public flyer across the cream card", async () => {
+    const jpeg = await buildInstagramFeedCardJpeg(
+      {
+        id: "latin-disco-semaforo-yeffrey-estrella-2026-11-20",
+        title: "Latin Disco Club Semaforo Party",
+        description: "Test flyer embed",
+        date: "2026-11-20",
+        location: "Sosúa",
+        imageUrl: "/events/latin-disco-semaforo-yeffrey-estrella-2026-11-20.jpg",
+        category: "parties",
+        format: "physical",
+        sourceType: "seed",
+        status: "approved",
+      } as Event,
+      "en",
     );
+
+    const meta = await sharp(jpeg).metadata();
+    assert.equal(meta.width, FEED_CARD_W);
+    assert.equal(meta.height, FEED_CARD_H);
+    // Cream-only cards are tiny; a real flyer still compresses much larger.
+    assert.ok(
+      (meta.size ?? 0) > 40_000,
+      `expected embedded flyer bytes, got size=${meta.size}`,
+    );
+
+    const cardH = FEED_CARD_H - FEED_CARD_PAD * 2;
+    assert.ok(cardH > 1100, `expected tall flyer card, got cardH=${cardH}`);
   });
 });

@@ -16,7 +16,10 @@ export const CARD_X = CARD_PAD;
  */
 export const CARD_Y = 72;
 export const CARD_RADIUS = 48;
-/** Taller hero = former brand gap filled with flyer art. */
+/**
+ * Hero slot inside the cream card. Tall enough for ~4:5 flyers; taller 9:16
+ * art letterboxes (contain) instead of cover-cropping title/phone bands.
+ */
 export const IMAGE_H = 1148;
 /** Padding from hero bottom to first title line (server = glyph top; canvas ≈ baseline). */
 export const TEXT_PAD_TOP = 28;
@@ -28,25 +31,41 @@ export const SITE_LINE_H = 36;
 export const SITE_PAD_BOTTOM = 36;
 
 /**
- * Card height hugs title/meta/footer — no empty cream under pop-event.com.
- * Callers should pass the wrapped line counts for this event.
+ * Cream text block under the hero. Feed cards use title + site only
+ * (`metaLines = 0`) so the flyer can fill more of the card width.
  */
-export function storyCardHeight(titleLines: number, metaLines: number): number {
+export function storyCardTextHeight(
+  titleLines: number,
+  metaLines = 0,
+): number {
   const titles = Math.max(1, Math.min(3, titleLines));
-  const metas = Math.max(1, Math.min(2, metaLines));
-  const textH =
+  const metas = Math.max(0, Math.min(2, metaLines));
+  return (
     TEXT_PAD_TOP +
     titles * TITLE_LINE_STEP +
-    TITLE_META_GAP +
-    metas * META_LINE_STEP +
+    (metas > 0 ? TITLE_META_GAP + metas * META_LINE_STEP : 0) +
     SITE_GAP +
     SITE_LINE_H +
-    SITE_PAD_BOTTOM;
-  return IMAGE_H + textH;
+    SITE_PAD_BOTTOM
+  );
 }
 
-/** Max card (3 title + 2 meta lines) — used for feed-crop math and tests. */
-export const CARD_H = storyCardHeight(3, 2);
+/**
+ * Card height hugs title/footer — no empty cream under pop-event.com.
+ * Callers should pass the wrapped title line count for this event.
+ */
+export function storyCardHeight(titleLines: number, metaLines = 0): number {
+  return IMAGE_H + storyCardTextHeight(titleLines, metaLines);
+}
+
+/** Flyer-filled cream card height on the 9:16 story canvas. */
+export const CARD_H = IMAGE_H;
+
+/** Instagram feed still (4:5). Spotlight + /api/ig-card use this frame. */
+export const FEED_CARD_W = STORY_W;
+export const FEED_CARD_H = 1350;
+/** Inset so a thin brand gradient shows around the cream card. */
+export const FEED_CARD_PAD = 56;
 
 export const STORY_COLORS = {
   gradientFrom: "#f97316",

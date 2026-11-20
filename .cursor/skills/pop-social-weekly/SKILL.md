@@ -46,7 +46,7 @@ Pick trending events first, then variety across cities/categories.
 
 GitHub Action `daily-today-spotlight.yml` is **manual only** (no cron). Default posts to **Facebook and Instagram**: a Facebook album plus individual Instagram image posts. Today’s specials first, then up to 3 happening-today events. Each IG photo is the detail-page Share → Instagram card (orange POP frame, event photo, title, time and place), served from `/api/ig-card/{id}.jpg`. Same-day event ids are never repeated.
 
-In chat: only when the user asks — **spotlight today** (specials first, then happening today) or **spotlight today’s specials** (specials-only rail). Live post: `node scripts/run-today-spotlight.mjs` with `SITE_URL` and `CRON_SECRET` (both networks by default — do not set `INSTAGRAM_ONLY` unless asked). Specials only: `TODAY_SPECIALS=true`. Do not fire one `POST /api/cron/meta-post` with `source: today` and wait for both networks.
+In chat: only when the user asks — **spotlight today** (specials first, then happening today) or **spotlight today’s specials** (specials-only rail). For **today’s specials**, follow skill `pop-spotlight-specials` (per-event `es`/`en` by venue before posting). Live post: `node scripts/run-today-spotlight.mjs` with `SITE_URL` and `CRON_SECRET` (both networks by default — do not set `INSTAGRAM_ONLY` unless asked). Specials only: `TODAY_SPECIALS=true`. Do not fire one `POST /api/cron/meta-post` with `source: today` and wait for both networks.
 
 ### 3. City-specific post
 

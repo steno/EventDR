@@ -1,47 +1,26 @@
-import { existsSync } from "node:fs";
+import { readFile } from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";
 import type { Locale } from "@/i18n/config";
 import type { Event } from "./types";
 import { SITE_URL } from "./site-url";
 import {
-  CARD_H,
   CARD_RADIUS,
   CARD_W,
   CARD_X,
   CARD_Y,
+  FEED_CARD_H,
+  FEED_CARD_PAD,
+  FEED_CARD_W,
   IMAGE_H,
-  META_LINE_STEP,
-  SITE_GAP,
-  SITE_PAD_BOTTOM,
   STORY_COLORS,
   STORY_H,
   STORY_W,
-  TEXT_PAD_TOP,
-  TITLE_LINE_STEP,
-  TITLE_META_GAP,
-  storyCardHeight,
-  storyCardMetaLine,
-  wrapTextLines,
 } from "./instagram-story-card-layout";
 
-/**
- * Vendored Inter TTFs — Netlify/Linux has no usable system fonts for sharp SVG
- * `<text>`, which rendered as tofu boxes on spotlight cards. sharp's `fontfile`
- * path bypasses fontconfig discovery.
- */
-const FONTS_DIR = path.join(process.cwd(), "assets", "fonts");
-const FONT_BOLD = path.join(FONTS_DIR, "Inter-Bold.ttf");
-const FONT_SEMIBOLD = path.join(FONTS_DIR, "Inter-SemiBold.ttf");
+export { FEED_CARD_H, FEED_CARD_W } from "./instagram-story-card-layout";
 
-function escapePango(value: string): string {
-  return value
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&apos;");
-}
+const PUBLIC_IMAGE = /^\/(events|venues|og)\//i;
 
 function absoluteImageUrl(raw: string | undefined, origin = SITE_URL): string | undefined {
   const value = raw?.trim();
@@ -56,7 +35,34 @@ function absoluteImageUrl(raw: string | undefined, origin = SITE_URL): string | 
   }
 }
 
-async function fetchImageBuffer(url: string): Promise<Buffer | null> {
+/** Prefer local `public/` bytes so ig-card never self-fetches localhost. */
+async function loadImageBuffer(
+  raw: string | undefined,
+  origin = SITE_URL,
+): Promise<Buffer | null> {
+  const value = raw?.trim();
+  if (!value) return null;
+
+  let pathname = value;
+  try {
+    if (/^https?:\/\//i.test(value)) {
+      pathname = new URL(value).pathname;
+    }
+  } catch {
+    return null;
+  }
+
+  if (PUBLIC_IMAGE.test(pathname)) {
+    try {
+      const filePath = path.join(process.cwd(), "public", pathname.replace(/^\//, ""));
+      return await readFile(filePath);
+    } catch {
+      /* fall through to HTTP */
+    }
+  }
+
+  const url = absoluteImageUrl(value, origin);
+  if (!url) return null;
   try {
     const response = await fetch(url, {
       headers: { "User-Agent": "POP-Events-StoryCard/1.0" },
@@ -82,207 +88,172 @@ function roundedRectSvg(
   return Buffer.from(svg);
 }
 
-function resolveFont(file: string): string {
-  if (!existsSync(file)) {
-    throw new Error(`IG card font missing: ${file}`);
-  }
-  return file;
+/**
+ * Largest box inside maxW×maxH that matches the flyer aspect — so the art can
+ * fill the cream card with no letterbox bars (orange frame absorbs leftover).
+ */
+function cardSizeForFlyer(
+  flyerW: number,
+  flyerH: number,
+  maxW: number,
+  maxH: number,
+): { width: number; height: number } {
+  const fw = Math.max(1, flyerW);
+  const fh = Math.max(1, flyerH);
+  const scale = Math.min(maxW / fw, maxH / fh);
+  return {
+    width: Math.max(1, Math.round(fw * scale)),
+    height: Math.max(1, Math.round(fh * scale)),
+  };
 }
 
-/** Pango size is 1024ths of a point; at 72dpi that ≈ CSS pixels. */
-async function renderTextLine(opts: {
-  text: string;
-  fontfile: string;
-  px: number;
-  color: string;
-  maxWidth: number;
-}): Promise<{ buffer: Buffer; width: number; height: number }> {
-  const size = Math.round(opts.px * 1024);
-  const { data, info } = await sharp({
-    text: {
-      text: `<span foreground="${opts.color}" size="${size}">${escapePango(opts.text)}</span>`,
-      font: "Inter",
-      fontfile: opts.fontfile,
-      width: opts.maxWidth,
-      rgba: true,
-      dpi: 72,
-      align: "left",
-    },
-  })
+async function flyerFillBuffer(
+  raw: Buffer | null,
+  width: number,
+  height: number,
+): Promise<Buffer> {
+  if (!raw) {
+    return sharp({
+      create: {
+        width,
+        height,
+        channels: 3,
+        background: STORY_COLORS.card,
+      },
+    })
+      .png()
+      .toBuffer();
+  }
+
+  // Exact card size matches flyer AR — fill, no cream bars.
+  return sharp(raw)
+    .rotate()
+    .resize(width, height, { fit: "fill" })
     .png()
-    .toBuffer({ resolveWithObject: true });
-  return { buffer: data, width: info.width ?? 0, height: info.height ?? 0 };
-}
-
-type CompositeInput = { input: Buffer; top: number; left: number };
-
-async function cardTextComposites(
-  title: string,
-  meta: string,
-  cardH: number,
-): Promise<CompositeInput[]> {
-  const bold = resolveFont(FONT_BOLD);
-  const semibold = resolveFont(FONT_SEMIBOLD);
-  const textWidth = CARD_W - 96;
-  const layers: CompositeInput[] = [];
-
-  let y = IMAGE_H + TEXT_PAD_TOP;
-  for (const line of wrapTextLines(title, 28, 3)) {
-    const rendered = await renderTextLine({
-      text: line,
-      fontfile: bold,
-      px: 52,
-      color: STORY_COLORS.title,
-      maxWidth: textWidth,
-    });
-    layers.push({ input: rendered.buffer, top: y, left: 48 });
-    y += TITLE_LINE_STEP;
-  }
-
-  y += TITLE_META_GAP;
-  for (const line of wrapTextLines(meta, 36, 2)) {
-    const rendered = await renderTextLine({
-      text: line,
-      fontfile: semibold,
-      px: 34,
-      color: STORY_COLORS.meta,
-      maxWidth: textWidth,
-    });
-    layers.push({ input: rendered.buffer, top: y, left: 48 });
-    y += META_LINE_STEP;
-  }
-
-  const site = await renderTextLine({
-    text: "pop-event.com",
-    fontfile: semibold,
-    px: 30,
-    color: STORY_COLORS.site,
-    maxWidth: textWidth,
-  });
-  layers.push({
-    input: site.buffer,
-    top: Math.min(y + SITE_GAP, cardH - SITE_PAD_BOTTOM - site.height),
-    left: 48,
-  });
-
-  return layers;
+    .toBuffer();
 }
 
 /**
- * Server-side 9:16 POP story card — same layout as Share → Instagram
- * (`buildInstagramStoryPreviewBlob`).
+ * Orange frame + cream-rounded flyer card sized to the art (no inner letterbox).
  */
-export async function buildInstagramStoryCardPng(
-  event: Event,
-  locale: Locale,
-  origin = SITE_URL,
-): Promise<Buffer> {
-  const meta = storyCardMetaLine(event, locale);
-  const titleLines = wrapTextLines(event.title, 28, 3);
-  const metaLines = wrapTextLines(meta, 36, 2);
-  const cardH = storyCardHeight(titleLines.length, metaLines.length);
-  const imageUrl = absoluteImageUrl(event.imageUrl, origin);
-
-  let hero = await sharp({
-    create: {
-      width: CARD_W,
-      height: IMAGE_H,
-      channels: 3,
-      background: STORY_COLORS.imageFallback,
-    },
-  })
-    .png()
-    .toBuffer();
-
-  if (imageUrl) {
-    const raw = await fetchImageBuffer(imageUrl);
-    if (raw) {
-      try {
-        hero = await sharp(raw)
-          .rotate()
-          .resize(CARD_W, IMAGE_H, { fit: "cover", position: "centre" })
-          .png()
-          .toBuffer();
-      } catch {
-        /* keep fallback */
+async function composeBrandCard(opts: {
+  event: Event;
+  origin: string;
+  canvasW: number;
+  canvasH: number;
+  maxCardW: number;
+  maxCardH: number;
+  /** Preferred top-left when the card is smaller than the max box (story). */
+  preferCardX?: number;
+  preferCardY?: number;
+}): Promise<Buffer> {
+  const raw = await loadImageBuffer(opts.event.imageUrl, opts.origin);
+  let flyerW = opts.maxCardW;
+  let flyerH = opts.maxCardH;
+  if (raw) {
+    try {
+      const meta = await sharp(raw).rotate().metadata();
+      if (meta.width && meta.height) {
+        flyerW = meta.width;
+        flyerH = meta.height;
       }
+    } catch {
+      /* use max box */
     }
   }
 
-  const textLayers = await cardTextComposites(event.title, meta, cardH);
+  const { width: cardW, height: cardH } = cardSizeForFlyer(
+    flyerW,
+    flyerH,
+    opts.maxCardW,
+    opts.maxCardH,
+  );
+  const cardX =
+    opts.preferCardX != null && cardW === opts.maxCardW
+      ? opts.preferCardX
+      : Math.round((opts.canvasW - cardW) / 2);
+  const cardY =
+    opts.preferCardY != null && cardH === opts.maxCardH
+      ? opts.preferCardY
+      : Math.round((opts.canvasH - cardH) / 2);
 
-  const cardBase = await sharp({
-    create: {
-      width: CARD_W,
-      height: cardH,
-      channels: 3,
-      background: STORY_COLORS.card,
-    },
-  })
-    .composite([{ input: hero, top: 0, left: 0 }, ...textLayers])
+  const radius = Math.min(CARD_RADIUS, Math.floor(Math.min(cardW, cardH) / 8));
+  const hero = await flyerFillBuffer(raw, cardW, cardH);
+
+  const roundMask = await sharp(
+    roundedRectSvg(cardW, cardH, radius, "#fff"),
+  )
     .png()
     .toBuffer();
 
-  const roundMask = await sharp(roundedRectSvg(CARD_W, cardH, CARD_RADIUS, "#fff"))
-    .png()
-    .toBuffer();
-
-  const roundedCard = await sharp(cardBase)
+  const roundedCard = await sharp(hero)
+    .ensureAlpha()
     .composite([{ input: roundMask, blend: "dest-in" }])
     .png()
     .toBuffer();
 
-  // Soft drop shadow under the card (matches canvas shadowBlur ~36).
   const shadow = await sharp(
-    roundedRectSvg(CARD_W, cardH, CARD_RADIUS, "rgba(0,0,0,0.22)"),
+    roundedRectSvg(cardW, cardH, radius, "rgba(0,0,0,0.22)"),
   )
     .blur(18)
     .png()
     .toBuffer();
 
-  const background = Buffer.from(`<svg width="${STORY_W}" height="${STORY_H}" xmlns="http://www.w3.org/2000/svg">
+  const background = Buffer.from(`<svg width="${opts.canvasW}" height="${opts.canvasH}" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="${STORY_COLORS.gradientFrom}"/>
       <stop offset="100%" stop-color="${STORY_COLORS.gradientTo}"/>
     </linearGradient>
   </defs>
-  <rect width="${STORY_W}" height="${STORY_H}" fill="url(#bg)"/>
+  <rect width="${opts.canvasW}" height="${opts.canvasH}" fill="url(#bg)"/>
 </svg>`);
 
   return sharp(background)
     .composite([
-      { input: shadow, top: CARD_Y + 18, left: CARD_X },
-      { input: roundedCard, top: CARD_Y, left: CARD_X },
+      { input: shadow, top: cardY + 18, left: cardX },
+      { input: roundedCard, top: cardY, left: cardX },
     ])
     .jpeg({ quality: 88, mozjpeg: true })
     .toBuffer();
 }
 
 /**
- * Feed photo (4:5). Instagram rejects the full 9:16 share card on a feed post.
- * Crops the story frame to the card (photo + title + meta), dropping empty
- * gradient below. Top is clamped so a top-aligned card still fits.
+ * Server-side 9:16 POP story card — flyer fills a cream card matched to its AR.
  */
-export const FEED_CARD_W = STORY_W;
-export const FEED_CARD_H = 1350;
-const FEED_CARD_TOP = Math.max(0, CARD_Y + CARD_H - FEED_CARD_H);
-
-export async function buildInstagramFeedCardJpeg(
+export async function buildInstagramStoryCardPng(
   event: Event,
-  locale: Locale,
+  _locale: Locale,
   origin = SITE_URL,
 ): Promise<Buffer> {
-  const story = await buildInstagramStoryCardPng(event, locale, origin);
-  return sharp(story)
-    .extract({
-      left: 0,
-      top: FEED_CARD_TOP,
-      width: FEED_CARD_W,
-      height: FEED_CARD_H,
-    })
-    .jpeg({ quality: 88, mozjpeg: true })
-    .toBuffer();
+  return composeBrandCard({
+    event,
+    origin,
+    canvasW: STORY_W,
+    canvasH: STORY_H,
+    maxCardW: CARD_W,
+    maxCardH: IMAGE_H,
+    preferCardX: CARD_X,
+    preferCardY: CARD_Y,
+  });
+}
+
+/**
+ * Feed photo (4:5). Cream card matches flyer aspect — no cream letterbox bars.
+ */
+export async function buildInstagramFeedCardJpeg(
+  event: Event,
+  _locale: Locale,
+  origin = SITE_URL,
+): Promise<Buffer> {
+  return composeBrandCard({
+    event,
+    origin,
+    canvasW: FEED_CARD_W,
+    canvasH: FEED_CARD_H,
+    maxCardW: FEED_CARD_W - FEED_CARD_PAD * 2,
+    maxCardH: FEED_CARD_H - FEED_CARD_PAD * 2,
+  });
 }
 
 /** @deprecated Prefer buildInstagramStoryCardPng — kept name clarity for callers. */
