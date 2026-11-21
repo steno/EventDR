@@ -149,6 +149,7 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "isabela-food-fest-2026-12-18": "+18293366802",
   "isabela-food-fest-la-perversa-2026-12-18": "+18293366802",
   "isabela-food-fest-simpaticos-tipicos-2026-12-19": "+18293366802",
+  "isabela-food-fest-kiry-curu-2026-12-19": "+18293366802",
   "ambar-lounge-bandoleras-2026-11-13": "+18097818677",
   "ambar-lounge-carlos-rivera-2026-11-14": "+18097818677",
   "ambar-lounge-reggaeton-la-residencia-2026-12": "+18097818677",

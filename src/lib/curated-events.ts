@@ -1431,6 +1431,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     ticketUrl: "https://todotickets.do",
     venueSlug: "parque-municipal-villa-isabela",
   },
+  "isabela-food-fest-kiry-curu-2026-12-19": {
+    callForPricing: true,
+    phone: "+18293366802",
+    ticketUrl: "https://todotickets.do",
+    venueSlug: "parque-municipal-villa-isabela",
+  },
   "isabela-food-fest-dj-melcocha-2026-12-20": {
     callForPricing: true,
     phone: "+18293366802",

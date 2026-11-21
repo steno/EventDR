@@ -38,6 +38,7 @@ export type TodaySpotlightProgress = {
   caption?: string;
   eventCaptions?: string[];
   photoTagUsernames?: string[];
+  locationIds?: string[];
   imageUrls?: string[];
   /** @deprecated Reels path. Image posts use `imageUrls`. */
   videoUrls?: string[];
@@ -56,6 +57,7 @@ export type TodaySpotlightStepResult = {
   caption?: string;
   eventCaptions?: string[];
   photoTagUsernames?: string[];
+  locationIds?: string[];
   imageUrls?: string[];
   videoUrls?: string[];
   link?: string;
@@ -138,6 +140,10 @@ export async function runTodaySpotlightStep(input: {
   skipPhotoTags?: boolean;
   /** Per-event photo-tag overrides (id → username, or "" to skip). */
   photoTagOverrides?: Record<string, string>;
+  /** Skip Instagram location tags. */
+  skipLocations?: boolean;
+  /** Per-event Facebook Page location overrides (id → page id, or "" to skip). */
+  locationOverrides?: Record<string, string>;
   channel?: SpotlightChannel;
   progress?: TodaySpotlightProgress;
 }): Promise<{ status: number; body: TodaySpotlightStepResult }> {
@@ -172,6 +178,8 @@ export async function runTodaySpotlightStep(input: {
     onlyEventIds: onlyEventIds.length ? onlyEventIds : undefined,
     skipPhotoTags: input.skipPhotoTags,
     photoTagOverrides: input.photoTagOverrides,
+    skipLocations: input.skipLocations,
+    locationOverrides: input.locationOverrides,
     ...spotlightPickOptionsForSource(channel, { specialsAlreadyPosted }),
   });
   if (!built.ok) {
@@ -213,6 +221,7 @@ export async function runTodaySpotlightStep(input: {
     caption: built.post.caption,
     eventCaptions: built.post.eventCaptions,
     photoTagUsernames: built.post.photoTagUsernames,
+    locationIds: built.post.locationIds,
     imageUrls: built.post.imageUrls,
     videoUrls: input.progress?.videoUrls,
     link: built.post.link,
@@ -234,6 +243,7 @@ export async function runTodaySpotlightStep(input: {
         caption: claimed.record.caption,
         eventCaptions: claimed.record.eventCaptions,
         photoTagUsernames: claimed.record.photoTagUsernames,
+        locationIds: claimed.record.locationIds,
         imageUrls: claimed.record.imageUrls,
         videoUrls: claimed.record.videoUrls,
         link: claimed.record.link,
@@ -277,6 +287,11 @@ export async function runTodaySpotlightStep(input: {
     : progress.photoTagUsernames?.length
       ? progress.photoTagUsernames
       : built.post.photoTagUsernames;
+  const locationIds = record?.locationIds?.length
+    ? record.locationIds
+    : progress.locationIds?.length
+      ? progress.locationIds
+      : built.post.locationIds;
   const imageUrls = record?.imageUrls?.length
     ? record.imageUrls
     : progress.imageUrls?.length
@@ -295,6 +310,7 @@ export async function runTodaySpotlightStep(input: {
     caption,
     eventCaptions,
     photoTagUsernames,
+    locationIds,
     imageUrls,
     videoUrls,
     link,
@@ -329,6 +345,7 @@ export async function runTodaySpotlightStep(input: {
       caption: job.caption,
       eventCaptions: job.eventCaptions,
       photoTagUsernames: job.photoTagUsernames,
+      locationIds: job.locationIds,
       imageUrls: job.imageUrls,
       videoUrls: patch.videoUrls ?? job.videoUrls,
       link: job.link,
@@ -357,6 +374,7 @@ export async function runTodaySpotlightStep(input: {
         caption: job.caption,
         eventCaptions: job.eventCaptions,
         photoTagUsernames: job.photoTagUsernames,
+        locationIds: job.locationIds,
         imageUrls: job.imageUrls,
         videoUrls: job.videoUrls,
         link: job.link,
@@ -426,6 +444,7 @@ export async function runTodaySpotlightStep(input: {
     caption: job.caption,
     eventCaptions: job.eventCaptions,
     photoTagUsernames: job.photoTagUsernames,
+    locationIds: job.locationIds,
     imageUrls: job.imageUrls,
     videoUrls: job.videoUrls,
     link: job.link,
@@ -533,6 +552,7 @@ export async function runTodaySpotlightStep(input: {
       .split(",")
       .map((tag) => tag.trim())
       .filter((tag) => tag.length > 0);
+    const locationId = job.locationIds?.[index]?.trim() || undefined;
     const created = await createInstagramMediaContainers(config, {
       imageUrls: [imageUrl],
       caption: eventCaption,
@@ -540,6 +560,7 @@ export async function runTodaySpotlightStep(input: {
       userTags: tagUsernames.length
         ? tagUsernames.map((username) => ({ username }))
         : undefined,
+      locationId,
     });
     if (!created.ok) {
       const fail = graphFail(created.error);

@@ -117,6 +117,10 @@ type PostBody = Partial<MetaPublishInput> &
     skipPhotoTags?: boolean;
     /** Per-event photo-tag overrides (id → username, or "" to skip). */
     photoTagOverrides?: Record<string, string>;
+    /** Skip Instagram location tags. */
+    skipLocations?: boolean;
+    /** Per-event Facebook Page location overrides (id → page id, or "" to skip). */
+    locationOverrides?: Record<string, string>;
     step?: "next" | "all";
     /** Upload a still-derived MP4 for Instagram Reels hosting. */
     action?: "upload-reel" | "render-story-card";
@@ -258,6 +262,8 @@ export async function POST(request: NextRequest) {
           onlyEventIds: onlyEventIds.length ? onlyEventIds : undefined,
           skipPhotoTags: body.skipPhotoTags,
           photoTagOverrides: body.photoTagOverrides,
+          skipLocations: body.skipLocations,
+          locationOverrides: body.locationOverrides,
           ...spotlightPickOptionsForSource(channel, { specialsAlreadyPosted }),
         });
       } catch (error) {
@@ -291,6 +297,7 @@ export async function POST(request: NextRequest) {
           ...dryPayload,
           eventCaptions: built.post.eventCaptions,
           photoTagUsernames: built.post.photoTagUsernames,
+          locationIds: built.post.locationIds,
           photoTags: built.post.events.map((event, index) => {
             const usernames = (event.photoTagUsernames?.length
               ? event.photoTagUsernames
@@ -305,6 +312,12 @@ export async function POST(request: NextRequest) {
               source: usernames.length ? "curated" : null,
             };
           }),
+          locations: built.post.events.map((event, index) => ({
+            eventId: event.id,
+            locationId: built.post.locationIds[index] || null,
+            name: event.locationName ?? event.place ?? null,
+            source: built.post.locationIds[index] ? "venue" : null,
+          })),
         },
         {
           status: dryPayload.rateLimited
@@ -333,6 +346,8 @@ export async function POST(request: NextRequest) {
         onlyEventIds: onlyEventIds.length ? onlyEventIds : undefined,
         skipPhotoTags: body.skipPhotoTags,
         photoTagOverrides: body.photoTagOverrides,
+        skipLocations: body.skipLocations,
+        locationOverrides: body.locationOverrides,
         channel,
         progress: {
           facebookId: body.facebookId,
@@ -343,6 +358,7 @@ export async function POST(request: NextRequest) {
           caption: body.caption,
           eventCaptions: body.eventCaptions,
           photoTagUsernames: body.photoTagUsernames,
+          locationIds: body.locationIds,
           imageUrls: body.imageUrls,
           videoUrls: body.videoUrls,
           link: body.link,

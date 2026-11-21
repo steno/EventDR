@@ -45,6 +45,11 @@ export type SpotlightLockRecord = {
    * Empty string = no photo tag for that event.
    */
   photoTagUsernames?: string[];
+  /**
+   * Per-event Facebook Page location ids (parallel to eventIds).
+   * Empty string = no IG location for that event.
+   */
+  locationIds?: string[];
   imageUrls?: string[];
   /** Parallel to eventIds — public MP4 URLs for Instagram Reels. */
   videoUrls?: string[];
@@ -271,6 +276,7 @@ export function lockRecordForWrite(
     ...(record.photoTagUsernames?.length
       ? { photoTagUsernames: record.photoTagUsernames }
       : {}),
+    ...(record.locationIds?.length ? { locationIds: record.locationIds } : {}),
     ...(record.imageUrls?.length ? { imageUrls: record.imageUrls } : {}),
     ...(record.videoUrls?.length ? { videoUrls: record.videoUrls } : {}),
     ...(record.link ? { link: record.link } : {}),
@@ -318,6 +324,7 @@ function asLockRecord(data: DocumentData | undefined) {
     caption: typeof data.caption === "string" ? data.caption : undefined,
     eventCaptions: stringList(data.eventCaptions),
     photoTagUsernames: stringListAllowEmpty(data.photoTagUsernames),
+    locationIds: stringListAllowEmpty(data.locationIds),
     imageUrls: stringList(data.imageUrls),
     videoUrls: stringList(data.videoUrls),
     link: typeof data.link === "string" ? data.link : undefined,
@@ -403,6 +410,7 @@ export async function claimTodaySpotlightLock(input: {
   caption?: string;
   eventCaptions?: string[];
   photoTagUsernames?: string[];
+  locationIds?: string[];
   imageUrls?: string[];
   videoUrls?: string[];
   link?: string;
@@ -472,6 +480,10 @@ export async function claimTodaySpotlightLock(input: {
           keep && !refreshUnposted
             ? (keep.photoTagUsernames ?? input.photoTagUsernames)
             : input.photoTagUsernames,
+        locationIds:
+          keep && !refreshUnposted
+            ? (keep.locationIds ?? input.locationIds)
+            : input.locationIds,
         imageUrls:
           keep && !refreshUnposted
             ? (keep.imageUrls ?? input.imageUrls)
@@ -508,6 +520,7 @@ export async function finishTodaySpotlightLock(input: {
   caption?: string;
   eventCaptions?: string[];
   photoTagUsernames?: string[];
+  locationIds?: string[];
   imageUrls?: string[];
   videoUrls?: string[];
   link?: string;
@@ -562,6 +575,7 @@ export async function finishTodaySpotlightLock(input: {
         eventCaptions: input.eventCaptions ?? existing?.eventCaptions,
         photoTagUsernames:
           input.photoTagUsernames ?? existing?.photoTagUsernames,
+        locationIds: input.locationIds ?? existing?.locationIds,
         imageUrls: input.imageUrls ?? existing?.imageUrls,
         videoUrls: input.videoUrls ?? existing?.videoUrls,
         link: input.link ?? existing?.link,

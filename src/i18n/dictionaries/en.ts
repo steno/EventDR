@@ -78,6 +78,10 @@ export type Dictionary = {
     browseDayPrev: string;
     /** Desktop All calendar — next event in a day column slider. */
     browseDayNext: string;
+    /** Desktop All day-fold — overflow tile label. Use `{count}`. */
+    moreThatDay: string;
+    /** Desktop All day-fold — overflow tile aria. Use `{count}`. */
+    moreThatDayAria: string;
     /** Load-more on a category list. Use `{category}`. */
     moreCategory: string;
     /** Short-list CTA headline inviting submissions. */
@@ -853,6 +857,8 @@ export const en: Dictionary = {
     moreEvents: "More events",
     browseDayPrev: "Previous event that day",
     browseDayNext: "Next event that day",
+    moreThatDay: "+{count} more",
+    moreThatDayAria: "Show {count} more events that day",
     moreCategory: "More {category}",
     yourEventHereTitle: "Your event here?",
     yourEventHere: "Add your {category} event",

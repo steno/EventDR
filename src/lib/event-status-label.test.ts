@@ -91,6 +91,29 @@ describe("resolveLiveStatusDisplay untimed", () => {
     assert.equal(display, null);
   });
 
+  it("omits Today / Tomorrow on All day groups — the day header already says it", () => {
+    const martesSensorial = {
+      date: "2026-09-15",
+      recurrence: "weekly" as const,
+    };
+    assert.equal(
+      resolveLiveStatusDisplay(martesSensorial, dict, tuesdayNoon, {
+        omitRelativeDayLabels: true,
+      }),
+      null,
+    );
+    const tomorrowShow = {
+      date: "2026-09-16",
+      time: "8:00 PM–11:00 PM",
+    };
+    assert.equal(
+      resolveLiveStatusDisplay(tomorrowShow, dict, tuesdayNoon, {
+        omitRelativeDayLabels: true,
+      }),
+      null,
+    );
+  });
+
   it("still says happening today for a timed event later the same day", () => {
     const eveningShow = {
       date: "2026-09-12",

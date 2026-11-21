@@ -8136,6 +8136,38 @@
     "imageEmoji": "🪗"
   },
   {
+    "id": "isabela-food-fest-kiry-curu-2026-12-19",
+    "title": "Isabela Food Fest — Kiry Curu",
+    "description": "Kiry Curu (artiste confirmé) à Isabela Food Fest, Parque Municipal Villa Isabela — samedi 19 décembre 2026. Soirée du samedi du festival de trois jours (18–20 déc.) ; même soirée au parc que Los Simpáticos Típicos — voir la fiche principale Isabela Food Fest pour tout le week-end. Billets sur todotickets.do et Plaza Lama ; infos et réservations +1 829-336-6802 · Instagram @isabelafoodfest / @kirycuru. Affiche urbaine du festival à Villa Isabela — pas le Kiry Curu live d’octobre à Twenty Disco (Playa Dorada Mall), ni le gran cierre Bulin 47 du dimanche.",
+    "date": "2026-12-19",
+    "location": "Villa Isabela",
+    "venue": "Parque Municipal Villa Isabela",
+    "venueSlug": "parque-municipal-villa-isabela",
+    "address": "Parque Municipal, Villa Isabela, Puerto Plata",
+    "lat": 19.813027,
+    "lng": -71.055725,
+    "category": "concert",
+    "categories": [
+      "festivals",
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18293366802",
+    "ticketUrl": "https://todotickets.do",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/isabelafoodfest/",
+    "instagram": "isabelafoodfest",
+    "lineup": [
+      "Kiry Curu"
+    ],
+    "imageEmoji": "🎤",
+    "photoTags": [
+      "kirycuru"
+    ]
+  },
+  {
     "id": "isabela-food-fest-bulin-47-2026-12-20",
     "title": "Isabela Food Fest — Bulin 47 Gran Cierre",
     "description": "Gran cierre avec Bulin 47 (El más pegado) à Isabela Food Fest, Parque Municipal Villa Isabela — dimanche 20 décembre 2026. Soirée de clôture du festival de trois jours (18–20 déc.) ; même soirée au parc que Ronny Manuel et DJ Melcocha — voir la fiche principale Isabela Food Fest pour tout le week-end. Billets sur todotickets.do, Plaza Lama et C28 ; infos et réservations +1 829-336-6802 · Instagram @isabelafoodfest. Concert de clôture à Villa Isabela — pas le show Bulin 47 au Ground Zero le 6 novembre.",

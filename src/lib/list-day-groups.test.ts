@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import {
+  browseDayFoldPlan,
   browseDayHeadingDate,
   defaultOpenWeekendDay,
   eventsInAllBrowseOrder,
@@ -225,6 +226,18 @@ describe("eventsInAllBrowseOrder", () => {
       ordered.map((item) => item.id),
       ["today-b", "today-a", "week-live", "week-later"],
     );
+  });
+});
+
+describe("browseDayFoldPlan", () => {
+  it("shows all events when under the fold cap", () => {
+    assert.deepEqual(browseDayFoldPlan(1), { show: 1, more: 0 });
+    assert.deepEqual(browseDayFoldPlan(4), { show: 4, more: 0 });
+  });
+
+  it("reserves one slot for +N more above the cap", () => {
+    assert.deepEqual(browseDayFoldPlan(5), { show: 3, more: 2 });
+    assert.deepEqual(browseDayFoldPlan(8), { show: 3, more: 5 });
   });
 });
 

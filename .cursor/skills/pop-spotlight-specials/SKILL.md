@@ -83,13 +83,13 @@ For each id: `https://pop-event.com/api/ig-card/{id}.jpg` (or localhost while
 iterating). Confirm flyer fills the cream card (no cream letterbox; orange
 frame only outside).
 
-### 3. Assign locale + photo tags (required)
+### 3. Assign locale + photo tags + location (required)
 
 Before posting, build a table and show it to the user:
 
-| Event id | Venue | Locale | Photo tags | Why |
-|----------|-------|--------|------------|-----|
-| … | … | `es` or `en` | `@venue` · `@dj` or — | … |
+| Event id | Venue | Locale | Photo tags | Location | Why |
+|----------|-------|--------|------------|----------|-----|
+| … | … | `es` or `en` | `@venue` · `@dj` or — | venue map or — | … |
 
 **Photo tags** (Instagram “tag people” on the image):
 
@@ -104,6 +104,18 @@ Before posting, build a table and show it to the user:
   `photoTagOverrides: { "event-id": "venue,dj_handle" }` or `""` to skip;
   `SKIP_PHOTO_TAGS=true` / `skipPhotoTags: true` for the whole run.
 - Missing venue Instagram → still tag curated DJ/promoter `photoTags` when set.
+
+**Location** (Instagram map pin on the image):
+
+- From curated `Venue.facebookPlaceId` — a **Facebook Page id that has physical
+  location** (Graph Pages Search). Not Google `place_id`, not lat/lng alone.
+- Dry-run returns `locations[]` / `locationIds[]` — show the venue name in the table.
+- Auto-applied on go-live so you do not hand-add the pin in the IG app.
+- Missing `facebookPlaceId` → no location tag (caption still has the place name).
+- Override with `locationOverrides: { "event-id": "PAGE_ID" }` or `""` to skip;
+  `SKIP_LOCATIONS=true` / `skipLocations: true` for the whole run.
+- When seeding a new venue, add `facebookPlaceId` once you confirm the Page has
+  a location (Pages Search `fields=id,name,location`).
 
 **Default heuristics** (override when the user says otherwise):
 
@@ -123,7 +135,7 @@ locale for that event.
 Send:
 
 1. Mode (today specials / tomorrow specials / this post)  
-2. Locale + photo-tag table  
+2. Locale + photo-tag + location table  
 3. Sample `es` and/or `en` IG captions  
 4. Card URLs  
 

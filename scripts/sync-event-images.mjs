@@ -167,6 +167,8 @@ const FILE_TO_EVENT_ID = {
     "isabela-food-fest-dj-melcocha-2026-12-20",
   "isabela-food-fest-simpaticos-tipicos-2026-12-19.jpg":
     "isabela-food-fest-simpaticos-tipicos-2026-12-19",
+  "isabela-food-fest-kiry-curu-2026-12-19.jpg":
+    "isabela-food-fest-kiry-curu-2026-12-19",
   "el-patio-de-frida-friday-karaoke.jpg": "el-patio-de-frida-friday-karaoke",
   "the-last-drink-domingo-de-pasarela.jpg":
     "the-last-drink-domingo-de-pasarela",

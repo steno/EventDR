@@ -172,3 +172,20 @@ export function eventsInWeekendOrder<T extends DatedEvent>(
 ): T[] {
   return splitWeekendDayGroups(events, now).flatMap((group) => group.events);
 }
+
+/** Max posters in a fixed desktop All day-fold cell before “+N more”. */
+export const BROWSE_DAY_FOLD_CAP = 4;
+
+/**
+ * How many events to render inside a fixed day cell vs a “+N more” tile.
+ * Cap 4 → show all when ≤4; otherwise show 3 posters + one more tile.
+ */
+export function browseDayFoldPlan(
+  eventCount: number,
+  cap: number = BROWSE_DAY_FOLD_CAP,
+): { show: number; more: number } {
+  if (eventCount <= 0) return { show: 0, more: 0 };
+  if (eventCount <= cap) return { show: eventCount, more: 0 };
+  const show = Math.max(1, cap - 1);
+  return { show, more: eventCount - show };
+}

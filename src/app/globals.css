@@ -1814,9 +1814,14 @@ html.dark .pull-reload__spinner {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  /*
+   * Hang Santas statically; keep a soft snow dusting visible. The @layer base
+   * rule also sets animation-duration: 0.01ms — without animation:none flakes
+   * snap to the end keyframe (opacity ~0.15 at the bottom) and look “gone”.
+   */
   .christmas-santa,
   .christmas-snowflake {
-    animation: none;
+    animation: none !important;
   }
 
   .christmas-santa--0 {
@@ -1832,8 +1837,63 @@ html.dark .pull-reload__spinner {
   }
 
   .christmas-snowflake {
-    opacity: 0.45;
-    transform: translate3d(0, 2.5rem, 0);
+    opacity: 0.7;
+  }
+
+  .christmas-snowflake--0 {
+    transform: translate3d(0, 1.2rem, 0);
+  }
+  .christmas-snowflake--1 {
+    transform: translate3d(0, 2.4rem, 0);
+  }
+  .christmas-snowflake--2 {
+    transform: translate3d(0, 3.6rem, 0);
+  }
+  .christmas-snowflake--3 {
+    transform: translate3d(0, 1.8rem, 0);
+  }
+  .christmas-snowflake--4 {
+    transform: translate3d(0, 3rem, 0);
+  }
+  .christmas-snowflake--5 {
+    transform: translate3d(0, 4.2rem, 0);
+  }
+
+  .christmas-snowflake:nth-child(7) {
+    transform: translate3d(0, 2.1rem, 0);
+  }
+  .christmas-snowflake:nth-child(8) {
+    transform: translate3d(0, 3.3rem, 0);
+  }
+  .christmas-snowflake:nth-child(9) {
+    transform: translate3d(0, 4.5rem, 0);
+  }
+  .christmas-snowflake:nth-child(10) {
+    transform: translate3d(0, 1.5rem, 0);
+  }
+  .christmas-snowflake:nth-child(11) {
+    transform: translate3d(0, 2.7rem, 0);
+  }
+  .christmas-snowflake:nth-child(12) {
+    transform: translate3d(0, 3.9rem, 0);
+  }
+  .christmas-snowflake:nth-child(13) {
+    transform: translate3d(0, 2rem, 0);
+  }
+  .christmas-snowflake:nth-child(14) {
+    transform: translate3d(0, 3.5rem, 0);
+  }
+  .christmas-snowflake:nth-child(15) {
+    transform: translate3d(0, 4.8rem, 0);
+  }
+  .christmas-snowflake:nth-child(16) {
+    transform: translate3d(0, 1.4rem, 0);
+  }
+  .christmas-snowflake:nth-child(17) {
+    transform: translate3d(0, 2.8rem, 0);
+  }
+  .christmas-snowflake:nth-child(18) {
+    transform: translate3d(0, 4rem, 0);
   }
 }
 

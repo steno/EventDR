@@ -20,6 +20,11 @@ export interface LiveStatusDisplay {
 export interface LiveStatusDisplayOptions {
   /** Skip date badges when the parent list is already filtered to that range. */
   listTimeRange?: TimeRange;
+  /**
+   * All-tab day groups already name the day — omit Today / Tomorrow chips.
+   * Keep Ended / live / starts-soon / closed.
+   */
+  omitRelativeDayLabels?: boolean;
 }
 
 export function formatEventLiveStatusLabel(
@@ -137,7 +142,12 @@ export function resolveLiveStatusDisplay(
   // Near-future list cards (Our picks "All") — intraday labels are misleading here.
   if (start > today) {
     if (start === addDaysISO(today, 1)) {
-      if (options?.listTimeRange === "tomorrow") return null;
+      if (
+        options?.listTimeRange === "tomorrow" ||
+        options?.omitRelativeDayLabels
+      ) {
+        return null;
+      }
       return { status: "upcoming", label: dict.time.tomorrow };
     }
     return null;
@@ -147,17 +157,21 @@ export function resolveLiveStatusDisplay(
 
   // Untimed / missing clocks: calm "Happening today" (not "Happening now").
   // Skip on-request labels. On the Today rail/list the section already says
-  // Today — omit the chip for timed and untimed alike.
+  // Today — omit the chip for timed and untimed alike. Same for All day groups.
   if (status === "unknown") {
     if (isOnRequestHoursLabel(event.time)) return null;
-    if (options?.listTimeRange === "today") return null;
+    if (options?.listTimeRange === "today" || options?.omitRelativeDayLabels) {
+      return null;
+    }
     return { status: "unknown", label: dict.events.happeningToday };
   }
 
   // Same calendar day, doors still hours away — don't cry "starts soon" at 12:30 AM.
   // Timed events still get a calm "Happening today" until doors are soon.
   if (status === "upcoming" && !isStartingSoon(event, now)) {
-    if (options?.listTimeRange === "today") return null;
+    if (options?.listTimeRange === "today" || options?.omitRelativeDayLabels) {
+      return null;
+    }
     return { status: "unknown", label: dict.events.happeningToday };
   }
 

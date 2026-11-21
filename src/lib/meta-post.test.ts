@@ -13,6 +13,7 @@ import {
   isMetaRateLimitError,
   META_CAPTION_MAX,
   metaGraphRequest,
+  normalizeFacebookPlaceId,
   normalizeInstagramUsername,
   publishToMeta,
   type MetaPostConfig,
@@ -35,6 +36,15 @@ describe("normalizeInstagramUsername", () => {
     assert.equal(normalizeInstagramUsername("  "), null);
     assert.equal(normalizeInstagramUsername("!!!"), null);
     assert.equal(normalizeInstagramUsername("bad handle!"), "bad");
+  });
+});
+
+describe("normalizeFacebookPlaceId", () => {
+  it("keeps digits-only Page ids", () => {
+    assert.equal(normalizeFacebookPlaceId("1392027960913263"), "1392027960913263");
+    assert.equal(normalizeFacebookPlaceId(" id:1392027960913263 "), "1392027960913263");
+    assert.equal(normalizeFacebookPlaceId("abc"), null);
+    assert.equal(normalizeFacebookPlaceId(""), null);
   });
 });
 
@@ -260,7 +270,7 @@ describe("meta-post", () => {
     assert.deepEqual(paths, ["POST /ig-1/media", "POST /ig-1/media"]);
   });
 
-  it("sends user_tags on single-image Instagram containers", async () => {
+  it("sends user_tags and location_id on single-image Instagram containers", async () => {
     let body = "";
     const fetchImpl: typeof fetch = async (_input, init) => {
       body = String(init?.body ?? "");
@@ -273,12 +283,14 @@ describe("meta-post", () => {
         caption: "Tonight",
         carousel: false,
         userTags: [{ username: "@luxury.club.puerto_plata" }],
+        locationId: "1392027960913263",
       },
       fetchImpl,
     );
     assert.equal(created.ok, true);
     assert.match(body, /user_tags=/);
     assert.match(body, /luxury\.club\.puerto_plata/);
+    assert.match(body, /location_id=1392027960913263/);
   });
 
   it("omits user_tags on carousel children", async () => {

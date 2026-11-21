@@ -84,8 +84,21 @@ export function formatEventDateShort(dateStr: string, locale: Locale): string {
  * Locale-aware long weekday + short month, then uppercased for the strip.
  */
 export function formatBrowseDayHeader(dateStr: string, locale: Locale): string {
+  const parts = browseDayTearOffParts(dateStr, locale);
+  if (!parts) return dateStr;
+  return `${parts.weekday} - ${parts.month.toUpperCase()}. ${parts.day}`;
+}
+
+/**
+ * Tear-off calendar badge parts for desktop All day trays
+ * (month band + day number). Null when the ISO date is invalid.
+ */
+export function browseDayTearOffParts(
+  dateStr: string,
+  locale: Locale,
+): { weekday: string; month: string; day: number } | null {
   const utc = calendarDateFromISO(dateStr);
-  if (!utc) return dateStr;
+  if (!utc) return null;
 
   const weekday = utc
     .toLocaleDateString(DATE_LOCALES[locale], {
@@ -101,7 +114,6 @@ export function formatBrowseDayHeader(dateStr: string, locale: Locale): string {
       timeZone: "UTC",
     })
     .replace(/\.$/, "")
-    .trim()
-    .toUpperCase();
-  return `${weekday} - ${month}. ${utc.getUTCDate()}`;
+    .trim();
+  return { weekday, month, day: utc.getUTCDate() };
 }

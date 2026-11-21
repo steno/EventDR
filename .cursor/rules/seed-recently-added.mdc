@@ -76,6 +76,13 @@ with `Venue.instagram` for Meta photo tags. Do not scrape every `@` from the
 description — only confirmed talent/promoter handles. Venue handle stays on the
 venue seed, not duplicated here unless there is no venue Instagram.
 
+## 6c. Instagram location (Facebook Place Page)
+
+For spotlight map pins, set `facebookPlaceId` on the **venue** seed when you have a
+Facebook Page id that includes physical `location` (Pages Search). Instagram Graph
+uses that as `location_id` — Google `place_id` will not work. Fill as venues are
+confirmed; missing id simply skips the IG location tag.
+
 ## 7. Contingent sports series (watch nights / playoffs)
 
 When a flyer or bar bills a **best-of-N**, “if necessary”, or other series that can end before the last listed date (NLCS, World Series, Licey playoffs, etc.):

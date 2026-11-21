@@ -6928,10 +6928,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "isabela-food-fest-2026-12-18",
-    body: "Three-day pueblo fest at Parque Municipal Villa Isabela (18–20 Dec) — food, DJs, and live acts on the glorieta plaza; La Perversa and Carlos El Gusto Friday, Los Simpáticos Típicos (and DJ Flacome) Saturday, Ronny Manuel plus DJ Melcocha and Bulin 47 gran cierre Sunday (own listings) — buy tickets on todotickets.do / Plaza Lama, and don’t confuse it with D'Ocean’s Oct 31 Halloween night in the same town.",
+    body: "Three-day pueblo fest at Parque Municipal Villa Isabela (18–20 Dec) — food, DJs, and live acts on the glorieta plaza; La Perversa and Carlos El Gusto Friday, Los Simpáticos Típicos plus Kiry Curu (and DJ Flacome) Saturday, Ronny Manuel plus DJ Melcocha and Bulin 47 gran cierre Sunday (own listings) — buy tickets on todotickets.do / Plaza Lama, and don’t confuse it with D'Ocean’s Oct 31 Halloween night in the same town.",
     localized: {
-      es: "Fest del pueblo de tres días en el Parque Municipal Villa Isabela (18–20 dic) — comida, DJs y actos en vivo en la plaza de la glorieta; La Perversa y Carlos El Gusto el viernes, Los Simpáticos Típicos (y DJ Flacome) el sábado, Ronny Manuel más DJ Melcocha y Bulin 47 gran cierre el domingo (fichas aparte) — compra boletas en todotickets.do / Plaza Lama, y no lo confundas con el Halloween del 31 oct en D'Ocean en el mismo pueblo.",
-      fr: "Fest du pueblo de trois jours au Parque Municipal Villa Isabela (18–20 déc.) — food, DJs et acts live sur la place de la gloriette ; La Perversa et Carlos El Gusto le vendredi, Los Simpáticos Típicos (et DJ Flacome) le samedi, Ronny Manuel plus DJ Melcocha et Bulin 47 gran cierre le dimanche (fiches séparées) — achetez les billets sur todotickets.do / Plaza Lama, et ne confondez pas avec l’Halloween du 31 oct. au D'Ocean dans la même ville.",
+      es: "Fest del pueblo de tres días en el Parque Municipal Villa Isabela (18–20 dic) — comida, DJs y actos en vivo en la plaza de la glorieta; La Perversa y Carlos El Gusto el viernes, Los Simpáticos Típicos más Kiry Curu (y DJ Flacome) el sábado, Ronny Manuel más DJ Melcocha y Bulin 47 gran cierre el domingo (fichas aparte) — compra boletas en todotickets.do / Plaza Lama, y no lo confundas con el Halloween del 31 oct en D'Ocean en el mismo pueblo.",
+      fr: "Fest du pueblo de trois jours au Parque Municipal Villa Isabela (18–20 déc.) — food, DJs et acts live sur la place de la gloriette ; La Perversa et Carlos El Gusto le vendredi, Los Simpáticos Típicos plus Kiry Curu (et DJ Flacome) le samedi, Ronny Manuel plus DJ Melcocha et Bulin 47 gran cierre le dimanche (fiches séparées) — achetez les billets sur todotickets.do / Plaza Lama, et ne confondez pas avec l’Halloween du 31 oct. au D'Ocean dans la même ville.",
     },
     priceFeel: "varies",
     priceNote: "Tickets todotickets.do / Plaza Lama · info +1 829-336-6802",
@@ -6940,17 +6940,17 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       fr: "Billets todotickets.do / Plaza Lama · infos +1 829-336-6802",
     },
     attribution:
-      "POP research · @isabelafoodfest official poster + La Perversa + Carlos El Gusto + Simpáticos Típicos + DJ Flacome + Ronny Manuel + DJ Melcocha + Bulin 47 gran cierre",
+      "POP research · @isabelafoodfest official poster + La Perversa + Carlos El Gusto + Simpáticos Típicos + Kiry Curu + DJ Flacome + Ronny Manuel + DJ Melcocha + Bulin 47 gran cierre",
     researchNotes:
-      "Editor assets — El Festival del Pueblo official poster; La Perversa Fri 18; Carlos El Gusto Fri 18 (separate seed); Los Simpáticos Típicos Sat 19 flyer (separate seed); DJ Flacome Sat 19; Ronny Manuel Dom 20 (separate seed); DJ Melcocha Dom 20 (separate seed); Bulin 47 Dom 20 gran cierre (separate seed); more artists TBA; IG caption Dec 18–20; park place shot for venue; phone 829-336-6802.",
-    updatedAt: "2026-11-13T19:00:00.000Z",
+      "Editor assets — El Festival del Pueblo official poster; La Perversa Fri 18; Carlos El Gusto Fri 18 (separate seed); Los Simpáticos Típicos Sat 19 flyer (separate seed); Kiry Curu Sat 19 flyer (separate seed); DJ Flacome Sat 19; Ronny Manuel Dom 20 (separate seed); DJ Melcocha Dom 20 (separate seed); Bulin 47 Dom 20 gran cierre (separate seed); more artists TBA; IG caption Dec 18–20; park place shot for venue; phone 829-336-6802.",
+    updatedAt: "2026-11-21T01:00:00.000Z",
   },
   {
     eventId: "isabela-food-fest-simpaticos-tipicos-2026-12-19",
-    body: "Saturday típico bill at Isabela Food Fest with Los Simpáticos Típicos on the Parque Municipal stage — festival weekend ticket via todotickets.do / Plaza Lama, not the Sunday Bulin 47 gran cierre; pin Villa Isabela, not downtown Puerto Plata.",
+    body: "Saturday típico bill at Isabela Food Fest with Los Simpáticos Típicos on the Parque Municipal stage — same Dec 19 park night as Kiry Curu’s urbano set; festival weekend ticket via todotickets.do / Plaza Lama, not the Sunday Bulin 47 gran cierre; pin Villa Isabela, not downtown Puerto Plata.",
     localized: {
-      es: "Cartel típico del sábado en Isabela Food Fest con Los Simpáticos Típicos en el escenario del Parque Municipal — boleta del fin de semana del festival vía todotickets.do / Plaza Lama, no el gran cierre de Bulin 47 del domingo; clava Villa Isabela, no el centro de Puerto Plata.",
-      fr: "Affiche típico du samedi à Isabela Food Fest avec Los Simpáticos Típicos sur la scène du Parque Municipal — billet week-end festival via todotickets.do / Plaza Lama, pas le gran cierre Bulin 47 du dimanche ; épinglez Villa Isabela, pas le centre de Puerto Plata.",
+      es: "Cartel típico del sábado en Isabela Food Fest con Los Simpáticos Típicos en el escenario del Parque Municipal — la misma noche del 19 dic que el set urbano de Kiry Curu; boleta del fin de semana vía todotickets.do / Plaza Lama, no el gran cierre de Bulin 47 del domingo; clava Villa Isabela, no el centro de Puerto Plata.",
+      fr: "Affiche típico du samedi à Isabela Food Fest avec Los Simpáticos Típicos sur la scène du Parque Municipal — même soirée du 19 déc. que le set urbain de Kiry Curu ; billet week-end festival via todotickets.do / Plaza Lama, pas le gran cierre Bulin 47 du dimanche ; épinglez Villa Isabela, pas le centre de Puerto Plata.",
     },
     priceFeel: "varies",
     priceNote: "Tickets todotickets.do / Plaza Lama · info +1 829-336-6802",
@@ -6960,8 +6960,26 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · @isabelafoodfest Los Simpáticos Típicos flyer",
     researchNotes:
-      "Editor flyer — ARTISTAS CONFIRMADOS Los Simpáticos Típicos, Sab 19 Dic, Parque Villa Isabela; related to isabela-food-fest-2026-12-18; not bulin-47 Dom 20; phone 829-336-6802; todotickets.do / Plaza Lama.",
-    updatedAt: "2026-10-25T22:00:00.000Z",
+      "Editor flyer — ARTISTAS CONFIRMADOS Los Simpáticos Típicos, Sab 19 Dic, Parque Villa Isabela; related to isabela-food-fest-2026-12-18; same Saturday as Kiry Curu; not bulin-47 Dom 20; phone 829-336-6802; todotickets.do / Plaza Lama.",
+    updatedAt: "2026-11-21T01:00:00.000Z",
+  },
+  {
+    eventId: "isabela-food-fest-kiry-curu-2026-12-19",
+    body: "Saturday Kiry Curu at Isabela Food Fest on the Parque Municipal stage — same Dec 19 park night as Los Simpáticos Típicos; festival weekend ticket via todotickets.do / Plaza Lama, not his October Twenty Disco mall show and not Sunday’s Bulin 47 gran cierre.",
+    localized: {
+      es: "Kiry Curu el sábado en Isabela Food Fest en el escenario del Parque Municipal — la misma noche del 19 dic que Los Simpáticos Típicos; boleta del fin de semana vía todotickets.do / Plaza Lama, no su show de octubre en Twenty Disco en el mall ni el gran cierre de Bulin 47 del domingo.",
+      fr: "Kiry Curu le samedi à Isabela Food Fest sur la scène du Parque Municipal — même soirée du 19 déc. que Los Simpáticos Típicos ; billet week-end via todotickets.do / Plaza Lama, pas son show d’octobre à Twenty Disco au mall ni le gran cierre Bulin 47 du dimanche.",
+    },
+    priceFeel: "varies",
+    priceNote: "Tickets todotickets.do / Plaza Lama · info +1 829-336-6802",
+    priceNoteLocalized: {
+      es: "Boletas todotickets.do / Plaza Lama · info +1 829-336-6802",
+      fr: "Billets todotickets.do / Plaza Lama · infos +1 829-336-6802",
+    },
+    attribution: "POP research · @isabelafoodfest Kiry Curu flyer",
+    researchNotes:
+      "Editor flyer — ARTISTA CONFIRMADO Kiry Curu, Sab 19 Dic, Parque Villa Isabela; related to isabela-food-fest-2026-12-18; same Saturday as Simpáticos Típicos; not twenty-disco-kiry-curu-2026-10-16; not bulin-47 Dom 20; phone 829-336-6802; todotickets.do / Plaza Lama; photoTags kirycuru.",
+    updatedAt: "2026-11-21T01:00:00.000Z",
   },
   {
     eventId: "isabela-food-fest-bulin-47-2026-12-20",

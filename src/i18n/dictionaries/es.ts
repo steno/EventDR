@@ -100,6 +100,8 @@ export const es: Dictionary = {
     moreEvents: "Más eventos",
     browseDayPrev: "Evento anterior ese día",
     browseDayNext: "Siguiente evento ese día",
+    moreThatDay: "+{count} más",
+    moreThatDayAria: "Mostrar {count} eventos más ese día",
     moreCategory: "Más {category}",
     yourEventHereTitle: "¿Tu evento aquí?",
     yourEventHere: "Agrega tu evento de {category}",

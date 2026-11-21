@@ -5,6 +5,7 @@ import {
   buildTodaySpotlightCaption,
   otherSpotlightChannel,
   pickTodaySpotlights,
+  resolveSpotlightLocationId,
   resolveSpotlightPhotoTagUsernames,
   sameSpotlightEventSet,
   spotlightCaptionIntro,
@@ -799,6 +800,38 @@ describe("toAbsoluteMetaImageUrl", () => {
   it("rejects off-site images", () => {
     assert.equal(
       toAbsoluteMetaImageUrl("https://cdn.example/photo.jpg"),
+      undefined,
+    );
+  });
+});
+
+describe("resolveSpotlightLocationId", () => {
+  it("uses curated Venue.facebookPlaceId", () => {
+    assert.equal(
+      resolveSpotlightLocationId({ venueSlug: "meclao-rooftop" }),
+      "1392027960913263",
+    );
+    assert.equal(
+      resolveSpotlightLocationId({ venueSlug: "ambar-lounge-pop" }),
+      "100087903711781",
+    );
+    assert.equal(
+      resolveSpotlightLocationId({ venueSlug: "voyvoy-cabarete" }),
+      "40851072838",
+    );
+    assert.equal(
+      resolveSpotlightLocationId({ venueSlug: "xanadu-resort-hodelpa" }),
+      undefined,
+    );
+  });
+
+  it("honors overrides and null skip", () => {
+    assert.equal(
+      resolveSpotlightLocationId({ venueSlug: "meclao-rooftop" }, "999888777"),
+      "999888777",
+    );
+    assert.equal(
+      resolveSpotlightLocationId({ venueSlug: "meclao-rooftop" }, null),
       undefined,
     );
   });

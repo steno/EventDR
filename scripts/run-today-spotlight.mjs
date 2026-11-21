@@ -17,6 +17,7 @@
  *   EXCLUDE_EVENT_IDS=a,b    Skip these ids
  *   ONLY_EVENT_IDS=a,b       Post exactly these (“run this post”)
  *   SKIP_PHOTO_TAGS=true     Do not photo-tag venue Instagram accounts
+ *   SKIP_LOCATIONS=true      Do not tag Instagram map locations
  *   TODAY_SPECIALS=true      Today’s specials only
  *   TOMORROW_SPECIALS=true   Tomorrow’s specials only
  *   SOURCE=today|today-specials|tomorrow-specials|manual
@@ -57,6 +58,7 @@ const SPOTLIGHT_SOURCE = ONLY_EVENT_IDS.length
         ? "manual"
         : "today";
 const SKIP_PHOTO_TAGS = process.env.SKIP_PHOTO_TAGS === "true";
+const SKIP_LOCATIONS = process.env.SKIP_LOCATIONS === "true";
 const MAX_STEPS = 80;
 const WAIT_MS = 4_000;
 
@@ -105,6 +107,7 @@ function progressFrom(json) {
     caption: json.caption,
     eventCaptions: json.eventCaptions,
     photoTagUsernames: json.photoTagUsernames,
+    locationIds: json.locationIds,
     imageUrls: json.imageUrls,
     videoUrls: json.videoUrls,
     link: json.link,
@@ -133,6 +136,7 @@ async function main() {
     excludeEventIds: EXCLUDE_EVENT_IDS.length ? EXCLUDE_EVENT_IDS : undefined,
     onlyEventIds: ONLY_EVENT_IDS.length ? ONLY_EVENT_IDS : undefined,
     skipPhotoTags: SKIP_PHOTO_TAGS || undefined,
+    skipLocations: SKIP_LOCATIONS || undefined,
     facebook: INSTAGRAM_ONLY ? false : undefined,
     instagram: FACEBOOK_ONLY ? false : undefined,
   };

@@ -365,6 +365,8 @@ export const SEED_VENUES: Venue[] = [
     lng: -70.4066784,
     emoji: "🪩",
     instagram: "voyvoybar",
+    // Facebook Page with location — IG spotlight location_id.
+    facebookPlaceId: "40851072838",
     phone: "+18095710805",
   },
   {
@@ -530,6 +532,8 @@ export const SEED_VENUES: Venue[] = [
     emoji: "⚽",
     website: "https://www.facebook.com/profile.php?id=100089059716413",
     instagram: "diaynocherestaurantelcarey",
+    // Facebook Page with location — IG spotlight location_id.
+    facebookPlaceId: "100089059716413",
     phone: "+18494404199",
   },
   {
@@ -1174,6 +1178,8 @@ export const SEED_VENUES: Venue[] = [
     emoji: "🎤",
     website: "https://todotickets.do",
     instagram: "latindiscoclubpp",
+    // Facebook Page with location — IG spotlight location_id.
+    facebookPlaceId: "101974164621935",
   },
   {
     slug: "twenty-disco-lounge",
@@ -1404,6 +1410,8 @@ export const SEED_VENUES: Venue[] = [
     lng: -70.677453,
     emoji: "🎶",
     instagram: "meclaorooftop",
+    // Facebook Page with location — IG spotlight location_id.
+    facebookPlaceId: "1392027960913263",
     phone: "+18293747028",
   },
   {
@@ -2024,6 +2032,8 @@ export const SEED_VENUES: Venue[] = [
     emoji: "🍸",
     instagram: "ambarloungepop",
     website: "https://www.facebook.com/p/Ambar-Lounge-POP-100087903711781/",
+    // Facebook Page with location — IG spotlight location_id.
+    facebookPlaceId: "100087903711781",
     phone: "+18097818677",
   },
   {
@@ -2193,6 +2203,8 @@ export const SEED_VENUES: Venue[] = [
     emoji: "🏨",
     website: "https://villataina.com/",
     instagram: "hotelvillataina",
+    // Facebook Page with location — IG spotlight location_id.
+    facebookPlaceId: "252702564739768",
     phone: "+18095710722",
   },
   {
@@ -2556,6 +2568,8 @@ export const SEED_VENUES: Venue[] = [
     lng: -70.36949,
     emoji: "🍸",
     instagram: "puntofrio_lifebar",
+    // La Kalle / Punto Frío Facebook Page with location — IG spotlight location_id.
+    facebookPlaceId: "642225869158253",
     phone: "+18099825850",
     website: "https://www.instagram.com/puntofrio_lifebar/",
   },

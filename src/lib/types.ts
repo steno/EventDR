@@ -38,6 +38,11 @@ export interface Venue {
   website?: string;
   /** E.164 or local DR number for click-to-call. */
   phone?: string;
+  /**
+   * Facebook Page id with physical `location` — Instagram spotlight
+   * `location_id` (Pages Search). Not a Google place_id.
+   */
+  facebookPlaceId?: string;
   /** Google Places place_id when confirmed (assessments / enricher). */
   googlePlaceId?: string;
   /**

@@ -60,6 +60,16 @@ export function normalizeInstagramUsername(
   return value.toLowerCase();
 }
 
+/** Digits-only Facebook Page id suitable for IG `location_id`, or null. */
+export function normalizeFacebookPlaceId(
+  raw: string | undefined | null,
+): string | null {
+  if (!raw?.trim()) return null;
+  const digits = raw.trim().replace(/\D/g, "");
+  if (!digits || digits.length < 5 || digits.length > 20) return null;
+  return digits;
+}
+
 /** Encode photo tags for Graph `user_tags` (max 20). */
 export function encodeInstagramUserTags(
   tags: InstagramPhotoTag[],
@@ -461,6 +471,8 @@ export async function createInstagramMediaContainers(
     carousel: boolean;
     /** Photo “tag people” — curated public usernames only. */
     userTags?: InstagramPhotoTag[];
+    /** Facebook Page id with location — Graph `location_id` (not carousels). */
+    locationId?: string | null;
   },
   fetchImpl?: GraphFetch,
 ): Promise<{ ok: true; ids: string[] } | { ok: false; error: MetaGraphError }> {
@@ -477,12 +489,15 @@ export async function createInstagramMediaContainers(
     !input.carousel && input.userTags?.length
       ? encodeInstagramUserTags(input.userTags)
       : undefined;
+  const locationId =
+    !input.carousel ? normalizeFacebookPlaceId(input.locationId) : null;
   for (const [index, imageUrl] of imageUrls.entries()) {
     if (paced && index > 0) await sleep(GRAPH_WRITE_GAP_MS);
     const params: Record<string, string> = { image_url: imageUrl };
     if (input.carousel) params.is_carousel_item = "true";
     else if (input.caption) params.caption = input.caption;
     if (userTagsJson && !input.carousel) params.user_tags = userTagsJson;
+    if (locationId && !input.carousel) params.location_id = locationId;
     const child = await metaGraphRequest<{ id?: string }>(
       config,
       `${config.instagramAccountId}/media`,
@@ -735,6 +750,7 @@ export async function publishInstagramPhoto(
     caption: string;
     imageUrl: string;
     userTags?: InstagramPhotoTag[];
+    locationId?: string | null;
   },
   fetchImpl?: GraphFetch,
 ): Promise<{ ok: true; id: string } | { ok: false; error: MetaGraphError }> {
@@ -752,6 +768,8 @@ export async function publishInstagramPhoto(
     ? encodeInstagramUserTags(input.userTags)
     : undefined;
   if (userTagsJson) params.user_tags = userTagsJson;
+  const locationId = normalizeFacebookPlaceId(input.locationId);
+  if (locationId) params.location_id = locationId;
   const container = await metaGraphRequest<{ id?: string }>(
     config,
     `${config.instagramAccountId}/media`,

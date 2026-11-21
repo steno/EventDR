@@ -22,12 +22,14 @@ export function useLiveStatusDisplay(
 ): LiveStatusDisplay | null {
   const nowMs = useLiveClockMs();
   const listTimeRange = options?.listTimeRange;
+  const omitRelativeDayLabels = options?.omitRelativeDayLabels;
 
   return useMemo(() => {
     // getServerSnapshot is 0 — keep null through SSR and the hydration match pass.
     if (nowMs === 0) return null;
     return resolveLiveStatusDisplay(event, dict, new Date(nowMs), {
       listTimeRange,
+      omitRelativeDayLabels,
     });
   }, [
     dict,
@@ -40,6 +42,7 @@ export function useLiveStatusDisplay(
     event.category,
     event.categories,
     listTimeRange,
+    omitRelativeDayLabels,
     nowMs,
   ]);
 }

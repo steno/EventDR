@@ -34,6 +34,10 @@ interface EventCardProps {
   returnTitle?: string | null;
   compact?: boolean;
   listTimeRange?: TimeRange;
+  /**
+   * All-tab day groups already name the day — hide Today / Tomorrow chips.
+   */
+  omitRelativeDayLabels?: boolean;
   /** List = horizontal row; cards = image-forward grid tile. */
   view?: EventListView;
   /** Extra guest hint (e.g. cruise walk/taxi + visit time). */
@@ -176,6 +180,7 @@ const EventCardComponent = ({
   returnTitle = null,
   compact = true,
   listTimeRange,
+  omitRelativeDayLabels = false,
   view = "cards",
   note,
   pending = false,
@@ -190,7 +195,10 @@ const EventCardComponent = ({
   const category = getCategoryMeta(event.category, dict.categories);
   const emoji = event.imageEmoji ?? category?.emoji ?? "📅";
   const href = eventDetailPath(locale, event.id);
-  const liveDisplay = useLiveStatusDisplay(event, dict, { listTimeRange });
+  const liveDisplay = useLiveStatusDisplay(event, dict, {
+    listTimeRange,
+    omitRelativeDayLabels,
+  });
   const liveStatus = liveDisplay?.status ?? null;
   const liveStatusLabel = liveDisplay?.label ?? null;
   const isEndedToday = liveStatus === "ended";

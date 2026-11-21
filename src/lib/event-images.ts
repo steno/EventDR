@@ -156,6 +156,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "isabela-food-fest-bulin-47-2026-12-20.jpg",
   "isabela-food-fest-simpaticos-tipicos-2026-12-19":
     "isabela-food-fest-simpaticos-tipicos-2026-12-19.jpg",
+  "isabela-food-fest-kiry-curu-2026-12-19":
+    "isabela-food-fest-kiry-curu-2026-12-19.jpg",
   "el-patio-de-frida-friday-karaoke": "el-patio-de-frida-friday-karaoke.jpg",
   "the-last-drink-domingo-de-pasarela":
     "the-last-drink-domingo-de-pasarela.jpg",
@@ -1225,6 +1227,7 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "gypsy-bowls-last-bowl-call-2026-10-03": "object-center",
   "iss-wizard-of-oz-2026-12-17": "object-center",
   "twenty-disco-kiry-curu-2026-10-16": "object-center",
+  "isabela-food-fest-kiry-curu-2026-12-19": "object-center",
   "ivan-garcia-eulogio-badia-2026-10-24": "object-center",
   "ivan-garcia-cafe-opera-codigo-clown-2026-10-31": "object-center",
   // Portrait singer flyer — keep face in wide hero (was object-center).
@@ -1857,6 +1860,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "isabela-food-fest-2026-12-18.jpg",
   "isabela-food-fest-bulin-47-2026-12-20.jpg",
   "isabela-food-fest-simpaticos-tipicos-2026-12-19.jpg",
+  "isabela-food-fest-kiry-curu-2026-12-19.jpg",
   "el-patio-de-frida-friday-karaoke.jpg",
   "the-last-drink-domingo-de-pasarela.jpg",
   "camara-taller-educacion-financiera-2026-10-27.jpg",

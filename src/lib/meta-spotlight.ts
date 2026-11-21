@@ -17,7 +17,10 @@ import {
   weekendMetaHashtags,
 } from "@/lib/meta-post";
 import { getEventById } from "@/lib/get-event";
-import { normalizeInstagramUsername } from "@/lib/meta-post";
+import {
+  normalizeFacebookPlaceId,
+  normalizeInstagramUsername,
+} from "@/lib/meta-post";
 import { getPublicEvents } from "@/lib/public-events";
 import { SITE_URL } from "@/lib/site-url";
 import type { Event } from "@/lib/types";
@@ -98,6 +101,10 @@ export type TodaySpotlightEvent = {
    * Never scraped from description @mentions.
    */
   photoTagUsernames?: string[];
+  /** Facebook Page id for IG `location_id` (venue-curated). */
+  locationId?: string;
+  /** Venue label for dry-run / skill confirm when a location is proposed. */
+  locationName?: string;
 };
 
 export type TodayMetaPost = {
@@ -110,6 +117,11 @@ export type TodayMetaPost = {
    * Dry-run / skill must show these for confirmation before go-live.
    */
   photoTagUsernames: string[];
+  /**
+   * Proposed Facebook Page location ids parallel to `events` (empty = none).
+   * Instagram Graph `location_id` — curated `Venue.facebookPlaceId` only.
+   */
+  locationIds: string[];
   link: string;
   imageUrl: string;
   imageUrls: string[];
@@ -170,6 +182,37 @@ export function resolveSpotlightPhotoTagUsername(
   override?: string | null,
 ): string | undefined {
   return resolveSpotlightPhotoTagUsernames(event, override)[0];
+}
+
+/**
+ * Curated Instagram map location from `Venue.facebookPlaceId` (Facebook Page
+ * with physical location). Pass `override: null` / `""` to skip; a string to force.
+ */
+export function resolveSpotlightLocationId(
+  event: Pick<Event, "venueSlug">,
+  override?: string | null,
+): string | undefined {
+  if (override === null) return undefined;
+  if (typeof override === "string") {
+    return normalizeFacebookPlaceId(override) ?? undefined;
+  }
+  const slug = event.venueSlug?.trim();
+  if (!slug) return undefined;
+  return (
+    normalizeFacebookPlaceId(getSeedVenue(slug)?.facebookPlaceId) ?? undefined
+  );
+}
+
+export function resolveSpotlightLocationName(
+  event: Pick<Event, "venueSlug" | "venue">,
+): string | undefined {
+  const slug = event.venueSlug?.trim();
+  if (slug) {
+    const seed = getSeedVenue(slug);
+    if (seed?.name) return seed.name;
+  }
+  const venue = event.venue?.split(",")[0]?.trim();
+  return venue || undefined;
 }
 
 const ISO_DATE_SUFFIX = /-\d{4}-\d{2}-\d{2}$/;
@@ -622,11 +665,16 @@ function toSpotlightEvent(
   options: {
     photoTagOverride?: string | string[] | null;
     skipPhotoTags?: boolean;
+    locationOverride?: string | null;
+    skipLocations?: boolean;
   } = {},
 ): TodaySpotlightEvent {
   const photoTagUsernames = options.skipPhotoTags
     ? []
     : resolveSpotlightPhotoTagUsernames(event, options.photoTagOverride);
+  const locationId = options.skipLocations
+    ? undefined
+    : resolveSpotlightLocationId(event, options.locationOverride);
   return {
     id: event.id,
     title: event.title,
@@ -640,6 +688,10 @@ function toSpotlightEvent(
     imageUrl: spotlightShareImageUrl(event.id, origin),
     description: event.description?.trim() || undefined,
     photoTagUsernames,
+    locationId,
+    locationName: locationId
+      ? resolveSpotlightLocationName(event)
+      : undefined,
   };
 }
 
@@ -651,6 +703,10 @@ export type BuildTodayMetaPostOptions = SpotlightPickOptions & {
    * Replaces the full curated set for that event.
    */
   photoTagOverrides?: Record<string, string>;
+  /** Skip Instagram location tags. */
+  skipLocations?: boolean;
+  /** Per-event Facebook Page location overrides (id → page id, or "" to skip). */
+  locationOverrides?: Record<string, string>;
 };
 
 export async function buildTodayMetaPost(
@@ -694,10 +750,18 @@ export async function buildTodayMetaPost(
       const full = await getEventById(event.id, locale);
       const base = full ?? event;
       const override = options.photoTagOverrides?.[base.id];
+      const locationOverride = options.locationOverrides?.[base.id];
       return toSpotlightEvent(base, locale, origin, {
         skipPhotoTags: options.skipPhotoTags,
         photoTagOverride:
           override === undefined ? undefined : override === "" ? null : override,
+        skipLocations: options.skipLocations,
+        locationOverride:
+          locationOverride === undefined
+            ? undefined
+            : locationOverride === ""
+              ? null
+              : locationOverride,
       });
     }),
   );
@@ -705,6 +769,7 @@ export async function buildTodayMetaPost(
   const photoTagUsernames = events.map((event) =>
     formatSpotlightPhotoTagList(event.photoTagUsernames ?? []),
   );
+  const locationIds = events.map((event) => event.locationId ?? "");
   const listingPath = when === "tomorrow" ? "tomorrow" : "today";
   const listingUrl = `${siteOrigin(origin)}/${locale}/when/${listingPath}`;
 
@@ -716,6 +781,7 @@ export async function buildTodayMetaPost(
         buildSingleEventSpotlightCaption(event, locale, dayISO),
       ),
       photoTagUsernames,
+      locationIds,
       link: listingUrl,
       imageUrl: imageUrls[0] ?? defaultMetaImageUrl(origin),
       imageUrls,

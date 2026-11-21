@@ -1,12 +1,19 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, type ReactNode } from "react";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import type { FilterTimeRange } from "@/lib/filters";
 import type { AllBrowseDayGroup } from "@/lib/list-day-groups";
-import { formatBrowseDayHeader } from "@/lib/format-date";
+import {
+  browseDayFoldPlan,
+  BROWSE_DAY_FOLD_CAP,
+} from "@/lib/list-day-groups";
+import {
+  browseDayTearOffParts,
+  formatBrowseDayHeader,
+} from "@/lib/format-date";
+import { fillTemplate } from "@/lib/seo";
 import {
   BRAND_GRADIENT_TEXT_CLASS,
   CARD_GRID_CLASS,
@@ -15,22 +22,45 @@ import {
 import { EventCard } from "@/components/EventCard";
 import type { EventWithVenueSiblings } from "@/lib/venue-recurring-siblings";
 
-/** Day column labels — full weekday caps. */
-const BROWSE_DAY_HEADER_CLASS = `text-[0.8125rem] font-bold uppercase leading-tight tracking-[0.06em] ${BRAND_GRADIENT_TEXT_CLASS}`;
-
 /**
  * Desktop All-tab dated strip — wrap instead of a horizontal scroller.
- * ~220px tiles match the old column min so posters stay large.
+ * ~220px tiles; wider column gap than the inner fold so days read as clusters.
  */
 const BROWSE_DAY_GRID_CLASS =
-  "grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] items-start gap-2.5";
+  "grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] items-start gap-x-7 gap-y-6";
 
-/** Multi-event day autoplay cadence. */
-const BROWSE_DAY_ROTATE_MS = 5000;
+/** Fixed fold viewport — same 2:3 poster ratio as a single EventCard. */
+const BROWSE_DAY_FOLD_FRAME_CLASS =
+  "relative isolate aspect-[2/3] w-full overflow-hidden rounded-xl";
 
-/** z-index stays inside the card’s `isolate` context — never above sticky chrome. */
-const DAY_SLIDE_BTN_CLASS =
-  "absolute top-1/2 z-[1] flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-neutral-800 shadow-md ring-1 ring-neutral-200/90 transition-colors hover:bg-white dark:bg-neutral-900/95 dark:text-neutral-100 dark:ring-white/12 dark:hover:bg-neutral-900";
+/** Tight gutters inside a day so space can go between day columns instead. */
+const BROWSE_DAY_FOLD_GAP_CLASS = "gap-1";
+
+/** Muted day tray — warm cream on light (matches page `#f6f3ee`), not cool grey. */
+const BROWSE_DAY_TRAY_CLASS =
+  "flex min-w-0 flex-col rounded-2xl bg-[#ebe6dc]/90 p-2 ring-1 ring-stone-400/25 dark:bg-neutral-800/70 dark:ring-white/12";
+
+/**
+ * Full-width date title bar — weekday chip first, tear-off on the right.
+ * Quieter than white slabs: tray-tinted chips + shorter strip.
+ */
+const BROWSE_DAY_TITLE_BAR_CLASS =
+  "-mx-2 -mt-2 mb-1.5 flex items-center gap-1 rounded-t-2xl border-b border-stone-400/15 bg-[#e8e2d6]/80 px-1.5 py-1 dark:border-white/[0.06] dark:bg-neutral-950/50";
+
+/** Weekday chip shell — soft fill (gradient sits on the inner span). */
+const BROWSE_DAY_WEEKDAY_CHIP_CLASS =
+  "flex h-9 min-w-0 flex-1 items-center justify-center rounded-lg bg-white/55 px-2 ring-1 ring-stone-400/20 dark:bg-white/10 dark:ring-white/10";
+const BROWSE_DAY_WEEKDAY_LABEL_CLASS = `truncate text-[0.8125rem] font-semibold uppercase leading-none tracking-[0.05em] ${BRAND_GRADIENT_TEXT_CLASS}`;
+
+/**
+ * Tear-off calendar — compact, soft border; slightly tighter than card xl so short chips don’t read as pills.
+ */
+const BROWSE_DAY_TEAROFF_CLASS =
+  "flex h-9 w-9 shrink-0 flex-col overflow-hidden rounded-lg border border-stone-400/35 bg-white/70 font-sans dark:border-white/15 dark:bg-white/10";
+const BROWSE_DAY_TEAROFF_MONTH_CLASS =
+  "bg-stone-500/80 px-0.5 py-px text-center text-[0.5625rem] font-semibold leading-none tracking-wide text-white dark:bg-white/20";
+const BROWSE_DAY_TEAROFF_DAY_CLASS =
+  "flex flex-1 items-center justify-center text-[1.05rem] font-semibold leading-none tabular-nums text-neutral-800 dark:text-neutral-100";
 
 type BrowseEvent = EventWithVenueSiblings;
 
@@ -60,14 +90,19 @@ interface BrowseDayColumnProps {
   pendingId: string | null;
   onNavigate: (id: string) => void;
   showEnlarge: boolean;
-  /** Shared across all day columns — hover/focus on one pauses every slider. */
-  paused: boolean;
-  setPaused: (paused: boolean) => void;
+}
+
+function foldGridClass(visibleCount: number, hasMoreTile: boolean): string {
+  const cells = visibleCount + (hasMoreTile ? 1 : 0);
+  if (cells <= 1) return "h-full min-h-0";
+  if (cells === 2)
+    return `grid h-full min-h-0 grid-cols-2 grid-rows-1 ${BROWSE_DAY_FOLD_GAP_CLASS}`;
+  return `grid h-full min-h-0 grid-cols-2 grid-rows-2 ${BROWSE_DAY_FOLD_GAP_CLASS}`;
 }
 
 /**
- * One date cell — day label + single poster. Extra events that day auto-rotate
- * and can also be stepped with chevrons (no stacked column).
+ * One date cell — fixed poster footprint; multiple same-day events fold
+ * inside (2-up / 2×2). Beyond the fold cap, a “+N more” tile expands in place.
  */
 function BrowseDayColumn({
   day,
@@ -79,118 +114,99 @@ function BrowseDayColumn({
   pendingId,
   onNavigate,
   showEnlarge,
-  paused,
-  setPaused,
 }: BrowseDayColumnProps) {
   const count = day.events.length;
-  const multi = count > 1;
-  const [index, setIndex] = useState(() =>
-    multi ? Math.floor(Math.random() * count) : 0,
-  );
+  const [expanded, setExpanded] = useState(false);
+  const plan = browseDayFoldPlan(count, BROWSE_DAY_FOLD_CAP);
+  const showAll = expanded || plan.more === 0;
+  const visible = showAll ? day.events : day.events.slice(0, plan.show);
+  const more = showAll ? 0 : plan.more;
+  const growing = expanded && count > BROWSE_DAY_FOLD_CAP;
 
-  useEffect(() => {
-    if (!multi || paused) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const id = window.setInterval(() => {
-      setIndex((current) => (current + 1) % count);
-    }, BROWSE_DAY_ROTATE_MS);
-    return () => window.clearInterval(id);
-  }, [multi, paused, count]);
+  if (count === 0) return null;
 
-  const activeIndex = Math.min(index, Math.max(0, count - 1));
-  const event = day.events[activeIndex];
-
-  if (!event) return null;
+  const moreLabel = fillTemplate(dict.events.moreThatDay, {
+    count: String(more),
+  });
+  const tearOff = browseDayTearOffParts(day.date, locale);
+  const dayLabel = formatBrowseDayHeader(day.date, locale);
 
   return (
-    <section
-      role="listitem"
-      className="flex min-w-0 flex-col"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onFocusCapture={() => setPaused(true)}
-      onBlurCapture={(e) => {
-        if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
-          setPaused(false);
-        }
-      }}
-    >
-      <h2
-        className={`mb-2 border-b-2 border-orange-400/70 pb-1.5 font-sans dark:border-orange-400/50 ${BROWSE_DAY_HEADER_CLASS}`}
-      >
-        {formatBrowseDayHeader(day.date, locale)}
-      </h2>
-      <div className="relative isolate">
-        <div
-          key={event.id}
-          className="motion-safe:animate-[browse-day-fade_500ms_ease-out]"
-        >
-          <EventCard
-            event={event}
-            dict={dict}
-            locale={locale}
-            returnTo={returnTo}
-            returnTitle={returnTitle}
-            listTimeRange={listTimeRange}
-            view="cards"
-            pending={pendingId === event.id}
-            dimmed={pendingId != null && pendingId !== event.id}
-            onNavigate={() => onNavigate(event.id)}
-            showEnlarge={showEnlarge}
-          />
+    <section role="listitem" className={BROWSE_DAY_TRAY_CLASS}>
+      <header className={BROWSE_DAY_TITLE_BAR_CLASS}>
+        <h2 className={BROWSE_DAY_WEEKDAY_CHIP_CLASS} aria-label={dayLabel}>
+          <span className={BROWSE_DAY_WEEKDAY_LABEL_CLASS} aria-hidden>
+            {tearOff?.weekday ?? dayLabel}
+          </span>
+        </h2>
+        <div className={BROWSE_DAY_TEAROFF_CLASS} aria-hidden>
+          {tearOff ? (
+            <>
+              <span className={BROWSE_DAY_TEAROFF_MONTH_CLASS}>
+                {tearOff.month}
+              </span>
+              <span className={BROWSE_DAY_TEAROFF_DAY_CLASS}>{tearOff.day}</span>
+            </>
+          ) : null}
         </div>
-        {multi ? (
-          <>
-            <button
-              type="button"
-              aria-label={dict.events.browseDayPrev}
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                setIndex((i) => (i - 1 + count) % count);
-              }}
-              className={`${DAY_SLIDE_BTN_CLASS} left-1`}
-            >
-              <ChevronLeft className="h-4 w-4" aria-hidden />
-            </button>
-            <button
-              type="button"
-              aria-label={dict.events.browseDayNext}
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                setIndex((i) => (i + 1) % count);
-              }}
-              className={`${DAY_SLIDE_BTN_CLASS} right-1`}
-            >
-              <ChevronRight className="h-4 w-4" aria-hidden />
-            </button>
-            <div
-              aria-hidden
-              className="pointer-events-none absolute bottom-2 left-1/2 z-[1] flex -translate-x-1/2 items-center gap-1 rounded-full bg-black/55 px-2 py-1 backdrop-blur-sm"
-            >
-              {day.events.map((slot, i) => (
-                <span
-                  key={slot.id}
-                  className={`h-1.5 rounded-full transition-[width,background-color] duration-300 ${
-                    i === activeIndex
-                      ? "w-3.5 bg-white"
-                      : "w-1.5 bg-white/45"
-                  }`}
-                />
-              ))}
+      </header>
+      <div
+        className={
+          growing
+            ? "relative isolate w-full overflow-hidden rounded-xl"
+            : BROWSE_DAY_FOLD_FRAME_CLASS
+        }
+      >
+        <div
+          className={
+            growing
+              ? `grid grid-cols-2 ${BROWSE_DAY_FOLD_GAP_CLASS}`
+              : foldGridClass(visible.length, more > 0)
+          }
+        >
+          {visible.map((event) => (
+            <div key={event.id} className="min-h-0 min-w-0">
+              <EventCard
+                event={event}
+                dict={dict}
+                locale={locale}
+                returnTo={returnTo}
+                returnTitle={returnTitle}
+                listTimeRange={listTimeRange}
+                omitRelativeDayLabels
+                view="cards"
+                pending={pendingId === event.id}
+                dimmed={pendingId != null && pendingId !== event.id}
+                onNavigate={() => onNavigate(event.id)}
+                showEnlarge={showEnlarge}
+              />
             </div>
-          </>
-        ) : null}
+          ))}
+          {more > 0 ? (
+            <button
+              type="button"
+              onClick={() => setExpanded(true)}
+              className="flex min-h-0 min-w-0 flex-col items-center justify-center rounded-xl bg-white/70 text-center ring-1 ring-black/5 transition-colors touch-manipulation hover:bg-white hover:ring-orange-400/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 dark:bg-neutral-950/70 dark:ring-white/10 dark:hover:bg-neutral-950 dark:hover:ring-orange-500/40"
+              aria-label={fillTemplate(dict.events.moreThatDayAria, {
+                count: String(more),
+              })}
+            >
+              <span
+                className={`font-sans text-lg font-extrabold tabular-nums ${BRAND_GRADIENT_TEXT_CLASS}`}
+              >
+                {moreLabel}
+              </span>
+            </button>
+          ) : null}
+        </div>
       </div>
     </section>
   );
 }
 
 /**
- * Desktop All-tab calendar: one cell per dated day (wraps), then Weekly & daily.
- * Parent mounts this only at `xl+` — mobile keeps stacked day headings.
- * Each day is a single-card cell; multi-event days auto-rotate with chevron nav.
+ * Desktop All-tab calendar: one fixed fold-cell per dated day (wraps), then
+ * Weekly & daily. Parent mounts this only at `xl+` — mobile keeps stacked days.
  */
 export function AllBrowseCalendar({
   days,
@@ -206,8 +222,6 @@ export function AllBrowseCalendar({
   weeklyHeading,
   weeklyTrailing,
 }: AllBrowseCalendarProps) {
-  const [daySlidersPaused, setDaySlidersPaused] = useState(false);
-
   return (
     <div className="min-w-0 max-w-full">
       {days.length > 0 ? (
@@ -228,8 +242,6 @@ export function AllBrowseCalendar({
               pendingId={pendingId}
               onNavigate={onNavigate}
               showEnlarge={showEnlarge}
-              paused={daySlidersPaused}
-              setPaused={setDaySlidersPaused}
             />
           ))}
         </div>
