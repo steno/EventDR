@@ -310,13 +310,14 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     priceFeel: "budget",
     priceNote:
-      "Pay stall-by-stall — free to stroll; food/coffee priced like a farmers market",
+      "Pay stall-by-stall — free to stroll; vendor/market WhatsApp (809) 467-8766",
     priceNoteLocalized: {
-      es: "Pagas puesto por puesto — pasear es gratis; comida/café a precio de mercado",
-      fr: "Payez stand par stand — se promener est gratuit ; food/café au tarif marché",
+      es: "Pagas puesto por puesto — pasear es gratis; WhatsApp mercado/vendedores (809) 467-8766",
+      fr: "Payez stand par stand — se promener est gratuit ; WhatsApp marché/vendeurs (809) 467-8766",
     },
     attribution: "POP research · venue site",
-    researchNotes: "sea-horse-ranch.com Saturday Market.",
+    researchNotes:
+      "sea-horse-ranch.com Saturday Market — supervisor WhatsApp 809-467-8766.",
     updatedAt: AT,
   },
   {
@@ -6691,22 +6692,22 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "mirando-pa-otro-lao-8-puerto-plata-2026-11-17",
-    body: "Festival week still runs 17–22 Nov, but this pin is Sunday 22 only at Parque Central 7 PM — not a city-wide multi-day blob; other days’ rooms stay on @mirandopaotrolao.",
+    body: "Festival week still runs 17–22 Nov, but this pin is Sunday 22 only at Parque Central — timed shorts from 7:00 PM into Triplets of Belleville at 8:25; other days’ rooms stay on @mirandopaotrolao.",
     localized: {
-      es: "La semana del festival sigue del 17 al 22 nov, pero este pin es solo el domingo 22 en el Parque Central a las 7 PM — no un blob multi-día de toda la ciudad; las salas de los otros días siguen en @mirandopaotrolao.",
-      fr: "La semaine du festival court toujours du 17 au 22 nov., mais cette épingle est le dimanche 22 seulement au Parque Central à 19 h — pas un blob multi-jours toute la ville ; les salles des autres jours restent sur @mirandopaotrolao.",
+      es: "La semana del festival sigue del 17 al 22 nov, pero este pin es solo el domingo 22 en el Parque Central — cortos cronometrados desde las 7:00 PM hasta Triplets of Belleville a las 8:25; las salas de los otros días siguen en @mirandopaotrolao.",
+      fr: "La semaine du festival court toujours du 17 au 22 nov., mais cette épingle est le dimanche 22 seulement au Parque Central — courts chronométrés dès 19 h jusqu’à Triplets of Belleville à 20 h 25 ; les salles des autres jours restent sur @mirandopaotrolao.",
     },
     priceFeel: "varies",
-    priceNote: "Admission not posted — @mirandopaotrolao · Parque Central 7 PM",
+    priceNote: "Admission not posted — @mirandopaotrolao · Dom 22 programación 7:00 PM",
     priceNoteLocalized: {
-      es: "Entrada no publicada — @mirandopaotrolao · Parque Central 7 PM",
-      fr: "Entrée non publiée — @mirandopaotrolao · Parque Central 19 h",
+      es: "Entrada no publicada — @mirandopaotrolao · programación Dom 22 7:00 PM",
+      fr: "Entrée non publiée — @mirandopaotrolao · programmation dim. 22 19 h",
     },
     attribution:
       "POP research · @mirandopaotrolao convocatoria + Parque Central flyer",
     researchNotes:
-      "Editor IG + magenta Parque Central flyer: Domingo 22 Noviembre Parque Central Puerto Plata 7:00 PM. Festival window still 17–22 Nov in copy; seed date single-day 2026-11-22; venueSlug plaza-independencia. Keep Camilo Carrau festival flyer as card hero; gallery adds Parque Central poster.",
-    updatedAt: "2026-11-12T18:15:00.000Z",
+      "Editor IG + magenta Parque Central flyer + Dom 22 programación sheet: Cable/Suspiro/¡Y con ustedes!/La silla/Un año más/Caballo blanco/Triplets of Belleville timed from 7:00 PM. Festival window still 17–22 Nov in copy; seed date single-day 2026-11-22; venueSlug plaza-independencia. Keep Camilo Carrau festival flyer as card hero; gallery adds Parque Central + programación posters.",
+    updatedAt: "2026-11-21T19:00:00.000Z",
   },
   {
     eventId: "vinoteca-caballitos-halloween-2026-10-31",
@@ -8580,15 +8581,15 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       fr: "Marché de nuit des fêtes au ranch (18 h–21 h) — cadeaux, food, musique live ; pas le Saturday Market du matin 10 h–13 h, ni le week-end Coconuts Masters Surf de nov.",
     },
     priceFeel: "budget",
-    priceNote: "Free entry — stall purchases; Tel. (809) 571-3880",
+    priceNote: "Free entry — stall purchases; WhatsApp (809) 467-8766",
     priceNoteLocalized: {
-      es: "Entrada gratis — compras en puestos; Tel. (809) 571-3880",
-      fr: "Entrée libre — achats aux stands ; Tél. (809) 571-3880",
+      es: "Entrada gratis — compras en puestos; WhatsApp (809) 467-8766",
+      fr: "Entrée libre — achats aux stands ; WhatsApp (809) 467-8766",
     },
     attribution: "POP research · Sea Horse Ranch Holiday Night Market flyer",
     researchNotes:
-      "Editor flyer — Sat 12 Dec 2026 6–9 PM; Sea Horse Ranch Rt 5 Km 2.5; gifts food live music; Tel 809-571-3880.",
-    updatedAt: "2026-11-06T03:00:00.000Z",
+      "Editor flyer — Sat 12 Dec 2026 6–9 PM; Sea Horse Ranch Rt 5 Km 2.5; gifts food live music; market WhatsApp 809-467-8766 (not ranch Int 571-3880).",
+    updatedAt: "2026-11-21T17:00:00.000Z",
   },
   {
     eventId: "voyvoy-social-friday-flow-dance-weekly",
@@ -9693,6 +9694,25 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer + IG — Vie 20 Nov 2026; DJ Yeffrey Estrella; NO COVER; Circunvalación Sur frente depósitos Brugal; 829-563-9469 / 829-453-9469. Same Fri as ocean-world-terrace-graduation-bash + casa-balcon-cooltura.",
     updatedAt: "2026-11-15T16:00:00.000Z",
+  },
+  {
+    eventId: "latin-disco-white-party-flaco-mc-2026-11-27",
+    body: "Free White Party Friday with DJ Flaco MC at Latin Disco by the Brugal depots — wear white for the surprises; not Leo’s Banana Fiesta Blanca the same night in Sosúa, and not Willman Peña’s Grand Prix anniversary in La Javilla.",
+    localized: {
+      es: "White Party gratis el viernes con DJ Flaco MC en Latin Disco frente a los depósitos Brugal — viste de blanco por las sorpresas; no es la Fiesta Blanca de Leo’s Banana la misma noche en Sosúa, ni el aniversario de Willman Peña en Grand Prix La Javilla.",
+      fr: "White Party gratuit le vendredi avec DJ Flaco MC au Latin Disco face aux dépôts Brugal — venez en blanc pour les surprises ; pas la Fiesta Blanca de Leo’s Banana la même nuit à Sosúa, ni l’anniversaire Willman Peña au Grand Prix La Javilla.",
+    },
+    priceFeel: "free",
+    priceNote: "No cover — 829-563-9469 · @latindiscoclubpp",
+    priceNoteLocalized: {
+      es: "Sin cover — 829-563-9469 · @latindiscoclubpp",
+      fr: "Sans cover — 829-563-9469 · @latindiscoclubpp",
+    },
+    attribution:
+      "POP research · @latindiscoclubpp White Party / DJ Flaco MC flyer",
+    researchNotes:
+      "Editor flyer + IG caption — Vie 27 Nov 2026; WHITE PARTY / FIESTA BLANCA; DJ Flaco MC; VEN VESTIDO DE BLANCO; ENTRADA TOTALMENTE GRATIS; Circunvalación Sur frente depósitos Brugal; 829-563-9469. Same Fri as leos-banana-fiesta-blanca + willman-pena-aniversario-grand-prix.",
+    updatedAt: "2026-11-21T19:00:00.000Z",
   },
   {
     eventId: "casa-balcon-cooltura-mexico-eterno-2026-11-20",

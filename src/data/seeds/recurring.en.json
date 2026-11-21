@@ -431,7 +431,7 @@
   {
     "id": "sea-horse-saturday-market",
     "title": "Sea Horse Ranch Saturday Market",
-    "description": "Shop local every Saturday — artisans, fresh food, organic produce, live music, and boutique fashions on the Sea Horse Ranch Tennis Club lawn between Cabarete and Sosúa. Exception: 7–9 Nov 2026 the market joins Masters Surf Reunion at Coconuts / Playa Encuentro (not at the ranch that weekend).",
+    "description": "Shop local every Saturday — artisans, fresh food, organic produce, live music, and boutique fashions on the Sea Horse Ranch Tennis Club lawn between Cabarete and Sosúa. Market supervisor WhatsApp (809) 467-8766 · sea-horse-ranch.com. Exception: 7–9 Nov 2026 the market joins Masters Surf Reunion at Coconuts / Playa Encuentro (not at the ranch that weekend).",
     "date": "2026-01-01",
     "time": "10:00 AM – 1:00 PM",
     "location": "Cabarete-Sosúa",
@@ -445,6 +445,7 @@
     "format": "physical",
     "recurrence": "weekly",
     "recurrenceDay": 6,
+    "phone": "+18094678766",
     "sourceUrl": "https://sea-horse-ranch.com/saturday-market-sea-horse-ranch/",
     "imageEmoji": "🧺"
   },

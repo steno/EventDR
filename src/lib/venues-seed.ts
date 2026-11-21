@@ -471,11 +471,12 @@ export const SEED_VENUES: Venue[] = [
     name: "Sea Horse Ranch",
     city: "Sosúa",
     description:
-      "Residential resort and tennis club on Route 5 between Cabarete and Sosúa, hosting local markets and community gatherings.",
+      "Residential resort and tennis club on Route 5 between Cabarete and Sosúa, hosting local markets and community gatherings. Tennis Club tel. (809) 571-2902 · WhatsApp (809) 943-2940. Saturday & Holiday Market WhatsApp (809) 467-8766.",
     lat: 19.7799532,
     lng: -70.4893065,
     emoji: "🧺",
     website: "https://www.sea-horse-ranch.com",
+    // Tennis Club landline (sea-horse-ranch.com/amenities/tennis-club/); WhatsApp in description.
     phone: "+18095712902",
   },
   {

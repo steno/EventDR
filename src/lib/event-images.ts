@@ -904,6 +904,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "goddess-francesca-samuele-2026-11-27-v2.jpg",
   "latin-disco-semaforo-yeffrey-estrella-2026-11-20":
     "latin-disco-semaforo-yeffrey-estrella-2026-11-20.jpg",
+  "latin-disco-white-party-flaco-mc-2026-11-27":
+    "latin-disco-white-party-flaco-mc-2026-11-27.jpg",
   "casa-balcon-cooltura-mexico-eterno-2026-11-20":
     "casa-balcon-cooltura-mexico-eterno-2026-11-20-v2.jpg",
   "voyvoy-cabarete-groove-moreno-prieto-2026-11-29":
@@ -1574,6 +1576,11 @@ const EVENT_GALLERY_SLIDES: Record<
       venueSlug: "plaza-independencia",
       label: "Parque Central — Sun 22 Nov 7 PM",
     },
+    {
+      file: "mirando-pa-otro-lao-8-programacion-2026-11-22.jpg",
+      venueSlug: "plaza-independencia",
+      label: "Dom 22 programación",
+    },
   ],
   "twenty-disco-money-heist-2026-11-21": [
     {
@@ -1720,6 +1727,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "chameleon-vibras-party-monarka-2026-11-22.jpg",
   "goddess-francesca-samuele-2026-11-27-v2.jpg",
   "latin-disco-semaforo-yeffrey-estrella-2026-11-20.jpg",
+  "latin-disco-white-party-flaco-mc-2026-11-27.jpg",
   "casa-balcon-cooltura-mexico-eterno-2026-11-20-v2.jpg",
   "voyvoy-cabarete-groove-moreno-prieto-2026-11-29.jpg",
   "chameleon-mananitas-kreizy-k-2026-12-05.jpg",
@@ -1845,6 +1853,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "lokuras-pop-percusion-latina-2026-10-25.jpg",
   "mirando-pa-otro-lao-8-puerto-plata-2026-11-17-v2.jpg",
   "mirando-pa-otro-lao-8-parque-central-2026-11-22.jpg",
+  "mirando-pa-otro-lao-8-programacion-2026-11-22.jpg",
   "vinoteca-caballitos-halloween-2026-10-31.jpg",
   "bachata-colmado-cabarete-2026-11-01.jpg",
   "disco-club-viernes-tropical-2026-10-23.jpg",

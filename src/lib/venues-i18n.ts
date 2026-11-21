@@ -273,8 +273,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "sea-horse-ranch": {
     description: {
-      es: "Resort residencial y club de tenis en la Ruta 5 entre Cabarete y Sosúa, con mercados locales y reuniones comunitarias.",
-      fr: "Resort résidentiel et club de tennis sur la Route 5 entre Cabarete et Sosúa, accueillant marchés locaux et rassemblements communautaires.",
+      es: "Resort residencial y club de tenis en la Ruta 5 entre Cabarete y Sosúa, con mercados locales y reuniones comunitarias. Tennis Club tel. (809) 571-2902 · WhatsApp (809) 943-2940. Mercado sábado y Holiday Market WhatsApp (809) 467-8766.",
+      fr: "Resort résidentiel et club de tennis sur la Route 5 entre Cabarete et Sosúa, accueillant marchés locaux et rassemblements communautaires. Tennis Club tél. (809) 571-2902 · WhatsApp (809) 943-2940. Marché du samedi et Holiday Market WhatsApp (809) 467-8766.",
     },
   },
   "senor-rock-playa-dorada": {

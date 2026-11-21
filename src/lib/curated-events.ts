@@ -860,6 +860,8 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
   },
   "sea-horse-saturday-market": {
     isFree: true,
+    // Market supervisor WhatsApp (sea-horse-ranch.com Saturday Market page).
+    phone: "+18094678766",
   },
   "casa-de-la-cultura-exhibitions": {
     isFree: true,
@@ -1214,6 +1216,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     sourceUrl: "https://www.instagram.com/goddess.cabarete/",
   },
   "latin-disco-semaforo-yeffrey-estrella-2026-11-20": {
+    isFree: true,
+    phone: "+18295639469",
+    venueSlug: "disco-club-brugal",
+    sourceUrl: "https://www.instagram.com/latindiscoclubpp/",
+  },
+  "latin-disco-white-party-flaco-mc-2026-11-27": {
     isFree: true,
     phone: "+18295639469",
     venueSlug: "disco-club-brugal",
@@ -1732,7 +1740,8 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
   },
   "sea-horse-holiday-night-market-2026-12-12": {
     isFree: true,
-    phone: "+18095713880",
+    // Same market supervisor WhatsApp as Saturday Market (not ranch front-desk 571-3880).
+    phone: "+18094678766",
     venueSlug: "sea-horse-ranch",
     sourceUrl: "https://www.sea-horse-ranch.com/",
   },

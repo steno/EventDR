@@ -7785,7 +7785,7 @@
   {
     "id": "mirando-pa-otro-lao-8-puerto-plata-2026-11-17",
     "title": "Puerto Plata — Mirando Pa' Otro Lao 8",
-    "description": "8e Muestra Audiovisual Mirando Pa' Otro Lao — projections publiques du 17 au 22 novembre 2026 à Puerto Plata et à Santiago. Cette fiche est la soirée de Puerto Plata au Parque Central (Plaza Independencia) le dimanche 22 novembre 2026 à 19 h. Courts documentaires, vidéo-art, courts de fiction et longs métrages ; suivez @mirandopaotrolao pour les salles des autres jours. La convocatoria rose a fermé le 30 octobre 2026 (clôture des envois, pas la dernière séance). Pas une épingle multi-jours — la date est le dim. 22 seulement.",
+    "description": "8e Muestra Audiovisual Mirando Pa' Otro Lao — projections publiques du 17 au 22 novembre 2026 à Puerto Plata et à Santiago. Cette fiche est la soirée de Puerto Plata au Parque Central (Plaza Independencia) le dimanche 22 novembre 2026 dès 19 h. Programmation officielle dim. 22 : Cable (Argentine, 13') 19 h ; Suspiro (RD, 14') 19 h 13 ; ¡Y con ustedes! (RD, 13') 19 h 27 ; La silla (RD, 15') 19 h 40 ; Un año más (Chili, 16') 19 h 55 ; Caballo blanco (RD, 15') 20 h 10 ; The Triplets of Belleville (France, 80') 20 h 25. Suivez @mirandopaotrolao pour les salles des autres jours. Pas une épingle multi-jours — la date est le dim. 22 seulement.",
     "date": "2026-11-22",
     "location": "Puerto Plata",
     "venue": "Parque Central (Plaza Independencia)",
@@ -7802,13 +7802,16 @@
     "sourceUrl": "https://www.instagram.com/mirandopaotrolao/",
     "instagram": "mirandopaotrolao",
     "lineup": [
-      "Documentales cortos",
-      "Videoarte",
-      "Cortometrajes de ficción",
-      "Largometrajes"
+      "19 h — Cable (Argentine, 13 min)",
+      "19 h 13 — Suspiro (Rép. Dom., 14 min)",
+      "19 h 27 — ¡Y con ustedes! (Rép. Dom., 13 min)",
+      "19 h 40 — La silla (Rép. Dom., 15 min)",
+      "19 h 55 — Un año más (Chili, 16 min)",
+      "20 h 10 — Caballo blanco (Rép. Dom., 15 min)",
+      "20 h 25 — The Triplets of Belleville (France, 80 min)"
     ],
     "imageEmoji": "🎬",
-    "time": "19 h",
+    "time": "19 h – ~21 h 45",
     "venueSlug": "plaza-independencia"
   },
   {
@@ -10336,7 +10339,7 @@
   {
     "id": "sea-horse-holiday-night-market-2026-12-12",
     "title": "Sea Horse Ranch Holiday Night Market — 12 déc",
-    "description": "Holiday Night Market à Sea Horse Ranch, Rt. 5 Km 2.5 Carretera Principal, Cabarete–Sosúa — samedi 12 décembre 2026, 18 h–21 h. Cadeaux, food et musique live au ranch. Tél. (809) 571-3880 · sea-horse-ranch.com. Marché de nuit des fêtes au ranch — pas le Saturday Market du matin hebdo (10 h–13 h), ni le week-end Masters Surf à Coconuts (7–9 nov), ni le Christmas Pop-Up Market Calle de las Sombrillas (20 déc).",
+    "description": "Holiday Night Market à Sea Horse Ranch, Rt. 5 Km 2.5 Carretera Principal, Cabarete–Sosúa — samedi 12 décembre 2026, 18 h–21 h. Cadeaux, food et musique live au ranch. WhatsApp du marché (809) 467-8766 · sea-horse-ranch.com. Marché de nuit des fêtes au ranch — pas le Saturday Market du matin hebdo (10 h–13 h), ni le week-end Masters Surf à Coconuts (7–9 nov), ni le Christmas Pop-Up Market Calle de las Sombrillas (20 déc).",
     "date": "2026-12-12",
     "time": "18 h – 21 h",
     "location": "Cabarete-Sosúa",
@@ -10353,7 +10356,7 @@
     "format": "physical",
     "trending": true,
     "isFree": true,
-    "phone": "+18095713880",
+    "phone": "+18094678766",
     "sourceType": "flyer",
     "sourceUrl": "https://www.sea-horse-ranch.com/",
     "lineup": [
@@ -12883,5 +12886,34 @@
       "parallel.surf",
       "dominicansurffestival"
     ]
+  },
+  {
+    "id": "latin-disco-white-party-flaco-mc-2026-11-27",
+    "title": "Latin Disco Club White Party — DJ Flaco MC · 27 nov",
+    "description": "White Party (Fiesta Blanca) avec DJ Flaco MC au Latin Disco Club, Avenida Circunvalación Sur frente a los depósitos de Brugal, Puerto Plata — vendredi 27 novembre 2026. Venez en blanc pour des surprises ; entrée totalement gratuite (pas de cover). Infos 829-563-9469 · Instagram @latindiscoclubpp. Vendredi à thème près des dépôts Brugal — pas la Fiesta Blanca de Leo’s Banana la même nuit à Sosúa, ni l’anniversaire Willman Peña au Grand Prix La Javilla.",
+    "date": "2026-11-27",
+    "venue": "Latin Disco Club",
+    "venueSlug": "disco-club-brugal",
+    "address": "Avenida Circunvalación Sur, frente a los depósitos de Brugal, Puerto Plata",
+    "lat": 19.7792778,
+    "lng": -70.6690061,
+    "phone": "+18295639469",
+    "location": "Puerto Plata",
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/latindiscoclubpp/",
+    "instagram": "latindiscoclubpp",
+    "lineup": [
+      "DJ Flaco MC",
+      "White Party / Fiesta Blanca"
+    ],
+    "imageEmoji": "🤍"
   }
 ]

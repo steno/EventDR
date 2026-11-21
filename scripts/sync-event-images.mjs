@@ -138,6 +138,8 @@ const FILE_TO_EVENT_ID = {
     "mirando-pa-otro-lao-8-puerto-plata-2026-11-17",
   "mirando-pa-otro-lao-8-parque-central-2026-11-22.jpg":
     "mirando-pa-otro-lao-8-puerto-plata-2026-11-17",
+  "mirando-pa-otro-lao-8-programacion-2026-11-22.jpg":
+    "mirando-pa-otro-lao-8-puerto-plata-2026-11-17",
   "vinoteca-caballitos-halloween-2026-10-31.jpg":
     "vinoteca-caballitos-halloween-2026-10-31",
   "bachata-colmado-cabarete-2026-11-01.jpg":
@@ -1190,6 +1192,8 @@ const FILE_TO_VENUE_SLUG = {
     "goddess-francesca-samuele-2026-11-27",
   "latin-disco-semaforo-yeffrey-estrella-2026-11-20.jpg":
     "latin-disco-semaforo-yeffrey-estrella-2026-11-20",
+  "latin-disco-white-party-flaco-mc-2026-11-27.jpg":
+    "latin-disco-white-party-flaco-mc-2026-11-27",
   "casa-balcon-cooltura-mexico-eterno-2026-11-20-v2.jpg":
     "casa-balcon-cooltura-mexico-eterno-2026-11-20",
   "voyvoy-cabarete-groove-moreno-prieto-2026-11-29.jpg":
