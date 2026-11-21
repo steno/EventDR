@@ -9,16 +9,13 @@ import {
   browseDayFoldPlan,
   BROWSE_DAY_FOLD_CAP,
 } from "@/lib/list-day-groups";
-import {
-  browseDayTearOffParts,
-  formatBrowseDayHeader,
-} from "@/lib/format-date";
 import { fillTemplate } from "@/lib/seo";
 import {
   BRAND_GRADIENT_TEXT_CLASS,
   CARD_GRID_CLASS,
   DAY_GROUP_TITLE_CLASS,
 } from "@/lib/page-shell";
+import { BrowseDayTitleBar } from "@/components/BrowseDayTitleBar";
 import { EventCard } from "@/components/EventCard";
 import type { EventWithVenueSiblings } from "@/lib/venue-recurring-siblings";
 
@@ -39,28 +36,6 @@ const BROWSE_DAY_FOLD_GAP_CLASS = "gap-1";
 /** Muted day tray — warm cream on light (matches page `#f6f3ee`), not cool grey. */
 const BROWSE_DAY_TRAY_CLASS =
   "flex min-w-0 flex-col rounded-2xl bg-[#ebe6dc]/90 p-2 ring-1 ring-stone-400/25 dark:bg-neutral-800/70 dark:ring-white/12";
-
-/**
- * Full-width date title bar — weekday chip first, tear-off on the right.
- * Quieter than white slabs: tray-tinted chips + shorter strip.
- */
-const BROWSE_DAY_TITLE_BAR_CLASS =
-  "-mx-2 -mt-2 mb-1.5 flex items-center gap-1 rounded-t-2xl border-b border-stone-400/15 bg-[#e8e2d6]/80 px-1.5 py-1 dark:border-white/[0.06] dark:bg-neutral-950/50";
-
-/** Weekday chip shell — soft fill (gradient sits on the inner span). */
-const BROWSE_DAY_WEEKDAY_CHIP_CLASS =
-  "flex h-9 min-w-0 flex-1 items-center justify-center rounded-lg bg-white/55 px-2 ring-1 ring-stone-400/20 dark:bg-white/10 dark:ring-white/10";
-const BROWSE_DAY_WEEKDAY_LABEL_CLASS = `truncate text-[0.8125rem] font-semibold uppercase leading-none tracking-[0.05em] ${BRAND_GRADIENT_TEXT_CLASS}`;
-
-/**
- * Tear-off calendar — compact, soft border; slightly tighter than card xl so short chips don’t read as pills.
- */
-const BROWSE_DAY_TEAROFF_CLASS =
-  "flex h-9 w-9 shrink-0 flex-col overflow-hidden rounded-lg border border-stone-400/35 bg-white/70 font-sans dark:border-white/15 dark:bg-white/10";
-const BROWSE_DAY_TEAROFF_MONTH_CLASS =
-  "bg-stone-500/80 px-0.5 py-px text-center text-[0.5625rem] font-semibold leading-none tracking-wide text-white dark:bg-white/20";
-const BROWSE_DAY_TEAROFF_DAY_CLASS =
-  "flex flex-1 items-center justify-center text-[1.05rem] font-semibold leading-none tabular-nums text-neutral-800 dark:text-neutral-100";
 
 type BrowseEvent = EventWithVenueSiblings;
 
@@ -128,28 +103,10 @@ function BrowseDayColumn({
   const moreLabel = fillTemplate(dict.events.moreThatDay, {
     count: String(more),
   });
-  const tearOff = browseDayTearOffParts(day.date, locale);
-  const dayLabel = formatBrowseDayHeader(day.date, locale);
 
   return (
     <section role="listitem" className={BROWSE_DAY_TRAY_CLASS}>
-      <header className={BROWSE_DAY_TITLE_BAR_CLASS}>
-        <h2 className={BROWSE_DAY_WEEKDAY_CHIP_CLASS} aria-label={dayLabel}>
-          <span className={BROWSE_DAY_WEEKDAY_LABEL_CLASS} aria-hidden>
-            {tearOff?.weekday ?? dayLabel}
-          </span>
-        </h2>
-        <div className={BROWSE_DAY_TEAROFF_CLASS} aria-hidden>
-          {tearOff ? (
-            <>
-              <span className={BROWSE_DAY_TEAROFF_MONTH_CLASS}>
-                {tearOff.month}
-              </span>
-              <span className={BROWSE_DAY_TEAROFF_DAY_CLASS}>{tearOff.day}</span>
-            </>
-          ) : null}
-        </div>
-      </header>
+      <BrowseDayTitleBar date={day.date} locale={locale} variant="tray" />
       <div
         className={
           growing

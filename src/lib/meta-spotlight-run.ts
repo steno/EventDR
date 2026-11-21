@@ -15,6 +15,7 @@ import {
   buildTodayMetaPost,
   sameSpotlightEventSet,
   spotlightPickOptionsForSource,
+  spotlightSlotId,
   type SpotlightChannel,
 } from "@/lib/meta-spotlight";
 import { localDateISO } from "@/lib/event-dates";
@@ -144,6 +145,8 @@ export async function runTodaySpotlightStep(input: {
   skipLocations?: boolean;
   /** Per-event Facebook Page location overrides (id → page id, or "" to skip). */
   locationOverrides?: Record<string, string>;
+  /** One IG/FB album image per curated gallery slide. */
+  expandGallery?: boolean;
   channel?: SpotlightChannel;
   progress?: TodaySpotlightProgress;
 }): Promise<{ status: number; body: TodaySpotlightStepResult }> {
@@ -178,6 +181,7 @@ export async function runTodaySpotlightStep(input: {
     onlyEventIds: onlyEventIds.length ? onlyEventIds : undefined,
     skipPhotoTags: input.skipPhotoTags,
     photoTagOverrides: input.photoTagOverrides,
+    expandGallery: input.expandGallery,
     skipLocations: input.skipLocations,
     locationOverrides: input.locationOverrides,
     ...spotlightPickOptionsForSource(channel, { specialsAlreadyPosted }),
@@ -194,7 +198,7 @@ export async function runTodaySpotlightStep(input: {
     };
   }
 
-  const eventIds = built.post.events.map((event) => event.id);
+  const eventIds = built.post.events.map((event) => spotlightSlotId(event));
   const specialsPeer = locks.specials;
   if (
     channel === "today" &&

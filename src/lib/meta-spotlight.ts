@@ -5,6 +5,7 @@ import {
   localDateISO,
   weekdayFromISO,
 } from "@/lib/event-dates";
+import { getEventGallerySlides } from "@/lib/event-images";
 import { formatEventPlace } from "@/lib/event-location";
 import {
   getEventLiveStatus,
@@ -89,6 +90,11 @@ const SKIP_STATUSES = new Set([
 
 export type TodaySpotlightEvent = {
   id: string;
+  /**
+   * Unique post slot for IG progress / lock tracking. Equals `id` for a normal
+   * one-post-per-event run; `${id}#g${slide}` when expanding gallery slides.
+   */
+  slotId?: string;
   title: string;
   time?: string;
   place: string;
@@ -96,6 +102,10 @@ export type TodaySpotlightEvent = {
   imageUrl: string;
   /** Localized app description — same body Share → Instagram copies. */
   description?: string;
+  /** 0-based curated gallery slide used for this IG card (expandGallery). */
+  gallerySlide?: number;
+  /** Gallery slide label (artist name / cover title) for captions + dry-run. */
+  galleryLabel?: string;
   /**
    * Curated Instagram photo-tag usernames (no @) — venue + DJs/promoters.
    * Never scraped from description @mentions.
@@ -106,6 +116,11 @@ export type TodaySpotlightEvent = {
   /** Venue label for dry-run / skill confirm when a location is proposed. */
   locationName?: string;
 };
+
+/** Lock / progress id for one Instagram post slot. */
+export function spotlightSlotId(event: Pick<TodaySpotlightEvent, "id" | "slotId">): string {
+  return event.slotId?.trim() || event.id;
+}
 
 export type TodayMetaPost = {
   /** Facebook album caption listing every picked event. */
@@ -606,7 +621,10 @@ export function buildTodaySpotlightCaption(
 ): string {
   const lines = [spotlightCaptionIntro(locale, dateISO), ""];
   for (const event of events) {
-    const bits = [displayTitle(event.title)];
+    const label = event.galleryLabel?.trim();
+    const bits = label
+      ? [label, displayTitle(event.title)]
+      : [displayTitle(event.title)];
     const when = shortEventTime(event.time);
     if (when) bits.push(when);
     const place = shortPlace(event);
@@ -624,21 +642,36 @@ export function buildTodaySpotlightCaption(
  * One Instagram post per event — not a grouped carousel caption.
  * Prefer the app event description (Share → Instagram clipboard copy); fall
  * back to title · time · place when description is missing.
+ * Gallery-expanded slots use a short artist/cover lead + place/time.
  */
 export function buildSingleEventSpotlightCaption(
   event: TodaySpotlightEvent,
   locale: Locale,
   _dateISO = localDateISO(),
 ): string {
-  const description = event.description?.trim();
-  let body = description;
-  if (!body) {
-    const bits = [displayTitle(event.title)];
+  const label = event.galleryLabel?.trim();
+  let body: string | undefined;
+  if (label && event.gallerySlide != null) {
+    const bits = [label];
+    const title = displayTitle(event.title);
+    if (title && !title.toLowerCase().includes(label.toLowerCase())) {
+      bits.push(title);
+    }
     const when = shortEventTime(event.time);
     if (when) bits.push(when);
     const place = shortPlace(event);
     if (place) bits.push(place);
     body = bits.join(" · ");
+  } else {
+    body = event.description?.trim();
+    if (!body) {
+      const bits = [displayTitle(event.title)];
+      const when = shortEventTime(event.time);
+      if (when) bits.push(when);
+      const place = shortPlace(event);
+      if (place) bits.push(place);
+      body = bits.join(" · ");
+    }
   }
   const lines = [
     body,
@@ -654,8 +687,54 @@ export function buildSingleEventSpotlightCaption(
 export function spotlightShareImageUrl(
   eventId: string,
   origin = SITE_URL,
+  gallerySlide?: number,
 ): string {
-  return `${siteOrigin(origin)}/api/ig-card/${encodeURIComponent(eventId)}.jpg`;
+  const base = `${siteOrigin(origin)}/api/ig-card/${encodeURIComponent(eventId)}.jpg`;
+  if (gallerySlide == null || !Number.isInteger(gallerySlide) || gallerySlide < 0) {
+    return base;
+  }
+  return `${base}?slide=${gallerySlide}`;
+}
+
+/**
+ * Match a gallery slide label to a curated `photoTags` handle (no @).
+ * E.g. "Félix Fire" → felixfire, "Papi Cejas" → soypapicejas.
+ */
+export function matchGallerySlidePhotoTag(
+  label: string | undefined,
+  photoTags: string[] | undefined,
+): string | undefined {
+  const tags = (photoTags ?? [])
+    .map((tag) => normalizeInstagramUsername(tag))
+    .filter((tag): tag is string => Boolean(tag));
+  if (!tags.length) return undefined;
+  const raw = label?.trim().toLowerCase() ?? "";
+  if (!raw) return undefined;
+  const compact = raw.normalize("NFD").replace(/\p{M}/gu, "").replace(/[^a-z0-9]+/g, "");
+  for (const tag of tags) {
+    const tagCompact = tag.replace(/[^a-z0-9]+/g, "");
+    if (!tagCompact) continue;
+    if (compact.includes(tagCompact) || tagCompact.includes(compact)) {
+      return tag;
+    }
+    // Handle tokens vs dotted handles: "la paulina" ↔ lapaulina01_
+    const labelTokens = compact;
+    if (labelTokens.length >= 4 && tagCompact.includes(labelTokens)) return tag;
+    if (tagCompact.length >= 4 && labelTokens.includes(tagCompact.slice(0, Math.min(8, tagCompact.length)))) {
+      return tag;
+    }
+  }
+  // Token overlap: "papi cejas" vs soypapicejas
+  const words = raw
+    .normalize("NFD")
+    .replace(/\p{M}/gu, "")
+    .split(/[^a-z0-9]+/)
+    .filter((w) => w.length >= 3);
+  for (const tag of tags) {
+    const tagCompact = tag.replace(/[^a-z0-9]+/g, "");
+    if (words.some((w) => tagCompact.includes(w))) return tag;
+  }
+  return undefined;
 }
 
 function toSpotlightEvent(
@@ -667,16 +746,39 @@ function toSpotlightEvent(
     skipPhotoTags?: boolean;
     locationOverride?: string | null;
     skipLocations?: boolean;
+    gallerySlide?: number;
+    galleryLabel?: string;
+    /** Extra artist/DJ handles for this slide (merged with venue unless override). */
+    slidePhotoTags?: string[];
   } = {},
 ): TodaySpotlightEvent {
-  const photoTagUsernames = options.skipPhotoTags
-    ? []
-    : resolveSpotlightPhotoTagUsernames(event, options.photoTagOverride);
+  let photoTagUsernames: string[];
+  if (options.skipPhotoTags) {
+    photoTagUsernames = [];
+  } else if (options.photoTagOverride !== undefined) {
+    photoTagUsernames = resolveSpotlightPhotoTagUsernames(
+      event,
+      options.photoTagOverride,
+    );
+  } else if (options.slidePhotoTags?.length) {
+    photoTagUsernames = resolveSpotlightPhotoTagUsernames({
+      venueSlug: event.venueSlug,
+      photoTags: options.slidePhotoTags,
+    });
+  } else {
+    photoTagUsernames = resolveSpotlightPhotoTagUsernames(event);
+  }
   const locationId = options.skipLocations
     ? undefined
     : resolveSpotlightLocationId(event, options.locationOverride);
+  const gallerySlide = options.gallerySlide;
+  const slotId =
+    gallerySlide != null && Number.isInteger(gallerySlide) && gallerySlide >= 0
+      ? `${event.id}#g${gallerySlide}`
+      : undefined;
   return {
     id: event.id,
+    ...(slotId ? { slotId } : {}),
     title: event.title,
     time: event.time,
     place: (event.venue?.split(",")[0]?.trim() ||
@@ -685,8 +787,10 @@ function toSpotlightEvent(
       event.location ||
       ""),
     url: `${siteOrigin(origin)}/${locale}/event/${event.id}`,
-    imageUrl: spotlightShareImageUrl(event.id, origin),
+    imageUrl: spotlightShareImageUrl(event.id, origin, gallerySlide),
     description: event.description?.trim() || undefined,
+    ...(gallerySlide != null ? { gallerySlide } : {}),
+    ...(options.galleryLabel ? { galleryLabel: options.galleryLabel } : {}),
     photoTagUsernames,
     locationId,
     locationName: locationId
@@ -695,18 +799,89 @@ function toSpotlightEvent(
   };
 }
 
+/**
+ * One Meta post per curated gallery slide (cover + artists). Caps at
+ * TODAY_SPOTLIGHT_MAX. Events without a gallery stay a single post.
+ */
+export function expandSpotlightEventsForGallery(
+  events: TodaySpotlightEvent[],
+  sources: Event[],
+  locale: Locale,
+  origin = SITE_URL,
+  options: {
+    skipPhotoTags?: boolean;
+    photoTagOverrides?: Record<string, string>;
+    skipLocations?: boolean;
+    locationOverrides?: Record<string, string>;
+  } = {},
+): TodaySpotlightEvent[] {
+  const byId = new Map(sources.map((event) => [event.id, event]));
+  const out: TodaySpotlightEvent[] = [];
+  for (const spotlight of events) {
+    if (out.length >= TODAY_SPOTLIGHT_MAX) break;
+    const source = byId.get(spotlight.id);
+    const slides = getEventGallerySlides(spotlight.id);
+    if (!source || slides.length < 2) {
+      out.push(spotlight);
+      continue;
+    }
+    for (let index = 0; index < slides.length; index++) {
+      if (out.length >= TODAY_SPOTLIGHT_MAX) break;
+      const slide = slides[index]!;
+      const label = slide.label?.trim() || undefined;
+      const artistTag = matchGallerySlidePhotoTag(label, source.photoTags);
+      const slotKey = `${source.id}#g${index}`;
+      const override =
+        options.photoTagOverrides?.[slotKey] ??
+        options.photoTagOverrides?.[source.id];
+      const locationOverride =
+        options.locationOverrides?.[slotKey] ??
+        options.locationOverrides?.[source.id];
+      out.push(
+        toSpotlightEvent(source, locale, origin, {
+          skipPhotoTags: options.skipPhotoTags,
+          photoTagOverride:
+            override === undefined
+              ? undefined
+              : override === ""
+                ? null
+                : override,
+          slidePhotoTags:
+            override === undefined && artistTag ? [artistTag] : undefined,
+          skipLocations: options.skipLocations,
+          locationOverride:
+            locationOverride === undefined
+              ? undefined
+              : locationOverride === ""
+                ? null
+                : locationOverride,
+          gallerySlide: index,
+          galleryLabel: label,
+        }),
+      );
+    }
+  }
+  return out.slice(0, TODAY_SPOTLIGHT_MAX);
+}
+
 export type BuildTodayMetaPostOptions = SpotlightPickOptions & {
   /** Skip all Instagram photo tags. */
   skipPhotoTags?: boolean;
   /**
    * Per-event photo-tag overrides (id → handle, comma-list, or "" to skip).
    * Replaces the full curated set for that event.
+   * Gallery slots also accept `${id}#g${slide}` keys.
    */
   photoTagOverrides?: Record<string, string>;
   /** Skip Instagram location tags. */
   skipLocations?: boolean;
   /** Per-event Facebook Page location overrides (id → page id, or "" to skip). */
   locationOverrides?: Record<string, string>;
+  /**
+   * One Instagram/Facebook album image per curated gallery slide (manual
+   * Money Heist–style artist posts). Default false.
+   */
+  expandGallery?: boolean;
 };
 
 export async function buildTodayMetaPost(
@@ -745,26 +920,42 @@ export async function buildTodayMetaPost(
   }
 
   // List payloads slim descriptions to ""; hydrate for IG captions (Share → IG copy).
-  const events = await Promise.all(
+  const hydrated = await Promise.all(
     picked.map(async (event) => {
       const full = await getEventById(event.id, locale);
-      const base = full ?? event;
-      const override = options.photoTagOverrides?.[base.id];
-      const locationOverride = options.locationOverrides?.[base.id];
-      return toSpotlightEvent(base, locale, origin, {
-        skipPhotoTags: options.skipPhotoTags,
-        photoTagOverride:
-          override === undefined ? undefined : override === "" ? null : override,
-        skipLocations: options.skipLocations,
-        locationOverride:
-          locationOverride === undefined
-            ? undefined
-            : locationOverride === ""
-              ? null
-              : locationOverride,
-      });
+      return full ?? event;
     }),
   );
+  let events = hydrated.map((base) => {
+    const override = options.photoTagOverrides?.[base.id];
+    const locationOverride = options.locationOverrides?.[base.id];
+    return toSpotlightEvent(base, locale, origin, {
+      skipPhotoTags: options.skipPhotoTags,
+      photoTagOverride:
+        override === undefined ? undefined : override === "" ? null : override,
+      skipLocations: options.skipLocations,
+      locationOverride:
+        locationOverride === undefined
+          ? undefined
+          : locationOverride === ""
+            ? null
+            : locationOverride,
+    });
+  });
+  if (options.expandGallery) {
+    events = expandSpotlightEventsForGallery(
+      events,
+      hydrated,
+      locale,
+      origin,
+      {
+        skipPhotoTags: options.skipPhotoTags,
+        photoTagOverrides: options.photoTagOverrides,
+        skipLocations: options.skipLocations,
+        locationOverrides: options.locationOverrides,
+      },
+    );
+  }
   const imageUrls = events.map((event) => event.imageUrl);
   const photoTagUsernames = events.map((event) =>
     formatSpotlightPhotoTagList(event.photoTagUsernames ?? []),

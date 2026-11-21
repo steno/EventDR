@@ -47,12 +47,12 @@ import {
   splitAllBrowseSections,
   splitWeekendDayGroups,
 } from "@/lib/list-day-groups";
-import { formatEventDate } from "@/lib/format-date";
 import { useCardGridColumns } from "@/hooks/useCardGridColumns";
 import { StickyListFilters, ListScrollAnchor } from "@/components/StickyListFilters";
 import { TimeFilter } from "@/components/TimeFilter";
 import { EventCard } from "@/components/EventCard";
 import { AllBrowseCalendar } from "@/components/AllBrowseCalendar";
+import { BrowseDayTitleBar } from "@/components/BrowseDayTitleBar";
 import {
   EventListScrollPads,
   EventCardPlaceholder,
@@ -849,21 +849,18 @@ export function FilteredEventList({
                 const dayPadSpan = dayPads?.get(group.events.length - 1);
                 return (
                   <section key={group.date} className="min-w-0">
-                    <h2
+                    <div
                       className={`${dayHeadingClass} px-0.5`}
                       {...(stickyDayHeaders
                         ? { "data-sticky-list-day": true }
                         : {})}
                     >
-                      <span
-                        className={`inline-block font-sans ${DAY_GROUP_TITLE_CLASS}`}
-                      >
-                        {formatEventDate(group.date, locale)}
-                        <span className="ml-2 text-sm font-semibold tabular-nums text-neutral-500 dark:text-neutral-400">
-                          {group.events.length}
-                        </span>
-                      </span>
-                    </h2>
+                      <BrowseDayTitleBar
+                        date={group.date}
+                        locale={locale}
+                        variant="list"
+                      />
+                    </div>
                     <div
                       className={
                         view === "cards" ? CARD_GRID_CLASS : "space-y-2.5"
@@ -988,18 +985,18 @@ export function FilteredEventList({
                       : null;
                   return (
                     <section key={group.date} className="min-w-0">
-                      <h2
-                        className={dayHeadingClass}
+                      <div
+                        className={`${dayHeadingClass} px-0.5`}
                         {...(stickyDayHeaders
                           ? { "data-sticky-list-day": true }
                           : {})}
                       >
-                        <span
-                          className={`inline-block font-sans ${DAY_GROUP_TITLE_CLASS}`}
-                        >
-                          {formatEventDate(group.date, locale)}
-                        </span>
-                      </h2>
+                        <BrowseDayTitleBar
+                          date={group.date}
+                          locale={locale}
+                          variant="list"
+                        />
+                      </div>
                       <div
                         className={
                           view === "cards" ? CARD_GRID_CLASS : "space-y-2.5"

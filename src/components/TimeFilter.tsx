@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
-import { CalendarDays } from "lucide-react";
 import {
   FILTER_TIME_RANGES,
   type FilterTimeRange,
@@ -76,10 +75,8 @@ export function TimeFilter({
         ) : null}
         {/*
           Compact cluster: larger type + fixed gaps (not full-width stretch).
-          pl matches category pill text (rail px-0.5 + pill px-4) so the
-          calendar mark lines up with “All Events” above; filter toggle
-          keeps right room. On small screens “All” is a calendar icon —
-          that tab stacks cards by day.
+          pl matches category pill text (rail px-0.5 + pill px-4) so “All”
+          lines up with “All Events” above; filter toggle keeps right room.
         */}
         <div
           className="flex min-w-0 flex-1 items-center gap-5 overflow-x-auto pl-[1.125rem] scrollbar-hide sm:gap-2 sm:pl-0"
@@ -110,18 +107,7 @@ export function TimeFilter({
                   }
                 `}
               >
-                {range === "all" ? (
-                  <>
-                    <CalendarDays
-                      className="h-5 w-5 sm:hidden"
-                      aria-hidden
-                    />
-                    <span className="sr-only sm:hidden">{dict.time.all}</span>
-                    <span className="hidden sm:inline">{dict.time.all}</span>
-                  </>
-                ) : (
-                  dict.time[range]
-                )}
+                {dict.time[range]}
                 <span
                   aria-hidden
                   className={`

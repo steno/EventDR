@@ -22,6 +22,7 @@
  *   TOMORROW_SPECIALS=true   Tomorrow’s specials only
  *   SOURCE=today|today-specials|tomorrow-specials|manual
  *   LOCALE=es|en|fr          Caption locale (default en)
+ *   EXPAND_GALLERY=true      One post per curated gallery slide (artists)
  */
 
 const SITE_URL = (process.env.SITE_URL || "https://pop-event.com").replace(
@@ -59,6 +60,7 @@ const SPOTLIGHT_SOURCE = ONLY_EVENT_IDS.length
         : "today";
 const SKIP_PHOTO_TAGS = process.env.SKIP_PHOTO_TAGS === "true";
 const SKIP_LOCATIONS = process.env.SKIP_LOCATIONS === "true";
+const EXPAND_GALLERY = process.env.EXPAND_GALLERY === "true";
 const MAX_STEPS = 80;
 const WAIT_MS = 4_000;
 
@@ -137,6 +139,7 @@ async function main() {
     onlyEventIds: ONLY_EVENT_IDS.length ? ONLY_EVENT_IDS : undefined,
     skipPhotoTags: SKIP_PHOTO_TAGS || undefined,
     skipLocations: SKIP_LOCATIONS || undefined,
+    expandGallery: EXPAND_GALLERY || undefined,
     facebook: INSTAGRAM_ONLY ? false : undefined,
     instagram: FACEBOOK_ONLY ? false : undefined,
   };

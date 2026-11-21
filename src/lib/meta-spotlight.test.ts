@@ -3,6 +3,7 @@ import { describe, it } from "node:test";
 import {
   buildSingleEventSpotlightCaption,
   buildTodaySpotlightCaption,
+  matchGallerySlidePhotoTag,
   otherSpotlightChannel,
   pickTodaySpotlights,
   resolveSpotlightLocationId,
@@ -779,6 +780,35 @@ describe("spotlightShareImageUrl", () => {
       spotlightShareImageUrl("parada-choco-banditalia-2026-10-06"),
       "https://pop-event.com/api/ig-card/parada-choco-banditalia-2026-10-06.jpg",
     );
+  });
+
+  it("appends ?slide=N for gallery-expanded cards", () => {
+    assert.equal(
+      spotlightShareImageUrl("twenty-disco-money-heist-2026-11-21", undefined, 2),
+      "https://pop-event.com/api/ig-card/twenty-disco-money-heist-2026-11-21.jpg?slide=2",
+    );
+  });
+});
+
+describe("matchGallerySlidePhotoTag", () => {
+  const tags = [
+    "felixfire",
+    "lapaulina01_",
+    "jhunior.oficial",
+    "masiory1",
+    "soypapicejas",
+  ];
+
+  it("maps Money Heist artist labels to curated handles", () => {
+    assert.equal(matchGallerySlidePhotoTag("Félix Fire", tags), "felixfire");
+    assert.equal(matchGallerySlidePhotoTag("La Paulina", tags), "lapaulina01_");
+    assert.equal(matchGallerySlidePhotoTag("Jhunior", tags), "jhunior.oficial");
+    assert.equal(matchGallerySlidePhotoTag("Masiory", tags), "masiory1");
+    assert.equal(matchGallerySlidePhotoTag("Papi Cejas", tags), "soypapicejas");
+  });
+
+  it("skips cover labels that are not artists", () => {
+    assert.equal(matchGallerySlidePhotoTag("Money Heist Party", tags), undefined);
   });
 });
 

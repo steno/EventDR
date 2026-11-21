@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isValidLocale, type Locale } from "@/i18n/config";
+import { getEventGallerySlides } from "@/lib/event-images";
 import { getEventById } from "@/lib/get-event";
 import { buildInstagramFeedCardJpeg } from "@/lib/instagram-story-card-server";
 
@@ -10,6 +11,9 @@ const EVENT_ID = /^[a-zA-Z0-9._-]{1,160}$/;
 /**
  * Share → Instagram card as a 4:5 JPEG. Spotlight posts point Meta here so
  * the feed photo matches the detail-page share design.
+ *
+ * Optional `?slide=N` (0-based) uses that curated gallery slide as the flyer
+ * instead of the event hero — for per-artist Money Heist–style posts.
  */
 export async function GET(
   request: NextRequest,
@@ -28,11 +32,26 @@ export async function GET(
     return new NextResponse("Not found", { status: 404 });
   }
 
+  const slideRaw = request.nextUrl.searchParams.get("slide");
+  let cardEvent = event;
+  if (slideRaw != null && slideRaw !== "") {
+    const slideIndex = Number.parseInt(slideRaw, 10);
+    if (!Number.isInteger(slideIndex) || slideIndex < 0) {
+      return new NextResponse("Bad slide", { status: 400 });
+    }
+    const slides = getEventGallerySlides(id);
+    const slide = slides[slideIndex];
+    if (!slide?.imageUrl) {
+      return new NextResponse("Slide not found", { status: 404 });
+    }
+    cardEvent = { ...event, imageUrl: slide.imageUrl };
+  }
+
   try {
     // Same-host origin so localhost ig-card can fetch /events/* without
     // bundling public/ into the Netlify server handler.
     const jpeg = await buildInstagramFeedCardJpeg(
-      event,
+      cardEvent,
       locale,
       request.nextUrl.origin,
     );

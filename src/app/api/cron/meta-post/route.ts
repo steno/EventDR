@@ -7,6 +7,7 @@ import {
   buildTodayMetaPost,
   isSpotlightChannel,
   spotlightPickOptionsForSource,
+  spotlightSlotId,
 } from "@/lib/meta-spotlight";
 import {
   inspectMetaAccounts,
@@ -121,6 +122,8 @@ type PostBody = Partial<MetaPublishInput> &
     skipLocations?: boolean;
     /** Per-event Facebook Page location overrides (id → page id, or "" to skip). */
     locationOverrides?: Record<string, string>;
+    /** One IG/FB album image per curated gallery slide. */
+    expandGallery?: boolean;
     step?: "next" | "all";
     /** Upload a still-derived MP4 for Instagram Reels hosting. */
     action?: "upload-reel" | "render-story-card";
@@ -264,6 +267,7 @@ export async function POST(request: NextRequest) {
           photoTagOverrides: body.photoTagOverrides,
           skipLocations: body.skipLocations,
           locationOverrides: body.locationOverrides,
+          expandGallery: body.expandGallery === true,
           ...spotlightPickOptionsForSource(channel, { specialsAlreadyPosted }),
         });
       } catch (error) {
@@ -290,7 +294,7 @@ export async function POST(request: NextRequest) {
       });
       const dryPayload = publishPayload(
         dry,
-        built.post.events.map((event) => event.id),
+        built.post.events.map((event) => spotlightSlotId(event)),
       );
       return NextResponse.json(
         {
@@ -298,6 +302,13 @@ export async function POST(request: NextRequest) {
           eventCaptions: built.post.eventCaptions,
           photoTagUsernames: built.post.photoTagUsernames,
           locationIds: built.post.locationIds,
+          gallerySlides: built.post.events.map((event) => ({
+            eventId: event.id,
+            slotId: spotlightSlotId(event),
+            gallerySlide: event.gallerySlide ?? null,
+            galleryLabel: event.galleryLabel ?? null,
+            imageUrl: event.imageUrl,
+          })),
           photoTags: built.post.events.map((event, index) => {
             const usernames = (event.photoTagUsernames?.length
               ? event.photoTagUsernames
@@ -307,6 +318,7 @@ export async function POST(request: NextRequest) {
                   .filter(Boolean));
             return {
               eventId: event.id,
+              slotId: spotlightSlotId(event),
               username: usernames[0] ?? null,
               usernames,
               source: usernames.length ? "curated" : null,
@@ -314,6 +326,7 @@ export async function POST(request: NextRequest) {
           }),
           locations: built.post.events.map((event, index) => ({
             eventId: event.id,
+            slotId: spotlightSlotId(event),
             locationId: built.post.locationIds[index] || null,
             name: event.locationName ?? event.place ?? null,
             source: built.post.locationIds[index] ? "venue" : null,
@@ -348,6 +361,7 @@ export async function POST(request: NextRequest) {
         photoTagOverrides: body.photoTagOverrides,
         skipLocations: body.skipLocations,
         locationOverrides: body.locationOverrides,
+        expandGallery: body.expandGallery === true,
         channel,
         progress: {
           facebookId: body.facebookId,
