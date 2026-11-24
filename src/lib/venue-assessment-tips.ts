@@ -1345,6 +1345,30 @@ export const VENUE_TIP_COPY: Record<
       fr: "Nightlife à Villa Progreso, Veragua, au C/ Duarte #51 — DJ, karaoke et spéciaux hookah à l’intérieur depuis Cabarete, pas une disco du mall de Playa Dorada ni un crawl du Malecón de Puerto Plata ; walk-in cash only, confirmez les portes sur @puntofrio_lifebar ou WhatsApp +1 809-982-5850 avant l’Uber depuis la bande.",
     },
   },
+  "the-grounds-cafe": {
+    body: "Montellano coffee-and-community house on Carretera Montellano — workshops and café tables inland from Cabarete/Sosúa nightlife; RSVP classes on +1 829-678-2574 and don’t confuse it with the ganaderos fairgrounds farther in Villa Montellano.",
+    localized: {
+      en: "Montellano coffee-and-community house on Carretera Montellano — workshops and café tables inland from Cabarete/Sosúa nightlife; RSVP classes on +1 829-678-2574 and don’t confuse it with the ganaderos fairgrounds farther in Villa Montellano.",
+      es: "Casa de café y comunidad en Carretera Montellano — talleres y mesas tierra adentro del nightlife de Cabarete/Sosúa; reserva clases al +1 829-678-2574 y no lo confundas con la explanada de ganaderos más adentro en Villa Montellano.",
+      fr: "Maison café-communauté sur Carretera Montellano — ateliers et tables à l’intérieur du nightlife Cabarete/Sosúa ; réservez les cours au +1 829-678-2574 et ne confondez pas avec l’explanada ganaderos plus loin à Villa Montellano.",
+    },
+  },
+  "parque-de-la-libertad": {
+    body: "Downtown park at 27 de Febrero / Beller — daytime bazaars and community hang a short walk from La Quinta Rosa; pin the park itself, not Plaza Independencia’s cathedral square a few blocks west.",
+    localized: {
+      en: "Downtown park at 27 de Febrero / Beller — daytime bazaars and community hang a short walk from La Quinta Rosa; pin the park itself, not Plaza Independencia’s cathedral square a few blocks west.",
+      es: "Parque del centro en 27 de Febrero / Beller — bazares de día y encuentro comunitario a poca caminata de La Quinta Rosa; clava el parque, no la Plaza Independencia junto a la catedral unas cuadras al oeste.",
+      fr: "Parc du centre à 27 de Febrero / Beller — bazars de jour et hang communautaire à deux pas de La Quinta Rosa ; épinglez le parc, pas Plaza Independencia près de la cathédrale quelques rues à l’ouest.",
+    },
+  },
+  "serie-121-villa-isabela": {
+    body: "Villa Isabela liquor-store party pin west of Puerto Plata city — bottle promos and DJ floors on Serie 121 Live nights; not D’Ocean Bar and not the municipal park Food Fest stage — confirm the flyer address before you Uber from the coast.",
+    localized: {
+      en: "Villa Isabela liquor-store party pin west of Puerto Plata city — bottle promos and DJ floors on Serie 121 Live nights; not D’Ocean Bar and not the municipal park Food Fest stage — confirm the flyer address before you Uber from the coast.",
+      es: "Pin de fiesta de licorería en Villa Isabela al oeste de la ciudad — promos de botellas y pista DJ en noches Serie 121 Live; no es D’Ocean Bar ni el escenario del Food Fest en el parque municipal — confirma la dirección del flyer antes del Uber desde la costa.",
+      fr: "Pin soirée liquor store à Villa Isabela à l’ouest de la ville — promos bouteilles et piste DJ les nuits Serie 121 Live ; pas D’Ocean Bar ni la scène Food Fest du parc municipal — confirmez l’adresse du flyer avant l’Uber depuis la côte.",
+    },
+  },
   "nova-salud-bienestar": {
     body: "Victorian-style centro clinic on Margarita Mears #6 (Mon–Fri 8 AM–5 PM on the door) — psychology talks here, not a spa day pass. WhatsApp seats before you walk the colonial grid.",
     localized: {

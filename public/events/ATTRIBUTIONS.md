@@ -884,3 +884,31 @@ Curated images under `public/events/` and `public/venues/`.
 | `goddess-francesca-samuele-2026-11-27-v2.jpg` | POP-supplied — Goddess Francesca y Samuele en vivo flyer (editor refresh) | Fri 27 Nov 2026 4–6 PM; filename bump; typography-heavy |
 | `meclao-sabado-latino-dj-choco-2026-11-21.jpg` | POP-supplied — Mecla'o Sábado Latino DJ Choco flyer ([@meclaorooftop](https://www.instagram.com/meclaorooftop/) / [@ch.17x](https://www.instagram.com/ch.17x/)) | Sat 21 Nov 2026; editor-provided; typography-heavy |
 | `surfskate-fest-encuentro-2026-12-11.jpg` | POP-supplied — Parallel Surf Surfskate Fest flyer ([@parallel.surf](https://www.instagram.com/parallel.surf/) × [@dominicansurffestival](https://www.instagram.com/dominicansurffestival/)) | Fri 11 Dec 2026 4:30 PM Playa Encuentro; editor-provided; typography-heavy |
+| `parada-choco-enrico-aperitivo-2026-11-24.jpg` | POP-supplied — Parada Choco *Enrico LIVE* aperitivo flyer ([@paradaelchoco](https://www.instagram.com/paradaelchoco/)) | Tue 24 Nov 2026 5–7 PM; editor-provided; typography-heavy |
+| `disco-club-gogo-dancers-2026-11-26.jpg` | _(superseded)_ prior GOGO crop | Kept on disk only |
+| `disco-club-gogo-dancers-2026-11-26-v2.jpg` | POP-supplied — Latin Disco *GOGO Dancers Night* flyer ([@latindiscoclubpp](https://www.instagram.com/latindiscoclubpp/)) | Thu 26 Nov 2026; filename bump; typography-heavy; 18+ |
+| `natura-cabana-thanksgiving-josh-sax-2026-11-26.jpg` | POP-supplied — Natura Cabana Thanksgiving *Josh Sax Night* flyer ([@naturacabana](https://www.instagram.com/naturacabana/)) | Thu 26 Nov 2026 from 6 PM; editor-provided; typography-heavy |
+| `novias-atlantico-letras-lienzos-2026-11-25.jpg` | _(superseded)_ prior Letras & Lienzos crop | Kept on disk only |
+| `novias-atlantico-letras-lienzos-2026-11-25-v2.jpg` | POP-supplied — Novias del Atlántico *Letras & Lienzos* exhibition flyer ([@novias_del_atlantico](https://www.instagram.com/novias_del_atlantico/)) | Wed 25 Nov 2026 6:30 PM free; filename bump; typography-heavy |
+| `hendry-fit-boxeo-puntilla-fridays.jpg` | POP-supplied — Hendry Fit *Entrenamiento Aire Libre / Clase de Boxeo* flyer ([@hendry_fit_](https://www.instagram.com/hendry_fit_/)) | Weekly Fridays 5:30 AM Anfiteatro La Puntilla; free; editor-provided; typography-heavy |
+| `grounds-mahjong-101-2026-11-27.jpg` | _(superseded)_ prior Mahjong crop | Kept on disk only |
+| `grounds-mahjong-101-2026-11-27-v2.jpg` | POP-supplied — Always Mahj × The Grounds *Mahjong 101* flyer ([@the.grounds.dr](https://www.instagram.com/the.grounds.dr/) / [@alwaysmahj](https://www.instagram.com/alwaysmahj/)) | Fri 27 Nov 2026 5:30 PM; filename bump; typography-heavy |
+| `grounds-bazar-navideno-2026-12-05.jpg` | POP-supplied — The Grounds *Bazar Navideño* flyer ([@the.grounds.dr](https://www.instagram.com/the.grounds.dr/)) | Sat 5 Dec 2026 10 AM–7 PM; editor-provided; typography-heavy |
+| `venues/serie-121-villa-isabela.jpg` | POP-supplied — Serie 121 Liquor Store night facade / bar counter | New venue place shot (editor-provided; scene-safe) |
+| `venues/parque-de-la-libertad.jpg` | _(superseded)_ prior plaza crop | Kept on disk only |
+| `venues/parque-de-la-libertad-v2.jpg` | POP-supplied — Parque de la Libertad plaza / monument daytime place shot | Filename bump; scene-safe |
+| `venues/the-grounds-cafe.jpg` | POP-supplied — The Grounds Coffee & Community daytime facade / storefront | New venue place shot (editor-provided; scene-safe) |
+| `team-animal-aguinaldo-5k-2026-11-28.jpg` | _(superseded)_ prior Team Animal crop | Kept on disk only |
+| `team-animal-aguinaldo-5k-2026-11-28-v2.jpg` | POP-supplied — Team Animal *Aguinaldo Navideño 5K* flyer | Sat 28 Nov 2026 5:30 AM Plaza Charamicos; filename bump; typography-heavy |
+| `serie-121-viernes-descontrol-2026-11-27.jpg` | _(superseded)_ prior Descontrol crop | Kept on disk only |
+| `serie-121-viernes-descontrol-2026-11-27-v2.jpg` | POP-supplied — Serie 121 *Viernes de Descontrol* DJ Franky flyer | Fri 27 Nov 2026 Villa Isabela; filename bump; typography-heavy |
+| `grounds-mahjong-101-2026-11-27.jpg` | POP-supplied — Always Mahj × The Grounds *Mahjong 101* flyer ([@the.grounds.dr](https://www.instagram.com/the.grounds.dr/)) | Fri 27 Nov 2026 5:30 PM; editor-provided; typography-heavy |
+| `aventureros-pop-mujeres-al-volante-2026-11-29.jpg` | _(superseded)_ crossed with AfterGlow — fixed via `-v2` | Kept on disk only |
+| `aventureros-pop-mujeres-al-volante-2026-11-29-v2.jpg` | POP-supplied — Aventureros POP *Mujeres al Volante* 4x4 flyer | Sun 29 Nov 2026 8 AM Estadio PP; filename bump after swap fix; typography-heavy |
+| `bazar-alnier-por-siempre-2026-12-05.jpg` | _(superseded)_ prior Alnier crop | Kept on disk only |
+| `bazar-alnier-por-siempre-2026-12-05-v2.jpg` | POP-supplied — *Bazar Alnier Por Siempre* Christmas market flyer | 5–6 Dec 2026 Parque de la Libertad; filename bump; typography-heavy |
+| `toscana-nightclub-dj-joel-2026-12-06.jpg` | POP-supplied — Toscana *DJ Joel 80s/90s* flyer ([@toscana_nightclub](https://www.instagram.com/toscana_nightclub/)) | Sun 6 Dec 2026; editor-provided; typography-heavy |
+| `disco-club-la-fucking-vibra-2-2026-12-15.jpg` | POP-supplied — Happy Tour *La Fucking Vibra 2* flyer ([@happytour02](https://www.instagram.com/happytour02/)) | Mon 15 Dec 2026 Latin Disco; editor-provided; typography-heavy |
+| `twenty-disco-afterglow-birthday-2026-12-27.jpg` | _(superseded)_ crossed with Mujeres — fixed via `-v2` | Kept on disk only |
+| `twenty-disco-afterglow-birthday-2026-12-27-v2.jpg` | POP-supplied — BSM × Santana *AfterGlow* Birthday Bash flyer ([@bsmentertainmentrd](https://www.instagram.com/bsmentertainmentrd/)) | Sat 27 Dec 2026 Twenty Disco; filename bump after swap fix; typography-heavy |
+| `mercadillo-fest-christmas-2026-12-19.jpg` | POP-supplied — Mercadillo Fest *Christmas Fest* flyer ([@mercadillofest](https://www.instagram.com/mercadillofest/)) | 19–20 Dec 2026 10 AM–9 PM Quinta Rosa; filename bump; typography-heavy |

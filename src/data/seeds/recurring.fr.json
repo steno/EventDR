@@ -3682,5 +3682,41 @@
       "BYOB — trae tu bebida"
     ],
     "imageEmoji": "🍻"
+  },
+  {
+    "id": "hendry-fit-boxeo-puntilla-fridays",
+    "title": "Hendry Fit — Boxe gratuite le vendredi à La Puntilla",
+    "description": "Tous les vendredis à 5 h 30 — cours de boxe en plein air gratuit avec Hendry Fit à l’Anfiteatro La Puntilla, Puerto Plata. Compétences, vitesse, discipline et bonne ambiance pour tous les niveaux. Totalement gratuit. Instagram @hendry_fit_. Entraînement au lever du soleil sur le Malecón — pas l’open sparring du vendredi au Cabarete Boxing Club, ni le Pilates daté de Jennifer Nadal à l’amphithéâtre.",
+    "date": "2026-01-01",
+    "time": "5:30 AM",
+    "location": "Puerto Plata",
+    "venue": "Anfiteatro La Puntilla",
+    "venueSlug": "anfiteatro-la-puntilla",
+    "address": "Anfiteatro La Puntilla, La Puntilla, Puerto Plata",
+    "lat": 19.803611,
+    "lng": -70.694722,
+    "category": "health-wellness",
+    "categories": [
+      "sports"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 5,
+    "trending": true,
+    "isFree": true,
+    "ageHint": "all-ages",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/hendry_fit_/",
+    "instagram": "hendry_fit_",
+    "photoTags": [
+      "hendry_fit_"
+    ],
+    "lineup": [
+      "Clase de boxeo",
+      "Ejercicios de habilidades",
+      "Velocidad",
+      "Totalmente gratis"
+    ],
+    "imageEmoji": "🥊"
   }
 ]

@@ -260,6 +260,12 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "estudio-crea-cabarete": "estudio-crea-cabarete-lounge-v3.jpg",
   // POP-supplied red-lounge / step-and-repeat interior (Villa Progreso Veragua).
   "punto-frio-life-bar": "punto-frio-life-bar.jpg",
+  // POP-supplied night facade / bar counter (Villa Isabela).
+  "serie-121-villa-isabela": "serie-121-villa-isabela.jpg",
+  // POP-supplied plaza / monument place shot (Av. 27 de Febrero).
+  "parque-de-la-libertad": "parque-de-la-libertad-v2.jpg",
+  // POP-supplied daytime facade / storefront (Carretera Montellano).
+  "the-grounds-cafe": "the-grounds-cafe.jpg",
 };
 
 /** Cache-busted URL for general venue thumbnails / JSON-LD. */
@@ -292,6 +298,8 @@ const VENUE_HERO_OBJECT_POSITION: Record<string, string> = {
   "tiki-bar-cabarete": "object-top",
   // Portrait deck — keep patio tables + ocean edge in wide card crops.
   "casa-tuva-cabarete": "object-top",
+  // Facade storefront — keep the grounds sign / glass front at the top of the crop.
+  "the-grounds-cafe": "object-top",
 };
 
 export function getVenueHeroObjectPosition(slug: string): string {

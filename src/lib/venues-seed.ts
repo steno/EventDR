@@ -533,8 +533,7 @@ export const SEED_VENUES: Venue[] = [
     emoji: "⚽",
     website: "https://www.facebook.com/profile.php?id=100089059716413",
     instagram: "diaynocherestaurantelcarey",
-    // Facebook Page with location — IG spotlight location_id.
-    facebookPlaceId: "100089059716413",
+    // facebookPlaceId removed — profile id 100089059716413 is not a valid IG location Page.
     phone: "+18494404199",
   },
   {
@@ -2574,6 +2573,42 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18099825850",
     website: "https://www.instagram.com/puntofrio_lifebar/",
   },
+  {
+    slug: "the-grounds-cafe",
+    name: "The Grounds Coffee & Community",
+    city: "Villa Montellano",
+    description:
+      "Faith-based coffee shop and community space on Carretera Montellano in Villa Montellano — specialty coffee, workshops, small groups, and local maker shelf space. Typical hours ~7:30 AM–9:30 PM Mon–Sat, Sundays from ~2:00 PM. Instagram @the.grounds.dr · Mahjong / class RSVP +1 829-678-2574.",
+    // Exa/Places — The Grounds Coffee & Community, Monte Llano / Montellano.
+    lat: 19.738635,
+    lng: -70.602516,
+    emoji: "☕",
+    phone: "+18296782574",
+    instagram: "the.grounds.dr",
+    website: "https://thegroundsdr.squarespace.com/",
+  },
+  {
+    slug: "parque-de-la-libertad",
+    name: "Parque de la Libertad",
+    city: "Puerto Plata",
+    description:
+      "Public park at Av. 27 de Febrero / Calle Beller (near 12 de Julio) in downtown Puerto Plata — community gatherings, bazaars, and evening hangouts a short walk from La Quinta Rosa and the historic grid.",
+    // Places — Libertad Park / Parque de la Libertad near Av. 27 de Febrero.
+    lat: 19.79432,
+    lng: -70.68483,
+    emoji: "🌳",
+  },
+  {
+    slug: "serie-121-villa-isabela",
+    name: "Serie 121 Liquor Store",
+    city: "Villa Isabela",
+    description:
+      "Local liquor store and billed party spot in Villa Isabela (west of Puerto Plata city) — Serie 121 Live nights, bottle promos, and DJ floors. Confirm doors on event flyers; pin Villa Isabela town, not D’Ocean Bar or the municipal park glorieta.",
+    // Approx Villa Isabela town pin near municipal park / D’Ocean corridor.
+    lat: 19.818,
+    lng: -71.056,
+    emoji: "🍾",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
@@ -2907,6 +2942,21 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /punto\s*fr[ií]o(\s*life)?(\s*bar)?|puntofrio_?lifebar|la\s*kalle\s*punto\s*fr[ií]o/i,
     slug: "punto-frio-life-bar",
+  },
+  {
+    pattern:
+      /the\s*grounds(\s*(caf[eé]|coffee(\s*&\s*community)?))?|groundsdr|the\.grounds\.dr/i,
+    slug: "the-grounds-cafe",
+  },
+  {
+    pattern:
+      /parque\s*de\s*la\s*libertad|libertad\s*park/i,
+    slug: "parque-de-la-libertad",
+  },
+  {
+    pattern:
+      /serie\s*121|serrie\s*121|serie\s*121\s*liquor|serrie\s*121\s*liquor/i,
+    slug: "serie-121-villa-isabela",
   },
   {
     // Must win over fuzzy “037” fragments before Victrola 037 Arte Café.

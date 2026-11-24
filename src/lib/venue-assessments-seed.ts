@@ -2235,6 +2235,39 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "the-grounds-cafe",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["local", "family", "mixed"],
+    axes: { recommend: 4.2, atmosphere: 4.3, value: 4.0, practical: 3.6 },
+    themes: [
+      { key: "workshop", sentiment: "positive", audience: "visitor" },
+      { key: "family_friendly", sentiment: "positive", audience: "local" },
+      { key: "easy_to_find", sentiment: "mixed", audience: "visitor" },
+    ],
+  }),
+  editorial({
+    venueSlug: "parque-de-la-libertad",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["local", "family", "mixed"],
+    axes: { recommend: 3.9, atmosphere: 3.8, value: 4.2, practical: 3.7 },
+    themes: [
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "easy_to_find", sentiment: "positive", audience: "visitor" },
+      { key: "heritage_site", sentiment: "positive", audience: "local" },
+    ],
+  }),
+  editorial({
+    venueSlug: "serie-121-villa-isabela",
+    verdictKey: "local_favorite_night",
+    crowdFit: ["local", "nightlife", "mixed"],
+    axes: { recommend: 3.7, atmosphere: 3.9, value: 4.0, practical: 3.0 },
+    themes: [
+      { key: "loud_late", sentiment: "positive", audience: "nightlife" },
+      { key: "easy_to_find", sentiment: "mixed", audience: "visitor" },
+      { key: "dance_floor", sentiment: "positive", audience: "nightlife" },
+    ],
+  }),
+  editorial({
     venueSlug: "federacion-ganaderos-norte-montellano",
     verdictKey: "solid_visitor_activity",
     crowdFit: ["local", "family", "mixed"],

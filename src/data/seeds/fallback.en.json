@@ -9698,20 +9698,20 @@
   },
   {
     "id": "mercadillo-fest-la-quinta-rosa-2026-12-19",
-    "title": "Mercadillo Fest — La Quinta Rosa",
-    "description": "Mercadillo Fest bazaar at La Quinta Rosa (est. 1912), Calle 12 de Julio #88, downtown Puerto Plata — Saturday–Sunday 19–20 December 2026, 10:00 AM–8:00 PM. Open slots for exhibitors — entrepreneurs, brands, and businesses showcasing products; DM @mercadillofest for booth info. Weekend maker bazaar in the pink Victorian house — not Call You Later (21 Nov), not the Katz Home furniture workshop (28 Nov), and not Plaza Independencia artisan fairs. Confirm via Instagram @mercadillofest.",
+    "title": "Mercadillo Fest Christmas — La Quinta Rosa",
+    "description": "Mercadillo Fest Christmas Fest bazaar at La Quinta Rosa (est. 1912), Calle 12 de Julio #88, downtown Puerto Plata — Saturday–Sunday 19–20 December 2026, 10:00 AM–9:00 PM. Pet-friendly Christmas market with talks, raffles, food, drinks, and craft sales — entrepreneurship, gifts, fashion, accessories, beauty, and gastronomy. Weekend maker bazaar in the pink Victorian house — not Bazar Alnier at Parque de la Libertad (5–6 Dec), and not Call You Later (21 Nov). Confirm via Instagram @mercadillofest.",
     "date": "2026-12-19",
     "endDate": "2026-12-20",
-    "time": "10:00 AM – 8:00 PM",
+    "time": "10:00 AM – 9:00 PM",
     "location": "Puerto Plata",
     "venue": "La Quinta Rosa",
     "venueSlug": "la-quinta-rosa",
     "address": "Calle 12 de Julio #88, Puerto Plata",
     "lat": 19.7948,
     "lng": -70.6849,
-    "category": "festivals",
+    "category": "christmas",
     "categories": [
-      "culture",
+      "festivals",
       "food-drinks"
     ],
     "format": "physical",
@@ -9721,11 +9721,12 @@
     "sourceUrl": "https://www.instagram.com/mercadillofest/",
     "instagram": "mercadillofest",
     "lineup": [
-      "Exhibitor bazaar",
-      "Local brands & makers",
-      "Open booths — DM @mercadillofest"
+      "Christmas Fest",
+      "Pet-friendly",
+      "Charlas · rifas · comida · tragos · artesanías"
     ],
-    "imageEmoji": "🛍️"
+    "imageEmoji": "🛍️",
+    "ageHint": "family"
   },
   {
     "id": "cabarete-boxing-club-movie-night-2026-11-05",
@@ -12917,5 +12918,407 @@
       "White Party / Fiesta Blanca"
     ],
     "imageEmoji": "🤍"
+  },
+  {
+    "id": "parada-choco-enrico-aperitivo-2026-11-24",
+    "title": "Parada Choco Enrico Aperitivo — 24 Nov",
+    "description": "Aperitivo with Enrico LIVE at Parada Típica El Choco (Swiss Italian restaurant / House of Music), Plaza Buen Gusto on the Sosúa–Cabarete road opposite Ocean Village — Tuesday 24 November 2026, 5:00–7:00 PM. Free finger food served at the table. RSVP +1 809-804-2510 · Instagram @paradaelchoco. Tuesday guest aperitivo — not the BandItalia nights, and not the ticketed Thanksgiving Big D dinner on 26 November.",
+    "date": "2026-11-24",
+    "time": "5:00 PM – 7:00 PM",
+    "location": "Sosúa",
+    "venue": "Parada Típica El Choco",
+    "venueSlug": "parada-tipica-el-choco",
+    "address": "Carretera principal Sosúa–Cabarete (vis-à-vis Ocean Village / Plaza Buen Gusto)",
+    "lat": 19.77269,
+    "lng": -70.4967789,
+    "category": "music",
+    "categories": [
+      "food-drinks",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18098042510",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/paradaelchoco/",
+    "instagram": "paradaelchoco",
+    "lineup": [
+      "Enrico LIVE",
+      "Free finger food"
+    ],
+    "imageEmoji": "🎵"
+  },
+  {
+    "id": "disco-club-gogo-dancers-2026-11-26",
+    "title": "Latin Disco Club GOGO Dancers — 26 Nov",
+    "description": "GOGO Dancers Night (para ellas y ellos) at Latin Disco Club, Av. Circunvalación Sur / Manolo Tavarez Justo frente a los depósitos de Brugal, Puerto Plata — Thursday 26 November 2026. Club gogo-show energy by the Brugal depots — not the Nov 19 Angel Carela Thursday, and not Happy Tour’s La Fucking Vibra 2 on 15 Dec. Cover and start time aren’t printed — info +1 829-563-9469 · Instagram @latindiscoclubpp.",
+    "date": "2026-11-26",
+    "location": "Puerto Plata",
+    "venue": "Latin Disco Club",
+    "venueSlug": "disco-club-brugal",
+    "address": "Av. Circunvalación Sur / Manolo Tavarez Justo, frente a los depósitos de Brugal, Puerto Plata",
+    "lat": 19.7792778,
+    "lng": -70.6690061,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "ageHint": "18-plus",
+    "phone": "+18295639469",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/latindiscoclubpp/",
+    "instagram": "latindiscoclubpp",
+    "lineup": [
+      "GOGO Dancers Night",
+      "Para ellas y ellos"
+    ],
+    "imageEmoji": "💃"
+  },
+  {
+    "id": "natura-cabana-thanksgiving-josh-sax-2026-11-26",
+    "title": "Natura Cabana Thanksgiving — Josh Sax · 26 Nov",
+    "description": "Thanksgiving Night live sax with Josh at Natura Restaurant, Natura Cabana Boutique Hotel & Spa, Paseo del Sol #5, Perla Marina / Cabarete — Thursday 26 November 2026 during Thanksgiving dinner; reservations from 6:00 PM. Book a table +1 849-214-7010 · naturacabana.com · Instagram @naturacabana. Ticketed holiday dinner with sax — not Parada El Choco’s Big D Thanksgiving the same evening, and not Leo’s Banana Enrico Live the same night in Sosúa.",
+    "date": "2026-11-26",
+    "time": "From 6:00 PM",
+    "location": "Cabarete",
+    "venue": "Natura Cabana",
+    "venueSlug": "natura-cabana",
+    "address": "Paseo del Sol #5, Perla Marina, Cabarete",
+    "lat": 19.7833499,
+    "lng": -70.4621124,
+    "category": "music",
+    "categories": [
+      "food-drinks",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18492147010",
+    "sourceType": "flyer",
+    "sourceUrl": "https://naturacabana.com/events/",
+    "instagram": "naturacabana",
+    "lineup": [
+      "Josh — Sax Night",
+      "Thanksgiving dinner"
+    ],
+    "imageEmoji": "🎷"
+  },
+  {
+    "id": "novias-atlantico-letras-lienzos-2026-11-25",
+    "title": "Novias del Atlántico — Letras y Lienzos · 25 Nov",
+    "description": "Exposición Letras & Lienzos — 4th exhibition by Colectivo Artístico Novias del Atlántico at Plaza Independencia (antiguo parque central), Centro Histórico, Puerto Plata — Wednesday 25 November 2026 at 6:30 PM. Free tribute to Puerto Plata writer/poet Johanna Goede (Johanna Goode on the flyer); visual artists turn her poems into canvases for Non-Violence Against Women month. Completely free — Instagram @novias_del_atlantico.",
+    "date": "2026-11-25",
+    "time": "6:30 PM",
+    "location": "Puerto Plata",
+    "venue": "Independence Park",
+    "venueSlug": "plaza-independencia",
+    "address": "Plaza Independencia, Centro Histórico, Puerto Plata",
+    "lat": 19.7976623,
+    "lng": -70.6932862,
+    "category": "culture",
+    "categories": [
+      "festivals",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "ageHint": "all-ages",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/novias_del_atlantico/",
+    "instagram": "novias_del_atlantico",
+    "lineup": [
+      "Homenaje a Johanna Goede",
+      "Artistas visuales participantes",
+      "Letras & Lienzos"
+    ],
+    "imageEmoji": "🎨"
+  },
+  {
+    "id": "team-animal-aguinaldo-5k-2026-11-28",
+    "title": "Team Animal Aguinaldo 5K — 28 Nov",
+    "description": "Team Animal Christmas Aguinaldo 5K — come run singing Christmas songs at Plaza de los Charamicos, Sosúa — Saturday 28 November 2026 at 5:30 AM. Hot chocolate and tea on the course. Community Christmas run — not the Dec 19 Aguinaldo 5K Navideño seed, and not a beach soccer day on Playa Los Charamicos. Confirm registration via Team Animal organizers.",
+    "date": "2026-11-28",
+    "time": "5:30 AM",
+    "location": "Sosúa",
+    "venue": "Playa Los Charamicos",
+    "venueSlug": "playa-los-charamicos",
+    "address": "Plaza de los Charamicos, Sosúa, Puerto Plata",
+    "lat": 19.7530055,
+    "lng": -70.5228086,
+    "category": "christmas",
+    "categories": [
+      "sports",
+      "health-wellness"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "ageHint": "family",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.sdctickets.do/",
+    "lineup": [
+      "5K Aguinaldo Navideño",
+      "Chocolate caliente",
+      "Té"
+    ],
+    "imageEmoji": "🏃"
+  },
+  {
+    "id": "serie-121-viernes-descontrol-2026-11-27",
+    "title": "Serie 121 — Viernes de Descontrol · 27 Nov",
+    "description": "Serie 121 Live — Viernes de Descontrol with DJ Franky at Serrie / Serie 121 Liquor Store, Villa Isabela — Friday 27 November 2026. Flyer bottle promos: pequeña RD$100 / mediana RD$150 while supplies last. Villa Isabela liquor-store party night — not Latin Disco Club’s White Party with Flaco MC the same Friday in Puerto Plata city, and not D’Ocean Bar’s Food Fest weekend bills. Confirm doors via the flyer / Robert Films credit.",
+    "date": "2026-11-27",
+    "location": "Villa Isabela",
+    "venue": "Serie 121 Liquor Store",
+    "venueSlug": "serie-121-villa-isabela",
+    "address": "Villa Isabela, Puerto Plata",
+    "lat": 19.818,
+    "lng": -71.056,
+    "category": "parties",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "lineup": [
+      "DJ Franky",
+      "Serie 121 Live",
+      "Pequeña RD$100 · Mediana RD$150"
+    ],
+    "imageEmoji": "🍾"
+  },
+  {
+    "id": "grounds-mahjong-101-2026-11-27",
+    "title": "The Grounds — Mahjong 101 · 27 Nov",
+    "description": "Una tarde de Mahjong 101 — learn to play from scratch with Always Mahj × The Grounds Coffee & Community, Carretera Montellano, Villa Montellano / Puerto Plata — Friday 27 November 2026 at 5:30 PM. Includes welcome snack, printed guide, and guided play; limited spots. Reserve +1 829-678-2574 · Instagram @the.grounds.dr. Afternoon workshop at the Montellano café — not Serie 121’s Villa Isabela Descontrol the same evening.",
+    "date": "2026-11-27",
+    "time": "5:30 PM",
+    "location": "Villa Montellano",
+    "venue": "The Grounds Coffee & Community",
+    "venueSlug": "the-grounds-cafe",
+    "address": "Carretera Montellano, Villa Montellano, Puerto Plata",
+    "lat": 19.738635,
+    "lng": -70.602516,
+    "category": "culture",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18296782574",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/the.grounds.dr/",
+    "instagram": "the.grounds.dr",
+    "lineup": [
+      "Always Mahj",
+      "Mahjong 101",
+      "Refrigerio y picadera",
+      "Guía impresa + guided play"
+    ],
+    "imageEmoji": "🀄"
+  },
+  {
+    "id": "aventureros-pop-mujeres-al-volante-2026-11-29",
+    "title": "Mujeres al Volante — Aventureros POP 4x4 · 29 Nov",
+    "description": "1er Monteo Invitacional Mujeres al Volante by Aventureros POP 4x4 Off Road Puerto Plata — Sunday 29 November 2026 at 8:00 AM, staging at Estadio Puerto Plata (Leonel Plácido / polideportivo). Alludes to November Non-Violence Against Women month. Registration RD$2,000 (pilot + co-pilot); additional persons RD$400. Includes shirts, caps, gift kits, breakfast, toasts, trail snacks, lunch, trophies and medals. Non-modified 4x4s welcome. Adventure outing — not a club night.",
+    "date": "2026-11-29",
+    "time": "8:00 AM",
+    "location": "Puerto Plata",
+    "venue": "Estadio Leonel Plácido",
+    "venueSlug": "estadio-leonel-placido",
+    "address": "Estadio / Polideportivo Puerto Plata (Calle Hugo Kunhardt)",
+    "lat": 19.792117,
+    "lng": -70.681193,
+    "category": "adventure",
+    "categories": [
+      "sports",
+      "festivals"
+    ],
+    "format": "physical",
+    "trending": true,
+    "admissionPrice": "RD$2,000",
+    "sourceType": "flyer",
+    "lineup": [
+      "Mujeres al Volante invitational",
+      "Pilot + co-pilot RD$2,000",
+      "Camisetas · gorras · kits · desayuno · almuerzo · trofeos"
+    ],
+    "imageEmoji": "🚙"
+  },
+  {
+    "id": "bazar-alnier-por-siempre-2026-12-05",
+    "title": "Bazar Alnier Por Siempre — 5–6 Dec",
+    "description": "Bazar Alnier Por Siempre Christmas market at Parque de la Libertad, Avenida 27 de Febrero, Puerto Plata — Friday–Saturday 5–6 December 2026, 8:00 AM–6:00 PM. Tables available for vendors. Contact WhatsApp +1 829-390-4358 · Tel +1 809-244-4176. Downtown Christmas bazaar — not Mercadillo Fest Christmas at La Quinta Rosa (19–20 Dec), and not Toscana’s Jacob Henriquez night the same Saturday evening.",
+    "date": "2026-12-05",
+    "endDate": "2026-12-06",
+    "time": "8:00 AM – 6:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Parque de la Libertad",
+    "venueSlug": "parque-de-la-libertad",
+    "address": "Parque de la Libertad, Av. 27 de Febrero / Calle Beller, Puerto Plata",
+    "lat": 19.79432,
+    "lng": -70.68483,
+    "category": "christmas",
+    "categories": [
+      "festivals",
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "ageHint": "family",
+    "phone": "+18293904358",
+    "sourceType": "flyer",
+    "lineup": [
+      "Christmas bazaar",
+      "Vendor tables",
+      "8 AM–6 PM both days"
+    ],
+    "imageEmoji": "🎁"
+  },
+  {
+    "id": "toscana-nightclub-dj-joel-2026-12-06",
+    "title": "Toscana Nightclub — DJ Joel 80s/90s · 6 Dec",
+    "description": "DJ Joel Entertainment live — now vs best 80s/90s hits at Toscana Nightclub, Plaza Siblings Food Park segundo nivel, Av. Luis Ginebra, Puerto Plata (next to Palacio de Justicia) — Sunday 6 December 2026. Generational dance night after the Dec 4–5 opening weekend. Confirm doors and cover via Instagram @toscana_nightclub · @djjoelmixrd. Sunday nostalgia bill — not the Friday gran apertura or Saturday Jacob Henriquez night.",
+    "date": "2026-12-06",
+    "location": "Puerto Plata",
+    "venue": "Toscana Nightclub",
+    "venueSlug": "toscana-nightclub",
+    "address": "Plaza Siblings Food Park, segundo nivel, Av. Luis Ginebra, Puerto Plata (al lado del Palacio de Justicia)",
+    "lat": 19.784313,
+    "lng": -70.673503,
+    "category": "parties",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/toscana_nightclub/",
+    "instagram": "toscana_nightclub",
+    "photoTags": [
+      "djjoelmixrd"
+    ],
+    "lineup": [
+      "DJ Joel Entertainment",
+      "Ahora vs 80s/90s"
+    ],
+    "imageEmoji": "🎧"
+  },
+  {
+    "id": "disco-club-la-fucking-vibra-2-2026-12-15",
+    "title": "Latin Disco — La Fucking Vibra 2 · 15 Dec",
+    "description": "La Fucking Vibra 2 by Happy Tour at Latin Disco Club, Av. Circunvalación Sur / Manolo Tavarez Justo frente a los depósitos de Brugal, Puerto Plata — Monday 15 December 2026. DJ Yona, DJ Camilo Taveras, DJ Soky, DJ Yeffrey, DJ Tanque. Dress code black; cover in door. RSV +1 849-885-7027 · Instagram @happytour02. Black-tie club night — not Thursday gogo, and not Twenty Disco’s AfterGlow on 27 Dec.",
+    "date": "2026-12-15",
+    "location": "Puerto Plata",
+    "venue": "Latin Disco Club",
+    "venueSlug": "disco-club-brugal",
+    "address": "Av. Circunvalación Sur / Manolo Tavarez Justo, frente a los depósitos de Brugal, Puerto Plata",
+    "lat": 19.7792778,
+    "lng": -70.6690061,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18498857027",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/happytour02/",
+    "instagram": "happytour02",
+    "photoTags": [
+      "djsoky"
+    ],
+    "lineup": [
+      "DJ Yona",
+      "DJ Camilo Taveras",
+      "DJ Soky",
+      "DJ Yeffrey",
+      "DJ Tanque",
+      "Dress code black"
+    ],
+    "imageEmoji": "🕶️"
+  },
+  {
+    "id": "twenty-disco-afterglow-birthday-2026-12-27",
+    "title": "Twenty Disco — AfterGlow Birthday Bash · 27 Dec",
+    "description": "AfterGlow — Kamil & Sprewell Birthday Bash at Twenty Disco & Lounge, Playa Dorada Mall — Saturday 27 December 2026. Produced by BSM Entertainment × Santana Events. Reservations +1 849-319-4858 · Instagram @bsmentertainmentrd · @twenty_disco_lounge. Mall disco birthday neon night — not Latin Disco’s La Fucking Vibra 2 on 15 Dec, and not Kreizy K’s Dec 5 Twenty bill.",
+    "date": "2026-12-27",
+    "location": "Playa Dorada",
+    "venue": "Twenty Disco Lounge",
+    "venueSlug": "twenty-disco-lounge",
+    "address": "Playa Dorada Mall, Puerto Plata",
+    "lat": 19.769476,
+    "lng": -70.643033,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18493194858",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/bsmentertainmentrd/",
+    "instagram": "bsmentertainmentrd",
+    "photoTags": [
+      "whois__kamiii",
+      "sssssssokpp",
+      "santana_events0"
+    ],
+    "lineup": [
+      "Kamil & Sprewell Birthday Bash",
+      "BSM Entertainment",
+      "Santana Events"
+    ],
+    "imageEmoji": "💜"
+  },
+  {
+    "id": "grounds-bazar-navideno-2026-12-05",
+    "title": "The Grounds — Bazar Navideño · 5 Dec",
+    "description": "Bazar Navideño — local entrepreneurs market at The Grounds Coffee & Community, Carretera Montellano, Villa Montellano / Puerto Plata — Saturday 5 December 2026, 10:00 AM–7:00 PM. Christmas shopping for gifts, coffee, and community makers. Free to browse; support local stalls. Instagram @the.grounds.dr. Montellano café bazaar — not Bazar Alnier at Parque de la Libertad the same weekend (5–6 Dec), and not Mercadillo Fest Christmas at La Quinta Rosa (19–20 Dec).",
+    "date": "2026-12-05",
+    "time": "10:00 AM – 7:00 PM",
+    "location": "Villa Montellano",
+    "venue": "The Grounds Coffee & Community",
+    "venueSlug": "the-grounds-cafe",
+    "address": "Carretera Montellano, Villa Montellano, Puerto Plata",
+    "lat": 19.738635,
+    "lng": -70.602516,
+    "category": "christmas",
+    "categories": [
+      "festivals",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "ageHint": "family",
+    "phone": "+18296782574",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/the.grounds.dr/",
+    "instagram": "the.grounds.dr",
+    "lineup": [
+      "Bazar Navideño",
+      "Emprendedores locales",
+      "Café y comunidad"
+    ],
+    "imageEmoji": "🎄"
   }
 ]

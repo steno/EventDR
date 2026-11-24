@@ -528,6 +528,20 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "surfskate-fest-encuentro-2026-12-11": "2026-11-20T16:45:00.000Z",
   "isabela-food-fest-kiry-curu-2026-12-19": "2026-11-20T21:00:00.000Z",
   "latin-disco-white-party-flaco-mc-2026-11-27": "2026-11-21T19:00:00.000Z",
+  "twenty-disco-afterglow-birthday-2026-12-27": "2026-11-24T16:00:00.000Z",
+  "disco-club-la-fucking-vibra-2-2026-12-15": "2026-11-24T15:45:00.000Z",
+  "toscana-nightclub-dj-joel-2026-12-06": "2026-11-24T15:30:00.000Z",
+  "bazar-alnier-por-siempre-2026-12-05": "2026-11-24T15:15:00.000Z",
+  "aventureros-pop-mujeres-al-volante-2026-11-29": "2026-11-24T15:00:00.000Z",
+  "team-animal-aguinaldo-5k-2026-11-28": "2026-11-24T14:45:00.000Z",
+  "serie-121-viernes-descontrol-2026-11-27": "2026-11-24T14:30:00.000Z",
+  "grounds-mahjong-101-2026-11-27": "2026-11-24T14:15:00.000Z",
+  "disco-club-gogo-dancers-2026-11-26": "2026-11-24T14:00:00.000Z",
+  "natura-cabana-thanksgiving-josh-sax-2026-11-26": "2026-11-24T13:45:00.000Z",
+  "novias-atlantico-letras-lienzos-2026-11-25": "2026-11-24T13:30:00.000Z",
+  "parada-choco-enrico-aperitivo-2026-11-24": "2026-11-24T13:15:00.000Z",
+  "hendry-fit-boxeo-puntilla-fridays": "2026-11-24T16:30:00.000Z",
+  "grounds-bazar-navideno-2026-12-05": "2026-11-24T17:00:00.000Z",
 };
 
 /** Fill missing `createdAt` from {@link SEED_CREATED_AT} (does not overwrite). */

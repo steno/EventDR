@@ -7957,22 +7957,21 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "mercadillo-fest-la-quinta-rosa-2026-12-19",
-    body: "Dec 19–20 maker bazaar in the pink 1912 house on Calle 12 de Julio #88 — walk the booths 10 AM–8 PM, or DM @mercadillofest for an exhibitor slot; not Call You Later or the Katz Home workshop at the same Quinta.",
+    body: "Christmas Fest weekend at La Quinta Rosa now runs 10 AM–9 PM with pet-friendly stalls, talks, and craft sales — pink Victorian bazaar, not Bazar Alnier at Parque de la Libertad two weeks earlier.",
     localized: {
-      es: "Bazar de makers el 19–20 dic en la casa rosa de 1912 en Calle 12 de Julio #88 — recorre los stands 10 a. m.–8 p. m., o escribe a @mercadillofest por cupo de expositor; no es Call You Later ni el taller Katz Home en la misma Quinta.",
-      fr: "Bazar de makers les 19–20 déc. dans la maison rose de 1912 au Calle 12 de Julio #88 — parcourez les stands 10 h–20 h, ou DM @mercadillofest pour un stand exposant ; pas Call You Later ni l’atelier Katz Home dans la même Quinta.",
+      es: "Christmas Fest de fin de semana en La Quinta Rosa ahora de 10 AM–9 PM con stalls pet-friendly, charlas y artesanía — bazar de la casa victoriana rosa, no Bazar Alnier en Parque de la Libertad dos semanas antes.",
+      fr: "Christmas Fest du week-end à La Quinta Rosa désormais 10 h–21 h avec stands pet-friendly, conférences et artisanat — bazar de la maison victorienne rose, pas Bazar Alnier au Parque de la Libertad deux semaines plus tôt.",
     },
     priceFeel: "free",
-    priceNote:
-      "Free to browse — exhibitor booths via DM @mercadillofest",
+    priceNote: "Free entry · pay stall-by-stall · @mercadillofest",
     priceNoteLocalized: {
-      es: "Gratis para visitar — stands de expositor por DM @mercadillofest",
-      fr: "Gratuit pour flâner — stands exposants via DM @mercadillofest",
+      es: "Entrada gratis · paga puesto a puesto · @mercadillofest",
+      fr: "Entrée gratuite · payez stand par stand · @mercadillofest",
     },
-    attribution: "POP research · @mercadillofest Quinta Rosa flyer",
+    attribution: "POP research · @mercadillofest Christmas Fest flyer",
     researchNotes:
-      "Editor flyer + IG @mercadillofest — Mercadillo Fest; Quinta Rosa Puerto Plata; 19–20 dic 2026; 10:00 a.m.–8:00 p.m.; cupos abiertos expositores; pin la-quinta-rosa Calle 12 de Julio #88.",
-    updatedAt: "2026-11-03T17:00:00.000Z",
+      "Editor Christmas Fest flyer refresh — 19–20 Dic 10 AM–9 PM; petfriendly; charlas/rifas/comida/tragos/artesanías; ageHint family. Filename bump mercadillo-fest-christmas-2026-12-19.jpg.",
+    updatedAt: "2026-11-24T16:15:00.000Z",
   },
   {
     eventId: "cabarete-boxing-club-movie-night-2026-11-05",
@@ -10279,5 +10278,257 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer + IG @parallel.surf — SURFSKATE FEST; FRI DEC 11 4:30 PM PLAYA ENCUENTRO; Groms 6–11 / Adults 12+; prizes 1st new surfskate / 2nd protection / 3rd goodies; RD$300 register Parallel Surf reception; logos Parallel Surf + Hard Rock Dominican Surf Festival; @dominicansurffestival. During DSF 10–13 Dec week.",
     updatedAt: "2026-11-20T16:45:00.000Z",
+  },
+  {
+    eventId: "parada-choco-enrico-aperitivo-2026-11-24",
+    body: "Tuesday Enrico LIVE aperitivo at Parada Choco opposite Ocean Village — free finger food 5–7 PM, RSVP 809-804-2510; not the BandItalia Tuesdays and not Thursday’s ticketed Big D Thanksgiving dinner.",
+    localized: {
+      es: "Aperitivo de martes con Enrico LIVE en Parada Choco frente a Ocean Village — finger food gratis 5–7 PM, RSVP 809-804-2510; no son los martes BandItalia ni la cena Thanksgiving Big D del jueves.",
+      fr: "Aperitivo du mardi avec Enrico LIVE à Parada Choco face à Ocean Village — finger food gratuit 17 h–19 h, RSVP 809-804-2510 ; pas les mardis BandItalia ni le dîner Thanksgiving Big D du jeudi.",
+    },
+    priceFeel: "free",
+    priceNote: "Free finger food · RSVP +1 809-804-2510",
+    priceNoteLocalized: {
+      es: "Finger food gratis · RSVP +1 809-804-2510",
+      fr: "Finger food gratuit · RSVP +1 809-804-2510",
+    },
+    attribution: "POP research · @paradaelchoco Enrico LIVE aperitivo flyer",
+    researchNotes:
+      "Editor flyer — APERITIVO Enrico LIVE; Tue Nov 24; 5–7pm; free finger food; RSVP +1 809-804-2510; Plaza Buen Gusto / Sosúa–Cabarete vis-à-vis Ocean Village. Venue parada-tipica-el-choco.",
+    updatedAt: "2026-11-24T13:15:00.000Z",
+  },
+  {
+    eventId: "disco-club-gogo-dancers-2026-11-26",
+    body: "Another Thursday gogo night at Latin Disco by the Brugal depots — Nov 26 flyer for ellas y ellos, not the Nov 19 Angel Carela date; cover isn’t printed, so call 829-563-9469 before you treat doors as walk-in.",
+    localized: {
+      es: "Otro jueves de gogo en Latin Disco frente a Brugal — flyer del 26 nov para ellas y ellos, no la fecha Angel Carela del 19; el cover no está impreso, llama al 829-563-9469 antes de asumir walk-in.",
+      fr: "Encore un jeudi gogo au Latin Disco face à Brugal — affiche du 26 nov pour elles et eux, pas la date Angel Carela du 19 ; le cover n’est pas imprimé, appelez le 829-563-9469 avant d’assumer walk-in.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — 829-563-9469 · @latindiscoclubpp · 18+",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — 829-563-9469 · @latindiscoclubpp · 18+",
+      fr: "Cover à confirmer — 829-563-9469 · @latindiscoclubpp · 18+",
+    },
+    attribution: "POP research · @latindiscoclubpp GOGO Dancers Night flyer",
+    researchNotes:
+      "Editor flyer — Jue 26 Nov GOGO DANCERS NIGHT; para ellas y ellos; Circunvalación Sur frente Brugal; 829-563-9469; ageHint 18-plus. Same week as Natura Thanksgiving / Parada Thanksgiving.",
+    updatedAt: "2026-11-24T14:00:00.000Z",
+  },
+  {
+    eventId: "natura-cabana-thanksgiving-josh-sax-2026-11-26",
+    body: "Thanksgiving dinner with Josh on sax at Natura Restaurant from 6 PM — book +1 849-214-7010; same Thursday as Parada El Choco’s Big D dinner and Leo’s Banana Enrico, so pick your table early.",
+    localized: {
+      es: "Cena Thanksgiving con Josh al sax en Natura Restaurant desde las 6 PM — reserva +1 849-214-7010; el mismo jueves que Big D en Parada El Choco y Enrico en Leo’s Banana, así que aparta mesa temprano.",
+      fr: "Dîner Thanksgiving avec Josh au sax au Natura Restaurant dès 18 h — réservez +1 849-214-7010 ; même jeudi que Big D à Parada El Choco et Enrico au Leo’s Banana, donc réservez tôt.",
+    },
+    priceFeel: "upscale",
+    priceNote: "Reservations from 6 PM — +1 849-214-7010 · naturacabana.com",
+    priceNoteLocalized: {
+      es: "Reservas desde las 6 PM — +1 849-214-7010 · naturacabana.com",
+      fr: "Réservations dès 18 h — +1 849-214-7010 · naturacabana.com",
+    },
+    attribution: "POP research · Natura Cabana Thanksgiving Josh sax flyer",
+    researchNotes:
+      "Editor flyer + naturacabana.com/events/ — Thu 26 Nov Thanksgiving Dinner; music by Josh Sax Night; reservations from 6 PM; Perla Marina Cabarete. Confirmed on Natura calendar.",
+    updatedAt: "2026-11-24T13:45:00.000Z",
+  },
+  {
+    eventId: "novias-atlantico-letras-lienzos-2026-11-25",
+    body: "Free Letras & Lienzos tribute to Johanna Goede at Plaza Independencia at 6:30 PM — downtown art open-air, not a ticketed gallery night; show up for Non-Violence Against Women month canvases.",
+    localized: {
+      es: "Letras & Lienzos gratis en homenaje a Johanna Goede en Plaza Independencia a las 6:30 PM — arte al aire libre en el centro, no una galería con boleto; ve por los lienzos del mes de la No Violencia contra la Mujer.",
+      fr: "Letras & Lienzos gratuit en hommage à Johanna Goede à Plaza Independencia à 18 h 30 — art en plein air au centre, pas une galerie payante ; venez pour les toiles du mois de la Non-Violence contre les femmes.",
+    },
+    priceFeel: "free",
+    priceNote: "Free entry — @novias_del_atlantico",
+    priceNoteLocalized: {
+      es: "Entrada gratis — @novias_del_atlantico",
+      fr: "Entrée gratuite — @novias_del_atlantico",
+    },
+    attribution: "POP research · @novias_del_atlantico Letras y Lienzos flyer",
+    researchNotes:
+      "Editor flyer + IG caption — Mié 25 Nov 6:30 PM; Plaza Independencia; homenaje Johanna Goede/Goode; free; ageHint all-ages.",
+    updatedAt: "2026-11-24T13:30:00.000Z",
+  },
+  {
+    eventId: "team-animal-aguinaldo-5k-2026-11-28",
+    body: "5:30 AM Christmas carol 5K at Plaza de los Charamicos with hot chocolate — early Sosúa community run, not the Dec 19 Aguinaldo 5K at the Malecón Letrero; confirm registration with Team Animal before race morning.",
+    localized: {
+      es: "5K navideño a las 5:30 AM en Plaza de los Charamicos con chocolate caliente — carrera comunitaria temprana en Sosúa, no el Aguinaldo 5K del 19 dic en el Letrero del Malecón; confirma inscripción con Team Animal antes de la mañana de carrera.",
+      fr: "5K de Noël à 5 h 30 à Plaza de los Charamicos avec chocolat chaud — course communautaire tôt à Sosúa, pas l’Aguinaldo 5K du 19 déc au Letrero du Malecón ; confirmez l’inscription avec Team Animal avant le matin de course.",
+    },
+    priceFeel: "varies",
+    priceNote: "Registration TBA — Team Animal · Plaza Charamicos 5:30 AM",
+    priceNoteLocalized: {
+      es: "Inscripción por confirmar — Team Animal · Plaza Charamicos 5:30 AM",
+      fr: "Inscription à confirmer — Team Animal · Plaza Charamicos 5 h 30",
+    },
+    attribution: "POP research · Team Animal Aguinaldo 5K flyer",
+    researchNotes:
+      "Editor flyer — Este sábado 28; 5:30 a.m.; Plaza de los Charamico; chocolate caliente / té; ageHint family. Venue playa-los-charamicos (plaza pin). Not aguinaldo-5k-navideno-2026-12-19.",
+    updatedAt: "2026-11-24T14:45:00.000Z",
+  },
+  {
+    eventId: "serie-121-viernes-descontrol-2026-11-27",
+    body: "Villa Isabela liquor-store Friday with DJ Franky and RD$100/150 bottle promos — west-of-city local night, not Latin Disco’s same-Friday White Party in Puerto Plata; confirm the Serie 121 pin before you Uber from the coast.",
+    localized: {
+      es: "Viernes de licorería en Villa Isabela con DJ Franky y promos de botella RD$100/150 — noche local al oeste de la ciudad, no la White Party de Latin Disco el mismo viernes; confirma el pin Serie 121 antes del Uber desde la costa.",
+      fr: "Vendredi liquor store à Villa Isabela avec DJ Franky et promos bouteilles RD$100/150 — soirée locale à l’ouest de la ville, pas la White Party du Latin Disco le même vendredi ; confirmez le pin Serie 121 avant l’Uber depuis la côte.",
+    },
+    priceFeel: "budget",
+    priceNote: "Bottle promos RD$100 / RD$150 — cover TBA",
+    priceNoteLocalized: {
+      es: "Promos botella RD$100 / RD$150 — cover por confirmar",
+      fr: "Promos bouteille RD$100 / RD$150 — cover à confirmer",
+    },
+    attribution: "POP research · Serie 121 Viernes de Descontrol flyer",
+    researchNotes:
+      "Editor flyer — Vie 27 Nov; Serie 121 Live; DJ Franky; Villa Isabela; pequeña 100 / mediana 150. New venueSlug serie-121-villa-isabela. Same Fri as latin-disco-white-party-flaco-mc.",
+    updatedAt: "2026-11-24T14:30:00.000Z",
+  },
+  {
+    eventId: "grounds-mahjong-101-2026-11-27",
+    body: "5:30 PM Mahjong 101 at The Grounds on Carretera Montellano — beginner workshop with snacks and a printed guide, limited seats on 829-678-2574; café tables inland, not Serie 121’s Villa Isabela party the same evening.",
+    localized: {
+      es: "Mahjong 101 a las 5:30 PM en The Grounds en Carretera Montellano — taller para principiantes con refrigerio y guía impresa, cupos limitados al 829-678-2574; mesas de café tierra adentro, no la fiesta Serie 121 en Villa Isabela esa misma noche.",
+      fr: "Mahjong 101 à 17 h 30 au The Grounds sur Carretera Montellano — atelier débutants avec snack et guide imprimé, places limitées au 829-678-2574 ; tables café à l’intérieur, pas la fête Serie 121 à Villa Isabela le même soir.",
+    },
+    priceFeel: "varies",
+    priceNote: "RSVP +1 829-678-2574 · limited spots",
+    priceNoteLocalized: {
+      es: "Reserva +1 829-678-2574 · cupos limitados",
+      fr: "Réservation +1 829-678-2574 · places limitées",
+    },
+    attribution: "POP research · Always Mahj × The Grounds Mahjong 101 flyer",
+    researchNotes:
+      "Editor flyer — Vie 27 Nov 5:30 PM; The Grounds Café Carretera Montellano; Always Mahj; 829-678-2574. New venueSlug the-grounds-cafe.",
+    updatedAt: "2026-11-24T14:15:00.000Z",
+  },
+  {
+    eventId: "aventureros-pop-mujeres-al-volante-2026-11-29",
+    body: "Women’s invitational 4x4 monteo staging at Estadio Leonel Plácido at 8 AM — RD$2,000 for pilot + co-pilot with shirts, meals, and medals; real off-road outing for Non-Violence Against Women month, not a club night.",
+    localized: {
+      es: "Monteo invitacional femenino 4x4 con concentración en Estadio Leonel Plácido a las 8 AM — RD$2,000 piloto + copiloto con camisetas, comidas y medallas; salida off-road real por el mes de la No Violencia contra la Mujer, no una noche de club.",
+      fr: "Monteo invitational féminin 4x4 au départ de l’Estadio Leonel Plácido à 8 h — RD$2,000 pilote + copilote avec t-shirts, repas et médailles ; vraie sortie off-road pour le mois de la Non-Violence contre les femmes, pas une soirée club.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Inscripción RD$2,000 (piloto + copiloto) · +RD$400 extras",
+    priceNoteLocalized: {
+      es: "Inscripción RD$2,000 (piloto + copiloto) · +RD$400 extras",
+      fr: "Inscription RD$2,000 (pilote + copilote) · +RD$400 extras",
+    },
+    attribution: "POP research · Aventureros POP Mujeres al Volante flyer",
+    researchNotes:
+      "Editor flyer — Dom 29 Nov 2026 8 AM; Estadio Pto. Pta.; RD$2,000 / +RD$400; Non-Violence Against Women month; non-modified 4x4s. Venue estadio-leonel-placido. category adventure.",
+    updatedAt: "2026-11-24T15:00:00.000Z",
+  },
+  {
+    eventId: "bazar-alnier-por-siempre-2026-12-05",
+    body: "Two-day Christmas bazaar at Parque de la Libertad (27 de Febrero) 8 AM–6 PM — vendor tables, not Mercadillo Fest at La Quinta Rosa two weeks later; WhatsApp +1 829-390-4358 for a mesa.",
+    localized: {
+      es: "Bazar navideño de dos días en Parque de la Libertad (27 de Febrero) 8 AM–6 PM — mesas de vendedores, no Mercadillo Fest en La Quinta Rosa dos semanas después; WhatsApp +1 829-390-4358 por mesa.",
+      fr: "Bazar de Noël sur deux jours au Parque de la Libertad (27 de Febrero) 8 h–18 h — tables vendeurs, pas Mercadillo Fest à La Quinta Rosa deux semaines plus tard ; WhatsApp +1 829-390-4358 pour une mesa.",
+    },
+    priceFeel: "free",
+    priceNote: "Free entry · vendor tables WhatsApp +1 829-390-4358",
+    priceNoteLocalized: {
+      es: "Entrada gratis · mesas WhatsApp +1 829-390-4358",
+      fr: "Entrée gratuite · tables WhatsApp +1 829-390-4358",
+    },
+    attribution: "POP research · Bazar Alnier Por Siempre flyer",
+    researchNotes:
+      "Editor flyer — 05 y 06 Dic; 8 AM–6 PM; Parque de la Libertad Av. 27 de Febrero; 829-390-4358 / 809-244-4176; ageHint family. New venueSlug parque-de-la-libertad.",
+    updatedAt: "2026-11-24T15:15:00.000Z",
+  },
+  {
+    eventId: "toscana-nightclub-dj-joel-2026-12-06",
+    body: "Sunday 80s/90s vs now with DJ Joel at Toscana on Plaza Siblings’ second level — after the Dec 4–5 opening weekend; confirm cover on @toscana_nightclub before you dress for Luis Ginebra.",
+    localized: {
+      es: "Domingo 80s/90s vs ahora con DJ Joel en Toscana en el segundo nivel de Plaza Siblings — después del fin de semana de apertura 4–5 dic; confirma cover en @toscana_nightclub antes de vestirte para Luis Ginebra.",
+      fr: "Dimanche 80s/90s vs maintenant avec DJ Joel au Toscana au 2e niveau de Plaza Siblings — après le week-end d’ouverture 4–5 déc ; confirmez le cover sur @toscana_nightclub avant de vous habiller pour Luis Ginebra.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — @toscana_nightclub · @djjoelmixrd",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — @toscana_nightclub · @djjoelmixrd",
+      fr: "Cover à confirmer — @toscana_nightclub · @djjoelmixrd",
+    },
+    attribution: "POP research · @toscana_nightclub DJ Joel flyer",
+    researchNotes:
+      "Editor flyer + IG caption — Dom 6 Dic; DJoel Entertainment; 80s/90s vs ahora; Plaza Siblings. photoTags djjoelmixrd.",
+    updatedAt: "2026-11-24T15:30:00.000Z",
+  },
+  {
+    eventId: "disco-club-la-fucking-vibra-2-2026-12-15",
+    body: "Happy Tour’s black-dress-code Monday at Latin Disco with Yona / Camilo / Soky / Yeffrey / Tanque — cover in door, RSV 849-885-7027; not Thursday gogo and not Twenty’s AfterGlow later in December.",
+    localized: {
+      es: "Lunes de dress code black de Happy Tour en Latin Disco con Yona / Camilo / Soky / Yeffrey / Tanque — cover in door, RSV 849-885-7027; no es el gogo de jueves ni AfterGlow en Twenty más adelante en diciembre.",
+      fr: "Lundi dress code black de Happy Tour au Latin Disco avec Yona / Camilo / Soky / Yeffrey / Tanque — cover in door, RSV 849-885-7027 ; pas le gogo du jeudi ni AfterGlow au Twenty plus tard en décembre.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover in door — RSV +1 849-885-7027 · @happytour02",
+    priceNoteLocalized: {
+      es: "Cover in door — RSV +1 849-885-7027 · @happytour02",
+      fr: "Cover in door — RSV +1 849-885-7027 · @happytour02",
+    },
+    attribution: "POP research · @happytour02 La Fucking Vibra 2 flyer",
+    researchNotes:
+      "Editor flyer + IG @happytour02 — 15 Dic 2026; Latin Disco; dress code black; DJ lineup; RSV 849.885.7027. photoTags djsoky.",
+    updatedAt: "2026-11-24T15:45:00.000Z",
+  },
+  {
+    eventId: "twenty-disco-afterglow-birthday-2026-12-27",
+    body: "Kamil & Sprewell birthday AfterGlow at Twenty inside Playa Dorada Mall — BSM × Santana neon night; reserve 849-319-4858, and don’t pin Latin Disco across town.",
+    localized: {
+      es: "Cumpleaños AfterGlow de Kamil & Sprewell en Twenty dentro de Playa Dorada Mall — noche neón BSM × Santana; reserva 849-319-4858, y no claves Latin Disco al otro lado de la ciudad.",
+      fr: "Anniversaire AfterGlow de Kamil & Sprewell au Twenty dans Playa Dorada Mall — nuit néon BSM × Santana ; réservez 849-319-4858, et n’épinglez pas Latin Disco de l’autre côté de la ville.",
+    },
+    priceFeel: "varies",
+    priceNote: "Reservaciones +1 849-319-4858 · @bsmentertainmentrd",
+    priceNoteLocalized: {
+      es: "Reservaciones +1 849-319-4858 · @bsmentertainmentrd",
+      fr: "Réservations +1 849-319-4858 · @bsmentertainmentrd",
+    },
+    attribution: "POP research · @bsmentertainmentrd AfterGlow flyer",
+    researchNotes:
+      "Editor flyer + IG caption — Dic 27; AfterGlow; Kamil & Sprewell Birthday Bash; Twenty Disco; BSM × Santana; 849-319-4858. photoTags whois__kamiii, sssssssokpp, santana_events0.",
+    updatedAt: "2026-11-24T16:00:00.000Z",
+  },
+  {
+    eventId: "hendry-fit-boxeo-puntilla-fridays",
+    body: "Free Friday 5:30 AM boxing at Anfiteatro La Puntilla with @hendry_fit_ — sunrise Malecón class for all levels, not Cabarete Boxing Club’s evening open sparring; show up ready to move, no cover.",
+    localized: {
+      es: "Boxeo gratis los viernes a las 5:30 AM en el Anfiteatro La Puntilla con @hendry_fit_ — clase al amanecer en el Malecón para todos los niveles, no el open sparring de noche en Cabarete Boxing Club; llega listo para moverte, sin cover.",
+      fr: "Boxe gratuite le vendredi à 5 h 30 à l’Anfiteatro La Puntilla avec @hendry_fit_ — cours au lever du soleil sur le Malecón pour tous niveaux, pas l’open sparring du soir au Cabarete Boxing Club ; venez prêts à bouger, sans cover.",
+    },
+    priceFeel: "free",
+    priceNote: "Totalmente gratis — @hendry_fit_ · 5:30 AM Fridays",
+    priceNoteLocalized: {
+      es: "Totalmente gratis — @hendry_fit_ · viernes 5:30 AM",
+      fr: "Totalement gratuit — @hendry_fit_ · vendredis 5 h 30",
+    },
+    attribution: "POP research · @hendry_fit_ Entrenamiento Aire Libre flyer",
+    researchNotes:
+      "Editor flyer + IG caption @hendry_fit_ — LOS VIERNES 5:30 AM; Anfiteatro La Puntilla; clase de boxeo; totalmente gratis; all levels. Venue anfiteatro-la-puntilla. Weekly recurrenceDay 5.",
+    updatedAt: "2026-11-24T16:30:00.000Z",
+  },
+  {
+    eventId: "grounds-bazar-navideno-2026-12-05",
+    body: "Saturday Christmas makers market at The Grounds on Carretera Montellano 10 AM–7 PM — coffee-and-community stalls inland, not Bazar Alnier at Parque de la Libertad the same weekend; free to browse, pay stall-by-stall.",
+    localized: {
+      es: "Mercado navideño de makers el sábado en The Grounds en Carretera Montellano 10 AM–7 PM — puestos de café y comunidad tierra adentro, no Bazar Alnier en Parque de la Libertad el mismo fin de semana; gratis para recorrer, paga puesto a puesto.",
+      fr: "Marché de Noël makers le samedi au The Grounds sur Carretera Montellano 10 h–19 h — stands café-communauté à l’intérieur, pas Bazar Alnier au Parque de la Libertad le même week-end ; gratuit pour flâner, payez stand par stand.",
+    },
+    priceFeel: "free",
+    priceNote: "Free entry · stalls pay-as-you-go · @the.grounds.dr",
+    priceNoteLocalized: {
+      es: "Entrada gratis · puestos por compra · @the.grounds.dr",
+      fr: "Entrée gratuite · stands à l’achat · @the.grounds.dr",
+    },
+    attribution: "POP research · @the.grounds.dr Bazar Navideño flyer",
+    researchNotes:
+      "Editor flyer + IG caption @the.grounds.dr — Sáb 5 Dic 10 AM–7 PM; Bazar Navideño; emprendedores locales; Carretera Montellano. Same weekend as bazar-alnier-por-siempre-2026-12-05. ageHint family.",
+    updatedAt: "2026-11-24T17:00:00.000Z",
   },
 ];

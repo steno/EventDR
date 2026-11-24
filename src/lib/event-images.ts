@@ -5,6 +5,34 @@ import { isOptimizableImageSrc } from "./optimizable-image";
 import { getVenueImageUrl } from "./venue-images";
 
 const EVENT_IMAGE_FILES: Record<string, string> = {
+  "parada-choco-enrico-aperitivo-2026-11-24":
+    "parada-choco-enrico-aperitivo-2026-11-24.jpg",
+  "disco-club-gogo-dancers-2026-11-26":
+    "disco-club-gogo-dancers-2026-11-26-v2.jpg",
+  "natura-cabana-thanksgiving-josh-sax-2026-11-26":
+    "natura-cabana-thanksgiving-josh-sax-2026-11-26.jpg",
+  "novias-atlantico-letras-lienzos-2026-11-25":
+    "novias-atlantico-letras-lienzos-2026-11-25-v2.jpg",
+  "hendry-fit-boxeo-puntilla-fridays":
+    "hendry-fit-boxeo-puntilla-fridays.jpg",
+  "team-animal-aguinaldo-5k-2026-11-28":
+    "team-animal-aguinaldo-5k-2026-11-28-v2.jpg",
+  "serie-121-viernes-descontrol-2026-11-27":
+    "serie-121-viernes-descontrol-2026-11-27-v2.jpg",
+  "grounds-mahjong-101-2026-11-27":
+    "grounds-mahjong-101-2026-11-27-v2.jpg",
+  "grounds-bazar-navideno-2026-12-05":
+    "grounds-bazar-navideno-2026-12-05.jpg",
+  "aventureros-pop-mujeres-al-volante-2026-11-29":
+    "aventureros-pop-mujeres-al-volante-2026-11-29-v2.jpg",
+  "bazar-alnier-por-siempre-2026-12-05":
+    "bazar-alnier-por-siempre-2026-12-05-v2.jpg",
+  "toscana-nightclub-dj-joel-2026-12-06":
+    "toscana-nightclub-dj-joel-2026-12-06.jpg",
+  "disco-club-la-fucking-vibra-2-2026-12-15":
+    "disco-club-la-fucking-vibra-2-2026-12-15.jpg",
+  "twenty-disco-afterglow-birthday-2026-12-27":
+    "twenty-disco-afterglow-birthday-2026-12-27-v2.jpg",
   "voyvoy-social-friday-flow-dance-weekly":
     "voyvoy-social-friday-flow-dance-weekly.jpg",
   "chiche-almonte-grand-prix-2026-11-06":
@@ -302,7 +330,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "petit-francois-18-anos-2026-11-06":
     "petit-francois-18-anos-2026-11-06.jpg",
   "mercadillo-fest-la-quinta-rosa-2026-12-19":
-    "mercadillo-fest-la-quinta-rosa-2026-12-19.jpg",
+    "mercadillo-fest-christmas-2026-12-19.jpg",
   "twenty-disco-noche-de-brujas-2026-10-29":
     "twenty-disco-noche-de-brujas-2026-10-29.jpg",
   "chameleon-el-purgatorio-2026-10-31":
@@ -1690,6 +1718,21 @@ export function getEventHeroObjectPosition(eventId: string): string {
  * New flyer art must land here (or stay off {@link HOME_HERO_SCENE_FILES}).
  */
 const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
+  "parada-choco-enrico-aperitivo-2026-11-24.jpg",
+  "disco-club-gogo-dancers-2026-11-26-v2.jpg",
+  "natura-cabana-thanksgiving-josh-sax-2026-11-26.jpg",
+  "novias-atlantico-letras-lienzos-2026-11-25-v2.jpg",
+  "hendry-fit-boxeo-puntilla-fridays.jpg",
+  "team-animal-aguinaldo-5k-2026-11-28-v2.jpg",
+  "serie-121-viernes-descontrol-2026-11-27-v2.jpg",
+  "grounds-mahjong-101-2026-11-27-v2.jpg",
+  "grounds-bazar-navideno-2026-12-05.jpg",
+  "aventureros-pop-mujeres-al-volante-2026-11-29-v2.jpg",
+  "bazar-alnier-por-siempre-2026-12-05-v2.jpg",
+  "toscana-nightclub-dj-joel-2026-12-06.jpg",
+  "disco-club-la-fucking-vibra-2-2026-12-15.jpg",
+  "twenty-disco-afterglow-birthday-2026-12-27-v2.jpg",
+  "mercadillo-fest-christmas-2026-12-19.jpg",
   "voyvoy-social-friday-flow-dance-weekly.jpg",
   "voyvoy-sunday-open-mic-v3.jpg",
   "ambar-lounge-bandoleras-2026-11-13.jpg",
@@ -1835,7 +1878,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "end-blackouts-protest-plaza-independencia-2026-11-05-v2.jpg",
   "the-last-drink-white-party-2026-11-07.jpg",
   "petit-francois-18-anos-2026-11-06.jpg",
-  "mercadillo-fest-la-quinta-rosa-2026-12-19.jpg",
+  "mercadillo-fest-christmas-2026-12-19.jpg",
   "proyecto-x-el-calabozo-2026-10-31.jpg",
   "twenty-disco-angel-demons-2026-10-24.jpg",
   "twenty-disco-angel-demons-2026-10-24-v2.jpg",

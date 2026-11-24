@@ -509,6 +509,50 @@ const FILE_TO_EVENT_ID = {
     "petit-francois-18-anos-2026-11-06",
   "mercadillo-fest-la-quinta-rosa-2026-12-19.jpg":
     "mercadillo-fest-la-quinta-rosa-2026-12-19",
+  "mercadillo-fest-christmas-2026-12-19.jpg":
+    "mercadillo-fest-la-quinta-rosa-2026-12-19",
+  "parada-choco-enrico-aperitivo-2026-11-24.jpg":
+    "parada-choco-enrico-aperitivo-2026-11-24",
+  "disco-club-gogo-dancers-2026-11-26.jpg":
+    "disco-club-gogo-dancers-2026-11-26",
+  "disco-club-gogo-dancers-2026-11-26-v2.jpg":
+    "disco-club-gogo-dancers-2026-11-26",
+  "natura-cabana-thanksgiving-josh-sax-2026-11-26.jpg":
+    "natura-cabana-thanksgiving-josh-sax-2026-11-26",
+  "novias-atlantico-letras-lienzos-2026-11-25.jpg":
+    "novias-atlantico-letras-lienzos-2026-11-25",
+  "novias-atlantico-letras-lienzos-2026-11-25-v2.jpg":
+    "novias-atlantico-letras-lienzos-2026-11-25",
+  "hendry-fit-boxeo-puntilla-fridays.jpg":
+    "hendry-fit-boxeo-puntilla-fridays",
+  "team-animal-aguinaldo-5k-2026-11-28.jpg":
+    "team-animal-aguinaldo-5k-2026-11-28",
+  "team-animal-aguinaldo-5k-2026-11-28-v2.jpg":
+    "team-animal-aguinaldo-5k-2026-11-28",
+  "serie-121-viernes-descontrol-2026-11-27.jpg":
+    "serie-121-viernes-descontrol-2026-11-27",
+  "serie-121-viernes-descontrol-2026-11-27-v2.jpg":
+    "serie-121-viernes-descontrol-2026-11-27",
+  "grounds-mahjong-101-2026-11-27.jpg": "grounds-mahjong-101-2026-11-27",
+  "grounds-mahjong-101-2026-11-27-v2.jpg": "grounds-mahjong-101-2026-11-27",
+  "grounds-bazar-navideno-2026-12-05.jpg":
+    "grounds-bazar-navideno-2026-12-05",
+  "aventureros-pop-mujeres-al-volante-2026-11-29.jpg":
+    "aventureros-pop-mujeres-al-volante-2026-11-29",
+  "aventureros-pop-mujeres-al-volante-2026-11-29-v2.jpg":
+    "aventureros-pop-mujeres-al-volante-2026-11-29",
+  "bazar-alnier-por-siempre-2026-12-05.jpg":
+    "bazar-alnier-por-siempre-2026-12-05",
+  "bazar-alnier-por-siempre-2026-12-05-v2.jpg":
+    "bazar-alnier-por-siempre-2026-12-05",
+  "toscana-nightclub-dj-joel-2026-12-06.jpg":
+    "toscana-nightclub-dj-joel-2026-12-06",
+  "disco-club-la-fucking-vibra-2-2026-12-15.jpg":
+    "disco-club-la-fucking-vibra-2-2026-12-15",
+  "twenty-disco-afterglow-birthday-2026-12-27.jpg":
+    "twenty-disco-afterglow-birthday-2026-12-27",
+  "twenty-disco-afterglow-birthday-2026-12-27-v2.jpg":
+    "twenty-disco-afterglow-birthday-2026-12-27",
   "amarea-one-last-escape-2026-11-07.jpg":
     "amarea-one-last-escape-2026-11-07",
   "amarea-beach-brunch-aura-2026-11-08.jpg":
@@ -1238,6 +1282,10 @@ const FILE_TO_VENUE_SLUG = {
   "evolution-disco-club-san-marcos.jpg": "evolution-disco-club-san-marcos",
   "los-guaos-veragua-field.jpg": "los-guaos-veragua",
   "punto-frio-life-bar-interior.jpg": "punto-frio-life-bar",
+  "serie-121-villa-isabela.jpg": "serie-121-villa-isabela",
+  "parque-de-la-libertad.jpg": "parque-de-la-libertad",
+  "parque-de-la-libertad-v2.jpg": "parque-de-la-libertad",
+  "the-grounds-cafe.jpg": "the-grounds-cafe",
   "037-bar-restaurant-entrance.jpg": "037-bar-restaurant",
   "goddess-la-diosa-cabarete-v2.jpg": "goddess-la-diosa-cabarete",
   "sociedad-cultural-renovacion-library.jpg":

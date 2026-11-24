@@ -1391,6 +1391,36 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Bar nightlife et divertissement au C/ Duarte #51, Villa Progreso, Veragua (Distrito Municipal Veragua / Gaspar Hernández, Espaillat) — soirées DJ, service à table, bière et spiritueux, karaoke et spéciaux hookah. Walk-in cash only ; stationnement gratuit dans la rue ; non accessible en fauteuil. Confirmez les portes sur Instagram @puntofrio_lifebar · WhatsApp +1 809-982-5850 (aussi listé +1 849-201-4422).",
     },
   },
+  "the-grounds-cafe": {
+    name: {
+      es: "The Grounds Coffee & Community",
+      fr: "The Grounds Coffee & Community",
+    },
+    description: {
+      es: "Café y espacio comunitario de fe en Carretera Montellano, Villa Montellano — café de especialidad, talleres, grupos pequeños y estantería para makers locales. Horario típico ~7:30 AM–9:30 PM lun–sáb; domingos desde ~2:00 PM. Instagram @the.grounds.dr · RSVP Mahjong/clases +1 829-678-2574.",
+      fr: "Café et espace communautaire confessionnel sur Carretera Montellano, Villa Montellano — café de spécialité, ateliers, petits groupes et étagère pour makers locaux. Horaires typiques ~7 h 30–21 h 30 lun–sam ; dimanches dès ~14 h. Instagram @the.grounds.dr · RSVP Mahjong/cours +1 829-678-2574.",
+    },
+  },
+  "parque-de-la-libertad": {
+    name: {
+      es: "Parque de la Libertad",
+      fr: "Parque de la Libertad",
+    },
+    description: {
+      es: "Parque público en Av. 27 de Febrero / Calle Beller (cerca de 12 de Julio) en el centro de Puerto Plata — encuentros comunitarios, bazares y tardes de plaza a poca distancia de La Quinta Rosa y la trama histórica.",
+      fr: "Parc public à Av. 27 de Febrero / Calle Beller (près de 12 de Julio) au centre de Puerto Plata — rassemblements communautaires, bazars et soirées de place à deux pas de La Quinta Rosa et de la grille historique.",
+    },
+  },
+  "serie-121-villa-isabela": {
+    name: {
+      es: "Serie 121 Liquor Store",
+      fr: "Serie 121 Liquor Store",
+    },
+    description: {
+      es: "Licorería y punto de fiestas con cartel en Villa Isabela (oeste de la ciudad de Puerto Plata) — noches Serie 121 Live, promos de botellas y pista de DJ. Confirma puertas en los flyers; clava Villa Isabela pueblo, no D’Ocean Bar ni la glorieta del parque municipal.",
+      fr: "Magasin de liqueurs et spot de soirées à l’affiche à Villa Isabela (ouest de Puerto Plata) — nuits Serie 121 Live, promos bouteilles et piste DJ. Confirmez les portes sur les flyers ; épinglez Villa Isabela village, pas D’Ocean Bar ni la glorieta du parc municipal.",
+    },
+  },
 };
 
 export function localizeVenue(venue: Venue, locale: Locale): Venue {
