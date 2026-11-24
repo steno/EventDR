@@ -6475,21 +6475,21 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "tiki-bar-catamaran-party-2026-12-05",
-    body: "Saturday Dec 5 sunset catamaran from Tiki with open bar + Sushi Nikkei, Nattmusic and Liza Oelenikk 4–10 PM, then after-party back at the thatch bar 11 PM–3 AM — buy entradas at Tiki, and don’t mix it with Premios Ola Dorada the same Saturday.",
+    body: "Saturday Dec 5 Sosúa catamaran with Tiki — US$100 for open bar premium + sushi all-inclusive, Nattmusic and Lisa Oleinik 4–10 PM, ~40 people; don’t mix it with Premios Ola Dorada the same Saturday.",
     localized: {
-      es: "Sábado 5 dic catamarán al atardecer desde Tiki con open bar + Sushi Nikkei, Nattmusic y Liza Oelenikk 4–10 PM, luego after-party en el bar de paja 11 PM–3 AM — compra entradas en Tiki, y no lo mezcles con Premios Ola Dorada el mismo sábado.",
-      fr: "Samedi 5 déc. catamaran au coucher du soleil depuis le Tiki avec open bar + Sushi Nikkei, Nattmusic et Liza Oelenikk 16 h–22 h, puis after-party au bar chaume 23 h–3 h — achetez les billets au Tiki, et ne confondez pas avec Premios Ola Dorada le même samedi.",
+      es: "Sábado 5 dic catamarán en Sosúa con Tiki — US$100 open bar premium + sushi all-inclusive, Nattmusic y Lisa Oleinik 4–10 PM, ~40 personas; no lo mezcles con Premios Ola Dorada el mismo sábado.",
+      fr: "Samedi 5 déc. catamaran à Sosúa avec Tiki — US$100 open bar premium + sushi all-inclusive, Nattmusic et Lisa Oleinik 16 h–22 h, ~40 personnes ; ne confondez pas avec Premios Ola Dorada le même samedi.",
     },
     priceFeel: "varies",
-    priceNote: "Tickets at Tiki Bar Cabarete — confirm @tikibarcabarete",
+    priceNote: "US$100 · open bar + sushi · @tikibarcabarete",
     priceNoteLocalized: {
-      es: "Entradas en Tiki Bar Cabarete — confirma @tikibarcabarete",
-      fr: "Billets au Tiki Bar Cabarete — confirmez @tikibarcabarete",
+      es: "US$100 · open bar + sushi · @tikibarcabarete",
+      fr: "US$100 · open bar + sushi · @tikibarcabarete",
     },
-    attribution: "POP research · @tikibarcabarete Catamaran Party flyer + caption",
+    attribution: "POP research · @tikibarcabarete Catamaran Party flyer refresh",
     researchNotes:
-      "Editor flyer + IG caption @tikibarcabarete — Sábado 5 de diciembre, 4–10 PM catamaran open bar + sushi by @sushinikkeird; Nattmusic · Liza Oelenikk; after-party Tiki 11 PM–3 AM; tickets at Tiki Bar.",
-    updatedAt: "2026-10-29T15:00:00.000Z",
+      "Editor flyer refresh — Sat Dec 5 2026 4–10 PM; Sosúa; OPEN BAR PREMIUM + SUSHI BAR ALL INCLUSIVE; Nattmusic · Lisa Oleinik; $100 US; ~40 people. Hero -v2.",
+    updatedAt: "2026-11-24T18:00:00.000Z",
   },
   {
     eventId: "parada-el-choco-big-d-aperitivo-2026-10-27",
@@ -10151,10 +10151,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "hecho-aqui-cabarete-2026-11-21",
-    body: "IV HECHO AQUÍ opens Sat 21 Nov 5:30 PM at Estudio CREA, then Genaro Reyes (Cayuco) at Cuevas de Cabarete Sun 22 Nov 11 AM, with the month running through 21 Dec — Saturday Plaza Popular opening, not VOYVOY’s Saturday Session later that evening.",
+    body: "IV HECHO AQUÍ opens Sat 21 Nov 5:30 PM at Estudio CREA, then Genaro Reyes Sun 22 Nov and Casa Museo Hill van Gogh on Callejón de la Loma Sun 29 Nov 11 AM — month through 21 Dec; Plaza Popular inauguration, not VOYVOY’s Saturday Session later that evening.",
     localized: {
-      es: "IV HECHO AQUÍ abre sáb 21 nov 5:30 PM en Estudio CREA, luego Genaro Reyes (Cayuco) en Cuevas de Cabarete dom 22 nov 11 AM, con el mes hasta el 21 dic — apertura del sábado en Plaza Popular, no el Saturday Session de VOYVOY más tarde esa noche.",
-      fr: "IV HECHO AQUÍ ouvre sam. 21 nov. 17 h 30 à Estudio CREA, puis Genaro Reyes (Cayuco) aux Cuevas de Cabarete dim. 22 nov. 11 h, mois jusqu’au 21 déc. — ouverture du samedi à Plaza Popular, pas le Saturday Session de VOYVOY plus tard le même soir.",
+      es: "IV HECHO AQUÍ abre sáb 21 nov 5:30 PM en Estudio CREA, luego Genaro Reyes dom 22 nov y Casa Museo Hill van Gogh en el Callejón de la Loma dom 29 nov 11 AM — mes hasta el 21 dic; inauguración en Plaza Popular, no el Saturday Session de VOYVOY más tarde esa noche.",
+      fr: "IV HECHO AQUÍ ouvre sam. 21 nov. 17 h 30 à Estudio CREA, puis Genaro Reyes dim. 22 nov. et Casa Museo Hill van Gogh sur le Callejón de la Loma dim. 29 nov. 11 h — mois jusqu’au 21 déc. ; inauguration Plaza Popular, pas le Saturday Session de VOYVOY plus tard le même soir.",
     },
     priceFeel: "free",
     priceNote: "Inauguration / exhibition stroll — confirm site hours on the night",
@@ -10164,8 +10164,8 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · HECHO AQUÍ Cabarete IV flyer + inauguration notice",
     researchNotes:
-      "Editor flyer + inauguration copy — Sat 21 Nov 2026 5:30 PM Estudio CREA Plaza Popular; month 21 Nov–21 Dec; ~40 artists; satellite sites Fresh Fresh, Lili & Lou, Ferretería Linares, Vagamundo, Coconuts, Fundación Cabarete Sostenible, Honey Company, Cabarete Boxing Club; same flyer Genaro Reyes (Cayuco) Cuevas 22 Nov 11 AM.",
-    updatedAt: "2026-11-19T22:30:00.000Z",
+      "Editor flyer + inauguration copy — Sat 21 Nov 2026 5:30 PM Estudio CREA Plaza Popular; month 21 Nov–21 Dec; ~40 artists; satellite sites Fresh Fresh, Lili & Lou, Ferretería Linares, Vagamundo, Coconuts, Fundación Cabarete Sostenible, Honey Company, Cabarete Boxing Club; same flyer Genaro Reyes (Cayuco) Cuevas 22 Nov 11 AM; program also notes Casa Museo Hill van Gogh 29 Nov 11 AM (separate seed, own flyer hero).",
+    updatedAt: "2026-11-24T17:45:00.000Z",
   },
   {
     eventId: "voyvoy-saturday-session-2026-11-21",
@@ -10530,5 +10530,96 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer + IG caption @the.grounds.dr — Sáb 5 Dic 10 AM–7 PM; Bazar Navideño; emprendedores locales; Carretera Montellano. Same weekend as bazar-alnier-por-siempre-2026-12-05. ageHint family.",
     updatedAt: "2026-11-24T17:00:00.000Z",
+  },
+  {
+    eventId: "manny-ultimo-del-ano-2026-12-07",
+    body: "Manny’s 15-day El Último Del Año outdoor block runs 7–21 Dec for RD$2,000 — confirm the beach meet via @mannythetrainer; it’s not Cabarete Boxing Club’s Friday sparring or Hendry Fit’s free La Puntilla mornings.",
+    localized: {
+      es: "El bloque outdoor El Último Del Año de Manny corre del 7–21 dic por RD$2,000 — confirma el punto en la playa con @mannythetrainer; no es el sparring del viernes en Cabarete Boxing Club ni las mañanas gratis de Hendry Fit en La Puntilla.",
+      fr: "Le bloc outdoor El Último Del Año de Manny court du 7–21 déc. pour RD$2,000 — confirmez le point plage via @mannythetrainer ; ce n’est pas le sparring du vendredi au Cabarete Boxing Club ni les matins gratuits Hendry Fit à La Puntilla.",
+    },
+    priceFeel: "budget",
+    priceNote: "RD$2,000 · reserva (809) 614-5354 · @mannythetrainer",
+    priceNoteLocalized: {
+      es: "RD$2,000 · reserva (809) 614-5354 · @mannythetrainer",
+      fr: "RD$2,000 · réservation (809) 614-5354 · @mannythetrainer",
+    },
+    attribution: "POP research · @mannythetrainer El Último Del Año flyer + caption",
+    researchNotes:
+      "Editor flyer + IG @mannythetrainer — EL ÚLTIMO DEL AÑO; 7–21 DIC 2026; ENTRENAMIENTO AL AIRE LIBRE; RD$2,000; (809) 614-5354; no fixed pin — Cabarete meet via IG. No venue seed.",
+    updatedAt: "2026-11-24T17:30:00.000Z",
+  },
+  {
+    eventId: "natalija-tumpej-aura-2026-11-26",
+    body: "Thursday 8 PM Natalija Tumpej at Aura on Calle Principal — tables via +1 829-787-0140; beach-club live set, not Natura’s Thanksgiving Josh Sax dinner the same evening.",
+    localized: {
+      es: "Jueves 8 PM Natalija Tumpej en Aura en Calle Principal — mesas vía +1 829-787-0140; set live de beach club, no la cena Thanksgiving con Josh Sax en Natura esa misma noche.",
+      fr: "Jeudi 20 h Natalija Tumpej à Aura sur Calle Principal — tables via +1 829-787-0140 ; set live beach club, pas le dîner Thanksgiving Josh Sax à Natura le même soir.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — +1 829-787-0140 / @auracabarete",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — +1 829-787-0140 / @auracabarete",
+      fr: "Cover à confirmer — +1 829-787-0140 / @auracabarete",
+    },
+    attribution: "POP research · @auracabarete Natalija Tumpej LIVE MUSIC flyer",
+    researchNotes:
+      "Editor flyer — aura; Natalija Tumpej LIVE MUSIC; Thu 26 Nov 2026 8 PM (user-confirmed). Same night as natura-cabana-thanksgiving-josh-sax-2026-11-26 + disco-club-gogo-dancers-2026-11-26.",
+    updatedAt: "2026-11-24T18:30:00.000Z",
+  },
+  {
+    eventId: "the-last-drink-sabado-negro-yosma-2026-11-29",
+    body: "Sábado Negro at The Last Drink by Puente de la Guinea with DJ Yosma — RD$100 cover and printed drink specials 8–9:30 PM; street-bar black Saturday, not Chameleon’s Yosma Sunday or Catalina’s Nicole Espinal afternoon the same date.",
+    localized: {
+      es: "Sábado Negro en The Last Drink junto al Puente de la Guinea con DJ Yosma — cover RD$100 y especiales impresos 8–9:30 PM; sábado negro de street-bar, no el domingo de Yosma en Chameleon ni la tarde de Nicole Espinal en Catalina la misma fecha.",
+      fr: "Sábado Negro au The Last Drink près du Puente de la Guinea avec DJ Yosma — cover RD$100 et specials imprimés 20 h–21 h 30 ; samedi noir street-bar, pas le dimanche Yosma à Chameleon ni l’après-midi Nicole Espinal à Catalina le même jour.",
+    },
+    priceFeel: "budget",
+    priceNote: "Cover RD$100 · One/Presidente peq RD$75 · @the_last_drink_pop",
+    priceNoteLocalized: {
+      es: "Cover RD$100 · One/Presidente peq RD$75 · @the_last_drink_pop",
+      fr: "Cover RD$100 · One/Presidente peq RD$75 · @the_last_drink_pop",
+    },
+    attribution: "POP research · @the_last_drink_pop Sábado Negro DJ Yosma flyer",
+    researchNotes:
+      "Editor flyer — SÁBADO NEGRO; Music By DJ YOSMA; Cover $100 p/p; De 8:pm A 9:30pm; One peq 75, Presidente Light peq 75, Corona 100, Hooka 300 toda la noche; Puente de la guinea. No calendar day printed — seeded next Sat 29 Nov 2026. photoTags djyosma.",
+    updatedAt: "2026-11-24T18:15:00.000Z",
+  },
+  {
+    eventId: "nicole-espinal-rancho-catalina-2026-11-29",
+    body: "Sunday 2:30 PM ranch live with Nicole Espinal — no-cover El Cupey lunch slot like Euridis Mena the week before; book a table for the set with the meal, not Ground Zero’s Gala Night Love Love later that night.",
+    localized: {
+      es: "Domingo 2:30 PM de live en el rancho con Nicole Espinal — el mismo slot sin cover de almuerzo en El Cupey que Euridis Mena la semana anterior; reserva mesa si quieres el set con la comida, no el Gala Night Love Love de Ground Zero más tarde esa noche.",
+      fr: "Dimanche 14 h 30 live au ranch avec Nicole Espinal — même créneau déjeuner sans cover à El Cupey qu’Euridis Mena la semaine d’avant ; réservez une table pour le set avec le repas, pas le Gala Night Love Love de Ground Zero plus tard le même soir.",
+    },
+    priceFeel: "free",
+    priceNote: "No cover — pay for ranch dining; +1 809-781-3737 / @rancholacatalina",
+    priceNoteLocalized: {
+      es: "Sin cover — pagas la comida del rancho; +1 809-781-3737 / @rancholacatalina",
+      fr: "Pas de cover — vous payez le repas ranch ; +1 809-781-3737 / @rancholacatalina",
+    },
+    attribution: "POP research · @rancholacatalina · Nicole Espinal flyer",
+    researchNotes:
+      "Editor flyer — Dom 29 Nov 2026 2:30 PM; Nicole Espinal; NO COVER; Rancho La Catalina Restaurant. Same Sunday as Ground Zero Gala + HECHO AQUÍ Hill van Gogh.",
+    updatedAt: "2026-11-24T18:00:00.000Z",
+  },
+  {
+    eventId: "hecho-aqui-hill-van-gogh-2026-11-29",
+    body: "Sunday 11 AM HECHO AQUÍ visit at Casa Museo Hill van Gogh on Callejón de la Loma — private artist house, not a gallery pin and not Cuevas del Choco; program hub is the CREA inauguration listing.",
+    localized: {
+      es: "Visita HECHO AQUÍ el domingo a las 11 AM en Casa Museo Hill van Gogh en el Callejón de la Loma — casa-taller privada, no una galería con pin ni Cuevas del Choco; el hub del programa es la inauguración en CREA.",
+      fr: "Visite HECHO AQUÍ dimanche à 11 h à Casa Museo Hill van Gogh sur le Callejón de la Loma — maison-atelier privée, pas une galerie avec pin ni Cuevas del Choco ; le hub du programme est l’inauguration à CREA.",
+    },
+    priceFeel: "free",
+    priceNote: "Free invitation · Callejón de la Loma · part of HECHO AQUÍ IV",
+    priceNoteLocalized: {
+      es: "Invitación gratis · Callejón de la Loma · parte de HECHO AQUÍ IV",
+      fr: "Invitation gratuite · Callejón de la Loma · dans HECHO AQUÍ IV",
+    },
+    attribution:
+      "POP research · HECHO AQUÍ Casa Museo Hill van Gogh invitation flyer",
+    researchNotes:
+      "Editor flyer + invitation text — Dom 29 Nov 2026 11:00 AM; Casa Museo Hill van Gogh; Callejón de la Loma; IV Edición HECHO AQUÍ; no official venue seed (private house).",
+    updatedAt: "2026-11-24T17:45:00.000Z",
   },
 ];

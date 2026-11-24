@@ -141,7 +141,8 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     sourceUrl: "https://www.instagram.com/auracabarete/",
   },
   "tiki-bar-catamaran-party-2026-12-05": {
-    callForPricing: true,
+    isFree: false,
+    admissionPrice: "US$100",
     venueSlug: "tiki-bar-cabarete",
     sourceUrl: "https://www.instagram.com/tikibarcabarete/",
   },
@@ -1433,6 +1434,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     callForPricing: true,
     venueSlug: "the-last-drink",
   },
+  "the-last-drink-sabado-negro-yosma-2026-11-29": {
+    isFree: false,
+    admissionPrice: "RD$100",
+    venueSlug: "the-last-drink",
+    sourceUrl: "https://www.instagram.com/the_last_drink_pop/",
+  },
   "isabela-food-fest-simpaticos-tipicos-2026-12-19": {
     callForPricing: true,
     phone: "+18293366802",
@@ -1653,6 +1660,18 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18097813737",
     venueSlug: "rancho-catalina-puerto-plata",
     sourceUrl: "https://www.instagram.com/rancholacatalina/",
+  },
+  "nicole-espinal-rancho-catalina-2026-11-29": {
+    isFree: true,
+    phone: "+18097813737",
+    venueSlug: "rancho-catalina-puerto-plata",
+    sourceUrl: "https://www.instagram.com/rancholacatalina/",
+  },
+  "natalija-tumpej-aura-2026-11-26": {
+    callForPricing: true,
+    phone: "+18297870140",
+    venueSlug: "aura-beach-club-cabarete",
+    sourceUrl: "https://www.instagram.com/auracabarete/",
   },
   "leos-banana-fiesta-blanca-2026-11-27": {
     isFree: false,

@@ -6,7 +6,11 @@ import { getVenueImageUrl } from "./venue-images";
 
 const EVENT_IMAGE_FILES: Record<string, string> = {
   "parada-choco-enrico-aperitivo-2026-11-24":
-    "parada-choco-enrico-aperitivo-2026-11-24.jpg",
+    "parada-choco-enrico-aperitivo-2026-11-24-v2.jpg",
+  "manny-ultimo-del-ano-2026-12-07":
+    "manny-ultimo-del-ano-2026-12-07.jpg",
+  "hecho-aqui-hill-van-gogh-2026-11-29":
+    "hecho-aqui-hill-van-gogh-2026-11-29.jpg",
   "disco-club-gogo-dancers-2026-11-26":
     "disco-club-gogo-dancers-2026-11-26-v2.jpg",
   "natura-cabana-thanksgiving-josh-sax-2026-11-26":
@@ -131,9 +135,11 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "victrola-lidom-2026-10-24": "victrola-lidom-2026-10-24.jpg",
   "victrola-sports-sunday-2026-10-25": "victrola-sports-sunday-2026-10-25.jpg",
   "allison-sade-aura-2026-10-22": "aura-allison-sade-live-2026-10-22.jpg",
+  "natalija-tumpej-aura-2026-11-26":
+    "natalija-tumpej-aura-2026-11-26.jpg",
   "rebeca-duque-aura-2026-10-29": "rebeca-duque-aura-2026-10-29.jpg",
   "tiki-bar-catamaran-party-2026-12-05":
-    "tiki-bar-catamaran-party-2026-12-05.jpg",
+    "tiki-bar-catamaran-party-2026-12-05-v2.jpg",
   "isabela-food-fest-dj-melcocha-2026-12-20":
     "isabela-food-fest-dj-melcocha-2026-12-20.jpg",
   "isabela-food-fest-ronny-manuel-2026-12-20":
@@ -276,6 +282,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "4to-dia-rancho-catalina-2026-11-15.jpg",
   "euridis-mena-rancho-catalina-2026-11-22":
     "euridis-mena-rancho-catalina-2026-11-22.jpg",
+  "nicole-espinal-rancho-catalina-2026-11-29":
+    "nicole-espinal-rancho-catalina-2026-11-29.jpg",
   "la-lola-dancing-weekend-2026-11-13":
     "la-lola-dancing-weekend-2026-11-13.jpg",
   "evolution-papy-crish-2026-11-14":
@@ -327,6 +335,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "end-blackouts-protest-plaza-independencia-2026-11-05-v2.jpg",
   "the-last-drink-white-party-2026-11-07":
     "the-last-drink-white-party-2026-11-07.jpg",
+  "the-last-drink-sabado-negro-yosma-2026-11-29":
+    "the-last-drink-sabado-negro-yosma-2026-11-29.jpg",
   "petit-francois-18-anos-2026-11-06":
     "petit-francois-18-anos-2026-11-06.jpg",
   "mercadillo-fest-la-quinta-rosa-2026-12-19":
@@ -947,7 +957,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "groundzero-omega-2026-12-18": "groundzero-omega-2026-12-18.jpg",
   "groundzero-gala-night-love-love-2026-11-29":
     "groundzero-gala-night-love-love-2026-11-29.jpg",
-  "hecho-aqui-cabarete-2026-11-21": "hecho-aqui-cabarete-2026-11-21.jpg",
+  "hecho-aqui-cabarete-2026-11-21":
+    "hecho-aqui-cabarete-2026-11-21-v2.jpg",
   "voyvoy-saturday-session-2026-11-21":
     "voyvoy-saturday-session-2026-11-21.jpg",
   "aura-gatsby-by-the-sea-nye-2026-12-31":
@@ -1363,6 +1374,7 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "alex-rene-rancho-catalina-2026-11-08": "object-center",
   "4to-dia-rancho-catalina-2026-11-15": "object-center",
   "euridis-mena-rancho-catalina-2026-11-22": "object-center",
+  "nicole-espinal-rancho-catalina-2026-11-29": "object-center",
   "la-lola-dancing-weekend-2026-11-13": "object-center",
   "evolution-papy-crish-2026-11-14": "object-center",
   // Mid crop (not bare object-center — cards remap that to object-top).
@@ -1719,6 +1731,9 @@ export function getEventHeroObjectPosition(eventId: string): string {
  */
 const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "parada-choco-enrico-aperitivo-2026-11-24.jpg",
+  "parada-choco-enrico-aperitivo-2026-11-24-v2.jpg",
+  "manny-ultimo-del-ano-2026-12-07.jpg",
+  "hecho-aqui-hill-van-gogh-2026-11-29.jpg",
   "disco-club-gogo-dancers-2026-11-26-v2.jpg",
   "natura-cabana-thanksgiving-josh-sax-2026-11-26.jpg",
   "novias-atlantico-letras-lienzos-2026-11-25-v2.jpg",
@@ -1780,6 +1795,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "groundzero-gala-night-love-love-2026-11-29.jpg",
   "groundzero-gala-night-love-love-2026-11-29-junier-melo.jpg",
   "hecho-aqui-cabarete-2026-11-21.jpg",
+  "hecho-aqui-cabarete-2026-11-21-v2.jpg",
   "voyvoy-saturday-session-2026-11-21.jpg",
   "aura-gatsby-by-the-sea-nye-2026-12-31.jpg",
   "pedro-santana-sus-dias-contados-2026-11-24.jpg",
@@ -1848,6 +1864,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "alex-rene-rancho-catalina-2026-11-08.jpg",
   "4to-dia-rancho-catalina-2026-11-15.jpg",
   "euridis-mena-rancho-catalina-2026-11-22.jpg",
+  "nicole-espinal-rancho-catalina-2026-11-29.jpg",
   "la-lola-dancing-weekend-2026-11-13.jpg",
   "evolution-papy-crish-2026-11-14-v2.jpg",
   "tyson-band-aura-2026-11-12.jpg",
@@ -1877,6 +1894,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "sea-horse-holiday-night-market-2026-12-12.jpg",
   "end-blackouts-protest-plaza-independencia-2026-11-05-v2.jpg",
   "the-last-drink-white-party-2026-11-07.jpg",
+  "the-last-drink-sabado-negro-yosma-2026-11-29.jpg",
   "petit-francois-18-anos-2026-11-06.jpg",
   "mercadillo-fest-christmas-2026-12-19.jpg",
   "proyecto-x-el-calabozo-2026-10-31.jpg",
@@ -1957,6 +1975,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "voyvoy-dominican-night-flow-dance-weekly.jpg",
   "rebeca-duque-aura-2026-10-29.jpg",
   "tiki-bar-catamaran-party-2026-12-05.jpg",
+  "tiki-bar-catamaran-party-2026-12-05-v2.jpg",
   "isabela-food-fest-dj-melcocha-2026-12-20.jpg",
   "tiki-bar-flowdance-2026-10-30.jpg",
   "ambar-lounge-bandoleras-2026-10-30.jpg",
@@ -2152,6 +2171,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "meclao-a-oscura-yona-ramz-2026-10-17.jpg",
   "cedaky-mall-fiesta-disfraces-2026-10-24.jpg",
   "allison-sade-aura-2026-11-05.jpg",
+  "natalija-tumpej-aura-2026-11-26.jpg",
   "casa-tuva-allison-sade-2026-11-08.jpg",
   "cedaky-mall-abracadabra-2026-11-08.jpg",
   "hard-rock-pizza-planeta-2026-11-28.jpg",

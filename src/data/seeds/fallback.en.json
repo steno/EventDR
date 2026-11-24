@@ -8997,10 +8997,10 @@
   {
     "id": "tiki-bar-catamaran-party-2026-12-05",
     "title": "Tiki Bar Cabarete — Catamaran Party",
-    "description": "Catamaran Party presented by Tiki Bar Cabarete — Saturday 5 December 2026, 4:00–10:00 PM on the water with open bar and sushi bar by Sushi Nikkei (@sushinikkeird); lineup Nattmusic and Liza Oelenikk. After-party continues at Tiki Bar Cabarete 11:00 PM–3:00 AM. Tickets on sale at Tiki Bar Cabarete · Instagram @tikibarcabarete. Sunset boat party out of Cabarete — not Premios Ola Dorada the same Saturday, and not a beach-club sand set.",
+    "description": "Catamaran Party by Tiki Bar Cabarete — Saturday 5 December 2026, 4:00–10:00 PM, meeting in Sosúa. Open bar premium + sushi bar all inclusive; lineup Nattmusic and Lisa Oleinik; about 40 people; US$100. Tickets / info Instagram @tikibarcabarete. Sunset boat party — not Premios Ola Dorada the same Saturday, and not a beach-club sand set at Tiki.",
     "date": "2026-12-05",
     "time": "4:00 PM – 10:00 PM",
-    "location": "Cabarete",
+    "location": "Sosúa",
     "venue": "Cabarete Tiki Bar",
     "venueSlug": "tiki-bar-cabarete",
     "address": "Central Cabarete, near Casino #1",
@@ -9013,17 +9013,19 @@
     ],
     "format": "physical",
     "trending": true,
-    "callForPricing": true,
     "instagram": "tikibarcabarete",
-    "sourceType": "instagram",
+    "sourceType": "flyer",
     "sourceUrl": "https://www.instagram.com/tikibarcabarete/",
     "lineup": [
       "Nattmusic",
-      "Liza Oelenikk",
-      "Open bar",
-      "Sushi Nikkei"
+      "Lisa Oleinik",
+      "Open bar premium",
+      "Sushi bar all inclusive",
+      "~40 people"
     ],
-    "imageEmoji": "⛵"
+    "imageEmoji": "⛵",
+    "isFree": false,
+    "admissionPrice": "US$100"
   },
   {
     "id": "isabela-food-fest-dj-melcocha-2026-12-20",
@@ -12680,7 +12682,7 @@
   {
     "id": "hecho-aqui-cabarete-2026-11-21",
     "title": "HECHO AQUÍ Cabarete IV — inauguration · 21 Nov",
-    "description": "IV Edición HECHO AQUÍ Cabarete 2026 — inauguration Saturday 21 November 2026 at 5:30 PM at Estudio CREA, Plaza Popular (Carretera Principal / Banco Popular plaza), Cabarete. Collective visual-arts month with ~40 Dominican and foreign resident artists, 21 November–21 December, spanning Estudio CREA, Fresh Fresh Café, Lili & Lou Boutique, Ferretería Linares, Vagamundo, Coconuts, Fundación Cabarete Sostenible, Honey Company, Cabarete Boxing Club, and more. The same program also opens Genaro Reyes (Cayuco) with Asociación de Guías Cuevas de Cabarete at Monumento Natural Lagunas Cabarete y Goleta on Sunday 22 November at 11:00 AM. Saturday afternoon opening at Plaza Popular — not VOYVOY’s Saturday Session on the bay later that evening.",
+    "description": "IV Edición HECHO AQUÍ Cabarete 2026 — inauguration Saturday 21 November 2026 at 5:30 PM at Estudio CREA, Plaza Popular (Carretera Principal / Banco Popular plaza), Cabarete. Collective visual-arts month with ~40 Dominican and foreign resident artists, 21 November–21 December, spanning Estudio CREA and partner sites. Program highlight: visit Casa Museo Hill van Gogh (Callejón de la Loma) Sunday 29 November at 11:00 AM — private artist house, not a public gallery pin. The same program also opens Genaro Reyes (Cayuco) with Asociación de Guías Cuevas de Cabarete at Monumento Natural Lagunas Cabarete y Goleta on Sunday 22 November at 11:00 AM. Saturday Plaza Popular opening — not VOYVOY’s Saturday Session on the bay later that evening.",
     "date": "2026-11-21",
     "endDate": "2026-12-21",
     "time": "5:30 PM",
@@ -12692,7 +12694,7 @@
     "lng": -70.41143,
     "category": "culture",
     "categories": [
-      "art"
+      "festivals"
     ],
     "format": "physical",
     "trending": true,
@@ -12701,6 +12703,7 @@
     "lineup": [
       "IV Edición HECHO AQUÍ — 40 artistas",
       "Inauguración Estudio CREA · 21 Nov 5:30 PM",
+      "Casa Museo Hill van Gogh · Callejón de la Loma · 29 Nov 11:00 AM",
       "Genaro Reyes (Cayuco) · Cuevas de Cabarete · 22 Nov 11:00 AM"
     ],
     "imageEmoji": "🎨"
@@ -12922,7 +12925,7 @@
   {
     "id": "parada-choco-enrico-aperitivo-2026-11-24",
     "title": "Parada Choco Enrico Aperitivo — 24 Nov",
-    "description": "Aperitivo with Enrico LIVE at Parada Típica El Choco (Swiss Italian restaurant / House of Music), Plaza Buen Gusto on the Sosúa–Cabarete road opposite Ocean Village — Tuesday 24 November 2026, 5:00–7:00 PM. Free finger food served at the table. RSVP +1 809-804-2510 · Instagram @paradaelchoco. Tuesday guest aperitivo — not the BandItalia nights, and not the ticketed Thanksgiving Big D dinner on 26 November.",
+    "description": "Aperitivo with Enrico Music Live at Parada Típica El Choco (Swiss Italian restaurant / House of Music), Plaza Buen Gusto on the Sosúa–Cabarete road opposite Ocean Village — Tuesday 24 November 2026 from 5:00 PM (finger food 5:00–7:00 PM). Free finger food served at the table. RSVP WhatsApp +1 809-804-2510 · Instagram @paradaelchoco. Tuesday guest aperitivo — not the BandItalia nights, and not the ticketed Thanksgiving Big D dinner on 26 November.",
     "date": "2026-11-24",
     "time": "5:00 PM – 7:00 PM",
     "location": "Sosúa",
@@ -12944,8 +12947,8 @@
     "sourceUrl": "https://www.instagram.com/paradaelchoco/",
     "instagram": "paradaelchoco",
     "lineup": [
-      "Enrico LIVE",
-      "Free finger food"
+      "Enrico Music Live",
+      "Free finger food 5–7 PM"
     ],
     "imageEmoji": "🎵"
   },
@@ -13320,5 +13323,161 @@
       "Café y comunidad"
     ],
     "imageEmoji": "🎄"
+  },
+  {
+    "id": "manny-ultimo-del-ano-2026-12-07",
+    "date": "2026-12-07",
+    "endDate": "2026-12-21",
+    "time": "Confirm session times with @mannythetrainer",
+    "location": "Cabarete",
+    "venue": "Manny The Trainer — outdoor",
+    "address": "Cabarete (meeting point via @mannythetrainer)",
+    "lat": 19.7502,
+    "lng": -70.4067,
+    "category": "health-wellness",
+    "categories": [
+      "sports"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$2,000",
+    "phone": "+18096145354",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/mannythetrainer/",
+    "instagram": "mannythetrainer",
+    "photoTags": [
+      "mannythetrainer"
+    ],
+    "ageHint": "all-ages",
+    "imageEmoji": "🏋️",
+    "title": "Manny The Trainer — El Último Del Año · 7–21 Dec",
+    "description": "El Último Del Año — 15-day outdoor training challenge with Manny The Trainer, 7–21 December 2026. Investment RD$2,000; reserve your spot (809) 614-5354 · Instagram @mannythetrainer. Year-end outdoor fitness block — meeting point confirmed via Manny (not a fixed club pin), and not Cabarete Boxing Club’s Friday open sparring or Hendry Fit’s free Friday La Puntilla boxing.",
+    "lineup": [
+      "15 days outdoor training",
+      "RD$2,000",
+      "Reserva tu cupo"
+    ]
+  },
+  {
+    "id": "hecho-aqui-hill-van-gogh-2026-11-29",
+    "date": "2026-11-29",
+    "time": "11:00 AM",
+    "location": "Cabarete",
+    "venue": "Casa Museo Hill van Gogh",
+    "address": "Callejón de la Loma (después de cruzar Dirección General de Medio Ambiente, girar a la derecha), Cabarete",
+    "lat": 19.742887,
+    "lng": -70.418286,
+    "category": "culture",
+    "categories": [
+      "festivals"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "ageHint": "all-ages",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/estudiocrea.online/",
+    "imageEmoji": "🎨",
+    "title": "HECHO AQUÍ — Casa Museo Hill van Gogh · 29 Nov",
+    "description": "Collective visual-arts visit at Casa Museo Hill van Gogh on Callejón de la Loma, Cabarete — Sunday 29 November 2026 at 11:00 AM, part of IV Edición HECHO AQUÍ Cabarete 2026 (21 Nov–21 Dec). Private artist house (Hill van Gogh), not a public gallery — after Dirección General de Medio Ambiente, turn right. Free invitation stroll; program inauguration was at Estudio CREA (21 Nov). Not Parque Nacional El Choco cave tours on the same Callejón entrance road.",
+    "lineup": [
+      "Casa Museo Hill van Gogh",
+      "IV Edición HECHO AQUÍ",
+      "Callejón de la Loma · 11:00 AM"
+    ]
+  },
+  {
+    "id": "nicole-espinal-rancho-catalina-2026-11-29",
+    "title": "Nicole Espinal Live at Rancho La Catalina · 29 Nov",
+    "description": "Live music with Nicole Espinal at Rancho La Catalina Restaurant, El Cupey, Puerto Plata — Sunday 29 November 2026 at 2:30 PM. No cover. Countryside ranch dining with an afternoon set — same Sunday 2:30 slot as Euridis Mena (22 Nov) and recent Catalina bills. Reservations +1 809-781-3737 · Instagram @rancholacatalina. Ranch afternoon — not Ground Zero’s Gala Night Love Love the same evening, and not HECHO AQUÍ’s Casa Museo Hill van Gogh visit in Cabarete at 11:00 AM.",
+    "date": "2026-11-29",
+    "time": "2:30 PM",
+    "location": "Puerto Plata",
+    "venue": "Rancho La Catalina",
+    "venueSlug": "rancho-catalina-puerto-plata",
+    "address": "El Cupey, Puerto Plata",
+    "lat": 19.7371866,
+    "lng": -70.7253286,
+    "category": "music",
+    "categories": [
+      "food-drinks",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18097813737",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/rancholacatalina/",
+    "instagram": "rancholacatalina",
+    "lineup": [
+      "Nicole Espinal"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "the-last-drink-sabado-negro-yosma-2026-11-29",
+    "title": "The Last Drink Sábado Negro — DJ Yosma · 29 Nov",
+    "description": "Sábado Negro at The Last Drink, próximo al Puente de la Guinea next to Repuesto Amin Cid (antiguo Maggy Bar), Calle José del Carmen Ariza, Barrio La Rigola, Puerto Plata — Saturday 29 November 2026. Music by DJ Yosma; cover RD$100. Drink specials window 8:00–9:30 PM (One peq RD$75, Presidente Light peq RD$75, Corona RD$100, hookah RD$300 all night). Local street-bar black Saturday — not Chameleon’s Sunday On Fire with Yosma, and not The Last Drink’s White Party of 7 Nov. Confirm via Instagram @the_last_drink_pop.",
+    "date": "2026-11-29",
+    "time": "8:00 PM – 9:30 PM",
+    "location": "Puerto Plata",
+    "venue": "The Last Drink",
+    "venueSlug": "the-last-drink",
+    "address": "Próximo al Puente de la Guinea, al lado de Repuesto Amin Cid (antiguo Maggy Bar), Calle José del Carmen Ariza, Barrio La Rigola, Puerto Plata",
+    "lat": 19.795615,
+    "lng": -70.695012,
+    "category": "parties",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$100",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/the_last_drink_pop/",
+    "instagram": "the_last_drink_pop",
+    "photoTags": [
+      "djyosma"
+    ],
+    "lineup": [
+      "DJ Yosma",
+      "Cover RD$100",
+      "One / Presidente peq RD$75",
+      "Hookah RD$300 toda la noche"
+    ],
+    "imageEmoji": "🖤"
+  },
+  {
+    "id": "natalija-tumpej-aura-2026-11-26",
+    "title": "Natalija Tumpej Live at Aura — Thu 26 Nov",
+    "description": "Natalija Tumpej live music at Aura Beach Club, Calle Principal, Cabarete — Thursday 26 November 2026 at 8:00 PM. Named Thursday beach-club set — not Natura Cabana’s Thanksgiving Josh Sax dinner the same evening, and not Latin Disco’s GOGO night in Puerto Plata. Confirm cover and tables via Instagram @auracabarete or WhatsApp +1 829-787-0140.",
+    "date": "2026-11-26",
+    "time": "8:00 PM",
+    "location": "Cabarete",
+    "venue": "Aura Beach Club Cabarete",
+    "venueSlug": "aura-beach-club-cabarete",
+    "address": "Calle Principal, Cabarete 57000",
+    "lat": 19.7500769,
+    "lng": -70.4070417,
+    "category": "concert",
+    "categories": [
+      "music",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18297870140",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/auracabarete/",
+    "instagram": "auracabarete",
+    "lineup": [
+      "Natalija Tumpej"
+    ],
+    "imageEmoji": "🎤"
   }
 ]

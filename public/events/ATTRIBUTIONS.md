@@ -194,7 +194,8 @@ Curated images under `public/events/` and `public/venues/`.
 | `voyvoy-dominican-night-flow-dance-2026-10-27.jpg` | POP-supplied — Dominican Night at Voy Voy / Flow Dance flyer | Tue 27 Oct 2026 dated night (typography-heavy) |
 | `voyvoy-dominican-night-flow-dance-weekly.jpg` | POP-supplied — Dominican Night at VoyVoy / Flow Dance weekly flyer | Every Tuesday from 8:00 PM (editor-provided; typography-heavy) |
 | `rebeca-duque-aura-2026-10-29.jpg` | POP-supplied — Rebeca Duque Live Music flyer ([@auracabarete](https://www.instagram.com/auracabarete/)) | Thu 29 Oct 2026 8:00 PM (editor-provided; typography-heavy) |
-| `tiki-bar-catamaran-party-2026-12-05.jpg` | POP-supplied — Tiki Bar Cabarete Catamaran Party flyer ([@tikibarcabarete](https://www.instagram.com/tikibarcabarete/)) | Sat 5 Dec 2026 4–10 PM + after-party (editor-provided; typography-heavy) |
+| `tiki-bar-catamaran-party-2026-12-05.jpg` | _(superseded)_ prior Catamaran Party crop | Kept on disk only |
+| `tiki-bar-catamaran-party-2026-12-05-v2.jpg` | POP-supplied — Tiki Bar Cabarete *Catamaran Party* flyer refresh ([@tikibarcabarete](https://www.instagram.com/tikibarcabarete/)) | Sat 5 Dec 2026 4–10 PM; US$100; Sosúa; filename bump; typography-heavy |
 | `isabela-food-fest-dj-melcocha-2026-12-20.jpg` | POP-supplied — Isabela Food Fest *DJ Melcocha* flyer ([@isabelafoodfest](https://www.instagram.com/isabelafoodfest/)) | Sun 20 Dec 2026 confirmed DJ (editor-provided; typography-heavy) |
 | `voyvoy-halloween-session-2026-10-31.jpg` | POP-supplied — VOYVOY Halloween Session flyer | Sat 31 Oct 2026 hero (typography-heavy) |
 | `venues/voyvoy-cabarete-bar.jpg` | TripAdvisor — Voyvoy Cabarete bar/dining interior | Venue place shot of the actual bar |
@@ -827,7 +828,11 @@ Curated images under `public/events/` and `public/venues/`.
 | `groundzero-omega-2026-12-18.jpg` | POP-supplied — Ground Zero Omega flyer | Fri 18 Dec 2026; editor-provided; typography-heavy |
 | `groundzero-gala-night-love-love-2026-11-29.jpg` | POP-supplied — Ground Zero *Gala Night Love Love* / L WON flyer ([@groundzero_disco](https://www.instagram.com/groundzero_disco/)) | Sun 29 Nov 2026; RD$1,200; doors 9 PM (editor-provided; typography-heavy) |
 | `groundzero-gala-night-love-love-2026-11-29-junier-melo.jpg` | POP-supplied — Ground Zero DJ Junier & DJ Melo flyer ([@groundzero_disco](https://www.instagram.com/groundzero_disco/)) | Same Sun 29 Nov 2026; gallery slide 2 (editor-provided; typography-heavy) |
-| `hecho-aqui-cabarete-2026-11-21.jpg` | POP-supplied — HECHO AQUÍ Cabarete IV edición flyer | Sat 21 Nov–21 Dec 2026; inauguration Estudio CREA 5:30 PM (editor-provided; typography-heavy) |
+| `hecho-aqui-cabarete-2026-11-21.jpg` | _(superseded)_ prior HECHO AQUÍ IV edition flyer | Kept on disk only |
+| `hecho-aqui-cabarete-2026-11-21-v2.jpg` | POP-supplied — HECHO AQUÍ Cabarete IV *Exposición Colectiva* flyer | 21 Nov–21 Dec 2026; filename bump; typography-heavy |
+| `nicole-espinal-rancho-catalina-2026-11-29.jpg` | POP-supplied — Rancho La Catalina *Nicole Espinal* Música en Vivo flyer ([@rancholacatalina](https://www.instagram.com/rancholacatalina/)) | Sun 29 Nov 2026 2:30 PM no cover; editor-provided; typography-heavy |
+| `the-last-drink-sabado-negro-yosma-2026-11-29.jpg` | POP-supplied — The Last Drink *Sábado Negro* DJ Yosma flyer ([@the_last_drink_pop](https://www.instagram.com/the_last_drink_pop/)) | Sat 29 Nov 2026; RD$100 cover; 8–9:30 PM specials; editor-provided; typography-heavy |
+| `natalija-tumpej-aura-2026-11-26.jpg` | POP-supplied — Aura *Natalija Tumpej* LIVE MUSIC flyer ([@auracabarete](https://www.instagram.com/auracabarete/)) | Thu 26 Nov 2026 8 PM; editor-provided; typography-heavy |
 | `voyvoy-saturday-session-2026-11-21.jpg` | POP-supplied — VOYVOY Saturday Session Robert Heyaime / ROM / Bryant Burgos flyer ([@voyvoybar](https://www.instagram.com/voyvoybar/)) | Sat 21 Nov 2026; no cover; start not on art (editor-provided; typography-heavy) |
 | `aura-gatsby-by-the-sea-nye-2026-12-31.jpg` | POP-supplied — Aura Beach Club *Gatsby by the Sea* New Year’s Eve flyer ([@auracabarete](https://www.instagram.com/auracabarete/)) | Thu 31 Dec 2026; reservation only; rings in 2027 (editor-provided; typography-heavy) |
 | `venues/estudio-crea-cabarete-lounge.jpg` | POP-supplied — Estudio CREA coworking lounge interior (Plaza Popular 2F / above Banco Popular) | Superseded by lounge-v2 |
@@ -912,3 +917,6 @@ Curated images under `public/events/` and `public/venues/`.
 | `twenty-disco-afterglow-birthday-2026-12-27.jpg` | _(superseded)_ crossed with Mujeres — fixed via `-v2` | Kept on disk only |
 | `twenty-disco-afterglow-birthday-2026-12-27-v2.jpg` | POP-supplied — BSM × Santana *AfterGlow* Birthday Bash flyer ([@bsmentertainmentrd](https://www.instagram.com/bsmentertainmentrd/)) | Sat 27 Dec 2026 Twenty Disco; filename bump after swap fix; typography-heavy |
 | `mercadillo-fest-christmas-2026-12-19.jpg` | POP-supplied — Mercadillo Fest *Christmas Fest* flyer ([@mercadillofest](https://www.instagram.com/mercadillofest/)) | 19–20 Dec 2026 10 AM–9 PM Quinta Rosa; filename bump; typography-heavy |
+| `parada-choco-enrico-aperitivo-2026-11-24-v2.jpg` | POP-supplied — Parada Choco *Enrico Music Live* aperitivo flyer refresh ([@paradaelchoco](https://www.instagram.com/paradaelchoco/)) | Tue 24 Nov 2026 5–7 PM; filename bump; typography-heavy |
+| `manny-ultimo-del-ano-2026-12-07.jpg` | POP-supplied — Manny The Trainer *El Último Del Año* outdoor training flyer ([@mannythetrainer](https://www.instagram.com/mannythetrainer/)) | 7–21 Dec 2026; RD$2,000; editor-provided; typography-heavy |
+| `hecho-aqui-hill-van-gogh-2026-11-29.jpg` | POP-supplied — HECHO AQUÍ *Casa Museo Hill van Gogh* invitation flyer | Sun 29 Nov 2026 11 AM Callejón de la Loma; also CREA inauguration hero; typography-heavy |

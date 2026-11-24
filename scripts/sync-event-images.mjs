@@ -391,6 +391,7 @@ const FILE_TO_EVENT_ID = {
   "cedaky-mall-fiesta-disfraces-2026-10-24.jpg":
     "cedaky-mall-fiesta-disfraces-2026-10-24",
   "allison-sade-aura-2026-11-05.jpg": "allison-sade-aura-2026-11-05",
+  "natalija-tumpej-aura-2026-11-26.jpg": "natalija-tumpej-aura-2026-11-26",
   "casa-tuva-allison-sade-2026-11-08.jpg":
     "casa-tuva-allison-sade-2026-11-08",
   "cedaky-mall-abracadabra-2026-11-08.jpg":
@@ -427,6 +428,8 @@ const FILE_TO_EVENT_ID = {
     "4to-dia-rancho-catalina-2026-11-15",
   "euridis-mena-rancho-catalina-2026-11-22.jpg":
     "euridis-mena-rancho-catalina-2026-11-22",
+  "nicole-espinal-rancho-catalina-2026-11-29.jpg":
+    "nicole-espinal-rancho-catalina-2026-11-29",
   "leos-banana-fiesta-blanca-2026-11-27.jpg":
     "leos-banana-fiesta-blanca-2026-11-27",
   "leos-banana-enrico-music-live-2026-11-26.jpg":
@@ -503,6 +506,8 @@ const FILE_TO_EVENT_ID = {
   "el-colibri-fiesta-latina-fridays.jpg": "el-colibri-fiesta-latina-fridays",
   "end-blackouts-protest-plaza-independencia-2026-11-05-v2.jpg":
     "end-blackouts-protest-plaza-independencia-2026-11-05",
+  "the-last-drink-sabado-negro-yosma-2026-11-29.jpg":
+    "the-last-drink-sabado-negro-yosma-2026-11-29",
   "the-last-drink-white-party-2026-11-07.jpg":
     "the-last-drink-white-party-2026-11-07",
   "petit-francois-18-anos-2026-11-06.jpg":
@@ -513,6 +518,11 @@ const FILE_TO_EVENT_ID = {
     "mercadillo-fest-la-quinta-rosa-2026-12-19",
   "parada-choco-enrico-aperitivo-2026-11-24.jpg":
     "parada-choco-enrico-aperitivo-2026-11-24",
+  "parada-choco-enrico-aperitivo-2026-11-24-v2.jpg":
+    "parada-choco-enrico-aperitivo-2026-11-24",
+  "manny-ultimo-del-ano-2026-12-07.jpg": "manny-ultimo-del-ano-2026-12-07",
+  "hecho-aqui-hill-van-gogh-2026-11-29.jpg":
+    "hecho-aqui-hill-van-gogh-2026-11-29",
   "disco-club-gogo-dancers-2026-11-26.jpg":
     "disco-club-gogo-dancers-2026-11-26",
   "disco-club-gogo-dancers-2026-11-26-v2.jpg":
@@ -818,6 +828,8 @@ const FILE_TO_EVENT_ID = {
     "voyvoy-dominican-night-flow-dance-weekly",
   "rebeca-duque-aura-2026-10-29.jpg": "rebeca-duque-aura-2026-10-29",
   "tiki-bar-catamaran-party-2026-12-05.jpg":
+    "tiki-bar-catamaran-party-2026-12-05",
+  "tiki-bar-catamaran-party-2026-12-05-v2.jpg":
     "tiki-bar-catamaran-party-2026-12-05",
   "voyvoy-halloween-session-2026-10-31.jpg":
     "voyvoy-halloween-session-2026-10-31",
@@ -1252,6 +1264,7 @@ const FILE_TO_VENUE_SLUG = {
   "groundzero-gala-night-love-love-2026-11-29-junier-melo.jpg":
     "groundzero-gala-night-love-love-2026-11-29",
   "hecho-aqui-cabarete-2026-11-21.jpg": "hecho-aqui-cabarete-2026-11-21",
+  "hecho-aqui-cabarete-2026-11-21-v2.jpg": "hecho-aqui-cabarete-2026-11-21",
   "voyvoy-saturday-session-2026-11-21.jpg":
     "voyvoy-saturday-session-2026-11-21",
   "aura-gatsby-by-the-sea-nye-2026-12-31.jpg":

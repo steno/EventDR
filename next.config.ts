@@ -38,14 +38,18 @@ const isProdBuild = process.env.NODE_ENV === "production";
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: [...getLocalIPv4Addresses(), ...extraDevOrigins, ...tunnelDomains],
-  ...(isProdBuild
-    ? {
-        experimental: {
+  experimental: {
+    // 16.3+: reclaim Turbopack compile cache from RAM after disk snapshots so
+    // long catalog/HMR sessions (big fallback.*.json + opinions edits) don't
+    // balloon next-server to multi‑GB and crawl localhost. 'full' = every save.
+    ...(!isProdBuild ? { turbopackMemoryEviction: "full" as const } : {}),
+    ...(isProdBuild
+      ? {
           cpus: 1,
           staticGenerationMaxConcurrency: 1,
-        },
-      }
-    : {}),
+        }
+      : {}),
+  },
   // Vendored Inter TTFs for /api/ig-card (sharp text fontfile on Netlify).
   outputFileTracingIncludes: {
     "/api/ig-card/[eventId]": ["./assets/fonts/**/*"],
