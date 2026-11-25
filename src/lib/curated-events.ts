@@ -1326,6 +1326,16 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "twenty-disco-lounge",
     sourceUrl: "https://www.instagram.com/twenty_disco_lounge/",
   },
+  "twenty-disco-ladies-night-2026-11-26": {
+    callForPricing: true,
+    venueSlug: "twenty-disco-lounge",
+    sourceUrl: "https://www.instagram.com/twenty_disco_lounge/",
+  },
+  "twenty-disco-friday-junier-lockward-2026-11-27": {
+    callForPricing: true,
+    venueSlug: "twenty-disco-lounge",
+    sourceUrl: "https://www.instagram.com/twenty_disco_lounge/",
+  },
   "fortaleza-san-felipe-encendido-luces-azules-2026-11-13": {
     isFree: true,
     venueSlug: "fortaleza-san-felipe",
@@ -1588,6 +1598,13 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "castaways-sosua",
     sourceUrl: "https://www.instagram.com/chillandgrilldr/",
   },
+  "galerias-padel-oceano-limpio-2026-11-28": {
+    isFree: false,
+    admissionPrice: "RD$6,000 per person",
+    phone: "+18095437538",
+    venueSlug: "galerias-padel-club",
+    sourceUrl: "https://www.instagram.com/galeriaspadelclub/",
+  },
   "pink-garden-galerias-padel-2026-10-17": {
     callForPricing: true,
     phone: "+18296262410",
@@ -1672,6 +1689,57 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18297870140",
     venueSlug: "aura-beach-club-cabarete",
     sourceUrl: "https://www.instagram.com/auracabarete/",
+  },
+  "hecho-aqui-boxing-club-martin-lopez-2026-11-28": {
+    isFree: true,
+    venueSlug: "cabarete-boxing-club",
+    sourceUrl: "https://www.instagram.com/cabareteboxingclub/",
+  },
+  "ambar-lounge-sebastian-crozz-2026-11-28": {
+    callForPricing: true,
+    phone: "+18097818677",
+    venueSlug: "ambar-lounge-pop",
+  },
+  "camara-nueva-cedula-samir-chami-2026-12-02": {
+    callForPricing: true,
+    phone: "+18095862390",
+    venueSlug: "camara-comercio-puerto-plata",
+  },
+  "ocean-world-terrace-graduation-bash-day-2026-12-04": {
+    callForPricing: true,
+    phone: "+18295219736",
+    venueSlug: "ocean-world",
+  },
+  "esd-christmas-kids-flea-market-2026-12-05": {
+    isFree: false,
+    admissionPrice: "Stand RD$200 (free for ESD families)",
+    phone: "+18494515893",
+    venueSlug: "esd-european-school-bombita",
+  },
+  "bellas-artes-muestra-didactica-navidad-2026-12-10": {
+    isFree: true,
+    phone: "+18098017825",
+    venueSlug: "escuela-bellas-artes-puerto-plata",
+  },
+  "kite-street-son-de-keka-navidad-2026-12-12": {
+    callForPricing: true,
+    phone: "+18097698732",
+    venueSlug: "kite-street-pop",
+  },
+  "aura-blanco-camilo-taveras-2026-12-19": {
+    callForPricing: true,
+    phone: "+18492631109",
+    venueSlug: "aura-beach-club-cabarete",
+  },
+  "green-one-xmas-pajama-brunch-2026-12-19": {
+    callForPricing: true,
+    phone: "+18295218298",
+    venueSlug: "green-one-sports-bar",
+  },
+  "natura-market-holiday-2026-12-20": {
+    isFree: true,
+    phone: "+18492147010",
+    venueSlug: "natura-cabana",
   },
   "leos-banana-fiesta-blanca-2026-11-27": {
     isFree: false,

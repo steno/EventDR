@@ -13479,5 +13479,400 @@
       "Natalija Tumpej"
     ],
     "imageEmoji": "🎤"
+  },
+  {
+    "format": "physical",
+    "trending": true,
+    "sourceType": "flyer",
+    "id": "hecho-aqui-boxing-club-martin-lopez-2026-11-28",
+    "title": "HECHO AQUÍ Boxing Club — Martín López · 28 Nov",
+    "description": "IV Edición HECHO AQUÍ Cabarete — El lenguaje de la imagen en movimiento with photographer/filmmaker Martín López at Cabarete Boxing Club, Callejón de la Loma — Saturday 28 November 2026 at 5:30 PM. Audiovisual selection and community art night; everyone welcome. Instagram @cabareteboxingclub. Dated Boxing Club program night — not the Estudio CREA inauguration on 21 Nov, and not Casa Museo Hill van Gogh on 29 Nov.",
+    "date": "2026-11-28",
+    "time": "5:30 PM",
+    "category": "culture",
+    "categories": [
+      "festivals",
+      "performances"
+    ],
+    "isFree": true,
+    "sourceUrl": "https://www.instagram.com/cabareteboxingclub/",
+    "instagram": "cabareteboxingclub",
+    "lineup": [
+      "Martín López",
+      "HECHO AQUÍ IV",
+      "Imagen en movimiento"
+    ],
+    "imageEmoji": "🎬",
+    "venue": "Cabarete Boxing Club",
+    "venueSlug": "cabarete-boxing-club",
+    "address": "Callejón de la Loma, Cabarete",
+    "lat": 19.7494875,
+    "lng": -70.413956,
+    "location": "Cabarete"
+  },
+  {
+    "format": "physical",
+    "trending": true,
+    "sourceType": "flyer",
+    "id": "ambar-lounge-sebastian-crozz-2026-11-28",
+    "title": "Ambar Lounge — Sebastián Crozz · 28 Nov",
+    "description": "Sebastián Crozz at Ambar Lounge POP, Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata — Saturday 28 November 2026. Cover not on the flyer — RSVP (809) 781-8677 · Instagram @ambarloungepop. Downtown Luis Ginebra Saturday — not Aura’s Galactic Nights with DJ Christoo the same night in Cabarete, and not HECHO AQUÍ’s Boxing Club bill the same evening.",
+    "date": "2026-11-28",
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "callForPricing": true,
+    "sourceUrl": "https://www.instagram.com/ambarloungepop/",
+    "instagram": "ambarloungepop",
+    "lineup": [
+      "Sebastián Crozz"
+    ],
+    "imageEmoji": "🎧",
+    "venue": "Ambar Lounge POP",
+    "venueSlug": "ambar-lounge-pop",
+    "address": "Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata",
+    "lat": 19.7894021,
+    "lng": -70.678834,
+    "location": "Puerto Plata",
+    "phone": "+18097818677"
+  },
+  {
+    "format": "physical",
+    "trending": true,
+    "sourceType": "flyer",
+    "id": "camara-nueva-cedula-samir-chami-2026-12-02",
+    "title": "Cámara — Nueva Cédula with Samir Chami Isa · 2 Dec",
+    "description": "Talk and orientation on the new Cédula de Identidad y Electoral with Samir Chami Isa (JCE titular member) at Salón de Eventos, Cámara de Comercio Puerto Plata, Calle Beller No. 17 — Wednesday 2 December 2026 at 5:30 PM. Aimed at chamber members, allies, and family for a smoother ID process. Confirm signup via Instagram @camarapuertoplata · camarapuertoplata.org. Chamber business session — not a nightlife bill.",
+    "date": "2026-12-02",
+    "time": "5:30 PM",
+    "category": "business",
+    "categories": [
+      "culture"
+    ],
+    "callForPricing": true,
+    "sourceUrl": "https://www.instagram.com/camarapuertoplata/",
+    "instagram": "camarapuertoplata",
+    "lineup": [
+      "Samir Chami Isa",
+      "JCE",
+      "Nueva Cédula"
+    ],
+    "imageEmoji": "🪪",
+    "venue": "Cámara de Comercio Puerto Plata",
+    "venueSlug": "camara-comercio-puerto-plata",
+    "address": "Calle Beller No. 17, Puerto Plata",
+    "lat": 19.798672,
+    "lng": -70.694481,
+    "location": "Puerto Plata",
+    "phone": "+18095862390"
+  },
+  {
+    "format": "physical",
+    "trending": true,
+    "sourceType": "flyer",
+    "id": "ocean-world-terrace-graduation-bash-day-2026-12-04",
+    "title": "Ocean World Terrace Graduation Bash — O&M Day · 4 Dec",
+    "description": "Daytime Graduation Bash for Universidad O&M Puerto Plata graduates at Terraza Ocean World & Casino, Calle Principal #3, Cofresí — Friday 4 December 2026 from 12:00 PM to 6:00 PM. Welcome drink for graduates, photo booth, and 360° videos to your phone (booth 12:00–5:00 PM). Decorated graduation-style day tables via WhatsApp +1 829-521-9736 · Instagram @oceanworldterrace. Day program only — night típico with Rubio Acordeón + Manon (RD$1,000; no night table holds) is the separate 4 Dec evening listing.",
+    "date": "2026-12-04",
+    "time": "12:00 PM – 6:00 PM",
+    "category": "parties",
+    "categories": [
+      "food-drinks"
+    ],
+    "callForPricing": true,
+    "sourceUrl": "https://www.instagram.com/oceanworldterrace/",
+    "instagram": "oceanworldterrace",
+    "lineup": [
+      "O&M Puerto Plata graduates",
+      "Welcome drink",
+      "Photo booth",
+      "360° video"
+    ],
+    "imageEmoji": "🎓",
+    "venue": "Terraza Ocean World",
+    "venueSlug": "ocean-world",
+    "address": "Calle Principal #3, Cofresí, Puerto Plata",
+    "lat": 19.826313,
+    "lng": -70.732062,
+    "location": "Puerto Plata",
+    "phone": "+18295219736"
+  },
+  {
+    "format": "physical",
+    "trending": true,
+    "sourceType": "flyer",
+    "id": "esd-christmas-kids-flea-market-2026-12-05",
+    "title": "ESD Christmas Kids Flea Market — 5 Dec",
+    "description": "Christmas Kids Flea Market at ESD European School, Bombita (between Sosúa and Cabarete) — Saturday 5 December 2026 from 10:00 AM. Buy and sell preloved kids toys, books, bikes, clothing, and beach gear; open to everyone. Food & drinks on site; food vendors welcome. Stand booking fee RD$200 (free for ESD families) — WhatsApp +33 6 14 17 89 12 or school +1 849-451-5893 · Instagram @europeanschooldr. Family Bombita campus morning — not Cabarete beach-bar brunch.",
+    "date": "2026-12-05",
+    "time": "10:00 AM",
+    "category": "christmas",
+    "categories": [
+      "festivals",
+      "food-drinks"
+    ],
+    "ageHint": "family",
+    "admissionPrice": "Stand RD$200 (free for ESD families)",
+    "isFree": false,
+    "sourceUrl": "https://www.instagram.com/europeanschooldr/",
+    "instagram": "europeanschooldr",
+    "lineup": [
+      "Kids flea market",
+      "Preloved toys & clothes",
+      "Food vendors"
+    ],
+    "imageEmoji": "🧸",
+    "venue": "ESD European School",
+    "venueSlug": "esd-european-school-bombita",
+    "address": "Bombita, between Sosúa and Cabarete (off Carretera Principal)",
+    "lat": 19.770695,
+    "lng": -70.463396,
+    "location": "Cabarete",
+    "phone": "+18494515893"
+  },
+  {
+    "format": "physical",
+    "trending": true,
+    "sourceType": "flyer",
+    "id": "bellas-artes-muestra-didactica-navidad-2026-12-10",
+    "title": "Bellas Artes — Muestra Didáctica Navideña · 10 Dec",
+    "description": "Muestra Didáctica Navideña — piano and flute concert plus visual-arts exhibition by students of Escuela de Bellas Artes de Puerto Plata at Calle Separación esquina Beller — Wednesday 10 December 2026 at 5:00 PM. Open to the public. Dirección General de Bellas Artes / DEFAE · Instagram @defaebellasartesrd · (809) 801-7825. Historic-center student showcase — not a club night on Luis Ginebra.",
+    "date": "2026-12-10",
+    "time": "5:00 PM",
+    "category": "christmas",
+    "categories": [
+      "culture",
+      "music"
+    ],
+    "ageHint": "family",
+    "isFree": true,
+    "sourceUrl": "https://www.instagram.com/defaebellasartesrd/",
+    "instagram": "defaebellasartesrd",
+    "lineup": [
+      "Piano & flute concert",
+      "Visual arts exhibition",
+      "Escuela de Bellas Artes"
+    ],
+    "imageEmoji": "🎹",
+    "venue": "Escuela de Bellas Artes Puerto Plata",
+    "venueSlug": "escuela-bellas-artes-puerto-plata",
+    "address": "Calle Separación esquina Beller, Puerto Plata",
+    "lat": 19.797868,
+    "lng": -70.692618,
+    "location": "Puerto Plata",
+    "phone": "+18098017825"
+  },
+  {
+    "format": "physical",
+    "trending": true,
+    "sourceType": "flyer",
+    "id": "kite-street-son-de-keka-navidad-2026-12-12",
+    "title": "Kite Street — Navidad con El Son de Keka · 12 Dec",
+    "description": "Navidad con El Son de Keka at Kite Street POP (Calle de las Chichiguas / Calle Sánchez), Puerto Plata historic center — Saturday 12 December 2026 at 6:00 PM. Christmas dance night under the kites with El Son de Keka. Instagram @kitestreetpop. Centro histórico Christmas hang — not Calle de las Sombrillas, and not Aura’s BLANCO party the following Saturday.",
+    "date": "2026-12-12",
+    "time": "6:00 PM",
+    "category": "christmas",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "callForPricing": true,
+    "sourceUrl": "https://www.instagram.com/kitestreetpop/",
+    "instagram": "kitestreetpop",
+    "lineup": [
+      "El Son de Keka"
+    ],
+    "imageEmoji": "🎄",
+    "venue": "Kite Street POP",
+    "venueSlug": "kite-street-pop",
+    "address": "Calle Sánchez (Calle de las Chichiguas), Puerto Plata",
+    "lat": 19.799415,
+    "lng": -70.69127,
+    "location": "Puerto Plata",
+    "phone": "+18097698732"
+  },
+  {
+    "format": "physical",
+    "trending": true,
+    "sourceType": "flyer",
+    "id": "aura-blanco-camilo-taveras-2026-12-19",
+    "title": "Aura BLANCO — Camilo Taveras × North Side · 19 Dec",
+    "description": "BLANCO white-party night at Aura Beach Club Cabarete, Calle Principal — Saturday 19 December 2026 with Camilo Taveras and North Side (Brugal / Red Bull). Table map with stage VIP, numbered tables 1–16, and A-tables; reservations +1 849-263-1109 · tickets on TIX · Instagram @auracabarete. Cabarete beach-club Saturday — not Hard Rock’s Mágica Navidad the same day in Sosúa, and not Green One’s XMAS Pajama Brunch earlier that morning in Playa Dorada.",
+    "date": "2026-12-19",
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "callForPricing": true,
+    "sourceUrl": "https://www.instagram.com/auracabarete/",
+    "instagram": "auracabarete",
+    "lineup": [
+      "Camilo Taveras",
+      "North Side",
+      "BLANCO"
+    ],
+    "imageEmoji": "🤍",
+    "phone": "+18492631109",
+    "venue": "Aura Beach Club Cabarete",
+    "venueSlug": "aura-beach-club-cabarete",
+    "address": "Calle Principal, Cabarete",
+    "lat": 19.7500769,
+    "lng": -70.4070417,
+    "location": "Cabarete"
+  },
+  {
+    "format": "physical",
+    "trending": true,
+    "sourceType": "flyer",
+    "id": "green-one-xmas-pajama-brunch-2026-12-19",
+    "title": "Green One — XMAS Pajama Brunch · 19 Dec",
+    "description": "XMAS Pajama Brunch at Green One Sports Bar (Green One Playa Dorada casa club / pool), Carretera Luperón Km 5 — Saturday 19 December 2026 at 11:00 AM. RSVP no later than 10 December 2026. Guest access may be gated — confirm before you Uber · +1 829-521-8298 · greenoneplayadorada.com. Playa Dorada residential pool brunch — not Aura’s BLANCO white party the same night in Cabarete.",
+    "date": "2026-12-19",
+    "time": "11:00 AM",
+    "category": "christmas",
+    "categories": [
+      "food-drinks",
+      "parties"
+    ],
+    "callForPricing": true,
+    "sourceUrl": "https://www.greenoneplayadorada.com/",
+    "lineup": [
+      "XMAS Pajama Brunch"
+    ],
+    "imageEmoji": "🥞",
+    "venue": "Green One Sports Bar",
+    "venueSlug": "green-one-sports-bar",
+    "address": "Green One Playa Dorada, Carretera Luperón Km 5, Playa Dorada",
+    "lat": 19.766701,
+    "lng": -70.647332,
+    "location": "Playa Dorada",
+    "phone": "+18295218298"
+  },
+  {
+    "format": "physical",
+    "trending": true,
+    "sourceType": "flyer",
+    "id": "natura-market-holiday-2026-12-20",
+    "title": "Natura Market! Holiday Edition — 20 Dec",
+    "description": "Natura Market! Holiday Edition at Natura Cabana, Perla Marina / Paseo del Sol 5, Cabarete — Sunday 20 December 2026, 4:00 PM–8:30 PM. Local goods, gifts, food, art, live music, Beach Santa, Christmas cocktails, festive cookies & hot chocolate. Free entry; dogs welcome on a leash. Info +1 849-214-7010 · naturacabana.com · Instagram @naturacabana. Holiday afternoon-evening market — not the first-Sunday daytime Natura Market series, and not Isabela Food Fest DJ OPG the same day west of town.",
+    "date": "2026-12-20",
+    "time": "4:00 PM – 8:30 PM",
+    "category": "christmas",
+    "categories": [
+      "food-drinks",
+      "culture"
+    ],
+    "ageHint": "family",
+    "isFree": true,
+    "sourceUrl": "https://naturacabana.com/",
+    "instagram": "naturacabana",
+    "lineup": [
+      "Beach Santa",
+      "Local goods",
+      "Gifts",
+      "Food",
+      "Art",
+      "Live music"
+    ],
+    "imageEmoji": "🎁",
+    "venue": "Natura Cabana",
+    "venueSlug": "natura-cabana",
+    "address": "Paseo del Sol 5 / Perla Marina, Cabarete",
+    "lat": 19.7833499,
+    "lng": -70.4621124,
+    "location": "Cabarete",
+    "phone": "+18492147010"
+  },
+  {
+    "venue": "Twenty Disco Lounge",
+    "venueSlug": "twenty-disco-lounge",
+    "address": "Playa Dorada Mall, Puerto Plata",
+    "lat": 19.769476,
+    "lng": -70.643033,
+    "location": "Playa Dorada",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/twenty_disco_lounge/",
+    "instagram": "twenty_disco_lounge",
+    "format": "physical",
+    "trending": true,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "callForPricing": true,
+    "id": "twenty-disco-ladies-night-2026-11-26",
+    "title": "Twenty Disco Ladies Night — 26 Nov",
+    "description": "Ladies Night at Twenty Disco & Lounge, Playa Dorada Mall, Puerto Plata — Thursday 26 November 2026. Baileys y Midoris gratis para ellas. Mall disco Thursday — not Natalija Tumpej at Aura the same night in Cabarete, and not Twenty’s Junier Lockward Friday the next evening. Confirm cover and doors via Instagram @twenty_disco_lounge.",
+    "date": "2026-11-26",
+    "lineup": [
+      "Ladies Night",
+      "Baileys y Midoris gratis para ellas"
+    ],
+    "imageEmoji": "💗"
+  },
+  {
+    "venue": "Twenty Disco Lounge",
+    "venueSlug": "twenty-disco-lounge",
+    "address": "Playa Dorada Mall, Puerto Plata",
+    "lat": 19.769476,
+    "lng": -70.643033,
+    "location": "Playa Dorada",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/twenty_disco_lounge/",
+    "instagram": "twenty_disco_lounge",
+    "format": "physical",
+    "trending": true,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "callForPricing": true,
+    "id": "twenty-disco-friday-junier-lockward-2026-11-27",
+    "title": "Twenty Disco Friday — Junier Lockward · 27 Nov",
+    "description": "Friday Night live performance by Junier Lockward at Twenty Disco & Lounge, Playa Dorada Mall, Puerto Plata — Friday 27 November 2026. Mall disco Friday — not Latin Disco’s free White Party / Flaco MC the same night by the Brugal warehouses, and not Twenty’s Ladies Night the night before. Confirm cover and doors via Instagram @twenty_disco_lounge.",
+    "date": "2026-11-27",
+    "lineup": [
+      "Junier Lockward"
+    ],
+    "imageEmoji": "🪩"
+  },
+  {
+    "id": "galerias-padel-oceano-limpio-2026-11-28",
+    "title": "Galerías Pádel — Torneo Océano Limpio · 28–29 Nov",
+    "description": "Torneo de Pádel benefiting Fundación Océano Limpio at Galerías Pádel Club, Av. Luis Ginebra, Puerto Plata — Saturday–Sunday 28–29 November 2026 from 8:00 AM. 8 pairs per category (min. 2 matches): Saturday groups + quarterfinals; Sunday semis, finals, and awards. Champ prizes US$1,000 (4ta F/M) and US$500 (5ta F/M). RD$6,000 per person — limited spots. Register WhatsApp +1 809-543-7538 / +54 911-6855-7319 · Instagram @galeriaspadelclub. Charity padel weekend on Luis Ginebra — not HECHO AQUÍ Boxing Club the same Saturday evening, and not Ambar’s Sebastián Crozz night.",
+    "date": "2026-11-28",
+    "endDate": "2026-11-29",
+    "time": "8:00 AM",
+    "location": "Puerto Plata",
+    "venue": "Galerías Pádel Club",
+    "venueSlug": "galerias-padel-club",
+    "address": "Av. Luis Ginebra, Puerto Plata 57000",
+    "lat": 19.7879471,
+    "lng": -70.6770493,
+    "category": "sports",
+    "categories": [
+      "festivals",
+      "health-wellness"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$6,000 per person",
+    "phone": "+18095437538",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/galeriaspadelclub/",
+    "instagram": "galeriaspadelclub",
+    "lineup": [
+      "Fundación Océano Limpio",
+      "8 pairs per category",
+      "Sat: groups + quarterfinals",
+      "Sun: semis, finals, awards"
+    ],
+    "imageEmoji": "🎾"
   }
 ]

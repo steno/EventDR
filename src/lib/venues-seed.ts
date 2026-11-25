@@ -2609,6 +2609,47 @@ export const SEED_VENUES: Venue[] = [
     lng: -71.056,
     emoji: "🍾",
   },
+  {
+    slug: "escuela-bellas-artes-puerto-plata",
+    name: "Escuela de Bellas Artes Puerto Plata",
+    city: "Puerto Plata",
+    description:
+      "Provincial fine-arts school on Calle Separación esquina Beller in the historic center — music, piano/flute, and visual-arts classes with public didactic showcases. Dirección General de Bellas Artes / DEFAE. Phone (809) 801-7825 · Instagram @defaebellasartesrd.",
+    // Places — C. Beller 30 / Separación esq. Beller.
+    lat: 19.797868,
+    lng: -70.692618,
+    emoji: "🎨",
+    phone: "+18098017825",
+    instagram: "defaebellasartesrd",
+    website: "https://bellasartesrd.gob.do/",
+  },
+  {
+    slug: "green-one-sports-bar",
+    name: "Green One Sports Bar",
+    city: "Playa Dorada",
+    description:
+      "Poolside sports bar and casa-club hangout inside Green One Playa Dorada (Carretera Luperón Km 5 / Complejo Playa Dorada) — brunch parties, pool deck, and residential-community nights. Confirm guest access and RSVP on billed flyers · +1 829-521-8298 · greenoneplayadorada.com.",
+    // Places — Green One Playa Dorada community.
+    lat: 19.766701,
+    lng: -70.647332,
+    emoji: "🏊",
+    phone: "+18295218298",
+    website: "https://www.greenoneplayadorada.com/",
+  },
+  {
+    slug: "esd-european-school-bombita",
+    name: "ESD European School",
+    city: "Cabarete",
+    description:
+      "International non-profit school campus in Bombita between Sosúa and Cabarete (just off Carretera Principal) — family markets, school community days, and kids activities. Phone / WhatsApp +1 849-451-5893 · europeanschooldr.com · Instagram @europeanschooldr.",
+    // Places — ESD European School, Bombita.
+    lat: 19.770695,
+    lng: -70.463396,
+    emoji: "🏫",
+    phone: "+18494515893",
+    instagram: "europeanschooldr",
+    website: "https://europeanschooldr.com/",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
@@ -3266,6 +3307,21 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /estudio\s*crea|plaza\s*(del\s*)?popular(\s*(de\s*)?cabarete)?/i,
     slug: "estudio-crea-cabarete",
+  },
+  {
+    pattern:
+      /escuela\s*de\s*bellas\s*artes(\s*(de\s*)?puerto\s*plata)?|bellas\s*artes\s*puerto\s*plata|defaebellasartesrd/i,
+    slug: "escuela-bellas-artes-puerto-plata",
+  },
+  {
+    pattern:
+      /green\s*one(\s*(sports?\s*bar|playa\s*dorada))?|greenoneplayadorada/i,
+    slug: "green-one-sports-bar",
+  },
+  {
+    pattern:
+      /esd\s*european\s*school|european\s*school(\s*(dr|cabarete|bombita))?|europeanschooldr/i,
+    slug: "esd-european-school-bombita",
   },
 ];
 

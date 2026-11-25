@@ -1385,6 +1385,30 @@ export const VENUE_TIP_COPY: Record<
       fr: "Bâtiment de la Chambre au 17 Beller (Salón Fernando Cueto derrière la façade beige) — panels business pour membres et locaux, pas un stop nightlife touristique. Confirmez horaire et entrée avant d’épingler le centre.",
     },
   },
+  "escuela-bellas-artes-puerto-plata": {
+    body: "Fine-arts school at Separación & Beller in the historic grid — student piano/flute and visual-arts showcases, not a ticketed nightlife room. Pin the school door, not Cámara on the same Beller corridor.",
+    localized: {
+      en: "Fine-arts school at Separación & Beller in the historic grid — student piano/flute and visual-arts showcases, not a ticketed nightlife room. Pin the school door, not Cámara on the same Beller corridor.",
+      es: "Escuela de bellas artes en Separación y Beller en la trama histórica — muestras de piano/flauta y artes visuales de estudiantes, no una sala de nightlife con boleto. Clava la puerta de la escuela, no la Cámara en el mismo corredor Beller.",
+      fr: "École des beaux-arts à Separación & Beller dans la grille historique — démonstrations piano/flûte et arts visuels d’élèves, pas une salle nightlife billetée. Épinglez la porte de l’école, pas la Cámara sur le même corridor Beller.",
+    },
+  },
+  "green-one-sports-bar": {
+    body: "Pool deck sports bar inside the Green One Playa Dorada residential community on Carretera Luperón Km 5 — guest access can be gated, so RSVP before you treat it like a public Playa Dorada Mall crawl.",
+    localized: {
+      en: "Pool deck sports bar inside the Green One Playa Dorada residential community on Carretera Luperón Km 5 — guest access can be gated, so RSVP before you treat it like a public Playa Dorada Mall crawl.",
+      es: "Sports bar del deck de piscina dentro de la comunidad residencial Green One Playa Dorada en Carretera Luperón Km 5 — el acceso de invitados puede ser controlado, así que RSVP antes de tratarlo como un crawl público del mall de Playa Dorada.",
+      fr: "Sports bar du deck piscine dans la communauté résidentielle Green One Playa Dorada sur Carretera Luperón Km 5 — l’accès invités peut être contrôlé, donc RSVP avant de le traiter comme un crawl public du mall Playa Dorada.",
+    },
+  },
+  "esd-european-school-bombita": {
+    body: "Bombita campus between Sosúa and Cabarete just off the coastal highway — school flea markets and family days, not a beach-bar pin. Confirm stand booking and campus entry before you Uber.",
+    localized: {
+      en: "Bombita campus between Sosúa and Cabarete just off the coastal highway — school flea markets and family days, not a beach-bar pin. Confirm stand booking and campus entry before you Uber.",
+      es: "Campus en Bombita entre Sosúa y Cabarete justo fuera de la carretera costera — flea markets escolares y días de familia, no un pin de beach bar. Confirma reserva de stand y entrada al campus antes del Uber.",
+      fr: "Campus à Bombita entre Sosúa et Cabarete juste hors de la route côtière — flea markets scolaires et journées famille, pas un pin beach bar. Confirmez réservation de stand et entrée au campus avant l’Uber.",
+    },
+  },
   "ambar-lounge-pop": {
     body: "Second level on Luis Ginebra #45 — Bandoleras Fridays and billed live nights; Pregame Roof is the third-level deck above, same phone. DM @ambarloungepop or call (809) 781-8677 before you assume walk-in. Closed Tuesdays.",
     localized: {

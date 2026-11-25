@@ -52,6 +52,26 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "surfskate-fest-encuentro-2026-12-11.jpg",
   "chameleon-perreo-poca-luz-h23-deeway-2026-11-13":
     "chameleon-perreo-poca-luz-h23-deeway-2026-11-13.jpg",
+  "hecho-aqui-boxing-club-martin-lopez-2026-11-28":
+    "hecho-aqui-boxing-club-martin-lopez-2026-11-28.jpg",
+  "ambar-lounge-sebastian-crozz-2026-11-28":
+    "ambar-lounge-sebastian-crozz-2026-11-28-v2.jpg",
+  "camara-nueva-cedula-samir-chami-2026-12-02":
+    "camara-nueva-cedula-samir-chami-2026-12-02-v2.jpg",
+  "ocean-world-terrace-graduation-bash-day-2026-12-04":
+    "ocean-world-terrace-graduation-bash-day-2026-12-04.jpg",
+  "esd-christmas-kids-flea-market-2026-12-05":
+    "esd-christmas-kids-flea-market-2026-12-05.jpg",
+  "bellas-artes-muestra-didactica-navidad-2026-12-10":
+    "bellas-artes-muestra-didactica-navidad-2026-12-10.jpg",
+  "kite-street-son-de-keka-navidad-2026-12-12":
+    "kite-street-son-de-keka-navidad-2026-12-12.jpg",
+  "aura-blanco-camilo-taveras-2026-12-19":
+    "aura-blanco-camilo-taveras-2026-12-19.jpg",
+  "green-one-xmas-pajama-brunch-2026-12-19":
+    "green-one-xmas-pajama-brunch-2026-12-19.jpg",
+  "natura-market-holiday-2026-12-20":
+    "natura-market-holiday-2026-12-20-v2.jpg",
   "chameleon-la-mas-doll-2026-12-19":
     "chameleon-la-mas-doll-2026-12-19.jpg",
   "ivan-garcia-concierto-sinfonico-2026-11-19":
@@ -297,6 +317,10 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "ojo-noche-latina-back-to-bachata-2026-11-12-v2.jpg",
   "twenty-disco-friday-lirol-j-2026-11-13":
     "twenty-disco-friday-lirol-j-2026-11-13.jpg",
+  "twenty-disco-ladies-night-2026-11-26":
+    "twenty-disco-ladies-night-2026-11-26.jpg",
+  "twenty-disco-friday-junier-lockward-2026-11-27":
+    "twenty-disco-friday-junier-lockward-2026-11-27.jpg",
   "fortaleza-san-felipe-encendido-luces-azules-2026-11-13":
     "fortaleza-san-felipe-encendido-luces-azules-2026-11-13.jpg",
   "spotland-fit-fusion-night-volumen-2-2026-11-18":
@@ -842,6 +866,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "chill-grill-halloween-night-2026-10-31.jpg",
   "pink-garden-galerias-padel-2026-10-17":
     "pink-garden-galerias-padel-2026-10-17.jpg",
+  "galerias-padel-oceano-limpio-2026-11-28":
+    "galerias-padel-oceano-limpio-2026-11-28.jpg",
   "petit-francois-halloween-2026-10-30":
     "petit-francois-halloween-2026-10-30.jpg",
   "petit-francois-canadian-thanksgiving-2026-10-12":
@@ -1193,6 +1219,16 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "chameleon-cursed-room-ronny-alca-2026-11-01": "object-center",
   "chameleon-monsters-ball-deeway-2026-10-18": "object-center",
   "chameleon-perreo-poca-luz-h23-deeway-2026-11-13": "object-center",
+  "hecho-aqui-boxing-club-martin-lopez-2026-11-28": "object-center",
+  "ambar-lounge-sebastian-crozz-2026-11-28": "object-center",
+  "camara-nueva-cedula-samir-chami-2026-12-02": "object-center",
+  "ocean-world-terrace-graduation-bash-day-2026-12-04": "object-center",
+  "esd-christmas-kids-flea-market-2026-12-05": "object-center",
+  "bellas-artes-muestra-didactica-navidad-2026-12-10": "object-center",
+  "kite-street-son-de-keka-navidad-2026-12-12": "object-center",
+  "aura-blanco-camilo-taveras-2026-12-19": "object-center",
+  "green-one-xmas-pajama-brunch-2026-12-19": "object-center",
+  "natura-market-holiday-2026-12-20": "object-center",
   "chameleon-vibras-party-monarka-2026-11-22": "object-center",
   "el-liquito-deeway-2026-11-15": "object-center",
   "dominican-surf-festival-2026-12-10": "object-center",
@@ -1383,6 +1419,9 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "pregame-roof-domino-sessions-weekly": "object-center",
   "ojo-noche-latina-back-to-bachata-2026-11-12": "object-center",
   "twenty-disco-friday-lirol-j-2026-11-13": "object-center",
+  "twenty-disco-ladies-night-2026-11-26": "object-center",
+  "twenty-disco-friday-junier-lockward-2026-11-27": "object-center",
+  "galerias-padel-oceano-limpio-2026-11-28": "object-center",
   "fortaleza-san-felipe-encendido-luces-azules-2026-11-13": "object-center",
   "spotland-fit-fusion-night-volumen-2-2026-11-18": "object-center",
   "leos-banana-fiesta-blanca-2026-11-27": "object-center",
@@ -1695,6 +1734,18 @@ const EVENT_GALLERY_SLIDES: Record<
       label: "DJ Junier & DJ Melo",
     },
   ],
+  "aura-blanco-camilo-taveras-2026-12-19": [
+    {
+      file: "aura-blanco-camilo-taveras-2026-12-19.jpg",
+      venueSlug: "aura-beach-club-cabarete",
+      label: "BLANCO",
+    },
+    {
+      file: "aura-blanco-camilo-taveras-2026-12-19-table-map.jpg",
+      venueSlug: "aura-beach-club-cabarete",
+      label: "Table map",
+    },
+  ],
 };
 
 export function getEventGallerySlides(
@@ -1805,6 +1856,20 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "meclao-reggaeton-rooftop-mr-alfredo-2026-11-13.jpg",
   "meclao-viernes-social-junier-lockward-2026-11-20.jpg",
   "chameleon-perreo-poca-luz-h23-deeway-2026-11-13.jpg",
+  "hecho-aqui-boxing-club-martin-lopez-2026-11-28.jpg",
+  "ambar-lounge-sebastian-crozz-2026-11-28.jpg",
+  "ambar-lounge-sebastian-crozz-2026-11-28-v2.jpg",
+  "camara-nueva-cedula-samir-chami-2026-12-02.jpg",
+  "camara-nueva-cedula-samir-chami-2026-12-02-v2.jpg",
+  "ocean-world-terrace-graduation-bash-day-2026-12-04.jpg",
+  "esd-christmas-kids-flea-market-2026-12-05.jpg",
+  "bellas-artes-muestra-didactica-navidad-2026-12-10.jpg",
+  "kite-street-son-de-keka-navidad-2026-12-12.jpg",
+  "aura-blanco-camilo-taveras-2026-12-19.jpg",
+  "aura-blanco-camilo-taveras-2026-12-19-table-map.jpg",
+  "green-one-xmas-pajama-brunch-2026-12-19.jpg",
+  "natura-market-holiday-2026-12-20.jpg",
+  "natura-market-holiday-2026-12-20-v2.jpg",
   "chameleon-la-mas-doll-2026-12-19.jpg",
   "ivan-garcia-concierto-sinfonico-2026-11-19.jpg",
   "evolution-viernes-contrabandista-weekly.jpg",
@@ -1872,6 +1937,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "pregame-roof-domino-sessions-weekly.jpg",
   "ojo-noche-latina-back-to-bachata-2026-11-12-v2.jpg",
   "twenty-disco-friday-lirol-j-2026-11-13.jpg",
+  "twenty-disco-ladies-night-2026-11-26.jpg",
+  "twenty-disco-friday-junier-lockward-2026-11-27.jpg",
   "fortaleza-san-felipe-encendido-luces-azules-2026-11-13.jpg",
   "spotland-fit-fusion-night-volumen-2-2026-11-18.jpg",
   "leos-banana-fiesta-blanca-2026-11-27.jpg",
@@ -2199,6 +2266,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "twenty-disco-bichotas-night-sebastian-crozz-2026-10-15.jpg",
   "chill-grill-halloween-night-2026-10-31.jpg",
   "pink-garden-galerias-padel-2026-10-17.jpg",
+  "galerias-padel-oceano-limpio-2026-11-28.jpg",
   "petit-francois-halloween-2026-10-30.jpg",
   "petit-francois-canadian-thanksgiving-2026-10-12-en.jpg",
   "petit-francois-canadian-thanksgiving-2026-10-12-es.jpg",

@@ -547,6 +547,23 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "nicole-espinal-rancho-catalina-2026-11-29": "2026-11-24T18:00:00.000Z",
   "the-last-drink-sabado-negro-yosma-2026-11-29": "2026-11-24T18:15:00.000Z",
   "natalija-tumpej-aura-2026-11-26": "2026-11-24T18:30:00.000Z",
+  "hecho-aqui-boxing-club-martin-lopez-2026-11-28":
+    "2026-11-25T21:00:00.000Z",
+  "ambar-lounge-sebastian-crozz-2026-11-28": "2026-11-25T20:45:00.000Z",
+  "camara-nueva-cedula-samir-chami-2026-12-02": "2026-11-25T20:30:00.000Z",
+  "ocean-world-terrace-graduation-bash-day-2026-12-04":
+    "2026-11-25T20:15:00.000Z",
+  "esd-christmas-kids-flea-market-2026-12-05": "2026-11-25T20:00:00.000Z",
+  "bellas-artes-muestra-didactica-navidad-2026-12-10":
+    "2026-11-25T19:45:00.000Z",
+  "kite-street-son-de-keka-navidad-2026-12-12": "2026-11-25T19:30:00.000Z",
+  "aura-blanco-camilo-taveras-2026-12-19": "2026-11-25T19:15:00.000Z",
+  "green-one-xmas-pajama-brunch-2026-12-19": "2026-11-25T19:00:00.000Z",
+  "natura-market-holiday-2026-12-20": "2026-11-25T18:45:00.000Z",
+  "twenty-disco-ladies-night-2026-11-26": "2026-11-25T21:30:00.000Z",
+  "twenty-disco-friday-junier-lockward-2026-11-27":
+    "2026-11-25T21:15:00.000Z",
+  "galerias-padel-oceano-limpio-2026-11-28": "2026-11-25T21:45:00.000Z",
 };
 
 /** Fill missing `createdAt` from {@link SEED_CREATED_AT} (does not overwrite). */

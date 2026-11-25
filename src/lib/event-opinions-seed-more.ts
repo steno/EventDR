@@ -10622,4 +10622,239 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer + invitation text — Dom 29 Nov 2026 11:00 AM; Casa Museo Hill van Gogh; Callejón de la Loma; IV Edición HECHO AQUÍ; no official venue seed (private house).",
     updatedAt: "2026-11-24T17:45:00.000Z",
   },
+  {
+    eventId: "hecho-aqui-boxing-club-martin-lopez-2026-11-28",
+    body: "Saturday 5:30 PM HECHO AQUÍ audiovisual night with Martín López at Cabarete Boxing Club on Callejón de la Loma — not CREA’s 21 Nov inauguration and not Hill van Gogh on 29 Nov; free welcome, pin the gym alley.",
+    localized: {
+      es: "Sábado 5:30 PM de HECHO AQUÍ audiovisual con Martín López en Cabarete Boxing Club en el Callejón de la Loma — no es la inauguración de CREA del 21 nov ni Hill van Gogh el 29; bienvenida gratis, clava el callejón del gym.",
+      fr: "Samedi 17 h 30 HECHO AQUÍ audiovisuel avec Martín López au Cabarete Boxing Club sur le Callejón de la Loma — pas l’inauguration CREA du 21 nov. ni Hill van Gogh le 29 ; accueil gratuit, épinglez l’allée du gym.",
+    },
+    priceFeel: "free",
+    priceNote: "Free invitation · @cabareteboxingclub · HECHO AQUÍ IV",
+    priceNoteLocalized: {
+      es: "Invitación gratis · @cabareteboxingclub · HECHO AQUÍ IV",
+      fr: "Invitation gratuite · @cabareteboxingclub · HECHO AQUÍ IV",
+    },
+    attribution: "POP research · @cabareteboxingclub HECHO AQUÍ / Martín López flyer + caption",
+    researchNotes:
+      "Editor flyer + IG captions — Sáb 28 Nov 2026 5:30 PM; Callejón de la Loma; Martín López imagen en movimiento; IV Edición HECHO AQUÍ; todos bienvenidos.",
+    updatedAt: "2026-11-25T21:00:00.000Z",
+  },
+  {
+    eventId: "ambar-lounge-sebastian-crozz-2026-11-28",
+    body: "Saturday Sebastián Crozz on Luis Ginebra #45 — RSVP (809) 781-8677; same night as Aura Galactic Nights and HECHO AQUÍ Boxing Club, different room.",
+    localized: {
+      es: "Sábado Sebastián Crozz en Luis Ginebra #45 — RSVP (809) 781-8677; misma noche que Galactic Nights de Aura y HECHO AQUÍ Boxing Club, otra sala.",
+      fr: "Samedi Sebastián Crozz au 45 Luis Ginebra — RSVP (809) 781-8677 ; même nuit que Galactic Nights d’Aura et HECHO AQUÍ Boxing Club, autre salle.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — RSVP (809) 781-8677 / @ambarloungepop",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — RSVP (809) 781-8677 / @ambarloungepop",
+      fr: "Cover à confirmer — RSVP (809) 781-8677 / @ambarloungepop",
+    },
+    attribution: "POP research · @ambarloungepop Sebastián Crozz Sábado 28 flyer",
+    researchNotes:
+      "Editor flyer — SÁBADO 28; SEBASTIÁN CROZZ; Ambar Lounge. Month confirmed editor 28 Nov 2026. No cover/start on art.",
+    updatedAt: "2026-11-25T20:45:00.000Z",
+  },
+  {
+    eventId: "camara-nueva-cedula-samir-chami-2026-12-02",
+    body: "Wednesday 5:30 PM chamber talk on the new cédula with JCE member Samir Chami Isa at Beller No. 17 — for members/allies and family paperwork, not a nightlife door.",
+    localized: {
+      es: "Miércoles 5:30 PM charla de la Cámara sobre la nueva cédula con el miembro de la JCE Samir Chami Isa en Beller No. 17 — para socios/aliados y trámites familiares, no una puerta de nightlife.",
+      fr: "Mercredi 17 h 30 conférence Chambre sur la nouvelle cédula avec le membre JCE Samir Chami Isa au 17 Beller — pour membres/alliés et démarches familiales, pas une porte nightlife.",
+    },
+    priceFeel: "varies",
+    priceNote: "Confirm signup · @camarapuertoplata / +1 809-586-2390",
+    priceNoteLocalized: {
+      es: "Confirma inscripción · @camarapuertoplata / +1 809-586-2390",
+      fr: "Confirmez l’inscription · @camarapuertoplata / +1 809-586-2390",
+    },
+    attribution: "POP research · @camarapuertoplata Nueva Cédula / Samir Chami Isa flyer + caption",
+    researchNotes:
+      "Editor flyer + IG — Mié 2 Dic 2026 5:30 PM; Samir Chami Isa; JCE; Salón de Eventos Cámara; members + family.",
+    updatedAt: "2026-11-25T20:30:00.000Z",
+  },
+  {
+    eventId: "ocean-world-terrace-graduation-bash-day-2026-12-04",
+    body: "Friday noon–6 PM O&M graduate day at Ocean World Terrace — welcome drink, photo booth, 360 video; WhatsApp tables +1 829-521-9736. Night Rubio + Manon RD$1,000 is the separate evening listing.",
+    localized: {
+      es: "Viernes mediodía–6 PM día de egresados O&M en Ocean World Terrace — bebida de bienvenida, photo booth, video 360; mesas WhatsApp +1 829-521-9736. La noche Rubio + Manon RD$1,000 es el listado aparte.",
+      fr: "Vendredi midi–18 h journée diplômés O&M à Ocean World Terrace — boisson de bienvenue, photo booth, vidéo 360 ; tables WhatsApp +1 829-521-9736. La soirée Rubio + Manon RD$1,000 est la fiche séparée.",
+    },
+    priceFeel: "varies",
+    priceNote: "Day tables WA +1 829-521-9736 · night is separate RD$1,000 listing",
+    priceNoteLocalized: {
+      es: "Mesas de día WA +1 829-521-9736 · la noche es el listado aparte RD$1,000",
+      fr: "Tables de jour WA +1 829-521-9736 · la nuit est la fiche séparée RD$1,000",
+    },
+    attribution: "POP research · @oceanworldterrace Graduation Bash / O&M day flyer + caption",
+    researchNotes:
+      "Editor flyer + caption — Vie 4 Dic 2026; day 12–6 PM O&M; welcome drink, photo booth, 360 12–5; night Rubio+Manon RD$1000 already seeded separately.",
+    updatedAt: "2026-11-25T20:15:00.000Z",
+  },
+  {
+    eventId: "esd-christmas-kids-flea-market-2026-12-05",
+    body: "Saturday 10 AM kids flea market on the ESD Bombita campus — stand RD$200 (free for ESD families) via +33 6 14 17 89 12; open to everyone for preloved toys and clothes, not a Cabarete beach brunch.",
+    localized: {
+      es: "Sábado 10 AM flea market kids en el campus ESD Bombita — stand RD$200 (gratis familias ESD) vía +33 6 14 17 89 12; abierto a todos por juguetes y ropa de segunda, no un brunch de playa en Cabarete.",
+      fr: "Samedi 10 h flea market kids sur le campus ESD Bombita — stand RD$200 (gratuit familles ESD) via +33 6 14 17 89 12 ; ouvert à tous pour jouets et vêtements d’occasion, pas un brunch plage à Cabarete.",
+    },
+    priceFeel: "budget",
+    priceNote: "Stand RD$200 · free for ESD families · school +1 849-451-5893",
+    priceNoteLocalized: {
+      es: "Stand RD$200 · gratis familias ESD · escuela +1 849-451-5893",
+      fr: "Stand RD$200 · gratuit familles ESD · école +1 849-451-5893",
+    },
+    attribution: "POP research · @europeanschooldr Christmas Kids Flea Market flyer + caption",
+    researchNotes:
+      "Editor flyer + caption — Sáb 5 Dic 2026 10 AM; ESD Bombita; RD$200 stands; free ESD families; French WA +33614178912; ageHint family.",
+    updatedAt: "2026-11-25T20:00:00.000Z",
+  },
+  {
+    eventId: "bellas-artes-muestra-didactica-navidad-2026-12-10",
+    body: "Wednesday 5 PM student piano/flute concert and visual-arts show at Separación & Beller — free public Christmas didactic showcase, not a Luis Ginebra club door.",
+    localized: {
+      es: "Miércoles 5 PM concierto de piano/flauta y muestra de artes visuales de estudiantes en Separación y Beller — muestra didáctica navideña pública gratis, no una puerta de club en Luis Ginebra.",
+      fr: "Mercredi 17 h concert piano/flûte et expo arts visuels d’élèves à Separación & Beller — vitrine didactique de Noël publique gratuite, pas une porte club Luis Ginebra.",
+    },
+    priceFeel: "free",
+    priceNote: "Open to the public · (809) 801-7825 / @defaebellasartesrd",
+    priceNoteLocalized: {
+      es: "Abierta al público · (809) 801-7825 / @defaebellasartesrd",
+      fr: "Ouverte au public · (809) 801-7825 / @defaebellasartesrd",
+    },
+    attribution: "POP research · @defaebellasartesrd Muestra Didáctica Navideña flyer + caption",
+    researchNotes:
+      "Editor flyer + caption — 10 Dic 2026 5 PM; piano/flauta + artes visuales; Separación esq Beller; abierta al público; ageHint family.",
+    updatedAt: "2026-11-25T19:45:00.000Z",
+  },
+  {
+    eventId: "kite-street-son-de-keka-navidad-2026-12-12",
+    body: "Saturday 6 PM Christmas dance with El Son de Keka under the chichiguas on Calle Sánchez — centro histórico hang, not Umbrella Street and not Aura BLANCO the next Saturday.",
+    localized: {
+      es: "Sábado 6 PM baile navideño con El Son de Keka bajo las chichiguas en Calle Sánchez — hang del centro histórico, no Calle de las Sombrillas ni BLANCO de Aura el sábado siguiente.",
+      fr: "Samedi 18 h danse de Noël avec El Son de Keka sous les cerfs-volants sur Calle Sánchez — hang du centre historique, pas Umbrella Street ni BLANCO d’Aura le samedi suivant.",
+    },
+    priceFeel: "varies",
+    priceNote: "Confirm doors · @kitestreetpop / +1 809-769-8732",
+    priceNoteLocalized: {
+      es: "Confirma puertas · @kitestreetpop / +1 809-769-8732",
+      fr: "Confirmez les portes · @kitestreetpop / +1 809-769-8732",
+    },
+    attribution: "POP research · @kitestreetpop Navidad El Son de Keka flyer + caption",
+    researchNotes:
+      "Editor flyer + caption — Sáb 12 Dic 2026 6 PM; El Son de Keka; Kite Street POP / Calle Sánchez.",
+    updatedAt: "2026-11-25T19:30:00.000Z",
+  },
+  {
+    eventId: "aura-blanco-camilo-taveras-2026-12-19",
+    body: "Saturday BLANCO white party at Aura with Camilo Taveras × North Side — tables via +1 849-263-1109 and TIX; not Hard Rock Mágica Navidad the same day or Green One’s pajama brunch that morning.",
+    localized: {
+      es: "Sábado BLANCO white party en Aura con Camilo Taveras × North Side — mesas vía +1 849-263-1109 y TIX; no es Mágica Navidad de Hard Rock el mismo día ni el pajama brunch de Green One esa mañana.",
+      fr: "Samedi BLANCO white party à Aura avec Camilo Taveras × North Side — tables via +1 849-263-1109 et TIX ; pas Mágica Navidad de Hard Rock le même jour ni le pajama brunch Green One ce matin-là.",
+    },
+    priceFeel: "varies",
+    priceNote: "Tables +1 849-263-1109 · tickets on TIX · @auracabarete",
+    priceNoteLocalized: {
+      es: "Mesas +1 849-263-1109 · tickets en TIX · @auracabarete",
+      fr: "Tables +1 849-263-1109 · tickets sur TIX · @auracabarete",
+    },
+    attribution: "POP research · Aura BLANCO flyer + seating map",
+    researchNotes:
+      "Editor flyer + table map — 19|12|26; Camilo Taveras; North Side; Aura; Brugal; Red Bull; TIX; RSVP 849-263-1109.",
+    updatedAt: "2026-11-25T19:15:00.000Z",
+  },
+  {
+    eventId: "green-one-xmas-pajama-brunch-2026-12-19",
+    body: "Saturday 11 AM pajama brunch on the Green One Playa Dorada pool deck — RSVP by 10 Dec; gated residential access, not Aura’s BLANCO that night.",
+    localized: {
+      es: "Sábado 11 AM pajama brunch en el deck de piscina de Green One Playa Dorada — RSVP antes del 10 dic; acceso residencial controlado, no el BLANCO de Aura esa noche.",
+      fr: "Samedi 11 h pajama brunch sur le deck piscine de Green One Playa Dorada — RSVP avant le 10 déc. ; accès résidentiel contrôlé, pas le BLANCO d’Aura le soir.",
+    },
+    priceFeel: "varies",
+    priceNote: "RSVP by 10 Dec · +1 829-521-8298 · greenoneplayadorada.com",
+    priceNoteLocalized: {
+      es: "RSVP antes del 10 dic · +1 829-521-8298 · greenoneplayadorada.com",
+      fr: "RSVP avant le 10 déc. · +1 829-521-8298 · greenoneplayadorada.com",
+    },
+    attribution: "POP research · Green One XMAS Pajama Brunch flyer",
+    researchNotes:
+      "Editor flyer — 19 Dic 2026 11 AM; Green One Sports Bar; RSVP a más tardar 10 Dic 2026.",
+    updatedAt: "2026-11-25T19:00:00.000Z",
+  },
+  {
+    eventId: "natura-market-holiday-2026-12-20",
+    body: "Sunday 4–8:30 PM holiday market at Natura Cabana with Beach Santa and free entry (dogs on leash) — later and festively themed versus the first-Sunday daytime market series.",
+    localized: {
+      es: "Domingo 4–8:30 PM mercado holiday en Natura Cabana con Beach Santa y entrada gratis (perros con correa) — más tarde y más festivo que la serie diurna del primer domingo.",
+      fr: "Dimanche 16 h–20 h 30 marché holiday à Natura Cabana avec Beach Santa et entrée gratuite (chiens en laisse) — plus tard et plus festif que la série diurne du premier dimanche.",
+    },
+    priceFeel: "free",
+    priceNote: "Free entry — pay stall-by-stall; +1 849-214-7010 / @naturacabana",
+    priceNoteLocalized: {
+      es: "Entrada gratis — pagas puesto por puesto; +1 849-214-7010 / @naturacabana",
+      fr: "Entrée gratuite — payez stand par stand ; +1 849-214-7010 / @naturacabana",
+    },
+    attribution: "POP research · Natura Market! Holiday Edition flyer",
+    researchNotes:
+      "Editor flyer — Sun Dec 20 4–8:30 PM; Holiday Edition; free entry; dogs on leash; Beach Santa; Perla Marina Cabarete; ageHint family.",
+    updatedAt: "2026-11-25T18:45:00.000Z",
+  },
+  {
+    eventId: "twenty-disco-ladies-night-2026-11-26",
+    body: "Thursday Ladies Night at the Playa Dorada Mall disco — Baileys + Midoris gratis para ellas on the flyer; confirm men’s cover on @twenty_disco_lounge before you promise a free night for the whole group.",
+    localized: {
+      es: "Ladies Night del jueves en el disco del mall de Playa Dorada — Baileys + Midoris gratis para ellas en el flyer; confirma cover de ellos en @twenty_disco_lounge antes de prometer noche gratis para todo el grupo.",
+      fr: "Ladies Night du jeudi au disco du mall Playa Dorada — Baileys + Midoris gratuits pour elles sur l’affiche ; confirmez le cover hommes sur @twenty_disco_lounge avant de promettre une soirée gratuite pour tout le groupe.",
+    },
+    priceFeel: "varies",
+    priceNote: "Ladies Baileys + Midoris free — cover TBA · @twenty_disco_lounge",
+    priceNoteLocalized: {
+      es: "Baileys + Midoris gratis para ellas — cover por confirmar · @twenty_disco_lounge",
+      fr: "Baileys + Midoris gratuits pour elles — cover à confirmer · @twenty_disco_lounge",
+    },
+    attribution: "POP research · @twenty_disco_lounge Ladies Night flyer + caption",
+    researchNotes:
+      "Editor flyer + IG caption — Jue 26 Nov 2026; LADIES Night; Baileys y Midoris gratis para ellas; Playa Dorada Mall. No start time or general cover on art.",
+    updatedAt: "2026-11-25T21:30:00.000Z",
+  },
+  {
+    eventId: "twenty-disco-friday-junier-lockward-2026-11-27",
+    body: "Friday Junier Lockward live at Twenty in Playa Dorada Mall — same night as Latin Disco’s free White Party downtown; confirm cover on @twenty_disco_lounge before you treat the mall door as walk-in free.",
+    localized: {
+      es: "Viernes Junier Lockward en vivo en Twenty en Playa Dorada Mall — misma noche que la White Party gratis de Latin Disco en el centro; confirma cover en @twenty_disco_lounge antes de tratar la puerta del mall como walk-in gratis.",
+      fr: "Vendredi Junier Lockward live au Twenty dans Playa Dorada Mall — même nuit que la White Party gratuite de Latin Disco en ville ; confirmez le cover sur @twenty_disco_lounge avant de traiter la porte mall comme walk-in gratuit.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — @twenty_disco_lounge",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — @twenty_disco_lounge",
+      fr: "Cover à confirmer — @twenty_disco_lounge",
+    },
+    attribution: "POP research · @twenty_disco_lounge Friday Night / Junier Lockward flyer",
+    researchNotes:
+      "Editor flyer — Vie 27 Nov 2026; FRIDAY night; LIVE PERFORMANCE JUNIER LOCKWARD; Playa Dorada Mall. No cover/start on art. Same Fri as latin-disco-white-party-flaco-mc.",
+    updatedAt: "2026-11-25T21:15:00.000Z",
+  },
+  {
+    eventId: "galerias-padel-oceano-limpio-2026-11-28",
+    body: "Sat–Sun 8 AM charity padel at Galerías on Luis Ginebra for Fundación Océano Limpio — RD$6,000/person, WhatsApp +1 809-543-7538 before spots go; not Ambar Crozz or HECHO AQUÍ Boxing Club the same Saturday night.",
+    localized: {
+      es: "Sáb–dom 8 AM pádel solidario en Galerías en Luis Ginebra para Fundación Océano Limpio — RD$6,000/persona, WhatsApp +1 809-543-7538 antes de que se llenen los cupos; no es Crozz en Ambar ni HECHO AQUÍ Boxing Club el sábado por la noche.",
+      fr: "Sam–dim 8 h padel solidaire à Galerías sur Luis Ginebra pour Fundación Océano Limpio — RD$6,000/personne, WhatsApp +1 809-543-7538 avant saturation ; pas Crozz à Ambar ni HECHO AQUÍ Boxing Club le samedi soir.",
+    },
+    priceFeel: "upscale",
+    priceNote: "RD$6,000 per person · WA +1 809-543-7538 · limited spots",
+    priceNoteLocalized: {
+      es: "RD$6,000 por persona · WA +1 809-543-7538 · cupos limitados",
+      fr: "RD$6,000 par personne · WA +1 809-543-7538 · places limitées",
+    },
+    attribution:
+      "POP research · @galeriaspadelclub Torneo Océano Limpio flyer + caption",
+    researchNotes:
+      "Editor flyer + IG — 28–29 Nov 2026 from 8 AM; Fundación Océano Limpio; 8 pairs/category; RD$6000 pp; prizes US$1000/500; WA +1 809-543-7538 / +54 911-6855-7319; Bridge Markets.",
+    updatedAt: "2026-11-25T21:45:00.000Z",
+  },
 ];

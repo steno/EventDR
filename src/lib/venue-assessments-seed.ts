@@ -2300,6 +2300,38 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
       { key: "family_friendly", sentiment: "positive", audience: "family" },
     ],
   }),
+  editorial({
+    venueSlug: "escuela-bellas-artes-puerto-plata",
+    verdictKey: "solid_local_culture",
+    crowdFit: ["local", "family", "mixed"],
+    axes: { recommend: 4.1, atmosphere: 4.0, value: 4.3, practical: 4.0 },
+    themes: [
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "live_music", sentiment: "positive" },
+      { key: "easy_to_find", sentiment: "positive" },
+    ],
+  }),
+  editorial({
+    venueSlug: "green-one-sports-bar",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "mixed", "family"],
+    axes: { recommend: 3.9, atmosphere: 4.1, value: 3.7, practical: 3.5 },
+    themes: [
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "easy_to_find", sentiment: "mixed", audience: "visitor" },
+    ],
+  }),
+  editorial({
+    venueSlug: "esd-european-school-bombita",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["family", "visitor", "mixed"],
+    axes: { recommend: 4.0, atmosphere: 3.9, value: 4.1, practical: 3.8 },
+    themes: [
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "easy_to_find", sentiment: "mixed" },
+    ],
+  }),
 ];
 
 const bySlug = new Map(

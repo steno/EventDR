@@ -479,6 +479,33 @@ const FILE_TO_EVENT_ID = {
     "meclao-viernes-social-junier-lockward-2026-11-20",
   "chameleon-perreo-poca-luz-h23-deeway-2026-11-13.jpg":
     "chameleon-perreo-poca-luz-h23-deeway-2026-11-13",
+  "hecho-aqui-boxing-club-martin-lopez-2026-11-28.jpg":
+    "hecho-aqui-boxing-club-martin-lopez-2026-11-28",
+  "ambar-lounge-sebastian-crozz-2026-11-28.jpg":
+    "ambar-lounge-sebastian-crozz-2026-11-28",
+  "ambar-lounge-sebastian-crozz-2026-11-28-v2.jpg":
+    "ambar-lounge-sebastian-crozz-2026-11-28",
+  "camara-nueva-cedula-samir-chami-2026-12-02.jpg":
+    "camara-nueva-cedula-samir-chami-2026-12-02",
+  "camara-nueva-cedula-samir-chami-2026-12-02-v2.jpg":
+    "camara-nueva-cedula-samir-chami-2026-12-02",
+  "ocean-world-terrace-graduation-bash-day-2026-12-04.jpg":
+    "ocean-world-terrace-graduation-bash-day-2026-12-04",
+  "esd-christmas-kids-flea-market-2026-12-05.jpg":
+    "esd-christmas-kids-flea-market-2026-12-05",
+  "bellas-artes-muestra-didactica-navidad-2026-12-10.jpg":
+    "bellas-artes-muestra-didactica-navidad-2026-12-10",
+  "kite-street-son-de-keka-navidad-2026-12-12.jpg":
+    "kite-street-son-de-keka-navidad-2026-12-12",
+  "aura-blanco-camilo-taveras-2026-12-19.jpg":
+    "aura-blanco-camilo-taveras-2026-12-19",
+  "aura-blanco-camilo-taveras-2026-12-19-table-map.jpg":
+    "aura-blanco-camilo-taveras-2026-12-19",
+  "green-one-xmas-pajama-brunch-2026-12-19.jpg":
+    "green-one-xmas-pajama-brunch-2026-12-19",
+  "natura-market-holiday-2026-12-20.jpg": "natura-market-holiday-2026-12-20",
+  "natura-market-holiday-2026-12-20-v2.jpg":
+    "natura-market-holiday-2026-12-20",
   "los-guaos-gran-cabalgata-natural-2026-11-15.jpg":
     "los-guaos-gran-cabalgata-natural-2026-11-15",
   "037-bar-karaoke-2026-11-13.jpg": "037-bar-karaoke-2026-11-13",
@@ -628,6 +655,8 @@ const FILE_TO_EVENT_ID = {
     "chill-grill-halloween-night-2026-10-31",
   "pink-garden-galerias-padel-2026-10-17.jpg":
     "pink-garden-galerias-padel-2026-10-17",
+  "galerias-padel-oceano-limpio-2026-11-28.jpg":
+    "galerias-padel-oceano-limpio-2026-11-28",
   "petit-francois-halloween-2026-10-30.jpg":
     "petit-francois-halloween-2026-10-30",
   "petit-francois-canadian-thanksgiving-2026-10-12-en.jpg":
@@ -1186,6 +1215,10 @@ const FILE_TO_VENUE_SLUG = {
   "grand-prix-puerto-plata.jpg": "grand-prix-puerto-plata",
   "the-hideout-puerto-plata-v2.jpg": "the-hideout-puerto-plata",
   "cabarete-boxing-club-ring.jpg": "cabarete-boxing-club-ring",
+  "escuela-bellas-artes-puerto-plata-interior.jpg":
+    "escuela-bellas-artes-puerto-plata",
+  "green-one-sports-bar-pool.jpg": "green-one-sports-bar",
+  "esd-european-school-bombita-courtyard.jpg": "esd-european-school-bombita",
   "chameleon-sport-bar-entrance.jpg": "chameleon-sport-bar-entrance",
   "pedro-santana-sus-dias-contados-2026-11-24.jpg":
     "pedro-santana-sus-dias-contados-2026-11-24",
@@ -1333,6 +1366,10 @@ const FILE_TO_VENUE_SLUG = {
     "ojo-noche-latina-back-to-bachata-2026-11-12",
   "twenty-disco-friday-lirol-j-2026-11-13.jpg":
     "twenty-disco-friday-lirol-j-2026-11-13",
+  "twenty-disco-ladies-night-2026-11-26.jpg":
+    "twenty-disco-ladies-night-2026-11-26",
+  "twenty-disco-friday-junier-lockward-2026-11-27.jpg":
+    "twenty-disco-friday-junier-lockward-2026-11-27",
   "fortaleza-san-felipe-encendido-luces-azules-2026-11-13.jpg":
     "fortaleza-san-felipe-encendido-luces-azules-2026-11-13",
   "spotland-fit-fusion-night-volumen-2-2026-11-18.jpg":

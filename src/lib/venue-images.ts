@@ -221,6 +221,10 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "lokuras-pop": "lokuras-pop-interior.jpg",
   "nova-salud-bienestar": "nova-salud-bienestar-facade.jpg",
   "camara-comercio-puerto-plata": "camara-comercio-puerto-plata-facade.jpg",
+  "escuela-bellas-artes-puerto-plata":
+    "escuela-bellas-artes-puerto-plata-interior.jpg",
+  "green-one-sports-bar": "green-one-sports-bar-pool.jpg",
+  "esd-european-school-bombita": "esd-european-school-bombita-courtyard.jpg",
   "ambar-lounge-pop": "ambar-lounge-pop-interior-v4.jpg",
   "pregame-roof-puerto-plata": "pregame-roof-puerto-plata.jpg",
   "nueve-puerto-plata": "nueve-puerto-plata.jpg",

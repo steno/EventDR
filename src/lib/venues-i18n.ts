@@ -1421,6 +1421,36 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Magasin de liqueurs et spot de soirées à l’affiche à Villa Isabela (ouest de Puerto Plata) — nuits Serie 121 Live, promos bouteilles et piste DJ. Confirmez les portes sur les flyers ; épinglez Villa Isabela village, pas D’Ocean Bar ni la glorieta du parc municipal.",
     },
   },
+  "escuela-bellas-artes-puerto-plata": {
+    name: {
+      es: "Escuela de Bellas Artes Puerto Plata",
+      fr: "Escuela de Bellas Artes Puerto Plata",
+    },
+    description: {
+      es: "Escuela provincial de bellas artes en Calle Separación esquina Beller en el centro histórico — clases de música, piano/flauta y artes visuales con muestras didácticas abiertas al público. Dirección General de Bellas Artes / DEFAE. Tel. (809) 801-7825 · Instagram @defaebellasartesrd.",
+      fr: "École provinciale des beaux-arts à Calle Separación coin Beller dans le centre historique — cours de musique, piano/flûte et arts visuels avec démonstrations didactiques ouvertes au public. Dirección General de Bellas Artes / DEFAE. Tél. (809) 801-7825 · Instagram @defaebellasartesrd.",
+    },
+  },
+  "green-one-sports-bar": {
+    name: {
+      es: "Green One Sports Bar",
+      fr: "Green One Sports Bar",
+    },
+    description: {
+      es: "Sports bar junto a la piscina y casa club dentro de Green One Playa Dorada (Carretera Luperón Km 5 / Complejo Playa Dorada) — brunch parties, deck de piscina y noches de la comunidad residencial. Confirma acceso de invitados y RSVP en los flyers · +1 829-521-8298 · greenoneplayadorada.com.",
+      fr: "Sports bar au bord de la piscine et casa club dans Green One Playa Dorada (Carretera Luperón Km 5 / Complejo Playa Dorada) — brunch parties, deck piscine et soirées de la communauté résidentielle. Confirmez l’accès invités et le RSVP sur les flyers · +1 829-521-8298 · greenoneplayadorada.com.",
+    },
+  },
+  "esd-european-school-bombita": {
+    name: {
+      es: "ESD European School",
+      fr: "ESD European School",
+    },
+    description: {
+      es: "Campus escolar internacional sin fines de lucro en Bombita entre Sosúa y Cabarete (junto a la Carretera Principal) — mercados familiares, días de comunidad escolar y actividades infantiles. Tel. / WhatsApp +1 849-451-5893 · europeanschooldr.com · Instagram @europeanschooldr.",
+      fr: "Campus scolaire international à but non lucratif à Bombita entre Sosúa et Cabarete (juste hors Carretera Principal) — marchés famille, journées communautaires et activités enfants. Tél. / WhatsApp +1 849-451-5893 · europeanschooldr.com · Instagram @europeanschooldr.",
+    },
+  },
 };
 
 export function localizeVenue(venue: Venue, locale: Locale): Venue {
