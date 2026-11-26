@@ -1336,6 +1336,11 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "twenty-disco-lounge",
     sourceUrl: "https://www.instagram.com/twenty_disco_lounge/",
   },
+  "twenty-disco-flashback-2017-2026-11-28": {
+    callForPricing: true,
+    venueSlug: "twenty-disco-lounge",
+    sourceUrl: "https://www.instagram.com/twenty_disco_lounge/",
+  },
   "fortaleza-san-felipe-encendido-luces-azules-2026-11-13": {
     isFree: true,
     venueSlug: "fortaleza-san-felipe",

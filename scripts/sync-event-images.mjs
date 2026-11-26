@@ -493,6 +493,10 @@ const FILE_TO_EVENT_ID = {
     "ocean-world-terrace-graduation-bash-day-2026-12-04",
   "esd-christmas-kids-flea-market-2026-12-05.jpg":
     "esd-christmas-kids-flea-market-2026-12-05",
+  "esd-christmas-kids-flea-market-2026-12-05-v2.jpg":
+    "esd-christmas-kids-flea-market-2026-12-05",
+  "esd-christmas-kids-flea-market-2026-12-05-v3.jpg":
+    "esd-christmas-kids-flea-market-2026-12-05",
   "bellas-artes-muestra-didactica-navidad-2026-12-10.jpg":
     "bellas-artes-muestra-didactica-navidad-2026-12-10",
   "kite-street-son-de-keka-navidad-2026-12-12.jpg":
@@ -581,6 +585,8 @@ const FILE_TO_EVENT_ID = {
   "bazar-alnier-por-siempre-2026-12-05.jpg":
     "bazar-alnier-por-siempre-2026-12-05",
   "bazar-alnier-por-siempre-2026-12-05-v2.jpg":
+    "bazar-alnier-por-siempre-2026-12-05",
+  "bazar-alnier-por-siempre-2026-12-05-v3.jpg":
     "bazar-alnier-por-siempre-2026-12-05",
   "toscana-nightclub-dj-joel-2026-12-06.jpg":
     "toscana-nightclub-dj-joel-2026-12-06",
@@ -697,8 +703,6 @@ const FILE_TO_EVENT_ID = {
     "fxs-exhibicion-carros-deportivos-2026-10-18",
   "cafe-meclao-rancho-catalina-2026-10-18.jpg":
     "cafe-meclao-rancho-catalina-2026-10-18",
-  "parada-el-choco-thanksgiving-big-d-2026-11-26.jpg":
-    "parada-el-choco-thanksgiving-big-d-2026-11-26",
   "cedaky-mall-feria-numismatica-2026-10-31.jpg":
     "cedaky-mall-feria-numismatica-2026-10-31",
   "cabarete-run-festival-after-run-2026-11-08.jpg":
@@ -1370,6 +1374,8 @@ const FILE_TO_VENUE_SLUG = {
     "twenty-disco-ladies-night-2026-11-26",
   "twenty-disco-friday-junier-lockward-2026-11-27.jpg":
     "twenty-disco-friday-junier-lockward-2026-11-27",
+  "twenty-disco-flashback-2017-2026-11-28.jpg":
+    "twenty-disco-flashback-2017-2026-11-28",
   "fortaleza-san-felipe-encendido-luces-azules-2026-11-13.jpg":
     "fortaleza-san-felipe-encendido-luces-azules-2026-11-13",
   "spotland-fit-fusion-night-volumen-2-2026-11-18.jpg":

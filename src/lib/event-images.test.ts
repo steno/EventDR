@@ -77,9 +77,9 @@ describe("preferVenueImageForFoodDrinksCategory", () => {
     assert.ok(venueImage?.startsWith("/venues/"));
 
     const swapped = preferVenueImageForFoodDrinksCategory({
-      id: "parada-el-choco-thanksgiving-big-d-2026-11-26",
+      id: "parada-el-choco-food-night-fixture",
       venueSlug: "parada-tipica-el-choco",
-      imageUrl: "/events/parada-el-choco-thanksgiving-big-d-2026-11-26.jpg",
+      imageUrl: "/events/parada-el-choco-food-night-fixture.jpg",
     });
     assert.equal(swapped.imageUrl, venueImage);
   });

@@ -6256,34 +6256,6 @@
     "imageEmoji": "💗"
   },
   {
-    "id": "parada-el-choco-thanksgiving-big-d-2026-11-26",
-    "title": "Parada El Choco Thanksgiving — Big D",
-    "description": "Celebración de Thanksgiving con música en vivo de Big D (Dooner) en Restaurante Parada El Choco’s, Plaza Buen Gusto en la carretera Sosúa–Cabarete frente a Ocean Village — jueves 26 de noviembre 2026 a las 6:30 PM. RD$1,650 por persona. RSVP WhatsApp +1 809-804-2510 · Instagram @paradaelchoco. Cena festiva con boleto — no es la serie de aperitivo BandItalia de los martes.",
-    "date": "2026-11-26",
-    "time": "6:30 PM",
-    "location": "Sosúa",
-    "venue": "Parada Típica El Choco",
-    "venueSlug": "parada-tipica-el-choco",
-    "address": "Plaza Buen Gusto, Carretera Sosúa–Cabarete (frente a Ocean Village)",
-    "lat": 19.77269,
-    "lng": -70.4967789,
-    "category": "food-drinks",
-    "categories": [
-      "music"
-    ],
-    "format": "physical",
-    "trending": true,
-    "isFree": false,
-    "admissionPrice": "RD$1,650",
-    "phone": "+18098042510",
-    "sourceType": "flyer",
-    "sourceUrl": "https://www.instagram.com/paradaelchoco/",
-    "lineup": [
-      "Big D (Dooner)"
-    ],
-    "imageEmoji": "🦃"
-  },
-  {
     "id": "cedaky-mall-feria-numismatica-2026-10-31",
     "title": "Cedāky Mall — Feria Numismática del Cibao 2026",
     "description": "Feria Numismática del Cibao Puerto Plata 2026 en Cedāky Mall primer nivel, Av. Manolo Tavárez Justo, Puerto Plata — sábado 31 de octubre 2026, 9:00 AM–7:30 PM, y domingo 1 de noviembre 2026, 10:00 AM–6:00 PM. Descubre, colecciona y conoce monedas, billetes y piezas con historia — para coleccionistas, curiosos y toda la familia. Instagram @cedakymall.",
@@ -12356,7 +12328,7 @@
   {
     "id": "leos-banana-enrico-music-live-2026-11-26",
     "title": "Leo's Banana — Enrico Music Live · 26 nov",
-    "description": "Música en vivo con Enrico Music Live en Leo's Banana Bar & Restaurant, Calle Coral, Antiguo Hotel Sosúa Bay (detrás del Casino Reef), El Batey, Sosúa — jueves 26 de noviembre 2026 a las 5:30 PM. Buena música, comida rica y drinks de la casa frente a la bahía. Cover no figura en el flyer — WhatsApp +1 829-993-4071 · Instagram @leosbananabarandrestaurant. Live del jueves en Bahía de Sosúa — no es el Thanksgiving Big D de Parada El Choco esa misma noche, ni la Fiesta Blanca de Leo's al día siguiente.",
+    "description": "Música en vivo con Enrico Music Live en Leo's Banana Bar & Restaurant, Calle Coral, Antiguo Hotel Sosúa Bay (detrás del Casino Reef), El Batey, Sosúa — jueves 26 de noviembre 2026 a las 5:30 PM. Buena música, comida rica y drinks de la casa frente a la bahía. Cover no figura en el flyer — WhatsApp +1 829-993-4071 · Instagram @leosbananabarandrestaurant. Live del jueves en Bahía de Sosúa — no es la Fiesta Blanca de Leo's al día siguiente.",
     "date": "2026-11-26",
     "time": "5:30 PM",
     "location": "Sosúa",
@@ -12925,7 +12897,7 @@
   {
     "id": "parada-choco-enrico-aperitivo-2026-11-24",
     "title": "Parada Choco Enrico Aperitivo — 24 nov",
-    "description": "Aperitivo con Enrico Music Live en Parada Típica El Choco (restaurante suizo-italiano / House of Music), Plaza Buen Gusto en la carretera Sosúa–Cabarete frente a Ocean Village — martes 24 de noviembre 2026 desde las 5:00 PM (finger food 5:00–7:00 PM). Finger food gratis en la mesa. RSVP WhatsApp +1 809-804-2510 · Instagram @paradaelchoco. Aperitivo de martes con invitado — no son las noches BandItalia, ni la cena Thanksgiving Big D del 26 de noviembre.",
+    "description": "Aperitivo con Enrico Music Live en Parada Típica El Choco (restaurante suizo-italiano / House of Music), Plaza Buen Gusto en la carretera Sosúa–Cabarete frente a Ocean Village — martes 24 de noviembre 2026 desde las 5:00 PM (finger food 5:00–7:00 PM). Finger food gratis en la mesa. RSVP WhatsApp +1 809-804-2510 · Instagram @paradaelchoco. Aperitivo de martes con invitado — no son las noches BandItalia.",
     "date": "2026-11-24",
     "time": "5:00 PM – 7:00 PM",
     "location": "Sosúa",
@@ -12985,7 +12957,7 @@
   {
     "id": "natura-cabana-thanksgiving-josh-sax-2026-11-26",
     "title": "Natura Cabana Thanksgiving — Josh Sax · 26 nov",
-    "description": "Thanksgiving Night con sax en vivo de Josh en Natura Restaurant, Natura Cabana Boutique Hotel & Spa, Paseo del Sol #5, Perla Marina / Cabarete — jueves 26 de noviembre 2026 durante la cena de Thanksgiving; reservas desde las 6:00 PM. Reserva mesa +1 849-214-7010 · naturacabana.com · Instagram @naturacabana. Cena festiva con sax — no es el Thanksgiving Big D de Parada El Choco esa misma noche, ni Enrico Live en Leo’s Banana en Sosúa.",
+    "description": "Thanksgiving Night con sax en vivo de Josh en Natura Restaurant, Natura Cabana Boutique Hotel & Spa, Paseo del Sol #5, Perla Marina / Cabarete — jueves 26 de noviembre 2026 durante la cena de Thanksgiving; reservas desde las 6:00 PM. Reserva mesa +1 849-214-7010 · naturacabana.com · Instagram @naturacabana. Cena festiva con sax — no es Enrico Live en Leo’s Banana en Sosúa.",
     "date": "2026-11-26",
     "time": "From 6:00 PM",
     "location": "Cabarete",
@@ -13874,5 +13846,38 @@
       "Sun: semis, finals, awards"
     ],
     "imageEmoji": "🎾"
+  },
+  {
+    "venue": "Twenty Disco Lounge",
+    "venueSlug": "twenty-disco-lounge",
+    "address": "Playa Dorada Mall, Puerto Plata",
+    "lat": 19.769476,
+    "lng": -70.643033,
+    "location": "Playa Dorada",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/twenty_disco_lounge/",
+    "instagram": "twenty_disco_lounge",
+    "format": "physical",
+    "trending": true,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "callForPricing": true,
+    "photoTags": [
+      "djsoky",
+      "djhxnparra"
+    ],
+    "id": "twenty-disco-flashback-2017-2026-11-28",
+    "date": "2026-11-28",
+    "lineup": [
+      "Soky",
+      "DJHON (DJ Hxnparra)",
+      "Flashback 2017"
+    ],
+    "imageEmoji": "⏪",
+    "title": "Twenty Disco Flashback 2017 — 28 nov",
+    "description": "FLASHBACK 2017 con Soky y DJHON en Twenty Disco & Lounge, Playa Dorada Mall, Puerto Plata — sábado 28 de noviembre 2026. Set throwback 2017 — no es el viernes de Junier Lockward en Twenty la noche anterior, ni Galactic Nights con DJ Christoo en Aura Cabarete el mismo sábado. Confirma cover y puertas en Instagram @twenty_disco_lounge · DJs @djsoky @djhxnparra."
   }
 ]

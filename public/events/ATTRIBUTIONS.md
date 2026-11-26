@@ -526,7 +526,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `cedaky-mall-stand-solidario-2026-10-15.jpg` | POP-supplied — Cedāky Mall Stand Solidario flyer ([@cedakymall](https://www.instagram.com/cedakymall/)) | 15–17 Oct 2026 3–7 PM main entrance (editor-provided; typography-heavy) |
 | `cedaky-mall-nutricion-pequenos-gigantes-2026-10-17-v2.jpg` | POP-supplied — Cedāky Mall *Alimentación divertida para pequeños gigantes* flyer ([@cedakymall](https://www.instagram.com/cedakymall/)) | Sat 17 Oct 2026 4 PM first level (editor-provided; filename bump vs IG caption crop) |
 | `nova-detras-de-la-mascara-2026-10-16-sold-out.jpg` | POP-supplied — NOVA Salud *Detrás de la Máscara* sold-out stamp flyer ([@novapuertoplata](https://www.instagram.com/novapuertoplata/)) | Thu 16 Oct 2026 5 PM (editor-provided; filename bump) |
-| `parada-el-choco-thanksgiving-big-d-2026-11-26.jpg` | POP-supplied — Parada El Choco Thanksgiving / Big D flyer ([@paradaelchoco](https://www.instagram.com/paradaelchoco/)) | Thu 26 Nov 2026 6:30 PM RD$1,650 (editor-provided; typography-heavy) |
+| `parada-el-choco-thanksgiving-big-d-2026-11-26.jpg` | _(cancelled)_ Parada El Choco Thanksgiving Big D — seed removed 26 Nov 2026 | Kept on disk only |
 | `cedaky-mall-feria-numismatica-2026-10-31.jpg` | POP-supplied — Cedāky Mall Feria Numismática del Cibao flyer ([@cedakymall](https://www.instagram.com/cedakymall/)) | 31 Oct–1 Nov 2026 first level (editor-provided; typography-heavy) |
 | `cabarete-run-festival-after-run-2026-11-08.jpg` | POP-supplied — Cabarete Run Festival After Run flyer ([@desarrollo_fitness_cabarete](https://www.instagram.com/desarrollo_fitness_cabarete/)) | Sun 8 Nov 2026 post-5K (editor-provided; typography-heavy) |
 | `fxs-exhibicion-carros-deportivos-2026-10-18.jpg` | POP-supplied — FXS Exhibición de Carros Deportivos flyer ([@fxs_servicioautomotriz](https://www.instagram.com/fxs_servicioautomotriz/)) | Sun 18 Oct 2026 from 2 PM (editor-provided; typography-heavy; event only — no FXS venue seed) |
@@ -768,7 +768,9 @@ Curated images under `public/events/` and `public/venues/`.
 | `camara-nueva-cedula-samir-chami-2026-12-02.jpg` | _(superseded)_ prior crop — replaced by `-v2` | Kept on disk only |
 | `camara-nueva-cedula-samir-chami-2026-12-02-v2.jpg` | POP-supplied — Cámara *Nueva Cédula / Samir Chami Isa* flyer ([@camarapuertoplata](https://www.instagram.com/camarapuertoplata/)) | Wed 2 Dec 2026 5:30 PM (editor-provided; typography-heavy; filename bump) |
 | `ocean-world-terrace-graduation-bash-day-2026-12-04.jpg` | POP-supplied — Ocean World Terrace *Graduation Bash* day flyer ([@oceanworldterrace](https://www.instagram.com/oceanworldterrace/)) | Fri 4 Dec 2026 12–6 PM O&M day (editor-provided; typography-heavy) |
-| `esd-christmas-kids-flea-market-2026-12-05.jpg` | POP-supplied — ESD *Christmas Kids Flea Market* flyer ([@europeanschooldr](https://www.instagram.com/europeanschooldr/)) | Sat 5 Dec 2026 10 AM Bombita (editor-provided; typography-heavy) |
+| `esd-christmas-kids-flea-market-2026-12-05.jpg` | _(superseded)_ prior ESD flea crop — replaced by `-v2` | Kept on disk only |
+| `esd-christmas-kids-flea-market-2026-12-05-v2.jpg` | _(superseded)_ prior ESD flea crop — replaced by `-v3` | Kept on disk only |
+| `esd-christmas-kids-flea-market-2026-12-05-v3.jpg` | POP-supplied — ESD *Christmas Kids Flea Market* flyer ([@europeanschooldr](https://www.instagram.com/europeanschooldr/)) | Sat 5 Dec 2026 10 AM Bombita (editor-provided; typography-heavy; filename bump) |
 | `bellas-artes-muestra-didactica-navidad-2026-12-10.jpg` | POP-supplied — Bellas Artes *Muestra Didáctica Navideña* flyer ([@defaebellasartesrd](https://www.instagram.com/defaebellasartesrd/)) | Wed 10 Dec 2026 5 PM (editor-provided; typography-heavy) |
 | `kite-street-son-de-keka-navidad-2026-12-12.jpg` | POP-supplied — Kite Street *Navidad con El Son de Keka* flyer ([@kitestreetpop](https://www.instagram.com/kitestreetpop/)) | Sat 12 Dec 2026 6 PM (editor-provided; typography-heavy) |
 | `aura-blanco-camilo-taveras-2026-12-19.jpg` | POP-supplied — Aura *BLANCO* Camilo Taveras × North Side flyer | Sat 19 Dec 2026 (editor-provided; typography-heavy) |
@@ -778,6 +780,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `natura-market-holiday-2026-12-20-v2.jpg` | POP-supplied — Natura Cabana *Natura Market! Holiday Edition* flyer ([@naturacabana](https://www.instagram.com/naturacabana/)) | Sun 20 Dec 2026 4–8:30 PM (editor-provided; typography-heavy; filename bump) |
 | `twenty-disco-ladies-night-2026-11-26.jpg` | POP-supplied — Twenty Disco *Ladies Night* flyer ([@twenty_disco_lounge](https://www.instagram.com/twenty_disco_lounge/)) | Thu 26 Nov 2026; Baileys y Midoris gratis para ellas (editor-provided; typography-heavy) |
 | `twenty-disco-friday-junier-lockward-2026-11-27.jpg` | POP-supplied — Twenty Disco *Friday Night / Junier Lockward* flyer ([@twenty_disco_lounge](https://www.instagram.com/twenty_disco_lounge/)) | Fri 27 Nov 2026 (editor-provided; typography-heavy) |
+| `twenty-disco-flashback-2017-2026-11-28.jpg` | POP-supplied — Twenty Disco *FLASHBACK 2017* flyer ([@twenty_disco_lounge](https://www.instagram.com/twenty_disco_lounge/); Soky & DJHON) | Sat 28 Nov 2026 (editor-provided; typography-heavy) |
 | `galerias-padel-oceano-limpio-2026-11-28.jpg` | POP-supplied — Galerías Pádel *Torneo Fundación Océano Limpio* flyer ([@galeriaspadelclub](https://www.instagram.com/galeriaspadelclub/)) | Sat–Sun 28–29 Nov 2026 from 8 AM; RD$6,000 (editor-provided; typography-heavy) |
 | `venues/escuela-bellas-artes-puerto-plata-interior.jpg` | POP-supplied — Bellas Artes Puerto Plata piano classroom interior | Venue place shot (editor-provided) |
 | `venues/green-one-sports-bar-pool.jpg` | POP-supplied — Green One Playa Dorada pool / casa club night | Venue place shot (editor-provided) |
@@ -931,7 +934,8 @@ Curated images under `public/events/` and `public/venues/`.
 | `aventureros-pop-mujeres-al-volante-2026-11-29.jpg` | _(superseded)_ crossed with AfterGlow — fixed via `-v2` | Kept on disk only |
 | `aventureros-pop-mujeres-al-volante-2026-11-29-v2.jpg` | POP-supplied — Aventureros POP *Mujeres al Volante* 4x4 flyer | Sun 29 Nov 2026 8 AM Estadio PP; filename bump after swap fix; typography-heavy |
 | `bazar-alnier-por-siempre-2026-12-05.jpg` | _(superseded)_ prior Alnier crop | Kept on disk only |
-| `bazar-alnier-por-siempre-2026-12-05-v2.jpg` | POP-supplied — *Bazar Alnier Por Siempre* Christmas market flyer | 5–6 Dec 2026 Parque de la Libertad; filename bump; typography-heavy |
+| `bazar-alnier-por-siempre-2026-12-05-v2.jpg` | _(superseded)_ prior Alnier crop — replaced by `-v3` | Kept on disk only |
+| `bazar-alnier-por-siempre-2026-12-05-v3.jpg` | POP-supplied — *Bazar Alnier Por Siempre* Christmas market flyer | 5–6 Dec 2026 Parque de la Libertad; filename bump; typography-heavy |
 | `toscana-nightclub-dj-joel-2026-12-06.jpg` | POP-supplied — Toscana *DJ Joel 80s/90s* flyer ([@toscana_nightclub](https://www.instagram.com/toscana_nightclub/)) | Sun 6 Dec 2026; editor-provided; typography-heavy |
 | `disco-club-la-fucking-vibra-2-2026-12-15.jpg` | POP-supplied — Happy Tour *La Fucking Vibra 2* flyer ([@happytour02](https://www.instagram.com/happytour02/)) | Mon 15 Dec 2026 Latin Disco; editor-provided; typography-heavy |
 | `twenty-disco-afterglow-birthday-2026-12-27.jpg` | _(superseded)_ crossed with Mujeres — fixed via `-v2` | Kept on disk only |

@@ -30,7 +30,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "aventureros-pop-mujeres-al-volante-2026-11-29":
     "aventureros-pop-mujeres-al-volante-2026-11-29-v2.jpg",
   "bazar-alnier-por-siempre-2026-12-05":
-    "bazar-alnier-por-siempre-2026-12-05-v2.jpg",
+    "bazar-alnier-por-siempre-2026-12-05-v3.jpg",
   "toscana-nightclub-dj-joel-2026-12-06":
     "toscana-nightclub-dj-joel-2026-12-06.jpg",
   "disco-club-la-fucking-vibra-2-2026-12-15":
@@ -61,7 +61,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "ocean-world-terrace-graduation-bash-day-2026-12-04":
     "ocean-world-terrace-graduation-bash-day-2026-12-04.jpg",
   "esd-christmas-kids-flea-market-2026-12-05":
-    "esd-christmas-kids-flea-market-2026-12-05.jpg",
+    "esd-christmas-kids-flea-market-2026-12-05-v3.jpg",
   "bellas-artes-muestra-didactica-navidad-2026-12-10":
     "bellas-artes-muestra-didactica-navidad-2026-12-10.jpg",
   "kite-street-son-de-keka-navidad-2026-12-12":
@@ -321,6 +321,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "twenty-disco-ladies-night-2026-11-26.jpg",
   "twenty-disco-friday-junier-lockward-2026-11-27":
     "twenty-disco-friday-junier-lockward-2026-11-27.jpg",
+  "twenty-disco-flashback-2017-2026-11-28":
+    "twenty-disco-flashback-2017-2026-11-28.jpg",
   "fortaleza-san-felipe-encendido-luces-azules-2026-11-13":
     "fortaleza-san-felipe-encendido-luces-azules-2026-11-13.jpg",
   "spotland-fit-fusion-night-volumen-2-2026-11-18":
@@ -779,8 +781,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "fxs-exhibicion-carros-deportivos-2026-10-18.jpg",
   "cafe-meclao-rancho-catalina-2026-10-18":
     "cafe-meclao-rancho-catalina-2026-10-18.jpg",
-  "parada-el-choco-thanksgiving-big-d-2026-11-26":
-    "parada-el-choco-thanksgiving-big-d-2026-11-26.jpg",
   "cedaky-mall-feria-numismatica-2026-10-31":
     "cedaky-mall-feria-numismatica-2026-10-31.jpg",
   "cabarete-run-festival-after-run-2026-11-08":
@@ -1421,6 +1421,7 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "twenty-disco-friday-lirol-j-2026-11-13": "object-center",
   "twenty-disco-ladies-night-2026-11-26": "object-center",
   "twenty-disco-friday-junier-lockward-2026-11-27": "object-center",
+  "twenty-disco-flashback-2017-2026-11-28": "object-center",
   "galerias-padel-oceano-limpio-2026-11-28": "object-center",
   "fortaleza-san-felipe-encendido-luces-azules-2026-11-13": "object-center",
   "spotland-fit-fusion-night-volumen-2-2026-11-18": "object-center",
@@ -1795,6 +1796,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "grounds-bazar-navideno-2026-12-05.jpg",
   "aventureros-pop-mujeres-al-volante-2026-11-29-v2.jpg",
   "bazar-alnier-por-siempre-2026-12-05-v2.jpg",
+  "bazar-alnier-por-siempre-2026-12-05-v3.jpg",
   "toscana-nightclub-dj-joel-2026-12-06.jpg",
   "disco-club-la-fucking-vibra-2-2026-12-15.jpg",
   "twenty-disco-afterglow-birthday-2026-12-27-v2.jpg",
@@ -1863,6 +1865,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "camara-nueva-cedula-samir-chami-2026-12-02-v2.jpg",
   "ocean-world-terrace-graduation-bash-day-2026-12-04.jpg",
   "esd-christmas-kids-flea-market-2026-12-05.jpg",
+  "esd-christmas-kids-flea-market-2026-12-05-v2.jpg",
+  "esd-christmas-kids-flea-market-2026-12-05-v3.jpg",
   "bellas-artes-muestra-didactica-navidad-2026-12-10.jpg",
   "kite-street-son-de-keka-navidad-2026-12-12.jpg",
   "aura-blanco-camilo-taveras-2026-12-19.jpg",
@@ -1939,6 +1943,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "twenty-disco-friday-lirol-j-2026-11-13.jpg",
   "twenty-disco-ladies-night-2026-11-26.jpg",
   "twenty-disco-friday-junier-lockward-2026-11-27.jpg",
+  "twenty-disco-flashback-2017-2026-11-28.jpg",
   "fortaleza-san-felipe-encendido-luces-azules-2026-11-13.jpg",
   "spotland-fit-fusion-night-volumen-2-2026-11-18.jpg",
   "leos-banana-fiesta-blanca-2026-11-27.jpg",
@@ -2219,7 +2224,6 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "cedaky-mall-nutricion-pequenos-gigantes-2026-10-17-v2.jpg",
   "fxs-exhibicion-carros-deportivos-2026-10-18.jpg",
   "cafe-meclao-rancho-catalina-2026-10-18.jpg",
-  "parada-el-choco-thanksgiving-big-d-2026-11-26.jpg",
   "cedaky-mall-feria-numismatica-2026-10-31.jpg",
   "cabarete-run-festival-after-run-2026-11-08.jpg",
   "ambar-lounge-gaby-luna-2026-10-03.jpg",
@@ -2339,7 +2343,6 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "cedaky-mall-nutricion-pequenos-gigantes-2026-10-17-v2.jpg",
   "fxs-exhibicion-carros-deportivos-2026-10-18.jpg",
   "cafe-meclao-rancho-catalina-2026-10-18.jpg",
-  "parada-el-choco-thanksgiving-big-d-2026-11-26.jpg",
   "cedaky-mall-feria-numismatica-2026-10-31.jpg",
   "cabarete-run-festival-after-run-2026-11-08.jpg",
   "aura-after-dark-carlos-rivera-2026-10-10.jpg",

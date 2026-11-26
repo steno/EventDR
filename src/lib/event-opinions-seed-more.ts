@@ -5492,24 +5492,6 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-10-13T23:45:00.000Z",
   },
   {
-    eventId: "parada-el-choco-thanksgiving-big-d-2026-11-26",
-    body: "Ticketed Thanksgiving dinner with Big D on the Sosúa–Cabarete corridor — RD$1,650 and WhatsApp RSVP, not the free Tuesday aperitivo BandItalia nights. Book the table early if you’re sending guests for a holiday sit-down.",
-    localized: {
-      es: "Cena de Thanksgiving con boleto y Big D en la carretera Sosúa–Cabarete — RD$1,650 y RSVP por WhatsApp, no las noches gratis de aperitivo BandItalia de los martes. Reserva mesa temprano si mandas gente a una cena festiva sentada.",
-      fr: "Dîner Thanksgiving billeté avec Big D sur la route Sosúa–Cabarete — RD$1 650 et RSVP WhatsApp, pas les apéritivos gratuits BandItalia du mardi. Réservez tôt si vous envoyez des hôtes pour un dîner de fête assis.",
-    },
-    priceFeel: "upscale",
-    priceNote: "RD$1,650 p/p — WhatsApp +1 809-804-2510 / @paradaelchoco",
-    priceNoteLocalized: {
-      es: "RD$1,650 p/p — WhatsApp +1 809-804-2510 / @paradaelchoco",
-      fr: "RD$1 650 p/p — WhatsApp +1 809-804-2510 / @paradaelchoco",
-    },
-    attribution: "POP research · @paradaelchoco Thanksgiving flyer",
-    researchNotes:
-      "Editor flyer — Thu 26 Nov 2026 6:30 PM Thanksgiving Celebration, Big D (Dooner), RD$1,650 p/p, WA +1 809 804 2510, Parada El Choco’s.",
-    updatedAt: "2026-10-14T23:00:00.000Z",
-  },
-  {
     eventId: "cedaky-mall-feria-numismatica-2026-10-31",
     body: "Two-day coin-and-bill fair on the mall first level — family daytime hours (Sat to 7:30 PM, Sun to 6:00 PM), not a nightlife deck and not the solidarity stand earlier in October. Ideal if guests want a collector plan without a ticket gate.",
     localized: {
@@ -6506,7 +6488,7 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · @paradaelchoco Big D aperitivo flyer",
     researchNotes:
-      "Editor flyer — Tue 27 Oct 2026 5–7 PM APERITIVO Big D (Dooner) LIVE, free finger food, WA +1 809 804 2510, Plaza Buen Gusto. Distinct from parada-el-choco-thanksgiving-big-d-2026-11-26.",
+      "Editor flyer — Tue 27 Oct 2026 5–7 PM APERITIVO Big D (Dooner) LIVE, free finger food, WA +1 809 804 2510, Plaza Buen Gusto. (Thanksgiving Big D 26 Nov listing cancelled.)",
     updatedAt: "2026-10-22T18:00:00.000Z",
   },
   {
@@ -9943,10 +9925,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "leos-banana-enrico-music-live-2026-11-26",
-    body: "Thursday 5:30 PM Enrico Music Live on Sosúa Bay at Leo's — food-and-drinks terrace set, cover TBA so WhatsApp +1 829-993-4071; not Parada El Choco’s Thanksgiving Big D the same night, and not Fiesta Blanca the next evening.",
+    body: "Thursday 5:30 PM Enrico Music Live on Sosúa Bay at Leo's — food-and-drinks terrace set, cover TBA so WhatsApp +1 829-993-4071; not Fiesta Blanca the next evening.",
     localized: {
-      es: "Jueves 5:30 PM Enrico Music Live en Bahía de Sosúa en Leo's — set de terraza con comida y drinks, cover por confirmar vía WhatsApp +1 829-993-4071; no es el Thanksgiving Big D de Parada El Choco esa misma noche, ni la Fiesta Blanca al día siguiente.",
-      fr: "Jeudi 17 h 30 Enrico Music Live sur la baie de Sosúa chez Leo’s — set terrasse food & drinks, cover à confirmer via WhatsApp +1 829-993-4071 ; pas le Thanksgiving Big D de Parada El Choco le même soir, ni la Fiesta Blanca le lendemain.",
+      es: "Jueves 5:30 PM Enrico Music Live en Bahía de Sosúa en Leo's — set de terraza con comida y drinks, cover por confirmar vía WhatsApp +1 829-993-4071; no es la Fiesta Blanca al día siguiente.",
+      fr: "Jeudi 17 h 30 Enrico Music Live sur la baie de Sosúa chez Leo’s — set terrasse food & drinks, cover à confirmer via WhatsApp +1 829-993-4071 ; pas la Fiesta Blanca le lendemain.",
     },
     priceFeel: "varies",
     priceNote:
@@ -10281,10 +10263,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "parada-choco-enrico-aperitivo-2026-11-24",
-    body: "Tuesday Enrico LIVE aperitivo at Parada Choco opposite Ocean Village — free finger food 5–7 PM, RSVP 809-804-2510; not the BandItalia Tuesdays and not Thursday’s ticketed Big D Thanksgiving dinner.",
+    body: "Tuesday Enrico LIVE aperitivo at Parada Choco opposite Ocean Village — free finger food 5–7 PM, RSVP 809-804-2510; not the BandItalia Tuesdays.",
     localized: {
-      es: "Aperitivo de martes con Enrico LIVE en Parada Choco frente a Ocean Village — finger food gratis 5–7 PM, RSVP 809-804-2510; no son los martes BandItalia ni la cena Thanksgiving Big D del jueves.",
-      fr: "Aperitivo du mardi avec Enrico LIVE à Parada Choco face à Ocean Village — finger food gratuit 17 h–19 h, RSVP 809-804-2510 ; pas les mardis BandItalia ni le dîner Thanksgiving Big D du jeudi.",
+      es: "Aperitivo de martes con Enrico LIVE en Parada Choco frente a Ocean Village — finger food gratis 5–7 PM, RSVP 809-804-2510; no son los martes BandItalia.",
+      fr: "Aperitivo du mardi avec Enrico LIVE à Parada Choco face à Ocean Village — finger food gratuit 17 h–19 h, RSVP 809-804-2510 ; pas les mardis BandItalia.",
     },
     priceFeel: "free",
     priceNote: "Free finger food · RSVP +1 809-804-2510",
@@ -10317,10 +10299,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "natura-cabana-thanksgiving-josh-sax-2026-11-26",
-    body: "Thanksgiving dinner with Josh on sax at Natura Restaurant from 6 PM — book +1 849-214-7010; same Thursday as Parada El Choco’s Big D dinner and Leo’s Banana Enrico, so pick your table early.",
+    body: "Thanksgiving dinner with Josh on sax at Natura Restaurant from 6 PM — book +1 849-214-7010; same Thursday as Leo’s Banana Enrico, so pick your table early.",
     localized: {
-      es: "Cena Thanksgiving con Josh al sax en Natura Restaurant desde las 6 PM — reserva +1 849-214-7010; el mismo jueves que Big D en Parada El Choco y Enrico en Leo’s Banana, así que aparta mesa temprano.",
-      fr: "Dîner Thanksgiving avec Josh au sax au Natura Restaurant dès 18 h — réservez +1 849-214-7010 ; même jeudi que Big D à Parada El Choco et Enrico au Leo’s Banana, donc réservez tôt.",
+      es: "Cena Thanksgiving con Josh al sax en Natura Restaurant desde las 6 PM — reserva +1 849-214-7010; el mismo jueves que Enrico en Leo’s Banana, así que aparta mesa temprano.",
+      fr: "Dîner Thanksgiving avec Josh au sax au Natura Restaurant dès 18 h — réservez +1 849-214-7010 ; même jeudi qu’Enrico au Leo’s Banana, donc réservez tôt.",
     },
     priceFeel: "upscale",
     priceNote: "Reservations from 6 PM — +1 849-214-7010 · naturacabana.com",
@@ -10837,6 +10819,24 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer — Vie 27 Nov 2026; FRIDAY night; LIVE PERFORMANCE JUNIER LOCKWARD; Playa Dorada Mall. No cover/start on art. Same Fri as latin-disco-white-party-flaco-mc.",
     updatedAt: "2026-11-25T21:15:00.000Z",
+  },
+  {
+    eventId: "twenty-disco-flashback-2017-2026-11-28",
+    body: "Saturday FLASHBACK 2017 at Playa Dorada Mall with Soky & DJHON — throwback set after Friday’s Junier Lockward night; cover isn’t on the flyer, so pin @twenty_disco_lounge before you treat the mall door as walk-in free.",
+    localized: {
+      es: "Sábado FLASHBACK 2017 en Playa Dorada Mall con Soky y DJHON — set throwback después del viernes de Junier Lockward; el cover no está en el flyer, así que pin @twenty_disco_lounge antes de tratar la puerta del mall como walk-in gratis.",
+      fr: "Samedi FLASHBACK 2017 à Playa Dorada Mall avec Soky & DJHON — set throwback après le vendredi Junier Lockward ; le cover n’est pas sur l’affiche, donc épinglez @twenty_disco_lounge avant de traiter la porte mall comme walk-in gratuit.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — @twenty_disco_lounge · @djsoky @djhxnparra",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — @twenty_disco_lounge · @djsoky @djhxnparra",
+      fr: "Cover à confirmer — @twenty_disco_lounge · @djsoky @djhxnparra",
+    },
+    attribution: "POP research · FLASHBACK 2017 flyer + IG caption (Soky & DJHON)",
+    researchNotes:
+      "Editor flyer + IG caption @ruddydelossantos_ / @twenty_disco_lounge — Sáb 28 Nov 2026; FLASHBACK 2017; LIVE PERFORMANCE SOKY & DJHON; Playa Dorada Mall. Handles @djsoky @djhxnparra. No cover/start on art. Theme year 2017, event year 2026.",
+    updatedAt: "2026-11-26T15:00:00.000Z",
   },
   {
     eventId: "galerias-padel-oceano-limpio-2026-11-28",
