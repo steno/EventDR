@@ -2608,6 +2608,7 @@ export const SEED_VENUES: Venue[] = [
     lat: 19.818,
     lng: -71.056,
     emoji: "🍾",
+    instagram: "serie121liquorstore",
   },
   {
     slug: "escuela-bellas-artes-puerto-plata",

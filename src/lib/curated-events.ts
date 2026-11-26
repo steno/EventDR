@@ -1341,6 +1341,11 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "twenty-disco-lounge",
     sourceUrl: "https://www.instagram.com/twenty_disco_lounge/",
   },
+  "serie-121-sabado-exclusivo-dj-mago-2026-11-28": {
+    callForPricing: true,
+    venueSlug: "serie-121-villa-isabela",
+    sourceUrl: "https://www.instagram.com/serie121liquorstore/",
+  },
   "fortaleza-san-felipe-encendido-luces-azules-2026-11-13": {
     isFree: true,
     venueSlug: "fortaleza-san-felipe",

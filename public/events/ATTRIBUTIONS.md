@@ -930,6 +930,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `team-animal-aguinaldo-5k-2026-11-28-v2.jpg` | POP-supplied — Team Animal *Aguinaldo Navideño 5K* flyer | Sat 28 Nov 2026 5:30 AM Plaza Charamicos; filename bump; typography-heavy |
 | `serie-121-viernes-descontrol-2026-11-27.jpg` | _(superseded)_ prior Descontrol crop | Kept on disk only |
 | `serie-121-viernes-descontrol-2026-11-27-v2.jpg` | POP-supplied — Serie 121 *Viernes de Descontrol* DJ Franky flyer | Fri 27 Nov 2026 Villa Isabela; filename bump; typography-heavy |
+| `serie-121-sabado-exclusivo-dj-mago-2026-11-28.jpg` | POP-supplied — Serie 121 *Sábado Exclusivo* DJ Mago flyer ([@serie121liquorstore](https://www.instagram.com/serie121liquorstore/)) | Sat 28 Nov 2026 Villa Isabela; typography-heavy |
 | `grounds-mahjong-101-2026-11-27.jpg` | POP-supplied — Always Mahj × The Grounds *Mahjong 101* flyer ([@the.grounds.dr](https://www.instagram.com/the.grounds.dr/)) | Fri 27 Nov 2026 5:30 PM; editor-provided; typography-heavy |
 | `aventureros-pop-mujeres-al-volante-2026-11-29.jpg` | _(superseded)_ crossed with AfterGlow — fixed via `-v2` | Kept on disk only |
 | `aventureros-pop-mujeres-al-volante-2026-11-29-v2.jpg` | POP-supplied — Aventureros POP *Mujeres al Volante* 4x4 flyer | Sun 29 Nov 2026 8 AM Estadio PP; filename bump after swap fix; typography-heavy |

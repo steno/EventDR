@@ -574,6 +574,8 @@ const FILE_TO_EVENT_ID = {
     "serie-121-viernes-descontrol-2026-11-27",
   "serie-121-viernes-descontrol-2026-11-27-v2.jpg":
     "serie-121-viernes-descontrol-2026-11-27",
+  "serie-121-sabado-exclusivo-dj-mago-2026-11-28.jpg":
+    "serie-121-sabado-exclusivo-dj-mago-2026-11-28",
   "grounds-mahjong-101-2026-11-27.jpg": "grounds-mahjong-101-2026-11-27",
   "grounds-mahjong-101-2026-11-27-v2.jpg": "grounds-mahjong-101-2026-11-27",
   "grounds-bazar-navideno-2026-12-05.jpg":

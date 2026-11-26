@@ -10370,6 +10370,24 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-11-24T14:30:00.000Z",
   },
   {
+    eventId: "serie-121-sabado-exclusivo-dj-mago-2026-11-28",
+    body: "Villa Isabela liquor-store Saturday with DJ Mago and the same RD$100/150 bottle promos as Friday’s Descontrol — west-of-city local night after Franky’s bill; pin @serie121liquorstore before you Uber from the coast.",
+    localized: {
+      es: "Sábado de licorería en Villa Isabela con DJ Mago y las mismas promos de botella RD$100/150 que el Descontrol del viernes — noche local al oeste de la ciudad después de Franky; clava @serie121liquorstore antes del Uber desde la costa.",
+      fr: "Samedi liquor store à Villa Isabela avec DJ Mago et les mêmes promos bouteilles RD$100/150 que le Descontrol du vendredi — soirée locale à l’ouest après Franky ; épinglez @serie121liquorstore avant l’Uber depuis la côte.",
+    },
+    priceFeel: "budget",
+    priceNote: "Pequeña RD$100 · Mediana RD$150 while supplies last · @serie121liquorstore",
+    priceNoteLocalized: {
+      es: "Pequeña RD$100 · Mediana RD$150 hasta agotar · @serie121liquorstore",
+      fr: "Pequeña RD$100 · Mediana RD$150 jusqu’à épuisement · @serie121liquorstore",
+    },
+    attribution: "POP research · Serie 121 Sábado Exclusivo DJ Mago flyer + IG",
+    researchNotes:
+      "Editor flyer + IG @serie121liquorstore — Sáb 28 Nov 2026; SÁBADO EXCLUSIVO DJ MAGO; Villa Isabela; pequeña 100 / mediana 150. Distinct from serie-121-viernes-descontrol-2026-11-27.",
+    updatedAt: "2026-11-26T16:00:00.000Z",
+  },
+  {
     eventId: "grounds-mahjong-101-2026-11-27",
     body: "5:30 PM Mahjong 101 at The Grounds on Carretera Montellano — beginner workshop with snacks and a printed guide, limited seats on 829-678-2574; café tables inland, not Serie 121’s Villa Isabela party the same evening.",
     localized: {

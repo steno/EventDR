@@ -23,6 +23,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "team-animal-aguinaldo-5k-2026-11-28-v2.jpg",
   "serie-121-viernes-descontrol-2026-11-27":
     "serie-121-viernes-descontrol-2026-11-27-v2.jpg",
+  "serie-121-sabado-exclusivo-dj-mago-2026-11-28":
+    "serie-121-sabado-exclusivo-dj-mago-2026-11-28.jpg",
   "grounds-mahjong-101-2026-11-27":
     "grounds-mahjong-101-2026-11-27-v2.jpg",
   "grounds-bazar-navideno-2026-12-05":
@@ -1792,6 +1794,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "hendry-fit-boxeo-puntilla-fridays.jpg",
   "team-animal-aguinaldo-5k-2026-11-28-v2.jpg",
   "serie-121-viernes-descontrol-2026-11-27-v2.jpg",
+  "serie-121-sabado-exclusivo-dj-mago-2026-11-28.jpg",
   "grounds-mahjong-101-2026-11-27-v2.jpg",
   "grounds-bazar-navideno-2026-12-05.jpg",
   "aventureros-pop-mujeres-al-volante-2026-11-29-v2.jpg",

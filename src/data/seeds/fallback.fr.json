@@ -13877,5 +13877,34 @@
     "imageEmoji": "⏪",
     "title": "Twenty Disco Flashback 2017 — 28 nov",
     "description": "FLASHBACK 2017 avec Soky & DJHON au Twenty Disco & Lounge, Playa Dorada Mall, Puerto Plata — samedi 28 novembre 2026. Set throwback 2017 — pas le vendredi Junier Lockward au Twenty la veille, ni Galactic Nights avec DJ Christoo à Aura Cabarete le même samedi. Confirmez cover et portes sur Instagram @twenty_disco_lounge · DJs @djsoky @djhxnparra."
+  },
+  {
+    "id": "serie-121-sabado-exclusivo-dj-mago-2026-11-28",
+    "date": "2026-11-28",
+    "location": "Villa Isabela",
+    "venue": "Serie 121 Liquor Store",
+    "venueSlug": "serie-121-villa-isabela",
+    "address": "Villa Isabela, Puerto Plata",
+    "lat": 19.818,
+    "lng": -71.056,
+    "category": "parties",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/serie121liquorstore/",
+    "instagram": "serie121liquorstore",
+    "lineup": [
+      "DJ Mago",
+      "Sábado Exclusivo",
+      "Pequeña RD$100 · Mediana RD$150"
+    ],
+    "imageEmoji": "🍾",
+    "title": "Serie 121 — Sábado Exclusivo DJ Mago · 28 nov",
+    "description": "Sábado Exclusivo avec DJ Mago chez Serie 121 Liquor Store, Villa Isabela — samedi 28 novembre 2026. Promos flyer : pequeña RD$100 / mediana RD$150 jusqu’à épuisement. Samedi liquor store à Villa Isabela — pas le Viernes de Descontrol avec DJ Franky la veille, ni la White Party du Latin Disco Club en ville. Confirmez les portes via Instagram @serie121liquorstore / crédit Robert Films."
   }
 ]
