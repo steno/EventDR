@@ -159,15 +159,17 @@ img.no-photo-filter {
   }
 }
 
-/* Soft Ken Burns on card photos — fine-pointer hover only (Dexter-style). */
+/* Soft Ken Burns on card photos — fine-pointer hover only (Dexter-style).
+   Do not leave will-change on at rest: promoted layers + sticky day chrome
+   make Safari/Chrome discard lazy/eager bitmaps on dense All-tab Fri/Sat grids. */
 @media (prefers-reduced-motion: no-preference) {
   .card-media-zoom {
     transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: transform;
   }
 
   @media (hover: hover) and (pointer: fine) {
     .group:hover .card-media-zoom {
+      will-change: transform;
       transform: scale(1.05);
     }
   }
