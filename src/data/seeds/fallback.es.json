@@ -13824,5 +13824,191 @@
     "imageEmoji": "🍾",
     "title": "Serie 121 — Sábado Exclusivo DJ Mago · 28 nov",
     "description": "Sábado Exclusivo con DJ Mago en Serie 121 Liquor Store, Villa Isabela — sábado 28 de noviembre 2026. Promos del flyer: pequeña RD$100 / mediana RD$150 hasta agotar existencias. Sábado de licorería en Villa Isabela — no es el Viernes de Descontrol con DJ Franky la noche anterior, ni la White Party de Latin Disco Club en la ciudad. Confirma puertas en Instagram @serie121liquorstore / crédito Robert Films."
+  },
+  {
+    "id": "lokuras-pop-caballitos-padre-jr-2026-12-06",
+    "title": "Lokura's Pop — El Caballito Padre & Jr · 6 dic",
+    "description": "El Caballito de Mao y El Caballito Jr (El Padre & El Jr) en vivo en Lokura's Pop Bar Café, Calle Profesor Juan Bosch #11 cerca de la Junta Central Electoral, Puerto Plata — domingo 6 de diciembre 2026 desde las 6:00 PM. Entrada totalmente gratis; 2x1 en el cartel. Noche de típico/acordeón en el centro — no es Caballitos en Twenty Disco, ni en Grand Prix, ni el karaoke de viernes en Lokura's. Confirma en Instagram @lokuraspop.",
+    "date": "2026-12-06",
+    "time": "6:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Lokura's Pop Bar Café",
+    "venueSlug": "lokuras-pop",
+    "address": "Calle Profesor Juan Bosch #11, cerca de la Junta Central Electoral, Puerto Plata 57000",
+    "lat": 19.79875,
+    "lng": -70.69395,
+    "category": "music",
+    "categories": [
+      "performances",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "instagram": "lokuraspop",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/lokuraspop/",
+    "lineup": [
+      "El Caballito de Mao",
+      "El Caballito Jr",
+      "El Padre & El Jr",
+      "Fiesta típica gratis"
+    ],
+    "imageEmoji": "🪗"
+  },
+  {
+    "id": "cab-skateboarding-mini-ramp-jam-2026-12-12",
+    "title": "CAB Skateboarding Mini Ramp Jam — Encuentro · 12 dic",
+    "description": "Mini Ramp Jam + demo de skateboarding por CAB. Skateboarding en Playa Encuentro, Cabarete — sábado 12 de diciembre 2026 a las 4:00 PM, como parte de la semana Hard Rock Dominican Surf Festival. Música, skate y playa. Confirma en Instagram @cabareteskateboarding · @dominicansurffestival. Día de mini-ramp en Encuentro el sábado — no es el Surfskate Fest de Parallel Surf del viernes 11 dic, ni solo los heats de ola del DSF.",
+    "date": "2026-12-12",
+    "time": "4:00 PM",
+    "location": "Cabarete",
+    "venue": "Playa Encuentro",
+    "venueSlug": "playa-encuentro",
+    "address": "Playa Encuentro, Cabarete",
+    "lat": 19.7834465,
+    "lng": -70.4516521,
+    "category": "sports",
+    "categories": [
+      "festivals"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/cabareteskateboarding/",
+    "instagram": "cabareteskateboarding",
+    "lineup": [
+      "Mini Ramp Jam",
+      "Demo de skate — CAB. Skateboarding",
+      "Hard Rock Dominican Surf Festival"
+    ],
+    "imageEmoji": "🛹",
+    "photoTags": [
+      "cabareteskateboarding",
+      "dominicansurffestival"
+    ]
+  },
+  {
+    "id": "mi-campito-rebels-gran-party-navideno-2026-12-27",
+    "title": "Mi Campito — REBELS Gran Party Navideño · 27 dic",
+    "description": "Gran Party Navideño con DJ Flow, invitado por La Promo REBELS, en Mi Campito Bar & Piscina en Vista Alegre, Navas, Puerto Plata — domingo 27 de diciembre 2026. Cover RD$100. Fiesta navideña inland con piscina al oeste de Puerto Plata ciudad — no es Afterglow de Twenty Disco el mismo día en Playa Dorada Mall, ni un pin del Malecón. Confirma al +1 849-485-4027 · Instagram @micampitobar.",
+    "date": "2026-12-27",
+    "location": "Puerto Plata",
+    "venue": "Mi Campito Bar & Piscina",
+    "venueSlug": "mi-campito-bar-piscina",
+    "address": "Vista Alegre, Navas, Puerto Plata",
+    "lat": 19.722862,
+    "lng": -70.962864,
+    "phone": "+18494854027",
+    "category": "christmas",
+    "categories": [
+      "parties",
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "admissionPrice": "RD$100",
+    "instagram": "micampitobar",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/micampitobar/",
+    "lineup": [
+      "DJ Flow",
+      "La Promo REBELS",
+      "Gran Party Navideño"
+    ],
+    "imageEmoji": "🎄"
+  },
+  {
+    "id": "voyvoy-saturday-session-2026-11-28",
+    "title": "VOYVOY Saturday Session — Paolucci, De la Cruz y Burgos · 28 nov",
+    "description": "Saturday Session en VOYVOY Cabarete el sábado 28 de noviembre 2026 — Fabrizio Paolucci, Luis de la Cruz y Bryant Burgos. La hora de inicio no está en el flyer; energía de baile frente a la bahía hasta tarde (abierto hasta las 3:00 AM los sábados). Instagram @voyvoybar · +1 809-571-0805. No es el cartel del 21 de noviembre con Robert Heyaime / ROM / Burgos, ni Flashback 2017 de Twenty Disco el mismo sábado en Playa Dorada Mall.",
+    "date": "2026-11-28",
+    "time": "Until 3:00 AM",
+    "location": "Cabarete",
+    "venue": "VOYVOY Cabarete",
+    "venueSlug": "voyvoy-cabarete",
+    "lat": 19.7502161,
+    "lng": -70.4066784,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18095710805",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/voyvoybar/",
+    "instagram": "voyvoybar",
+    "lineup": [
+      "Fabrizio Paolucci",
+      "Luis de la Cruz",
+      "Bryant Burgos"
+    ],
+    "imageEmoji": "🪩"
+  },
+  {
+    "id": "rancho-catalina-navidad-daniel-galan-cafe-colao-2026-12-25",
+    "title": "Rancho La Catalina — Navidad con Daniel Galán y Café Colao · 25 dic",
+    "description": "Navidad al ritmo de música en vivo con Daniel Galán y Café Colao en Rancho La Catalina Restaurant, El Cupey, Puerto Plata — jueves 25 de diciembre 2026 a las 3:00 PM. Sin cover. Set navideño en el campo — no es el Reggaeton La Residencia de Ambar Lounge el mismo día en el centro, ni el Gran Party REBELS de Mi Campito dos días después. Reservas +1 809-781-3737 · Instagram @rancholacatalina.",
+    "date": "2026-12-25",
+    "time": "3:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Rancho La Catalina",
+    "venueSlug": "rancho-catalina-puerto-plata",
+    "address": "El Cupey, Puerto Plata",
+    "lat": 19.7371866,
+    "lng": -70.7253286,
+    "phone": "+18097813737",
+    "category": "christmas",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "instagram": "rancholacatalina",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/rancholacatalina/",
+    "lineup": [
+      "Daniel Galán",
+      "Café Colao",
+      "Navidad · música en vivo"
+    ],
+    "imageEmoji": "🎄"
+  },
+  {
+    "id": "renovacion-concurso-por-nuestro-pais-2027",
+    "title": "Renovación — Concurso Por Nuestro País Primero 2027",
+    "description": "47ª edición del concurso literario «Por Nuestro País Primero» para escritores dominicanos en el país y el exterior — poesía, cuento y ensayo, categoría Adultos. Recepción de trabajos: jueves 26 de noviembre 2026 hasta el domingo 28 de febrero 2027 a las 5:00 PM. Entrega en Sociedad Cultural Renovación, Calle Duarte núm. 41, San Felipe de Puerto Plata. Premios únicos RD$100,000 más certificado en poesía y cuento. Bases del concurso vía Instagram @screnovacion · +1 809-586-6240 · screnovacion.org. Ventana de recepción literaria — no es una noche con boleto en el Salón Brugal.",
+    "date": "2026-11-26",
+    "endDate": "2027-02-28",
+    "time": "Hasta las 5:00 PM (fecha límite)",
+    "location": "Puerto Plata",
+    "venue": "Sociedad Cultural Renovación",
+    "venueSlug": "sociedad-cultural-renovacion",
+    "address": "Calle Duarte núm. 41, San Felipe de Puerto Plata",
+    "lat": 19.797728,
+    "lng": -70.694135,
+    "phone": "+18095866240",
+    "category": "culture",
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "instagram": "screnovacion",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/screnovacion/",
+    "website": "https://www.screnovacion.org/",
+    "lineup": [
+      "Poesía",
+      "Cuento",
+      "Ensayo",
+      "Categoría Adultos",
+      "47ª edición"
+    ],
+    "imageEmoji": "✍️"
   }
 ]

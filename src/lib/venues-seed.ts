@@ -2651,6 +2651,19 @@ export const SEED_VENUES: Venue[] = [
     instagram: "europeanschooldr",
     website: "https://europeanschooldr.com/",
   },
+  {
+    slug: "mi-campito-bar-piscina",
+    name: "Mi Campito Bar & Piscina",
+    city: "Puerto Plata",
+    description:
+      "Open-air bar and pool hangout in Vista Alegre, Navas (inland west of Puerto Plata city toward Los Hidalgos / Guananico) — covered pavilion nights, string lights, and Sabores del Alma cafeteria by Mi Campito. Phone / WhatsApp +1 849-485-4027 · Instagram @micampitobar.",
+    // Places — Vista Alegre, mi campito bar (phone match).
+    lat: 19.722862,
+    lng: -70.962864,
+    emoji: "🏊",
+    phone: "+18494854027",
+    instagram: "micampitobar",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
@@ -3323,6 +3336,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /esd\s*european\s*school|european\s*school(\s*(dr|cabarete|bombita))?|europeanschooldr/i,
     slug: "esd-european-school-bombita",
+  },
+  {
+    pattern:
+      /mi\s*campito(\s*bar)?(\s*(&|y|and)?\s*piscina)?|micampitobar|sabores\s*del\s*alma/i,
+    slug: "mi-campito-bar-piscina",
   },
 ];
 

@@ -1318,6 +1318,19 @@ const FILE_TO_VENUE_SLUG = {
     "meclao-sabado-latino-dj-choco-2026-11-21",
   "surfskate-fest-encuentro-2026-12-11.jpg":
     "surfskate-fest-encuentro-2026-12-11",
+  "cab-skateboarding-mini-ramp-jam-2026-12-12.jpg":
+    "cab-skateboarding-mini-ramp-jam-2026-12-12",
+  "lokuras-pop-caballitos-padre-jr-2026-12-06.jpg":
+    "lokuras-pop-caballitos-padre-jr-2026-12-06",
+  "mi-campito-rebels-gran-party-navideno-2026-12-27.jpg":
+    "mi-campito-rebels-gran-party-navideno-2026-12-27",
+  "mi-campito-bar-piscina.jpg": "mi-campito-bar-piscina",
+  "voyvoy-saturday-session-2026-11-28.jpg":
+    "voyvoy-saturday-session-2026-11-28",
+  "rancho-catalina-navidad-daniel-galan-cafe-colao-2026-12-25.jpg":
+    "rancho-catalina-navidad-daniel-galan-cafe-colao-2026-12-25",
+  "renovacion-concurso-por-nuestro-pais-2027.jpg":
+    "renovacion-concurso-por-nuestro-pais-2027",
   "estudio-crea-cabarete-lounge.jpg": "estudio-crea-cabarete",
   "estudio-crea-cabarete-lounge-v2.jpg": "estudio-crea-cabarete",
   "estudio-crea-cabarete-lounge-v3.jpg": "estudio-crea-cabarete",

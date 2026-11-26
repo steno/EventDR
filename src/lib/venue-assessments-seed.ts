@@ -2332,6 +2332,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
       { key: "easy_to_find", sentiment: "mixed" },
     ],
   }),
+  editorial({
+    venueSlug: "mi-campito-bar-piscina",
+    verdictKey: "strong_local_nightlife",
+    crowdFit: ["local", "nightlife", "mixed"],
+    axes: { recommend: 3.9, atmosphere: 4.0, value: 4.2, practical: 3.4 },
+    themes: [
+      { key: "live_music", sentiment: "positive" },
+      { key: "easy_to_find", sentiment: "mixed", audience: "visitor" },
+      { key: "busy_weekends", sentiment: "mixed" },
+    ],
+  }),
 ];
 
 const bySlug = new Map(

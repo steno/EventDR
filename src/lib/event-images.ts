@@ -52,6 +52,18 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "meclao-sabado-latino-dj-choco-2026-11-21.jpg",
   "surfskate-fest-encuentro-2026-12-11":
     "surfskate-fest-encuentro-2026-12-11.jpg",
+  "cab-skateboarding-mini-ramp-jam-2026-12-12":
+    "cab-skateboarding-mini-ramp-jam-2026-12-12.jpg",
+  "lokuras-pop-caballitos-padre-jr-2026-12-06":
+    "lokuras-pop-caballitos-padre-jr-2026-12-06.jpg",
+  "mi-campito-rebels-gran-party-navideno-2026-12-27":
+    "mi-campito-rebels-gran-party-navideno-2026-12-27.jpg",
+  "voyvoy-saturday-session-2026-11-28":
+    "voyvoy-saturday-session-2026-11-28.jpg",
+  "rancho-catalina-navidad-daniel-galan-cafe-colao-2026-12-25":
+    "rancho-catalina-navidad-daniel-galan-cafe-colao-2026-12-25.jpg",
+  "renovacion-concurso-por-nuestro-pais-2027":
+    "renovacion-concurso-por-nuestro-pais-2027.jpg",
   "chameleon-perreo-poca-luz-h23-deeway-2026-11-13":
     "chameleon-perreo-poca-luz-h23-deeway-2026-11-13.jpg",
   "hecho-aqui-boxing-club-martin-lopez-2026-11-28":
@@ -1186,6 +1198,12 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "francesca-tiki-bar-cabarete-2026-11-06": "object-center",
   "premios-ola-dorada-2026-12-05": "object-center",
   "lokuras-pop-percusion-latina-2026-10-25": "object-center",
+  "lokuras-pop-caballitos-padre-jr-2026-12-06": "object-center",
+  "cab-skateboarding-mini-ramp-jam-2026-12-12": "object-center",
+  "mi-campito-rebels-gran-party-navideno-2026-12-27": "object-center",
+  "voyvoy-saturday-session-2026-11-28": "object-center",
+  "rancho-catalina-navidad-daniel-galan-cafe-colao-2026-12-25": "object-center",
+  "renovacion-concurso-por-nuestro-pais-2027": "object-center",
   "allison-sade-aura-2026-09-17": "object-top",
 
   // Short mobile heroes keep the sun; desktop centers the sunset composition.
@@ -1810,6 +1828,12 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "ambar-lounge-darvin-estrella-2026-11-21.jpg",
   "meclao-sabado-latino-dj-choco-2026-11-21.jpg",
   "surfskate-fest-encuentro-2026-12-11.jpg",
+  "cab-skateboarding-mini-ramp-jam-2026-12-12.jpg",
+  "lokuras-pop-caballitos-padre-jr-2026-12-06.jpg",
+  "mi-campito-rebels-gran-party-navideno-2026-12-27.jpg",
+  "voyvoy-saturday-session-2026-11-28.jpg",
+  "rancho-catalina-navidad-daniel-galan-cafe-colao-2026-12-25.jpg",
+  "renovacion-concurso-por-nuestro-pais-2027.jpg",
   "ambar-lounge-reggaeton-la-residencia-2026-12.jpg",
   "twenty-disco-adrian-tineo-darwin-estrella-2026-11-14.jpg",
   "twenty-disco-money-heist-2026-11-21.jpg",

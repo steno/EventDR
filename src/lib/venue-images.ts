@@ -224,6 +224,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "escuela-bellas-artes-puerto-plata":
     "escuela-bellas-artes-puerto-plata-interior.jpg",
   "green-one-sports-bar": "green-one-sports-bar-pool.jpg",
+  "mi-campito-bar-piscina": "mi-campito-bar-piscina.jpg",
   "esd-european-school-bombita": "esd-european-school-bombita-courtyard.jpg",
   "ambar-lounge-pop": "ambar-lounge-pop-interior-v4.jpg",
   "pregame-roof-puerto-plata": "pregame-roof-puerto-plata.jpg",

@@ -1451,6 +1451,16 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Campus scolaire international à but non lucratif à Bombita entre Sosúa et Cabarete (juste hors Carretera Principal) — marchés famille, journées communautaires et activités enfants. Tél. / WhatsApp +1 849-451-5893 · europeanschooldr.com · Instagram @europeanschooldr.",
     },
   },
+  "mi-campito-bar-piscina": {
+    name: {
+      es: "Mi Campito Bar & Piscina",
+      fr: "Mi Campito Bar & Piscina",
+    },
+    description: {
+      es: "Bar al aire libre con piscina en Vista Alegre, Navas (al oeste inland de Puerto Plata hacia Los Hidalgos / Guananico) — noches bajo el pabellón, luces de guirnalda y cafetería Sabores del Alma by Mi Campito. Tel. / WhatsApp +1 849-485-4027 · Instagram @micampitobar.",
+      fr: "Bar en plein air avec piscine à Vista Alegre, Navas (à l’ouest inland de Puerto Plata vers Los Hidalgos / Guananico) — soirées sous le pavillon, guirlandes et cafeteria Sabores del Alma by Mi Campito. Tél. / WhatsApp +1 849-485-4027 · Instagram @micampitobar.",
+    },
+  },
 };
 
 export function localizeVenue(venue: Venue, locale: Locale): Venue {

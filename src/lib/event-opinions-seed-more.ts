@@ -10839,4 +10839,116 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer + IG — 28–29 Nov 2026 from 8 AM; Fundación Océano Limpio; 8 pairs/category; RD$6000 pp; prizes US$1000/500; WA +1 809-543-7538 / +54 911-6855-7319; Bridge Markets.",
     updatedAt: "2026-11-25T21:45:00.000Z",
   },
+  {
+    eventId: "lokuras-pop-caballitos-padre-jr-2026-12-06",
+    body: "Free Sunday típico at Lokura's on Juan Bosch #11 — El Caballito de Mao & Jr from 6 PM with 2x1 on the bill; centro café-bar night, not Twenty or Grand Prix Caballitos and not Friday karaoke here.",
+    localized: {
+      es: "Típico gratis el domingo en Lokura's en Juan Bosch #11 — El Caballito de Mao y Jr desde las 6 PM con 2x1 en el cartel; noche de café-bar en el centro, no Caballitos en Twenty o Grand Prix ni el karaoke de viernes aquí.",
+      fr: "Típico gratuit le dimanche chez Lokura's sur Juan Bosch #11 — El Caballito de Mao & Jr dès 18 h avec 2x1 à l’affiche ; soirée café-bar en centro, pas les Caballitos Twenty ou Grand Prix ni le karaoke du vendredi ici.",
+    },
+    priceFeel: "free",
+    priceNote: "Free entry · drinks/picadera on you — @lokuraspop",
+    priceNoteLocalized: {
+      es: "Entrada gratis · tragos/picadera por tu cuenta — @lokuraspop",
+      fr: "Entrée gratuite · verres/picadera à votre charge — @lokuraspop",
+    },
+    attribution: "POP research · @lokuraspop El Padre & El Jr flyer + caption",
+    researchNotes:
+      "Editor flyer + IG @lokuraspop — Domingo 6 de diciembre desde 6:00 PM; El Caballito de Mao y El Caballito Jr; fiesta típica totalmente GRATIS; 2x1; Calle Profesor Juan Bosch No. 11. Distinct from Twenty / Grand Prix / Vinoteca Caballitos nights and lokuras Friday karaoke.",
+    updatedAt: "2026-11-26T19:00:00.000Z",
+  },
+  {
+    eventId: "cab-skateboarding-mini-ramp-jam-2026-12-12",
+    body: "Saturday 4 PM mini-ramp jam + CAB skate demo on Encuentro sand during Dominican Surf Festival week — beach skate side day, not Parallel’s Friday Surfskate Fest (RD$300 / Groms–Adults) and not the ocean heats alone; cover isn’t printed so check @cabareteskateboarding.",
+    localized: {
+      es: "Sábado 4 PM mini-ramp jam + demo de skate CAB en la arena de Encuentro durante la semana Dominican Surf Festival — día de skate en la playa, no el Surfskate Fest de Parallel del viernes (RD$300 / Groms–Adults) ni solo los heats de ola; cover no está impreso, checa @cabareteskateboarding.",
+      fr: "Samedi 16 h mini-ramp jam + démo skate CAB sur le sable d’Encuentro pendant la semaine Dominican Surf Festival — journée skate plage, pas le Surfskate Fest Parallel du vendredi (RD$300 / Groms–Adults) ni seulement les heats océan ; cover non imprimé, vérifiez @cabareteskateboarding.",
+    },
+    priceFeel: "varies",
+    priceNote: "Price TBA — @cabareteskateboarding · @dominicansurffestival",
+    priceNoteLocalized: {
+      es: "Precio por confirmar — @cabareteskateboarding · @dominicansurffestival",
+      fr: "Prix à confirmer — @cabareteskateboarding · @dominicansurffestival",
+    },
+    attribution:
+      "POP research · @cabareteskateboarding Mini Ramp Jam flyer + caption",
+    researchNotes:
+      "Editor flyer + IG @cabareteskateboarding — MINI RAMP JAM; DIC. 12 4:00 PM PLAYA ENCUENTRO; CAB. SKATEBOARDING demo; Hard Rock Dominican Surf Festival logos; partners The Spot Exodus / Exodus Surf Shop / PAUER. During DSF 10–13 Dec week; distinct from surfskate-fest-encuentro-2026-12-11.",
+    updatedAt: "2026-11-26T20:00:00.000Z",
+  },
+  {
+    eventId: "mi-campito-rebels-gran-party-navideno-2026-12-27",
+    body: "Sunday Christmas Gran Party with DJ Flow at Mi Campito’s Vista Alegre pavilion — RD$100 cover, inland Navas west of the city toward Los Hidalgos, not Twenty Afterglow the same night in Playa Dorada Mall; pin +1 849-485-4027 / @micampitobar before you Uber the hills.",
+    localized: {
+      es: "Gran Party navideño del domingo con DJ Flow en el pabellón de Mi Campito en Vista Alegre — cover RD$100, inland en Navas al oeste de la ciudad hacia Los Hidalgos, no es Afterglow de Twenty la misma noche en Playa Dorada Mall; clava +1 849-485-4027 / @micampitobar antes del Uber a las lomas.",
+      fr: "Gran Party de Noël du dimanche avec DJ Flow au pavillon Mi Campito à Vista Alegre — cover RD$100, inland Navas à l’ouest de la ville vers Los Hidalgos, pas Afterglow Twenty la même nuit au Playa Dorada Mall ; épinglez +1 849-485-4027 / @micampitobar avant l’Uber dans les collines.",
+    },
+    priceFeel: "budget",
+    priceNote: "Cover RD$100 · +1 849-485-4027 · @micampitobar",
+    priceNoteLocalized: {
+      es: "Cover RD$100 · +1 849-485-4027 · @micampitobar",
+      fr: "Cover RD$100 · +1 849-485-4027 · @micampitobar",
+    },
+    attribution:
+      "POP research · @micampitobar / Promo REBELS Gran Party Navideño flyer + caption",
+    researchNotes:
+      "Editor flyer + IG caption — GRAN PARTY DJ FLOW; 27 DE DICIEMBRE; MI CAMPITO BAR - VISTA ALEGRE; COVER 100 PESOS; La Promo REBELS; Domingo 27 dic; boletas RD$100. Venue new mi-campito-bar-piscina; Sabores del Alma cafeteria note; phone +1 849-485-4027. Christmas primary. Distinct from twenty-disco-afterglow-birthday-2026-12-27.",
+    updatedAt: "2026-11-26T21:00:00.000Z",
+  },
+  {
+    eventId: "voyvoy-saturday-session-2026-11-28",
+    body: "Bayfront Saturday Session at VOYVOY with Fabrizio Paolucci, Luis de la Cruz, and Bryant Burgos — next after the 21 Nov Heyaime/ROM night; start isn’t on the art, so expect late dance energy until 3 AM and confirm cover before you call it free.",
+    localized: {
+      es: "Saturday Session frente a la bahía en VOYVOY con Fabrizio Paolucci, Luis de la Cruz y Bryant Burgos — el siguiente tras la noche del 21 nov con Heyaime/ROM; la hora no está en el arte, así que espera baile tarde hasta las 3 AM y confirma cover antes de decir que es gratis.",
+      fr: "Saturday Session face à la baie au VOYVOY avec Fabrizio Paolucci, Luis de la Cruz et Bryant Burgos — après la nuit du 21 nov. Heyaime/ROM ; l’heure n’est pas sur l’art, donc attendez-vous à danser tard jusqu’à 3 h et confirmez le cover avant de dire que c’est gratuit.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — @voyvoybar · +1 809-571-0805",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — @voyvoybar · +1 809-571-0805",
+      fr: "Cover à confirmer — @voyvoybar · +1 809-571-0805",
+    },
+    attribution: "POP research · @voyvoybar Saturday Session flyer (Paolucci lineup)",
+    researchNotes:
+      "Editor flyer — SATURDAY SESSION AT VOYVOY; Fabrizio Paolucci, Luis de la Cruz, Bryant Burgos; no date/start/cover on art. Next Saturday after 21 Nov session = 28 Nov 2026. Distinct title from voyvoy-saturday-session-2026-11-21.",
+    updatedAt: "2026-11-26T22:00:00.000Z",
+  },
+  {
+    eventId: "rancho-catalina-navidad-daniel-galan-cafe-colao-2026-12-25",
+    body: "Christmas Day 3 PM live set at Rancho La Catalina in El Cupey with Daniel Galán and Café Colao — no cover on the flyer; countryside holiday lunch energy, not Ambar’s Christmas Reggaeton downtown the same day.",
+    localized: {
+      es: "Set en vivo el Día de Navidad a las 3 PM en Rancho La Catalina en El Cupey con Daniel Galán y Café Colao — sin cover en el flyer; energía de almuerzo navideño en el campo, no el Reggaeton de Ambar en el centro el mismo día.",
+      fr: "Set live le jour de Noël à 15 h au Rancho La Catalina à El Cupey avec Daniel Galán et Café Colao — no cover sur l’affiche ; énergie déjeuner de fête à la campagne, pas le Reggaeton Ambar en centre-ville le même jour.",
+    },
+    priceFeel: "free",
+    priceNote: "No cover · food/drinks on you — @rancholacatalina · +1 809-781-3737",
+    priceNoteLocalized: {
+      es: "Sin cover · comida/tragos por tu cuenta — @rancholacatalina · +1 809-781-3737",
+      fr: "No cover · repas/verres à votre charge — @rancholacatalina · +1 809-781-3737",
+    },
+    attribution:
+      "POP research · @rancholacatalina Navidad Daniel Galán & Café Colao flyer",
+    researchNotes:
+      "Editor flyer — Navidad al ritmo de Música en vivo; DANIEL GALAN • CAFÉ COLAO; 25 DIC | 3:00PM; NO COVER; Rancho LA CATALINA RESTAURANT. Christmas primary. Distinct from ambar-lounge-reggaeton-la-residencia Dec 25 night.",
+    updatedAt: "2026-11-26T21:45:00.000Z",
+  },
+  {
+    eventId: "renovacion-concurso-por-nuestro-pais-2027",
+    body: "47th Por Nuestro País Primero literary contest at Renovación on Duarte #41 — poetry, cuento, and ensayo for Adult writers, submissions through 28 Feb 2027 at 5 PM with RD$100,000 prizes in poetry and short story; deliver manuscripts, don’t treat it like a ticketed Salón Brugal night.",
+    localized: {
+      es: "47º concurso literario Por Nuestro País Primero en Renovación en Duarte #41 — poesía, cuento y ensayo para escritores Adultos, recepción hasta el 28 feb 2027 a las 5 PM con premios RD$100,000 en poesía y cuento; entrega manuscritos, no lo trates como una noche con boleto en el Salón Brugal.",
+      fr: "47e concours littéraire Por Nuestro País Primero à Renovación, Duarte #41 — poésie, cuento et ensayo pour auteurs Adultes, dépôts jusqu’au 28 févr. 2027 à 17 h avec prix RD$100,000 en poésie et nouvelle ; déposez des manuscrits, ne le traitez pas comme une soirée billetée au Salón Brugal.",
+    },
+    priceFeel: "free",
+    priceNote: "Free to submit · prizes RD$100,000 — @screnovacion · +1 809-586-6240",
+    priceNoteLocalized: {
+      es: "Gratis enviar · premios RD$100,000 — @screnovacion · +1 809-586-6240",
+      fr: "Dépôt gratuit · prix RD$100,000 — @screnovacion · +1 809-586-6240",
+    },
+    attribution:
+      "POP research · @screnovacion Por Nuestro País Primero 47ª edición flyer + caption",
+    researchNotes:
+      "Editor flyer + IG @screnovacion — 47 años por nuestro país primero; Géneros Poesía / Cuento / Ensayo; Categoría ADULTOS; fecha límite Domingo 28 de febrero 5 P.M. 2027; recepción desde 26 Nov 2026; Calle Duarte 41; premio RD$100,000 poesía y cuento. Multi-day submission window seed.",
+    updatedAt: "2026-11-26T21:30:00.000Z",
+  },
 ];

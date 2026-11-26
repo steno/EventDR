@@ -1409,6 +1409,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Campus à Bombita entre Sosúa et Cabarete juste hors de la route côtière — flea markets scolaires et journées famille, pas un pin beach bar. Confirmez réservation de stand et entrée au campus avant l’Uber.",
     },
   },
+  "mi-campito-bar-piscina": {
+    body: "Pool-and-pavilion bar in Vista Alegre, Navas — inland west of Puerto Plata city toward Los Hidalgos, not a Malecón or Playa Dorada pin; call +1 849-485-4027 / @micampitobar before you Uber into the hills.",
+    localized: {
+      en: "Pool-and-pavilion bar in Vista Alegre, Navas — inland west of Puerto Plata city toward Los Hidalgos, not a Malecón or Playa Dorada pin; call +1 849-485-4027 / @micampitobar before you Uber into the hills.",
+      es: "Bar con piscina y pabellón en Vista Alegre, Navas — inland al oeste de Puerto Plata ciudad hacia Los Hidalgos, no es un pin del Malecón ni de Playa Dorada; llama al +1 849-485-4027 / @micampitobar antes de Uber hacia las lomas.",
+      fr: "Bar piscine et pavillon à Vista Alegre, Navas — inland à l’ouest de Puerto Plata ville vers Los Hidalgos, pas un pin Malecón ni Playa Dorada ; appelez +1 849-485-4027 / @micampitobar avant d’Uber dans les collines.",
+    },
+  },
   "ambar-lounge-pop": {
     body: "Second level on Luis Ginebra #45 — Bandoleras Fridays and billed live nights; Pregame Roof is the third-level deck above, same phone. DM @ambarloungepop or call (809) 781-8677 before you assume walk-in. Closed Tuesdays.",
     localized: {

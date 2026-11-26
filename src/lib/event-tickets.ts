@@ -264,6 +264,9 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "disco-club-halloween-weekend-2026-10-31",
   "latin-disco-semaforo-yeffrey-estrella-2026-11-20",
   "latin-disco-white-party-flaco-mc-2026-11-27",
+  "lokuras-pop-caballitos-padre-jr-2026-12-06",
+  "rancho-catalina-navidad-daniel-galan-cafe-colao-2026-12-25",
+  "renovacion-concurso-por-nuestro-pais-2027",
   "chiche-almonte-vinoteca-2026-11-28",
   // Festivals & public
   "voyvoy-soft-reopening-sunset-2026-10-09",
