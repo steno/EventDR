@@ -1490,9 +1490,39 @@
     "imageEmoji": "🍍"
   },
   {
+    "id": "el-parq-karaoke-kids",
+    "title": "El Parq Karaoke Kids — 2e et 4e jeu",
+    "description": "Big Day Karaoke Kids à Encuentro Food Park (El Parq Foodpark) près d’Encuentro, Cabarete — 2e et 4e jeudi de chaque mois, 17 h–19 h, animé par Francesca. Karaoke kids famille avant le karaoke adulte de Shaka Bar le même soir de 19 h 30 à 21 h 30. Confirmez les dates du mois sur les canaux du food park si un jeudi tombe hors 2e/4e semaine.",
+    "date": "2026-01-01",
+    "time": "5:00 PM – 7:00 PM",
+    "location": "Cabarete",
+    "venue": "El Parq Foodpark",
+    "venueSlug": "el-parq-cabarete",
+    "lat": 19.7739371,
+    "lng": -70.4446512,
+    "category": "music",
+    "categories": [
+      "family",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "ageHint": "family",
+    "sourceType": "flyer",
+    "recurrence": "weekly",
+    "recurrenceDay": 4,
+    "lineup": [
+      "Animé par Francesca",
+      "Big Day Karaoke Kids",
+      "2e et 4e jeudi de chaque mois"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
     "id": "el-parq-karaoke-thursday",
     "title": "Karaoké de Shaka Bar le jeudi à El Parq",
-    "description": "Karaoké tous les jeudis chez Shaka Bar, dans El Parq Foodpark (Encuentro Food Park) près d'Encuentro, animé par Francesca Crystals. Chantez de 19 h 30 à 21 h 30 parmi les stands en plein air et le public de Cabarete. Ce n’est pas Big Day Karaoke Kids (2e et 4e jeudi 17 h–19 h — fiche famille séparée).",
+    "description": "Karaoké tous les jeudis chez Shaka Bar, dans El Parq Foodpark (Encuentro Food Park) près d'Encuentro, animé par Francesca Crystals. Chantez de 19 h 30 à 21 h 30 parmi les stands en plein air et le public de Cabarete. Ce n’est pas Big Day Karaoke Kids (2e et 4e jeudi 17 h–19 h — voir la fiche hebdo El Parq Karaoke Kids).",
     "date": "2026-01-01",
     "time": "7:30 PM – 9:30 PM",
     "location": "Cabarete",

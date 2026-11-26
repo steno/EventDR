@@ -9285,11 +9285,11 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-11-12T21:30:00.000Z",
   },
   {
-    eventId: "el-parq-karaoke-kids-2026-11-12",
-    body: "Today’s 2nd-Thursday kids karaoke at Encuentro Food Park / El Parq 5–7 PM with Francesca — family mic hour before Shaka’s adult Thursday karaoke from 7:30 PM; bring cash for the stalls.",
+    eventId: "el-parq-karaoke-kids",
+    body: "2nd & 4th Thursday kids karaoke at Encuentro Food Park / El Parq 5–7 PM with Francesca — family mic hour before Shaka’s adult Thursday karaoke from 7:30 PM; bring cash for the stalls, and skip 1st/3rd Thursdays unless the park posts otherwise.",
     localized: {
-      es: "Hoy, karaoke kids del 2.º jueves en Encuentro Food Park / El Parq 5–7 PM con Francesca — hora familiar de micrófono antes del karaoke adulto de Shaka desde las 7:30 PM; lleva efectivo para los puestos.",
-      fr: "Aujourd’hui, karaoke kids du 2e jeudi à Encuentro Food Park / El Parq 17 h–19 h avec Francesca — heure famille au micro avant le karaoke adulte de Shaka dès 19 h 30 ; prenez du cash pour les stands.",
+      es: "Karaoke kids del 2.º y 4.º jueves en Encuentro Food Park / El Parq 5–7 PM con Francesca — hora familiar de micrófono antes del karaoke adulto de Shaka desde las 7:30 PM; lleva efectivo para los puestos, y salta 1.º/3.º jueves salvo que el park diga otra cosa.",
+      fr: "Karaoke kids des 2e et 4e jeudis à Encuentro Food Park / El Parq 17 h–19 h avec Francesca — heure famille au micro avant le karaoke adulte de Shaka dès 19 h 30 ; prenez du cash pour les stands, et sautez 1er/3e jeudis sauf avis du park.",
     },
     priceFeel: "budget",
     priceNote: "Cover TBA — food-park stall spend",
@@ -9299,44 +9299,8 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · El Parq Big Day Karaoke Kids flyer",
     researchNotes:
-      "Editor flyer — BIG DAY KARAOKE Kids; Encuentro Food Park; Hosted by Francesca; 2nd & 4th Thursday every month 5–7 pm. Dated 12 Nov 2026 (2nd Thu). Distinct from el-parq-karaoke-thursday 7:30–9:30 PM.",
-    updatedAt: "2026-11-12T22:00:00.000Z",
-  },
-  {
-    eventId: "el-parq-karaoke-kids-2026-11-26",
-    body: "4th-Thursday kids karaoke at Encuentro Food Park / El Parq 5–7 PM with Francesca — family mic hour before Shaka’s adult Thursday karaoke from 7:30 PM; bring cash for the stalls.",
-    localized: {
-      es: "Karaoke kids del 4.º jueves en Encuentro Food Park / El Parq 5–7 PM con Francesca — hora familiar de micrófono antes del karaoke adulto de Shaka desde las 7:30 PM; lleva efectivo para los puestos.",
-      fr: "Karaoke kids du 4e jeudi à Encuentro Food Park / El Parq 17 h–19 h avec Francesca — heure famille au micro avant le karaoke adulte de Shaka dès 19 h 30 ; prenez du cash pour les stands.",
-    },
-    priceFeel: "budget",
-    priceNote: "Cover TBA — food-park stall spend",
-    priceNoteLocalized: {
-      es: "Cover por confirmar — gasto de puestos del food park",
-      fr: "Cover à confirmer — dépenses des stands du food park",
-    },
-    attribution: "POP research · El Parq Big Day Karaoke Kids flyer",
-    researchNotes:
-      "Editor flyer — 2nd & 4th Thursday series; dated 26 Nov 2026 (4th Thu). Distinct from weekly Shaka karaoke 7:30–9:30 PM.",
-    updatedAt: "2026-11-12T21:50:00.000Z",
-  },
-  {
-    eventId: "el-parq-karaoke-kids-2026-12-10",
-    body: "December’s 2nd-Thursday kids karaoke at Encuentro Food Park / El Parq 5–7 PM with Francesca — family mic hour before Shaka’s adult Thursday karaoke from 7:30 PM; bring cash for the stalls.",
-    localized: {
-      es: "Karaoke kids del 2.º jueves de diciembre en Encuentro Food Park / El Parq 5–7 PM con Francesca — hora familiar de micrófono antes del karaoke adulto de Shaka desde las 7:30 PM; lleva efectivo para los puestos.",
-      fr: "Karaoke kids du 2e jeudi de décembre à Encuentro Food Park / El Parq 17 h–19 h avec Francesca — heure famille au micro avant le karaoke adulte de Shaka dès 19 h 30 ; prenez du cash pour les stands.",
-    },
-    priceFeel: "budget",
-    priceNote: "Cover TBA — food-park stall spend",
-    priceNoteLocalized: {
-      es: "Cover por confirmar — gasto de puestos del food park",
-      fr: "Cover à confirmer — dépenses des stands du food park",
-    },
-    attribution: "POP research · El Parq Big Day Karaoke Kids flyer",
-    researchNotes:
-      "Editor flyer — 2nd & 4th Thursday series; dated 10 Dec 2026 (2nd Thu). Distinct from weekly Shaka karaoke 7:30–9:30 PM.",
-    updatedAt: "2026-11-12T21:40:00.000Z",
+      "Moved from dated fallback seeds to recurring weekly Thu (no month-week recurrence type). Flyer: 2nd & 4th Thursday 5–7 PM; Hosted by Francesca. Distinct from el-parq-karaoke-thursday 7:30–9:30 PM. Title/copy keep 2nd & 4th cadence.",
+    updatedAt: "2026-11-26T17:00:00.000Z",
   },
   {
     eventId: "ocean-world-terrace-graduation-bash-2026-11-20",

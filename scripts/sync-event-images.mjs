@@ -513,7 +513,9 @@ const FILE_TO_EVENT_ID = {
   "los-guaos-gran-cabalgata-natural-2026-11-15.jpg":
     "los-guaos-gran-cabalgata-natural-2026-11-15",
   "037-bar-karaoke-2026-11-13.jpg": "037-bar-karaoke-2026-11-13",
-  "el-parq-karaoke-kids-2026-11-12.jpg": "el-parq-karaoke-kids-2026-11-12",
+  "el-parq-karaoke-kids-2026-11-12.jpg": "el-parq-karaoke-kids",
+  "el-parq-karaoke-kids-v2.jpg": "el-parq-karaoke-kids",
+
   "ocean-world-terrace-graduation-bash-2026-11-20.jpg":
     "ocean-world-terrace-graduation-bash-2026-11-20",
   "ocean-world-terrace-graduation-bash-2026-11-20-v2.jpg":
