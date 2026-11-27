@@ -1770,22 +1770,22 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   {
     eventId: "hard-rock-karaoke-wednesday",
     seriesKey: "hard-rock-sosua:weekly:3",
-    body: "Free mic night on Calle Duarte from 7 PM — prizes for best voice, tourist-friendly stage, not a quiet dinner.",
+    body: "Karaoke Night is back Wednesdays from 7 PM at Hard Rock Sosúa — free entry on Calle Duarte’s big stage; budget food and drinks, not a quiet dinner table.",
     localized: {
-      es: "Noche de micrófono gratis en Calle Duarte desde las 7 PM — premios a la mejor voz, escenario turístico, no cena quieta.",
-      fr: "Soirée micro gratuite sur Calle Duarte dès 19 h — prix pour la meilleure voix, scène visitor-friendly, pas un dîner calme.",
+      es: "Karaoke Night está de vuelta los miércoles desde las 7 PM en Hard Rock Sosúa — entrada gratis en el escenario grande de Calle Duarte; presupuesta comida y tragos, no una mesa de cena quieta.",
+      fr: "Karaoke Night est de retour le mercredi dès 19 h au Hard Rock Sosúa — entrée gratuite sur la grande scène de Calle Duarte ; budget nourriture et verres, pas une table de dîner calme.",
     },
-    priceFeel: "budget",
+    priceFeel: "free",
     priceNote:
-      "No cover — budget Hard Rock food and drinks; WhatsApp +1 849-505-7778",
+      "Free entry — food/drinks on you; WhatsApp +1 849-505-7778",
     priceNoteLocalized: {
-      es: "Sin cover — presupuesta comida y tragos Hard Rock; WhatsApp +1 849-505-7778",
-      fr: "Pas de cover — budget nourriture et boissons Hard Rock ; WhatsApp +1 849-505-7778",
+      es: "Entrada gratis — comida/tragos por tu cuenta; WhatsApp +1 849-505-7778",
+      fr: "Entrée gratuite — repas/verres à votre charge ; WhatsApp +1 849-505-7778",
     },
-    attribution: "POP research · @hardrockcafepuertoplata",
+    attribution: "POP research · @hardrockcafepuertoplata Karaoke Night Are Back flyer",
     researchNotes:
-      "IG Aug 4 2026: Todos los miércoles desde las 7 PM, no cover, premios a la mejor voz.",
-    updatedAt: "2026-09-10T16:00:00.000Z",
+      "Editor flyer bump -v2 — KARAOKE NIGHT ARE BACK; MIÉRCOLES - DESDE 7:00 PM; Entrada GRATIS SOSÚA; Hard Rock Cafe Puerto Plata. Recurring Wed weekly:3.",
+    updatedAt: "2026-11-27T17:00:00.000Z",
   },
   {
     eventId: "sosua-neon-partyrun-2026-10-24",
@@ -9794,10 +9794,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "docean-bar-el-prodigio-2026-12-26",
-    body: "Boxing Day El Prodigio (El Amarillo) at D'Ocean Villa Isabela — típico energy the night after La Insuperable; call +1 809-840-2860, and don’t confuse it with Food Fest at Parque Municipal earlier that week.",
+    body: "Boxing Day El Prodigio Marca País at D'Ocean on Malecón Seco (Colón #128) — típico energy the night after La Insuperable; call +1 809-840-2860, and don’t confuse it with Food Fest at Parque Municipal earlier that week.",
     localized: {
-      es: "El Prodigio (El Amarillo) el 26 en D'Ocean Villa Isabela — energía típico la noche después de La Insuperable; llama al +1 809-840-2860, y no lo confundas con Food Fest en el Parque Municipal esa misma semana.",
-      fr: "El Prodigio (El Amarillo) le 26 au D'Ocean Villa Isabela — énergie típico la nuit après La Insuperable ; appelez +1 809-840-2860, et ne le confondez pas avec Food Fest au Parque Municipal plus tôt dans la semaine.",
+      es: "Boxing Day con El Prodigio Marca País en D'Ocean en el Malecón Seco (Colón #128) — energía típico la noche después de La Insuperable; llama al +1 809-840-2860, y no lo confundas con Food Fest en el Parque Municipal esa misma semana.",
+      fr: "Boxing Day avec El Prodigio Marca País au D'Ocean sur le Malecón Seco (Colón #128) — énergie típico la nuit après La Insuperable ; appelez +1 809-840-2860, et ne le confondez pas avec Food Fest au Parque Municipal plus tôt dans la semaine.",
     },
     priceFeel: "varies",
     priceNote: "Cover TBA — reservas +1 809-840-2860 · @d_oceanbar",
@@ -9806,10 +9806,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       fr: "Cover à confirmer — réservations +1 809-840-2860 · @d_oceanbar",
     },
     attribution:
-      "POP research · D'Ocean / Ramirito El Prodigio El Amarillo flyer",
+      "POP research · D'Ocean El Prodigio Marca País Christmas flyer",
     researchNotes:
-      "Editor flyer — Sáb 26 Dic 2026; El Amarillo / El Prodigio En La Casa; D'Ocean Bar Villa Isabela; Organiza Ramirito; 809-840-2860; cover not printed.",
-    updatedAt: "2026-11-17T16:30:00.000Z",
+      "Editor flyer bump -v2 — 26 Dic; EL PRODIGIO MARCA PAIS; Av. Cristóbal Colón No. 128 (Malecón Seco), Villa Isabela; Info & Resv 809-840-2860; Christmas décor; cover not printed.",
+    updatedAt: "2026-11-27T16:00:00.000Z",
   },
   {
     eventId: "santa-fe-nye-2026-12-31",
@@ -10950,5 +10950,173 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer + IG @screnovacion — 47 años por nuestro país primero; Géneros Poesía / Cuento / Ensayo; Categoría ADULTOS; fecha límite Domingo 28 de febrero 5 P.M. 2027; recepción desde 26 Nov 2026; Calle Duarte 41; premio RD$100,000 poesía y cuento. Multi-day submission window seed.",
     updatedAt: "2026-11-26T21:30:00.000Z",
+  },
+  {
+    eventId: "037-bar-meneo-agapito-2026-11-28",
+    body: "Saturday 9 PM típica/bachata at 037 on Luperón #34A with Meneo La Voz and Agapito Almonte — Malecón seafood-bar night, not Twenty Flashback or VOYVOY Session the same Saturday; cover isn’t printed, so WhatsApp +1 849-785-1822 before you treat doors as walk-in free.",
+    localized: {
+      es: "Sábado 9 PM de típica/bachata en 037 en Luperón #34A con Meneo La Voz y Agapito Almonte — noche de bar de mariscos en el Malecón, no Flashback de Twenty ni Session de VOYVOY el mismo sábado; el cover no está impreso, así que WhatsApp +1 849-785-1822 antes de tratar la puerta como walk-in gratis.",
+      fr: "Samedi 21 h típica/bachata au 037, Luperón #34A, avec Meneo La Voz et Agapito Almonte — soirée bar fruits de mer sur le Malecón, pas Flashback Twenty ni Session VOYVOY le même samedi ; le cover n’est pas imprimé, donc WhatsApp +1 849-785-1822 avant de traiter la porte comme walk-in gratuit.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — @037barrestaurant · WA +1 849-785-1822",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — @037barrestaurant · WA +1 849-785-1822",
+      fr: "Cover à confirmer — @037barrestaurant · WA +1 849-785-1822",
+    },
+    attribution:
+      "POP research · @037barrestaurant Meneo & Agapito flyer + caption",
+    researchNotes:
+      "Editor flyer + IG — Sáb 28 Nov 9 PM; Meneo La Voz; Agapito Almonte El Swing Millonario; típica y bachata; Av. Gregorio Luperón Malecón; @037barrestaurant.",
+    updatedAt: "2026-11-27T16:00:00.000Z",
+  },
+  {
+    eventId: "evolution-2ble-k-bujia-planton-2026-12-19",
+    body: "Saturday club bill at Evolution Antigua Villana with 2BLE K, Bujía Lirical, and Plantón RD plus DJs Yordy / Maikol — San Marcos perreo night, not Isabela Food Fest the same weekend; cover TBA, and the room posts no menores.",
+    localized: {
+      es: "Cartel de sábado en Evolution Antigua Villana con 2BLE K, Bujía Lirical y Plantón RD más DJs Yordy / Maikol — noche de perreo en San Marcos, no Isabela Food Fest ese fin de semana; cover por confirmar, y la sala anuncia no menores.",
+      fr: "Affiche du samedi à Evolution Antigua Villana avec 2BLE K, Bujía Lirical et Plantón RD plus DJs Yordy / Maikol — soirée perreo à San Marcos, pas Isabela Food Fest ce week-end ; cover à confirmer, et la salle affiche no menores.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA · 18+ door — @evolution_disco_club146 · +1 849-253-5178",
+    priceNoteLocalized: {
+      es: "Cover por confirmar · puerta 18+ — @evolution_disco_club146 · +1 849-253-5178",
+      fr: "Cover à confirmer · porte 18+ — @evolution_disco_club146 · +1 849-253-5178",
+    },
+    attribution:
+      "POP research · @evolution_disco_club146 2BLE K / Bujía / Plantón flyer + caption",
+    researchNotes:
+      "Editor flyer + IG — Sáb 19 Dic; 2BLE K; Bujía Lirical; Plantón RD; DJ Yordy Mundial; DJ Maikol El MVP; Respira Tu Dema; San Marcos; Tao Préstamos / Kako 40. photoTags elplantonrd bujialiricalrd dj_maikol yordymundial29 respiratudema031. ageHint 18-plus (venue no menores).",
+    updatedAt: "2026-11-27T15:45:00.000Z",
+  },
+  {
+    eventId: "los-primos-noche-de-perreo-dj-flaco-2026-11-28",
+    body: "Saturday perreo with DJ Flaco at Los Primos Disco Bar on Calle Principal in Maimón — inland town disco, not the highway Fish Shop ~1 km away and not 037’s típica bill the same night on the Malecón; cover isn’t printed.",
+    localized: {
+      es: "Perreo del sábado con DJ Flaco en Los Primos Disco Bar en Calle Principal de Maimón — disco del pueblo inland, no el Fish Shop de la carretera a ~1 km ni la típica de 037 la misma noche en el Malecón; el cover no está impreso.",
+      fr: "Perreo du samedi avec DJ Flaco au Los Primos Disco Bar sur Calle Principal à Maimón — disco du bourg inland, pas le Fish Shop sur la route à ~1 km ni la típica du 037 la même nuit sur le Malecón ; le cover n’est pas imprimé.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — @losprimosdiscobar_",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — @losprimosdiscobar_",
+      fr: "Cover à confirmer — @losprimosdiscobar_",
+    },
+    attribution:
+      "POP research · @losprimosdiscobar_ Noche de Perreo DJ Flaco flyer",
+    researchNotes:
+      "Editor flyer — SAB 28; Noche de PERREO CON DJ FLACO; Los Primos DISCOS BAR. Interpreted as 28 Nov 2026 with same-day 037/Tiki/Voyvoy batch. Distinct from los-primos-noche-de-terror-yosma-2026-10-31.",
+    updatedAt: "2026-11-27T15:30:00.000Z",
+  },
+  {
+    eventId: "tiki-bar-retromix-poche-jaquez-2026-11-28",
+    body: "Saturday 10 PM Retromix with Poché Jáquez at Tiki Bar Cabarete Center — 3motion dance-floor memories night, not VOYVOY’s Saturday Session the same evening on the bay; confirm cover before you call it free.",
+    localized: {
+      es: "Sábado 10 PM Retromix con Poché Jáquez en Tiki Bar Cabarete Center — noche de recuerdos 3motion en la pista, no Saturday Session de VOYVOY la misma noche frente a la bahía; confirma cover antes de decir que es gratis.",
+      fr: "Samedi 22 h Retromix avec Poché Jáquez au Tiki Bar Cabarete Center — soirée souvenirs 3motion sur la piste, pas Saturday Session VOYVOY la même nuit face à la baie ; confirmez le cover avant de dire que c’est gratuit.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — @tikibarcabarete · @poche_is_music",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — @tikibarcabarete · @poche_is_music",
+      fr: "Cover à confirmer — @tikibarcabarete · @poche_is_music",
+    },
+    attribution:
+      "POP research · Tiki Bar / 3motion Retromix Poché Jáquez flyer + caption",
+    researchNotes:
+      "Editor flyer + IG caption — RETROMIX BY POCHÉ JÁQUEZ; Saturday 28 Nov; START 10 PM; Tiki Bar Cabarete Beach Club; 3motion Events; @poche_is_music.",
+    updatedAt: "2026-11-27T15:15:00.000Z",
+  },
+  {
+    eventId: "hard-rock-route-5-live-2026-12-05",
+    body: "Free-cover Saturday 8 PM with Route 5 at Hard Rock Sosúa — downtown Calle Duarte live band, not Tiki’s Catamaran Party the same day in Cabarete.",
+    localized: {
+      es: "Sábado 8 PM sin cover con Route 5 en Hard Rock Sosúa — banda en vivo en Calle Duarte, no el Catamaran Party de Tiki el mismo día en Cabarete.",
+      fr: "Samedi 20 h sans cover avec Route 5 au Hard Rock Sosúa — live band sur Calle Duarte, pas le Catamaran Party de Tiki le même jour à Cabarete.",
+    },
+    priceFeel: "free",
+    priceNote: "Free cover · food/drinks on you — @hardrockcafepuertoplata · +1 849-505-7778",
+    priceNoteLocalized: {
+      es: "Cover gratis · comida/tragos por tu cuenta — @hardrockcafepuertoplata · +1 849-505-7778",
+      fr: "Cover gratuit · repas/verres à votre charge — @hardrockcafepuertoplata · +1 849-505-7778",
+    },
+    attribution: "POP research · @hardrockcafepuertoplata Route 5 Live flyer",
+    researchNotes:
+      "Editor flyer — ROUTE 5 LIVE MUSIC; SAT 05 DEC 8:00 PM; FREE COVER; SOSÚA; Hard Rock Cafe Puerto Plata.",
+    updatedAt: "2026-11-27T17:00:00.000Z",
+  },
+  {
+    eventId: "hard-rock-morir-sonando-2026-12-12",
+    body: "Free Saturday 8 PM acoustic duo Morir Soñando at Hard Rock Sosúa — after Route 5 the week before; not the Encuentro Mini Ramp Jam the same afternoon.",
+    localized: {
+      es: "Dúo acústico gratis el sábado a las 8 PM — Morir Soñando en Hard Rock Sosúa — después de Route 5 la semana anterior; no es el Mini Ramp Jam de Encuentro la misma tarde.",
+      fr: "Duo acoustique gratuit le samedi à 20 h — Morir Soñando au Hard Rock Sosúa — après Route 5 la semaine précédente ; pas le Mini Ramp Jam d’Encuentro le même après-midi.",
+    },
+    priceFeel: "free",
+    priceNote: "Free entry · food/drinks on you — @hardrockcafepuertoplata · +1 849-505-7778",
+    priceNoteLocalized: {
+      es: "Entrada gratis · comida/tragos por tu cuenta — @hardrockcafepuertoplata · +1 849-505-7778",
+      fr: "Entrée gratuite · repas/verres à votre charge — @hardrockcafepuertoplata · +1 849-505-7778",
+    },
+    attribution: "POP research · @hardrockcafepuertoplata Morir Soñando flyer",
+    researchNotes:
+      "Editor flyer — LIVE MUSIC MORIR SOÑANDO; SAB 12 DIC - 8 PM; Entrada GRATIS SOSÚA; Hard Rock Cafe Puerto Plata.",
+    updatedAt: "2026-11-27T16:45:00.000Z",
+  },
+  {
+    eventId: "hard-rock-tribute-arjona-sebastian-alarcon-2027-02-13",
+    body: "Valentine’s weekend Tribute to Arjona with Sebastián Alarcón at Hard Rock Sosúa — doors 8 PM Saturday 13 Feb; not Los Panchos the next night; confirm tables on +1 849-505-7778.",
+    localized: {
+      es: "Tribute to Arjona con Sebastián Alarcón el fin de semana de San Valentín en Hard Rock Sosúa — apertura 8 PM sábado 13 feb; no es Los Panchos la noche siguiente; confirma mesas al +1 849-505-7778.",
+      fr: "Tribute to Arjona avec Sebastián Alarcón le week-end de la Saint-Valentin au Hard Rock Sosúa — ouverture 20 h samedi 13 févr. ; pas Los Panchos le lendemain ; confirmez les tables au +1 849-505-7778.",
+    },
+    priceFeel: "varies",
+    priceNote: "Tickets/tables TBA — @hardrockcafepuertoplata · +1 849-505-7778",
+    priceNoteLocalized: {
+      es: "Boletas/mesas por confirmar — @hardrockcafepuertoplata · +1 849-505-7778",
+      fr: "Billets/tables à confirmer — @hardrockcafepuertoplata · +1 849-505-7778",
+    },
+    attribution:
+      "POP research · @hardrockcafepuertoplata Tribute to Arjona Lovers Edition flyer",
+    researchNotes:
+      "Editor flyer — TRIBUTE TO ARJONA LOVERS EDITION; SEBASTIÁN ALARCÓN; SAB 13 FEB; Apertura 8:00 PM; Hard Rock Cafe Puerto Plata. Year 2027 (next Feb after Nov 2026).",
+    updatedAt: "2026-11-27T16:30:00.000Z",
+  },
+  {
+    eventId: "hard-rock-trio-los-panchos-alisha-2027-02-14",
+    body: "Valentine’s Day Trío Los Panchos & Alisha Navarro at Hard Rock Sosúa — tickets +1 849-505-7778; bolero Sunday after Arjona tribute the night before.",
+    localized: {
+      es: "San Valentín con Trío Los Panchos y Alisha Navarro en Hard Rock Sosúa — boletas +1 849-505-7778; bolero el domingo después del tributo a Arjona la noche anterior.",
+      fr: "Saint-Valentin avec Trío Los Panchos & Alisha Navarro au Hard Rock Sosúa — billets +1 849-505-7778 ; boléro le dimanche après l’hommage Arjona la veille.",
+    },
+    priceFeel: "varies",
+    priceNote: "Tickets +1 849-505-7778 — @hardrockcafepuertoplata",
+    priceNoteLocalized: {
+      es: "Boletas +1 849-505-7778 — @hardrockcafepuertoplata",
+      fr: "Billets +1 849-505-7778 — @hardrockcafepuertoplata",
+    },
+    attribution:
+      "POP research · @hardrockcafepuertoplata Trío Los Panchos & Alisha Navarro flyer",
+    researchNotes:
+      "Editor flyer — TRIO LOS PANCHOS & ALISHA NAVARRO; DOM 14 FEB; Tickets 8495057778; Hard Rock Cafe Puerto Plata. Year 2027.",
+    updatedAt: "2026-11-27T16:15:00.000Z",
+  },
+  {
+    eventId: "isabela-food-fest-el-nene-amenazzy-2026-12-19",
+    body: "Saturday Amenazzy on the Parque Municipal Villa Isabela stage during Isabela Food Fest — same Dec 19 park night as Simpáticos and Kiry Curu; festival tickets via todotickets.do / Plaza Lama, not Evolution’s San Marcos club bill the same Saturday.",
+    localized: {
+      es: "Amenazzy el sábado en el escenario del Parque Municipal Villa Isabela durante Isabela Food Fest — misma noche del 19 dic que Simpáticos y Kiry Curu; boletas del festival en todotickets.do / Plaza Lama, no el cartel de club de Evolution en San Marcos el mismo sábado.",
+      fr: "Amenazzy le samedi sur la scène du Parque Municipal Villa Isabela pendant Isabela Food Fest — même soirée du 19 déc. que Simpáticos et Kiry Curu ; billets festival via todotickets.do / Plaza Lama, pas l’affiche club Evolution à San Marcos le même samedi.",
+    },
+    priceFeel: "varies",
+    priceNote: "Tickets todotickets.do / Plaza Lama · info +1 829-336-6802",
+    priceNoteLocalized: {
+      es: "Boletas todotickets.do / Plaza Lama · info +1 829-336-6802",
+      fr: "Billets todotickets.do / Plaza Lama · infos +1 829-336-6802",
+    },
+    attribution: "POP research · Isabela Food Fest El Nene Amenazzy flyer",
+    researchNotes:
+      "Editor flyer — EL NENE AMENAZZY; SAB 19 DIC; PARQUE VILLA ISABELA; Info y Resv 829-336-6802; boletas todotickets.do / Plaza Lama. Same Saturday as simpaticos/kiry; related to isabela-food-fest-2026-12-18.",
+    updatedAt: "2026-11-27T17:15:00.000Z",
   },
 ];

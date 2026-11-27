@@ -225,6 +225,20 @@ describe("sports viewing vs Today’s specials", () => {
     );
   });
 
+  it("keeps multi-day openers off Today’s specials once closed for the day", () => {
+    const fest = {
+      date: "2026-10-23",
+      endDate: "2026-10-25",
+      time: "10:00 AM - 6:00 PM",
+      category: "culture" as const,
+    };
+    assert.equal(isListedTodaySpecial(fest, fridayAfternoon), true);
+    assert.equal(
+      isListedTodaySpecial(fest, new Date("2026-10-23T23:00:00.000Z")),
+      false,
+    );
+  });
+
   it("still allows participatory sports one-offs on Today’s specials", () => {
     assert.equal(
       isListedTodaySpecial(

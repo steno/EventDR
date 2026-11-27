@@ -870,8 +870,8 @@ export function getComingUpHighlightEvents(
  * peers — so live and upcoming mix. Home displays
  * {@link HOME_SPECIALS_LIMIT} with a see-all link when there are more.
  *
- * Drops a one-off once it is in the “ends soon” window; Happening today
- * keeps that card.
+ * Drops a one-off once it is in the “ends soon” window or closed for the
+ * day; Happening today may still keep that card.
  */
 export function getTodaySpecialEvents(
   events: Event[],

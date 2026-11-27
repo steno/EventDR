@@ -8047,7 +8047,7 @@
   {
     "id": "isabela-food-fest-2026-12-18",
     "title": "Villa Isabela — Isabela Food Fest",
-    "description": "Isabela Food Fest (El Festival del Pueblo) au Parque Municipal Villa Isabela — vendredi 18 au dimanche 20 décembre 2026. Artistes live, DJs et gastronomie sur la place municipale. Confirmés pour l’instant : La Perversa et Carlos El Gusto (bachata) le vendredi 18 décembre ; Los Simpáticos Típicos et DJ Flacome le samedi 19 décembre ; Ronny Manuel (El Chamaquito del Sonido), DJ Melcocha et Bulin 47 gran cierre le dimanche 20 décembre (fiches séparées). D’autres artistes à confirmer. Billets sur todotickets.do et Plaza Lama ; infos et réservations +1 829-336-6802 · Instagram @isabelafoodfest. À l’ouest de Puerto Plata ville — pas l’Halloween D'Ocean Bar du 31 oct.",
+    "description": "Isabela Food Fest (El Festival del Pueblo) au Parque Municipal Villa Isabela — vendredi 18 au dimanche 20 décembre 2026. Artistes live, DJs et gastronomie sur la place municipale. Confirmés pour l’instant : La Perversa et Carlos El Gusto (bachata) le vendredi 18 décembre ; Los Simpáticos Típicos, DJ Flacome, Kiry Curu et El Nene Amenazzy le samedi 19 décembre ; Ronny Manuel (El Chamaquito del Sonido), DJ Melcocha et Bulin 47 gran cierre le dimanche 20 décembre (fiches séparées). D’autres artistes à confirmer. Billets sur todotickets.do et Plaza Lama ; infos et réservations +1 829-336-6802 · Instagram @isabelafoodfest. À l’ouest de Puerto Plata ville — pas l’Halloween D'Ocean Bar du 31 oct.",
     "date": "2026-12-18",
     "endDate": "2026-12-20",
     "location": "Villa Isabela",
@@ -8074,6 +8074,8 @@
       "Carlos El Gusto — vendredi 18 décembre",
       "Los Simpáticos Típicos — samedi 19 décembre",
       "DJ Flacome — samedi 19 décembre",
+      "El Nene Amenazzy — samedi 19 décembre",
+      "Kiry Curu — samedi 19 décembre",
       "Ronny Manuel — dimanche 20 décembre",
       "DJ Melcocha — dimanche 20 décembre",
       "Bulin 47 — dimanche 20 décembre gran cierre",
@@ -12093,12 +12095,12 @@
   },
   {
     "id": "docean-bar-el-prodigio-2026-12-26",
-    "title": "D'Ocean — El Prodigio (El Amarillo) · 26 déc",
-    "description": "El Prodigio (El Amarillo) en la casa au D'Ocean Bar, Villa Isabela, Puerto Plata — samedi 26 décembre 2026. Organisé par Ramirito. Cover absent de l’affiche — infos et réservations +1 809-840-2860 · Instagram @d_oceanbar. Soirée típico/disco du 26 à Villa Isabela — pas La Insuperable le jour de Noël (25 déc.), ni Isabela Food Fest au Parque Municipal (18–20 déc.).",
+    "title": "D'Ocean — El Prodigio Marca País · 26 déc",
+    "description": "El Prodigio (Marca País / El Amarillo) en live au D'Ocean Bar, Av. Cristóbal Colón n° 128 (Malecón Seco), Villa Isabela, Puerto Plata — samedi 26 décembre 2026. Info & réservations +1 809-840-2860 · Instagram @d_oceanbar. Soirée típico Boxing Day à Villa Isabela — pas La Insuperable le jour de Noël (25 déc.), ni Isabela Food Fest au Parque Municipal (18–20 déc.).",
     "date": "2026-12-26",
     "venue": "D'Ocean Bar",
     "venueSlug": "docean-bar-villa-isabela",
-    "address": "Villa Isabela, Puerto Plata",
+    "address": "Av. Cristóbal Colón No. 128 (Malecón Seco), Villa Isabela, Puerto Plata",
     "lat": 19.823158,
     "lng": -71.056938,
     "phone": "+18098402860",
@@ -12116,6 +12118,7 @@
     "instagram": "d_oceanbar",
     "lineup": [
       "El Prodigio",
+      "El Prodigio Marca País",
       "El Amarillo"
     ],
     "imageEmoji": "🪗"
@@ -14008,5 +14011,287 @@
       "47ª edición"
     ],
     "imageEmoji": "✍️"
+  },
+  {
+    "id": "037-bar-meneo-agapito-2026-11-28",
+    "title": "037 Bar — Meneo La Voz & Agapito Almonte · 28 nov",
+    "description": "Meneo La Voz et Agapito Almonte (El Swing Millonario) en live típica et bachata au 037 Bar Restaurante, Av. Gregorio Luperón #34A, Malecón, Puerto Plata — samedi 28 novembre 2026 à 21 h. Soirée bar fruits de mer sur le Malecón — pas Flashback 2017 de Twenty Disco le même samedi au Playa Dorada Mall, ni Saturday Session VOYVOY à Cabarete. Confirmez le cover via Instagram @037barrestaurant · WhatsApp +1 849-785-1822.",
+    "date": "2026-11-28",
+    "time": "9:00 PM",
+    "location": "Puerto Plata",
+    "venue": "037 Bar Restaurante",
+    "venueSlug": "037-bar-restaurant",
+    "address": "Av. Gregorio Luperón #34A, Malecón, Puerto Plata",
+    "lat": 19.7992,
+    "lng": -70.6904,
+    "phone": "+18497851822",
+    "category": "music",
+    "categories": [
+      "dance",
+      "parties"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "instagram": "037barrestaurant",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/037barrestaurant/",
+    "lineup": [
+      "Meneo La Voz",
+      "Agapito Almonte",
+      "El Swing Millonario",
+      "Típica · Bachata"
+    ],
+    "imageEmoji": "🪗"
+  },
+  {
+    "id": "evolution-2ble-k-bujia-planton-2026-12-19",
+    "title": "Evolution — 2BLE K, Bujía Lirical & Plantón RD · 19 déc",
+    "description": "Evolution Disco Club 146 (Antigua Villana) présente 2BLE K, Bujía Lirical et Plantón RD avec DJ Yordy Mundial, DJ Maikol El MVP et host Respira Tu Dema — samedi 19 décembre 2026 à San Marcos, Puerto Plata. Invite Tao Préstamos et Kako 40. Soirée perreo / dembow — pas Isabela Food Fest au Parque Municipal ce week-end, ni le bill Papy Crish plus tôt à Evolution. Confirmez le cover via Instagram @evolution_disco_club146 · +1 849-253-5178.",
+    "date": "2026-12-19",
+    "location": "Puerto Plata",
+    "venue": "Evolution Disco Club",
+    "venueSlug": "evolution-disco-club-san-marcos",
+    "address": "Antigua Villana (ex La Villana), Calle Principal, San Marcos, Puerto Plata",
+    "lat": 19.792511,
+    "lng": -70.72019,
+    "phone": "+18492535178",
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "instagram": "evolution_disco_club146",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/evolution_disco_club146/",
+    "ageHint": "18-plus",
+    "lineup": [
+      "2BLE K",
+      "Bujía Lirical",
+      "Plantón RD",
+      "DJ Yordy Mundial",
+      "DJ Maikol El MVP",
+      "Respira Tu Dema"
+    ],
+    "photoTags": [
+      "elplantonrd",
+      "bujialiricalrd",
+      "dj_maikol",
+      "yordymundial29",
+      "respiratudema031"
+    ],
+    "imageEmoji": "🪩"
+  },
+  {
+    "id": "los-primos-noche-de-perreo-dj-flaco-2026-11-28",
+    "title": "Los Primos Disco Bar — Noche de Perreo · DJ Flaco · 28 nov",
+    "description": "Noche de Perreo avec DJ Flaco au Los Primos Disco Bar, Calle Principal, Maimón — samedi 28 novembre 2026. Disco inland à Maimón — pas Los Primos Fish Shop & Restaurant sur la Carretera Navarrete–Puerto Plata (~1 km), ni la nuit típica Meneo / Agapito au 037 Bar le même samedi sur le Malecón. Confirmez portes et cover via Instagram @losprimosdiscobar_.",
+    "date": "2026-11-28",
+    "location": "Puerto Plata",
+    "venue": "Los Primos Disco Bar",
+    "venueSlug": "los-primos-disco-bar-maimon",
+    "address": "Calle Principal, Maimón (inland — not Carretera Navarrete–Puerto Plata)",
+    "lat": 19.8145,
+    "lng": -70.774,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "instagram": "losprimosdiscobar_",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/losprimosdiscobar_/",
+    "lineup": [
+      "DJ Flaco",
+      "Noche de Perreo"
+    ],
+    "imageEmoji": "🎧"
+  },
+  {
+    "id": "tiki-bar-retromix-poche-jaquez-2026-11-28",
+    "title": "Tiki Bar — Retromix by Poché Jáquez · 28 nov",
+    "description": "Retromix by Poché Jáquez au Tiki Bar Cabarete Beach Club, Cabarete Center — samedi 28 novembre 2026 dès 22 h. Avec 3motion Events. Soirée souvenirs sur la piste de Cabarete — pas Saturday Session VOYVOY la même nuit face à la baie, ni le Catamaran Party de Tiki le 5 déc. Confirmez le cover via Instagram @tikibarcabarete · @poche_is_music.",
+    "date": "2026-11-28",
+    "time": "10:00 PM",
+    "location": "Cabarete",
+    "venue": "Tiki Bar Cabarete",
+    "venueSlug": "tiki-bar-cabarete",
+    "address": "Centre de Cabarete, près du Casino #1",
+    "lat": 19.750057,
+    "lng": -70.407041,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "instagram": "tikibarcabarete",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/tikibarcabarete/",
+    "lineup": [
+      "Poché Jáquez",
+      "Retromix",
+      "3motion Events"
+    ],
+    "photoTags": [
+      "poche_is_music"
+    ],
+    "imageEmoji": "🎧"
+  },
+  {
+    "lat": 19.7634107,
+    "lng": -70.5162309,
+    "location": "Sosúa",
+    "venue": "Hard Rock Cafe Puerto Plata",
+    "venueSlug": "hard-rock-sosua",
+    "address": "Calle Duarte 7, Sosúa",
+    "phone": "+18495057778",
+    "instagram": "hardrockcafepuertoplata",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/hardrockcafepuertoplata/",
+    "format": "physical",
+    "trending": true,
+    "id": "hard-rock-route-5-live-2026-12-05",
+    "title": "Hard Rock Sosúa — Route 5 Live · 5 déc",
+    "description": "Route 5 Live Music au Hard Rock Cafe Puerto Plata, Calle Duarte 7, Sosúa — samedi 5 décembre 2026 à 20 h. Cover gratuit. Live band du samedi au Hard Rock Sosúa — pas le Catamaran Party de Tiki Bar la même date au Cabarete Center, ni Morir Soñando le samedi suivant. Confirmez via Instagram @hardrockcafepuertoplata · WhatsApp +1 849-505-7778.",
+    "date": "2026-12-05",
+    "time": "8:00 PM",
+    "category": "music",
+    "categories": [
+      "performances",
+      "food-drinks"
+    ],
+    "isFree": true,
+    "lineup": [
+      "Route 5",
+      "Live Music"
+    ],
+    "imageEmoji": "🎸"
+  },
+  {
+    "lat": 19.7634107,
+    "lng": -70.5162309,
+    "location": "Sosúa",
+    "venue": "Hard Rock Cafe Puerto Plata",
+    "venueSlug": "hard-rock-sosua",
+    "address": "Calle Duarte 7, Sosúa",
+    "phone": "+18495057778",
+    "instagram": "hardrockcafepuertoplata",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/hardrockcafepuertoplata/",
+    "format": "physical",
+    "trending": true,
+    "id": "hard-rock-morir-sonando-2026-12-12",
+    "title": "Hard Rock Sosúa — Morir Soñando Live · 12 déc",
+    "description": "Live Music avec Morir Soñando au Hard Rock Cafe Puerto Plata, Calle Duarte 7, Sosúa — samedi 12 décembre 2026 à 20 h. Entrée gratuite. Duo acoustique du samedi sur la scène Hard Rock — pas Route 5 Live la semaine précédente, ni le Mini Ramp Jam CAB le même après-midi à Playa Encuentro. Confirmez via Instagram @hardrockcafepuertoplata · WhatsApp +1 849-505-7778.",
+    "date": "2026-12-12",
+    "time": "8:00 PM",
+    "category": "music",
+    "categories": [
+      "performances",
+      "food-drinks"
+    ],
+    "isFree": true,
+    "lineup": [
+      "Morir Soñando"
+    ],
+    "imageEmoji": "🎸"
+  },
+  {
+    "lat": 19.7634107,
+    "lng": -70.5162309,
+    "location": "Sosúa",
+    "venue": "Hard Rock Cafe Puerto Plata",
+    "venueSlug": "hard-rock-sosua",
+    "address": "Calle Duarte 7, Sosúa",
+    "phone": "+18495057778",
+    "instagram": "hardrockcafepuertoplata",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/hardrockcafepuertoplata/",
+    "format": "physical",
+    "trending": true,
+    "id": "hard-rock-tribute-arjona-sebastian-alarcon-2027-02-13",
+    "title": "Hard Rock Sosúa — Tribute to Arjona · Sebastián Alarcón · 13 févr",
+    "description": "Tribute to Arjona — Lovers Edition avec Sebastián Alarcón au Hard Rock Cafe Puerto Plata, Calle Duarte 7, Sosúa — samedi 13 février 2027, ouverture 20 h. Soirée hommage du week-end de la Saint-Valentin — pas Trio Los Panchos & Alisha Navarro le lendemain (14 févr.), ni les lives de décembre au Hard Rock. Confirmez billets/tables via Instagram @hardrockcafepuertoplata · WhatsApp +1 849-505-7778.",
+    "date": "2027-02-13",
+    "time": "8:00 PM",
+    "category": "concert",
+    "categories": [
+      "music",
+      "performances"
+    ],
+    "callForPricing": true,
+    "lineup": [
+      "Sebastián Alarcón",
+      "Tribute to Arjona",
+      "Lovers Edition"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
+    "lat": 19.7634107,
+    "lng": -70.5162309,
+    "location": "Sosúa",
+    "venue": "Hard Rock Cafe Puerto Plata",
+    "venueSlug": "hard-rock-sosua",
+    "address": "Calle Duarte 7, Sosúa",
+    "phone": "+18495057778",
+    "instagram": "hardrockcafepuertoplata",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/hardrockcafepuertoplata/",
+    "format": "physical",
+    "trending": true,
+    "id": "hard-rock-trio-los-panchos-alisha-2027-02-14",
+    "title": "Hard Rock Sosúa — Trío Los Panchos & Alisha Navarro · 14 févr",
+    "description": "Trío Los Panchos & Alisha Navarro au Hard Rock Cafe Puerto Plata, Calle Duarte 7, Sosúa — dimanche 14 février 2027. Soirée boléro de la Saint-Valentin ; billets via +1 849-505-7778. Pas Tribute to Arjona avec Sebastián Alarcón la veille (13 févr.). Confirmez via Instagram @hardrockcafepuertoplata.",
+    "date": "2027-02-14",
+    "category": "concert",
+    "categories": [
+      "music",
+      "performances"
+    ],
+    "callForPricing": true,
+    "lineup": [
+      "Trío Los Panchos",
+      "Alisha Navarro"
+    ],
+    "imageEmoji": "💘"
+  },
+  {
+    "id": "isabela-food-fest-el-nene-amenazzy-2026-12-19",
+    "title": "Isabela Food Fest — El Nene Amenazzy · 19 déc",
+    "description": "El Nene Amenazzy à Isabela Food Fest, Parque Municipal Villa Isabela — samedi 19 décembre 2026. Soirée du samedi du festival de trois jours (18–20 déc.) ; même nuit au parc que Los Simpáticos Típicos et Kiry Curu — voir la fiche principale Isabela Food Fest pour le week-end complet. Billets sur todotickets.do et Plaza Lama ; infos & réservations +1 829-336-6802 · Instagram @isabelafoodfest. Affiche urbaine du festival à Villa Isabela — pas la soirée 2BLE K / Bujía / Plantón à Evolution Disco Club le même samedi à San Marcos, ni le gran cierre Bulin 47 le dimanche.",
+    "date": "2026-12-19",
+    "location": "Villa Isabela",
+    "venue": "Parque Municipal Villa Isabela",
+    "venueSlug": "parque-municipal-villa-isabela",
+    "address": "Parque Municipal, Villa Isabela, Puerto Plata",
+    "lat": 19.813027,
+    "lng": -71.055725,
+    "category": "concert",
+    "categories": [
+      "festivals",
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18293366802",
+    "ticketUrl": "https://todotickets.do",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/isabelafoodfest/",
+    "instagram": "isabelafoodfest",
+    "lineup": [
+      "El Nene Amenazzy"
+    ],
+    "imageEmoji": "🎤"
   }
 ]

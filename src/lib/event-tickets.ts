@@ -319,6 +319,8 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "el-carey-weekend-nightlife",
   "tasty-food-park-karaoke-wednesday",
   "hard-rock-karaoke-wednesday",
+  "hard-rock-route-5-live-2026-12-05",
+  "hard-rock-morir-sonando-2026-12-12",
   "ocean-winds-karaoke-nights",
   "petit-francois-friday-karaoke",
   "petit-francois-halloween-2026-10-30",

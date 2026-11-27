@@ -2333,8 +2333,8 @@
   },
   {
     "id": "hard-rock-karaoke-wednesday",
-    "title": "Karaoke Night en Hard Rock Cafe",
-    "description": "Todos los miércoles karaoke en Hard Rock Cafe Puerto Plata, El Batey · Plaza Downtown (Calle Duarte), Sosúa — desde las 7:00 PM, sin cover, premios a la mejor voz. Horario del café mar–jue 4:00 PM–12:00 AM (cerrado lunes). Comida, tragos y promociones en el escenario más grande del centro. WhatsApp +1 849-505-7778.",
+    "title": "Hard Rock Cafe Karaoke Night",
+    "description": "Karaoke Night está de vuelta todos los miércoles en Hard Rock Cafe Puerto Plata, El Batey · Plaza Downtown (Calle Duarte), Sosúa — desde las 7:00 PM, entrada gratis. Comida, tragos y noches de micrófono en el escenario más grande del downtown de Sosúa. Confirma en Instagram @hardrockcafepuertoplata · WhatsApp +1 849-505-7778.",
     "date": "2026-01-01",
     "time": "7:00 PM",
     "location": "Sosúa",
@@ -2353,9 +2353,10 @@
     "recurrenceDay": 3,
     "isFree": true,
     "phone": "+18495057778",
-    "sourceType": "instagram",
-    "sourceUrl": "https://www.instagram.com/p/DbnyReiOybQ/",
-    "imageEmoji": "🎤"
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/hardrockcafepuertoplata/",
+    "imageEmoji": "🎤",
+    "instagram": "hardrockcafepuertoplata"
   },
   {
     "id": "drifter-sunset-into-the-night",

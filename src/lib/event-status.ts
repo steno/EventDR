@@ -589,7 +589,8 @@ export function isSportsViewingEvent(
 
 /**
  * Dated one-off still worth a Today’s specials slot.
- * Leaves the rail once the show is in its final hour (“ends soon”) or has ended.
+ * Leaves the rail once the show is in its final hour (“ends soon”), has
+ * ended, or is closed for the day (multi-day still spanning tomorrow).
  */
 export function isListedTodaySpecial(
   event: EventLiveFields,
@@ -610,6 +611,9 @@ export function isListedTodaySpecial(
   }
   if (event.date?.trim() !== localDateISO(now)) return false;
   if (!isEventActiveToday(event, now)) return false;
+  // Multi-day bills that finished for the evening stay "active" (endDate in
+  // the future) but must not keep a Specials slot with “Closed for the day”.
+  if (hasWindowEndedForToday(event, now)) return false;
   return !isEndingSoon(event, now);
 }
 

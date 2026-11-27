@@ -1259,6 +1259,23 @@ const FILE_TO_VENUE_SLUG = {
   "docean-bar-la-insuperable-2026-12-25.jpg":
     "docean-bar-la-insuperable-2026-12-25",
   "docean-bar-el-prodigio-2026-12-26.jpg": "docean-bar-el-prodigio-2026-12-26",
+  "docean-bar-el-prodigio-2026-12-26-v2.jpg": "docean-bar-el-prodigio-2026-12-26",
+  "037-bar-meneo-agapito-2026-11-28.jpg": "037-bar-meneo-agapito-2026-11-28",
+  "evolution-2ble-k-bujia-planton-2026-12-19.jpg":
+    "evolution-2ble-k-bujia-planton-2026-12-19",
+  "los-primos-noche-de-perreo-dj-flaco-2026-11-28.jpg":
+    "los-primos-noche-de-perreo-dj-flaco-2026-11-28",
+  "tiki-bar-retromix-poche-jaquez-2026-11-28.jpg":
+    "tiki-bar-retromix-poche-jaquez-2026-11-28",
+  "hard-rock-karaoke-wednesday-v2.jpg": "hard-rock-karaoke-wednesday",
+  "hard-rock-route-5-live-2026-12-05.jpg": "hard-rock-route-5-live-2026-12-05",
+  "hard-rock-morir-sonando-2026-12-12.jpg": "hard-rock-morir-sonando-2026-12-12",
+  "hard-rock-tribute-arjona-sebastian-alarcon-2027-02-13.jpg":
+    "hard-rock-tribute-arjona-sebastian-alarcon-2027-02-13",
+  "hard-rock-trio-los-panchos-alisha-2027-02-14.jpg":
+    "hard-rock-trio-los-panchos-alisha-2027-02-14",
+  "isabela-food-fest-el-nene-amenazzy-2026-12-19.jpg":
+    "isabela-food-fest-el-nene-amenazzy-2026-12-19",
   "santa-fe-nye-2026-12-31.jpg": "santa-fe-nye-2026-12-31",
   "aura-girls-in-glow-up-2026-12-05.jpg": "aura-girls-in-glow-up-2026-12-05",
   "sociedad-cultural-renovacion-library.jpg":

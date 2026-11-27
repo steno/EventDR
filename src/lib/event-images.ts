@@ -227,6 +227,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "isabela-food-fest-simpaticos-tipicos-2026-12-19.jpg",
   "isabela-food-fest-kiry-curu-2026-12-19":
     "isabela-food-fest-kiry-curu-2026-12-19.jpg",
+  "isabela-food-fest-el-nene-amenazzy-2026-12-19":
+    "isabela-food-fest-el-nene-amenazzy-2026-12-19.jpg",
   "el-patio-de-frida-friday-karaoke": "el-patio-de-frida-friday-karaoke.jpg",
   "the-last-drink-domingo-de-pasarela":
     "the-last-drink-domingo-de-pasarela.jpg",
@@ -610,7 +612,13 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "cabarete-run-festival-5k-2026-11-08":
     "cabarete-run-festival-5k-2026-11-08-v2.jpg",
   "latinwok-ramen-party-2026-09-17": "latinwok-ramen-party-2026-09-17.jpg",
-  "hard-rock-karaoke-wednesday": "hard-rock-karaoke-wednesday.jpg",
+  "hard-rock-karaoke-wednesday": "hard-rock-karaoke-wednesday-v2.jpg",
+  "hard-rock-route-5-live-2026-12-05": "hard-rock-route-5-live-2026-12-05.jpg",
+  "hard-rock-morir-sonando-2026-12-12": "hard-rock-morir-sonando-2026-12-12.jpg",
+  "hard-rock-tribute-arjona-sebastian-alarcon-2027-02-13":
+    "hard-rock-tribute-arjona-sebastian-alarcon-2027-02-13.jpg",
+  "hard-rock-trio-los-panchos-alisha-2027-02-14":
+    "hard-rock-trio-los-panchos-alisha-2027-02-14.jpg",
   // Filename bump — finisher medal hero (PWA strips ?v=; old flyer path stayed cached).
   "sosua-neon-partyrun-2026-10-24":
     "sosua-neon-partyrun-2026-10-24-medal.jpg",
@@ -956,7 +964,16 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "montellano-gran-dia-de-campo-2026-11-21.jpg",
   "docean-bar-la-insuperable-2026-12-25":
     "docean-bar-la-insuperable-2026-12-25.jpg",
-  "docean-bar-el-prodigio-2026-12-26": "docean-bar-el-prodigio-2026-12-26.jpg",
+  "docean-bar-el-prodigio-2026-12-26":
+    "docean-bar-el-prodigio-2026-12-26-v2.jpg",
+  "037-bar-meneo-agapito-2026-11-28":
+    "037-bar-meneo-agapito-2026-11-28.jpg",
+  "evolution-2ble-k-bujia-planton-2026-12-19":
+    "evolution-2ble-k-bujia-planton-2026-12-19.jpg",
+  "los-primos-noche-de-perreo-dj-flaco-2026-11-28":
+    "los-primos-noche-de-perreo-dj-flaco-2026-11-28.jpg",
+  "tiki-bar-retromix-poche-jaquez-2026-11-28":
+    "tiki-bar-retromix-poche-jaquez-2026-11-28.jpg",
   "santa-fe-nye-2026-12-31": "santa-fe-nye-2026-12-31.jpg",
   "aura-girls-in-glow-up-2026-12-05": "aura-girls-in-glow-up-2026-12-05.jpg",
   "aura-alice-wonderland-2026-11-14": "aura-alice-wonderland-2026-11-14.jpg",
@@ -1204,6 +1221,16 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "voyvoy-saturday-session-2026-11-28": "object-center",
   "rancho-catalina-navidad-daniel-galan-cafe-colao-2026-12-25": "object-center",
   "renovacion-concurso-por-nuestro-pais-2027": "object-center",
+  "037-bar-meneo-agapito-2026-11-28": "object-center",
+  "evolution-2ble-k-bujia-planton-2026-12-19": "object-center",
+  "los-primos-noche-de-perreo-dj-flaco-2026-11-28": "object-center",
+  "tiki-bar-retromix-poche-jaquez-2026-11-28": "object-center",
+  "docean-bar-el-prodigio-2026-12-26": "object-top",
+  "hard-rock-karaoke-wednesday": "object-center",
+  "hard-rock-route-5-live-2026-12-05": "object-center",
+  "hard-rock-morir-sonando-2026-12-12": "object-center",
+  "hard-rock-tribute-arjona-sebastian-alarcon-2027-02-13": "object-center",
+  "hard-rock-trio-los-panchos-alisha-2027-02-14": "object-center",
   "allison-sade-aura-2026-09-17": "object-top",
 
   // Short mobile heroes keep the sun; desktop centers the sunset composition.
@@ -1324,6 +1351,7 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "iss-wizard-of-oz-2026-12-17": "object-center",
   "twenty-disco-kiry-curu-2026-10-16": "object-center",
   "isabela-food-fest-kiry-curu-2026-12-19": "object-center",
+  "isabela-food-fest-el-nene-amenazzy-2026-12-19": "object-center",
   "ivan-garcia-eulogio-badia-2026-10-24": "object-center",
   "ivan-garcia-cafe-opera-codigo-clown-2026-10-31": "object-center",
   // Portrait singer flyer — keep face in wide hero (was object-center).
@@ -1849,6 +1877,11 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "paella-pop-el-pueblito-pan-v3.jpg",
   "docean-bar-la-insuperable-2026-12-25.jpg",
   "docean-bar-el-prodigio-2026-12-26.jpg",
+  "docean-bar-el-prodigio-2026-12-26-v2.jpg",
+  "037-bar-meneo-agapito-2026-11-28.jpg",
+  "evolution-2ble-k-bujia-planton-2026-12-19.jpg",
+  "los-primos-noche-de-perreo-dj-flaco-2026-11-28.jpg",
+  "tiki-bar-retromix-poche-jaquez-2026-11-28.jpg",
   "santa-fe-nye-2026-12-31.jpg",
   "aura-girls-in-glow-up-2026-12-05.jpg",
   "aura-alice-wonderland-2026-11-14.jpg",
@@ -1857,6 +1890,11 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "hard-rock-magica-navidad-2026-12-19.jpg",
   "aura-galactic-nights-christoo-2026-11-28.jpg",
   "hard-rock-allison-sade-2026-11-27.jpg",
+  "hard-rock-karaoke-wednesday-v2.jpg",
+  "hard-rock-route-5-live-2026-12-05.jpg",
+  "hard-rock-morir-sonando-2026-12-12.jpg",
+  "hard-rock-tribute-arjona-sebastian-alarcon-2027-02-13.jpg",
+  "hard-rock-trio-los-panchos-alisha-2027-02-14.jpg",
   "ocean-world-terrace-rubio-manon-2026-12-04.jpg",
   "toscana-nightclub-gran-apertura-2026-12-04-v2.jpg",
   "toscana-nightclub-jacob-henriquez-2026-12-05.jpg",
@@ -2030,6 +2068,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "isabela-food-fest-bulin-47-2026-12-20.jpg",
   "isabela-food-fest-simpaticos-tipicos-2026-12-19.jpg",
   "isabela-food-fest-kiry-curu-2026-12-19.jpg",
+  "isabela-food-fest-el-nene-amenazzy-2026-12-19.jpg",
   "el-patio-de-frida-friday-karaoke.jpg",
   "the-last-drink-domingo-de-pasarela.jpg",
   "camara-taller-educacion-financiera-2026-10-27.jpg",
@@ -2185,6 +2224,11 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "guananico-san-miguel-patronales-2026.jpg",
   "hard-rock-casa-mickey-2026-09-26.jpg",
   "hard-rock-karaoke-wednesday.jpg",
+  "hard-rock-karaoke-wednesday-v2.jpg",
+  "hard-rock-route-5-live-2026-12-05.jpg",
+  "hard-rock-morir-sonando-2026-12-12.jpg",
+  "hard-rock-tribute-arjona-sebastian-alarcon-2027-02-13.jpg",
+  "hard-rock-trio-los-panchos-alisha-2027-02-14.jpg",
   "hard-rock-rising-segunda-ronda-2026-09-16.jpg",
   "hard-rock-rising-final-local-2026-09-23.jpg",
   "ojo-equinoccio-neon-party-2026-09-25.jpg",

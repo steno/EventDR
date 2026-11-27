@@ -1316,6 +1316,26 @@ describe("getHomeDiscoverLayout same-day seed", () => {
     assert.equal(endingSoon.specialEvents.length, 0);
     assert.ok(endingSoon.todayEvents.some((item) => item.id === "late-show"));
   });
+
+  it("drops a multi-day opener from Today’s specials once closed for the day", () => {
+    const fest = event({
+      id: "weekend-fest",
+      title: "Weekend Fest",
+      date: "2026-09-19",
+      endDate: "2026-09-21",
+      time: "10:00 AM - 6:00 PM",
+      category: "culture",
+    });
+    const afternoon = getHomeDiscoverLayout([fest], {
+      now: new Date("2026-09-19T18:00:00.000Z"),
+    });
+    assert.equal(afternoon.specialEvents[0]?.id, "weekend-fest");
+
+    const afterHours = getHomeDiscoverLayout([fest], {
+      now: new Date("2026-09-19T23:00:00.000Z"),
+    });
+    assert.equal(afterHours.specialEvents.length, 0);
+  });
 });
 
 describe("getHomeDiscoverLayout hero background", () => {

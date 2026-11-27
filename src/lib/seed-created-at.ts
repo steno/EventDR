@@ -570,6 +570,16 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "rancho-catalina-navidad-daniel-galan-cafe-colao-2026-12-25":
     "2026-11-26T21:45:00.000Z",
   "renovacion-concurso-por-nuestro-pais-2027": "2026-11-26T21:30:00.000Z",
+  "037-bar-meneo-agapito-2026-11-28": "2026-11-27T16:00:00.000Z",
+  "evolution-2ble-k-bujia-planton-2026-12-19": "2026-11-27T15:45:00.000Z",
+  "los-primos-noche-de-perreo-dj-flaco-2026-11-28": "2026-11-27T15:30:00.000Z",
+  "tiki-bar-retromix-poche-jaquez-2026-11-28": "2026-11-27T15:15:00.000Z",
+  "hard-rock-route-5-live-2026-12-05": "2026-11-27T17:00:00.000Z",
+  "hard-rock-morir-sonando-2026-12-12": "2026-11-27T16:45:00.000Z",
+  "hard-rock-tribute-arjona-sebastian-alarcon-2027-02-13":
+    "2026-11-27T16:30:00.000Z",
+  "hard-rock-trio-los-panchos-alisha-2027-02-14": "2026-11-27T16:15:00.000Z",
+  "isabela-food-fest-el-nene-amenazzy-2026-12-19": "2026-11-27T17:15:00.000Z",
 };
 
 /** Fill missing `createdAt` from {@link SEED_CREATED_AT} (does not overwrite). */
