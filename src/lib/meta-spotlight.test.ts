@@ -7,6 +7,7 @@ import {
   otherSpotlightChannel,
   pickTodaySpotlights,
   resolveSpotlightChannel,
+  spotlightListingRange,
   resolveSpotlightLocationId,
   resolveSpotlightPhotoTagUsernames,
   sameSpotlightEventSet,
@@ -669,6 +670,12 @@ describe("spotlight channels", () => {
     assert.equal(resolveSpotlightChannel(undefined, ["one-off"]), "manual");
     assert.equal(resolveSpotlightChannel(undefined, []), null);
     assert.equal(resolveSpotlightChannel(undefined, [], "today"), "today");
+  });
+
+  it("keeps tomorrow listing link when onlyEventIds clears the pool when", () => {
+    assert.equal(spotlightListingRange("tomorrow", undefined), "tomorrow");
+    assert.equal(spotlightListingRange(undefined, "tomorrow"), "tomorrow");
+    assert.equal(spotlightListingRange(undefined, undefined), "today");
   });
 
   it("detects the same event set regardless of order", () => {

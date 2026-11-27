@@ -91,6 +91,17 @@ export function spotlightDayISOForChannel(
   return channel === "tomorrow-specials" ? addDaysISO(today, 1) : today;
 }
 
+/**
+ * Album / “Más en” when-hub. Prefer the channel window when the catalog pool
+ * was unscoped for `onlyEventIds`.
+ */
+export function spotlightListingRange(
+  optionsWhen?: "today" | "tomorrow",
+  poolWhen?: "today" | "tomorrow",
+): "today" | "tomorrow" {
+  return (optionsWhen ?? poolWhen) === "tomorrow" ? "tomorrow" : "today";
+}
+
 /** Noon America/Santo_Domingo for specials / live-status checks on that day. */
 export function spotlightAsOfForDay(dayISO: string): Date {
   return new Date(`${dayISO}T12:00:00-04:00`);
@@ -975,7 +986,7 @@ export async function buildTodayMetaPost(
     formatSpotlightPhotoTagList(event.photoTagUsernames ?? []),
   );
   const locationIds = events.map((event) => event.locationId ?? "");
-  const listingPath = when === "tomorrow" ? "tomorrow" : "today";
+  const listingPath = spotlightListingRange(options.when, when);
   const listingUrl = `${siteOrigin(origin)}/${locale}/when/${listingPath}`;
 
   return {
