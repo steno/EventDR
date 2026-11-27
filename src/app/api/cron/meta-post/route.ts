@@ -5,7 +5,7 @@ import { buildPartnerDigest } from "@/lib/partner-digest";
 import { SITE_URL } from "@/lib/site-url";
 import {
   buildTodayMetaPost,
-  isSpotlightChannel,
+  resolveSpotlightChannel,
   spotlightPickOptionsForSource,
   spotlightSlotId,
 } from "@/lib/meta-spotlight";
@@ -228,12 +228,8 @@ export async function POST(request: NextRequest) {
   const onlyEventIds = (body.onlyEventIds ?? [])
     .map((id) => id.trim())
     .filter((id) => id.length > 0);
-  const spotlightSource =
-    onlyEventIds.length > 0
-      ? "manual"
-      : isSpotlightChannel(body.source)
-        ? body.source
-        : null;
+  // Keep explicit today/tomorrow-specials when onlyEventIds is set (one-by-one).
+  const spotlightSource = resolveSpotlightChannel(body.source, onlyEventIds);
 
   if (spotlightSource) {
     const channel = spotlightSource;

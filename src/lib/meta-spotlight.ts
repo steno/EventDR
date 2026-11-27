@@ -60,6 +60,20 @@ export function isSpotlightChannel(value: unknown): value is SpotlightChannel {
   );
 }
 
+/**
+ * Prefer an explicit channel (e.g. tomorrow-specials + onlyEventIds for
+ * one-by-one). `onlyEventIds` alone still maps to `manual`.
+ */
+export function resolveSpotlightChannel(
+  source: unknown,
+  onlyEventIds: readonly string[] = [],
+  fallback: SpotlightChannel | null = null,
+): SpotlightChannel | null {
+  if (isSpotlightChannel(source)) return source;
+  if (onlyEventIds.some((id) => id.trim().length > 0)) return "manual";
+  return fallback;
+}
+
 export function spotlightWhenForChannel(
   channel: SpotlightChannel,
 ): "today" | "tomorrow" | undefined {

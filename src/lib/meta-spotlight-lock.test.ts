@@ -166,6 +166,40 @@ describe("decideSpotlightLockAction", () => {
     );
   });
 
+  it("starts another batch when every requested id is still unposted today", () => {
+    assert.equal(
+      decideSpotlightLockAction(
+        lock({
+          eventIds: ["a", "b"],
+          facebookId: "fb",
+          instagramId: "ig",
+          instagramPostedEventIds: ["a", "b"],
+        }),
+        "2026-08-21",
+        Date.now(),
+        { eventIds: ["c"] },
+      ),
+      "proceed",
+    );
+  });
+
+  it("reuses when a requested id was already in today's batch", () => {
+    assert.equal(
+      decideSpotlightLockAction(
+        lock({
+          eventIds: ["a", "b"],
+          facebookId: "fb",
+          instagramId: "ig",
+          instagramPostedEventIds: ["a", "b"],
+        }),
+        "2026-08-21",
+        Date.now(),
+        { eventIds: ["b", "c"] },
+      ),
+      "reuse",
+    );
+  });
+
   it("does not restart an in-progress post when force is set", () => {
     const now = 1_000_000;
     assert.equal(
@@ -288,7 +322,23 @@ describe("mergeSpotlightExclusions", () => {
     assert.equal(excludeIds.includes("concert"), true);
     assert.equal(hardExcludeIds.includes("ramen"), true);
     assert.equal(hardExcludeIds.includes("concert"), true);
+    assert.equal(excludeIds.includes("patronales"), true);
+    assert.equal(hardExcludeIds.includes("patronales"), true);
     assert.equal(excludeKeys.includes("venue:latin-wok"), false);
     assert.equal(excludeKeys.includes("venue:imbert"), false);
+  });
+
+  it("clears own same-day hard excludes when force is set", () => {
+    const scheduled = lock({
+      date: "2026-08-26",
+      eventIds: ["patronales"],
+    });
+    const { hardExcludeIds } = mergeSpotlightExclusions(
+      scheduled,
+      [],
+      "2026-08-26",
+      { force: true },
+    );
+    assert.equal(hardExcludeIds.includes("patronales"), false);
   });
 });

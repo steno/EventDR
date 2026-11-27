@@ -62,6 +62,19 @@ ONLY_EVENT_IDS=event-id-here \
 node scripts/run-today-spotlight.mjs
 ```
 
+**One-by-one tomorrow (or today) special** — keep the specials flag so framing
+stays `/when/tomorrow` (do **not** rely on a hand-built `EXCLUDE_EVENT_IDS` list):
+
+```bash
+SITE_URL=https://pop-event.com \
+CRON_SECRET=… \
+DRY_RUN=true \
+TOMORROW_SPECIALS=true \
+ONLY_EVENT_IDS=event-id-here \
+LOCALE=es \
+node scripts/run-today-spotlight.mjs
+```
+
 Localhost works for ig-card previews; live Meta dry-run needs production
 `SITE_URL` (Meta env). Note `eventIds`, album `caption`, and each
 `eventCaptions[]` entry.

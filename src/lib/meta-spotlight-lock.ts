@@ -2,6 +2,7 @@ import { localDateISO } from "@/lib/event-dates";
 import { getFirestoreDb, isFirebaseConfigured } from "@/lib/firebase/admin";
 import {
   isSpotlightChannel,
+  sameSpotlightEventSet,
   spotlightSeriesKeyFromId,
   type SpotlightChannel,
 } from "@/lib/meta-spotlight";
@@ -96,6 +97,12 @@ export function decideSpotlightLockAction(
     force?: boolean;
     facebook?: boolean;
     instagram?: boolean;
+    /**
+     * New pick for this claim. When every id is outside the already-posted
+     * same-day set, allow another batch (one-by-one / remaining specials)
+     * without requiring FORCE.
+     */
+    eventIds?: string[];
   } = {},
 ): SpotlightLockDecision {
   if (!record || record.date !== today) return "proceed";
@@ -104,7 +111,18 @@ export function decideSpotlightLockAction(
   const facebookDone = !wantFacebook || Boolean(record.facebookId);
   const instagramDone = !wantInstagram || spotlightInstagramComplete(record);
   if (facebookDone && instagramDone) {
-    return options.force ? "proceed" : "reuse";
+    if (options.force) return "proceed";
+    const requested = (options.eventIds ?? [])
+      .map((id) => id.trim())
+      .filter((id) => id.length > 0);
+    if (requested.length) {
+      const posted = new Set<string>([
+        ...record.eventIds,
+        ...(record.instagramPostedEventIds ?? []),
+      ]);
+      if (requested.every((id) => !posted.has(id))) return "proceed";
+    }
+    return "reuse";
   }
   if (record.stepLockUntil && record.stepLockUntil > now) return "wait";
   return "resume";
@@ -207,6 +225,14 @@ export function mergeSpotlightExclusions(
   const base = spotlightExclusions(own, today, options);
   const excludeIds = new Set(base.excludeIds);
   const hardExcludeIds = new Set<string>();
+  // Own same-day ids stay hard-excluded so a follow-up batch (or onlyEventIds)
+  // cannot re-post what this channel already shipped — unless FORCE.
+  if (own?.date === today) {
+    for (const id of own.eventIds) {
+      excludeIds.add(id);
+      if (!options.force) hardExcludeIds.add(id);
+    }
+  }
   for (const other of others) {
     if (!other) continue;
     const fromOther = spotlightExclusions(other, today, options);
@@ -441,6 +467,7 @@ export async function claimTodaySpotlightLock(input: {
         force: input.force,
         facebook: input.facebook,
         instagram: input.instagram,
+        eventIds: input.eventIds,
       });
       if (action === "reuse" && existing) {
         return { ok: true as const, action, record: existing };
@@ -456,9 +483,21 @@ export async function claimTodaySpotlightLock(input: {
         keep != null &&
         (keep.instagramPostedEventIds?.length ?? 0) === 0 &&
         (keep.instagramChildIds?.length ?? 0) === 0;
+      // Additional same-day batch (new ids after a complete post): roll the
+      // prior pick into `recent` even without FORCE so cooldowns stick.
+      const replacingSameDayBatch =
+        Boolean(existing) &&
+        existing!.date === today &&
+        action === "proceed" &&
+        !keep &&
+        (Boolean(existing!.facebookId) ||
+          spotlightInstagramComplete(existing!)) &&
+        !sameSpotlightEventSet(existing!.eventIds, input.eventIds);
       const recent =
         keep?.recent ??
-        rollSpotlightHistory(existing, today, { force: input.force });
+        rollSpotlightHistory(existing, today, {
+          force: Boolean(input.force || replacingSameDayBatch),
+        });
       const record: SpotlightLockRecord = {
         date: today,
         locale: input.locale,

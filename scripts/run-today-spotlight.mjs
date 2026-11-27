@@ -15,7 +15,7 @@
  *   FORCE=true               Ignore today's lock and start over
  *   FEATURE_EVENT_ID=...     Pin this event first (cover image)
  *   EXCLUDE_EVENT_IDS=a,b    Skip these ids
- *   ONLY_EVENT_IDS=a,b       Post exactly these (“run this post”)
+ *   ONLY_EVENT_IDS=a,b       Post exactly these (combine with TODAY_/TOMORROW_SPECIALS for one-by-one)
  *   SKIP_PHOTO_TAGS=true     Do not photo-tag venue Instagram accounts
  *   SKIP_LOCATIONS=true      Do not tag Instagram map locations
  *   TODAY_SPECIALS=true      Today’s specials only
@@ -23,6 +23,7 @@
  *   SOURCE=today|today-specials|tomorrow-specials|manual
  *   LOCALE=es|en|fr          Caption locale (default en)
  *   EXPAND_GALLERY=true      One post per curated gallery slide (artists)
+ *   PHOTO_TAG_OVERRIDES=id:user1,user2;id2:user3   Optional per-event photo tags
  */
 
 const SITE_URL = (process.env.SITE_URL || "https://pop-event.com").replace(
@@ -49,18 +50,39 @@ const TODAY_SPECIALS =
 const TOMORROW_SPECIALS =
   process.env.TOMORROW_SPECIALS === "true" ||
   process.env.SOURCE === "tomorrow-specials";
-const SPOTLIGHT_SOURCE = ONLY_EVENT_IDS.length
-  ? "manual"
-  : TOMORROW_SPECIALS
-    ? "tomorrow-specials"
-    : TODAY_SPECIALS
-      ? "today-specials"
-      : process.env.SOURCE === "manual"
-        ? "manual"
-        : "today";
+// Prefer explicit specials flags over onlyEventIds→manual so one-by-one
+// tomorrow/today specials keep the right album framing + day window.
+const SPOTLIGHT_SOURCE = TOMORROW_SPECIALS
+  ? "tomorrow-specials"
+  : TODAY_SPECIALS
+    ? "today-specials"
+    : ONLY_EVENT_IDS.length || process.env.SOURCE === "manual"
+      ? "manual"
+      : process.env.SOURCE === "today-specials"
+        ? "today-specials"
+        : process.env.SOURCE === "tomorrow-specials"
+          ? "tomorrow-specials"
+          : "today";
 const SKIP_PHOTO_TAGS = process.env.SKIP_PHOTO_TAGS === "true";
 const SKIP_LOCATIONS = process.env.SKIP_LOCATIONS === "true";
 const EXPAND_GALLERY = process.env.EXPAND_GALLERY === "true";
+/** `eventId:user1,user2;otherId:` — empty users clears tags for that id. */
+const PHOTO_TAG_OVERRIDES = (() => {
+  const raw = process.env.PHOTO_TAG_OVERRIDES?.trim();
+  if (!raw) return undefined;
+  /** @type {Record<string, string>} */
+  const out = {};
+  for (const part of raw.split(";")) {
+    const trimmed = part.trim();
+    if (!trimmed) continue;
+    const colon = trimmed.indexOf(":");
+    if (colon <= 0) continue;
+    const id = trimmed.slice(0, colon).trim();
+    const users = trimmed.slice(colon + 1).trim();
+    if (id) out[id] = users;
+  }
+  return Object.keys(out).length ? out : undefined;
+})();
 const MAX_STEPS = 80;
 const WAIT_MS = 4_000;
 
@@ -138,6 +160,7 @@ async function main() {
     excludeEventIds: EXCLUDE_EVENT_IDS.length ? EXCLUDE_EVENT_IDS : undefined,
     onlyEventIds: ONLY_EVENT_IDS.length ? ONLY_EVENT_IDS : undefined,
     skipPhotoTags: SKIP_PHOTO_TAGS || undefined,
+    photoTagOverrides: PHOTO_TAG_OVERRIDES,
     skipLocations: SKIP_LOCATIONS || undefined,
     expandGallery: EXPAND_GALLERY || undefined,
     facebook: INSTAGRAM_ONLY ? false : undefined,

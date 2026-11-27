@@ -6,6 +6,7 @@ import {
   matchGallerySlidePhotoTag,
   otherSpotlightChannel,
   pickTodaySpotlights,
+  resolveSpotlightChannel,
   resolveSpotlightLocationId,
   resolveSpotlightPhotoTagUsernames,
   sameSpotlightEventSet,
@@ -654,6 +655,20 @@ describe("spotlight channels", () => {
     assert.equal(otherSpotlightChannel("today"), "today-specials");
     assert.equal(otherSpotlightChannel("today-specials"), "today");
     assert.equal(otherSpotlightChannel("tomorrow-specials"), "today-specials");
+  });
+
+  it("keeps explicit specials channel when onlyEventIds is set", () => {
+    assert.equal(
+      resolveSpotlightChannel("tomorrow-specials", ["one-off"]),
+      "tomorrow-specials",
+    );
+    assert.equal(
+      resolveSpotlightChannel("today-specials", ["one-off"]),
+      "today-specials",
+    );
+    assert.equal(resolveSpotlightChannel(undefined, ["one-off"]), "manual");
+    assert.equal(resolveSpotlightChannel(undefined, []), null);
+    assert.equal(resolveSpotlightChannel(undefined, [], "today"), "today");
   });
 
   it("detects the same event set regardless of order", () => {

@@ -13,6 +13,7 @@ import {
 } from "@/lib/meta-post";
 import {
   buildTodayMetaPost,
+  resolveSpotlightChannel,
   sameSpotlightEventSet,
   spotlightPickOptionsForSource,
   spotlightSlotId,
@@ -135,7 +136,7 @@ export async function runTodaySpotlightStep(input: {
   featureEventId?: string;
   /** Never pick these ids on this run (still allows the rest of the day). */
   excludeEventIds?: string[];
-  /** Post exactly these ids (“run this post”). Implies channel `manual`. */
+  /** Post exactly these ids (“run this post”). Keeps `channel` when set. */
   onlyEventIds?: string[];
   /** Skip Instagram photo tags entirely. */
   skipPhotoTags?: boolean;
@@ -153,9 +154,8 @@ export async function runTodaySpotlightStep(input: {
   const onlyEventIds = (input.onlyEventIds ?? [])
     .map((id) => id.trim())
     .filter((id) => id.length > 0);
-  const channel: SpotlightChannel = onlyEventIds.length
-    ? "manual"
-    : (input.channel ?? "today");
+  const channel: SpotlightChannel =
+    resolveSpotlightChannel(input.channel, onlyEventIds, "today") ?? "today";
   const today = localDateISO();
   const locks = await readSpotlightLocks();
   const own = spotlightLockForChannel(locks, channel);
