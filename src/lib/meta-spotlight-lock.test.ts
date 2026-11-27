@@ -331,7 +331,11 @@ describe("mergeSpotlightExclusions", () => {
   it("clears own same-day hard excludes when force is set", () => {
     const scheduled = lock({
       date: "2026-08-26",
+      status: "complete",
       eventIds: ["patronales"],
+      facebookId: "fb",
+      instagramId: "ig",
+      instagramPostedEventIds: ["patronales"],
     });
     const { hardExcludeIds } = mergeSpotlightExclusions(
       scheduled,
@@ -340,5 +344,23 @@ describe("mergeSpotlightExclusions", () => {
       { force: true },
     );
     assert.equal(hardExcludeIds.includes("patronales"), false);
+  });
+
+  it("does not hard-exclude an in-flight batch still publishing", () => {
+    const own = lock({
+      date: "2026-08-26",
+      status: "in_progress",
+      eventIds: ["hard-rock", "aura"],
+      facebookId: "fb",
+      instagramPostedEventIds: ["hard-rock"],
+    });
+    const { hardExcludeIds, excludeIds } = mergeSpotlightExclusions(
+      own,
+      [],
+      "2026-08-26",
+    );
+    assert.equal(hardExcludeIds.includes("hard-rock"), true);
+    assert.equal(hardExcludeIds.includes("aura"), false);
+    assert.equal(excludeIds.includes("aura"), true);
   });
 });

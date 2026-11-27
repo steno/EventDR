@@ -206,15 +206,21 @@ export function spotlightExclusions(
  * Same-day ids from the other channel are hard-excluded so we never repeat
  * the same event on Instagram/Facebook the same calendar day.
  */
+type SpotlightExclusionLock = Pick<
+  SpotlightLockRecord,
+  | "date"
+  | "eventIds"
+  | "repeatKeys"
+  | "recent"
+  | "status"
+  | "facebookId"
+  | "instagramId"
+  | "instagramPostedEventIds"
+>;
+
 export function mergeSpotlightExclusions(
-  own:
-    | Pick<SpotlightLockRecord, "date" | "eventIds" | "repeatKeys" | "recent">
-    | null,
-  others: Array<
-    | Pick<SpotlightLockRecord, "date" | "eventIds" | "repeatKeys" | "recent">
-    | null
-    | undefined
-  >,
+  own: SpotlightExclusionLock | null,
+  others: Array<SpotlightExclusionLock | null | undefined>,
   today: string,
   options: { force?: boolean } = {},
 ): {
@@ -225,12 +231,19 @@ export function mergeSpotlightExclusions(
   const base = spotlightExclusions(own, today, options);
   const excludeIds = new Set(base.excludeIds);
   const hardExcludeIds = new Set<string>();
-  // Own same-day ids stay hard-excluded so a follow-up batch (or onlyEventIds)
-  // cannot re-post what this channel already shipped — unless FORCE.
+  // Own same-day ids already shipped stay hard-excluded so a follow-up batch
+  // cannot re-post them — unless FORCE. Do not hard-exclude the in-flight
+  // batch (stepped publish rebuilds the pick each step).
   if (own?.date === today) {
-    for (const id of own.eventIds) {
-      excludeIds.add(id);
-      if (!options.force) hardExcludeIds.add(id);
+    for (const id of own.eventIds) excludeIds.add(id);
+    if (!options.force) {
+      const ownDone =
+        own.status === "complete" ||
+        (Boolean(own.facebookId) && spotlightInstagramComplete(own));
+      const shipped = ownDone
+        ? own.eventIds
+        : (own.instagramPostedEventIds ?? []);
+      for (const id of shipped) hardExcludeIds.add(id);
     }
   }
   for (const other of others) {
