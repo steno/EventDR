@@ -332,9 +332,10 @@ describe("getNewHighlightEvents", () => {
       venueSlug: "voyvoy-cabarete",
     });
 
-    const satMorning = new Date("2026-11-07T05:10:00.000Z"); // Sat 1:10 AM AST
+    // Past the 3 AM late-night spill of Fri 9 PM doors (still live at 1 AM).
+    const satAfterSpill = new Date("2026-11-07T07:20:00.000Z"); // Sat 3:20 AM AST
     assert.deepEqual(
-      getNewHighlightEvents([voyvoy], { now: satMorning }).map((e) => e.id),
+      getNewHighlightEvents([voyvoy], { now: satAfterSpill }).map((e) => e.id),
       [],
     );
   });
@@ -357,7 +358,8 @@ describe("getNewHighlightEvents", () => {
       ["debut-friday"],
     );
 
-    const afterFirstNight = new Date("2026-11-14T05:00:00.000Z"); // Sat 1 AM AST
+    // Past Fri 9 PM → 3 AM spill on the debut night.
+    const afterFirstNight = new Date("2026-11-14T07:20:00.000Z"); // Sat 3:20 AM AST
     const rolled = {
       ...weekly,
       date: "2026-11-20",
@@ -380,17 +382,17 @@ describe("getNewHighlightEvents", () => {
       venueSlug: "venue-a",
     });
 
-    // Fri 8 PM AST — default 2h window ends 11 PM (< 24h remaining).
+    // Fri 8 PM AST — evening doors assume close 3 AM (< 24h remaining).
     const beforeDoors = new Date("2026-11-07T00:00:00.000Z");
     assert.deepEqual(
       getNewHighlightEvents([friday], { now: beforeDoors }).map((e) => e.id),
       [],
     );
 
-    const afterDefaultWindow = new Date("2026-11-07T03:30:00.000Z"); // Fri 11:30 PM AST
+    const afterAssumedClose = new Date("2026-11-07T07:30:00.000Z"); // Sat 3:30 AM AST
     assert.deepEqual(
       getNewHighlightEvents([friday], {
-        now: afterDefaultWindow,
+        now: afterAssumedClose,
       }).map((e) => e.id),
       [],
     );

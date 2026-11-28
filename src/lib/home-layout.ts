@@ -53,7 +53,7 @@ export function isHomeDiscoverExcluded(
 /**
  * Visible card cap for home Today’s specials. The full pool still half-hour
  * shuffles in {@link getTodaySpecialEvents}; Home slices to this many and
- * shows “See all specials” when there are more.
+ * shows “More specials” when there are more.
  */
 export const HOME_SPECIALS_LIMIT = 4;
 

@@ -19,6 +19,7 @@ When adding any **new** event seed id (`fallback.*.json` or `recurring.*.json`),
    - Grep existing seeds for the same/near-same title (all three locales)
    - For repeat nights (Bandoleras, House Friday, karaoke series, etc.), make the title distinct — prefer **venue + series** or include the calendar day, e.g. `Ambar Lounge Bandoleras — Carlos Rivera`, not another bare `Bandoleras Fridays — Carlos Rivera`
    - Distinct `id` alone is **not** enough
+7. **Organic / ChatGPT “things to do” (required habit):** home and city meta titles are counted *things to do in {place}* and name up to three event titles in the description (`buildListingSearchCopy`). Seed titles that still make sense clipped (~48 chars), with correct town/`location`, and open descriptions with plain what/where/when. Do **not** stuff the phrase “things to do” into event titles. Full desk note: `.cursor/skills/pop-catalog/SKILL.md` (“Organic + ChatGPT”).
 
 ## 2. Event POP opinion (required)
 

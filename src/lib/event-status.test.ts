@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import {
   getEventLiveStatus,
+  isEndingSoon,
   isLikelyLateNightUntimedListing,
   isListedTodaySpecial,
   isSportsViewingEvent,
@@ -251,5 +252,106 @@ describe("sports viewing vs Today’s specials", () => {
       ),
       true,
     );
+  });
+});
+
+describe("until / hasta close times", () => {
+  const voyvoy = {
+    date: "2026-11-28",
+    time: "Until 3:00 AM",
+    category: "parties" as const,
+  };
+  /** Sat 28 Nov 2026, 10:03 AM America/Santo_Domingo. */
+  const midMorning = new Date("2026-11-28T14:03:00.000Z");
+  /** Sat 28 Nov 2026, 11:00 PM America/Santo_Domingo. */
+  const lateNight = new Date("2026-11-29T03:00:00.000Z");
+  /** Sun 29 Nov 2026, 3:15 AM America/Santo_Domingo. */
+  const afterClose = new Date("2026-11-29T07:15:00.000Z");
+
+  it("parses Until 3:00 AM as overnight from evening doors, not a 3 AM start", () => {
+    assert.deepEqual(parseEventTimeWindow("Until 3:00 AM"), {
+      start: 20 * 60,
+      end: 3 * 60,
+    });
+    assert.deepEqual(parseEventTimeWindow("Hasta las 3:00 AM"), {
+      start: 20 * 60,
+      end: 3 * 60,
+    });
+  });
+
+  it("does not mark a same-day Until-3AM club night ended mid-morning", () => {
+    assert.equal(getEventLiveStatus(voyvoy, midMorning), "upcoming");
+    assert.equal(isListedTodaySpecial(voyvoy, midMorning), true);
+    assert.equal(isEndingSoon(voyvoy, midMorning), false);
+  });
+
+  it("is live late Saturday and ends after the 3 AM close", () => {
+    assert.equal(getEventLiveStatus(voyvoy, lateNight), "live");
+    assert.equal(isListedTodaySpecial(voyvoy, lateNight), true);
+    assert.equal(getEventLiveStatus(voyvoy, afterClose), "ended");
+    assert.equal(isListedTodaySpecial(voyvoy, afterClose), false);
+  });
+});
+
+describe("evening single-start → overnight through 3 AM", () => {
+  const club = {
+    date: "2026-11-28",
+    time: "9:00 PM",
+    category: "parties" as const,
+  };
+  /** Sat 28 Nov 2026, 10:30 PM America/Santo_Domingo. */
+  const tenThirty = new Date("2026-11-29T02:30:00.000Z");
+  /** Sun 29 Nov 2026, 1:00 AM America/Santo_Domingo. */
+  const oneAm = new Date("2026-11-29T05:00:00.000Z");
+  /** Sun 29 Nov 2026, 3:15 AM America/Santo_Domingo. */
+  const afterThree = new Date("2026-11-29T07:15:00.000Z");
+  /** Sat 28 Nov 2026 — afternoon dinner (single start keeps 2-hour default). */
+  const dinner = {
+    date: "2026-11-28",
+    time: "5:00 PM",
+    category: "food-drinks" as const,
+  };
+  /** Sat 28 Nov 2026, 7:30 PM America/Santo_Domingo — past 5–7 PM default. */
+  const afterDinner = new Date("2026-11-28T23:30:00.000Z");
+
+  it("parses a 9 PM doors-only start as overnight through 3 AM", () => {
+    assert.deepEqual(parseEventTimeWindow("9:00 PM"), {
+      start: 21 * 60,
+      end: 3 * 60,
+    });
+  });
+
+  it("keeps early-evening single starts on the 2-hour default", () => {
+    assert.deepEqual(parseEventTimeWindow("5:00 PM"), {
+      start: 17 * 60,
+      end: 19 * 60,
+    });
+  });
+
+  it("does not say ends soon at 10:30 PM for a 9 PM club night", () => {
+    assert.equal(isEndingSoon(club, tenThirty), false);
+    assert.equal(getEventLiveStatus(club, tenThirty), "live");
+    assert.equal(isListedTodaySpecial(club, tenThirty), true);
+  });
+
+  it("keeps the club night on specials at 1 AM the next calendar day", () => {
+    assert.equal(getEventLiveStatus(club, oneAm), "live");
+    assert.equal(isListedTodaySpecial(club, oneAm), true);
+  });
+
+  it("drops the club night after the 3 AM assumed close", () => {
+    assert.equal(getEventLiveStatus(club, afterThree), "ended");
+    assert.equal(isListedTodaySpecial(club, afterThree), false);
+  });
+
+  it("still honors explicit end clocks (9 PM – 11 PM)", () => {
+    const short = { ...club, time: "9:00 PM - 11:00 PM" };
+    assert.equal(isEndingSoon(short, tenThirty), true);
+    assert.equal(isListedTodaySpecial(short, tenThirty), false);
+  });
+
+  it("still ends a 5 PM dinner after its 2-hour default", () => {
+    assert.equal(getEventLiveStatus(dinner, afterDinner), "ended");
+    assert.equal(isListedTodaySpecial(dinner, afterDinner), false);
   });
 });

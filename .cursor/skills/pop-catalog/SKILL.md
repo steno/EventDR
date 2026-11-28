@@ -34,3 +34,14 @@ Also:
 - Natura dates: check naturacabana.com/events/ before writing a date.
 - Detail links: `/en/event/{id}` and `/en/venue/{slug}`.
 - Send the localhost URL and ask them to confirm. Do not open the browser. Wait. Do not commit until asked.
+
+## Organic + ChatGPT (“things to do”) — seed for discovery
+
+GA shows home titles like **“N things to do in Puerto Plata | POP Events”** winning organic and ChatGPT referral traffic. Listing meta pulls **event titles** into those descriptions (`buildListingSearchCopy` in `src/lib/search-snippets.ts`). Seed so those snippets stay useful:
+
+1. **Titles** — clear activity + place cue a stranger would type or an AI would cite (venue or town when it helps). Prefer names that still read after ~48-character clip. Stay unique (see seed rule §1.6).
+2. **`location` / city** — correct North Coast town so city hubs (“things to do in Cabarete / Sosúa / …”) and organic city pages count the bill.
+3. **Description first lines** — plain “what / where / when” before promo fluff; EN/ES/FR should answer the same tourist query, not only nightlife slang.
+4. **Opinions** — one practical send that could stand alone if ChatGPT quotes the page (contrast + tradeoff), not a recycled blurb.
+
+Do not keyword-stuff titles with “things to do”. Do not invent SEO landing pages from Catalog — that is Site.

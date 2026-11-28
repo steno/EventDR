@@ -11,7 +11,7 @@ Local search is how new people find pop-event.com. Social only reaches people wh
 ## Jobs that have actually come up
 
 - Search Console: breadcrumb structured data, Event offers missing `validFrom` or `price`
-- Whether a page’s title or H1 should say “events in”, “happening in”, or “things to do in” for a North Coast town. Change copy only for the page they name.
+- Whether a page’s title or H1 should say “events in”, “happening in”, or “things to do in” for a North Coast town. Change copy only for the page they name. GA favors counted **things to do in {place}** home/city titles (organic + ChatGPT); keep `buildListingSearchCopy` in that shape unless they ask otherwise. Seed-side title habits live in Catalog / `seed-recently-added`, not a site-wide rewrite.
 - Permalink shape (`/en/event/{id}`, `/en/category/{id}`). Do not add area segments or rename routes unless they ask.
 - Hiding a hero or header for looks. Keep the text in the document for crawlers. Do not position it off-screen.
 

@@ -48,6 +48,8 @@ const onStart = new Date("2026-08-31T16:00:00.000Z");
 const afterDaytimeCutoff = new Date("2026-09-16T22:08:00.000Z");
 /** Thu 17 Sep 2026, 00:15 Atlantic — calendar day after the karaoke night. */
 const afterKaraokeMidnight = new Date("2026-09-17T04:15:00.000Z");
+/** Thu 17 Sep 2026, 3:15 AM Atlantic — past the late-night specials spill. */
+const afterKaraokeThreeAm = new Date("2026-09-17T07:15:00.000Z");
 /** Wed 16 Sep 2026, 15:00 Atlantic — still daytime. */
 const afternoonSameDay = new Date("2026-09-16T19:00:00.000Z");
 
@@ -114,13 +116,25 @@ describe("isPastOneOffEvent — same cutoff as home specials", () => {
     );
   });
 
-  it("drops untimed club nights once the calendar day rolls", () => {
+  it("keeps untimed club nights on specials past midnight until 3 AM", () => {
     assert.equal(
       isPastOneOffEvent(karaokeTonight(), afterKaraokeMidnight),
-      true,
+      false,
     );
     assert.equal(
       getTodaySpecialEvents([karaokeTonight()], { now: afterKaraokeMidnight })
+        .length,
+      1,
+    );
+  });
+
+  it("drops untimed club nights after the 3 AM late-night spill", () => {
+    assert.equal(
+      isPastOneOffEvent(karaokeTonight(), afterKaraokeThreeAm),
+      true,
+    );
+    assert.equal(
+      getTodaySpecialEvents([karaokeTonight()], { now: afterKaraokeThreeAm })
         .length,
       0,
     );

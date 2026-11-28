@@ -32,3 +32,7 @@ Do not invent posts, networks, or a daily cron.
 | Spotlight (specials + happening today) | `.cursor/rules/weekly-marketing-routine.mdc` — manual only, cap 10, not Reels; still use locale table when splitting |
 
 New events found while scanning still go through the catalog rules (`SEED_CREATED_AT`, opinion, images). Send what you drafted and ask them to confirm. Do not post or commit until they say so. Wait.
+
+## Analytics lean-in (do not invent campaigns)
+
+GA (late 2026): home **“N things to do in Puerto Plata | POP Events”** titles lead page views; **google / organic** and **chatgpt.com / ai-assistant** are real acquisition. When Marketing advice touches catalog quality, push seeding toward titles/descriptions that feed those snippets — Catalog skill § “Organic + ChatGPT”, not new landing pages or keyword-stuffed social.

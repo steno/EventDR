@@ -81,9 +81,9 @@ interface TodayHighlightsProps {
   limit?: number | null;
   /** Skip events already featured elsewhere on the home page (e.g. photo hero). */
   excludeEventIds?: string[];
-  /** Override “See all today” destination (e.g. city page when a zone is picked). */
+  /** Override “More today” destination (e.g. city page when a zone is picked). */
   seeAllHref?: string;
-  /** Override the see-all pill label (defaults to “See all today”). */
+  /** Override the see-all pill label (defaults to “More today”). */
   seeAllLabel?: string;
   /** Return path when opening a highlight (keeps home area). */
   returnTo?: string;
@@ -96,7 +96,7 @@ interface TodayHighlightsProps {
   title?: string;
   /** Extra line under each highlight card, keyed by event id. */
   notes?: Record<string, string>;
-  /** Hide the “See all today” link (used when the rest of the list is on-page). */
+  /** Hide the “More today” link (used when the rest of the list is on-page). */
   hideSeeAll?: boolean;
   /** Live-status label context for cards (default today). */
   listTimeRange?: TimeRange;
@@ -600,10 +600,10 @@ const TodayHighlightsComponent = ({
               href={allTodayHref}
               eagerWarm
               pendingFeedback
-              className="inline-flex items-center gap-0.5 rounded-full bg-orange-50 px-2.5 py-1 text-sm font-bold text-orange-600 transition-[transform,box-shadow,background-color] duration-300 ease-out touch-manipulation [-webkit-tap-highlight-color:transparent] hover:bg-orange-100 dark:bg-orange-950/50 dark:hover:bg-orange-950/70"
+              className="inline-flex items-center gap-0.5 rounded-full bg-orange-50 px-3 py-1.5 text-base font-bold text-orange-600 transition-[transform,box-shadow,background-color] duration-300 ease-out touch-manipulation [-webkit-tap-highlight-color:transparent] hover:bg-orange-100 dark:bg-orange-950/50 dark:hover:bg-orange-950/70"
             >
               {seeAllLabel ?? dict.events.seeAllToday}
-              <ChevronRight className="h-3.5 w-3.5" aria-hidden />
+              <ChevronRight className="h-4 w-4" aria-hidden />
             </IntentLink>
           ) : null}
         </div>

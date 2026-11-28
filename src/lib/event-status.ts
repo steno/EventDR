@@ -69,7 +69,16 @@ export type EventLiveStatus =
   | "ended"
   | "unknown";
 
+/** Default length when a listing has only a daytime / early-evening start clock. */
 const DEFAULT_DURATION_MINUTES = 120;
+/**
+ * Single starts at/after this clock (no explicit end) are treated as club-style
+ * overnight windows through {@link LATE_NIGHT_ASSUMED_END_MINUTES}.
+ * Keeps 9 PM doors from “ending soon” two hours later.
+ */
+export const EVENING_SINGLE_START_MINUTES = 20 * 60; // 8:00 PM
+/** Assumed close for evening single-start and untimed late-night specials spill. */
+export const LATE_NIGHT_ASSUMED_END_MINUTES = 3 * 60; // 3:00 AM
 /** Show "ends soon" when a multi-hour event is within this many minutes of closing. */
 export const ENDS_SOON_MINUTES = 60;
 /** Show "starts soon" only when doors are actually close — not all morning on event day. */
@@ -152,7 +161,18 @@ function parseDayLabeledSessions(time: string): DayLabeledSession[] | null {
   return sessions.length >= 2 ? sessions : null;
 }
 
+/**
+ * Implied end when the flyer only prints doors/start.
+ * Evening single starts → overnight through 3 AM (club / late stage nights).
+ * Earlier starts keep the historic 2-hour default.
+ */
 function windowFromSessionStart(startMinutes: number): EventTimeWindow {
+  if (startMinutes >= EVENING_SINGLE_START_MINUTES) {
+    return {
+      start: startMinutes,
+      end: LATE_NIGHT_ASSUMED_END_MINUTES,
+    };
+  }
   const end = startMinutes + DEFAULT_DURATION_MINUTES;
   return {
     start: startMinutes,
@@ -181,6 +201,45 @@ function eventEndISO(event: Pick<Event, "date" | "endDate">): string | null {
   return end || null;
 }
 
+/** Minutes-from-midnight clocks in a free-text time string (AM/PM). */
+function parseClockMinutesList(time: string): number[] {
+  const matches = [...time.matchAll(/(\d{1,2})(?::(\d{2}))?\s*(AM|PM)/gi)];
+  return matches
+    .map((match) => {
+      let hours = Number(match[1]);
+      const minutes = Number(match[2] ?? "0");
+      const meridiem = match[3]!.toUpperCase();
+      if (hours < 1 || hours > 12 || minutes < 0 || minutes > 59) return NaN;
+      if (meridiem === "PM" && hours !== 12) hours += 12;
+      if (meridiem === "AM" && hours === 12) hours = 0;
+      return hours * 60 + minutes;
+    })
+    .filter((value) => Number.isFinite(value));
+}
+
+/**
+ * "Until 3:00 AM" / "Hasta las 3:00 AM" / "Open until 3 AM" — the clock is a
+ * close time, not doors. Early-morning closes become overnight from evening
+ * doors; otherwise the window ends at that clock with a short default lead-in.
+ */
+function windowFromUntilClose(time: string): EventTimeWindow | null {
+  if (
+    !/\b(until|till|hasta)\b/i.test(time) &&
+    !/\bopen\s+until\b/i.test(time)
+  ) {
+    return null;
+  }
+  const times = parseClockMinutesList(time);
+  if (times.length === 0) return null;
+  const end = times[times.length - 1]!;
+  // Close at/before 6 AM → overnight club window from evening doors.
+  if (end <= 6 * 60) {
+    return { start: EVENING_SINGLE_START_MINUTES, end };
+  }
+  const start = Math.max(0, end - DEFAULT_DURATION_MINUTES);
+  return { start, end };
+}
+
 /**
  * Parse one or two clock times from free-text event.time fields.
  * Pass `now` for day-labeled multi-session strings (Sat X · Sun Y) so today's
@@ -205,27 +264,17 @@ export function parseEventTimeWindow(
     return windowFromSessionStart(start);
   }
 
-  const matches = [...time.matchAll(/(\d{1,2})(?::(\d{2}))?\s*(AM|PM)/gi)];
-  if (matches.length === 0) return null;
+  const untilWindow = windowFromUntilClose(time);
+  if (untilWindow) return untilWindow;
 
-  const times = matches
-    .map((match) => {
-      let hours = Number(match[1]);
-      const minutes = Number(match[2] ?? "0");
-      const meridiem = match[3].toUpperCase();
-      if (hours < 1 || hours > 12 || minutes < 0 || minutes > 59) return NaN;
-      if (meridiem === "PM" && hours !== 12) hours += 12;
-      if (meridiem === "AM" && hours === 12) hours = 0;
-      return hours * 60 + minutes;
-    })
-    .filter((value) => Number.isFinite(value));
-
+  const times = parseClockMinutesList(time);
   if (times.length === 0) return null;
 
-  const start = times[0];
-  const end =
-    times.length > 1 ? times[times.length - 1] : start + DEFAULT_DURATION_MINUTES;
-  return { start, end };
+  const start = times[0]!;
+  if (times.length > 1) {
+    return { start, end: times[times.length - 1]! };
+  }
+  return windowFromSessionStart(start);
 }
 
 export function isMultiDayEvent(
@@ -486,13 +535,24 @@ export function getEventLiveStatus(
   if (end < today) {
     // Last night's overnight session may still be running past midnight.
     const window = parseEventTimeWindow(event.time, now);
+    const yesterday = addDaysISO(today, -1);
+    const nowMin = currentMinutes(now);
     if (
       window &&
       window.end < window.start &&
-      end === addDaysISO(today, -1) &&
-      currentMinutes(now) <= window.end
+      end === yesterday &&
+      nowMin <= window.end
     ) {
       return "live";
+    }
+    // Untimed club/stage nights: hold through 3 AM (same spill as specials).
+    if (
+      !window &&
+      isLikelyLateNightUntimedListing(event) &&
+      end === yesterday &&
+      nowMin < LATE_NIGHT_ASSUMED_END_MINUTES
+    ) {
+      return "unknown";
     }
     return "ended";
   }
@@ -513,8 +573,16 @@ export function getEventLiveStatus(
     // No parseable clock time (missing, free-text, "by reservation").
     // Never claim "happening now". Daytime / sports / business listings leave
     // the home specials rail after 6 PM; club/stage nights without hours stay
-    // listable until the local calendar day rolls (specials also key on date).
+    // listable until local 3 AM the next morning (not calendar midnight).
     if (isLikelyLateNightUntimedListing(event)) {
+      if (
+        end < today &&
+        end === addDaysISO(today, -1) &&
+        currentMinutes(now) < LATE_NIGHT_ASSUMED_END_MINUTES
+      ) {
+        return "unknown";
+      }
+      if (end < today) return "ended";
       return "unknown";
     }
     const nowMin = currentMinutes(now);
@@ -588,9 +656,36 @@ export function isSportsViewingEvent(
 }
 
 /**
+ * Last night's club / late stage one-off still running past midnight
+ * (timed overnight window or untimed late-night category through 3 AM).
+ */
+function isLateNightSpecialSpill(
+  event: EventLiveFields,
+  now: Date,
+): boolean {
+  if (event.recurrence || event.temporarilyClosed) return false;
+  const today = localDateISO(now);
+  const yesterday = addDaysISO(today, -1);
+  if (event.date?.trim() !== yesterday) return false;
+
+  const status = getEventLiveStatus(event, now);
+  if (status === "live" || status === "ending") return true;
+  if (
+    status === "unknown" &&
+    isLikelyLateNightUntimedListing(event) &&
+    currentMinutes(now) < LATE_NIGHT_ASSUMED_END_MINUTES
+  ) {
+    return true;
+  }
+  return false;
+}
+
+/**
  * Dated one-off still worth a Today’s specials slot.
- * Leaves the rail once the show is in its final hour (“ends soon”), has
- * ended, or is closed for the day (multi-day still spanning tomorrow).
+ * Leaves the rail once the show has ended, is closed for the day (multi-day
+ * still spanning tomorrow), or — for same-day daytime windows — enters the
+ * final hour (“ends soon”). Overnight club windows stay through the assumed
+ * close (~3 AM), including past calendar midnight.
  */
 export function isListedTodaySpecial(
   event: EventLiveFields,
@@ -609,12 +704,24 @@ export function isListedTodaySpecial(
   if (event.category === "sports" && end && end !== event.date?.trim()) {
     return false;
   }
-  if (event.date?.trim() !== localDateISO(now)) return false;
-  if (!isEventActiveToday(event, now)) return false;
-  // Multi-day bills that finished for the evening stay "active" (endDate in
-  // the future) but must not keep a Specials slot with “Closed for the day”.
-  if (hasWindowEndedForToday(event, now)) return false;
-  return !isEndingSoon(event, now);
+
+  const today = localDateISO(now);
+  const onStartDay = event.date?.trim() === today;
+  const overnightSpill = !onStartDay && isLateNightSpecialSpill(event, now);
+  if (!onStartDay && !overnightSpill) return false;
+
+  if (onStartDay) {
+    if (!isEventActiveToday(event, now)) return false;
+    // Multi-day bills that finished for the evening stay "active" (endDate in
+    // the future) but must not keep a Specials slot with “Closed for the day”.
+    if (hasWindowEndedForToday(event, now)) return false;
+  }
+
+  if (!isEndingSoon(event, now)) return true;
+  // Overnight club windows: keep the special until the window actually ends
+  // (do not drop in the final “ends soon” hour before 3 AM).
+  const window = parseEventTimeWindow(event.time, now);
+  return Boolean(window && window.end < window.start);
 }
 
 export function happensOnLocalDate(
