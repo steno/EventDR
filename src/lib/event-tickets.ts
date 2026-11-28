@@ -268,6 +268,7 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "rancho-catalina-navidad-daniel-galan-cafe-colao-2026-12-25",
   "renovacion-concurso-por-nuestro-pais-2027",
   "chiche-almonte-vinoteca-2026-11-28",
+  "salsa-sobre-las-olas-anfiteatro-2026-12-05",
   // Festivals & public
   "voyvoy-soft-reopening-sunset-2026-10-09",
   "voyvoy-soft-reopening-saturday-2026-10-10",

@@ -172,6 +172,7 @@ const FILE_TO_EVENT_ID = {
   "isabela-food-fest-kiry-curu-2026-12-19.jpg":
     "isabela-food-fest-kiry-curu-2026-12-19",
   "el-patio-de-frida-friday-karaoke.jpg": "el-patio-de-frida-friday-karaoke",
+  "el-patio-de-frida-mural.jpg": "el-patio-de-frida",
   "the-last-drink-domingo-de-pasarela.jpg":
     "the-last-drink-domingo-de-pasarela",
   "camara-taller-educacion-financiera-2026-10-27.jpg":
@@ -1276,6 +1277,15 @@ const FILE_TO_VENUE_SLUG = {
     "hard-rock-trio-los-panchos-alisha-2027-02-14",
   "isabela-food-fest-el-nene-amenazzy-2026-12-19.jpg":
     "isabela-food-fest-el-nene-amenazzy-2026-12-19",
+  "aqualia-kids-rave-host-2026-12-19.jpg": "aqualia-kids-rave-host-2026-12-19",
+  "aqualia-kids-rave-host-2026-12-19-incluye.jpg":
+    "aqualia-kids-rave-host-2026-12-19",
+  "aqualia-kids-rave-host-2026-12-19-info.jpg":
+    "aqualia-kids-rave-host-2026-12-19",
+  "spotland-fit-fusion-night-volumen-2-2026-12-03.jpg":
+    "spotland-fit-fusion-night-volumen-2-2026-12-03",
+  "salsa-sobre-las-olas-anfiteatro-2026-12-05.jpg":
+    "salsa-sobre-las-olas-anfiteatro-2026-12-05",
   "santa-fe-nye-2026-12-31.jpg": "santa-fe-nye-2026-12-31",
   "aura-girls-in-glow-up-2026-12-05.jpg": "aura-girls-in-glow-up-2026-12-05",
   "sociedad-cultural-renovacion-library.jpg":
@@ -1357,6 +1367,7 @@ const FILE_TO_VENUE_SLUG = {
   "tiki-bar-cabarete.jpg": "tiki-bar-cabarete",
   "xanadu-resort-hodelpa.jpg": "xanadu-resort-hodelpa",
   "jl-coaching-center-puerto-plata.jpg": "jl-coaching-center-puerto-plata",
+  "aqualia-kids-ball-pit.jpg": "aqualia-kids",
   "aquagym-costambar.jpg": "aquagym-costambar",
   "aquagym-costambar-v2.jpg": "aquagym-costambar",
   "los-mangos-costambar.jpg": "los-mangos-costambar",

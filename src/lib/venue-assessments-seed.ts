@@ -1948,6 +1948,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "aqualia-kids",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["family", "local", "mixed"],
+    axes: { recommend: 4.0, atmosphere: 4.2, value: 3.9, practical: 3.8 },
+    themes: [
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "workshop", sentiment: "positive", audience: "family" },
+      { key: "easy_to_find", sentiment: "mixed" },
+    ],
+  }),
+  editorial({
     venueSlug: "spotland-puerto-plata",
     verdictKey: "solid_visitor_activity",
     crowdFit: ["family", "visitor", "local", "mixed"],

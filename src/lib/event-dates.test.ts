@@ -3,6 +3,7 @@ import { describe, it } from "node:test";
 import type { Event } from "./types";
 import {
   eventMatchesRecurrence,
+  isLiveCatalogEvent,
   isPastOneOffEvent,
   materializeEventDates,
 } from "./event-dates";
@@ -150,5 +151,29 @@ describe("isPastOneOffEvent — same cutoff as home specials", () => {
       recurrence: "daily",
     };
     assert.equal(isPastOneOffEvent(park, afterDaytimeCutoff), false);
+  });
+});
+
+describe("isLiveCatalogEvent / includePastOneOffs", () => {
+  it("keeps calendar-past one-offs only when includePastOneOffs is set", () => {
+    const past = karaokeTonight({ date: "2026-09-10" });
+    assert.equal(isLiveCatalogEvent(past, afterKaraokeMidnight), false);
+    assert.deepEqual(
+      materializeEventDates([past], afterKaraokeMidnight).map((e) => e.id),
+      [],
+    );
+    assert.deepEqual(
+      materializeEventDates([past], afterKaraokeMidnight, {
+        includePastOneOffs: true,
+      }).map((e) => e.id),
+      [past.id],
+    );
+  });
+
+  it("still treats recurring series as live for rails", () => {
+    assert.equal(
+      isLiveCatalogEvent(weekdayFitness(), afterKaraokeMidnight),
+      true,
+    );
   });
 });

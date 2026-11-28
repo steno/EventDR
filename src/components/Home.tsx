@@ -40,6 +40,7 @@ import {
   HOME_WEEKEND_LIMIT,
 } from "@/lib/home-layout";
 import { pickSearchVenueHits, searchEvents } from "@/lib/filters";
+import { isLiveCatalogEvent } from "@/lib/event-dates";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 import {
   countEventsByCity,
@@ -415,23 +416,26 @@ function HomeApp({
     }
     // Wait for the full catalog so a city count is not the first-paint rail slice.
     if (!eventsReady) return;
+    const liveForTitle = allEvents.filter((event) =>
+      isLiveCatalogEvent(event, now),
+    );
     if (selectedCity) {
       const city = getCityMeta(selectedCity);
       if (!city) return;
       document.title = cityListingSeo(
         locale,
         city,
-        filterCatalogForScope(allEvents, { citySlug: selectedCity }),
+        filterCatalogForScope(liveForTitle, { citySlug: selectedCity }),
       ).title;
       return;
     }
-    const homeTitle = buildListingSearchCopy(locale, allEvents, {
+    const homeTitle = buildListingSearchCopy(locale, liveForTitle, {
       kind: "home",
       place: "Puerto Plata",
       scope: "region",
     })?.title;
     if (homeTitle) document.title = homeTitle;
-  }, [cruisePort, dict.cruise, locale, allEvents, eventsReady, selectedCity]);
+  }, [cruisePort, dict.cruise, locale, allEvents, eventsReady, selectedCity, now]);
 
   const handleEventsLoaded = useCallback((events: Event[]) => {
     setAllEvents(events);
@@ -507,16 +511,22 @@ function HomeApp({
     [locale, cruisePort],
   );
 
+  /** Live catalog for rails / city chips — past one-offs stay in allEvents for search. */
+  const liveEvents = useMemo(
+    () => allEvents.filter((event) => isLiveCatalogEvent(event, now)),
+    [allEvents, now],
+  );
+
   /** Zone pick scopes home highlights; null = whole North Coast. */
   const scopedEvents = useMemo(() => {
     const city = cruisePort ? "puerto-plata" : selectedCity;
-    if (!city) return allEvents;
-    return allEvents.filter((event) => eventMatchesCity(event, city));
-  }, [allEvents, selectedCity, cruisePort]);
+    if (!city) return liveEvents;
+    return liveEvents.filter((event) => eventMatchesCity(event, city));
+  }, [liveEvents, selectedCity, cruisePort]);
 
   const cityCounts = useMemo(
-    () => (allEvents.length > 0 ? countEventsByCity(allEvents) : null),
-    [allEvents],
+    () => (liveEvents.length > 0 ? countEventsByCity(liveEvents) : null),
+    [liveEvents],
   );
 
   const discoverLayout = useMemo(

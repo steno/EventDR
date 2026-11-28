@@ -2151,6 +2151,19 @@ export const SEED_VENUES: Venue[] = [
     website: "https://www.instagram.com/maleconempanadas/",
   },
   {
+    slug: "aqualia-kids",
+    name: "Aqualia Kids",
+    city: "Puerto Plata",
+    description:
+      "Indoor kids playground and party venue in Urbanización La Estancia (C. Paseo de las Palomas) — birthday packages, play sessions, and billed family raves with The Host. Confirm hours and booking on Instagram @aqualiakids.",
+    // Neighborhood pin — Urbanización La Estancia / Paseo de las Palomas (refine when Places pin confirmed).
+    lat: 19.77104,
+    lng: -70.67249,
+    emoji: "🎈",
+    instagram: "aqualiakids",
+    website: "https://www.instagram.com/aqualiakids/",
+  },
+  {
     slug: "spotland-puerto-plata",
     name: "Spot Land",
     city: "Puerto Plata",
@@ -2675,6 +2688,10 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /ced[aāă]ky\s*mall|cedakymall/i,
     slug: "cedaky-mall",
+  },
+  {
+    pattern: /aqualia\s*kids|aqualiakids/i,
+    slug: "aqualia-kids",
   },
   {
     pattern: /spot\s*land|spotland/i,

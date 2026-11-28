@@ -1034,22 +1034,22 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   {
     eventId: "santa-fe-sov-day-pass",
     seriesKey: "santa-fe-sov:daily",
-    body: "Buy the day pass for the oceanfront fortress, pools, and Santa Maria ship restaurant — from 12 Oct the fee is a door price (not a food credit) and you can bring your own food and drinks. This is not Restaurant Maria.",
+    body: "Buy the day pass for the oceanfront fortress, pools, and Santa Maria ship restaurant — the fee is a door price (not a food credit) and you can bring your own food and drinks. This is not Restaurant Maria.",
     localized: {
-      es: "Compra el day pass por la fortaleza frente al mar, piscinas y el restaurante-barco Santa Maria — desde el 12 oct la tarifa es de puerta (no es crédito de comida) y puedes traer comida y bebidas. No es Restaurant Maria.",
-      fr: "Achetez le day pass pour la forteresse océanfront, les piscines et le restaurant-bateau Santa Maria — à partir du 12 oct. le tarif est un droit d’entrée (ce n’est plus un crédit resto) et vous pouvez apporter nourriture et boissons. Ce n’est pas Restaurant Maria.",
+      es: "Compra el day pass por la fortaleza frente al mar, piscinas y el restaurante-barco Santa Maria — la tarifa es de puerta (no es crédito de comida) y puedes traer comida y bebidas. No es Restaurant Maria.",
+      fr: "Achetez le day pass pour la forteresse océanfront, les piscines et le restaurant-bateau Santa Maria — le tarif est un droit d’entrée (ce n’est pas un crédit resto) et vous pouvez apporter nourriture et boissons. Ce n’est pas Restaurant Maria.",
     },
     priceFeel: "upscale",
     priceNote:
-      "From 12 Oct 2026: non-consumable — weekdays adults RD$1,000 / kids RD$800; weekends & holidays adults RD$1,200 / kids RD$1,000; BYO food and drinks. Until 11 Oct the pass stays consumable — buy at pasadia.santafe.do",
+      "Non-consumable — weekdays adults RD$1,000 / kids RD$800; weekends & holidays adults RD$1,200 / kids RD$1,000; BYO food and drinks — pasadia.santafe.do",
     priceNoteLocalized: {
-      es: "Desde el 12 oct 2026: no consumible — entre semana adultos RD$1,000 / niños RD$800; fines de semana y feriados adultos RD$1,200 / niños RD$1,000; puedes traer comida y bebidas. Hasta el 11 oct el pase sigue consumible — compra en pasadia.santafe.do",
-      fr: "À partir du 12 oct. 2026 : non consommable — semaine adultes RD$1,000 / enfants RD$800 ; week-ends et fériés adultes RD$1,200 / enfants RD$1,000 ; nourriture et boissons perso OK. Jusqu’au 11 oct. le pass reste consommable — achetez sur pasadia.santafe.do",
+      es: "No consumible — entre semana adultos RD$1,000 / niños RD$800; fines de semana y feriados adultos RD$1,200 / niños RD$1,000; puedes traer comida y bebidas — pasadia.santafe.do",
+      fr: "Non consommable — semaine adultes RD$1,000 / enfants RD$800 ; week-ends et fériés adultes RD$1,200 / enfants RD$1,000 ; nourriture et boissons perso OK — pasadia.santafe.do",
     },
-    attribution: "POP research · santafe.do + @santafesov Oct 2026 rates",
+    attribution: "POP research · @santafesov Nuevas tarifas flyer + pasadia.santafe.do",
     researchNotes:
-      "Official @santafesov announcement: from 12 Oct 2026 daily 10–7; non-consumable weekdays RD$1000/800, weekends & holidays RD$1200/1000; BYO food and drinks. Until 11 Oct pasadia.santafe.do still lists Mon–Fri 10–7, Sat/Sun/holidays 11–9, consumable. Ticket URL pasadia.santafe.do.",
-    updatedAt: "2026-09-11T16:00:00.000Z",
+      "Editor tarifas flyer confirms rates from 12 Oct 2026 still current: daily 10–7; non-consumable weekdays RD$1000/800, weekends & holidays RD$1200/1000; BYO food and drinks; baked pork/chicken + new menu. Ticket URL pasadia.santafe.do.",
+    updatedAt: "2026-11-28T15:00:00.000Z",
   },
   {
     eventId: "restaurant-maria-day-pass",
@@ -11118,5 +11118,60 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer — EL NENE AMENAZZY; SAB 19 DIC; PARQUE VILLA ISABELA; Info y Resv 829-336-6802; boletas todotickets.do / Plaza Lama. Same Saturday as simpaticos/kiry; related to isabela-food-fest-2026-12-18.",
     updatedAt: "2026-11-27T17:15:00.000Z",
+  },
+  {
+    eventId: "aqualia-kids-rave-host-2026-12-19",
+    body: "Saturday 4:30 PM The Host × AqualiaKids rave in La Estancia — RD$1,800 per child (2 for RD$3,000), adults free, ages 2+ with a guardian; register on @thehost_rd bio, not Spot Land Laser Tag.",
+    localized: {
+      es: "Sábado 4:30 PM Kids Rave The Host × AqualiaKids en La Estancia — RD$1,800 por niño (2 por RD$3,000), adultos gratis, desde 2 años con tutor; inscríbete en la bio de @thehost_rd, no es Laser Tag de Spot Land.",
+      fr: "Samedi 16 h 30 Kids Rave The Host × AqualiaKids à La Estancia — RD$1,800 par enfant (2 pour RD$3,000), adultes gratuits, dès 2 ans avec tuteur ; inscription via bio @thehost_rd, pas le Laser Tag Spot Land.",
+    },
+    priceFeel: "moderate",
+    priceNote: "RD$1,800 / child · 2 for RD$3,000 · adults free — @thehost_rd bio form",
+    priceNoteLocalized: {
+      es: "RD$1,800 / niño · 2 por RD$3,000 · adultos gratis — formulario bio @thehost_rd",
+      fr: "RD$1,800 / enfant · 2 pour RD$3,000 · adultes gratuits — formulaire bio @thehost_rd",
+    },
+    attribution: "POP research · @thehost_rd × @aqualiakids Kids Rave carousel",
+    researchNotes:
+      "Editor carousel — THE HOST X AQUALIAKIDS; KIDS RAVE; 19 DIC 4:30PM; Aqualia Kids Indoor Playground; RD$1800 / 2x3000; adults free; ages 2+; guardian required; DJ, goodie bag, pintacaritas, snacks; form in bio.",
+    updatedAt: "2026-11-28T16:00:00.000Z",
+  },
+  {
+    eventId: "spotland-fit-fusion-night-volumen-2-2026-12-03",
+    body: "Thursday 7 PM Coolgym Fit Fusión Vol. 2 returns at Spot Land after the Nov 18 postpone — RD$700 pre-sale / RD$800 door with snacks and hydration; bring a towel or mat and pay ahead — not Laser Tag hours alone.",
+    localized: {
+      es: "Jueves 7 PM Fit Fusión Vol. 2 de Coolgym vuelve a Spot Land tras el aplazamiento del 18 nov — RD$700 preventa / RD$800 puerta con refrigerios e hidratación; lleva toalla o mat y paga antes — no es solo el horario de Laser Tag.",
+      fr: "Jeudi 19 h Fit Fusión Vol. 2 Coolgym revient à Spot Land après le report du 18 nov. — RD$700 prévente / RD$800 porte avec collations et hydratation ; apportez serviette ou tapis et payez avant — pas seulement les horaires Laser Tag.",
+    },
+    priceFeel: "moderate",
+    priceNote: "RD$700 pre-sale · RD$800 door · includes snacks & hydration",
+    priceNoteLocalized: {
+      es: "RD$700 preventa · RD$800 puerta · incluye refrigerios e hidratación",
+      fr: "RD$700 prévente · RD$800 porte · inclut collations et hydratation",
+    },
+    attribution: "POP research · Spot Land / Coolgym Fit Fusión Night Vol. 2 reschedule flyer",
+    researchNotes:
+      "Editor flyer — NUEVA FECHA JUEVES 3; Fit Fusión NIGHT VOLUMEN 2; Spot Land; Coolgym / E.O.; RD$700/800; was Mié 18 Nov (REMOVED_SEED id …-2026-11-18).",
+    updatedAt: "2026-11-28T15:45:00.000Z",
+  },
+  {
+    eventId: "salsa-sobre-las-olas-anfiteatro-2026-12-05",
+    body: "Free Saturday 7 PM salsa at Anfiteatro La Puntilla with Fineta Records and Revolución Salsera — grab complimentary tickets on eventfull.do before you assume walk-up; oceanfront Mitur stage, not a Hard Rock Sosúa cover night.",
+    localized: {
+      es: "Salsa gratis el sábado 7 PM en el Anfiteatro La Puntilla con Fineta Records y Revolución Salsera — saca boletas en eventfull.do antes de asumir walk-up; tarima Mitur frente al mar, no un cover de Hard Rock Sosúa.",
+      fr: "Salsa gratuite samedi 19 h à l’Anfiteatro La Puntilla avec Fineta Records et Revolución Salsera — prenez les billets sur eventfull.do avant d’assumer le walk-up ; scène Mitur face à la mer, pas un cover Hard Rock Sosúa.",
+    },
+    priceFeel: "free",
+    priceNote: "Free tickets — eventfull.do",
+    priceNoteLocalized: {
+      es: "Boletas gratis — eventfull.do",
+      fr: "Billets gratuits — eventfull.do",
+    },
+    attribution:
+      "POP research · Salsa Sobre Las Olas flyer + @exploringpuertoplata",
+    researchNotes:
+      "Editor flyer + @exploringpuertoplata — SÁBADO 5 DE DICIEMBRE 7PM; Anfiteatro de Puerto Plata; Fineta Records + Revolución Salsera; boletas gratis eventfull.do.",
+    updatedAt: "2026-11-28T15:30:00.000Z",
   },
 ];

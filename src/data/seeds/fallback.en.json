@@ -14295,5 +14295,104 @@
       "El Nene Amenazzy"
     ],
     "imageEmoji": "🎤"
+  },
+  {
+    "id": "aqualia-kids-rave-host-2026-12-19",
+    "title": "Aqualia Kids — Kids Rave with The Host · 19 Dec",
+    "description": "Kids Rave — The Host × AqualiaKids at Aqualia Kids Indoor Playground, C. Paseo de las Palomas, Urbanización La Estancia, Puerto Plata — Saturday 19 December 2026 at 4:30 PM. Live DJ with kids’ music, neon lights, face painting (pintacaritas), snacks, and a goodie bag. RD$1,800 per child · sibling special 2 for RD$3,000; adults enter free. Ages 2+; each child must come with a parent or guardian; comfortable dance clothes. Register via The Host Instagram bio form (@thehost_rd) · venue @aqualiakids. Family indoor-playground rave — not Spot Land Laser Tag hours, and not Laguna SOV day passes.",
+    "date": "2026-12-19",
+    "time": "4:30 PM",
+    "location": "Puerto Plata",
+    "venue": "Aqualia Kids",
+    "venueSlug": "aqualia-kids",
+    "address": "C. Paseo de las Palomas, Urbanización La Estancia, Puerto Plata 57000",
+    "lat": 19.77104,
+    "lng": -70.67249,
+    "category": "parties",
+    "categories": [
+      "dance",
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$1,800 / child · 2 for RD$3,000 · adults free",
+    "ageHint": "family",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/thehost_rd/",
+    "instagram": "thehost_rd",
+    "photoTags": [
+      "thehost_rd",
+      "aqualiakids"
+    ],
+    "lineup": [
+      "The Host",
+      "AqualiaKids",
+      "Live DJ"
+    ],
+    "imageEmoji": "🎧"
+  },
+  {
+    "id": "spotland-fit-fusion-night-volumen-2-2026-12-03",
+    "title": "Spot Land — Fit Fusion Night Vol. 2 · 3 Dec",
+    "description": "Fit Fusión Night Volumen 2 at Spot Land on Av. Luis Ginebra, Puerto Plata — Thursday 3 December 2026 at 7:00 PM (rescheduled from Wednesday 18 November). Aerobics, functional training, Zumba, and yoga with Coolgym / E.O.; bring a large towel or yoga mat. Includes snacks and hydration. Pre-sale RD$700 / door RD$800 per person — limited spots, pay ahead to reserve. Outdoor fitness night at Spot Land — not Laser Tag hours alone, and not JL Coaching’s pink Zumba solidarity nights. Confirm via Instagram @spotlandrd / Coolgym.",
+    "date": "2026-12-03",
+    "time": "7:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Spot Land",
+    "venueSlug": "spotland-puerto-plata",
+    "address": "Av. Luis Ginebra, Puerto Plata",
+    "lat": 19.791224,
+    "lng": -70.680629,
+    "category": "health-wellness",
+    "categories": [
+      "dance",
+      "sports"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$700 pre-sale / RD$800 door",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/spotlandrd/",
+    "instagram": "spotlandrd",
+    "lineup": [
+      "Coolgym",
+      "Aerobics",
+      "Functional",
+      "Zumba",
+      "Yoga"
+    ],
+    "imageEmoji": "🏋️"
+  },
+  {
+    "id": "salsa-sobre-las-olas-anfiteatro-2026-12-05",
+    "title": "Anfiteatro — Salsa Sobre Las Olas · 5 Dec",
+    "description": "Salsa Sobre Las Olas free concert at Anfiteatro La Puntilla, Puerto Plata — Saturday 5 December 2026 at 7:00 PM. Fineta Records and Revolución Salsera on the oceanfront amphitheater stage. Free tickets / reservations at eventfull.do · Instagram @eventfull.do / coverage via @exploringpuertoplata. Malecón amphitheater salsa night — not Hard Rock Sosúa live bills the same weekend, and not a paid Festival Presidente stop. Confirm doors on the Eventfull listing.",
+    "date": "2026-12-05",
+    "time": "7:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Anfiteatro La Puntilla",
+    "venueSlug": "anfiteatro-la-puntilla",
+    "address": "La Puntilla, Malecón, Puerto Plata",
+    "lat": 19.803611,
+    "lng": -70.694722,
+    "category": "concert",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "ticketUrl": "https://www.eventfull.do/",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/exploringpuertoplata/",
+    "instagram": "exploringpuertoplata",
+    "lineup": [
+      "Fineta Records",
+      "Revolución Salsera"
+    ],
+    "imageEmoji": "🎺"
   }
 ]

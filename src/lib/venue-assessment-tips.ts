@@ -1489,6 +1489,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Patio d’empanadas frites sur le Malecón — commandez les Tres Golpes (mangú, salami, œuf, fromage) ou d’autres farces, asseyez-vous sous l’auvent Empanadas, et ne confondez pas avec Empanadas Monumental sur Separación ; Komida App si vous n’êtes pas sur le boardwalk.",
     },
   },
+  "aqualia-kids": {
+    body: "Indoor kids playground in La Estancia — book birthday packages or billed family raves (like The Host Kids Rave) on @aqualiakids; not an outdoor water park or Spot Land Laser Tag yard. Pin C. Paseo de las Palomas and confirm doors before you haul a car full of toddlers.",
+    localized: {
+      en: "Indoor kids playground in La Estancia — book birthday packages or billed family raves (like The Host Kids Rave) on @aqualiakids; not an outdoor water park or Spot Land Laser Tag yard. Pin C. Paseo de las Palomas and confirm doors before you haul a car full of toddlers.",
+      es: "Playground indoor en La Estancia — reserva cumpleaños o raves familiares con cartel (como Kids Rave de The Host) en @aqualiakids; no es parque acuático outdoor ni el Laser Tag de Spot Land. Clava C. Paseo de las Palomas y confirma puertas antes de llegar con niños.",
+      fr: "Aire de jeux indoor à La Estancia — réservez anniversaires ou raves famille à l’affiche (comme Kids Rave de The Host) sur @aqualiakids ; pas un parc aquatique outdoor ni le Laser Tag de Spot Land. Épinglez C. Paseo de las Palomas et confirmez les portes avant d’arriver avec des enfants.",
+    },
+  },
   "spotland-puerto-plata": {
     body: "Outdoor fun-food-photo park on Av. Luis Ginebra — inflatables, pizza, and new Laser Tag for kids and adults; not a nightlife deck. Open Wed–Sun 2–10 PM (closed Mon–Tue); kids access typically RD$200, adults free — confirm laser-tag session price on @spotlandrd.",
     localized: {

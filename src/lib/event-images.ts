@@ -344,6 +344,11 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "fortaleza-san-felipe-encendido-luces-azules-2026-11-13.jpg",
   "spotland-fit-fusion-night-volumen-2-2026-11-18":
     "spotland-fit-fusion-night-volumen-2-2026-11-18.jpg",
+  "spotland-fit-fusion-night-volumen-2-2026-12-03":
+    "spotland-fit-fusion-night-volumen-2-2026-12-03.jpg",
+  "aqualia-kids-rave-host-2026-12-19": "aqualia-kids-rave-host-2026-12-19.jpg",
+  "salsa-sobre-las-olas-anfiteatro-2026-12-05":
+    "salsa-sobre-las-olas-anfiteatro-2026-12-05.jpg",
   "leos-banana-fiesta-blanca-2026-11-27":
     "leos-banana-fiesta-blanca-2026-11-27.jpg",
   "leos-banana-enrico-music-live-2026-11-26":
@@ -1472,6 +1477,9 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "galerias-padel-oceano-limpio-2026-11-28": "object-center",
   "fortaleza-san-felipe-encendido-luces-azules-2026-11-13": "object-center",
   "spotland-fit-fusion-night-volumen-2-2026-11-18": "object-center",
+  "spotland-fit-fusion-night-volumen-2-2026-12-03": "object-center",
+  "aqualia-kids-rave-host-2026-12-19": "object-center",
+  "salsa-sobre-las-olas-anfiteatro-2026-12-05": "object-center",
   "leos-banana-fiesta-blanca-2026-11-27": "object-center",
   "leos-banana-enrico-music-live-2026-11-26": "object-center",
   "terraza-isla-banda-sin-limite-2026-11-20": "object-center",
@@ -1544,6 +1552,23 @@ const EVENT_GALLERY_SLIDES: Record<
   string,
   Array<{ file: string; venueSlug?: string; label?: string }>
 > = {
+  "aqualia-kids-rave-host-2026-12-19": [
+    {
+      file: "aqualia-kids-rave-host-2026-12-19.jpg",
+      venueSlug: "aqualia-kids",
+      label: "Kids Rave",
+    },
+    {
+      file: "aqualia-kids-rave-host-2026-12-19-incluye.jpg",
+      venueSlug: "aqualia-kids",
+      label: "What’s included",
+    },
+    {
+      file: "aqualia-kids-rave-host-2026-12-19-info.jpg",
+      venueSlug: "aqualia-kids",
+      label: "The Info",
+    },
+  ],
   "puente-la-guinea-daily": [
     {
       file: "puente-la-guinea-daily-v2.jpg",
@@ -2011,6 +2036,11 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "twenty-disco-flashback-2017-2026-11-28.jpg",
   "fortaleza-san-felipe-encendido-luces-azules-2026-11-13.jpg",
   "spotland-fit-fusion-night-volumen-2-2026-11-18.jpg",
+  "spotland-fit-fusion-night-volumen-2-2026-12-03.jpg",
+  "aqualia-kids-rave-host-2026-12-19.jpg",
+  "aqualia-kids-rave-host-2026-12-19-incluye.jpg",
+  "aqualia-kids-rave-host-2026-12-19-info.jpg",
+  "salsa-sobre-las-olas-anfiteatro-2026-12-05.jpg",
   "leos-banana-fiesta-blanca-2026-11-27.jpg",
   "leos-banana-enrico-music-live-2026-11-26.jpg",
   "terraza-isla-banda-sin-limite-2026-11-20.jpg",

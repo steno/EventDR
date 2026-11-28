@@ -1107,6 +1107,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Patio d’empanadas sur la bande du Malecón de Puerto Plata — fritures croustillantes dont l’Empanada de los Tres Golpes (mangú, salami, œuf, fromage), tables en plein air sous l’auvent Empanadas et livraison Komida App. Instagram @maleconempanadas. Épinglez l’arrêt boardwalk, pas Empanadas Monumental sur Separación.",
     },
   },
+  "aqualia-kids": {
+    description: {
+      es: "Playground indoor y venue de fiestas infantiles en Urbanización La Estancia (C. Paseo de las Palomas) — paquetes de cumpleaños, sesiones de juego y raves familiares con The Host. Confirma horarios y reserva en Instagram @aqualiakids.",
+      fr: "Aire de jeux indoor et lieu de fêtes enfants à Urbanización La Estancia (C. Paseo de las Palomas) — forfaits anniversaire, sessions de jeu et raves famille avec The Host. Confirmez horaires et réservation sur Instagram @aqualiakids.",
+    },
+  },
   "spotland-puerto-plata": {
     description: {
       es: "Parque de diversión, comida y fotos en Av. Luis Ginebra — brinca-brincas, juegos familiares, street food, pizza artesanal, espacios para fotos y nuevo Laser Tag. Abierto mié–dom 2:00 PM–10:00 PM; cerrado lun–mar. Acceso niños típico RD$200; adultos gratis. Instagram @spotlandrd.",

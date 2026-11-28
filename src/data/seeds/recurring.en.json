@@ -1786,7 +1786,7 @@
   {
     "id": "santa-fe-sov-day-pass",
     "title": "Santa Fe Day Pass",
-    "description": "Oceanfront recreation club inside Sosúa Ocean Village — colonial fortress, pools, waterfalls, and the Santa Maria ship restaurant (Mexican/Asian/Dominican). Through 11 Oct 2026: weekdays 10:00 AM–7:00 PM; weekends and holidays 11:00 AM–9:00 PM; the day pass is consumable at the restaurant/bar. From 12 Oct 2026: daily 10:00 AM–7:00 PM; non-consumable rates (weekdays adults RD$1,000 / kids RD$800; weekends & holidays adults RD$1,200 / kids RD$1,000); outside food and drinks allowed. Buy at pasadia.santafe.do. This is not Restaurant Maria.",
+    "description": "Oceanfront recreation club inside Sosúa Ocean Village — colonial fortress, pools, waterfalls, and the Santa Maria ship restaurant (Mexican/Asian/Dominican). Daily 10:00 AM–7:00 PM. Non-consumable entrance: weekdays adults RD$1,000 / kids RD$800; weekends & holidays adults RD$1,200 / kids RD$1,000 (rates from 12 Oct 2026). Outside food and drinks allowed; baked pork and chicken sold inside; refreshed park menu. Buy at pasadia.santafe.do. This is not Restaurant Maria.",
     "date": "2026-01-01",
     "time": "10:00 AM – 7:00 PM",
     "location": "Sosúa",
@@ -1801,12 +1801,13 @@
     ],
     "format": "physical",
     "recurrence": "daily",
-    "callForPricing": true,
+    "callForPricing": false,
     "phone": "+18299612269",
     "ticketUrl": "https://pasadia.santafe.do/",
     "sourceUrl": "https://www.santafe.do/",
     "imageEmoji": "🏰",
-    "ageHint": "family"
+    "ageHint": "family",
+    "admissionPrice": "Weekdays RD$1,000 / RD$800 · weekends RD$1,200 / RD$1,000"
   },
   {
     "id": "restaurant-maria-day-pass",

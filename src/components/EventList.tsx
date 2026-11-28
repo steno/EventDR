@@ -179,6 +179,8 @@ export function EventList({
       try {
         const params = new URLSearchParams();
         params.set("locale", locale);
+        // Past one-offs stay searchable (and on Saved); Home rails filter them out.
+        params.set("includePast", "1");
         if (category) params.set("category", category);
         // Home keeps an unscoped catalog for saved + client city switching.
         // Scope pages should use FilteredEventList + SSR; when this list is used

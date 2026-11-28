@@ -235,6 +235,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "ivan-garcia-teatro-escuela": "ivan-garcia-teatro-escuela-facade.jpg",
   "cedaky-mall": "cedaky-mall.jpg",
   "malecon-empanadas": "malecon-empanadas.jpg",
+  "aqualia-kids": "aqualia-kids-ball-pit.jpg",
   "spotland-puerto-plata": "spotland-puerto-plata-entrance.jpg",
   // Filename bump — POP-supplied Calle de las Sombrillas classic-car line (not the coastal convoy event hero).
   "classic-cars-dominicana": "classic-cars-dominicana-umbrella-street.jpg",
@@ -251,7 +252,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "toscana-nightclub": "toscana-nightclub-facade.jpg",
   "goddess-la-diosa-cabarete": "goddess-la-diosa-cabarete-v2.jpg",
   "la-quinta-rosa": "la-quinta-rosa-facade.jpg",
-  "el-patio-de-frida": "el-patio-de-frida-patio.jpg",
+  "el-patio-de-frida": "el-patio-de-frida-mural.jpg",
   "the-last-drink": "the-last-drink-interior.jpg",
   "los-primos-disco-bar-maimon": "los-primos-disco-bar-maimon-dj-booth.jpg",
   "evolution-disco-club-san-marcos": "evolution-disco-club-san-marcos.jpg",
@@ -296,6 +297,7 @@ const VENUE_HERO_OBJECT_POSITION: Record<string, string> = {
   // Balcony lunch overlooking the park — keep the table/view at the top of the crop.
   "casa-balcon-puerto-plata": "object-top",
   // Keep the SPOTLAND sign in frame on the entrance crop (mobile + desktop).
+  "aqualia-kids": "object-center",
   "spotland-puerto-plata": "object-top",
   // Keep the NUEVE sign / entrance lights in the crop (mobile + desktop).
   "nueve-puerto-plata": "object-top",

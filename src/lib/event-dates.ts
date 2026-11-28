@@ -211,14 +211,36 @@ function eventEndDayISO(event: { date: string; endDate?: string }): string {
   return raw.length >= 10 ? raw.slice(0, 10) : raw;
 }
 
-function oneOffIsActive(event: Event, now: Date): boolean {
+function oneOffIsActive(
+  event: { date: string; endDate?: string },
+  now: Date,
+): boolean {
   const endDay = eventEndDayISO(event);
   if (!/^\d{4}-\d{2}-\d{2}$/.test(endDay)) return true;
   return localDateISO(now) <= endDay;
 }
 
+/**
+ * Live listings omit calendar-past one-offs; home search and venue Past keep
+ * them via {@link MaterializeEventDatesOptions.includePastOneOffs}.
+ */
+export function isLiveCatalogEvent(
+  event: {
+    date: string;
+    endDate?: string;
+    recurrence?: Event["recurrence"] | string;
+  },
+  now: Date = new Date(),
+): boolean {
+  if (event.recurrence) return true;
+  return oneOffIsActive(event, now);
+}
+
 export type MaterializeEventDatesOptions = {
-  /** Keep ended one-offs (venue Past tab). Default lists/search omit them. */
+  /**
+   * Keep calendar-past one-offs (venue Past tab, home search).
+   * Default listing APIs omit them.
+   */
   includePastOneOffs?: boolean;
 };
 
